@@ -1,0 +1,5 @@
+// An upgraded database may still load mommy_base, which adds its own preview
+// button. Keep only the Qing button so a file never shows two previews.
+.o_field_binary .o_preview_file_button:not(.o_qing_preview_file_button) {
+    display: none !important;
+}

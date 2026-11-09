@@ -1,0 +1,6 @@
+<odoo>
+    <record id="view_res_users_form" model="ir.ui.view">
+        <field name="name">qing.partner.res.users.form</field><field name="model">res.users</field><field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml"><xpath expr="//page[@name='access_rights']" position="inside"><group string="Partner Visibility" groups="base.group_system" invisible="share"><field name="qing_partner_access_mode"/><field name="qing_customer_scope" invisible="qing_partner_access_mode == 'shared'"/><field name="qing_supplier_scope" invisible="qing_partner_access_mode == 'shared'"/><div class="text-muted">Scopes are combined across customer and supplier roles within allowed companies. Master data managers can access all permitted-company partners.</div></group></xpath></field>
+    </record>
+</odoo>

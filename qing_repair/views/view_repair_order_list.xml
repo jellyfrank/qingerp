@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_repair_order_list" model="ir.ui.view">
+        <field name="name">qing.repair.order.list</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="qing_device_model" optional="hide"/>
+                <field name="qing_fault_description" optional="hide"/>
+                <field name="qing_repair_content" optional="hide"/>
+                <field name="qing_currency_id" column_invisible="True"/>
+                <field name="qing_amount_total" optional="hide"/>
+                <field name="qing_invoice_state" optional="hide"/>
+                <field name="qing_payment_state" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fapiao_list" model="ir.ui.view">
+        <field name="name">qing.fapiao.list</field><field name="model">qing.fapiao</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="state == 'cancelled'">
+                <field name="invoice_date"/><field name="direction"/><field name="color"/>
+                <field name="number"/><field name="kind"/><field name="partner_id"/>
+                <field name="company_id"/><field name="amount_untaxed"/><field name="amount_tax"/>
+                <field name="amount_total"/><field name="currency_id"/><field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_fapiao_search" model="ir.ui.view">
+        <field name="name">qing.fapiao.search</field><field name="model">qing.fapiao</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="number"/><field name="code"/><field name="partner_id"/>
+                <filter name="input" string="进项" domain="[('direction','=','in')]"/>
+                <filter name="output" string="销项" domain="[('direction','=','out')]"/>
+                <separator/>
+                <filter name="draft" string="待登记" domain="[('state','=','draft')]"/>
+                <filter name="registered" string="已登记" domain="[('state','=','registered')]"/>
+                <filter name="cancelled" string="已取消登记" domain="[('state','=','cancelled')]"/>
+                <separator/><filter name="group_partner" string="往来单位" context="{'group_by':'partner_id'}"/>
+            </search>
+        </field>
+    </record>
+    <record id="view_fapiao_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.form</field><field name="model">qing.fapiao</field>
+        <field name="arch" type="xml">
+            <form string="税票台账" duplicate="0">
+                <header>
+                    <button name="action_register" type="object" string="确认登记" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_cancel_registration" type="object" string="取消登记" invisible="state != 'registered'"
+                            confirm="仅取消本系统的登记并解除账单编辑保护，不作废税务发票、不红冲、不修改账务。确认原因已填写并需更正该登记？"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="status">此处登记已取得的税票，不执行开票、验真或抵扣认证。分配明细需单独确认才占用额度，不重复记账。红字金额填正数，并选择原蓝字税票。</div>
+                    <group>
+                        <group>
+                            <field name="company_id" readonly="state != 'draft'"/>
+                            <field name="direction" readonly="state != 'draft'"/>
+                            <field name="kind" readonly="state != 'draft'"/>
+                            <field name="color" readonly="state != 'draft'"/>
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="number" readonly="state != 'draft'"/>
+                            <field name="code" readonly="state != 'draft'"/>
+                            <field name="invoice_date" readonly="state != 'draft'"/>
+                            <field name="original_id" invisible="color != 'red'" readonly="state != 'draft'" domain="[('color','=','blue'),('state','=','registered'),('company_id','=',company_id)]" options="{'no_create': True}"/>
+                            <field name="original_number" invisible="color != 'red'" required="color == 'red'" readonly="state != 'draft'"/>
+                            <field name="currency_id" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="购买方（按票面核对）">
+                            <field name="buyer_partner_id" readonly="1" options="{'no_create': True}"/>
+                            <field name="buyer_name" readonly="state != 'draft'"/><field name="buyer_tax_id" readonly="state != 'draft'"/>
+                        </group>
+                        <group string="销售方（按票面核对）">
+                            <field name="seller_partner_id" readonly="1" options="{'no_create': True}"/>
+                            <field name="seller_name" readonly="state != 'draft'"/><field name="seller_tax_id" readonly="state != 'draft'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="amount_untaxed" readonly="state != 'draft'"/>
+                        <field name="amount_tax" readonly="state != 'draft'"/><field name="amount_total"/>
+                        <field name="source_file" filename="source_filename" readonly="state != 'draft'"/>
+                        <field name="source_filename" invisible="1"/>
+                        <field name="move_ids" widget="many2many_tags" readonly="state != 'draft'"
+                               domain="[('company_id','=',company_id),('state','=','posted'),('move_type','!=','entry')]" options="{'no_create': True}"/>
+                        <field name="note" readonly="state != 'draft'"/>
+                    </group>
+                    <group string="金额与税额额度" invisible="state == 'cancelled'">
+                        <field name="allocated_untaxed"/><field name="allocated_tax"/>
+                        <field name="remaining_untaxed"/><field name="remaining_tax"/>
+                        <field name="red_remaining_untaxed" invisible="color != 'blue'"/>
+                        <field name="red_remaining_tax" invisible="color != 'blue'"/>
+                    </group>
+                    <field name="allocation_ids" readonly="state == 'cancelled'">
+                        <list editable="bottom">
+                            <field name="company_id" column_invisible="True"/><field name="currency_id" column_invisible="True"/>
+                            <field name="move_id" readonly="state != 'draft'" options="{'no_create': True}"
+                                   domain="[('company_id','=',parent.company_id),('state','=','posted'),('move_type','!=','entry')]"/>
+                            <field name="amount_untaxed" readonly="state != 'draft'"/>
+                            <field name="amount_tax" readonly="state != 'draft'"/><field name="state"/>
+                            <field name="cancel_reason" readonly="state == 'cancelled'"/>
+                            <field name="confirmed_by" optional="hide"/><field name="confirmed_at" optional="hide"/>
+                            <field name="cancelled_by" optional="hide"/><field name="cancelled_at" optional="hide"/>
+                            <button name="action_confirm" type="object" string="确认分配" invisible="state != 'draft' or parent.state != 'registered'"/>
+                            <button name="action_cancel" type="object" string="撤销分配" invisible="state != 'confirmed' or parent.state != 'registered'"/>
+                        </list>
+                    </field>
+                    <field name="red_ids" invisible="color != 'blue'" readonly="1">
+                        <list create="0" delete="0"><field name="number"/><field name="amount_untaxed"/><field name="amount_tax"/><field name="state"/></list>
+                    </field>
+                    <group string="登记留痕" invisible="state == 'draft'">
+                        <field name="registered_at"/><field name="registered_by"/>
+                        <field name="cancel_reason" readonly="state == 'cancelled'"/>
+                        <field name="cancelled_at" invisible="state != 'cancelled'"/>
+                        <field name="cancelled_by" invisible="state != 'cancelled'"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_fapiao" model="ir.actions.act_window">
+        <field name="name">税票台账</field><field name="res_model">qing.fapiao</field>
+        <field name="view_mode">list,form</field><field name="search_view_id" ref="view_fapiao_search"/>
+    </record>
+    <menuitem id="menu_fapiao_root" name="税票管理" parent="account.menu_finance" sequence="3" groups="account.group_account_manager"/>
+    <menuitem id="menu_fapiao" name="税票台账" parent="menu_fapiao_root" action="action_fapiao" sequence="10"/>
+</odoo>

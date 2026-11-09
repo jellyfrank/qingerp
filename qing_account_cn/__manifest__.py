@@ -1,0 +1,23 @@
+{
+    'name': 'Qing Account China',
+    'summary': '中国核算基础配置与检查',
+    'version': '20.0.1.14',
+    'category': 'Accounting/Accounting',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_account', 'l10n_cn'],
+    'data': [
+        'security/ir.access.csv',
+        'views/view_opening_balance_compare_form.xml',
+        'views/view_res_config_settings_form.xml',
+        'report/voucher_traditional.xml',
+        'report/report_voucher.xml',
+        'data/ir_actions_server.xml',
+    ],
+    'uninstall_hook': 'uninstall_hook',
+    'installable': True,
+    'application': False,
+    'description': 'Check Chinese accounting configuration and opening balances, and print Chinese accounting vouchers.',
+}

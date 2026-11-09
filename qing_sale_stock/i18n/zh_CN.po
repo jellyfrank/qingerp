@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_sale_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 00:16+0000\n"
+"PO-Revision-Date: 2026-10-04 00:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sale_stock
+#: model:ir.module.module,description:base.module_qing_sale_stock
+msgid ""
+"# qing_sale_stock\n"
+"\n"
+"Displays delivery and return progress for sales orders using completed stock moves.\n"
+"\n"
+"## Delivery photos (#2442)\n"
+"\n"
+"Orders can contain multiple delivery photos with captions and a stable sequence.\n"
+"The native image field validates images, preserves proportions and bounds the\n"
+"stored image to 1600 x 1600 pixels. Photos are not copied when duplicating orders.\n"
+"Read access follows the sales order; creation/edit/deletion require order write\n"
+"access. Portal access and public sharing are not enabled.\n"
+"\n"
+"Delivery photos are independent of Chatter attachments and of delivery status.\n"
+"This module does not automatically print every photo. Customer report extensions\n"
+"can explicitly render this relation using the existing report access boundary.\n"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__name
+msgid "Caption"
+msgstr "说明"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__current_company
+#: model:ir.model.fields,field_description:qing_sale_stock.field_sale_order__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields.selection,name:qing_sale_stock.selection__sale_order__qing_delivery_status__delivered
+msgid "Delivered"
+msgstr "已发货"
+
+#. module: qing_sale_stock
+#: model_terms:ir.ui.view,arch_db:qing_sale_stock.view_sale_order_form_delivery_photos
+msgid "Delivery Information"
+msgstr "配送信息"
+
+#. module: qing_sale_stock
+#. odoo-python
+#: code:addons/qing_sale_stock/models/sale_delivery_photo.py:0
+#: model_terms:ir.ui.view,arch_db:qing_sale_stock.view_sale_order_form_delivery_photos
+msgid "Delivery Photo"
+msgstr "配送照片"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_sale_order__qing_delivery_photo_ids
+msgid "Delivery Photos"
+msgstr "配送照片"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_sale_order__qing_delivery_status
+#: model_terms:ir.ui.view,arch_db:qing_sale_stock.view_sale_order_dashboard_delivery_status
+#: model_terms:ir.ui.view,arch_db:qing_sale_stock.view_sale_order_list_delivery_status
+msgid "Delivery Status"
+msgstr "发货状态"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__display_name
+#: model:ir.model.fields,field_description:qing_sale_stock.field_sale_order__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__id
+#: model:ir.model.fields,field_description:qing_sale_stock.field_sale_order__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields.selection,name:qing_sale_stock.selection__sale_order__qing_delivery_status__no
+msgid "Not Delivered"
+msgstr "未发货"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields.selection,name:qing_sale_stock.selection__sale_order__qing_delivery_status__partial
+msgid "Partially Delivered"
+msgstr "部分发货"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields.selection,name:qing_sale_stock.selection__sale_order__qing_delivery_status__partial_return
+msgid "Partially Returned"
+msgstr "部分退货"
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__image_1920
+msgid "Photo"
+msgstr "照片"
+
+#. module: qing_sale_stock
+#: model:ir.module.module,shortdesc:base.module_qing_sale_stock
+msgid "Qing Sale Stock"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields.selection,name:qing_sale_stock.selection__sale_order__qing_delivery_status__returned
+msgid "Returned"
+msgstr "已退货"
+
+#. module: qing_sale_stock
+#: model:ir.model,name:qing_sale_stock.model_qing_sale_delivery_photo
+msgid "Sales Delivery Photo"
+msgstr "销售配送照片"
+
+#. module: qing_sale_stock
+#: model:ir.model,name:qing_sale_stock.model_sale_order
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__order_id
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_sale_stock
+#: model:ir.module.module,summary:base.module_qing_sale_stock
+msgid "Sales order delivery and return status"
+msgstr ""
+
+#. module: qing_sale_stock
+#: model:ir.model.fields,field_description:qing_sale_stock.field_qing_sale_delivery_photo__sequence
+msgid "Sequence"
+msgstr "序号"

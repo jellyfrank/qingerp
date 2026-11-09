@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 00:55+0000\n"
+"PO-Revision-Date: 2026-09-21 00:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+
+#. module: qing_stock
+#: model:ir.model.fields,field_description:qing_stock.field_res_config_settings__module_qing_stock_barcode
+msgid "Enable QingERP Warehouse Scanning"
+msgstr "启用 QingERP 仓库扫码"
+
+#. module: qing_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.view_res_config_settings_form_negative_stock
+msgid "Barcode Scanning"
+msgstr "条码扫描"
+
+#. module: qing_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.view_res_config_settings_form_negative_stock
+msgid "QingERP Community barcode workbench for receiving, delivery, internal transfers, inventory counts and stock lookup. Uses native inventory documents."
+msgstr "QingERP 社区版条码工作台，支持收货、发货、内部调拨、库存盘点和库存查询，并使用 Odoo 原生库存单据。"
+
+#. module: qing_stock
+#: model:ir.module.module,shortdesc:base.module_qing_stock
+msgid "Qing Stock"
+msgstr "Qing 库存扩展"
+
+#. module: qing_stock
+#. odoo-python
+#: code:addons/qing_stock/models/stock_picking_type.py:0
+#: model:ir.actions.server,name:qing_stock.action_open_barcode
+msgid "QingERP Warehouse Scanning"
+msgstr "QingERP 仓库扫码"
+
+#. module: qing_stock
+#. odoo-python
+#: model_terms:ir.ui.view,arch_db:qing_stock.help_message_template
+#: code:addons/qing_stock/models/stock_picking_type.py:0
+msgid "Contact your administrator to install QingERP Warehouse Scanning."
+msgstr "请联系管理员安装 QingERP 仓库扫码。"
+
+#. module: qing_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.help_message_template
+msgid "Install QingERP Warehouse Scanning"
+msgstr "安装 QingERP 仓库扫码"
+
+#. module: qing_stock
+#. odoo-python
+#: code:addons/qing_stock/models/stock_picking_type.py:0
+msgid "QingERP Warehouse Scanning is not available on this server. Contact your administrator to deploy it."
+msgstr "当前服务器尚未提供可安装的 QingERP 仓库扫码，请联系管理员部署。"
+
+#. module: qing_stock
+#. odoo-python
+#: code:addons/qing_stock/models/stock_picking_type.py:0
+msgid "Update the Apps list to find QingERP Warehouse Scanning."
+msgstr "请更新应用列表后查找 QingERP 仓库扫码。"
+
+#. module: qing_stock
+#: model:ir.model.fields,field_description:qing_stock.field_res_users__qing_allow_negative_stock
+msgid "Allow Negative Stock"
+msgstr "允许负库存"
+
+#. module: qing_stock
+#: model:ir.model.fields,field_description:qing_stock.field_res_config_settings__qing_prevent_negative_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.view_res_config_settings_form_negative_stock
+msgid "Prevent Negative Stock"
+msgstr "禁止负库存"
+
+#. module: qing_stock
+#: model:ir.model.fields,help:qing_stock.field_res_config_settings__qing_prevent_negative_stock
+msgid "Prevent stock operations from making internal or transit locations negative. Users explicitly allowed to create negative stock remain exempt."
+msgstr "禁止库存操作使内部或在途库位产生负库存。明确获准的用户仍可例外操作。"
+
+#. module: qing_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.view_res_config_settings_form_negative_stock
+msgid "Prevent internal and transit locations from becoming negative. Users granted an exception remain allowed."
+msgstr "禁止内部及在途库位产生负库存；获准例外的用户仍可操作。"
+
+#. module: qing_stock
+#: model:ir.model.fields,help:qing_stock.field_res_users__qing_allow_negative_stock
+msgid "Allow this user to complete stock operations that make an internal or transit location negative."
+msgstr "允许此用户完成会使内部或在途库位产生负库存的库存操作。"
+
+#. module: qing_stock
+#: model_terms:ir.ui.view,arch_db:qing_stock.view_res_users_form_negative_stock
+msgid "Inventory Exceptions"
+msgstr "库存例外"
+
+#. module: qing_stock
+#. odoo-python
+#: code:addons/qing_stock/models/res_users.py:0
+msgid "Only a system administrator can change negative stock permission."
+msgstr "只有系统管理员可以修改负库存权限。"
+
+#. module: qing_stock
+#. odoo-python
+#: code:addons/qing_stock/models/stock_quant.py:0
+msgid "Insufficient stock for %(product)s at %(location)s. This operation would create negative stock. Contact an administrator if an exception is required."
+msgstr "产品 %(product)s 在 %(location)s 的库存不足，本次操作会产生负库存。如需例外，请联系管理员。"

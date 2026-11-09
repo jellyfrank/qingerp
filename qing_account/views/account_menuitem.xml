@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override the native translation only when Chinese is active. Odoo 20
+         rejects translated-field dictionaries containing inactive languages. -->
+    <record id="account.menu_finance" model="ir.ui.menu" forcecreate="0">
+        <field name="name" model="res.lang"
+               eval="{'en_US': 'Finance', 'zh_CN': '财务'} if obj().search_count([('code', '=', 'zh_CN'), ('active', '=', True)]) else {'en_US': 'Finance'}"/>
+        <field name="web_icon">qing_account,static/description/icon.png</field>
+    </record>
+
+    <!-- Community managers do not imply the native Read-only accounting group.
+         Expose the complete existing path without granting additional model access. -->
+    <record id="account.menu_finance_entries" model="ir.ui.menu">
+        <field name="group_ids" eval="[Command.link(ref('account.group_account_manager'))]"/>
+    </record>
+    <record id="account.account_transactions_menu" model="ir.ui.menu">
+        <field name="group_ids" eval="[Command.link(ref('account.group_account_manager'))]"/>
+    </record>
+    <record id="account.menu_action_move_journal_line_form" model="ir.ui.menu">
+        <field name="group_ids" eval="[Command.link(ref('account.group_account_manager'))]"/>
+    </record>
+    <record id="account.menu_action_account_form" model="ir.ui.menu">
+        <field name="group_ids" eval="[Command.link(ref('account.group_account_manager'))]"/>
+    </record>
+</odoo>

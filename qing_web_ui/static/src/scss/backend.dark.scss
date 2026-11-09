@@ -1,0 +1,22 @@
+.o_qing_web_ui.o_qing_ui--dark {
+    background: var(--o-qing-bg);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui.o_qing_ui--dark .o_web_client,
+.o_qing_web_ui.o_qing_ui--dark .o_action_manager,
+.o_qing_web_ui.o_qing_ui--dark .o_main_navbar,
+.o_qing_web_ui.o_qing_ui--dark .o_search_panel,
+.o_qing_web_ui.o_qing_ui--dark .o_form_view {
+    background: var(--o-qing-bg);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui.o_qing_ui--dark .o_form_view,
+.o_qing_web_ui.o_qing_ui--dark .o_search_panel,
+.o_qing_web_ui.o_qing_ui--dark .o_kanban_view .o_kanban_record,
+.o_qing_web_ui.o_qing_ui--dark .o_list_renderer .o_data_row,
+.o_qing_web_ui.o_qing_ui--dark .o_dialog,
+.o_qing_web_ui.o_qing_ui--dark .o_modal {
+    border-color: var(--o-qing-border);
+}

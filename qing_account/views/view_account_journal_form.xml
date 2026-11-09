@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_journal_form_clearing" model="ir.ui.view">
+        <field name="name">account.journal.form.qing.clearing</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='inbound_payment_method_line_ids']//field[@name='payment_account_id']" position="attributes">
+                <attribute name="groups">account.group_account_readonly,account.group_account_manager</attribute>
+            </xpath>
+            <xpath expr="//field[@name='outbound_payment_method_line_ids']//field[@name='payment_account_id']" position="attributes">
+                <attribute name="groups">account.group_account_readonly,account.group_account_manager</attribute>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="银行清算配置" invisible="type != 'bank'" groups="account.group_account_manager">
+                    <div class="alert alert-info" role="status">
+                        在“收款”和“付款”页签中设置独立的待收、待付清算科目，并为科目启用“允许核销”。
+                        当前社区版留空可能由系统补用待清算科目，请显式配置以统一后续付款；直接使用银行存款科目不适用于先登记付款、后导入流水的工作台流程。
+                        修改配置不会自动补记历史付款。
+                    </div>
+                    <button name="action_qing_check_clearing" type="object" string="检查银行清算配置" class="btn-primary"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_bank_clearing_configuration" model="ir.actions.act_window">
+        <field name="name">银行清算配置</field>
+        <field name="res_model">account.journal</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('type', '=', 'bank')]</field>
+        <field name="context">{'default_type': 'bank'}</field>
+    </record>
+    <menuitem id="menu_bank_clearing_configuration" name="银行清算配置" parent="account.menu_finance_entries" action="action_bank_clearing_configuration" sequence="38" groups="account.group_account_manager"/>
+</odoo>

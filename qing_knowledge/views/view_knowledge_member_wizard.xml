@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_knowledge_member_wizard_form" model="ir.ui.view">
+        <field name="name">qing.knowledge.member.wizard.form</field>
+        <field name="model">qing.knowledge.member.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="space_id" readonly="1"/>
+                    <field name="user_id" options="{'no_create': True}"/>
+                    <field name="role"/>
+                    <field name="active"/>
+                </group>
+                <footer>
+                    <button name="action_apply" type="object" string="Apply" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

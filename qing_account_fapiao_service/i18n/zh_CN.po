@@ -1,0 +1,71 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. module: qing_account_fapiao_service
+#: model:ir.ui.menu,name:qing_account_fapiao_service.menu_qing_fapiao_service_connection
+#: model:ir.actions.act_window,name:qing_account_fapiao_service.action_qing_fapiao_service_connection
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_service.view_qing_fapiao_service_connection_form
+msgid "Online Invoicing Settings"
+msgstr "在线开票设置"
+
+#. module: qing_account_fapiao_service
+#. odoo-python
+#: code:addons/qing_account_fapiao_service/models/service_connection.py:0
+msgid "Application submitted successfully. Please wait for service approval."
+msgstr "申请已成功提交，请等待服务方审核。"
+
+#. module: qing_account_fapiao_service
+#. odoo-python
+#: code:addons/qing_account_fapiao_service/models/service_connection.py:0
+msgid "Application synchronized. Sandbox access is enabled; production invoicing is not enabled."
+msgstr "申请已同步，沙箱已开通；尚未开通正式开票。"
+
+#. module: qing_account_fapiao_service
+#. odoo-python
+#: code:addons/qing_account_fapiao_service/models/service_connection.py:0
+msgid "Application synchronized. Production invoicing is enabled."
+msgstr "申请已同步，正式开票服务已开通。"
+
+#. module: qing_account_fapiao_service
+#. odoo-python
+#: code:addons/qing_account_fapiao_service/models/service_connection.py:0
+msgid "Application synchronized. Your application was rejected; please contact the service administrator."
+msgstr "申请已同步，当前申请未通过，请联系服务管理员。"
+
+#. module: qing_account_fapiao_service
+#. odoo-python
+#: code:addons/qing_account_fapiao_service/models/service_connection.py:0
+msgid "Application synchronized. Your access is suspended; please contact the service administrator."
+msgstr "申请已同步，当前接入已停用，请联系服务管理员。"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_provider__code__qingerp_cloud
+msgid "QingERP Hosted Invoicing Service"
+msgstr "QingERP 托管开票服务"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_service_connection__service_state__pending
+msgid "Pending Review"
+msgstr "待审核"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_service_connection__service_state__production
+msgid "Production Enabled"
+msgstr "正式已开通"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_service_connection__service_state__rejected
+msgid "Registration Rejected"
+msgstr "未通过"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_service_connection__service_state__sandbox
+msgid "Sandbox Enabled"
+msgstr "沙箱已开通"
+
+#. module: qing_account_fapiao_service
+#: model:ir.model.fields.selection,name:qing_account_fapiao_service.selection__qing_fapiao_service_connection__service_state__suspended
+msgid "Suspended"
+msgstr "已停用"

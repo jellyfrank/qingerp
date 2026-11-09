@@ -1,0 +1,265 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_mail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-23 09:50+0000\n"
+"PO-Revision-Date: 2026-10-23 09:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_ir_mail_server__company_ids
+msgid "Allowed Companies"
+msgstr "允许的公司"
+
+#. module: qing_mail
+#: model:ir.model.fields.selection,name:qing_mail.selection__ir_mail_server__sender_policy__authenticated
+msgid "Authenticated Mailbox Only"
+msgstr "仅限已认证邮箱"
+
+#. module: qing_mail
+#: model:ir.model.fields,help:qing_mail.field_ir_mail_server__sender_policy
+msgid ""
+"Authenticated Mailbox Only requires the sender to match the SMTP login "
+"address."
+msgstr "“仅限已认证邮箱”要求发件人与 SMTP 登录地址一致。"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_fetchmail_server__display_name
+#: model:ir.model.fields,field_description:qing_mail.field_ir_mail_server__display_name
+#: model:ir.model.fields,field_description:qing_mail.field_mail_mail__display_name
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__failure_type
+msgid "Failure Type"
+msgstr "失败类型"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_fetchmail_server__id
+#: model:ir.model.fields,field_description:qing_mail.field_ir_mail_server__id
+#: model:ir.model.fields,field_description:qing_mail.field_mail_mail__id
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_mail
+#: model:ir.module.module,description:base.module_qing_mail
+msgid ""
+"Improve domestic business email handling: assign outgoing servers to "
+"companies, require the authenticated mailbox as sender, record recoverable "
+"incoming failures and retry them using native mail workflows."
+msgstr "改进国内业务邮件处理：为发件服务器指定公司、要求以已认证邮箱作为发件人、记录可恢复的收件失败，并通过原生邮件流程重试。"
+
+#. module: qing_mail
+#: model:ir.actions.act_window,name:qing_mail.action_qing_mail_inbound_failure
+#: model:ir.ui.menu,name:qing_mail.menu_qing_mail_inbound_failure
+#: model_terms:ir.ui.view,arch_db:qing_mail.view_qing_mail_inbound_failure_form
+#: model_terms:ir.ui.view,arch_db:qing_mail.view_qing_mail_inbound_failure_list
+msgid "Incoming Email Recovery"
+msgstr "收件失败恢复"
+
+#. module: qing_mail
+#: model:ir.model,name:qing_mail.model_fetchmail_server
+msgid "Incoming Mail Server"
+msgstr "收件服务器"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__server_id
+msgid "Incoming Server"
+msgstr "收件服务器"
+
+#. module: qing_mail
+#: model:ir.model.fields,help:qing_mail.field_fetchmail_server__qing_reliable_imap
+msgid ""
+"Keep a private, recoverable copy before acknowledging a message that Odoo "
+"could not process."
+msgstr "在确认 Odoo 无法处理的邮件之前，先保存一份私有、可恢复的副本。"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_mail
+#: model:ir.model.fields,help:qing_mail.field_ir_mail_server__company_ids
+msgid ""
+"Leave empty for a server shared by all companies. Assigned servers send only"
+" for their companies."
+msgstr "留空表示所有公司共用此服务器；指定公司后只为这些公司发信。"
+
+#. module: qing_mail
+#: model:ir.model,name:qing_mail.model_ir_mail_server
+msgid "Mail Server"
+msgstr "邮件服务器"
+
+#. module: qing_mail
+#: model:ir.model.fields.selection,name:qing_mail.selection__ir_mail_server__sender_policy__native
+msgid "Odoo Default"
+msgstr "Odoo 默认"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__payload
+msgid "Original Email"
+msgstr "原始邮件"
+
+#. module: qing_mail
+#: model:ir.model,name:qing_mail.model_mail_mail
+msgid "Outgoing Mail"
+msgstr "发件"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__payload_sha256
+msgid "Payload Sha256"
+msgstr "内容 SHA256"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__payload_size
+msgid "Payload Size"
+msgstr "内容大小"
+
+#. module: qing_mail
+#: model:ir.model.fields.selection,name:qing_mail.selection__qing_mail_inbound_failure__state__pending
+msgid "Pending Review"
+msgstr "待处理"
+
+#. module: qing_mail
+#: model:ir.module.module,shortdesc:base.module_qing_mail
+msgid "Qing Mail"
+msgstr "QingERP 邮箱基础版"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_fetchmail_server__qing_reliable_imap
+msgid "Recover Failed IMAP Emails"
+msgstr "恢复处理失败的 IMAP 邮件"
+
+#. module: qing_mail
+#: model:ir.model,name:qing_mail.model_qing_mail_inbound_failure
+msgid "Recoverable Incoming Email Failure"
+msgstr "可恢复的收件失败记录"
+
+#. module: qing_mail
+#: model:ir.module.module,summary:base.module_qing_mail
+msgid "Reliable domestic business email foundation for QingERP"
+msgstr "QingERP 国内业务邮件可靠接入基础"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/inbound_failure.py:0
+msgid "Resolve an incoming email before deleting its only saved copy."
+msgstr "这可能是唯一保存的邮件副本，请先完成恢复再删除。"
+
+#. module: qing_mail
+#: model:ir.model.fields.selection,name:qing_mail.selection__qing_mail_inbound_failure__state__resolved
+msgid "Resolved"
+msgstr "已恢复"
+
+#. module: qing_mail
+#: model_terms:ir.ui.view,arch_db:qing_mail.view_qing_mail_inbound_failure_form
+#: model_terms:ir.ui.view,arch_db:qing_mail.view_qing_mail_inbound_failure_list
+msgid "Retry"
+msgstr "重试"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__retry_count
+msgid "Retry Count"
+msgstr "重试次数"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_ir_mail_server__legacy_review_required
+msgid "Review Mail Routing"
+msgstr "复核邮件路由"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_ir_mail_server__sender_policy
+msgid "Sender Policy"
+msgstr "发件人策略"
+
+#. module: qing_mail
+#: model:ir.model.fields,field_description:qing_mail.field_qing_mail_inbound_failure__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/ir_mail_server.py:0
+msgid ""
+"The authenticated sender policy requires an exact SMTP user in From "
+"Filtering."
+msgstr "已认证发件人策略要求“发件人过滤”与 SMTP 用户完全一致。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/fetchmail_server.py:0
+msgid "The failed email exceeds the recovery storage limit."
+msgstr "处理失败的邮件超过恢复存储上限。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/fetchmail_server.py:0
+msgid "The incoming email recovery queue is full."
+msgstr "收件恢复队列已满，请先处理待恢复邮件。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/inbound_failure.py:0
+msgid "The saved email content does not match its checksum."
+msgstr "保存的邮件内容与校验值不一致，已停止重放。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/mail_mail.py:0
+msgid ""
+"The selected outgoing server is paused, belongs to another company, or "
+"requires its authenticated mailbox as sender."
+msgstr "所选发件服务器已暂停、属于其他公司，或要求以其已认证邮箱作为发件人。"
+
+#. module: qing_mail
+#: model:ir.model.fields,help:qing_mail.field_ir_mail_server__legacy_review_required
+msgid ""
+"The server is paused until an administrator reviews its sender and company "
+"routing."
+msgstr "在管理员复核发件人和公司路由之前，该服务器暂停发信。"
+
+#. module: qing_mail
+#: model:ir.model.constraint,message:qing_mail.constraint_qing_mail_inbound_failure_unique_server_payload
+msgid "This email is already recorded for this incoming server."
+msgstr "此邮件已记录在该收件服务器下。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/ir_mail_server.py:0
+msgid ""
+"This outgoing server requires a mail routing review before it can send."
+msgstr "此发件服务器需要先复核邮件路由才能发信。"
+
+#. module: qing_mail
+#. odoo-python
+#: code:addons/qing_mail/models/inbound_failure.py:0
+msgid "Use Retry to resolve a saved incoming email."
+msgstr "请使用“重试”处理已保存的收件邮件。"

@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_accrual_closing_form" model="ir.ui.view">
+        <field name="name">qing.accrual.closing.form</field>
+        <field name="model">qing.accrual.closing</field>
+        <field name="arch" type="xml">
+            <form>
+                <group><field name="company_id"/></group>
+                <div class="alert alert-info" role="status">检查当前公司的暂估批次：未过账、到期未冲回、缺少或异常冲回日期及凭证状态不一致。
+                    未到期暂估不作为异常。结果是检查时的快照，处理后请重新检查；本操作不改账、不设置锁账日期，不核验完整库存及未纳入批次的采购余额。</div>
+                <field name="result" nolabel="1"/>
+                <footer><button name="action_check" type="object" string="执行检查" class="btn-primary"/><button string="关闭" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_accrual_closing" model="ir.actions.act_window">
+        <field name="name">暂估结账检查</field><field name="res_model">qing.accrual.closing</field>
+        <field name="view_mode">form</field><field name="target">new</field>
+    </record>
+    <menuitem id="menu_accrual_closing" name="暂估结账检查" parent="account.menu_finance_entries" action="action_accrual_closing" sequence="94" groups="account.group_account_manager"/>
+</odoo>

@@ -1,0 +1,714 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-20 07:55+0000\n"
+"PO-Revision-Date: 2026-09-20 07:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_partner
+#: model:ir.module.module,description:base.module_qing_partner
+msgid ""
+"客户与供应商角色管理\n"
+"\n"
+"按公司、负责人和团队控制联系人访问\n"
+"\n"
+"销售与采购业务准入检查\n"
+"\n"
+"联系人 API：查询、新增、修改和删除"
+msgstr "客户与供应商角色管理\n\n按公司、负责人和团队控制联系人访问\n\n销售与采购业务准入检查\n\n联系人 API：查询、新增、修改和删除"
+
+#. module: qing_partner
+#: model:ir.model.constraint,message:qing_partner.constraint_qing_partner_role_role_unique
+msgid "A business role already exists for this partner and company."
+msgstr "该单位在此公司下已存在相同业务角色。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_needaction
+msgid "Action Needed"
+msgstr "需要处理"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_customer_scope__all
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_supplier_scope__all
+msgid "All in allowed companies"
+msgstr "授权公司内全部"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "An enabled %(role)s role is required in %(company)s."
+msgstr "需要在 %(company)s 中启用 %(role)s 角色。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid "Assign roles to the commercial entity, not a child contact."
+msgstr "请在商业主体上分配角色，不要分配到子联系人。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_res_partner_bank
+msgid "Bank Account"
+msgstr "银行账号"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_config_settings_form
+msgid "Business Partners"
+msgstr "业务往来"
+
+#. module: qing_partner
+#: model:ir.actions.act_window,name:qing_partner.action_partner_role
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_role_ids
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_role_ids
+#: model:ir.ui.menu,name:qing_partner.menu_business_roles
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_form
+msgid "Business Roles"
+msgstr "业务角色"
+
+#. module: qing_partner
+#: model:ir.actions.act_window,name:qing_partner.action_partner_team
+msgid "Business Teams"
+msgstr "业务团队"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_seed_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_res_company
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__company_id
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__company_id
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__company_id
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_search
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_partner
+#: model:ir.module.module,summary:base.module_qing_partner
+msgid "客户与供应商角色、联系人权限与 API 管理"
+msgstr "客户与供应商角色、联系人权限与 API 管理"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设置"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_res_partner
+msgid "Contact"
+msgstr "联系人"
+
+#. module: qing_partner
+#: model:res.groups,name:qing_partner.group_partner_editor
+msgid "Contact Details Editor"
+msgstr "联系人资料编辑"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_team.py:0
+msgid "Create a new team instead of changing its company."
+msgstr "请创建新团队，不要改变现有团队所属公司。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__create_uid
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__create_uid
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__create_date
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__create_date
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_seed_form
+msgid ""
+"Creates pending roles only. Existing roles, owners, shares and ranks are "
+"preserved. Review assignments before restricting visibility or enabling "
+"transaction checks."
+msgstr "仅生成待核对角色，保留现有角色、负责人、共享及 rank。限制可见范围或启用交易检查前，请先核对角色分配。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_account_move__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_purchase_order__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_res_company__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_res_config_settings__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner_bank__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__current_company
+#: model:ir.model.fields,field_description:qing_partner.field_sale_order__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__qing_partner_role__role__customer
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_is_customer
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_form
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_is_customer
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_search
+msgid "Customer Role"
+msgstr "客户角色"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_customer_scope
+msgid "Customer Scope"
+msgstr "客户范围"
+
+#. module: qing_partner
+#: model:ir.actions.act_window,name:qing_partner.action_customer
+#: model:ir.ui.menu,name:qing_partner.menu_customer
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_search
+msgid "Customers"
+msgstr "客户"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid "Disable business roles instead of deleting them."
+msgstr "请停用业务角色，不要删除。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid ""
+"Disable the old role and create a new one instead of changing its identity."
+msgstr "请停用旧角色并创建新角色，不要修改角色主体、公司或类型。"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__qing_partner_role__state__disabled
+msgid "Disabled"
+msgstr "已停用"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_account_move__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner_bank__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__display_name
+#: model:ir.model.fields,field_description:qing_partner.field_sale_order__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_config_settings_form
+msgid ""
+"Enable after assigning and reviewing roles. New quotations, purchase orders "
+"and invoices require an enabled role in their company. Credit notes remain "
+"available for historical corrections."
+msgstr "完成角色分配及核对后启用。新增报价、采购单和发票需要对应公司中的启用角色；贷项凭证仍可用于历史冲销。"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__qing_partner_role__state__enabled
+msgid "Enabled"
+msgstr "已启用"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__shared_user_ids
+msgid "Explicitly shared with"
+msgstr "明确共享给"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者（联系人）"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__has_message
+msgid "Has Message"
+msgstr "有消息"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_account_move__id
+#: model:ir.model.fields,field_description:qing_partner.field_purchase_order__id
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__id
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__id
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__id
+#: model:ir.model.fields,field_description:qing_partner.field_res_company__id
+#: model:ir.model.fields,field_description:qing_partner.field_res_config_settings__id
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__id
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner_bank__id
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__id
+#: model:ir.model.fields,field_description:qing_partner.field_sale_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "勾选表示有新消息需要处理。"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role__message_has_error
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "勾选表示部分消息发送失败。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__use_rank_hints
+msgid "Include rank hints"
+msgstr "纳入 rank 线索"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_is_follower
+msgid "Is Follower"
+msgstr "是关注者"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_account_move
+msgid "Journal Entry"
+msgstr "会计分录"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__write_uid
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__write_uid
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__write_uid
+msgid "Last Updated by"
+msgstr "最后修改人"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__write_date
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__write_date
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__write_date
+msgid "Last Updated on"
+msgstr "最后修改时间"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_form
+msgid ""
+"Manage roles on the commercial entity. Contacts and addresses inherit its "
+"business scope."
+msgstr "请在商业主体上管理角色，联系人及地址继承主体的业务访问范围。"
+
+#. module: qing_partner
+#: model:res.groups,name:qing_partner.group_partner_manager
+msgid "Master Data and Role Manager"
+msgstr "主档与角色管理"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__member_ids
+msgid "Members"
+msgstr "成员"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_has_error
+msgid "Message Delivery error"
+msgstr "消息发送错误"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_team__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_partner
+#: model:res.groups.privilege,placeholder:qing_partner.privilege_partner
+msgid "No"
+msgstr "否"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_customer_scope__none
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_supplier_scope__none
+msgid "None"
+msgstr "无"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_needaction_counter
+msgid "Number of Actions"
+msgstr "待处理数量"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_has_error_counter
+msgid "Number of errors"
+msgstr "错误数量"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "待处理消息数量"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "发送失败消息数量"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid ""
+"Only a partner manager can change shared master data, hierarchy or business "
+"roles."
+msgstr "只有主档管理员可以修改公共主档、组织层级或业务角色。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Only a partner manager can delete contacts."
+msgstr "只有主档管理员可以删除联系人。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/wizard/partner_role_seed.py:0
+msgid "Only a partner manager can seed roles."
+msgstr "只有主档管理员可以生成待核对角色。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_users.py:0
+msgid "Only a system administrator can change partner access policies."
+msgstr "只有系统管理员可以修改往来单位访问策略。"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_customer_scope__own
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_supplier_scope__own
+msgid "Own and explicitly shared"
+msgstr "本人及明确共享"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_customer_scope__team
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_supplier_scope__team
+msgid "Own, team and shared"
+msgstr "本人、团队及共享"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__owner_id
+msgid "Owner"
+msgstr "负责人"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid "Owners and shared users must be internal users of the role company."
+msgstr "负责人及共享用户必须是角色所属公司的内部用户。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__partner_id
+msgid "Partner"
+msgstr "往来单位"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_qing_partner_role
+msgid "Partner Business Role"
+msgstr "往来单位业务角色"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_qing_partner_team
+msgid "Partner Business Team"
+msgstr "往来单位业务团队"
+
+#. module: qing_partner
+#: model:res.groups.privilege,name:qing_partner.privilege_partner
+msgid "Partner Maintenance"
+msgstr "往来单位维护"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_partner_access_mode
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_users_form
+msgid "Partner Visibility"
+msgstr "往来单位可见范围"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Partner maintenance permission is required."
+msgstr "需要往来单位维护权限。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role_seed__partner_ids
+msgid "Partners to review"
+msgstr "待核对单位"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_search
+msgid "Pending Review"
+msgstr "待核对"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__qing_partner_role__state__pending
+msgid "Pending review"
+msgstr "待核对"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_seed_form
+msgid "Prepare Review"
+msgstr "生成待核对角色"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Protected contact defaults require a partner manager."
+msgstr "受保护的联系人默认值需要主档管理权限。"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_purchase_order
+msgid "Purchase Order"
+msgstr "采购订单"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_account_setup_bank_manual_config__qing_accessible
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__qing_accessible
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_accessible
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner_bank__qing_accessible
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_accessible
+msgid "Qing Accessible"
+msgstr "可访问"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_can_manage
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_can_manage
+msgid "Qing Can Manage"
+msgstr "可管理主档"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_customer_available
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_customer_available
+msgid "Qing Customer Available"
+msgstr "可作为交易客户"
+
+#. module: qing_partner
+#: model:ir.module.module,shortdesc:base.module_qing_partner
+msgid "Qing联系人"
+msgstr "Qing联系人"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_supplier_available
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_supplier_available
+msgid "Qing Supplier Available"
+msgstr "可作为交易供应商"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_qing_partner_role_seed__use_rank_hints
+msgid ""
+"Ranks have no company dimension. Select this only after checking these "
+"partners belong to the selected company."
+msgstr "rank 没有公司维度，请确认这些单位确实属于所选公司后再勾选。"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_config_settings_form
+msgid "Require Enabled Business Roles"
+msgstr "要求已启用业务角色"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_company__qing_partner_enforce_roles
+#: model:ir.model.fields,field_description:qing_partner.field_res_config_settings__qing_partner_enforce_roles
+msgid "Require enabled business roles"
+msgstr "要求已启用业务角色"
+
+#. module: qing_partner
+#: model:ir.model.fields,help:qing_partner.field_res_company__qing_partner_enforce_roles
+#: model:ir.model.fields,help:qing_partner.field_res_config_settings__qing_partner_enforce_roles
+msgid ""
+"Require enabled customer/vendor roles on new sales, purchases and invoices. "
+"Enable after reviewing historical roles."
+msgstr "新增销售、采购和发票需要已启用客户或供应商角色。请先核对历史角色再启用。"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_partner_access_mode__restricted
+msgid "Restrict by business scope"
+msgstr "按业务范围隔离"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/wizard/partner_role_seed.py:0
+msgid "Review Business Roles"
+msgstr "核对业务角色"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_qing_partner_role_seed
+msgid "Review Historical Partner Roles"
+msgstr "核对历史往来角色"
+
+#. module: qing_partner
+#: model:ir.actions.act_window,name:qing_partner.action_partner_role_seed
+#: model:ir.ui.menu,name:qing_partner.menu_seed
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_seed_form
+msgid "Review Historical Roles"
+msgstr "核对历史角色"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/wizard/partner_role_seed.py:0
+msgid "Review at most 1000 partners in one batch."
+msgstr "每批最多核对 1000 个单位。"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__role
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_search
+msgid "Role"
+msgstr "角色"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "短信发送错误"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_sale_order
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_users_form
+msgid ""
+"Scopes are combined across customer and supplier roles within allowed "
+"companies. Master data managers can access all permitted-company partners."
+msgstr "客户与供应商范围取并集，并受授权公司限制。主档管理员可访问授权公司内的全部往来单位。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Select a company enabled in your company selector."
+msgstr "请选择公司切换器中已勾选的公司。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/wizard/partner_role_seed.py:0
+msgid "Select an allowed company."
+msgstr "请选择已授权公司。"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__res_users__qing_partner_access_mode__shared
+msgid "Shared basic contacts"
+msgstr "共享基础档案"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_partner
+#: model:ir.model.fields.selection,name:qing_partner.selection__qing_partner_role__role__supplier
+#: model:ir.model.fields,field_description:qing_partner.field_res_partner__qing_is_supplier
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_form
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_is_supplier
+msgid "Supplier"
+msgstr "供应商"
+
+#. module: qing_partner
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_res_partner_search
+msgid "Supplier Role"
+msgstr "供应商角色"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_res_users__qing_supplier_scope
+msgid "Supplier Scope"
+msgstr "供应商范围"
+
+#. module: qing_partner
+#: model:ir.actions.act_window,name:qing_partner.action_supplier
+#: model:ir.ui.menu,name:qing_partner.menu_supplier
+#: model_terms:ir.ui.view,arch_db:qing_partner.view_partner_role_search
+msgid "Suppliers"
+msgstr "供应商"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__team_id
+msgid "Team"
+msgstr "团队"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_team.py:0
+msgid "Team members must be internal users of the team company."
+msgstr "团队成员必须是所属公司的内部用户。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid "The partner and role must belong to the same company."
+msgstr "往来单位与业务角色必须属于同一公司。"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Use equality to filter business role flags."
+msgstr "请使用等值条件筛选业务角色标志。"
+
+#. module: qing_partner
+#: model:ir.model,name:qing_partner.model_res_users
+msgid "User"
+msgstr "用户"
+
+#. module: qing_partner
+#. odoo-python
+#: code:addons/qing_partner/wizard/partner_role_seed.py:0
+msgid "company_id"
+msgstr "公司"
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__override_owner_id
+msgid "Company-specific Owner"
+msgstr "公司专属负责人"
+
+#. module: qing_partner
+#: model:ir.model.fields,field_description:qing_partner.field_qing_partner_role__effective_owner_id
+msgid "Effective Owner"
+msgstr "实际负责人"
+
+#. module: qing_partner
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Only a partner manager can change business identities or responsible users."
+msgstr "仅主档管理员可以修改业务身份或负责人。"
+
+#. module: qing_partner
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Only a partner manager can change business identities."
+msgstr "仅主档管理员可以修改业务身份。"
+
+#. module: qing_partner
+#: code:addons/qing_partner/models/res_partner.py:0
+msgid "Set customer and supplier identities on the commercial entity."
+msgstr "请在所属商业主体上设置客户和供应商身份。"
+
+#. module: qing_partner
+#: code:addons/qing_partner/models/partner_role.py:0
+msgid "Use the native responsible user or a company-specific override."
+msgstr "请修改原生负责人，或设置公司专属负责人。"
+
+#. module: qing_partner
+#: model:ir.ui.menu,name:qing_partner.menu_roles
+msgid "Roles"
+msgstr "角色"
+
+#. module: qing_partner
+#: model:ir.ui.menu,name:qing_partner.menu_team
+msgid "Teams"
+msgstr "团队"

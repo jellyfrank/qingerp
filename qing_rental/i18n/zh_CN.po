@@ -1,0 +1,1469 @@
+# Translation of Odoo Server.
+# Module: qing_rental
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Payment Status"
+msgstr "支付状态"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Unpaid"
+msgstr "未收款"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Partially Paid"
+msgstr "部分收款"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Paid"
+msgstr "已收款"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "To Review"
+msgstr "待核查"
+
+
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "%(equipment)s — Renewal: %(start)s → %(end)s"
+msgstr "%(equipment)s — 续租：%(start)s → %(end)s"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "%(equipment)s — Rental: %(start)s → %(end)s"
+msgstr "%(equipment)s — 租赁：%(start)s → %(end)s"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "A deposit requires a rental order and a positive amount."
+msgstr "押金记录必须关联租赁订单，且金额大于零。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "A picked-up rental cannot be cancelled. Complete its return and settlement."
+msgstr "已经借出的租赁订单不能取消，请完成归还和结算。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "A rental transfer must have a pickup or return direction."
+msgstr "租赁调拨必须指定借出或归还方向。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Add at least one piece of equipment to a rental order."
+msgstr "请至少添加一项租赁设备。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Add equipment before confirming the rental."
+msgstr "请在确认租赁订单前添加设备。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Additional equipment must be added through the rental order."
+msgstr "新增设备必须通过租赁订单添加。"
+
+#. module: qing_rental
+#: model:res.groups,name:qing_rental.group_rental_manager
+msgid "Administrator"
+msgstr "管理员"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__amount
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__amount
+msgid "Amount"
+msgstr "金额"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__available_qty
+#. odoo-javascript
+#: code:addons/qing_rental/static/src/widgets/rental_availability.xml:0
+msgid "Available during period"
+msgstr "租期可用量"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Awaiting Pickup"
+msgstr "待借出"
+
+#. module: qing_rental
+#: model:ir.model.fields,help:qing_rental.field_qing_rental_deposit__reference
+msgid "Bank or cash receipt reference for audit and duplicate checks."
+msgstr "银行流水号或现金收据编号，用于审核与防止重复入账。"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__booked
+msgid "Booked"
+msgstr "已预订"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Calculated rental fields cannot be supplied as defaults."
+msgstr "不能通过默认值设置系统计算的租赁字段。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_ok
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__qing_rental_ok
+msgid "Can be Rented"
+msgstr "可租赁"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_renew_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__cancel
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order_line.py:0
+msgid "Change the rental equipment rate and update quotation prices instead."
+msgstr "请修改租赁设备费率后更新报价费用。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__charge_amount
+msgid "Charge Amount"
+msgstr "续租补差金额"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Check Availability"
+msgstr "检查可用量"
+
+#. module: qing_rental
+#: model_terms:ir.actions.act_window,help:qing_rental.action_rental_orders
+msgid "Choose the rental period and equipment, then confirm availability before pickup."
+msgstr "选择租期和设备，确认可用量后再办理借出。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__company_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Completed rental detailed operations cannot be deleted."
+msgstr "不能删除已完成的租赁作业明细。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Completed rental operation quantities and serial numbers cannot be edited."
+msgstr "不能修改已完成租赁作业的数量和序列号。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Completed rental operations cannot receive new detailed operations."
+msgstr "不能向已完成的租赁作业添加明细。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Completed rental transfers cannot be deleted."
+msgstr "不能删除已完成的租赁调拨。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Completed rental transfers cannot be edited; use the rental return workflow."
+msgstr "不能修改已完成的租赁调拨，请通过租赁归还流程处理。"
+
+#. module: qing_rental
+#: model:ir.ui.menu,name:qing_rental.menu_rental_configuration
+msgid "Configuration"
+msgstr "配置"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Configure the warehouse rental locations first."
+msgstr "请先设置仓库的租赁库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Configure two distinct rental locations together."
+msgstr "请同时配置两个不同的租赁库位。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_renew_form
+msgid "Confirm Renewal"
+msgstr "确认续租"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Confirm the rental before creating transfers."
+msgstr "请先确认租赁订单，再创建调拨。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Confirm the rental before recording its deposit."
+msgstr "请先确认租赁订单，再将押金过账。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Confirmed rental equipment cannot be changed. Use renewal or cancel before pickup."
+msgstr "不能修改已确认的租赁设备，请使用续租功能，或在借出前取消订单。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Confirmed rental terms are locked. Use the renewal action."
+msgstr "已确认的租赁条款已锁定，请使用续租功能。"
+
+#. module: qing_rental
+#: model_terms:ir.actions.act_window,help:qing_rental.action_rental_orders
+msgid "Create a rental quotation"
+msgstr "创建租赁报价"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Create a rental quotation before confirming it."
+msgstr "请先创建租赁报价，再确认订单。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Create rental transfers from the rental order; they cannot be duplicated."
+msgstr "请从租赁订单创建调拨，不能直接复制租赁调拨。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__create_uid
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__create_uid
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__create_date
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__create_date
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__currency_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__currency_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__currency_id
+msgid "Currency"
+msgstr "币种"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_account_move__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_account_move_line__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_ir_actions_report__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move_line__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_stock_picking__current_company
+#: model:ir.model.fields,field_description:qing_rental.field_stock_warehouse__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__date
+msgid "Date"
+msgstr "日期"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__product_template__qing_rental_period__day
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_line__period__day
+msgid "Day"
+msgstr "天"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move.py:0
+msgid "Deposit accounting links cannot be changed."
+msgstr "不能修改押金的会计凭证关联。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move.py:0
+msgid "Deposit journal entries must be generated by the rental workflow."
+msgstr "押金会计凭证必须由租赁流程生成。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_form
+msgid "Deposit receipt or refund notes..."
+msgstr "填写押金收取或退还备注……"
+
+#. module: qing_rental
+#: model:ir.ui.menu,name:qing_rental.menu_rental_deposits
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Deposits"
+msgstr "押金"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Detailed operations cannot be attached to a completed rental transfer."
+msgstr "不能将作业明细关联到已完成的租赁调拨。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_account_move__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_ir_actions_report__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move_line__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:qing_rental.field_stock_warehouse__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_deposit__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/common.py:0
+msgid "Enter a finite, non-negative value."
+msgstr "请输入有效的非负数值。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Enter a positive whole number of rental units."
+msgstr "租赁设备数量必须为正整数。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Enter a receipt reference without leading or trailing spaces."
+msgstr "流水／收据编号的首尾不能包含空格。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Equipment cannot be moved to another order."
+msgstr "不能将租赁设备明细移到其他订单。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Equipment lines require a rental order."
+msgstr "设备明细必须属于租赁订单。"
+
+#. module: qing_rental
+#: model:ir.module.module,summary:base.module_qing_rental
+msgid "Equipment rental reservations, native transfers, renewal and deposits"
+msgstr "设备租赁预订、原生库存借还、续租与押金管理"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Existing detailed operations cannot be moved into a rental transfer."
+msgstr "不能将已有作业明细移入租赁调拨。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "First-version deposits must use the company currency."
+msgstr "第一版押金业务仅支持公司本位币。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "Fully returned rentals cannot be renewed."
+msgstr "已全部归还的租赁订单不能续租。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_account_move__id
+#: model:ir.model.fields,field_description:qing_rental.field_account_move_line__id
+#: model:ir.model.fields,field_description:qing_rental.field_ir_actions_report__id
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__id
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__id
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__id
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__id
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move__id
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move_line__id
+#: model:ir.model.fields,field_description:qing_rental.field_stock_picking__id
+#: model:ir.model.fields,field_description:qing_rental.field_stock_warehouse__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__journal_id
+msgid "Journal"
+msgstr "日记账"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_account_move
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_form
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_list
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Journal Entry"
+msgstr "会计凭证"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_account_move_line
+msgid "Journal Item"
+msgstr "日记账项目"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move_line.py:0
+msgid "Journal items cannot be moved to a rental deposit entry."
+msgstr "不能将会计明细移入租赁押金凭证。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__kind
+msgid "Kind"
+msgstr "类型"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__write_uid
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__write_uid
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__write_uid
+msgid "Last Updated by"
+msgstr "最后修改人"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__write_date
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__write_date
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__write_date
+msgid "Last Updated on"
+msgstr "最后修改时间"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__liability_account_id
+msgid "Liability Account"
+msgstr "押金负债科目"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move_line.py:0
+msgid "Lines cannot be added to posted rental deposit entries."
+msgstr "不能向已过账租赁押金凭证添加会计明细。"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__product_template__qing_rental_period__month
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_line__period__month
+msgid "Month (30 days)"
+msgstr "月（30 天）"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__move_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__move_ids
+msgid "Move"
+msgstr "关联单据"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "My Rentals"
+msgstr "我的租赁"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__new_end
+msgid "New return date"
+msgstr "新的归还时间"
+
+#. module: qing_rental
+#: model:res.groups.privilege,placeholder:qing_rental.privilege_rental
+msgid "No"
+msgstr "否"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Not enough rental capacity for %(product)s during this period (available: %(qty)s)."
+msgstr "%(product)s 在所选租期的可租数量不足（可用：%(qty)s）。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__note
+msgid "Note"
+msgstr "备注"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "On Rent"
+msgstr "在租"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_stock_warehouse__qing_rental_out_location_id
+msgid "On Rent Location"
+msgstr "在租库位"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Only an Inventory Administrator can configure rental locations."
+msgstr "只有库存管理员可以设置租赁库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Only cancelled rentals may be reset to a quotation."
+msgstr "只有已取消的租赁订单可以重置为报价。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Only confirmed rental orders can move rental equipment."
+msgstr "只有已确认的租赁订单可以办理设备借还。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "Only confirmed rentals can be renewed."
+msgstr "只有已确认的租赁订单可以续租。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Only quotations can be converted into rentals."
+msgstr "只有报价可以转换为租赁订单。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Only quotations can be repriced."
+msgstr "只有报价可以重新计价。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Only rental equipment terms may be entered manually."
+msgstr "只能手工填写租赁设备约定信息。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__order_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__order_id
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_renew__order_id
+msgid "Order"
+msgstr "订单"
+
+#. module: qing_rental
+#: model:ir.ui.menu,name:qing_rental.menu_rental_orders
+msgid "Orders"
+msgstr "订单"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Overdue"
+msgstr "逾期未还"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__partial
+msgid "Partially picked up / returned"
+msgstr "部分借出／归还"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__period
+msgid "Period"
+msgstr "计价周期"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Pick Up"
+msgstr "借出"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__qty_out
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__out
+msgid "Picked up"
+msgstr "已借出"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Pickup Date"
+msgstr "借出日期"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Pickup must take place during the booked period. Adjust or renew the rental first."
+msgstr "设备只能在已预订租期内借出，请先调整租期或续租。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_form
+msgid "Post Deposit"
+msgstr "押金过账"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Post deposits using the deposit workflow."
+msgstr "请通过押金流程过账。"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_deposit__state__posted
+msgid "Posted"
+msgstr "已过账"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Posted deposits and their accounting links cannot be changed."
+msgstr "不能修改已过账押金及其会计凭证关联。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Posted deposits cannot be deleted. Record a refund instead."
+msgstr "不能删除已过账押金，请建立对应退还记录。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move_line.py:0
+msgid "Posted rental deposit amounts and accounts cannot be edited. Record a refund instead."
+msgstr "不能修改已过账押金的金额和科目，请建立对应退还记录。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move.py:0
+msgid "Posted rental deposit entries cannot be changed. Record a refund instead."
+msgstr "不能修改已过账租赁押金凭证，请建立对应退还记录。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__padding_hours
+msgid "Preparation hours"
+msgstr "归还缓冲小时"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_product_template
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__product_id
+msgid "Product"
+msgstr "设备"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr "产品移动(移库明细)"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_product_product
+msgid "Product Variant"
+msgstr "产品变体"
+
+#. module: qing_rental
+#: model:ir.ui.menu,name:qing_rental.menu_rental_products
+msgid "Products"
+msgstr "产品"
+
+#. module: qing_rental
+#: model:ir.module.module,shortdesc:base.module_qing_rental
+msgid "Qing Rental"
+msgstr "Qing 租赁"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__qing_rental_billed_end
+msgid "Qing Rental Billed End"
+msgstr "已计费租期结束"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__qing_rental_billed_start
+msgid "Qing Rental Billed Start"
+msgstr "已计费租期开始"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__qing_rental_charge
+msgid "Qing Rental Charge"
+msgstr "租赁费用"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_account_bank_statement_line__qing_rental_deposit_id
+#: model:ir.model.fields,field_description:qing_rental.field_account_move__qing_rental_deposit_id
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_deposit_ids
+msgid "Qing Rental Deposit"
+msgstr "押金记录"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_deposit_balance
+msgid "Qing Rental Deposit Balance"
+msgstr "押金余额"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order_line__qing_rental_line_id
+msgid "Qing Rental Line"
+msgstr "租赁设备明细"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_lock_version
+msgid "Qing Rental Lock Version"
+msgstr "租赁并发版本"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_picking_count
+msgid "Qing Rental Picking Count"
+msgstr "租赁调拨数"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__quantity
+msgid "Quantity"
+msgstr "数量"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__draft
+msgid "Quotation"
+msgstr "报价"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Quotations"
+msgstr "报价"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__rate
+msgid "Rate per period"
+msgstr "每周期费率"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_deposit__kind__receipt
+msgid "Receipt"
+msgstr "收取"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move.py:0
+msgid "Record a rental deposit refund from the rental order."
+msgstr "请从租赁订单登记押金退还。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__reference
+msgid "Reference"
+msgstr "流水／收据编号"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_deposit__kind__refund
+msgid "Refund"
+msgstr "退还"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Refund the outstanding deposit before cancelling."
+msgstr "请先退还剩余押金，再取消订单。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Remove rental equipment before converting this quotation."
+msgstr "请先移除租赁设备，再转换此报价。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order_line.py:0
+msgid "Remove the rental equipment line instead of its generated charge."
+msgstr "请删除对应租赁设备明细，不能直接删除自动生成的费用行。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Renew"
+msgstr "续租"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_renew_form
+msgid "Renew Rental"
+msgstr "租赁续期"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+#: model:ir.model,name:qing_rental.model_qing_rental_renew
+msgid "Renew rental"
+msgstr "租赁续期"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order_line__qing_rental_charge__renewal
+msgid "Renewal"
+msgstr "续租"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order_line__qing_rental_charge__rent
+#: model:ir.ui.menu,name:qing_rental.menu_rental_root
+#: model:res.groups.privilege,name:qing_rental.privilege_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_product_template_form
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_stock_warehouse_form
+msgid "Rental"
+msgstr "租赁"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_service_id
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__qing_rental_service_id
+msgid "Rental Billing Service"
+msgstr "租金服务产品"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Rental Charges"
+msgstr "租赁费用"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_form
+msgid "Rental Deposit"
+msgstr "租赁押金"
+
+#. module: qing_rental
+#: model:ir.actions.act_window,name:qing_rental.action_rental_deposits
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_rental_deposit_list
+msgid "Rental Deposits"
+msgstr "租赁押金"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move__qing_rental_line_id
+msgid "Rental Equipment Line"
+msgstr "租赁设备明细"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Rental Items"
+msgstr "租赁设备"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_stock_move__qing_rental_direction
+msgid "Rental Operation"
+msgstr "租赁操作"
+
+#. module: qing_rental
+#: model:ir.actions.act_window,name:qing_rental.action_rental_orders
+#: model:ir.model.fields,field_description:qing_rental.field_stock_picking__qing_rental_order_ids
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_list
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Rental Orders"
+msgstr "租赁订单"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__stock_move__qing_rental_direction__out
+msgid "Rental Pickup"
+msgstr "租赁借出"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_period
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__qing_rental_period
+msgid "Rental Price Period"
+msgstr "租赁计价周期"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Rental Product"
+msgstr "租赁产品"
+
+#. module: qing_rental
+#: model:ir.actions.act_window,name:qing_rental.action_rental_products
+msgid "Rental Products"
+msgstr "租赁产品"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_rate
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__qing_rental_rate
+msgid "Rental Rate"
+msgstr "租赁费率"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__stock_move__qing_rental_direction__in
+msgid "Rental Return"
+msgstr "租赁归还"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_calendar
+msgid "Rental Schedule"
+msgstr "租赁日历"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Rental Status"
+msgstr "租赁状态"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Rental Stock"
+msgstr "可租设备"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_stock_warehouse__qing_rental_stock_location_id
+msgid "Rental Stock Location"
+msgstr "可租库位"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Rental Stock and On Rent must not contain one another."
+msgstr "可租库位和在租库位不能互为上下级库位。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Rental Transfers"
+msgstr "租赁调拨"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__availability_state
+msgid "Rental availability"
+msgstr "租赁可用量"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Rental billing requires a service invoiced on ordered quantities, measured in units."
+msgstr "租金服务产品必须使用件数单位，并按订购数量开票。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order_line.py:0
+msgid "Rental charge links cannot be changed."
+msgstr "不能修改租赁费用关联。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order_line.py:0
+msgid "Rental charges must be created by the rental workflow."
+msgstr "租赁费用必须由租赁流程生成。"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_qing_rental_deposit
+msgid "Rental deposit"
+msgstr "租赁押金"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Rental deposit: %(order)s / %(reference)s"
+msgstr "租赁押金：%(order)s / %(reference)s"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move_line.py:0
+msgid "Rental detailed operations cannot be reassigned to another transfer."
+msgstr "不能将租赁作业明细关联到其他调拨。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_end
+msgid "Rental end"
+msgstr "租赁结束时间"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_qing_rental_line
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_line_ids
+msgid "Rental equipment"
+msgstr "租赁设备"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental equipment and locations cannot be changed manually."
+msgstr "不能手工修改租赁设备和库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/product_template.py:0
+msgid "Rental equipment must track inventory and use Units as its unit."
+msgstr "租赁设备必须追踪库存，并使用件数单位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental equipment quantities must be non-negative whole units."
+msgstr "租赁设备数量必须为非负整数。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "Rental extended from %(old)s to %(new)s."
+msgstr "租赁结束时间从 %(old)s 延长至 %(new)s。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Rental locations cannot change after rental transfers have been created."
+msgstr "创建租赁调拨后不能修改租赁库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Rental locations must be active internal locations of this warehouse company."
+msgstr "租赁库位必须是所属仓库公司的有效内部库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_warehouse.py:0
+msgid "Rental locations must be inside the warehouse and outside its normal Stock location."
+msgstr "租赁库位必须位于仓库范围内，并独立于普通库存库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Rental manager and accounting permissions are required to post deposits."
+msgstr "押金过账需要同时具备租赁管理员和财务权限。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental operation locations and ownership must match the transfer."
+msgstr "租赁作业的库位和货主必须与调拨一致。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental operations must keep the equipment, unit and company of the transfer."
+msgstr "租赁作业的设备、单位和公司必须与调拨一致。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__is_qing_rental
+msgid "Rental order"
+msgstr "租赁订单"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/common.py:0
+msgid "Rental permission is required."
+msgstr "需要租赁权限。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental pickup must be validated during the agreed rental period."
+msgstr "租赁借出必须在约定租期内验证。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Rental quantities and accounting totals are calculated by the workflow."
+msgstr "租赁数量和会计合计由业务流程计算，不能手工设置。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/product_template.py:0
+msgid "Rental rates must be finite and non-negative."
+msgstr "租赁费率必须是有效的非负数值。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_start
+msgid "Rental start"
+msgstr "租赁开始时间"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_sale_order__qing_rental_status
+msgid "Rental status"
+msgstr "租赁状态"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Rental status and totals are calculated by the workflow."
+msgstr "租赁状态和合计由业务流程计算，不能手工设置。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental transfer links cannot be changed manually."
+msgstr "不能手工修改租赁调拨关联。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Rental transfers"
+msgstr "租赁调拨"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental transfers can only be created by the rental order workflow."
+msgstr "租赁调拨只能由租赁订单流程创建。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Rental transfers must use the contracted equipment in Units."
+msgstr "租赁调拨必须使用约定设备及件数单位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/product_template.py:0
+msgid "Rental turnaround time must be finite and non-negative."
+msgstr "归还缓冲小时必须是有效的非负数值。"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_ir_actions_report
+msgid "Report Action"
+msgstr "报表动作"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Return"
+msgstr "归还"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Return Date"
+msgstr "归还日期"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Return only the lots or serial numbers picked up on this rental order."
+msgstr "只能归还本租赁订单实际借出的批次或序列号。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__qty_returned
+#: model:ir.model.fields.selection,name:qing_rental.selection__sale_order__qing_rental_status__returned
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Returned"
+msgstr "已归还"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__sales_line_ids
+msgid "Sales Line"
+msgstr "租金销售明细"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_sale_order
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "销售订单明细"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Salesperson"
+msgstr "销售员"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Select a bank or cash journal with a liquidity account in the deposit currency."
+msgstr "请选择配置了默认资金科目的银行／现金日记账，且币种与押金一致。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/product_template.py:0
+msgid "Select a rental service invoiced on ordered quantities."
+msgstr "请选择按订购数量开票的租金服务产品。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Select an existing lot or serial number for rental equipment."
+msgstr "请为租赁设备选择已有批次或序列号。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_line.py:0
+msgid "Select rentable, tracked goods measured in units."
+msgstr "请选择可租赁、追踪库存并使用件数单位的设备。"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__sequence
+msgid "Sequence"
+msgstr "顺序"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__service_product_id
+msgid "Service Product"
+msgstr "租金服务产品"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_stock_warehouse_form
+msgid "Set Up Rental Locations"
+msgstr "设置租赁库位"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_deposit__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_stock_move
+msgid "Stock Move"
+msgstr "库存移动"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order_line.py:0
+msgid "The agreed rental discount is locked after confirmation."
+msgstr "已确认租赁订单的约定折扣已锁定。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "The deposit amount must match the currency rounding."
+msgstr "押金金额的小数位必须符合币种精度。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "The new return date must be later than the current return date."
+msgstr "新的归还时间必须晚于当前归还时间。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "The picked-up quantity exceeds the contracted rental quantity."
+msgstr "借出数量超过约定租赁数量。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "The refund exceeds the outstanding deposit."
+msgstr "退还金额超过剩余可退押金。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "The rental end must be after its start."
+msgstr "租赁结束时间必须晚于开始时间。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "The rental order and transfer must belong to the same company."
+msgstr "租赁订单和调拨必须属于同一公司。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/product_template.py:0
+msgid "The rental service must be shared or belong to the equipment company."
+msgstr "租金服务产品必须为共享产品，或属于设备所在公司。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "The requested equipment is available. Capacity is reserved only on confirmation."
+msgstr "所需设备在当前租期可用。确认订单后才会占用可租数量。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "The returned quantity exceeds the quantity actually picked up."
+msgstr "归还数量超过实际借出数量。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "There are no remaining units to pick up or return."
+msgstr "没有剩余待借出或待归还设备。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "There is not enough physical equipment in the rental source location."
+msgstr "租赁来源库位中的实际设备数量不足。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Third-party owned equipment cannot be used for rentals."
+msgstr "不能使用第三方所有的设备进行租赁。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+#: model:ir.model.constraint,message:qing_rental.constraint_qing_rental_deposit_reference_unique
+msgid "This bank or cash reference has already been recorded."
+msgstr "该银行流水号或现金收据编号已经入账。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "This rental is already confirmed or cancelled."
+msgstr "此租赁订单已经确认或取消。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "This serial number is still rented on another order."
+msgstr "此序列号设备仍被其他租赁订单占用。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_list
+msgid "Total"
+msgstr "合计"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_stock_picking
+msgid "Transfer"
+msgstr "调拨"
+
+#. module: qing_rental
+#: model:ir.model.fields,field_description:qing_rental.field_product_product__qing_rental_padding_hours
+#: model:ir.model.fields,field_description:qing_rental.field_product_template__qing_rental_padding_hours
+msgid "Turnaround Hours"
+msgstr "归还缓冲小时"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/wizard/rental_renew.py:0
+msgid "Unlock the sales order before renewing it."
+msgstr "请先解锁销售订单，再续租。"
+
+#. module: qing_rental
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_form
+msgid "Update Rental Charges"
+msgstr "更新租赁费用"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Update rental charges before printing or sharing this quotation."
+msgstr "请先更新租赁费用，再打印或分享此报价。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_picking.py:0
+msgid "Use Create Return on the rental order to keep rental quantities and serial numbers consistent."
+msgstr "请从租赁订单办理归还，以保持租赁数量和序列号一致。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Use a reconcilable current liability account for refundable deposits."
+msgstr "可退押金必须使用允许对账的其他流动负债科目。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/account_move.py:0
+msgid "Use a rental deposit refund instead of resetting a posted deposit entry."
+msgstr "请通过押金退还处理，不能将已过账押金凭证重置为草稿。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Use rental order transfers for equipment entering or leaving On Rent locations."
+msgstr "设备进出在租库位必须使用租赁订单调拨。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Use the rental stock locations configured on the order warehouse."
+msgstr "请使用订单仓库配置的租赁库位。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/sale_order.py:0
+msgid "Use the rental workflow actions to change state."
+msgstr "请通过租赁流程操作更改状态。"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/rental_deposit.py:0
+msgid "Use the same liability account for this rental deposit and its refunds."
+msgstr "同一订单的押金收取与退还必须使用相同的负债科目。"
+
+#. module: qing_rental
+#: model:res.groups,name:qing_rental.group_rental_user
+msgid "User"
+msgstr "用户"
+
+#. module: qing_rental
+#. odoo-python
+#: code:addons/qing_rental/models/stock_move.py:0
+msgid "Validate rental transfers using the normal transfer validation action."
+msgstr "请通过原生调拨验证操作完成租赁调拨。"
+
+#. module: qing_rental
+#: model:ir.model,name:qing_rental.model_stock_warehouse
+#: model_terms:ir.ui.view,arch_db:qing_rental.view_sale_order_search
+msgid "Warehouse"
+msgstr "仓库"
+
+#. module: qing_rental
+#: model:ir.ui.menu,name:qing_rental.menu_rental_warehouses
+msgid "Warehouses"
+msgstr "仓库"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__product_template__qing_rental_period__week
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_line__period__week
+msgid "Week"
+msgstr "周"
+
+#. module: qing_rental
+#. odoo-javascript
+#: code:addons/qing_rental/static/src/widgets/rental_availability.js:0
+msgid "Sufficient rental availability"
+msgstr "租期可用量充足"
+
+#. module: qing_rental
+#. odoo-javascript
+#: code:addons/qing_rental/static/src/widgets/rental_availability.js:0
+msgid "Insufficient rental availability"
+msgstr "租期可用量不足"
+
+#. module: qing_rental
+#. odoo-javascript
+#: code:addons/qing_rental/static/src/widgets/rental_availability.xml:0
+#: model:ir.model.fields,field_description:qing_rental.field_qing_rental_line__required_qty
+msgid "Required during period"
+msgstr "租期需求量"
+
+#. module: qing_rental
+#. odoo-javascript
+#: code:addons/qing_rental/static/src/widgets/rental_availability.xml:0
+msgid "Demand includes all lines for this equipment, less returned quantities. Capacity is checked again on confirmation."
+msgstr "需求量合计本订单中同一设备的所有明细，并扣除已归还数量。确认订单时会再次检查可用量。"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_line__availability_state__available
+msgid "Available"
+msgstr "可用"
+
+#. module: qing_rental
+#: model:ir.model.fields.selection,name:qing_rental.selection__qing_rental_line__availability_state__unavailable
+msgid "Unavailable"
+msgstr "不可用"

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_fapiao_order_list" model="ir.ui.view">
+        <field name="name">qing.fapiao.order.list</field><field name="model">qing.fapiao.order</field>
+        <field name="arch" type="xml"><list create="false" edit="false" delete="true">
+            <field name="create_date"/><field name="request_key"/><field name="provider_id"/><field name="company_id" groups="base.group_multi_company"/><field name="task_state"/><field name="state" string="Provider Status" optional="hide"/><field name="registration_state"/><field name="external_id"/><field name="last_error" optional="hide"/>
+        <field name="has_pdf" column_invisible="True"/><button name="action_download_pdf" type="object" string="Download PDF" icon="fa-download" invisible="not has_pdf"/>
+        </list></field>
+    </record>
+    <record id="view_qing_fapiao_order_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.order.form</field><field name="model">qing.fapiao.order</field>
+        <field name="arch" type="xml"><form create="false" edit="false" delete="true">
+            <header>
+                <button name="action_queue" type="object" string="Queue Submission" invisible="state != 'queued' or pending_action"/>
+                <button name="action_query" type="object" string="Query Result" invisible="state not in ('pending', 'unknown', 'issued') or (processing_cancelled and state != 'issued')"/>
+                <button name="action_download_pdf" type="object" string="Download PDF" invisible="not has_pdf"/>
+                <button name="action_fetch_documents" type="object" string="Fetch Documents" invisible="state != 'issued'"/>
+                <button name="action_record_result" type="object" string="Register / Retry Registration" class="btn-primary" invisible="state != 'issued' or registration_state == 'done'"/>
+                <button name="action_cancel_processing" type="object" string="Cancel Task" invisible="state not in ('queued', 'pending', 'unknown') or processing_cancelled" confirm="Cancel automatic processing? Unsent tasks will be cancelled. Sent tasks will stop polling; this does not revoke a provider invoice or release the invoice request reservation."/>
+                <button name="action_query" type="object" string="Resume Queries" invisible="not processing_cancelled or state not in ('pending', 'unknown')"/>
+                <button name="action_delete_cancelled" type="object" string="Delete Task" groups="base.group_system" invisible="task_state not in ('cancelled', 'rejected')" confirm="Delete this cancelled or definitively rejected task and its audit history? This does not revoke any provider invoice. Verify the original order before creating another invoice task."/>
+                <field name="state" invisible="1"/>
+                <field name="task_state" widget="statusbar" statusbar_visible="queued,pending,unknown,issued,cancelled"/>
+            </header>
+            <sheet>
+                <field name="has_pdf" invisible="1"/>
+                <field name="processing_cancelled" invisible="1"/>
+                <div class="alert alert-info" role="alert" invisible="not processing_cancelled or state not in ('pending', 'unknown')">Automatic processing has been cancelled. Provider status and the invoice request reservation are retained. Resume queries to reconcile the original task.</div>
+                <div class="alert alert-warning" role="alert" invisible="state != 'unknown' or processing_cancelled">The provider outcome is unknown. Query this task; do not send another invoice request.</div>
+                <div class="alert alert-info" role="alert" invisible="state != 'issued' or registration_state != 'error'">The provider has issued the invoice. Correct the registration issue and retry registration without issuing another invoice.</div>
+                <group><group><field name="request_key"/><field name="provider_id"/><field name="company_id" groups="base.group_multi_company"/><field name="currency_id"/><field name="external_id"/></group>
+                    <group><field name="state" string="Provider Status"/><field name="registration_state"/><field name="submitted_at"/><field name="issued_at"/><field name="pending_action"/><field name="next_attempt_at"/></group></group>
+                <field name="last_error" invisible="not last_error"/><field name="registration_error" invisible="not registration_error"/>
+                <notebook>
+                    <page string="Request Snapshot"><field name="snapshot" widget="json"/><field name="provider_snapshot" widget="json"/></page>
+                    <page string="Provider Result"><field name="result" widget="json"/></page>
+                    <page string="Audit"><group><field name="attempt_count"/><field name="last_attempt_at"/><field name="processing_cancelled_by"/><field name="processing_cancelled_at"/></group><field name="event_ids"><list create="false" edit="false" delete="false"><field name="create_date"/><field name="kind"/><field name="notification_key"/><field name="processed"/><field name="payload" widget="json"/></list></field></page>
+                </notebook>
+            </sheet>
+            <chatter/>
+        </form></field>
+    </record>
+    <record id="view_qing_fapiao_order_search" model="ir.ui.view">
+        <field name="name">qing.fapiao.order.search</field><field name="model">qing.fapiao.order</field>
+        <field name="arch" type="xml"><search><field name="request_key"/><field name="provider_id"/><filter name="to_handle" string="Needs Attention" domain="['|',('state','=','unknown'),('registration_state','=','error')]"/><filter name="queued" string="Queued" domain="[('state','=','queued')]"/><filter name="issued" string="Issued" domain="[('state','=','issued')]"/></search></field>
+    </record>
+    <record id="action_fapiao_order" model="ir.actions.act_window"><field name="name">Invoice Interface Orders</field><field name="res_model">qing.fapiao.order</field><field name="view_mode">list,form</field></record>
+    <menuitem id="menu_fapiao_order" name="Invoice Orders" parent="menu_fapiao_interface_root" action="action_fapiao_order" sequence="10" groups="group_fapiao_manager"/>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+rental_line_read,Rental lines visible orders,qing.rental.line,qing_rental.group_rental_user,r,"[('order_id', 'access', 'read')]"
+rental_line_write,Rental lines writable orders,qing.rental.line,qing_rental.group_rental_user,cud,"[('order_id', 'access', 'write')]"
+rental_line_company,Rental lines company,qing.rental.line,,crud,"[('company_id', 'in', company_ids)]"
+rental_deposit_read,Rental deposits visible orders,qing.rental.deposit,qing_rental.group_rental_manager,r,"[('order_id', 'access', 'read')]"
+rental_deposit_write,Rental deposits writable orders,qing.rental.deposit,qing_rental.group_rental_manager,cud,"[('order_id', 'access', 'write')]"
+rental_deposit_company,Rental deposits company,qing.rental.deposit,,crud,"[('company_id', 'in', company_ids)]"
+rental_renew_user,Rental renewal,qing.rental.renew,qing_rental.group_rental_user,cru,"[('order_id', 'access', 'write')]"
+rental_renew_owner,Rental renewal own wizard,qing.rental.renew,,crud,"[('create_uid', '=', user.id)]"

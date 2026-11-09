@@ -1,0 +1,280 @@
+<templates xml:space="preserve">
+    <t t-name="qing_stock_barcode.Workbench">
+        <div class="o_qing_scan h-100 overflow-auto" t-on-click="() => this.focusScanner()">
+            <div class="qing_scan_content">
+                <header class="qing_scan_header">
+                    <div class="qing_scan_title"><h1>Warehouse Scanning</h1>
+                        <label t-if="!this.state.session &amp;&amp; ['incoming','outgoing','internal'].includes(this.state.page)" class="form-check form-switch qing_scan_completed_filter">
+                            <input type="checkbox" class="form-check-input" t-att-checked="this.state.showCompleted" t-on-change="this.toggleCompleted" t-att-disabled="this.state.busy || this.state.pending || this.state.loading"/><span>Show completed</span>
+                        </label>
+                    </div>
+                    <span class="qing_scan_company" t-out="this.state.dashboard?.company || ''"/>
+                </header>
+                <nav class="qing_scan_nav" aria-label="Warehouse operations">
+                    <button t-foreach="this.pages" t-as="page" t-key="page.id" type="button"
+                            t-att-class="'btn ' + (this.state.page === page.id ? 'btn-primary' : 'btn-light')"
+                            t-att-aria-pressed="this.state.page === page.id ? 'true' : 'false'"
+                            t-on-click="() => this.changePage(page.id)" t-att-disabled="this.state.busy || this.state.pending">
+                        <svg class="qing_scan_nav_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path t-att-d="page.icon"/>
+                        </svg><span t-out="page.label"/>
+                    </button>
+                </nav>
+                <div t-if="this.state.message" t-key="this.state.messageId" t-att-class="'alert alert-' + this.state.messageType + ' qing_scan_feedback'" role="status" aria-live="polite">
+                    <span t-out="this.state.message"/><button type="button" class="btn-close" aria-label="Close" t-on-click.stop="this.dismissFeedback"/>
+                </div>
+                <span t-if="!this.state.online" class="badge text-bg-secondary mb-2">Offline</span>
+                <button t-if="this.state.paused" type="button" class="btn btn-outline-warning mb-2 qing_scan_recovery" t-on-click="this.openRecovery"><t t-out="this.state.pending"/> awaiting confirmation</button>
+                <section t-if="this.state.session" t-att-class="'qing_scan_session_header ' + (this.state.session.kind === 'inventory' ? 'qing_scan_count_header' : '')" t-att-style="this.state.session.kind === 'picking' ? '--qing-progress: ' + this.documentProgress + '%;' : ''">
+                    <div class="qing_scan_session_top">
+                        <div class="qing_scan_session_identity"><h2 t-out="this.state.session.name" t-att-title="this.state.session.name"/><span class="qing_scan_responsible" t-out="this.state.session.responsible || '—'" t-att-title="this.state.session.responsible || '—'"/></div>
+                        <div class="qing_scan_session_actions">
+                            <button type="button" class="btn btn-light qing_scan_icon_button qing_scan_back" title="Back to list" aria-label="Back to list"
+                                    t-on-click="() => this.changePage(this.state.page)" t-att-disabled="this.state.busy || this.state.pending || this.state.loading">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+                            </button>
+                            <button type="button" class="btn btn-light qing_scan_icon_button qing_scan_refresh" title="Refresh" aria-label="Refresh"
+                                    t-on-click="this.refreshSession" t-att-disabled="this.state.busy || this.state.pending || this.state.loading || !this.state.online">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.4 6.7M20 4v7h-7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div t-if="this.state.session.backorder_of" class="qing_scan_backorder_source">Backorder of: <strong t-out="this.state.session.backorder_of"/></div>
+                    <div class="qing_scan_session_bottom"><span class="badge rounded-pill text-bg-light" t-out="this.stateLabel"/><span t-if="this.state.session.kind === 'picking'">Overall progress <b t-out="this.documentProgress + '%'"/></span></div>
+                    <div t-if="this.state.session.kind === 'picking'" class="visually-hidden qing_scan_document_progress" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" t-att-aria-valuenow="this.documentProgress"/>
+                </section>
+                <div t-if="this.state.session?.source || this.state.session?.destination" class="qing_scan_route">
+                    <span t-out="this.state.session.source || '—'"/><i class="fa fa-long-arrow-right"/><span t-out="this.state.session.destination || '—'"/>
+                </div>
+                <div t-if="this.state.session?.pending_product" class="alert alert-info">
+                    <strong>Scan lot or serial:</strong> <span t-out="this.state.session.pending_product"/>
+                    <button type="button" class="btn btn-link" t-on-click="() => this.command({op: 'clear_pending'})" t-att-disabled="this.state.busy">Clear pending scan</button>
+                </div>
+                <section class="qing_scan_input_panel" t-if="this.showScanner">
+                    <div class="qing_scan_device_toolbar">
+                        <label class="form-check form-switch"><input class="form-check-input qing_scan_pda_toggle" type="checkbox" t-att-checked="this.state.pda" t-on-change="this.setPdaMode"/><span>PDA mode</span></label>
+                        <button t-if="this.state.pda" type="button" class="btn btn-outline-primary qing_scan_icon_button qing_scan_refocus" title="Return to scanning" aria-label="Return to scanning" t-on-click="() => this.focusScanner(true)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M7 7v10m3-10v10m4-10v10m3-10v10"/></svg></button>
+                        <button t-if="this.state.pda" type="button" class="btn btn-outline-secondary qing_scan_icon_button qing_scan_keyboard" title="Keyboard" aria-label="Keyboard" t-on-click="this.toggleManualKeyboard" t-att-aria-pressed="this.state.manualKeyboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5h18v14H3zM6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/></svg></button>
+                    </div>
+                    <p t-if="this.state.pda" class="small text-muted">Set the device to keyboard output with Enter or Tab. Return to scanning after editing another field.</p>
+                    <form class="qing_scan_input_row" t-on-submit.prevent="this.submitBarcode">
+                        <label class="visually-hidden" for="qing_barcode_input">Barcode</label>
+                        <div class="qing_scan_entry">
+                        <textarea id="qing_barcode_input" t-ref="this.scannerInput" rows="1" class="form-control form-control-lg" t-att-value="this.state.barcode"
+                                  t-on-input="this.onScannerInput" t-on-keydown="this.onScannerKeydown"
+                                  t-on-compositionstart="() => { this.composing = true; }"
+                                  t-on-compositionend="(event) => { this.composing = false; this.onScannerInput(event); }"
+                                  t-att-inputmode="this.state.pda &amp;&amp; !this.state.manualKeyboard ? 'none' : 'text'"
+                                  placeholder="Barcode / SKU" autocomplete="off" autocapitalize="off" spellcheck="false" t-att-disabled="!this.canScan"/>
+                        <button type="button" class="btn btn-light qing_scan_icon_button qing_scan_camera" title="Camera" aria-label="Camera"
+                                t-on-click="this.openCamera" t-att-disabled="!this.canScan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6l2-3h4l2 3h5v14H3V6zM16 13a4 4 0 1 0-8 0 4 4 0 0 0 8 0"/></svg></button>
+                        <button type="submit" class="btn qing_scan_icon_button qing_scan_confirm" title="Scan" aria-label="Scan"
+                                t-att-disabled="!this.canSubmitBarcode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12l4 4L19 6"/></svg></button>
+                        </div>
+                    </form>
+                    <div t-if="this.state.session" class="qing_scan_options">
+                        <div class="qing_scan_mode_field"><span>Mode</span>
+                            <button type="button" class="btn btn-light qing_scan_mode_button" t-on-click="this.openModeSelector"
+                                    t-att-disabled="this.state.busy || this.state.pending" aria-haspopup="dialog">
+                                <span t-out="this.modeLabel"/><i class="fa fa-angle-down" aria-hidden="true"/>
+                            </button>
+                        </div>
+                        <label>Quantity per scan <input type="number" class="form-control" min="0.001" step="any" t-att-value="this.state.quantity" t-on-input="(event) => { this.state.quantity = event.target.value; }" t-att-disabled="this.state.busy"/></label>
+                        <button type="button" class="btn btn-outline-secondary" t-on-click="this.searchProducts" t-att-disabled="!this.canScan || this.state.busy">Find product</button>
+                        <button type="button" class="btn btn-outline-secondary" t-on-click="() => this.command({op: 'undo'})" t-att-disabled="this.state.busy || this.state.pending">Undo last quantity</button>
+                    </div>
+                    <div t-if="this.state.selectedLine" class="small mt-2">
+                        A specific operation line is selected.
+                        <button type="button" class="btn btn-link btn-sm" t-on-click="() => { this.state.selectedLine = false; }">Clear selection</button>
+                    </div>
+                </section>
+                <section t-if="this.state.showProducts" class="qing_scan_panel">
+                    <form class="d-flex gap-2 mb-3" t-on-submit.prevent="this.searchProducts">
+                        <input class="form-control" t-att-value="this.state.productSearch" t-on-input="(event) => { this.state.productSearch = event.target.value; }" placeholder="Product name or reference"/>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-light" t-on-click="() => { this.state.showProducts = false; }">Close</button>
+                    </form>
+                    <div class="qing_scan_cards"><button t-foreach="this.state.products" t-as="product" t-key="product.id"
+                        type="button" class="qing_scan_card text-start" t-on-click="() => this.selectProduct(product)">
+                        <strong t-out="product.name"/><small t-out="product.barcode"/>
+                    </button></div>
+                </section>
+                <t t-if="!this.state.session">
+                    <section t-if="this.state.page !== 'lookup'" class="qing_scan_panel">
+                        <form class="d-flex gap-2 mb-3" t-on-submit.prevent="this.searchRecords">
+                            <input class="form-control" t-att-value="this.state.search" t-on-input="(event) => { this.state.search = event.target.value; }" placeholder="Search tasks or locations"/>
+                            <button type="submit" class="btn btn-outline-primary">Search</button>
+                            <button t-if="this.state.page === 'internal' &amp;&amp; this.state.dashboard?.can_create_internal" type="button" class="btn btn-primary qing_scan_new qing_scan_icon_button" title="New internal transfer" aria-label="New internal transfer"
+                                    t-att-disabled="this.state.loading || this.state.busy || this.state.pending || !this.state.online" t-on-click="() => this.editInternal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></button>
+                        </form>
+                        <t t-if="this.state.page === 'inventory'">
+                            <div class="qing_scan_task_header qing_scan_location_header" aria-hidden="true"><span>Location</span><span>Action</span></div>
+                            <div class="qing_scan_task_list" role="list" aria-label="Inventory Location">
+                                <div t-foreach="this.state.locations" t-as="location" t-key="location.id" role="listitem"
+                                     t-att-class="'qing_scan_task_row qing_scan_location ' + (this.state.selectedLocation === location.id ? 'qing_scan_selected ' : '') + (location.session_id ? 'qing_scan_task_active' : '')"
+                                     t-att-style="'--qing-progress: ' + (location.progress || 0) + '%;'">
+                                    <button type="button" class="qing_scan_task_select qing_scan_location_select"
+                                            t-att-aria-pressed="this.state.selectedLocation === location.id ? 'true' : 'false'"
+                                            t-att-disabled="this.state.loading" t-on-click="() => { this.state.selectedLocation = location.id; }">
+                                        <strong t-out="location.name"/><small t-if="location.barcode" class="text-muted" t-out="location.barcode"/>
+                                    </button>
+                                    <button type="button" class="btn qing_scan_start qing_scan_icon_button" title="Start count" aria-label="Start count"
+                                            t-att-disabled="this.state.busy || this.state.pending || this.state.loading || !this.state.online"
+                                            t-on-click.stop="() => this.startLocation(location)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M7 7v10m3-10v10m4-10v10m3-10v10"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <div class="qing_scan_task_header" aria-hidden="true"><span>Transfer number</span><span>Location</span><span>Responsible</span><span>Action</span></div>
+                            <div class="qing_scan_task_list" role="list" aria-label="Transfers">
+                                <div t-foreach="this.state.dashboard?.transfers || []" t-as="transfer" t-key="transfer.id" role="listitem"
+                                     t-att-class="'qing_scan_task_row ' + (this.state.selectedTransfer === transfer.id ? 'qing_scan_selected ' : '') + (transfer.state === 'done' ? 'qing_scan_task_completed ' : '') + (transfer.session_id ? 'qing_scan_task_active' : '')"
+                                     t-att-style="'--qing-progress: ' + (transfer.state === 'done' ? 100 : transfer.progress || 0) + '%;'">
+                                    <button type="button" class="qing_scan_task_select"
+                                            t-att-aria-pressed="this.state.selectedTransfer === transfer.id ? 'true' : 'false'"
+                                            t-att-disabled="this.state.loading" t-on-click="() => { this.state.selectedTransfer = transfer.id; }">
+                                        <strong><t t-out="transfer.name"/><small t-if="transfer.state === 'draft'" class="d-block text-muted">Draft</small></strong>
+                                        <span class="qing_scan_task_route"><span t-out="transfer.source"/><span>→ <t t-out="transfer.destination"/></span></span>
+                                        <span t-out="transfer.responsible || '—'"/>
+                                        <span class="visually-hidden" t-out="transfer.partner || transfer.origin"/>
+                                    </button>
+                                    <button t-if="transfer.state === 'done'" type="button" class="btn qing_scan_view qing_scan_icon_button" title="View completed transfer" aria-label="View completed transfer"
+                                            t-att-disabled="this.state.loading || this.state.busy || this.state.pending || !this.state.online" t-on-click.stop="() => this.viewCompleted(transfer.id)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    </button>
+                                    <button t-elif="transfer.state === 'draft'" type="button" class="btn qing_scan_edit qing_scan_icon_button" title="Edit draft" aria-label="Edit draft"
+                                            t-att-disabled="this.state.loading || this.state.busy || this.state.pending || !this.state.online" t-on-click.stop="() => this.editInternal(transfer.id)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 3 5 5M4 20l5-1L21 7a2.1 2.1 0 0 0-4-4L5 15l-1 5z"/></svg></button>
+                                    <button t-else="" type="button" class="btn qing_scan_start qing_scan_icon_button" title="Start scanning" aria-label="Start scanning"
+                                            t-att-disabled="this.state.loading || this.state.busy || this.state.pending || !this.state.online"
+                                            t-on-click.stop="() => this.startTransfer(transfer)">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M7 7v10m3-10v10m4-10v10m3-10v10"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div t-if="!this.state.dashboard?.transfers.length" class="qing_scan_empty">
+                                <t t-if="this.state.page === 'internal'">
+                                    <p>No matching internal transfers.</p>
+                                    <button t-if="this.state.dashboard?.can_create_internal" type="button" class="btn btn-outline-primary" t-on-click="() => this.editInternal()" t-att-disabled="this.state.loading || this.state.busy || this.state.pending || !this.state.online">New internal transfer</button>
+                                </t>
+                                <t t-else="">No matching transfers. Confirm a receipt, delivery or internal transfer in Inventory first.</t>
+                            </div>
+                            <p t-if="this.state.dashboard?.truncated" class="text-muted">More results are available. Narrow your search.</p>
+                        </t>
+                    </section>
+                </t>
+                <section t-if="this.state.stock" class="qing_scan_panel qing_scan_stock_panel">
+                    <h2>Stock lookup</h2>
+                    <div t-if="this.state.stock.rows.length" class="qing_scan_stock_scroll" tabindex="0" role="region" aria-label="Stock lookup">
+                        <table class="qing_scan_stock_table">
+                            <thead><tr><th scope="col">Product</th><th scope="col">Unit</th><th scope="col">Location</th><th scope="col">On hand</th><th scope="col">Available</th><th scope="col">Reserved</th></tr></thead>
+                            <tbody>
+                                <tr t-foreach="this.state.stock.rows" t-as="row" t-key="row.id">
+                                    <td><strong t-out="row.product"/><small t-if="row.lot || row.package" class="d-block text-muted"><t t-out="row.lot"/> <t t-out="row.package"/></small></td>
+                                    <td t-out="row.unit"/><td t-out="row.location"/>
+                                    <td class="qing_scan_stock_onhand" t-out="row.quantity"/>
+                                    <td class="qing_scan_stock_available" t-out="row.available"/>
+                                    <td class="qing_scan_stock_reserved" t-out="row.reserved"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><p t-if="!this.state.stock.rows.length">No matching stock in the current company.</p>
+                    <p t-if="this.state.stock.truncated">Showing the first 100 stock records.</p>
+                </section>
+                <t t-if="this.state.session">
+                    <div t-if="this.state.session.backorders?.length" class="alert alert-info">
+                        Remaining transfers: <span t-foreach="this.state.session.backorders" t-as="backorder" t-key="backorder.id" class="me-2" t-out="backorder.name"/>
+                    </div>
+                    <section t-if="this.progressRows.length" class="qing_scan_panel qing_scan_progress_panel">
+                        <h2>Progress</h2><div class="qing_scan_progress_list">
+                            <article t-foreach="this.progressRows" t-as="move" t-key="move.key" class="qing_scan_progress" t-att-style="'--qing-progress: ' + move.percent + '%;'">
+                                <button type="button" class="qing_scan_progress_toggle" t-on-click="() => this.toggleProgress(move.key)"
+                                        t-att-aria-expanded="this.state.expandedProgress === move.key ? 'true' : 'false'" t-att-aria-controls="'qing-details-' + move.key" t-att-disabled="this.state.busy || this.state.pending">
+                                    <span class="qing_scan_progress_heading"><strong t-out="move.product"/><svg class="qing_scan_expand_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path t-att-d="this.state.expandedProgress === move.key ? 'M6 15l6-6 6 6' : 'M6 9l6 6 6-6'"/></svg></span>
+                                    <span class="qing_scan_progress_track" role="progressbar" t-att-aria-label="move.product" aria-valuemin="0" aria-valuemax="100" t-att-aria-valuenow="move.percent"><span class="qing_scan_progress_fill"/></span>
+                                    <span class="qing_scan_progress_summary">
+                                        <span t-if="this.state.session.kind === 'picking'"><span t-if="this.state.session.readonly">Completed quantity</span><span t-else="">Scanned</span> <b class="qing_scan_scanned" t-out="move.scanned"/> / <t t-out="move.planned"/> <t t-out="move.unit"/></span>
+                                        <span t-else=""><span t-if="move.counted">Counted</span><span t-else="">Not counted</span> · <b class="qing_scan_scanned" t-out="move.quantity"/> <t t-out="move.unit"/></span>
+                                        <span class="qing_scan_progress_percent" t-out="move.percent + '%'"/>
+                                    </span>
+                                </button>
+                                <div t-if="this.state.expandedProgress === move.key" class="qing_scan_operation_details" t-att-id="'qing-details-' + move.key">
+                                    <h3>Operation lines</h3><p t-if="!this.state.session.readonly" class="text-muted small">Select a line when the same product has different locations, lots, owners or packages.</p>
+                                    <p t-if="!move.lines.length" class="text-muted small">No operation lines.</p>
+                                    <div class="qing_scan_cards">
+                                        <article t-foreach="move.lines" t-as="line" t-key="line.id" t-att-class="'qing_scan_card ' + (this.state.selectedLine === line.id ? 'qing_scan_selected' : '')">
+                                            <button type="button" class="qing_scan_select btn text-start p-0" t-on-click="() => { this.state.selectedLine = line.id; }" t-att-disabled="this.state.busy">
+                                                <strong t-out="line.product"/><small><t t-out="line.source"/> → <t t-out="line.destination"/></small>
+                                                <small t-if="line.lot || line.package || line.owner"><t t-out="line.lot"/> <t t-out="line.package"/> <t t-out="line.owner"/></small>
+                                            </button>
+                                            <div class="d-flex align-items-end justify-content-between gap-2"><b class="qing_scan_amount" t-out="line.quantity"/><span t-out="line.unit"/></div>
+                                            <small t-if="line.whole_package" class="text-primary">Whole package</small>
+                                            <t t-if="this.state.session.kind === 'inventory'">
+                                                <span t-if="!line.counted" class="badge text-bg-light">Not counted</span><span t-else="" class="badge text-bg-success">Counted</span>
+                                                <div t-if="this.state.session.state === 'scanning'" class="d-flex gap-2">
+                                                    <input class="form-control" type="number" min="0" step="any" placeholder="Actual count" t-att-value="this.state.countValues[line.id]" t-on-input="(event) => { this.state.countValues[line.id] = event.target.value; }" t-att-disabled="this.state.busy"/>
+                                                    <button type="button" class="btn btn-outline-primary" t-on-click="() => this.setCount(line)" t-att-disabled="this.state.busy || this.state.pending">Set</button>
+                                                </div>
+                                                <small t-if="line.baseline !== null">Recorded stock: <t t-out="line.baseline"/> · Difference: <t t-out="line.counted ? line.quantity - line.baseline : '—'"/></small>
+                                            </t>
+                                        </article>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <footer class="qing_scan_footer">
+                        <button t-if="this.state.session.manager &amp;&amp; this.state.session.state === 'applied'" type="button" class="btn btn-outline-danger" t-on-click="() => this.confirmOperation('release')" t-att-disabled="this.state.busy || this.state.pending">Release to Inventory</button>
+                        <button t-if="this.state.session.manager &amp;&amp; !this.state.session.owned &amp;&amp; ['scanning','review','applied'].includes(this.state.session.state)" type="button" class="btn btn-warning" t-on-click="() => this.confirmOperation('take_over')" t-att-disabled="this.state.busy">Take over</button>
+                        <button t-if="this.state.session.kind === 'inventory' &amp;&amp; this.state.session.state === 'scanning'" type="button" class="btn btn-primary btn-lg" t-on-click="() => this.confirmOperation('submit_review')" t-att-disabled="this.state.busy || this.state.pending">Submit count</button>
+                        <button t-if="this.state.session.kind === 'inventory' &amp;&amp; this.state.session.state === 'review' &amp;&amp; this.state.session.manager" type="button" class="btn btn-primary btn-lg" t-on-click="() => this.confirmOperation('finish')" t-att-disabled="this.state.busy || this.state.pending">Apply reviewed count</button>
+                        <button t-if="['scanning','review'].includes(this.state.session.state)" type="button" class="btn btn-outline-danger" t-on-click="() => this.confirmOperation('cancel')" t-att-disabled="this.state.busy || this.state.pending">Cancel session</button>
+                        <button t-if="this.state.session.picking_id" type="button" class="btn btn-outline-secondary" t-on-click="this.openNative">Open transfer</button>
+                        <button t-if="!this.state.session.readonly" type="button" class="btn btn-outline-secondary" t-on-click="this.printLabels">Print labels</button>
+                        <button t-if="this.state.session.picking_state === 'done' &amp;&amp; !this.state.session.readonly" type="button" class="btn btn-outline-primary" t-on-click="() => this.confirmOperation('return')" t-att-disabled="this.state.busy || this.state.pending">Create return</button>
+                    </footer>
+                    <div t-if="this.state.session.kind === 'picking'" class="qing_scan_validation">
+                        <button t-if="this.state.session.state === 'done' || this.state.session.picking_state === 'done'" type="button" class="btn btn-primary btn-lg w-100 qing_scan_return" t-on-click="() => this.changePage(this.state.page)" t-att-disabled="this.state.busy || this.state.pending || this.state.loading">Back to list</button>
+                        <button t-else="" type="button" class="btn btn-lg w-100 qing_scan_validate"
+                                t-att-disabled="!this.canValidate" t-on-click="this.validateTransfer"
+                                t-att-title="this.state.session.validation_blocker || ''">Validate</button>
+                        <p t-if="this.state.session.validation_blocker &amp;&amp; ['scanning','applied'].includes(this.state.session.state)"
+                           class="small text-muted mt-2 mb-0" t-out="this.state.session.validation_blocker"/>
+                    </div>
+                    <details t-if="!this.state.session.readonly" class="qing_scan_panel"><summary>Recent activity</summary>
+                        <div t-foreach="this.state.session.events" t-as="event" t-key="event.id" class="qing_scan_event">
+                            <i t-att-class="'fa ' + (event.state === 'accepted' ? 'fa-check text-success' : 'fa-times text-danger')"/>
+                            <span t-out="event.message"/><small t-if="event.undone">Reversed</small>
+                        </div>
+                    </details>
+                </t>
+            </div>
+        </div>
+    </t>
+    <t t-name="qing_stock_barcode.ScanModeDialog">
+        <Dialog title="this.title" size="'sm'">
+            <div class="qing_scan_mode_choices">
+                <button t-foreach="this.props.choices" t-as="choice" t-key="choice.value" type="button"
+                        t-att-class="'btn qing_scan_mode_choice ' + (this.props.selected === choice.value ? 'qing_scan_mode_active' : '')"
+                        t-att-aria-pressed="this.props.selected === choice.value ? 'true' : 'false'" t-on-click="() => this.select(choice.value)">
+                    <span t-out="choice.label"/><i t-if="this.props.selected === choice.value" class="fa fa-check" aria-hidden="true"/>
+                </button>
+            </div>
+            <t t-set-slot="footer"><button type="button" class="btn btn-secondary" t-on-click="this.props.close">Close</button></t>
+        </Dialog>
+    </t>
+    <t t-name="qing_stock_barcode.ScanRecoveryDialog">
+        <Dialog title="this.title" size="'sm'">
+            <p>Some requests are not confirmed. Reconcile them before scanning more items.</p>
+            <p><t t-out="this.props.state.pending"/> awaiting confirmation</p>
+            <p t-if="!this.props.state.online" class="text-danger">Offline. Scanning is paused until the connection is restored.</p>
+            <p t-if="this.props.state.recoveryError" class="text-danger" t-out="this.props.state.recoveryError"/>
+            <t t-set-slot="footer">
+                <button type="button" class="btn btn-primary" t-on-click="this.retry" t-att-disabled="this.props.state.busy || !this.props.state.online">Check and retry</button>
+                <button type="button" class="btn btn-secondary" t-on-click="this.props.close">Close</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

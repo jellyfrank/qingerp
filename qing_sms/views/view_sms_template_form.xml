@@ -1,0 +1,13 @@
+<odoo>
+ <record id="view_sms_remote_template_list" model="ir.ui.view"><field name="name">qing.sms.remote.template.list</field><field name="model">qing.sms.remote.template</field>
+ <field name="arch" type="xml"><list><field name="remote_id"/><field name="name"/><field name="account_id"/><field name="audit_state"/><field name="category"/></list></field></record>
+ <record id="view_sms_remote_template_form" model="ir.ui.view"><field name="name">qing.sms.remote.template.form</field><field name="model">qing.sms.remote.template</field>
+ <field name="arch" type="xml"><form><sheet>
+ <group><field name="account_id"/><field name="remote_id"/><field name="name"/><field name="company_id"/>
+ <field name="audit_state" readonly="1"/><field name="category" readonly="1"/><field name="active"/><field name="last_sync_at"/></group>
+ <group><field name="content"/><field name="variables"/><field name="variable_rules"/><field name="sign_names"/>
+ <field name="reject_reason"/></group><field name="revision_ids"><list create="0" edit="0" delete="0">
+<field name="create_date"/><field name="audit_state"/><field name="content"/></list></field></sheet></form></field></record>
+ <record id="action_sms_remote_template" model="ir.actions.act_window"><field name="name">国内短信</field>
+ <field name="res_model">qing.sms.remote.template</field><field name="view_mode">list,form</field></record>
+</odoo>

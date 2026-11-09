@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_repair_purchase_wizard,Repair purchase wizard,qing.repair.purchase.wizard,purchase.group_purchase_user,cru,
+access_repair_purchase_wizard_line,Repair purchase wizard lines,qing.repair.purchase.wizard.line,purchase.group_purchase_user,cru,
+repair_purchase_wizard_owner,Own repair purchase wizard,qing.repair.purchase.wizard,,crud,"[('create_uid', '=', user.id)]"
+repair_purchase_wizard_line_owner,Own repair purchase wizard lines,qing.repair.purchase.wizard.line,,crud,"[('wizard_id.create_uid', '=', user.id)]"

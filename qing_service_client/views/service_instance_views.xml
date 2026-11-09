@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_service_instance_list" model="ir.ui.view">
+        <field name="name">qing.service.instance.list</field>
+        <field name="model">qing.service.instance</field>
+        <field name="arch" type="xml"><list create="false"><field name="organization_name"/><field name="system_url"/><field name="state"/><field name="last_sync_at"/></list></field>
+    </record>
+    <record id="view_qing_service_instance_form" model="ir.ui.view">
+        <field name="name">qing.service.instance.form</field>
+        <field name="model">qing.service.instance</field>
+        <field name="arch" type="xml">
+            <form string="QingERP Online Services">
+                <header>
+                    <button name="action_register" type="object" string="Confirm and Register" class="btn-primary" invisible="state != 'local'"/>
+                    <button name="action_sync" type="object" string="Sync Service Status" invisible="state == 'local'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="local,pending,active,suspended"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="status">QingERP sends basic installation statistics in the background: organization name, system URL, installed module counts, product version and a random instance identifier. Confirm and Register separately sends the tax ID and contact email to request online services. Online services require operator approval and an active subscription. The ERP remains usable without online service registration.</div>
+                    <group>
+                        <group string="Registration details">
+                            <field name="organization_name"/>
+                            <field name="organization_tax_id"/>
+                            <field name="system_url"/>
+                            <field name="contact_email"/>
+                        </group>
+                        <group string="Service status">
+                            <field name="instance_uid" readonly="1"/>
+                            <field name="last_sync_at" readonly="1"/>
+                            <field name="subscription_summary" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qing_service_instance" model="ir.actions.act_window">
+        <field name="name">QingERP Online Services</field>
+        <field name="res_model">qing.service.instance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_qing_service_instance" name="Online Services" parent="base.menu_administration" action="action_qing_service_instance" groups="base.group_system" sequence="95"/>
+</odoo>

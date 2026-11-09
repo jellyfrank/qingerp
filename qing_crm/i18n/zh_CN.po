@@ -1,0 +1,516 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_pool__active
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_pool_entry__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__active
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__active
+msgid "Active"
+msgstr "持续合作"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_assignment_wizard__operation__share
+msgid "Add Collaborator"
+msgstr "添加协作人"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_crm_enroll
+#: model:ir.ui.menu,name:qing_crm.menu_crm_add_customer
+msgid "Add Customer"
+msgstr "纳管客户"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_res_partner_form_crm
+msgid "Add to CRM"
+msgstr "纳入客户管理"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/res_partner.py:0
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_enroll_wizard_form
+msgid "Add to Customer Management"
+msgstr "纳入客户管理"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_all_crm_customers
+#: model:ir.ui.menu,name:qing_crm.menu_all_crm_customers
+msgid "All Managed Customers"
+msgstr "全部经营客户"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_assignment_wizard__operation__assign
+msgid "Assign or Transfer"
+msgstr "分配或转交"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+msgid "Assignment"
+msgstr "归属与协作"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__health_status__at_risk
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_health_status__at_risk
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__health_status__at_risk
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__health_status__at_risk
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__health_status__at_risk
+msgid "At Risk"
+msgstr "有流失风险"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__attachment_ids
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup_wizard__attachment_ids
+msgid "Attachments"
+msgstr "附件"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_pool_entry__available_since
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__available_since
+msgid "Available Since"
+msgstr "进入公海时间"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__crm_owner_mode__explicit
+msgid "CRM Owner"
+msgstr "CRM负责人"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_status_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_enroll_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_pool_entry_list
+msgid "Claim"
+msgstr "领取"
+
+#. module: qing_crm
+#: model:ir.ui.menu,name:qing_crm.menu_collaborating_crm_customers
+msgid "Collaborating"
+msgstr "协作客户"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_assignment_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_status_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_enroll_wizard_form
+msgid "Confirm"
+msgstr "确认"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__connected
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__connected
+msgid "Connected"
+msgstr "已联系"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_event__partner_name
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__partner_name
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/partner_role.py:0
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_assignment_wizard_form
+msgid "Customer Assignment"
+msgstr "客户归属与协作"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_event__customer_grade
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_status_wizard__customer_grade
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__customer_grade
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_pool_entry__customer_grade
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__customer_grade
+msgid "Customer Grade"
+msgstr "客户等级"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_crm_customer_history
+#: model:ir.ui.menu,name:qing_crm.menu_crm_customer_history
+msgid "Customer History"
+msgstr "客户变更历史"
+
+#. module: qing_crm
+#: model:ir.ui.menu,name:qing_crm.menu_customer_management
+msgid "Customer Management"
+msgstr "客户管理"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_crm_pool
+#: model:ir.ui.menu,name:qing_crm.menu_crm_pool_config
+msgid "Customer Pools"
+msgstr "客户池"
+
+#. module: qing_crm
+#: model:ir.ui.menu,name:qing_crm.menu_crm_reports
+msgid "Customer Reports"
+msgstr "客户报表"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+msgid "Customer Status"
+msgstr "客户状态"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__health_status__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_health_status__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__health_status__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__health_status__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__health_status__dormant
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__dormant
+msgid "Dormant"
+msgstr "沉睡"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__duration_minutes
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup_wizard__duration_minutes
+msgid "Duration Minutes"
+msgstr "时长（分钟）"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__effective_contact
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup_wizard__effective_contact
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_search
+msgid "Effective Contact"
+msgstr "有效联系"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__email
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__email
+msgid "Email"
+msgstr "邮件"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__first_order
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__first_order
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__first_order
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__first_order
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__first_order
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__first_order
+msgid "First Order"
+msgstr "首次成交"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_list
+msgid "Follow Up"
+msgstr "跟进"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_crm_followup_report
+#: model:ir.ui.menu,name:qing_crm.menu_crm_followup_report
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_pivot
+msgid "Follow-up Analysis"
+msgstr "跟进分析"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_crm_followup
+#: model:ir.ui.menu,name:qing_crm.menu_crm_followup
+msgid "Follow-up Records"
+msgstr "跟进记录"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+msgid "Follow-ups"
+msgstr "跟进记录"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+msgid "Grade"
+msgstr "客户等级"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+msgid "Health"
+msgstr "活跃状态"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_event__health_status
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_status_wizard__health_status
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__health_status
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__health_status
+msgid "Health Status"
+msgstr "活跃状态"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__health_status__healthy
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_health_status__healthy
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__health_status__healthy
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__health_status__healthy
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__health_status__healthy
+msgid "Healthy"
+msgstr "健康"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__history_ids
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+msgid "History"
+msgstr "变更历史"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__interested
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__interested
+msgid "Interested"
+msgstr "有意向"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__last_effective_followup_at
+msgid "Last Effective Followup At"
+msgstr "最近有效跟进时间"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__last_followup_at
+msgid "Last Followup At"
+msgstr "最近跟进时间"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_pool_entry_search
+msgid "Lifecycle"
+msgstr "生命周期"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_event__lifecycle_stage
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_status_wizard__lifecycle_stage
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__lifecycle_stage
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_pool_entry__lifecycle_stage
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__lifecycle_stage
+msgid "Lifecycle Stage"
+msgstr "生命周期阶段"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/partner_role.py:0
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_wizard_form
+msgid "Log Follow-up"
+msgstr "记录跟进"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__health_status__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_health_status__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__health_status__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__health_status__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__health_status__lost
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__lost
+msgid "Lost"
+msgstr "已流失"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__meeting
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__meeting
+msgid "Meeting"
+msgstr "会议"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_my_crm_customers
+#: model:ir.ui.menu,name:qing_crm.menu_my_crm_customers
+msgid "My Customers"
+msgstr "我的客户"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_enroll_wizard__destination__mine
+msgid "My Private Customers"
+msgstr "纳入我的私海"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__health_status__attention
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_health_status__attention
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__health_status__attention
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__health_status__attention
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__health_status__attention
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+msgid "Needs Attention"
+msgstr "需关注"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__next_activity_id
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_wizard_form
+msgid "Next Activity"
+msgstr "下一步活动"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup_wizard__next_activity_date
+#: model:ir.model.fields,field_description:qing_crm.field_qing_partner_role__next_activity_date
+msgid "Next Activity Date"
+msgstr "下一活动日期"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__no_answer
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__no_answer
+msgid "No Answer"
+msgstr "未接通"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+msgid "No Next Activity"
+msgstr "未安排下一步"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/wizard/crm_followup.py:0
+msgid "Only attachments uploaded for this follow-up can be included."
+msgstr "只能使用为本次跟进上传的附件。"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__other
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__other
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__other
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__other
+msgid "Other"
+msgstr "其他"
+
+#. module: qing_crm
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_customer_event__owner_id
+#: model:ir.model.fields,field_description:qing_crm.field_qing_crm_followup__owner_id
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_search
+msgid "Owner"
+msgstr "负责人"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__phone
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__phone
+msgid "Phone"
+msgstr "电话"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__potential
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__potential
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__potential
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__potential
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__potential
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__potential
+msgid "Potential"
+msgstr "潜在客户"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_pool_state__private
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__pool_state__private
+msgid "Private"
+msgstr "私海"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/crm_pool.py:0
+#: model:ir.actions.act_window,name:qing_crm.action_crm_public_pool
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_pool_state__public
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_enroll_wizard__destination__public
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__pool_state__public
+#: model:ir.ui.menu,name:qing_crm.menu_crm_public_pool
+msgid "Public Pool"
+msgstr "客户公海"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__lifecycle_stage__qualified
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_event__previous_lifecycle_stage__qualified
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_customer_status_wizard__lifecycle_stage__qualified
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__lifecycle_stage__qualified
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_pool_entry__lifecycle_stage__qualified
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__lifecycle_stage__qualified
+msgid "Qualified"
+msgstr "已确认需求"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__quoted
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__quoted
+msgid "Quoted"
+msgstr "已报价"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_assignment_wizard__operation__unshare
+msgid "Remove Collaborator"
+msgstr "移除协作人"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_assignment_wizard__operation__return
+msgid "Return to Public Pool"
+msgstr "退回公海"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_search
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_search
+msgid "Sales Team"
+msgstr "销售团队"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_followup_wizard_form
+msgid "Save Follow-up"
+msgstr "保存跟进"
+
+#. module: qing_crm
+#: model:ir.actions.act_window,name:qing_crm.action_team_crm_customers
+#: model:ir.ui.menu,name:qing_crm.menu_team_crm_customers
+msgid "Team Customers"
+msgstr "团队客户"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/partner_role.py:0
+msgid "The owner must be an internal sales user of the customer company."
+msgstr "负责人必须是该客户所属公司的内部销售用户。"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__crm_owner_mode__unassigned
+msgid "Unassigned"
+msgstr "未分配"
+
+#. module: qing_crm
+#. odoo-python
+#: code:addons/qing_crm/models/partner_role.py:0
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_status_wizard_form
+msgid "Update Customer Status"
+msgstr "调整客户状态"
+
+#. module: qing_crm
+#: model_terms:ir.ui.view,arch_db:qing_crm.view_crm_customer_form
+msgid "Update Status"
+msgstr "调整客户状态"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_partner_role__crm_owner_mode__inherited
+msgid "Use Contact Salesperson"
+msgstr "继承联系人销售员"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__visit
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__visit
+msgid "Visit"
+msgstr "拜访"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__channel__wechat
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__channel__wechat
+msgid "WeChat"
+msgstr "微信"
+
+#. module: qing_crm
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup__result__won
+#: model:ir.model.fields.selection,name:qing_crm.selection__qing_crm_followup_wizard__result__won
+msgid "Won"
+msgstr "已成交"

@@ -1,0 +1,340 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_repair_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 07:30+0000\n"
+"PO-Revision-Date: 2026-10-04 07:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_repair_purchase
+#: model:ir.module.module,description:base.module_qing_repair_purchase
+msgid ""
+"# Repair Purchases\n"
+"\n"
+"Optional QingERP integration of Repairs and Purchase. Authorized repair operators\n"
+"with purchase access select unarranged added parts or purchasable service lines,\n"
+"choose a vendor and create a draft RFQ. Native vendor pricing, units, taxes and\n"
+"purchase receipts remain in use. Both quotation and direct repair pricing work.\n"
+"\n"
+"The source repair and source lines are retained on the RFQ. Cancelled purchases\n"
+"release their arranged quantity. Repeated submissions return the same RFQ;\n"
+"concurrent wizards recheck the remaining requirement under a repair row lock.\n"
+"Removal/return moves are not purchased. No customer invoice or sales quotation\n"
+"is created by this module. Customer-specific manual-purchase restrictions belong\n"
+"in customer addons, not here.\n"
+msgstr ""
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "A repair source may appear only once."
+msgstr "同一维修来源行只能选择一次。"
+
+#. module: qing_repair_purchase
+#: model_terms:ir.ui.view,arch_db:qing_repair_purchase.view_repair_purchase_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "Choose a unit supported by this product."
+msgstr "请选择产品支持的计量单位。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "Choose exactly one source repair line."
+msgstr "请选择且仅选择一条维修来源行。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/purchase_order_line.py:0
+msgid "Choose only one repair purchase source."
+msgstr "只能选择一个维修采购来源。"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__company_id
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_repair_purchase
+#: model_terms:ir.ui.view,arch_db:qing_repair_purchase.view_repair_order_form
+#: model_terms:ir.ui.view,arch_db:qing_repair_purchase.view_repair_purchase_wizard_form
+msgid "Create Purchase"
+msgstr "创建采购单"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+#: model_terms:ir.ui.view,arch_db:qing_repair_purchase.view_repair_purchase_wizard_form
+msgid "Create Repair Purchase"
+msgstr "创建维修采购单"
+
+#. module: qing_repair_purchase
+#: model:ir.module.module,summary:base.module_qing_repair_purchase
+msgid "Create traceable vendor RFQs from repair parts and services"
+msgstr "从维修配件和服务创建可追溯的采购询价单"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__create_uid
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__create_date
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__create_date
+msgid "Created on"
+msgstr "创建日期"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__currency_id
+msgid "Currency"
+msgstr "币别"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order__current_company
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order_line__current_company
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__current_company
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__current_company
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_repair_order__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__date_order
+msgid "Date Order"
+msgstr "采购日期"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__discount
+msgid "Discount (%)"
+msgstr "折扣 (%)"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "Discount must be between 0 and 100."
+msgstr "折扣必须在 0 到 100 之间。"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__display_name
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__display_name
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_repair_order__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__date_planned
+msgid "Expected Arrival"
+msgstr "预计到货日期"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order__id
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__id
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__id
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_repair_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__write_uid
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__write_date
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__write_date
+msgid "Last Updated on"
+msgstr "上次更新日期"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__product_id
+msgid "Product"
+msgstr "产品"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__line_ids
+msgid "Purchase Lines"
+msgstr "采购明细"
+
+#. module: qing_repair_purchase
+#: model:ir.model,name:qing_repair_purchase.model_purchase_order
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__purchase_order_id
+msgid "Purchase Order"
+msgstr "采购订单"
+
+#. module: qing_repair_purchase
+#: model:ir.model,name:qing_repair_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "采购订单明细"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__quantity
+msgid "Purchase Quantity"
+msgstr "采购数量"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+msgid "Purchase access is required to create repair RFQs."
+msgstr "创建维修采购单需要采购权限。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "Purchase quantity exceeds the remaining repair requirement."
+msgstr "采购数量超过维修单剩余需求。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "Purchase quantity must be positive and price must be non-negative."
+msgstr "采购数量必须大于零，单价不能为负数。"
+
+#. module: qing_repair_purchase
+#: model:ir.module.module,shortdesc:base.module_qing_repair_purchase
+msgid "Qing Repair Purchase"
+msgstr "QingERP 维修采购"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__repair_id
+msgid "Repair"
+msgstr "维修"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__repair_move_id
+msgid "Repair Move"
+msgstr "维修配件明细"
+
+#. module: qing_repair_purchase
+#: model:ir.model,name:qing_repair_purchase.model_repair_order
+msgid "Repair Order"
+msgstr "维修订单"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order_line__qing_repair_move_id
+msgid "Repair Part Source"
+msgstr "维修配件来源"
+
+#. module: qing_repair_purchase
+#: model:ir.model,name:qing_repair_purchase.model_qing_repair_purchase_wizard
+msgid "Repair Purchase Wizard"
+msgstr "维修采购向导"
+
+#. module: qing_repair_purchase
+#: model:ir.model,name:qing_repair_purchase.model_qing_repair_purchase_wizard_line
+msgid "Repair Purchase Wizard Line"
+msgstr "维修采购向导明细"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_repair_order__qing_purchase_order_ids
+msgid "Repair Purchases"
+msgstr "维修采购单"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__repair_service_line_id
+msgid "Repair Service Line"
+msgstr "维修服务明细"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order_line__qing_repair_service_line_id
+msgid "Repair Service Source"
+msgstr "维修服务来源"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__selected
+msgid "Select"
+msgstr "选中"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+msgid "Select a non-cancelled repair in an allowed company."
+msgstr "请选择当前允许公司中未取消的维修单。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard.py:0
+msgid "Select repair lines, an active vendor and purchase dates."
+msgstr "请选择维修明细、有效供应商，并填写采购日期。"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_purchase_order__qing_repair_id
+msgid "Source Repair"
+msgstr "来源维修单"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/purchase_order.py:0
+msgid "Source Repairs"
+msgstr "来源维修单"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/wizard/repair_purchase_wizard_line.py:0
+msgid "The purchase source must be an eligible line of this repair."
+msgstr "采购来源必须是当前维修单中可采购的明细。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/purchase_order_line.py:0
+msgid "The purchased product must match its source repair line."
+msgstr "采购产品必须与来源维修明细一致。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/purchase_order.py:0
+msgid "The source repair of an existing purchase cannot be changed."
+msgstr "不能更改已有采购单的来源维修单。"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+msgid "There are no unarranged purchasable repair lines."
+msgstr "没有尚未安排采购的维修配件或服务。"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__price_unit
+msgid "Unit Price"
+msgstr "单价"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__uom_id
+msgid "Uom"
+msgstr "计量单位"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard__supplier_id
+msgid "Vendor"
+msgstr "供应商"
+
+#. module: qing_repair_purchase
+#: model:ir.model.fields,field_description:qing_repair_purchase.field_qing_repair_purchase_wizard_line__wizard_id
+msgid "Wizard"
+msgstr "向导"
+
+#. module: qing_repair_purchase
+#. odoo-python
+#: code:addons/qing_repair_purchase/models/purchase_order.py:0
+#: code:addons/qing_repair_purchase/models/repair_order.py:0
+msgid "id"
+msgstr "id"

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.SwitchCompanyMenu" t-inherit="web.SwitchCompanyMenu" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_switch_company_menu')]" position="attributes">
+            <attribute name="class" add="o_qing_company_trigger" separator=" "/>
+            <attribute name="t-att-aria-label">this.user.activeCompany.name</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_switch_company_menu')]/i" position="replace">
+            <svg class="o_qing_company_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M4 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M16 9h3a1 1 0 0 1 1 1v11M3 21h18M8 7h1m3 0h1M8 11h1m3 0h1M8 15h1m3 0h1M9 21v-3h3v3"/>
+            </svg>
+        </xpath>
+        <xpath expr="//button[hasclass('o_switch_company_menu')]/span[hasclass('oe_topbar_name')]" position="replace">
+            <span t-if="this.user.activeCompanies.length > 1" class="o_qing_company_count" aria-hidden="true" t-out="this.user.activeCompanies.length"/>
+        </xpath>
+        <xpath expr="//t[@t-set-slot='content']/t[@t-call='web.SwitchCompanyMenu.Items']" position="before">
+            <div class="o_qing_systray_identity">
+                <strong class="o_qing_systray_identity__name" t-out="this.user.activeCompany.name"/>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.UserMenu" t-inherit="web.UserMenu" t-inherit-mode="extension">
+        <xpath expr="//Dropdown" position="attributes">
+            <attribute name="menuClass">'o_qing_user_menu_dropdown'</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_user_menu')]" position="attributes">
+            <attribute name="class" add="o_qing_user_trigger" separator=" "/>
+            <attribute name="t-att-title">this.userName</attribute>
+            <attribute name="t-att-aria-label">this.userName</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_user_menu')]/small[hasclass('oe_topbar_name')]" position="replace"/>
+        <xpath expr="//t[@t-set-slot='content']/t[@t-foreach='this.getElements()']" position="before">
+            <div class="o_qing_systray_identity">
+                <strong class="o_qing_systray_identity__name" t-out="this.userName"/>
+                <code t-if="this.debugMode.isActive()" class="o_qing_systray_identity__database" t-out="this.dbName"/>
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_financial_report_scheme_list" model="ir.ui.view">
+        <field name="name">qing.financial.report.scheme.list</field>
+        <field name="model">qing.financial.report.scheme</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="source"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_financial_report_scheme_form" model="ir.ui.view">
+        <field name="name">qing.financial.report.scheme.form</field>
+        <field name="model">qing.financial.report.scheme</field>
+        <field name="arch" type="xml">
+            <form string="Financial Report Scheme">
+                <header>
+                    <button name="action_activate" type="object" string="Activate" class="btn-primary" invisible="state != 'draft'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="state == 'active'"/>
+                            <field name="company_id" readonly="state == 'active'"/>
+                            <field name="source"/>
+                        </group>
+                        <group>
+                            <field name="date_from" readonly="state == 'active'"/>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="balance_mapping_id" readonly="state == 'active'" domain="[('company_id', '=', company_id), ('state', '=', 'confirmed')]" options="{'no_create': True}"/>
+                        <field name="profit_mapping_id" readonly="state == 'active'" domain="[('company_id', '=', company_id), ('state', '=', 'confirmed')]" options="{'no_create': True}"/>
+                    </group>
+                    <group string="Cash Flow Scope">
+                        <field name="cash_account_ids" widget="many2many_tags" readonly="state == 'active'" domain="[('company_ids', 'in', company_id)]"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_financial_report_scheme" model="ir.actions.act_window">
+        <field name="name">Financial Report Schemes</field>
+        <field name="res_model">qing.financial.report.scheme</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_financial_report_configuration" name="Financial Report Settings" parent="account.menu_finance_configuration" groups="account.group_account_manager" sequence="15"/>
+    <menuitem id="menu_financial_report_scheme" name="Company Report Schemes" parent="menu_financial_report_configuration" action="action_financial_report_scheme" groups="account.group_account_manager" sequence="1"/>
+</odoo>

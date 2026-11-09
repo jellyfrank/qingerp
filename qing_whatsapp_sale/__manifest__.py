@@ -1,0 +1,15 @@
+{
+    'name': 'Qing WhatsApp Sales',
+    'summary': '通过 WhatsApp 发送报价单与订单链接',
+    'version': '20.0.1.4',
+    'category': 'Sales',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'license': 'LGPL-3',
+    'depends': ['qing_base', 'qing_whatsapp', 'sale_management'],
+    'data': ['security/ir.access.csv', 'views/sale_order.xml', 'views/conversation.xml',
+             'views/template.xml', 'wizard/compose.xml'],
+    'installable': True,
+    'description': 'Create quotations from WhatsApp conversations and send quotation and order links.',
+    'support': 'kevin@odoomommy.com',
+}

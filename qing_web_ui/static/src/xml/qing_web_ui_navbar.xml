@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="qing_web_ui.NavBar" t-inherit="web.NavBar" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_navbar_breadcrumbs')]" position="before">
+            <div t-if="!this.ui.isSmall and !this.isScopedApp" class="o_qing_top_apps" role="navigation" aria-label="Applications">
+                <a t-foreach="this.qingTopApps" t-as="app" t-key="app.id"
+                   class="o_qing_top_apps__item" t-att-class="{'is-active': this.currentApp?.id === app.id, 'is-drag-over': this.qingAppOrder.over === app.id}"
+                   t-att-draggable="this.qingCanReorderApps ? 'true' : 'false'"
+                   t-att-data-qing-app-id="app.id"
+                   t-on-dragstart="(event) => this.startQingAppDrag(event, app)"
+                   t-on-dragover="(event) => this.overQingAppDrag(event, app)"
+                   t-on-drop="(event) => this.dropQingApp(event, app)"
+                   t-on-dragend="this.endQingAppDrag"
+                   t-on-keydown="(event) => this.reorderQingAppWithKeyboard(event, app)"
+                   t-att-href="this.getMenuItemHref(app)" t-att-title="app.name"
+                   t-att-aria-current="this.currentApp?.id === app.id ? 'page' : undefined"
+                   t-on-click.prevent="() => this.selectQingTopApp(app)">
+                    <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true"><use t-att-href="this.qingMenuIcon(app)"/></svg>
+                    <span t-out="app.name"/>
+                </a>
+                <button class="o_qing_top_apps__more" type="button" t-att-aria-expanded="this.qingLauncherState.isOpen" t-on-dragover="this.openQingDragOverflow" t-on-click="this.toggleQingLauncher">
+                    <span>More</span><i class="fa fa-angle-down" aria-hidden="true"/>
+                </button>
+                <div class="o_qing_top_apps__measure" aria-hidden="true">
+                    <span t-foreach="this.menuService.getApps()" t-as="app" t-key="app.id" class="o_qing_top_apps__item" t-att-data-measure-app="app.id">
+                        <svg class="o_qing_menu_icon" viewBox="0 0 24 24"/><span t-out="app.name"/>
+                    </span>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('o_navbar_breadcrumbs')]" position="after">
+            <button t-if="!this.ui.isSmall" class="o_qing_command_search" type="button" aria-label="Search menus and commands" t-on-click="this.openQingCommandPalette">
+                <i class="fa fa-search" aria-hidden="true"/>
+                <span>Search menus and commands…</span>
+            </button>
+        </xpath>
+        <xpath expr="//nav[hasclass('o_main_navbar')]" position="after">
+            <aside t-if="!this.ui.isSmall" class="o_qing_sidebar" aria-label="Application navigation">
+                <div class="o_qing_sidebar__brand">
+                    <button class="o_qing_sidebar__home" type="button" aria-label="Open applications" t-on-click="this.toggleQingLauncher">
+                        <img t-if="this.qingCompanyLogoUrl" t-att-src="this.qingCompanyLogoUrl" alt=""/>
+                        <span t-att-title="this.qingLauncherCompanyName" t-out="this.qingLauncherCompanyName"/>
+                    </button>
+                    <button class="o_qing_sidebar__collapse" type="button" t-att-aria-label="this.qingSidebarToggleLabel" t-att-title="this.qingSidebarToggleLabel" t-att-aria-expanded="this.qingSidebarCollapsed ? 'false' : 'true'" t-on-click="this.toggleQingSidebar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <path d="m13 7-5 5 5 5m6-10-5 5 5 5"/>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="o_qing_sidebar__menus" t-att-class="'o_qing_sidebar__menus--' + this.qingSidebarStyle" aria-label="Application sections" t-on-scroll="this.hideQingMenuHint">
+                    <t t-if="this.qingSidebarStyle === 'islands'">
+                        <section t-foreach="this.qingSidebarSections" t-as="section" t-key="section.key"
+                                 class="o_qing_sidebar__island" t-att-aria-label="this.qingSectionLabel(section)">
+                            <h2 t-if="section.title" class="o_qing_sidebar__island_title">
+                                <span t-if="section.parent" class="o_qing_sidebar__island_parent" t-out="section.parent"/>
+                                <span t-out="section.title"/>
+                            </h2>
+                            <t t-foreach="section.items" t-as="menu" t-key="menu.id">
+                                <t t-call="qing_web_ui.SidebarMenuItem" menu="menu"/>
+                            </t>
+                        </section>
+                    </t>
+                    <t t-elif="this.qingSidebarStyle === 'rail'">
+                        <t t-set="railCurrent" t-value="this.qingRailCurrent"/>
+                        <t t-set="railResults" t-value="this.qingRailResults"/>
+                        <div class="o_qing_sidebar__rail" role="group" aria-label="Menu groups">
+                            <button t-foreach="this.qingSidebarSections" t-as="section" t-key="section.key"
+                                    type="button" class="o_qing_sidebar__rail_item"
+                                    t-att-class="{'is-current': railCurrent and railCurrent.key === section.key, 'has-active': this.qingSectionHasActive(section)}"
+                                    t-att-aria-pressed="railCurrent and railCurrent.key === section.key ? 'true' : 'false'"
+                                    t-att-title="this.qingSectionPath(section)"
+                                    t-on-click="() => this.selectQingRailSection(section)">
+                                <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use t-att-href="this.qingMenuIcon(section.menu)"/></svg>
+                                <span t-out="this.qingSectionLabel(section)"/>
+                            </button>
+                        </div>
+                        <div class="o_qing_sidebar__panel">
+                            <div t-if="railCurrent" class="o_qing_sidebar__panel_head">
+                                <span t-if="railCurrent.path.length" class="o_qing_sidebar__panel_path" t-out="railCurrent.path.join(' › ')"/>
+                                <strong t-out="this.qingSectionLabel(railCurrent)"/>
+                            </div>
+                            <label class="o_qing_sidebar__panel_search">
+                                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 11a7 7 0 1 0 14 0a7 7 0 1 0-14 0M20 20l-3.5-3.5"/></svg>
+                                <input type="search" placeholder="Search this app's menus" aria-label="Search this app's menus"
+                                       t-att-value="this.qingRailState.query" t-on-input="this.onQingRailSearch"/>
+                            </label>
+                            <div class="o_qing_sidebar__panel_list">
+                                <t t-if="railResults">
+                                    <t t-foreach="railResults" t-as="result" t-key="result.menu.id">
+                                        <t t-call="qing_web_ui.SidebarMenuItem" menu="result.menu" path="result.path"/>
+                                    </t>
+                                    <p t-if="!railResults.length" class="o_qing_sidebar__panel_empty">No matching menus</p>
+                                </t>
+                                <t t-elif="railCurrent">
+                                    <t t-foreach="railCurrent.items" t-as="menu" t-key="menu.id">
+                                        <t t-call="qing_web_ui.SidebarMenuItem" menu="menu"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <t t-foreach="this.qingSidebarRows" t-as="row" t-key="row.menu.id">
+                            <button t-if="row.isGroup" class="o_qing_sidebar__group" type="button"
+                                    t-att-class="{'is-open': row.isOpen}"
+                                    t-att-style="'--qing-menu-depth:' + row.depth"
+                                    t-att-aria-expanded="row.isOpen ? 'true' : 'false'"
+                                    t-att-aria-label="row.menu.name"
+                                    t-on-click="() => this.toggleQingSidebarGroup(row)">
+                                <span t-out="row.menu.name"/>
+                                <svg class="o_qing_sidebar__chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                                    <path d="m4 6 4 4 4-4"/>
+                                </svg>
+                            </button>
+                            <a t-else="" class="o_qing_sidebar__item"
+                               t-att-class="{'is-active': this.qingMenuIsActive(row.menu)}"
+                               t-att-style="'--qing-menu-depth:' + row.depth"
+                               t-att-aria-current="this.qingMenuIsActive(row.menu) ? 'page' : undefined"
+                               t-att-href="this.getMenuItemHref(row.menu)"
+                               t-att-data-menu-xmlid="row.menu.xmlid"
+                               t-att-aria-label="row.menu.name"
+                               t-on-mouseenter="(event) => this.showQingMenuHint(event, row.menu)"
+                               t-on-focus="(event) => this.showQingMenuHint(event, row.menu)"
+                               t-on-mouseleave="this.hideQingMenuHint"
+                               t-on-blur="this.hideQingMenuHint"
+                               t-on-click.prevent="() => this.onNavBarDropdownItemSelection(row.menu)">
+                                <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use t-att-href="this.qingMenuIcon(row.menu)"/></svg>
+                                <span t-out="row.menu.name"/>
+                            </a>
+                        </t>
+                    </t>
+                </nav>
+                <div class="o_qing_sidebar__footer" t-att-title="this.qingTechnicalSupportLabel">
+                    <i class="fa fa-building-o" aria-hidden="true"/>
+                    <span t-out="this.qingTechnicalSupportLabel"/>
+                </div>
+            </aside>
+            <div t-if="this.qingSidebarCollapsed and this.qingMenuHint.text" class="o_qing_menu_hint" role="tooltip" t-att-style="'top:' + this.qingMenuHint.top + 'px'" t-out="this.qingMenuHint.text"/>
+        </xpath>
+        <xpath expr="//t[@t-call='web.NavBar.AppsMenu']" position="after">
+            <button
+                class="o_qing_launcher_trigger btn btn-link d-none d-md-flex align-items-center justify-content-center"
+                type="button"
+                title="Qing app launcher"
+                aria-label="Qing app launcher"
+                t-att-aria-expanded="this.qingLauncherState.isOpen"
+                t-on-click="this.toggleQingLauncher"
+            >
+                <img
+                    t-if="this.qingCompanyLogoUrl"
+                    class="o_qing_launcher_trigger__logo"
+                    t-att-src="this.qingCompanyLogoUrl"
+                    alt=""
+                    aria-hidden="true"
+                />
+                <span t-else="" aria-hidden="true">Q</span>
+            </button>
+            <span class="o_qing_brand d-none d-md-flex align-items-center">Qing Web UI</span>
+            <t t-if="this.qingLauncherState.isOpen">
+                <div class="o_qing_app_switcher_backdrop" t-on-click="this.closeQingLauncher"/>
+                <section class="o_qing_app_switcher" t-att-style="'left:' + this.qingTopNav.left + 'px;top:' + this.qingTopNav.top + 'px'" aria-label="Switch application" t-on-keydown="this.qingAppSwitcherKeydown">
+                    <div class="o_qing_app_switcher__search">
+                        <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 4 4"/></svg>
+                        <input type="search" placeholder="Search applications" aria-label="Search applications" autocomplete="off" t-att-value="this.qingLauncherState.query" t-on-input="this.setQingLauncherQuery"/>
+                    </div>
+                    <div t-if="this.qingCanReorderApps" class="o_qing_app_order_help">
+                        <span>Drag apps to reorder. Alt+Shift+Arrow also moves an app.</span>
+                        <button type="button" class="btn btn-link btn-sm" t-on-click="() => this.saveQingAppOrder([])">Reset menu order</button>
+                    </div>
+                    <div class="o_qing_app_switcher__list">
+                        <button t-foreach="this.qingLauncherApps" t-as="app" t-key="app.id"
+                            class="o_qing_app_switcher__item" type="button"
+                            t-att-title="app.name" t-att-aria-label="app.name"
+                            t-att-draggable="this.qingCanReorderApps ? 'true' : 'false'"
+                            t-att-data-qing-app-id="app.id"
+                            t-on-dragstart="(event) => this.startQingAppDrag(event, app)"
+                            t-on-dragover="(event) => this.overQingAppDrag(event, app)"
+                            t-on-drop="(event) => this.dropQingApp(event, app)"
+                            t-on-dragend="this.endQingAppDrag"
+                            t-on-keydown="(event) => this.reorderQingAppWithKeyboard(event, app)"
+                            t-att-class="{'is-active': this.currentApp?.id === app.id, 'is-drag-over': this.qingAppOrder.over === app.id}"
+                            t-att-aria-current="this.currentApp?.id === app.id ? 'true' : undefined"
+                            t-on-click="() => this.selectQingLauncherApp(app)">
+                            <span class="o_qing_app_switcher__icon">
+                                <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use t-att-href="this.qingMenuIcon(app)"/></svg>
+                            </span>
+                            <span class="o_qing_app_switcher__label" t-out="app.name"/>
+                        </button>
+                        <p t-if="!this.qingLauncherApps.length" class="o_qing_app_switcher__empty">No applications match your search.</p>
+                    </div>
+                </section>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="qing_web_ui.Breadcrumbs" t-inherit="web.Breadcrumbs" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_last_breadcrumb_item')]" position="attributes">
+            <attribute name="t-ref">this.qingBreadcrumbTitle</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_last_breadcrumb_item')]/span" position="attributes">
+            <attribute name="class" add="o_qing_breadcrumb_viewport" separator=" "/>
+            <attribute name="t-att-title">breadcrumb.name</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_last_breadcrumb_item')]/span/t[@t-call='web.Breadcrumb.Name']" position="replace">
+            <span class="o_qing_breadcrumb_label"><t t-call="web.Breadcrumb.Name"/></span>
+        </xpath>
+        <xpath expr="//button[hasclass('o_back_button')]/i" position="replace">
+            <svg class="o_qing_back_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M19 12H5m6-6-6 6 6 6"/>
+            </svg>
+        </xpath>
+        <xpath expr="//button[hasclass('o_back_button')]" position="attributes">
+            <attribute name="aria-label">Back</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.SidebarMenuItem">
+        <a class="o_qing_sidebar__item"
+           t-att-class="{'is-active': this.qingMenuIsActive(menu)}"
+           style="--qing-menu-depth:0"
+           t-att-aria-current="this.qingMenuIsActive(menu) ? 'page' : undefined"
+           t-att-href="this.getMenuItemHref(menu)"
+           t-att-data-menu-xmlid="menu.xmlid"
+           t-att-aria-label="path ? path + ' › ' + menu.name : menu.name"
+           t-on-click.prevent="() => this.onNavBarDropdownItemSelection(menu)">
+            <svg class="o_qing_menu_icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use t-att-href="this.qingMenuIcon(menu)"/></svg>
+            <span t-out="menu.name"/>
+            <small t-if="path" class="o_qing_sidebar__item_path" t-out="path"/>
+        </a>
+    </t>
+</templates>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_conversation_list" model="ir.ui.view">
+        <field name="name">qing.whatsapp.conversation.list</field>
+        <field name="model">qing.whatsapp.conversation</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="partner_id"/>
+                <field name="owner_id"/>
+                <field name="last_customer_at"/>
+                <field name="window_until"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

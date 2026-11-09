@@ -1,0 +1,10 @@
+<odoo noupdate="1">
+    <record id="cron_send" model="ir.cron"><field name="name">Qing WhatsApp: Send messages</field>
+        <field name="model_id" ref="model_qing_whatsapp_message"/><field name="state">code</field>
+        <field name="code">model._cron_send()</field><field name="interval_number">1</field><field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_events" model="ir.cron"><field name="name">Qing WhatsApp: Process webhook events</field>
+        <field name="model_id" ref="model_qing_whatsapp_event"/><field name="state">code</field>
+        <field name="code">model._cron_process()</field><field name="interval_number">1</field><field name="interval_type">minutes</field>
+    </record>
+</odoo>

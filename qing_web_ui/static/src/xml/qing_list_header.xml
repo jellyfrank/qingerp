@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.CollectionBreadcrumbPath" t-inherit="web.Breadcrumbs" t-inherit-mode="extension">
+        <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
+            <attribute name="t-if">!(['list', 'kanban', 'graph'].includes(this.env.config.viewType) and !this.uiService.isSmall and !this.env.inDialog)</attribute>
+        </xpath>
+        <xpath expr="//ol[hasclass('breadcrumb')]" position="after">
+            <t t-if="['list', 'kanban', 'graph'].includes(this.env.config.viewType) and !this.uiService.isSmall and !this.env.inDialog">
+                <span class="o_qing_collection_path_fallback d-contents"/>
+                <t t-custom-portal="'.o_navbar_breadcrumbs, .o_qing_collection_path_fallback'">
+                    <ol class="breadcrumb o_qing_collection_path">
+                        <li t-if="collapsedBreadcrumbs.length" class="breadcrumb-item d-inline-flex">
+                            <Dropdown>
+                                <button class="btn btn-link p-0" aria-label="Navigation history"><i class="fa fa-ellipsis-h" aria-hidden="true"/></button>
+                                <t t-set-slot="content">
+                                    <t t-foreach="collapsedBreadcrumbs" t-as="breadcrumb" t-key="breadcrumb.jsId">
+                                        <DropdownItem onSelected="breadcrumb.onSelected" attrs="{ href: breadcrumb.url }"><t t-call="web.Breadcrumb.Name"/></DropdownItem>
+                                    </t>
+                                </t>
+                            </Dropdown>
+                        </li>
+                        <li t-if="previousBreadcrumb" class="breadcrumb-item d-inline-flex min-w-0">
+                            <a t-att-href="previousBreadcrumb.url" t-on-click.prevent="previousBreadcrumb.onSelected" class="text-truncate" t-att-title="previousBreadcrumb.name"><t t-call="web.Breadcrumb.Name" breadcrumb="previousBreadcrumb"/></a>
+                        </li>
+                    </ol>
+                </t>
+            </t>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListHeader" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_control_panel')]" position="attributes">
+            <attribute name="t-att-class">{'o_qing_list_header': ['list', 'kanban', 'graph'].includes(this.env.config.viewType) and !this.uiService.isSmall and !this.env.inDialog, 'o_qing_mobile_collection_header': ['list', 'kanban'].includes(this.env.config.viewType) and this.uiService.isSmall and !this.env.inDialog}</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_control_panel_breadcrumbs')]" position="inside">
+            <t t-call-slot="qing-list-summary"/>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListSummary" t-inherit="web.ListView" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-buttons']/t[@t-call]" position="before">
+            <button t-if="this.qingCanExport" type="button" class="btn btn-secondary o_qing_list_export o_qing_icon_action" t-on-click="() => this.exportRecords()" data-tooltip="Export" aria-label="Export">
+                <i class="oi oi-fw" data-icon="upload" aria-hidden="true"/><span class="o_qing_action_label">Export</span>
+            </button>
+        </xpath>
+        <xpath expr="//t[@t-set-slot='control-panel-buttons']//MultiRecordViewButton" position="attributes">
+            <attribute name="className">this.qingHeaderActionClass(button)</attribute>
+            <attribute name="icon">this.qingHeaderActionIcon(button)</attribute>
+            <attribute name="title">button.title || (this.qingIsCommonAction(button) ? button.string : undefined)</attribute>
+            <attribute name="attrs">this.qingHeaderActionAttrs(button)</attribute>
+        </xpath>
+        <xpath expr="//t[@t-set-slot='control-panel-selection-actions']//MultiRecordViewButton" position="attributes">
+            <attribute name="className">this.qingHeaderActionClass(button)</attribute>
+            <attribute name="icon">this.qingHeaderActionIcon(button)</attribute>
+            <attribute name="title">button.title || (this.qingIsCommonAction(button) ? button.string : undefined)</attribute>
+            <attribute name="attrs">this.qingHeaderActionAttrs(button)</attribute>
+        </xpath>
+        <xpath expr="//Layout" position="inside">
+            <t t-set-slot="qing-list-summary">
+                <span t-if="!this.uiService.isSmall and !this.env.inDialog and this.model.isReady()" class="o_qing_record_count">
+                    <t t-out="this.model.useSampleModel ? 0 : this.model.root.count"/><t t-if="this.model.root.hasLimitedCount">+</t>
+                    <t t-if="this.model.root.isGrouped"> groups</t><t t-else=""> records</t>
+                </span>
+            </t>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListActionIcons" t-inherit="web.ListView.Buttons" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="data-tooltip">New</attribute>
+            <attribute name="aria-label">New</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_list_button_save')]" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="data-tooltip">Save</attribute>
+            <attribute name="aria-label">Save</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_list_button_discard')]" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="data-tooltip">Discard</attribute>
+            <attribute name="aria-label">Discard</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_list_button_add')]" position="inside">
+            <i class="oi oi-fw o_qing_action_icon" data-icon="add" aria-hidden="true"/>
+        </xpath>
+        <xpath expr="//button[hasclass('o_list_button_save')]" position="inside">
+            <i class="oi oi-fw o_qing_action_icon" data-icon="save" aria-hidden="true"/>
+        </xpath>
+        <xpath expr="//button[hasclass('o_list_button_discard')]" position="inside">
+            <i class="oi oi-fw o_qing_action_icon" data-icon="undo" aria-hidden="true"/>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.FormActionIcons" t-inherit="web.FormView.Buttons" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_form_button_create')]" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="data-tooltip">New</attribute>
+            <attribute name="aria-label">New</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_form_button_create')]" position="inside">
+            <i class="oi oi-fw o_qing_action_icon" data-icon="add" aria-hidden="true"/>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListSelectionActionIcons" t-inherit="web.ActionMenus" t-inherit-mode="extension">
+        <xpath expr="//button[@data-hotkey='shift+u']" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="t-att-data-tooltip">this.props.printDropdownTitle</attribute>
+            <attribute name="t-att-aria-label">this.props.printDropdownTitle</attribute>
+        </xpath>
+        <xpath expr="//button[@data-hotkey='u']" position="attributes">
+            <attribute name="class" add="o_qing_icon_action" separator=" "/>
+            <attribute name="data-tooltip">Actions</attribute>
+            <attribute name="aria-label">Actions</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListSearch" t-inherit="web.SearchBar" t-inherit-mode="extension">
+        <xpath expr="//div[@t-ref='this.root']" position="attributes">
+            <attribute name="t-if">this.visibilityState.showSearchBar and !this.qingSplitSearch</attribute>
+        </xpath>
+        <xpath expr="//div[@t-ref='this.root']" position="after">
+            <div t-if="this.visibilityState.showSearchBar and this.qingSplitSearch" class="o_cp_searchview o_qing_list_search" role="search" t-ref="this.root">
+                <!-- Keep input and facets under the same native navigation ref. -->
+                <div class="o_qing_search_contents">
+                    <SearchBarDropdown state="this.inputDropdownState" manual="true" noClasses="true" position="'bottom-fit'"
+                                       menuClass="'o_searchview_autocomplete'" navigationOptions="this.inputDropdownNavOptions"
+                                       onStateChanged.bind="this.onInputDropdownChanged" menuRef="this.menuRef" bottomSheet="false"
+                                       popoverWillCloseOnClickAway="this.popoverWillCloseOnClickAway">
+                        <div class="o_searchview form-control d-print-contents d-flex align-items-center py-1 bg-view" role="search" aria-autocomplete="list">
+                            <button class="btn border-0 p-0" aria-label="Search..." title="Search..." t-on-click="this.onClickSearchIcon">
+                                <i class="o_searchview_icon oi me-2" data-icon="search" role="img"/>
+                            </button>
+                            <div class="o_searchview_input_container d-flex flex-grow-1 flex-wrap gap-1 align-items-center mw-100" t-ref="this.facetContainerRef">
+                                <t t-call="web.SearchBar.Facets"/>
+                                <input type="text" class="o_searchview_input o_input d-print-none flex-grow-1 w-auto border-0" accesskey="Q" placeholder="Search..." role="searchbox"
+                                       t-ref="this.inputRef" t-on-click="this.onSearchClick" t-on-input="this.onSearchInput" t-on-compositionend="this.onCompositionEnd"/>
+                            </div>
+                        </div>
+                        <t t-set-slot="content"><t t-call="web.SearchBar.QuickSearchItems"/></t>
+                    </SearchBarDropdown>
+                    <SearchBarMenu dropdownState="this.searchBarDropdownState" popoverWillCloseOnClickAway="this.popoverWillCloseOnClickAway">
+                        <t t-call-slot="search-bar-additional-menu"/>
+                    </SearchBarMenu>
+                </div>
+            </div>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListSearchMenu" t-inherit="web.SearchBarMenu" t-inherit-mode="extension">
+        <xpath expr="//SearchBarDropdown" position="attributes">
+            <attribute name="position">this.qingSplitSearch and this.qingMenu.category === 'filter' ? 'bottom-start' : 'bottom-end'</attribute>
+            <attribute name="manual">this.qingSplitSearch</attribute>
+            <attribute name="menuClass">this.qingSplitSearch ? 'o_search_bar_menu o_qing_search_menu py-2' : 'o_search_bar_menu d-flex flex-wrap flex-lg-nowrap w-100 w-md-auto mx-md-auto mt-2 py-3'</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_searchview_dropdown_toggler')]" position="attributes">
+            <attribute name="t-if">!this.qingSplitSearch</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_searchview_dropdown_toggler')]" position="after">
+            <div t-if="this.qingSplitSearch" class="o_qing_search_categories">
+                <button t-if="this.env.searchModel.searchMenuTypes.has('filter')" type="button" class="btn btn-secondary" data-hotkey="shift+q"
+                        t-att-class="{'is-active': this.qingFilterCount}" t-on-click.stop="() => this.openQingCategory('filter')"
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'filter' ? 'true' : 'false'">
+                    <i class="fa fa-filter" aria-hidden="true"/>Filters <span t-if="this.qingFilterCount" t-out="this.qingFilterCount"/>
+                </button>
+                <button t-if="this.env.searchModel.searchMenuTypes.has('groupBy')" type="button" class="btn btn-secondary"
+                        t-on-click.stop="() => this.openQingCategory('groupBy')"
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'groupBy' ? 'true' : 'false'">
+                    <i class="fa fa-bars" aria-hidden="true"/>Group By
+                </button>
+                <button t-if="this.env.searchModel.searchMenuTypes.has('favorite')" type="button" class="btn btn-secondary"
+                        t-on-click.stop="() => this.openQingCategory('favorite')"
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'favorite' ? 'true' : 'false'">
+                    <i class="fa fa-star-o" aria-hidden="true"/>Favorites
+                </button>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.env.searchModel.searchMenuTypes.has('filter')&quot;]" position="attributes">
+            <attribute name="t-if">this.env.searchModel.searchMenuTypes.has('filter') and (!this.qingSplitSearch or this.qingMenu.category === 'filter')</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.env.searchModel.searchMenuTypes.has('groupBy')&quot;]" position="attributes">
+            <attribute name="t-if">this.env.searchModel.searchMenuTypes.has('groupBy') and (!this.qingSplitSearch or this.qingMenu.category === 'groupBy')</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if=&quot;this.env.searchModel.searchMenuTypes.has('favorite')&quot;]" position="attributes">
+            <attribute name="t-if">this.env.searchModel.searchMenuTypes.has('favorite') and (!this.qingSplitSearch or this.qingMenu.category === 'favorite')</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.MobileCollectionMoreIcon" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o-control-panel-adaptive-dropdown')]" position="inside">
+            <i t-if="this.uiService.isSmall and ['list', 'kanban'].includes(this.env.config.viewType) and !this.env.inDialog"
+               class="oi oi-fw" data-icon="more_horiz" aria-hidden="true"/>
+        </xpath>
+    </t>
+</templates>

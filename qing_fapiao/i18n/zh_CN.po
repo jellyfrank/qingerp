@@ -1,0 +1,1001 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_fapiao
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-23 09:50+0000\n"
+"PO-Revision-Date: 2026-10-23 09:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"A conflicting result followed a definitive provider rejection. Investigate "
+"with the provider."
+msgstr "服务商明确拒绝开票后又返回了冲突结果，请联系服务商核实。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "A notification identifier was reused with a different result."
+msgstr "同一回调编号收到了不同的开票结果。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"A provider notification conflicts with this task; inspect the audit events."
+msgstr "服务商回调与当前任务冲突，请检查审计记录。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_needaction
+msgid "Action Needed"
+msgstr "需要采取行动"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "活动异常标识"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_plans_ids
+msgid "Activity Plans"
+msgstr "活动计划"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "活动类型图标"
+
+#. module: qing_fapiao
+#: model:res.groups,name:qing_fapiao.group_fapiao_manager
+msgid "Administrator"
+msgstr "管理员"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid ""
+"An account with invoice orders cannot change its company, adapter, or "
+"environment. The seller tax ID may be changed; existing orders keep their "
+"saved tax ID."
+msgstr "已有开票任务的账号不能修改所属公司、适配器或环境。销方税号仍可修改，已有任务继续使用各自保存的税号。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "An unsent or cancelled invoice task cannot accept a provider result."
+msgstr "尚未发送或已取消发送的开票任务不能接收服务商结果。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__attempt_count
+msgid "Attempt Count"
+msgstr "调用次数"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__attempt
+msgid "Attempt Started"
+msgstr "开始调用"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Audit"
+msgstr "审计记录"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__processing_cancelled
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__stopped
+msgid "Automatic Processing Cancelled"
+msgstr "已取消自动处理"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid ""
+"Automatic processing has been cancelled. Provider status and the invoice "
+"request reservation are retained. Resume queries to reconcile the original "
+"task."
+msgstr "已取消自动处理，保留服务商状态及开票申请占用额度。可点击“恢复查询”继续核对原任务。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"Background processing failed. Review the task and retry the safe next "
+"operation."
+msgstr "后台处理失败，请检查任务，并按当前状态重试可执行的操作。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__registration
+msgid "Business Registration"
+msgstr "业务登记"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"Business registration failed. Correct the cause and retry registration; do "
+"not issue another invoice."
+msgstr "业务登记失败，请解决问题后重试登记，切勿再次开票。"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Cancel Task"
+msgstr "取消任务"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid ""
+"Cancel automatic processing? Unsent tasks will be cancelled. Sent tasks will"
+" stop polling; this does not revoke a provider invoice or release the "
+"invoice request reservation."
+msgstr "确认取消自动处理？未发送的任务将取消；已发送的任务将停止自动查询，但不会撤销服务商开票或释放开票申请占用额度。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__cancelled
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__cancelled
+msgid "Cancelled Before Sending"
+msgstr "已取消发送"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__code
+msgid "Code"
+msgstr "适配器"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__company_id
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__company_id
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__create_uid
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__create_uid
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__create_date
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__create_date
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__currency_id
+msgid "Currency"
+msgstr "币种"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__rejected
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__rejected
+msgid "Definitively Rejected"
+msgstr "明确失败"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Delete Task"
+msgstr "删除任务"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid ""
+"Delete this cancelled or definitively rejected task and its audit history? "
+"This does not revoke any provider invoice. Verify the original order before "
+"creating another invoice task."
+msgstr "确认删除此已取消或明确失败任务及其审计记录？这不会撤销服务商侧开票。再次创建开票任务前，请核实原订单。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_provider__enabled
+msgid ""
+"Disable new orders; existing orders still accept queries and notifications."
+msgstr "关闭后不接收新任务；已有任务仍可查询结果并接收回调。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__display_name
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__display_name
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Document retrieval is not available for this task."
+msgstr "此任务不支持获取票文件。"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_list
+msgid "Download PDF"
+msgstr "下载PDF"
+
+#. module: qing_fapiao
+#: model:ir.model.constraint,message:qing_fapiao.constraint_qing_fapiao_event_notification_unique
+msgid "Duplicate invoice notification."
+msgstr "开票回调重复。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Enable an invoice provider supporting issuance and result queries."
+msgstr "请启用支持开票和结果查询的服务商账号。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__enabled
+msgid "Enabled"
+msgstr "启用"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__environment
+msgid "Environment"
+msgstr "环境"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__event_ids
+msgid "Event"
+msgstr "审计事件"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__external_id
+msgid "External"
+msgstr "服务商单号"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__pending_action__documents
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Fetch Documents"
+msgstr "获取票文件"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者（合作伙伴）"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__has_message
+msgid "Has Message"
+msgstr "有消息"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__id
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__id
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_exception_icon
+msgid "Icon"
+msgstr "图标"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "表示异常活动的图标。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "勾选后，新消息需要您处理。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "勾选后，表示部分消息发送失败。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Invalid invoice notification identifier."
+msgstr "开票回调编号无效。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Invalid invoice request identifier."
+msgstr "开票请求编号无效。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Invalid verified invoice notification."
+msgstr "已验签的开票回调格式无效。"
+
+#. module: qing_fapiao
+#: model:ir.model,name:qing_fapiao.model_qing_fapiao_event
+msgid "Invoice Interface Audit Event"
+msgstr "开票接口审计事件"
+
+#. module: qing_fapiao
+#: model:ir.actions.act_window,name:qing_fapiao.action_fapiao_order
+msgid "Invoice Interface Orders"
+msgstr "开票接口任务"
+
+#. module: qing_fapiao
+#: model:ir.ui.menu,name:qing_fapiao.menu_fapiao_interface_root
+#: model:res.groups.privilege,name:qing_fapiao.privilege_fapiao
+msgid "Invoice Interfaces"
+msgstr "开票接口"
+
+#. module: qing_fapiao
+#: model:ir.ui.menu,name:qing_fapiao.menu_fapiao_order
+msgid "Invoice Orders"
+msgstr "开票任务"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__pdf_file
+msgid "Invoice PDF"
+msgstr "发票 PDF"
+
+#. module: qing_fapiao
+#: model:ir.model,name:qing_fapiao.model_qing_fapiao_provider
+msgid "Invoice Provider Account"
+msgstr "开票服务商账号"
+
+#. module: qing_fapiao
+#: model:ir.actions.act_window,name:qing_fapiao.action_fapiao_provider
+msgid "Invoice Provider Accounts"
+msgstr "开票服务商账号"
+
+#. module: qing_fapiao
+#: model:ir.model,name:qing_fapiao.model_qing_fapiao_order
+msgid "Invoice Provider Order"
+msgstr "开票接口任务"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_event.py:0
+msgid "Invoice audit events are immutable."
+msgstr "开票审计事件不能修改或删除。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_event.py:0
+msgid "Invoice audit events can only be created by the interface workflow."
+msgstr "开票审计事件只能由接口流程生成。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Invoice documents can only be fetched for issued tasks."
+msgstr "只有已开票的任务才能获取票文件。"
+
+#. module: qing_fapiao
+#: model:ir.actions.server,name:qing_fapiao.ir_cron_fapiao_orders_ir_actions_server
+msgid "Invoice interfaces: process orders"
+msgstr "开票接口：处理任务"
+
+#. module: qing_fapiao
+#: model:ir.module.module,summary:base.module_qing_fapiao
+msgid "Invoice protocol, recoverable orders and provider extension hooks"
+msgstr "统一开票协议、可恢复任务及服务商扩展接口"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"Invoice tasks and their snapshots are immutable. Use the workflow actions."
+msgstr "开票任务及其快照不能直接修改，请使用流程操作。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Invoice tasks can only be created by an approved business workflow."
+msgstr "开票任务只能由已审批的业务流程创建。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_is_follower
+msgid "Is Follower"
+msgstr "是关注者"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__issued
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__issued
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_search
+msgid "Issued"
+msgstr "已开票"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__issued_at
+msgid "Issued At"
+msgstr "开票确认时间"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__kind
+msgid "Kind"
+msgstr "事件类型"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__last_attempt_at
+msgid "Last Attempt At"
+msgstr "上次调用时间"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__last_error
+msgid "Last Error"
+msgstr "最近处理异常"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__write_uid
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__write_uid
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__write_date
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__write_date
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "Material Symbols 图标，例如 checklist"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_has_error
+msgid "Message Delivery error"
+msgstr "消息发送错误"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "我的活动截止日期"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_search
+msgid "Needs Attention"
+msgstr "待处理异常"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下一活动截止日期"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一活动摘要"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一活动类型"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__next_attempt_at
+msgid "Next Attempt At"
+msgstr "下次调用时间"
+
+#. module: qing_fapiao
+#: model:res.groups.privilege,placeholder:qing_fapiao.privilege_fapiao
+msgid "No"
+msgstr "无"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_provider__code__none
+msgid "No Adapter Installed"
+msgstr "未安装适配器"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "No business registration adapter is installed for this invoice task."
+msgstr "此开票任务尚未安装业务登记衔接模块。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__notification_key
+msgid "Notification Key"
+msgstr "回调编号"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr "待办数量"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__message_has_error_counter
+msgid "Number of errors"
+msgstr "错误数量"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "需要处理的消息数"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "发送失败的消息数"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Only an invoice task that has never been sent can be cancelled."
+msgstr "只有从未发送的开票任务才能取消。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Only an issued invoice can be registered in the business ledger."
+msgstr "只有已开票的结果才能登记到业务台账。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"Only cancelled or definitively rejected tasks without issued invoices can be"
+" deleted."
+msgstr "仅已取消或明确失败且未开票的任务可以删除。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Only invoice interface managers may perform this operation."
+msgstr "只有开票接口管理员才能执行此操作。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Only submitted invoice tasks can be queried."
+msgstr "只有已提交的开票任务才能查询结果。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"Only system administrators may delete cancelled or definitively rejected "
+"invoice tasks."
+msgstr "仅系统管理员可以删除已取消或明确失败的开票任务。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Only unfinished invoice tasks can be cancelled."
+msgstr "仅未完成的开票任务可以取消。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__order_id
+msgid "Order"
+msgstr "开票任务"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__unknown
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__unknown
+msgid "Outcome Unknown"
+msgstr "结果待确认"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__ignored
+msgid "Outdated Result Ignored"
+msgstr "已忽略过期结果"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__has_pdf
+msgid "PDF Available"
+msgstr "PDF 可用"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__payload
+msgid "Payload"
+msgstr "事件内容"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__pdf_filename
+msgid "Pdf Filename"
+msgstr "PDF 文件名"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__pending_action
+msgid "Pending Action"
+msgstr "待执行操作"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__registration_state__pending
+msgid "Pending Registration"
+msgstr "待登记"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_event__processed
+msgid "Processed"
+msgstr "已处理"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__error
+msgid "Processing Error"
+msgstr "处理异常"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_provider__environment__production
+msgid "Production"
+msgstr "正式"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__provider_id
+msgid "Provider"
+msgstr "服务商账号"
+
+#. module: qing_fapiao
+#: model:ir.ui.menu,name:qing_fapiao.menu_fapiao_provider
+msgid "Provider Accounts"
+msgstr "服务商账号"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__pending
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__pending
+msgid "Provider Processing"
+msgstr "服务商处理中"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__result
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Provider Result"
+msgstr "服务商结果"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__provider_snapshot
+msgid "Provider Snapshot"
+msgstr "服务商身份快照"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_list
+msgid "Provider Status"
+msgstr "服务商状态"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Provider revision is maintained by the invoice workflow."
+msgstr "服务商记录修订号由开票流程维护。"
+
+#. module: qing_fapiao
+#: model:ir.module.module,description:base.module_qing_fapiao
+msgid ""
+"Provider-neutral invoicing protocol, durable task execution, verified "
+"notifications and business registration hooks."
+msgstr "统一开票协议、可恢复任务执行、已验签回调及业务登记扩展接口。"
+
+#. module: qing_fapiao
+#: model:ir.module.module,shortdesc:base.module_qing_fapiao
+msgid "Qing Invoice Provider Core"
+msgstr "公共开票接口"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__pending_action__query
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Query Result"
+msgstr "查询结果"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Queue Submission"
+msgstr "加入发送队列"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__queued
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__state__queued
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__task_state__queued
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_search
+msgid "Queued"
+msgstr "等待发送"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Register / Retry Registration"
+msgstr "登记／重试登记"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__registration_state__done
+msgid "Registered"
+msgstr "已登记"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__registration_error
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__registration_state__error
+msgid "Registration Error"
+msgstr "登记异常"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__registration_state
+msgid "Registration State"
+msgstr "登记状态"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__request_key
+msgid "Request Key"
+msgstr "请求唯一编号"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Request Snapshot"
+msgstr "开票请求快照"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__activity_user_id
+msgid "Responsible User"
+msgstr "负责人"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__result
+msgid "Result"
+msgstr "开票结果"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__resumed
+msgid "Result Queries Resumed"
+msgstr "已恢复结果查询"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid "Resume Queries"
+msgstr "恢复查询"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__revision
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__revision
+msgid "Revision"
+msgstr "修订号"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_provider_form
+msgid ""
+"Select an installed provider adapter. Test and production accounts are "
+"separate. Company, adapter, and environment are locked after the first "
+"order. The seller tax ID can be changed; existing orders keep their saved "
+"tax ID."
+msgstr ""
+"请选择已安装的服务商适配器。测试与正式账号分开配置；创建首个任务后，所属公司、适配器和环境将锁定。销方税号可修改，已有任务继续使用快照中的税号。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_provider__seller_tax_id
+msgid "Seller Tax"
+msgstr "销售方税号"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Set the exact seller tax ID for this provider account."
+msgstr "请填写此服务商账号对应的销售方准确税号，前后不要留空格。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__snapshot
+msgid "Snapshot"
+msgstr "请求快照"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__state
+msgid "State"
+msgstr "开票状态"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "基于活动的状态\n逾期：已超过截止日期\n今天：活动日期为今天\n计划：未来的活动。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_order__pending_action__submit
+msgid "Submit Invoice"
+msgstr "提交开票"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__submitted_at
+msgid "Submitted At"
+msgstr "提交时间"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Switch to the invoice order company before continuing."
+msgstr "请先切换到开票任务所属公司。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "Switch to the invoice provider company before continuing."
+msgstr "请先切换到服务商账号所属公司。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__processing_cancelled_at
+msgid "Task Cancelled At"
+msgstr "任务取消时间"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__processing_cancelled_by
+msgid "Task Cancelled By"
+msgstr "任务取消人"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,field_description:qing_fapiao.field_qing_fapiao_order__task_state
+msgid "Task Status"
+msgstr "任务状态"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Task validation failed before calling the provider."
+msgstr "调用服务商前的任务校验未通过。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_provider__environment__test
+msgid "Test"
+msgstr "测试"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "The PDF is not available yet. Fetch the invoice documents first."
+msgstr "PDF尚未取得，请先补取票文件。"
+
+#. module: qing_fapiao
+#: model:ir.model.constraint,message:qing_fapiao.constraint_qing_fapiao_order_request_unique
+msgid "The invoice request identifier already exists."
+msgstr "开票请求编号已存在。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "The issued invoice identity or amount changed in a later result."
+msgstr "后续返回的票据信息或金额与已确认的开票结果不一致。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "The notification does not match an invoice order."
+msgstr "此回调未匹配到对应的开票任务。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "The provider does not support this invoice currency."
+msgstr "服务商不支持此开票币种。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "The provider does not support this invoice type."
+msgstr "服务商不支持此票种。"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid ""
+"The provider has issued the invoice. Correct the registration issue and "
+"retry registration without issuing another invoice."
+msgstr "服务商已完成开票。请解决登记问题后重试登记，切勿再次开票。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"The provider outcome is not confirmed. Query the result before any further "
+"action."
+msgstr "尚未确认服务商处理结果，请先查询结果，再执行后续操作。"
+
+#. module: qing_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_fapiao.view_qing_fapiao_order_form
+msgid ""
+"The provider outcome is unknown. Query this task; do not send another "
+"invoice request."
+msgstr "服务商处理结果待确认，请查询当前任务，切勿重复发起开票申请。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "The provider reference changed for an existing invoice task."
+msgstr "同一开票任务返回了不同的服务商单号。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"The provider routing configuration no longer matches the frozen invoice "
+"task."
+msgstr "服务商账号的公司、适配器或环境与开票任务保存的信息不一致。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "The provider seller tax ID differs from the approved invoice."
+msgstr "服务商账号的销售方税号与已审批申请不一致。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"The request identifier is already bound to another provider or payload."
+msgstr "此请求编号已绑定其他服务商或不同的请求内容。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_provider.py:0
+msgid "This provider does not support notifications."
+msgstr "此服务商不支持回调通知。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "This provider does not support result queries."
+msgstr "此服务商不支持结果查询。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid ""
+"This task is being processed. Wait for the current operation to finish "
+"before deleting it."
+msgstr "任务正在处理，请等本轮操作完成后再删除。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "This task was already submitted. Query its result instead."
+msgstr "此任务已经提交，请查询结果，不要再次提交。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields,help:qing_fapiao.field_qing_fapiao_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "记录上异常活动的类型。"
+
+#. module: qing_fapiao
+#. odoo-python
+#: code:addons/qing_fapiao/models/fapiao_order.py:0
+msgid "Unknown invoice currency."
+msgstr "开票币种无效。"
+
+#. module: qing_fapiao
+#: model:ir.model.fields.selection,name:qing_fapiao.selection__qing_fapiao_event__kind__notification
+msgid "Verified Notification"
+msgstr "已验签回调"

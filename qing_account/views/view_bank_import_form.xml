@@ -1,0 +1,203 @@
+<?xml version="1.0" ?>
+<odoo>
+
+
+    <record id="view_bank_import_profile_form" model="ir.ui.view">
+        <field name="name">qing.bank.import.profile.form</field>
+        <field name="model">qing.bank.import.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="encoding"/>
+                        <field name="delimiter"/>
+                        <field name="header_row"/>
+                        <field name="date_format"/>
+                        <field name="amount_mode"/>
+                    </group>
+                    <group string="列名映射；可选列不使用时留空">
+                        <field name="date_column"/>
+                        <field name="memo_column"/>
+                        <field invisible="amount_mode != 'signed'" name="amount_column"/>
+                        <field invisible="amount_mode != 'split'" name="income_column"/>
+                        <field invisible="amount_mode != 'split'" name="expense_column"/>
+                        <field name="currency_column"/>
+                        <field name="reference_column"/>
+                        <field name="partner_column"/>
+                        <field name="account_column"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_bank_profiles" model="ir.actions.act_window">
+        <field name="name">银行 CSV 格式模板</field>
+        <field name="res_model">qing.bank.import.profile</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <data noupdate="1">
+        <record id="bank_profile_standard" model="qing.bank.import.profile">
+            <field name="name">标准 CSV（收入正、支出负）</field>
+        </record>
+    </data>
+
+
+    <record id="view_bank_import_form" model="ir.ui.view">
+        <field name="name">qing.bank.import.form</field>
+        <field name="model">qing.bank.import</field>
+        <field name="arch" type="xml">
+            <form string="导入银行流水">
+                <div class="alert alert-info" role="status">
+                    先预览并核实本方账号及收支方向，再确认导入。确认后生成原生银行交易及关联凭证，暂记于银行暂记科目。单个文件限 1 MiB、2000 条。
+                    <br/>
+                    <a download="bank_transactions.csv" href="/qing_account/static/templates/bank_transactions.csv">下载标准空白 CSV 模板</a>
+                </div>
+                <group>
+                    <field name="journal_id"/>
+                    <field name="bank_account"/>
+                    <field name="profile_id"/>
+                    <field filename="filename" name="file"/>
+                    <field invisible="1" name="filename"/>
+                </group>
+                <field invisible="1" name="preview_token"/>
+                <field name="preview"/>
+                <field invisible="not preview_token" name="allow_suspected"/>
+                <footer>
+                    <button class="btn-primary" name="action_preview" string="预览与查重" type="object"/>
+                    <button confirm="确认本方银行账号及收支方向正确？此操作将创建银行交易及关联会计凭证。" invisible="not preview_token" name="action_import" string="确认导入" type="object"/>
+                    <button special="cancel" string="关闭"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_bank_import" model="ir.actions.act_window">
+        <field name="name">导入银行流水</field>
+        <field name="res_model">qing.bank.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field eval="{'default_profile_id': ref('bank_profile_standard')}" name="context"/>
+    </record>
+
+
+    <record id="view_bank_transactions_list" model="ir.ui.view">
+        <field name="name">qing.bank.transactions.list</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="date"/>
+                <field name="journal_id"/>
+                <field name="payment_ref"/>
+                <field name="partner_name"/>
+                <field name="partner_id"/>
+                <field name="account_number" optional="hide"/>
+                <field name="amount"/>
+                <field name="currency_id"/>
+                <field name="qing_bank_reference"/>
+                <field name="qing_edit_locked" string="已匹配"/>
+                <field name="qing_import_filename" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_bank_transactions_form" model="ir.ui.view">
+        <field name="name">qing.bank.transactions.form</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <form duplicate="false">
+                <header>
+                    <button invisible="qing_edit_locked or not id or amount == 0" name="action_qing_match_payment" string="匹配收付款" type="object"/>
+                    <button confirm="撤销本笔流水的银行匹配？已登记收付款与发票的核销不受此操作影响。" invisible="not qing_edit_locked" name="action_qing_undo_match" string="Reset（撤销匹配）" type="object"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-warning" role="status" invisible="not id or amount != 0">此记录金额为 0，不代表已匹配付款。请补填实际金额后保存，或删除误建记录。</div>
+                    <div class="alert alert-info" role="status" invisible="not qing_edit_locked">已匹配流水已锁定，请先 Reset（撤销匹配）再编辑或删除。</div>
+                    <group>
+                        <field name="date" readonly="qing_edit_locked"/>
+                        <field name="journal_id" domain="[('type', '=', 'bank')]" readonly="qing_edit_locked"/>
+                        <field name="payment_ref" readonly="qing_edit_locked"/>
+                        <field name="partner_name" readonly="qing_edit_locked"/>
+                        <field name="account_number" readonly="qing_edit_locked"/>
+                        <field name="partner_id" readonly="qing_edit_locked"/>
+                        <field name="amount" readonly="qing_edit_locked" help="收入填写正数，支出填写负数；不能为 0。"/>
+                        <field name="currency_id"/>
+                        <field name="qing_bank_reference" readonly="qing_edit_locked"/>
+                        <field name="qing_edit_locked" string="已匹配"/>
+                        <!-- Generated by native create(); do not require it in the unsaved form. -->
+                        <field name="move_id" readonly="1" required="0" invisible="not id"/>
+                        <field name="qing_matched_payment_id"/>
+                        <field name="qing_import_filename"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_bank_transactions_search" model="ir.ui.view">
+        <field name="name">qing.bank.transactions.search</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="payment_ref"/>
+                <field name="qing_bank_reference"/>
+                <field name="journal_id"/>
+                <field name="partner_name"/>
+                <filter domain="['|', ('is_reconciled', '=', False), ('amount', '=', 0)]" name="pending" string="待认领"/>
+                <filter domain="[('is_reconciled', '=', True)]" name="done" string="已处理"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_bank_transactions" model="ir.actions.act_window">
+        <field name="name">银行流水</field>
+        <field name="res_model">account.bank.statement.line</field>
+        <field name="view_mode">list,form</field>
+        <field eval="[(5, 0, 0), (0, 0, {'view_mode': 'list', 'view_id': ref('view_bank_transactions_list')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_bank_transactions_form')})]" name="view_ids"/>
+        <field name="search_view_id" ref="view_bank_transactions_search"/>
+        <field name="domain">[('journal_id.type', '=', 'bank')]</field>
+        <field name="context">{'search_default_pending': 1}</field>
+    </record>
+
+
+    <menuitem action="action_bank_transactions" groups="account.group_account_manager" id="menu_bank_transactions" name="银行流水" parent="account.menu_finance_entries" sequence="40"/>
+
+
+    <menuitem action="action_bank_import" groups="account.group_account_manager" id="menu_bank_import" name="导入银行流水" parent="account.menu_finance_entries" sequence="41"/>
+
+
+    <menuitem action="action_bank_profiles" groups="account.group_account_manager" id="menu_bank_profiles" name="银行 CSV 格式模板" parent="account.menu_finance_entries" sequence="42"/>
+
+
+    <record id="view_bank_payment_match_form" model="ir.ui.view">
+        <field name="name">qing.bank.payment.match.form</field>
+        <field name="model">qing.bank.payment.match</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="alert alert-info" role="status">选择已有收付款，核实往来单位、金额及日期。本入口支持同银行、本位币、整笔匹配；不会新建收付款或重复核销发票。</div>
+                <group>
+                    <field name="line_id"/>
+                    <field name="payment_id"/>
+                    <field name="payment_amount"/>
+                    <field invisible="1" name="payment_currency_id"/>
+                    <field name="payment_date"/>
+                    <field name="payment_partner_id"/>
+                </group>
+                <footer>
+                    <button class="btn-primary" name="action_match" string="确认匹配" type="object"/>
+                    <button special="cancel" string="取消"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+<record id="action_bank_workbench" model="ir.actions.client"><field name="name">银行对账工作台</field><field name="tag">qing_account.bank_workbench</field></record>
+<menuitem id="menu_bank_workbench" name="银行对账工作台" parent="account.menu_finance_entries" action="action_bank_workbench" groups="account.group_account_manager" sequence="39"/>
+</odoo>

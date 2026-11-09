@@ -1,0 +1,12 @@
+<odoo>
+ <menuitem id="menu_sms_root" name="国内短信" parent="phone_validation.phone_menu_main" sequence="80" groups="qing_sms.group_sms_user"/>
+ <menuitem id="menu_sms_message" name="发送记录" parent="menu_sms_root" action="action_sms_message" sequence="10"/>
+ <menuitem id="menu_sms_binding" name="业务模板" parent="menu_sms_root" action="action_sms_binding" sequence="20"/>
+ <menuitem id="menu_sms_template" name="云端模板" parent="menu_sms_root" action="action_sms_remote_template" sequence="30"/>
+ <menuitem id="menu_sms_account" name="短信账户" parent="menu_sms_root" action="action_sms_account" sequence="40" groups="qing_sms.group_sms_manager"/>
+ <menuitem id="menu_sms_blueprint" name="Template blueprints" parent="menu_sms_root" action="action_sms_blueprint" sequence="50"/>
+ <menuitem id="menu_sms_scenario" name="Business scenarios" parent="menu_sms_root" action="action_sms_scenario" sequence="60" groups="qing_sms.group_sms_manager"/>
+ <menuitem id="menu_sms_scenario_setup" name="Set up scenario" parent="menu_sms_root" action="action_sms_scenario_setup" sequence="65" groups="qing_sms.group_sms_manager"/>
+ <menuitem id="menu_sms_application" name="Template applications" parent="menu_sms_root" action="action_sms_application" sequence="70" groups="qing_sms.group_sms_manager"/>
+ <menuitem id="menu_sms_event" name="Business events" parent="menu_sms_root" action="action_sms_event" sequence="80" groups="qing_sms.group_sms_manager"/>
+</odoo>

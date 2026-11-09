@@ -1,0 +1,33 @@
+// Mail systray menus are portaled to body, outside the navbar and Discuss app.
+.o_qing_web_ui.o_qing_ui--dark {
+    &.o_web_client.o-mail-discuss-systray-menu-open .o_main_navbar {
+        background-color: var(--o-qing-nav-bg, var(--o-qing-surface)) !important;
+    }
+
+    .o-mail-DiscussSystray {
+        background-color: var(--o-qing-surface);
+        border-color: var(--o-qing-border);
+        color: var(--o-qing-text);
+    }
+
+    .o-mail-ActivityMenu {
+        .list-group {
+            --list-group-bg: var(--o-qing-surface);
+            --list-group-color: var(--o-qing-text);
+            --list-group-border-color: var(--o-qing-border);
+            --list-group-action-color: var(--o-qing-text);
+            --list-group-action-hover-color: var(--o-qing-text);
+            --list-group-action-hover-bg: var(--o-qing-surface-weak);
+            --list-group-action-active-color: var(--o-qing-text);
+            --list-group-action-active-bg: var(--o-qing-surface-weak);
+        }
+
+        .text-muted { color: var(--o-qing-text-soft) !important; }
+        .text-primary { color: var(--o-qing-link) !important; }
+        .btn-link {
+            --btn-color: var(--o-qing-link);
+            --btn-hover-color: var(--o-qing-link);
+            --btn-active-color: var(--o-qing-link);
+        }
+    }
+}

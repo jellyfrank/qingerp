@@ -1,0 +1,170 @@
+.qing-login-layout {
+    --o-qing-bg: #f5f7f8;
+    --o-qing-surface: #fff;
+    --o-qing-surface-weak: #f1f5f4;
+    --o-qing-border: #dfe6e4;
+    --o-qing-text: #1f2928;
+    --o-qing-text-soft: #74827f;
+    --o-qing-accent: #2f6aff;
+    --o-qing-accent-hover: #285bdd;
+    // Odoo injects portal colors after the frontend asset; keep its login controls on our theme.
+    --portal-primary-color: var(--o-qing-accent);
+    --portal-text-color: #fff;
+
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: none !important;
+    min-height: 100svh;
+    margin: 0;
+    padding: 32px clamp(24px, 2vw, 48px) !important;
+    color: var(--o-qing-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+    .qing-login-scene {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        isolation: isolate;
+        overflow: hidden;
+        color: #294659;
+        background: #edf1ee;
+    }
+
+    .qing-login-illustration {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 58%;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .qing-login-water-filter { position: absolute; pointer-events: none; }
+
+    .qing-login-water {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+        pointer-events: none;
+        // Only the open foreground sea moves; buildings and the pier stay still.
+        mask-image: linear-gradient(transparent 72%, #000 84%);
+        -webkit-mask-image: linear-gradient(transparent 72%, #000 84%);
+
+        .qing-login-illustration {
+            filter: url("#qing-login-water-refraction");
+            animation: qing-login-tide 10s ease-in-out infinite;
+            transform-origin: 50% 100%;
+        }
+    }
+
+    .qing-login-scene-footer {
+        position: absolute;
+        z-index: 4;
+        bottom: 4%;
+        left: 32px;
+        right: 50%;
+        color: #f1f7f7;
+        font-size: 11px;
+        letter-spacing: .08em;
+        text-shadow: 0 1px 4px rgba(10, 42, 64, .6);
+    }
+
+    .o_database_list {
+        position: relative;
+        flex: 0 1 380px;
+        width: 380px;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border: 1px solid rgba(255, 255, 255, .7);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .93) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 16px 56px rgba(24, 54, 73, .18), 0 2px 8px rgba(24, 54, 73, .06);
+    }
+
+    .card-body {
+        position: relative;
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: none;
+        margin: auto;
+        padding: 22px 26px;
+        background: transparent;
+        border-radius: inherit;
+    }
+
+    .card-body > .text-center:first-child {
+        margin-bottom: 8px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        text-align: left !important;
+
+        img { width: 36px !important; height: 36px; object-fit: contain; }
+    }
+
+    .qing-login-heading {
+        margin-bottom: 16px;
+
+        span { color: var(--o-qing-accent); font-size: 11px; font-weight: 750; letter-spacing: .18em; }
+        h2 { margin: 9px 0 0; color: var(--o-qing-text); font-size: 27px; font-weight: 700; letter-spacing: -.05em; }
+    }
+
+    .oe_login_form {
+        label { margin-bottom: 6px; color: var(--o-qing-text); font-size: 13px; font-weight: 650; }
+        .form-control { min-height: 40px; border: 1px solid var(--o-qing-border); border-radius: 10px; background: var(--o-qing-surface); color: var(--o-qing-text); }
+        .form-control:focus { border-color: var(--o-qing-accent); box-shadow: 0 0 0 3px rgba(47, 106, 255, .2); }
+        .form-control::placeholder { color: var(--o-qing-text-soft); opacity: .8; }
+        .o_caps_lock_warning .input-group .form-control { border-radius: 10px 0 0 10px; }
+        .o_caps_lock_warning .input-group .btn { border-color: var(--o-qing-border) !important; border-radius: 0 10px 10px 0; background: var(--o-qing-surface); }
+        .oe_login_buttons > .btn-primary {
+            min-height: 40px;
+            border: 1px solid var(--o-qing-accent) !important;
+            border-radius: 10px;
+            background: var(--o-qing-accent) !important;
+            color: #fff !important;
+            box-shadow: 0 10px 22px rgba(47, 106, 255, .18);
+            font-size: 14px;
+            font-weight: 650;
+
+            &:hover { border-color: var(--o-qing-accent-hover) !important; background: var(--o-qing-accent-hover) !important; }
+        }
+        a { color: var(--o-qing-accent) !important; text-decoration: none; }
+        .o_login_auth .list-group-item { border-color: var(--o-qing-border); border-radius: 10px; background: var(--o-qing-surface); color: var(--o-qing-text) !important; }
+        .o_login_auth .list-group-item:hover { background: var(--o-qing-surface-weak); }
+    }
+
+    .qing-login-footer { margin: 20px auto 0; color: var(--o-qing-text-soft); text-align: center; }
+    .qing-login-copyright { font-size: 11px; }
+    .qing-login-browser-support { margin-top: 4px; font-size: 11px; line-height: 1.45; text-wrap: balance; }
+
+    @media (max-width: 860px) {
+        padding: 24px !important;
+        .qing-login-scene-footer { display: none; }
+    }
+
+    @media (max-width: 500px) {
+        justify-content: center;
+        padding: 20px 16px !important;
+        .card-body { padding: 24px; }
+        .qing-login-heading h2 { font-size: 25px; }
+    }
+
+}
+
+@keyframes qing-login-tide {
+    0%, 100% { transform: translate3d(-2px, 1px, 0) scale(1.012); }
+    50% { transform: translate3d(3px, -2px, 0) scale(1.018); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .qing-login-layout .qing-login-water { display: none; }
+    .qing-login-layout .qing-login-water .qing-login-illustration { animation: none; }
+}

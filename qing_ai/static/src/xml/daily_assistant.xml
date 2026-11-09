@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_ai.DailyAssistant">
+        <div t-attf-class="o_qing_ai_assistant d-flex {{ this.compact ? 'o_qing_ai_assistant--compact' : 'h-100' }}"
+             t-att-role="this.compact ? 'dialog' : null" aria-label="Qing AI">
+            <section t-if="this.compact &amp;&amp; this.state.view === 'list'"
+                     class="o_qing_ai_compact_list d-flex flex-column flex-grow-1">
+                <header class="o_qing_ai_compact_header d-flex align-items-center justify-content-between gap-2 border-bottom p-3">
+                    <div>
+                        <strong>Qing AI</strong>
+                        <div class="small text-muted">Your conversations</div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" t-on-click="() => this.newConversation()"
+                            t-att-disabled="this.state.busy">New chat</button>
+                </header>
+                <div class="p-3 pb-2">
+                    <input type="search" class="form-control" placeholder="Search conversations"
+                           aria-label="Search AI conversations" t-att-value="this.state.search"
+                           t-on-input="(event) => { this.state.search = event.target.value; }"/>
+                </div>
+                <div t-if="this.state.error" class="alert alert-danger mx-3 mb-2" role="alert" t-esc="this.state.error"/>
+                <div class="o_qing_ai_compact_sessions flex-grow-1 overflow-auto" role="list">
+                    <p t-if="!this.filteredConversations.length" class="text-muted text-center p-4 mb-0">
+                        <t t-if="this.state.search">No matching conversations.</t>
+                        <t t-else="">No conversations yet. Start a new chat.</t>
+                    </p>
+                    <t t-foreach="this.filteredConversations" t-as="item" t-key="item.id">
+                        <div role="listitem" class="o_qing_ai_session_item d-flex align-items-center">
+                            <button type="button" class="o_qing_ai_session_row d-flex align-items-center w-100 text-start border-0"
+                                    t-on-click="() => this.open(item.id)" t-att-disabled="this.state.busy">
+                                <span class="o_qing_ai_session_avatar d-inline-flex align-items-center justify-content-center flex-shrink-0" aria-hidden="true">
+                                    <img t-if="item.agent_avatar_url" t-att-src="item.agent_avatar_url" alt=""/>
+                                    <t t-else="">✦</t>
+                                </span>
+                                <span class="o_qing_ai_session_text d-flex flex-column flex-grow-1 overflow-hidden">
+                                    <span class="fw-semibold text-truncate" t-esc="item.name"/>
+                                    <span class="small text-muted text-truncate">AI conversation</span>
+                                </span>
+                                <small t-if="item.last_message_at" class="text-muted flex-shrink-0 ms-2"
+                                       t-esc="this.formatConversationDate(item.last_message_at)"/>
+                            </button>
+                            <button type="button" class="o_qing_ai_delete_session btn btn-sm btn-light flex-shrink-0"
+                                    title="Delete conversation" aria-label="Delete conversation"
+                                    t-on-click="() => this.deleteConversation(item.id)" t-att-disabled="this.state.busy">
+                                <i class="oi oi-fw" data-icon="delete" aria-hidden="true"/>
+                            </button>
+                        </div>
+                    </t>
+                </div>
+                <footer class="border-top p-2 text-center">
+                    <button type="button" class="btn btn-link btn-sm" t-on-click="() => this.openFullAssistant()">
+                        Open full assistant
+                    </button>
+                </footer>
+            </section>
+            <aside t-if="!this.compact" class="o_qing_ai_sessions border-end p-3">
+                <button class="btn btn-outline-primary w-100 mb-3" t-on-click="() => this.newConversation()" t-att-disabled="this.state.busy">
+                    New conversation
+                </button>
+                <div class="small text-muted mb-2">Recent conversations</div>
+                <t t-foreach="this.state.conversations" t-as="item" t-key="item.id">
+                    <div class="o_qing_ai_session_item d-flex align-items-center mb-1">
+                        <button class="btn flex-grow-1 text-start text-truncate"
+                                t-att-class="this.state.conversation?.id === item.id ? 'btn-primary' : 'btn-light'"
+                                t-att-disabled="this.state.busy" t-on-click="() => this.open(item.id)"
+                                t-esc="item.name"/>
+                        <button type="button" class="o_qing_ai_delete_session btn btn-sm btn-light flex-shrink-0 ms-1"
+                                title="Delete conversation" aria-label="Delete conversation"
+                                t-on-click="() => this.deleteConversation(item.id)" t-att-disabled="this.state.busy">
+                            <i class="oi oi-fw" data-icon="delete" aria-hidden="true"/>
+                        </button>
+                    </div>
+                </t>
+            </aside>
+            <main t-if="!this.compact || this.state.view === 'chat'"
+                  class="o_qing_ai_main d-flex flex-column flex-grow-1">
+                <header class="border-bottom p-3">
+                    <div t-if="this.compact" class="o_qing_ai_compact_chat_header d-flex align-items-center gap-2">
+                        <button type="button" class="btn btn-light btn-sm" aria-label="Back to AI conversations"
+                                t-on-click="() => this.backToList()" t-att-disabled="this.state.busy">←</button>
+                        <img t-if="this.state.conversation?.agent_avatar_url" class="o_qing_ai_agent_avatar"
+                             t-att-src="this.state.conversation.agent_avatar_url" alt=""/>
+                        <strong class="text-truncate flex-grow-1" t-esc="this.state.conversation?.name || 'Qing AI'"/>
+                        <button type="button" class="btn btn-light btn-sm" title="Open full assistant"
+                                aria-label="Open full assistant" t-on-click="() => this.openFullAssistant()">↗</button>
+                    </div>
+                    <div t-else="" class="d-flex align-items-center gap-2 mb-1">
+                        <img t-if="this.state.conversation?.agent_avatar_url" class="o_qing_ai_agent_avatar"
+                             t-att-src="this.state.conversation.agent_avatar_url" alt=""/>
+                        <h3 class="h5 mb-0">Daily Assistant</h3>
+                    </div>
+                    <details t-if="this.state.conversation?.context_model" class="small text-muted my-2">
+                        <summary>Record context: <t t-esc="this.state.conversation.context_model"/> #<t t-esc="this.state.conversation.context_res_id"/><span class="ms-1">Review fields sent to AI</span></summary>
+                        <p t-if="this.state.conversation.context_unavailable" class="text-danger mb-0">This record is no longer available to you. Requests using it will be blocked.</p>
+                        <dl t-else="" class="row mb-0 mt-2">
+                            <t t-foreach="this.state.conversation.context_fields" t-as="field" t-key="field.name">
+                                <dt class="col-sm-3" t-esc="field.name"/>
+                                <dd class="col-sm-9 o_qing_ai_text" t-esc="field.value"/>
+                            </t>
+                        </dl>
+                    </details>
+                    <div t-if="!this.compact" class="small text-muted">Only your text and the shown record fields are sent to your chosen AI provider. Check answers before use.</div>
+                </header>
+                <div class="o_qing_ai_messages flex-grow-1 p-3" role="log" aria-live="polite"
+                     t-ref="this.messagesRef" t-on-scroll="this.onMessagesScroll">
+                    <t t-if="this.state.conversation">
+                        <p t-if="!this.state.conversation.messages.length &amp;&amp; !this.state.pendingMessage" class="text-muted text-center py-5">
+                            Ask a question, paste text to summarize, or choose Translate.
+                        </p>
+                        <t t-foreach="this.state.conversation.messages" t-as="message" t-key="message.id">
+                            <div class="o_qing_ai_message mb-3" t-att-class="message.role === 'user' ? 'o_qing_ai_user' : 'o_qing_ai_reply'">
+                                <div class="small fw-semibold mb-1" t-if="message.role === 'user'">You</div>
+                                <div class="small fw-semibold mb-1" t-elif="message.role === 'error'">Request error</div>
+                                <div class="small fw-semibold mb-1" t-else="">Qing AI</div>
+                                <div t-if="message.content_html"
+                                     class="o_qing_ai_markdown" t-out="this.messageHtml(message)"/>
+                                <div t-else="" class="o_qing_ai_text" t-esc="message.content"/>
+                                <img t-if="message.image_url" class="o_qing_ai_message_image mt-2"
+                                     t-on-load="this.onMessageImageLoad"
+                                     t-att-src="message.image_url" alt="Attached image"/>
+                                <div t-foreach="message.files || []" t-as="file" t-key="file.id" class="mt-2">
+                                    <a class="o_qing_ai_file_link small" t-att-href="file.url" t-att-download="file.name"
+                                       t-esc="file.name"/>
+                                </div>
+                                <details t-if="message.process_steps?.length" class="o_qing_ai_process mt-2">
+                                    <summary class="small text-muted">
+                                        Execution process · <t t-esc="message.process_steps.length"/>
+                                    </summary>
+                                    <ol class="o_qing_ai_process_steps small mb-0 mt-2">
+                                        <li t-foreach="message.process_steps" t-as="step" t-key="step_index"
+                                            t-att-class="'o_qing_ai_process_step--' + step.status">
+                                            <span t-if="this.processStepMarker(step)" class="o_qing_ai_process_marker"
+                                                  t-esc="this.processStepMarker(step)"/>
+                                            <span t-esc="this.processStepText(step)"/>
+                                        </li>
+                                    </ol>
+                                </details>
+                                <div t-if="message.model || this.usageText(message.usage_summary)"
+                                     class="o_qing_ai_response_meta small text-muted mt-2">
+                                    <span t-if="message.model" t-esc="message.model"/>
+                                    <span t-if="message.model &amp;&amp; this.usageText(message.usage_summary)" class="mx-1">·</span>
+                                    <span t-if="this.usageText(message.usage_summary)">
+                                        Token usage · <t t-esc="this.usageText(message.usage_summary)"/>
+                                    </span>
+                                </div>
+                                <div t-if="message.source_refs?.length" class="small text-muted mt-2">
+                                    <strong>Knowledge sources:</strong>
+                                    <span t-foreach="message.source_refs" t-as="source" t-key="source.uuid"
+                                          class="d-block" t-esc="source.number + '. ' + source.title"/>
+                                </div>
+                            </div>
+                        </t>
+                        <div t-if="this.state.pendingMessage" class="o_qing_ai_message o_qing_ai_user mb-3">
+                            <div class="small fw-semibold mb-1">You</div>
+                            <div class="o_qing_ai_text" t-esc="this.state.pendingMessage.content"/>
+                            <img t-if="this.state.pendingMessage.image_url" class="o_qing_ai_message_image mt-2"
+                                 t-on-load="this.onMessageImageLoad" t-att-src="this.state.pendingMessage.image_url" alt="Attached image"/>
+                            <div t-foreach="this.state.pendingMessage.files" t-as="file" t-key="file.name"
+                                 class="small mt-2" t-esc="file.name"/>
+                        </div>
+                        <div t-if="this.state.sending" class="o_qing_ai_message o_qing_ai_reply o_qing_ai_thinking mb-3"
+                             role="status" aria-label="AI is thinking">
+                            <div class="small fw-semibold mb-1">Qing AI</div>
+                            <span class="visually-hidden">AI is thinking</span>
+                            <div t-if="this.state.streamText" class="o_qing_ai_text o_qing_ai_streaming"
+                                 aria-live="polite" t-esc="this.state.streamText"/>
+                            <ol t-elif="this.state.conversation.active_run?.process_steps?.length"
+                                class="o_qing_ai_process_steps small mb-0">
+                                <li t-foreach="this.state.conversation.active_run.process_steps" t-as="step" t-key="step_index"
+                                    t-att-class="'o_qing_ai_process_step--' + step.status">
+                                    <span t-if="step.status === 'running'" class="o_qing_ai_thinking_dots me-2" aria-hidden="true">
+                                        <span/><span/><span/>
+                                    </span>
+                                    <span t-elif="this.processStepMarker(step)" class="o_qing_ai_process_marker"
+                                          t-esc="this.processStepMarker(step)"/>
+                                    <span t-esc="this.processStepText(step)"/>
+                                </li>
+                            </ol>
+                            <span t-else="" class="d-flex align-items-center gap-2">
+                                <span class="o_qing_ai_thinking_dots" aria-hidden="true"><span/><span/><span/></span>
+                                <span class="small text-muted">Analyzing the request and selecting an allowed action</span>
+                            </span>
+                        </div>
+                        <div t-foreach="this.state.conversation.pending_operations || []" t-as="operation" t-key="operation.id"
+                             class="o_qing_ai_operation border rounded p-2 mb-2">
+                            <strong>Review business action</strong>
+                            <p class="mb-2 o_qing_ai_text" t-esc="operation.preview"/>
+                            <button type="button" class="btn btn-primary btn-sm"
+                                    t-att-disabled="this.state.busy"
+                                    t-on-click="() => this.confirmOperation(operation.id)">
+                                <t t-if="operation.confirm_label" t-esc="operation.confirm_label"/>
+                                <t t-else="">Confirm and create</t>
+                            </button>
+                        </div>
+                    </t>
+                    <p t-else="" class="text-muted text-center py-5">Select a conversation or start a new one.</p>
+                </div>
+                <div t-if="this.state.error" class="alert alert-danger mx-3 mb-0" role="alert" t-esc="this.state.error"/>
+                <form class="o_qing_ai_composer border-top p-3" t-on-submit.prevent="(event) => this.send(event)">
+                    <details class="o_qing_ai_options mb-2">
+                        <summary class="small d-flex align-items-center justify-content-between gap-2">
+                            <span>Task and provider</span>
+                            <span class="text-muted text-truncate" t-esc="this.optionsSummary"/>
+                        </summary>
+                        <div class="d-flex flex-wrap gap-2 mt-2">
+                            <label t-if="this.state.conversation?.agents?.length" class="small">Agent
+                                <select class="form-select form-select-sm" t-att-value="this.state.conversation.agent_id"
+                                        t-att-disabled="this.state.busy" t-on-change="(event) => this.selectAgent(event)">
+                                    <t t-foreach="this.state.conversation.agents" t-as="agent" t-key="agent.id">
+                                        <option t-att-value="agent.id" t-esc="agent.name"/>
+                                    </t>
+                                </select>
+                            </label>
+                            <button t-if="this.state.conversation?.agent_id" type="button"
+                                    class="btn btn-outline-secondary btn-sm align-self-end"
+                                    t-att-disabled="this.state.busy"
+                                    t-on-click="() => this.openAgentInDiscuss()">
+                                Open in Discuss
+                            </button>
+                            <label class="small">Task
+                                <select class="form-select form-select-sm" t-att-value="this.state.task" t-att-disabled="this.state.busy"
+                                        t-on-change="(event) => { this.state.task = event.target.value; }">
+                                    <option value="ask">Ask</option>
+                                    <option value="summarize">Summarize</option>
+                                    <option value="translate">Translate</option>
+                                    <option t-if="this.state.conversation?.business_enabled" value="business">Business</option>
+                                </select>
+                            </label>
+                            <label class="small">Provider
+                                <select class="form-select form-select-sm" t-att-value="this.state.provider" t-att-disabled="this.state.busy || !this.state.conversation"
+                                        t-on-change="(event) => { this.state.provider = event.target.value; }">
+                                    <t t-foreach="this.state.conversation?.providers || []" t-as="provider" t-key="provider.value">
+                                        <option t-att-value="provider.value" t-esc="provider.label"/>
+                                    </t>
+                                </select>
+                            </label>
+                            <label t-if="this.state.task === 'translate'" class="small">Target language
+                                <input class="form-control form-control-sm" maxlength="80" t-att-value="this.state.targetLanguage"
+                                       t-att-disabled="this.state.busy" t-on-input="(event) => { this.state.targetLanguage = event.target.value; }"/>
+                            </label>
+                        </div>
+                    </details>
+                    <div class="o_qing_ai_editor mb-2" t-att-class="(this.state.busy &amp;&amp; !this.state.sending) || !this.state.conversation ? 'o_qing_ai_editor--disabled' : ''"
+                         role="group" aria-label="Your message">
+                        <Wysiwyg config="this.editorConfig" onLoad.bind="this.onEditorReady"
+                                 class="'o_qing_ai_wysiwyg'" contentClass="'o_qing_ai_editable'"/>
+                    </div>
+                    <div t-if="this.state.image" class="o_qing_ai_image_preview d-flex align-items-center gap-2 mb-2">
+                        <img t-att-src="this.state.image.url" alt="Pasted image preview"/>
+                        <span class="small text-truncate" t-esc="this.state.image.name"/>
+                        <button type="button" class="btn btn-link btn-sm" aria-label="Remove image"
+                                t-on-click="() => { this.state.image = null; }">Remove</button>
+                    </div>
+                    <div t-foreach="this.state.files" t-as="file" t-key="file.name" class="o_qing_ai_file_preview d-flex align-items-center gap-2 mb-2">
+                        <span aria-hidden="true">📄</span>
+                        <span class="small text-truncate flex-grow-1" t-esc="file.name"/>
+                        <button type="button" class="btn btn-link btn-sm" aria-label="Remove file"
+                                t-on-click="() => { this.state.files = this.state.files.filter(item => item !== file); }">Remove</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center gap-2">
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="btn btn-light btn-sm mb-0" aria-label="Attach file">
+                                📎<input type="file" class="d-none" accept="image/png,image/jpeg,image/webp,.pdf,.txt,.md,.csv" multiple="multiple"
+                                         t-att-disabled="(this.state.busy &amp;&amp; !this.state.sending) || this.state.imageLoading || !this.state.conversation"
+                                         t-on-change="(event) => this.onFilesSelected(event)"/>
+                            </label>
+                            <span class="small text-muted"><t t-if="this.compact">Enter sends · Alt+Enter for new line</t><t t-else="">Enter sends · Alt+Enter for new line · Maximum 4,000 characters</t></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" t-att-disabled="this.state.busy || this.state.sending || this.state.imageLoading || (!this.state.draft.trim() &amp;&amp; !this.state.image &amp;&amp; !this.state.files.length) || !this.state.conversation">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </t>
+</templates>

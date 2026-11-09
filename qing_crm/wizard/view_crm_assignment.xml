@@ -1,0 +1,6 @@
+<odoo>
+    <record id="view_crm_assignment_wizard_form" model="ir.ui.view">
+        <field name="name">qing.crm.assignment.wizard.form</field><field name="model">qing.crm.assignment.wizard</field>
+        <field name="arch" type="xml"><form string="Customer Assignment"><group><field name="role_id" readonly="1"/><field name="company_id" invisible="1"/><field name="operation"/><field name="user_id" invisible="operation == 'return'" required="operation != 'return'"/><field name="pool_id" invisible="operation != 'return'"/><field name="reason"/></group><footer><button name="action_confirm" string="Confirm" type="object" class="btn-primary"/><button string="Cancel" special="cancel"/></footer></form></field>
+    </record>
+</odoo>

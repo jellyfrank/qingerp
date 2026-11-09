@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form_negative_stock" model="ir.ui.view">
+        <field name="name">qing.stock.res.config.settings.form.negative.stock</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='quality_control']" position="replace"/>
+            <xpath expr="//block[@name='barcode_setting_container']" position="attributes">
+                <attribute name="title">Barcode Scanning</attribute>
+            </xpath>
+            <xpath expr="//setting[@id='process_operations_barcodes']" position="replace">
+                <setting id="qing_stock_barcode"
+                         help="QingERP Community barcode workbench for receiving, delivery, internal transfers, inventory counts and stock lookup. Uses native inventory documents.">
+                    <field name="module_qing_stock_barcode"/>
+                </setting>
+            </xpath>
+            <xpath expr="//setting[@id='process_stock_barcodelookup']" position="replace"/>
+            <xpath expr="//block[@name='warehouse_setting_container']" position="inside">
+                <setting id="qing_prevent_negative_stock" string="Prevent Negative Stock"
+                         help="Prevent internal and transit locations from becoming negative. Users granted an exception remain allowed.">
+                    <field name="qing_prevent_negative_stock"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

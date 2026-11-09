@@ -1,0 +1,399 @@
+.o_qing_web_ui .o_form_button_create {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    .o_qing_action_icon { order: -1; }
+}
+
+.o_qing_web_ui[data-qing-chatter-position="bottom"] .o_form_renderer:has(> .o-mail-Form-chatter:not(.o-aside)) {
+    --o-qing-form-gutter: var(--o-qing-page-padding);
+    --o-qing-form-inset: 20px;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0;
+    max-width: none;
+    // Native desktop flex-basis reserves space for an aside; in a column it
+    // becomes an artificial height and pushes chatter away from the sheet.
+    > .o_form_sheet_bg {
+        --formView-sheetBg-padding-x: var(--o-qing-form-gutter);
+        --formView-sheetBg-padding-right: var(--o-qing-form-gutter);
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: none;
+        min-height: 0;
+        > .o_form_sheet {
+            // Native notebook/table gutters read this variable. Keep it equal
+            // to the actual sheet padding so those sections cannot spill out.
+            --formView-sheet-padding-x: var(--o-qing-form-inset);
+            padding-inline: var(--o-qing-form-inset);
+            margin-inline: 0;
+        }
+    }
+    > .o-mail-Form-chatter {
+        flex: 0 0 auto;
+        margin-top: 16px !important;
+        padding-inline: var(--o-qing-form-gutter);
+        background: transparent;
+        > .o-mail-Chatter {
+            width: 100%;
+            max-width: none;
+            height: auto !important;
+            border: var(--o-qing-line);
+            border-radius: var(--o-qing-card-radius);
+            background: var(--o-qing-surface) !important;
+            .o-mail-Chatter-top, .o-mail-Chatter-content {
+                --Chatter-default-padding-x: var(--o-qing-form-inset);
+            }
+            .o-mail-Chatter-top {
+                padding-top: 12px;
+                border-start-start-radius: inherit;
+                border-start-end-radius: inherit;
+                background: var(--o-qing-surface);
+            }
+            .o-mail-Chatter-content {
+                padding-bottom: 12px;
+                border-end-start-radius: inherit;
+                border-end-end-radius: inherit;
+            }
+        }
+    }
+    @media (max-width: 767.98px) {
+        --o-qing-form-gutter: 0px;
+        --o-qing-form-inset: 16px;
+        > .o-mail-Form-chatter > .o-mail-Chatter {
+            border-inline: 0;
+            border-radius: 0;
+        }
+    }
+}
+.o_qing_web_ui .o_qing_form_header {
+    container: qing-form-header / inline-size;
+    // One type scale for navigation, actions, workflow and related records.
+    --o-qing-header-control-height: #{unquote("max(var(--o-qing-control-height), calc(var(--o-qing-font-size) * 2.2 + 4px))")};
+    font-family: var(--o-qing-font);
+    font-size: var(--o-qing-font-size);
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 10px 20px 12px !important;
+    gap: 10px !important;
+    min-height: 56px;
+    .o_qing_form_context {
+        display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center;
+        gap: 12px 24px; min-width: 0;
+        &:not(:has(.o_qing_form_breadcrumb, .o_field_widget)) { display: none; }
+    }
+    .o_qing_form_workflow {
+        display: flex; align-items: center; justify-content: center; grid-column: 2;
+        min-width: 0; max-width: 60cqw; gap: 12px;
+        &:empty { display: none; }
+        .o_field_widget { margin: 0; min-width: 0; max-width: 100%; }
+    }
+    .o_control_panel_main { display: grid !important; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center !important; gap: 12px !important; }
+    .o_control_panel_breadcrumbs { grid-column: 1; grid-row: 1; gap: 8px !important; flex-wrap: nowrap; flex: 0 0 auto !important; width: auto !important; min-width: 0 !important; }
+    .o_control_panel_breadcrumbs > .me-auto { display: none; }
+    .o_control_panel_actions { grid-column: 2; grid-row: 1; order: 1 !important; justify-content: center !important; flex-wrap: nowrap; gap: 12px; flex: 1 1 0; min-width: 0; width: auto !important; }
+    .o_qing_action_slot { display: inline-flex; flex-shrink: 0; white-space: nowrap; }
+    .o_qing_form_business_buttons > .dropdown-toggle { width: var(--o-qing-header-control-height); padding-inline: 0; flex-shrink: 0; }
+    .o_qing_form_actions { flex: 0 0 auto; }
+    :is(.o_control_panel_main_buttons, .o_qing_form_actions) .o_qing_icon_action,
+    .o_form_status_indicator_buttons :is(.o_form_button_save, .o_form_button_cancel) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--o-qing-header-control-height);
+        min-width: var(--o-qing-header-control-height);
+        height: var(--o-qing-header-control-height);
+        min-height: var(--o-qing-header-control-height) !important;
+        padding: 0 !important;
+        gap: 0;
+        font-size: 0 !important;
+        line-height: 1;
+        > :is(.oi, .fa, .o_button_icon) {
+            display: inline-block;
+            font-size: 18px;
+            line-height: 1;
+            margin: 0 !important;
+        }
+        > span, .o_qing_save_label { font-size: 0 !important; }
+    }
+    .o_form_button_create, .o_qing_form_business_buttons > .dropdown-toggle {
+        background: transparent; border-color: transparent; color: var(--o-qing-text);
+        &:hover { background: var(--o-qing-accent-soft); color: var(--o-qing-link); }
+    }
+    .o_qing_action_slot:has(.btn-primary) ~ .o_qing_action_slot .btn-primary {
+        background: var(--o-qing-surface); color: var(--o-qing-text); border-color: var(--o-qing-border);
+        &:hover { background: var(--o-qing-accent-soft); color: var(--o-qing-link); }
+    }
+    .oe_stat_button { min-height: 38px; border-color: var(--o-qing-border); border-radius: 8px; background: var(--o-qing-surface); }
+    .oe_stat_button .o_stat_text { color: var(--o-qing-text); }
+    .oe_stat_button .o_stat_value { color: var(--o-qing-link); }
+    .o-form-buttonbox {
+        flex-shrink: 0;
+        margin-inline: 0;
+        gap: 0;
+        flex-wrap: nowrap;
+        justify-content: center;
+        width: max-content !important;
+        min-width: 0;
+        max-width: 100%;
+        --o-stat-button-color: var(--o-qing-link);
+        --o-stat-text-color: var(--o-qing-link);
+        > * + * { margin-inline-start: 0 !important; }
+        .oe_stat_button {
+            flex: 0 0 144px;
+            width: 144px;
+            min-width: 144px;
+            max-width: 144px;
+            height: var(--o-qing-header-control-height);
+            min-height: var(--o-qing-header-control-height);
+            padding: 1px 12px;
+            gap: 8px;
+            align-items: center;
+            border: 1px solid var(--o-qing-border);
+            border-radius: 0 !important;
+            background: var(--o-qing-surface);
+            &:hover { background: var(--o-qing-accent-soft); border-color: var(--o-qing-link); }
+            .o_button_icon { color: var(--o-qing-link); margin: 0 !important; flex: 0 0 20px; }
+            .o_button_icon::before { margin: 0; }
+            .o_stat_text { font-size: var(--o-qing-font-size); font-weight: 500; line-height: 1.1; }
+            .o_stat_value { font-size: var(--o-qing-font-size); font-weight: 600; line-height: 1.1; }
+            .o_stat_info { font-size: var(--o-qing-font-size); font-weight: 500; line-height: 1.1; }
+            > .o_stat_info {
+                justify-content: center;
+                gap: 0;
+                min-width: 0;
+                > .o_stat_value {
+                    min-height: 0;
+                    line-height: inherit;
+                    .o_field_widget, .o_stat_info { min-height: 0; line-height: inherit; }
+                }
+            }
+            .o_stat_value .o_field_widget { font-size: inherit; line-height: inherit; }
+            .text-muted { color: var(--o-qing-text-soft) !important; }
+        }
+        > .oe_stat_button + .oe_stat_button { margin-inline-start: -1px !important; }
+        > .oe_stat_button:first-child { border-start-start-radius: 6px !important; border-end-start-radius: 6px !important; }
+        > .oe_stat_button:last-child { border-start-end-radius: 6px !important; border-end-end-radius: 6px !important; }
+        > .oe_stat_button:has(.o_button_more) { padding: 0; background: transparent; }
+        .o_button_more { width: 100%; border-radius: 0 !important; min-height: var(--o-qing-header-control-height); height: 100%; }
+        // Figure first, label underneath: the number is what people scan for
+        // and the label no longer competes with it for one line of width.
+        .oe_stat_button > .o_field_statinfo,
+        .oe_stat_button > .o_stat_info:not(.o_stat_value) {
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1px;
+            white-space: nowrap;
+            min-width: 0;
+            max-width: 100%;
+            .o_stat_text {
+                order: 1;
+                flex: 0 0 auto;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--o-qing-text-soft);
+            }
+            .o_stat_text:only-child {
+                font-size: var(--o-qing-font-size);
+                color: var(--o-qing-text);
+            }
+            .o_stat_value {
+                order: 0;
+                flex: 0 0 auto;
+                max-width: 100%;
+                padding: 0;
+                background: transparent;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: calc(var(--o-qing-font-size) + 1px);
+                font-weight: 650;
+                color: var(--o-qing-text);
+            }
+        }
+        // A single related-record link should not look like a floating tile.
+        > .oe_stat_button:only-child:not(:has(.o_button_more)) {
+            flex-basis: auto; width: auto; min-width: 80px; max-width: 144px;
+            border-color: transparent; background: transparent;
+            &:hover { background: var(--o-qing-accent-soft); }
+        }
+    }
+    .o_control_panel_navigation { grid-column: 3; grid-row: 1; justify-self: end; order: 2 !important; flex-grow: 0 !important; flex-wrap: nowrap; margin-inline-start: 0; align-items: center; }
+    .o_control_panel_navigation:has(.o_cp_pager) { border-inline-start: 1px solid var(--o-qing-border); padding-inline-start: 8px; }
+    .btn:not(.fa):not(.oi) { font-size: var(--o-qing-font-size); font-weight: 500; line-height: 1.4; }
+    .btn:not(.oe_stat_button) { border-radius: 6px; }
+    .btn:not(.oe_stat_button):not(.o_form_button_save):not(.o_form_button_cancel) {
+        min-height: var(--o-qing-header-control-height);
+    }
+    .o_pager { font-size: var(--o-qing-font-size); font-weight: 500; }
+    .o_pager_counter { font-size: inherit; }
+    .o_form_status_indicator { order: -1; margin: 0 !important; align-self: center !important; }
+    // A clean record has no visible status controls. Hide the empty flex item
+    // too, so its toolbar gap cannot indent New relative to the breadcrumbs.
+    .o_form_status_indicator:has(> .o_form_status_indicator_buttons.invisible):not(:has(> span)) {
+        display: none !important;
+    }
+    .o_form_status_indicator_buttons {
+        gap: 8px;
+        // Save/discard lead this row, so there is no preceding group to divide.
+        padding-inline-start: 0 !important;
+        border-inline-start: 0 !important;
+    }
+    .o_form_status_indicator_buttons.invisible { display: none !important; }
+    .o_form_button_save, .o_form_button_cancel {
+        display: inline-flex; align-items: center; gap: 6px;
+        min-height: var(--o-qing-header-control-height) !important; padding: 6px 12px !important;
+        line-height: 1.4 !important; border: 1px solid var(--o-qing-border) !important;
+    }
+    .o_form_button_save {
+        --btn-bg: var(--o-qing-accent); --btn-color: #fff;
+        --btn-hover-bg: var(--o-qing-accent-hover); --btn-hover-color: #fff;
+        background: var(--o-qing-accent); color: #fff; border-color: var(--o-qing-accent) !important;
+        &:hover { background: var(--o-qing-accent-hover); }
+    }
+    .o_form_button_cancel { background: var(--o-qing-surface); color: var(--o-qing-text); }
+    .o_form_button_cancel > i { display: inline-block; }
+    .o_pager .btn { background: transparent; border: 0; }
+    .o_qing_form_actions:not(:empty) { border-inline-start: 1px solid var(--o-qing-border); padding-inline-start: 12px; }
+}
+.o_qing_web_ui .o_qing_form_context {
+    .o_qing_form_breadcrumb { grid-column: 1; min-width: 0; overflow: hidden; }
+    .o_breadcrumb { flex-direction: row !important; align-items: center; gap: 10px !important; }
+    .breadcrumb { margin: 0; padding: 0; background: transparent !important; align-items: center; font-size: var(--o-qing-font-size); font-weight: 500; line-height: 1.4 !important; }
+    .breadcrumb-item + .breadcrumb-item::before { content: '›'; color: var(--o-qing-text-soft); }
+    .breadcrumb .dropdown-toggle { color: var(--o-qing-link); background: transparent; min-width: 24px; }
+    .breadcrumb a { background: transparent !important; color: var(--o-qing-link); }
+    .o_last_breadcrumb_item { font-size: var(--o-qing-font-size) !important; font-weight: 600; line-height: 1.4 !important; }
+    .o_breadcrumb > div:has(.o_last_breadcrumb_item)::before { content: '›'; color: var(--o-qing-text-soft); margin-inline-end: 8px; }
+}
+@media (min-width: 768px) {
+    .o_qing_web_ui .o_form_view:has(.o_qing_form_header) .o_form_statusbar {
+        justify-content: flex-start !important;
+        align-items: center; flex-wrap: wrap; gap: 12px;
+        padding: 6px 20px !important;
+        min-height: 46px;
+        border-bottom: 1px solid var(--o-qing-border);
+        background: var(--o-qing-surface);
+        &:not(:has(.o_field_widget, .o_statusbar_buttons > *)) { display: none !important; }
+        .o_field_statusbar { margin: 0; max-width: 100%; }
+
+    }
+}
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_form_status_indicator .o_qing_save_label { font-size: 12px; padding-inline: 3px; }
+}
+
+// The native status items use reverse flex order. A short connector follows
+// each visual stage except the last; preceding stages are not marked complete.
+.o_qing_web_ui :is(.o_form_statusbar, .o_qing_form_workflow):has(.o_qing_status_timeline) {
+    .o_field_statusbar { min-width: 0; max-width: 100%; }
+    .o_qing_status_timeline {
+        display: flex; flex-direction: row-reverse; flex-wrap: nowrap;
+        justify-content: flex-end; gap: 26px;
+        max-width: 100%; overflow-x: auto; scrollbar-width: thin;
+        border: 0; padding: 0; border-radius: 0; background: transparent;
+        .o_arrow_button_wrap { flex: 0 0 auto; }
+        .o_arrow_button:not(.d-none) {
+            position: relative; display: inline-flex; align-items: center;
+            flex: 0 0 auto; gap: 7px; white-space: nowrap;
+            clip-path: none; margin: 0; padding: 6px 2px;
+            min-height: 26px; border: 0; border-radius: 0;
+            background: transparent !important; box-shadow: none;
+            color: var(--o-qing-text); opacity: 1;
+            font-size: var(--o-qing-font-size); font-weight: 500; line-height: 1.4;
+            &:disabled:not(.o_arrow_button_current) { color: var(--o-qing-text); }
+            &::before {
+                content: ''; position: static; inset: auto; clip-path: none;
+                box-sizing: border-box; width: 9px; height: 9px;
+                flex: 0 0 9px; border: 1px solid var(--o-qing-text-soft);
+                border-radius: 50%; background: transparent;
+                transform: none; margin: 0;
+            }
+            &::after {
+                content: ''; position: absolute; inset: auto;
+                inset-inline-end: -22px; top: 50%; width: 16px; height: 1px;
+                border: 0; background: var(--o-qing-border); transform: none;
+                clip-path: none; margin: 0;
+            }
+            &.o_first::after { display: none; }
+            &.o_arrow_button_current {
+                color: var(--o-qing-link); font-weight: 600;
+                &::before {
+                    border: 1px solid var(--o-qing-link);
+                    background: var(--o-qing-link);
+                    box-shadow: 0 0 0 3px var(--o-qing-accent-soft);
+                }
+            }
+            &:enabled:hover { color: var(--o-qing-link); }
+            &:focus-visible { outline: 2px solid var(--o-qing-link); outline-offset: -2px; }
+        }
+    }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+    .o_qing_web_ui .o_qing_form_header {
+        padding-inline: 12px !important;
+        .o_control_panel_main { gap: 8px !important; }
+        .o_control_panel_breadcrumbs { gap: 4px !important; }
+        .o_control_panel_actions { gap: 8px; }
+        .o_qing_form_actions:not(:empty) { padding-inline-start: 8px; }
+    }
+}
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_form_statusbar:has(.o_qing_status_timeline) {
+        flex-wrap: wrap;
+        .o_field_statusbar { flex: 1 0 100%; width: 100%; padding-top: 4px; }
+        .o_qing_status_timeline { gap: 28px; }
+        .o_qing_status_timeline .o_arrow_button::after { inset-inline-end: -22px; width: 16px; }
+    }
+}
+
+@media (min-width: 768px) {
+    // A workflow moved to the toolbar leaves an empty native statusbar behind.
+    // Give both that case and forms without a header the same small gutter.
+    .o_qing_web_ui .o_form_view:has(.o_qing_form_header) .o_form_sheet_bg:not(:has(.o_form_statusbar .o_field_widget, .o_form_statusbar .o_statusbar_buttons > *)) {
+        padding-top: 8px;
+        > .o_form_sheet { margin-top: 0; }
+    }
+}
+
+// Keep the center exact when side columns differ. At narrow content widths,
+// related records move below the actions instead of squeezing or overlapping them.
+@container qing-form-header (max-width: 900px) {
+    .o_qing_web_ui .o_qing_form_header .o_control_panel_main {
+        grid-template-columns: minmax(0, 1fr) auto;
+        .o_control_panel_actions { grid-column: 1 / -1; grid-row: 2; }
+        .o_control_panel_navigation { grid-column: 2; }
+    }
+}
+.o_qing_web_ui .o_qing_form_header .o_control_panel_main:not(:has(.o_control_panel_actions > *)) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    .o_control_panel_navigation { grid-column: 2; }
+}
+
+// "Right" chatter below the native XXL breakpoint: the compiled renderer is
+// still a column there, so lay the aside out as a row and let the sheet
+// shrink instead of reserving the native 990px basis.
+@media (min-width: 1200px) and (max-width: 1533.98px) {
+    .o_qing_web_ui[data-qing-chatter-position="right"] .o_form_view.o_xxl_form_view .o_form_renderer:has(> .o-mail-Form-chatter.o-aside) {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        height: 100%;
+        > .o_form_sheet_bg {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        > .o-mail-Form-chatter.o-aside {
+            flex: 0 0 auto;
+            width: clamp(320px, 34%, 420px);
+            min-width: 0;
+            overflow: auto;
+        }
+    }
+}

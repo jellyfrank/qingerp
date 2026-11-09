@@ -1,0 +1,79 @@
+.o_qing_web_ui {
+    .o_qing_debug_icon {
+        display: block;
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        pointer-events: none;
+    }
+
+    .o_qing_debug_icon--flying {
+        overflow: visible;
+
+        .o_qing_debug_flight {
+            animation: o-qing-debug-hover 2.4s ease-in-out infinite;
+        }
+
+        .o_qing_debug_wing {
+            transform-box: view-box;
+            transform-origin: 12px 10px;
+            animation: o-qing-debug-wing-left .28s ease-in-out infinite alternate;
+
+            &--right {
+                animation-name: o-qing-debug-wing-right;
+            }
+        }
+    }
+
+    .o_main_navbar .o_menu_systray .o_qing_debug_button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        padding: 3px !important;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--o-qing-text-soft) !important;
+        background: transparent !important;
+        box-shadow: none !important;
+
+        &.is-active {
+            color: var(--o-qing-link) !important;
+            background: color-mix(in srgb, var(--o-qing-accent), transparent 90%) !important;
+        }
+
+        &:hover, &[aria-expanded="true"] {
+            color: var(--o-qing-link) !important;
+            background: color-mix(in srgb, var(--o-qing-accent), transparent 84%) !important;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--o-qing-link);
+            outline-offset: 2px;
+        }
+    }
+}
+
+@keyframes o-qing-debug-hover {
+    0%, 100% { transform: translateY(.5px); }
+    50% { transform: translateY(-.75px); }
+}
+
+@keyframes o-qing-debug-wing-left {
+    from { transform: rotate(-12deg) scaleX(.84); }
+    to { transform: rotate(10deg) scaleX(1); }
+}
+
+@keyframes o-qing-debug-wing-right {
+    from { transform: rotate(12deg) scaleX(.84); }
+    to { transform: rotate(-10deg) scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o_qing_web_ui .o_qing_debug_icon--flying {
+        .o_qing_debug_flight, .o_qing_debug_wing {
+            animation: none;
+        }
+    }
+}

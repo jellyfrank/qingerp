@@ -1,0 +1,431 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account_fapiao_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 06:24+0000\n"
+"PO-Revision-Date: 2026-09-19 06:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_provider_select_form
+msgid ""
+"A provider task keeps the approved amount and tax reserved. After "
+"acceptance, query an unknown result instead of sending another invoice "
+"request."
+msgstr "开票任务将继续预占已批准的不含税金额和税额。服务商受理后，如结果未知，请查询原任务，不要重新申请开票。"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_request_form
+msgid ""
+"After approval, choose manual invoice recording or select an invoicing "
+"provider. Requests created before structured tax snapshots remain available "
+"for manual recording; recreate and approve them to use a provider."
+msgstr "审核后，可选择人工回填或开票服务商。旧申请没有结构化税率快照，仍可人工回填；如需接口开票，请新建申请并重新审核。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.constraint,message:qing_account_fapiao_connector.constraint_qing_fapiao_order_unique_qing_request
+msgid "This provider task is already bound to the invoice request."
+msgstr "该开票任务已关联至此开票申请。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "Approve the invoice request before selecting an invoicing provider."
+msgstr "请先审核开票申请，再选择开票服务商。"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_provider_select_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"Cancel the unsent provider task first. Pending, unknown or issued tasks keep"
+" their reservation and cannot be cancelled here."
+msgstr "请先撤销尚未发送的开票任务。受理中、结果待确认或已开票的任务将继续预占额度，不能在此取消。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_provider_select_form
+msgid "Create Provider Task"
+msgstr "创建开票任务"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_order__current_company
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__current_company
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__current_company
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request_line__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_order__display_name
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__display_name
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__display_name
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request_line__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_order__id
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__id
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__id
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model,name:qing_account_fapiao_connector.model_qing_fapiao_order
+msgid "Invoice Provider Order"
+msgstr "开票接口任务"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__request_id
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_order__qing_request_id
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_qing_fapiao_order_form
+msgid "Invoice Request"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__provider_id
+msgid "Invoicing Provider"
+msgstr "开票服务商"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "Only an issued provider task can be recorded."
+msgstr "只有已开票的任务才能登记税票。"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_request_form
+msgid "Open Provider Task"
+msgstr "查看开票任务"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__provider_registration_state
+msgid "Provider Registration"
+msgstr "开票结果登记"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__provider_order_state
+msgid "Provider Status"
+msgstr "开票任务状态"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__provider_order_id
+msgid "Provider Task"
+msgstr "开票任务"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request__provider_order_ids
+msgid "Provider Tasks"
+msgstr "开票任务"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request_line__provider_tax_rate_display
+msgid "Provider Tax Rate"
+msgstr "开票税率"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"Provider invoicing currently supports normal and special blue VAT invoices "
+"only."
+msgstr "接口开票目前仅支持增值税普通发票和专用发票的蓝字开票。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request_line.py:0
+msgid ""
+"Provider invoicing currently supports one standard percentage sales tax per "
+"line. Use manual recording for other tax configurations."
+msgstr "接口开票目前要求每行使用一项标准百分比销项税；其他税项配置请使用人工回填。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+#: code:addons/qing_account_fapiao_connector/models/qing_fapiao_order.py:0
+msgid "Provider task links are managed by invoicing actions."
+msgstr "开票任务关联由系统操作维护，不能直接修改。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.module.module,shortdesc:base.module_qing_account_fapiao_connector
+msgid "Qing 开票服务衔接"
+msgstr "Qing 开票服务衔接"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"Record this invoice from its provider task. An issued task must not be "
+"submitted for invoicing again."
+msgstr "请从关联的开票任务登记税票。已经开票的任务不能再次提交开票。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+#: model:ir.model,name:qing_account_fapiao_connector.model_qing_fapiao_provider_select
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_provider_select_form
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_request_form
+msgid "Select Invoicing Provider"
+msgstr "选择开票服务商"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_provider_select__seller_tax_id
+msgid "Seller Tax ID"
+msgstr "销售方税号"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model.fields,field_description:qing_account_fapiao_connector.field_qing_fapiao_request_line__provider_tax_snapshot
+msgid "Structured Source Tax"
+msgstr "来源税项快照"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request_line.py:0
+msgid ""
+"Structured tax snapshots are captured from the source invoice and cannot be "
+"supplied directly."
+msgstr "结构化税项快照由来源账单生成，不能直接填写或修改。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model,name:qing_account_fapiao_connector.model_qing_fapiao_request
+msgid "Tax Invoice Request"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.model,name:qing_account_fapiao_connector.model_qing_fapiao_request_line
+msgid "Tax Invoice Request Line"
+msgstr "开票申请明细"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"Test provider invoices cannot be registered in the financial ledger. Enable "
+"test registration only in an isolated test database."
+msgstr "测试环境的回票不能登记到财务台账。仅可在隔离测试数据库中启用测试登记。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The approved request does not match the immutable provider snapshot."
+msgstr "已批准的申请与开票任务中锁定的快照不一致。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/qing_fapiao_order.py:0
+msgid "The invoice request must remain approved before provider submission."
+msgstr "提交服务商前，开票申请必须保持已审核状态。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"The invoice request must remain approved until the issued invoice is "
+"recorded."
+msgstr "税票登记完成前，开票申请必须保持已审核状态。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The issued amount and tax must match the approved request."
+msgstr "回票的不含税金额和税额必须与已批准的申请一致。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"The issued invoice buyer, seller and currency must match the approved "
+"request."
+msgstr "回票的购买方、销售方和币种必须与已批准的申请一致。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The issued invoice has invalid amounts."
+msgstr "回票金额格式无效。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The issued invoice must include its original file before registration."
+msgstr "登记前必须取得回票的原始文件。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"The provider company and seller tax ID must match the approved request."
+msgstr "服务商账号的公司和销售方税号必须与已批准的申请一致。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The provider task does not belong to this invoice request."
+msgstr "该开票任务不属于当前申请。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request_line.py:0
+msgid ""
+"The requested line amount and tax do not match its approved tax rate. "
+"Correct the request before provider invoicing."
+msgstr "申请明细的不含税金额、税额与批准税率不一致。请更正申请后再使用接口开票。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"This request already has manually entered results. Clear them before "
+"creating a provider task."
+msgstr "此申请已有人工回填内容。请清空回填内容后再创建开票任务。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "This request has no provider task."
+msgstr "此申请尚未关联开票任务。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"This request is already bound to another provider. Open the existing task."
+msgstr "此申请已经关联其他服务商，请打开原开票任务。"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_request_form
+msgid ""
+"This request is bound to its provider task. Pending, unknown and issued "
+"tasks retain the reservation. If local recording fails after issuance, retry"
+" recording from that task."
+msgstr "此申请已关联开票任务。受理中、结果待确认和已开票的任务将继续预占额度；开票成功但本地登记失败时，请从原任务重试登记。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"This request is handled by its provider task. Manual result changes are "
+"disabled."
+msgstr "此申请由关联的开票任务处理，不能再人工修改回票信息。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request_line.py:0
+msgid ""
+"This request predates structured tax snapshots. Keep using manual recording,"
+" or recreate and approve a new request for provider invoicing."
+msgstr "此申请没有结构化税项快照。可继续人工回填；如需接口开票，请新建申请并重新审核。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid ""
+"This workflow records exactly one issued invoice per request. Multiple "
+"invoices require a dedicated allocation review."
+msgstr "当前流程每张申请只能登记一张税票。服务商返回多张发票时，需要单独核对分配后再处理。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.module.module,summary:base.module_qing_account_fapiao_connector
+msgid "审批申请与公共开票任务衔接，保留额度及登记控制"
+msgstr "审批申请与公共开票任务衔接，保留额度及登记控制"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The issued invoice original file has invalid encoding."
+msgstr "回票原始文件的编码无效。"
+
+#. module: qing_account_fapiao_connector
+#: model:ir.module.module,description:base.module_qing_account_fapiao_connector
+msgid "Connect approved invoice requests to provider-neutral issuance tasks, with reservation and registration controls."
+msgstr "将已审核的开票申请连接至统一开票任务，保留额度预占和税票登记控制。"
+
+#. module: qing_account_fapiao_connector
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "Requests linked to an invoicing task cannot be reset. Process the original task instead."
+msgstr "已关联开票任务的申请不能重置，请处理原开票任务。"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_fapiao_request_form
+msgid "Online Invoicing"
+msgstr "在线开票"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_qing_fapiao_order_form
+msgid "Retry Invoice Request"
+msgstr "重试开票申请"
+
+#. module: qing_account_fapiao_connector
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao_connector.view_qing_fapiao_order_form
+msgid "The provider definitively rejected this task. Retrying creates a new task with a fresh request identifier. Continue?"
+msgstr "服务商已明确拒绝此任务。重试将使用新的请求编号创建开票任务，是否继续？"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "Only the latest provider task for this request can be retried."
+msgstr "只能重试此申请最新的开票任务。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "Only a definitively rejected invoice task can be retried. Query tasks with an unknown result instead."
+msgstr "只有明确失败的开票任务可以重试。结果未知的任务请先查询，避免重复开票。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/qing_fapiao_order.py:0
+msgid "Only a QingERP invoice request task can be retried here."
+msgstr "此处只能重试由 QingERP 开票申请创建的任务。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The invoice request must remain approved before retrying the provider task."
+msgstr "开票申请须保持已审核状态，才能重试开票任务。"
+
+#. module: qing_account_fapiao_connector
+#. odoo-python
+#: code:addons/qing_account_fapiao_connector/models/fapiao_request.py:0
+msgid "The provider company and seller tax ID must match the approved request."
+msgstr "服务商所属公司及销售方税号必须与已审核申请一致。"

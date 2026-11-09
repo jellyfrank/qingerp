@@ -1,0 +1,20 @@
+{
+    'name': 'Qing Sale Stock',
+    'summary': 'Sales order delivery and return status',
+    'version': '20.0.1.0.5',
+    'category': 'Sales/Sales',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_sale', 'sale_stock'],
+    'data': [
+        'security/ir.access.csv',
+        'views/view_sale_order_list.xml',
+        'views/view_sale_order_form.xml',
+    ],
+    'auto_install': True,
+    'application': False,
+    'installable': True,
+    'description': 'Show sales delivery and return progress from completed stock moves, and manage delivery photos.',
+}

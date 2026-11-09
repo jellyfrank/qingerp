@@ -1,0 +1,65 @@
+// The shared Glass menu already wraps long names; Classic needs the same
+// reading space. Keep the native selector, search and confirmation behavior.
+.o_qing_web_ui:not(.o_qing_glass) .o_switch_company_menu_dropdown {
+    width: 360px !important;
+    min-width: 0;
+    max-width: calc(100vw - 24px) !important;
+    padding: 12px;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 14px;
+    background: var(--o-qing-surface) !important;
+    color: var(--o-qing-text);
+    box-shadow: 0 12px 32px #153f4620;
+
+    .o_qing_systray_identity {
+        padding: 4px 6px 12px;
+        margin-bottom: 10px;
+    }
+    [role=search] {
+        min-width: 0;
+        min-height: 38px;
+        border-radius: 9px;
+        &:focus-within {
+            border-color: var(--o-qing-accent);
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--o-qing-accent) 15%, transparent);
+        }
+    }
+    .o_switch_company_menu_items {
+        max-height: 50vh;
+        overflow-y: auto;
+        gap: 5px !important;
+    }
+    .o_switch_company_item {
+        height: auto;
+        min-height: 44px;
+        border: 1px solid transparent;
+        border-radius: 9px;
+        white-space: normal;
+        &.alert-light {
+            background: var(--o-qing-surface-weak) !important;
+        }
+        &.bg-primary-subtle {
+            background: color-mix(in srgb, var(--o-qing-accent) 12%, var(--o-qing-surface)) !important;
+            border-color: color-mix(in srgb, var(--o-qing-accent) 28%, var(--o-qing-border));
+        }
+        &:is(:hover, .focus, :focus-visible):not(.disabled) {
+            background: color-mix(in srgb, var(--o-qing-accent) 8%, var(--o-qing-surface)) !important;
+        }
+        .log_into { padding: 10px 8px !important; }
+        .company_label {
+            white-space: normal !important;
+            overflow: visible !important;
+            overflow-wrap: anywhere;
+            text-overflow: clip;
+            line-height: 1.5;
+        }
+    }
+    .form-check-input:is(:checked, :indeterminate) {
+        background-color: var(--o-qing-accent);
+        border-color: var(--o-qing-accent);
+    }
+    .o_switch_company_menu_buttons {
+        padding-top: 12px !important;
+        .btn { min-height: 36px; border-radius: 8px; }
+    }
+}

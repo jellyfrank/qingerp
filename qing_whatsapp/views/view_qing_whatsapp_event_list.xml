@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_event_list" model="ir.ui.view">
+        <field name="name">qing.whatsapp.event.list</field>
+        <field name="model">qing.whatsapp.event</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="create_date"/>
+                <field name="account_id"/>
+                <field name="kind"/>
+                <field name="state"/>
+                <field name="attempts"/>
+                <field name="error_code"/>
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,16 @@
+{
+  "snapshot_year": 2020,
+  "source_module": "mommy_address_china",
+  "solutions_commit": "a3391437af7302dd57a3c7ef56e78571b7f3f5e5",
+  "source_sha256": {
+    "res.city.csv": "6a6670612a2d103a4ac0216fa676b0012c20b3293888392cc4907d6e9b9a20f2",
+    "res.district.csv": "dddba57cb08779fced419d4aa6b914d65ea113099ed97016c62a0d37585052d6",
+    "res.street.csv": "b50cdc07a9c676eba49a9a865ef3ac0b45726584d2f7a40734b9f5c6750ce78e"
+  },
+  "counts": {
+    "provinces": 31,
+    "cities_and_direct_groups": 341,
+    "districts": 2843,
+    "subdistricts": 41001
+  }
+}

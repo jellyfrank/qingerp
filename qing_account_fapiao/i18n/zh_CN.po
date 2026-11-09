@@ -1,0 +1,1079 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account_fapiao
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_fapiao
+msgid "Sync Online Tax Classification Codes"
+msgstr "在线导入税收分类编码"
+
+#. module: qing_account_fapiao
+msgid "Only accounting managers can synchronize tax classification codes."
+msgstr "仅会计经理可以同步税收分类编码。"
+
+#. module: qing_account_fapiao
+msgid "Register this QingERP instance with Online Services before synchronizing."
+msgstr "请先在在线服务中注册此 QingERP 实例，再执行同步。"
+
+#. module: qing_account_fapiao
+msgid "This copied database received a new online service identity. Register it before synchronizing."
+msgstr "此数据库副本已生成新的在线服务身份，请先注册后再同步。"
+
+#. module: qing_account_fapiao
+msgid "The online service returned an invalid tax classification page."
+msgstr "在线服务返回了无效的税收分类编码分页数据。"
+
+#. module: qing_account_fapiao
+msgid "The tax classification catalog changed during synchronization. Retry the synchronization."
+msgstr "同步期间税收分类编码目录发生变化，请重试。"
+
+#. module: qing_account_fapiao
+msgid "The online service returned invalid tax classification data."
+msgstr "在线服务返回了无效的税收分类编码数据。"
+
+#. module: qing_account_fapiao
+msgid "The online service returned an incomplete tax classification catalog."
+msgstr "在线服务返回的税收分类编码目录不完整。"
+
+#. module: qing_account_fapiao
+msgid "Catalog %s: created %s, updated %s, unchanged %s."
+msgstr "目录版本 %s：新增 %s 条，更新 %s 条，未变更 %s 条。"
+
+#. module: qing_account_fapiao
+msgid "Tax classification synchronization completed"
+msgstr "税收分类编码同步完成"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__color__blue
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__color__blue
+msgid "Blue"
+msgstr "蓝字"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__state__draft
+msgid "Draft Registration"
+msgstr "草稿登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__kind__normal
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__kind__normal
+msgid "General VAT Invoice"
+msgstr "增值税普通发票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__direction__in
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review__direction__in
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__direction__in
+msgid "Input"
+msgstr "进项"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__kind__other
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__kind__other
+msgid "Other Tax Invoice"
+msgstr "其他税票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__direction__out
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review__direction__out
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__direction__out
+msgid "Output"
+msgstr "销项"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__color__red
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__color__red
+msgid "Red"
+msgstr "红字"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__state__registered
+msgid "Registered"
+msgstr "已登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__state__cancelled
+msgid "Registration Cancelled"
+msgstr "已取消登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao__kind__special
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__kind__special
+msgid "Special VAT Invoice"
+msgstr "增值税专用发票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__allocated_tax
+msgid "Allocated Tax"
+msgstr "已分配税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__allocated_untaxed
+msgid "Allocated Amount"
+msgstr "已分配金额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__amount_tax
+msgid "Tax"
+msgstr "税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "不含税金额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__color
+msgid "Color"
+msgstr "蓝红类型"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__direction
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__direction
+msgid "Direction"
+msgstr "进销项"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__document_date
+msgid "Document Date"
+msgstr "单据日期"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__document_name
+msgid "Document"
+msgstr "单据"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__fapiao_id
+msgid "Tax Invoice"
+msgstr "税票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__issue
+msgid "Needs Attention"
+msgstr "待处理事项"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__move_id
+msgid "Bill"
+msgstr "业务账单"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__partner_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__partner_id
+msgid "Partner"
+msgstr "往来单位"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__pending_count
+msgid "Unconfirmed Allocations"
+msgstr "待确认分配数"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__remaining_tax
+msgid "Remaining Tax"
+msgstr "待分配税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__remaining_untaxed
+msgid "Remaining Amount"
+msgstr "待分配金额"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review_line.py:0
+msgid "Difference rows are read-only. Run the check again to refresh them."
+msgstr "差异明细为只读，请重新检查以刷新。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review_line.py:0
+msgid "Difference rows are generated by the review action."
+msgstr "差异明细只能由检查操作生成。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review_line.py:0
+msgid "The source document is no longer available in the allowed companies."
+msgstr "原单已不存在或不在允许访问的公司内。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__company_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__company_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__date_from
+msgid "From"
+msgstr "开始日期"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__date_to
+msgid "To"
+msgstr "结束日期"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__generated_at
+msgid "Checked At"
+msgstr "检查时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__line_ids
+msgid "Differences"
+msgstr "差异明细"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review__source_count
+msgid "Documents Checked"
+msgstr "已检查单据数"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_review_form
+msgid "Tax Invoice Difference Review"
+msgstr "税票差异检查"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+msgid "Only accounting administrators can review tax invoice differences."
+msgstr "仅财务管理员可以检查税票差异。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+msgid "Switch to the selected company before checking differences."
+msgstr "请切换到所选公司后再检查差异。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+msgid "Enter a valid date range."
+msgstr "请填写有效的日期范围。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+msgid "Too many source documents. Narrow the date range or select a partner."
+msgstr "源单据过多，请缩小日期范围或选择往来单位。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/wizard/fapiao_review.py:0
+msgid "Check results can only be generated by the review action."
+msgstr "检查结果只能通过检查按钮生成。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__registration
+msgid "Pending Registration"
+msgstr "待确认登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__confirmation
+msgid "Pending Allocation Confirmation"
+msgstr "分配待确认"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__ticket_balance
+msgid "Tax Invoice Not Fully Allocated"
+msgstr "税票未分配完"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__bill_balance
+msgid "Bill Not Fully Covered"
+msgstr "账单税票未分配完"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__legacy_red
+msgid "Missing Original Blue Invoice"
+msgstr "缺少原蓝票关联"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__overallocated
+msgid "Overallocated"
+msgstr "分配超额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review_line__issue__unsupported
+msgid "Negative Amount Requires Review"
+msgstr "负金额需人工核对"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_review__direction__all
+msgid "Input and Output"
+msgstr "进销项全部"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_review_form
+msgid "Check / Refresh"
+msgstr "检查／刷新"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_review_form
+msgid "Check currently visible tax invoices by invoice date and posted bills by accounting date. Allocation balances use all current confirmed allocations, including those outside the date range. This is a working list, not a historical snapshot. Refresh after correcting a source document."
+msgstr "按开票日期检查当前可见税票，按记账日期检查已过账账单。额度计入当前全部有效分配（包括所选期间之外的分配），不是历史余额快照。处理原单后请重新检查。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_review_form
+msgid "No differences found in the selected scope."
+msgstr "所选范围内未发现待处理差异。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_review_form
+msgid "Open Source"
+msgstr "打开原单"
+
+#. module: qing_account_fapiao
+#: model:ir.actions.act_window,name:qing_account_fapiao.action_fapiao_review
+#: model:ir.ui.menu,name:qing_account_fapiao.menu_fapiao_review
+msgid "Tax Invoice Differences"
+msgstr "税票差异检查"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_review_line__currency_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__currency_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__currency_id
+msgid "Currency"
+msgstr "币种"
+
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__amount_tax
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__amount_tax
+msgid "Requested Tax"
+msgstr "申请税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__amount_total
+msgid "Requested Total"
+msgstr "申请价税合计"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__amount_untaxed
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__amount_untaxed
+msgid "Requested Amount"
+msgstr "申请不含税金额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__approved_at
+msgid "Approved At"
+msgstr "审核时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__approved_by
+msgid "Approved By"
+msgstr "审核人"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__buyer_name
+msgid "Buyer Name"
+msgstr "购买方名称"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__buyer_tax_id
+msgid "Buyer Tax ID"
+msgstr "购买方税号"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__cancel_reason
+msgid "Cancellation / Rejection Reason"
+msgstr "取消／驳回原因"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__cancelled_at
+msgid "Cancelled At"
+msgstr "取消时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__cancelled_by
+msgid "Cancelled By"
+msgstr "取消人"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__completed_at
+msgid "Recorded At"
+msgstr "回填时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__completed_by
+msgid "Recorded By"
+msgstr "回填人"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__fapiao_id
+msgid "Recorded Tax Invoice"
+msgstr "已回填税票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__fapiao_state
+msgid "Tax Invoice Registration State"
+msgstr "税票登记状态"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__kind
+msgid "Invoice Kind"
+msgstr "票种"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__line_ids
+msgid "Requested Lines"
+msgstr "申请明细"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__name
+msgid "Request Number"
+msgstr "申请编号"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__note
+msgid "Notes"
+msgstr "备注"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__partner_id
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_amount_tax
+msgid "Issued Tax"
+msgstr "票面税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_amount_untaxed
+msgid "Issued Amount"
+msgstr "票面不含税金额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_checked
+msgid "I verified the issued invoice against this approved request"
+msgstr "我已将开具的发票与已审核申请逐项核对一致"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_code
+msgid "Invoice Code"
+msgstr "发票代码"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_date
+msgid "Invoice Date"
+msgstr "开票日期"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_file
+msgid "Issued Invoice File"
+msgstr "已开票原文件"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_filename
+msgid "File Name"
+msgstr "文件名"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__result_number
+msgid "Invoice Number"
+msgstr "发票号码"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__seller_name
+msgid "Seller Name"
+msgstr "销售方名称"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__seller_tax_id
+msgid "Seller Tax ID"
+msgstr "销售方税号"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__state
+msgid "Status"
+msgstr "状态"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__submitted_at
+msgid "Submitted At"
+msgstr "提交时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__submitted_by
+msgid "Submitted By"
+msgstr "提交人"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Tax Invoice Request"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Create a new request from the source bills to recheck available amounts."
+msgstr "请从来源账单重新创建申请，以重新校验可用额度。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only accounting administrators can process invoice requests."
+msgstr "仅财务管理员可处理开票申请。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Switch to the request company before proceeding."
+msgstr "请先切换到申请所属公司。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Add at least one invoice line."
+msgstr "请添加至少一条发票明细。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Enter the buyer and seller names."
+msgstr "请填写购买方及销售方名称。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Enter the seller tax ID."
+msgstr "请填写销售方税号。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Enter the buyer tax ID for special VAT invoices."
+msgstr "增值税专用发票请填写购买方税号。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Enter and review the tax classification code for every line."
+msgstr "请逐行填写并核对税收分类编码。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Request status, result and audit fields are managed by actions."
+msgstr "申请状态、结果及操作留痕由流程按钮维护。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only draft or cancelled requests can be deleted."
+msgstr "仅草稿或已取消的申请可删除。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "This request has no recorded tax invoice."
+msgstr "此申请尚未回填税票。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "This request is locked. Reset it to draft before editing if eligible."
+msgstr "申请已锁定；符合重置条件时，请先重置草稿再修改。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Record issued invoice details only after approval."
+msgstr "审核通过后才可回填开票结果。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only draft requests can be submitted."
+msgstr "仅草稿申请可提交。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only submitted requests can be approved."
+msgstr "仅待审核申请可审核通过。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only unrecorded requests can be cancelled; enter a reason."
+msgstr "仅未回填申请可取消，请先填写原因。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Approve the request and verify the issued invoice before recording it."
+msgstr "请先审核申请，并勾选确认票面信息已核对一致。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Enter the invoice number, date and original file."
+msgstr "请填写发票号码、开票日期并上传原文件。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "The issued amount and tax must match the approved request. Correct the result or cancel and recreate the request."
+msgstr "票面不含税金额、税额必须分别与已审核申请一致。请更正回填信息，或取消后重新申请。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "This invoice number is already recorded for this company and direction. Review the existing tax invoice."
+msgstr "此公司及进销项方向已有相同票号，请核查现有税票。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__description
+msgid "Invoice Item"
+msgstr "开票项目"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__move_id
+msgid "Source Invoice"
+msgstr "来源发票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__quantity
+msgid "Requested Quantity"
+msgstr "申请数量"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__request_id
+msgid "Request"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__source_line_id
+msgid "Source Invoice Line"
+msgstr "来源发票明细"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__tax_code
+msgid "Tax Classification Code"
+msgstr "税收分类编码"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__tax_description
+msgid "Source Taxes"
+msgstr "来源税项"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request_line.py:0
+msgid "Request lines are editable only in draft."
+msgstr "仅草稿状态可修改申请明细。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request_line.py:0
+msgid "Request line ownership and source snapshots cannot be changed directly."
+msgstr "不可直接修改申请明细归属或来源快照。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request_line.py:0
+msgid "Use posted customer invoice lines from the same company, currency and customer."
+msgstr "请选择同公司、同币种、同客户的已过账客户发票明细。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request_line.py:0
+msgid "Use positive quantities and nonnegative amounts at currency precision; negative or mixed-sign lines require separate handling."
+msgstr "申请数量须大于零，金额和税额须为符合币种精度的非负数且不能同时为零；负数或正负混合明细需单独处理。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request_line.py:0
+msgid "The requested quantity, amount or tax exceeds the source line."
+msgstr "申请数量、金额或税额超出来源明细。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_request_remaining_tax
+msgid "Available Request Tax"
+msgstr "可申请税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_request_remaining_untaxed
+msgid "Available Request Amount"
+msgstr "可申请不含税金额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_reserved_tax
+msgid "Reserved Request Tax"
+msgstr "申请占用税额"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_reserved_untaxed
+msgid "Reserved Request Amount"
+msgstr "申请占用不含税金额"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "Tax Invoice Requests"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "An active invoice request reserves this bill. Cancel the request before correcting the bill."
+msgstr "有效开票申请已占用此账单，请先取消申请再更正账单。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "Select posted customer invoices from the current company, one currency and one customer."
+msgstr "请选择当前公司、同币种、同客户的已过账客户发票。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "Active and recorded requests exceed a source line quantity, amount or tax."
+msgstr "待处理及已回填的有效申请超出来源明细数量、金额或税额。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "Confirmed tax allocations plus pending invoice requests exceed the bill amount or tax."
+msgstr "已确认税票分配与待处理申请之和超出账单金额或税额。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_allocation.py:0
+msgid "This allocation completes an invoice request. Correct the tax invoice registration as a whole first."
+msgstr "此分配来自已回填开票申请，请先整体处理税票登记更正。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Submit for Approval"
+msgstr "提交审核"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Approve"
+msgstr "审核通过"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Record Issued Invoice"
+msgstr "回填并登记税票"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Cancel / Reject"
+msgstr "取消／驳回"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Open Tax Invoice"
+msgstr "查看税票"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Submit reserves the requested amount and tax. After approval, issue the invoice externally and record its details here. This action does not issue an invoice or post accounting entries."
+msgstr "提交后占用申请金额及税额。审核通过后，请在外部完成开票，再在此回填票面信息；本操作不实际开票，也不新增会计分录。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Request Details"
+msgstr "申请明细"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Review item descriptions, quantities, tax classification codes, amounts and taxes. For a partial request, reduce the quantity, amount and tax together as appropriate."
+msgstr "请核对项目名称、数量、税收分类编码、金额及税额。部分申请时，请相应调整数量、金额及税额。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Internal notes"
+msgstr "内部备注"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Issued Invoice"
+msgstr "开票回填"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Verify the file, buyer, seller, items, amount and tax and select the confirmation below. Changing result details clears this confirmation."
+msgstr "请核对文件、购销双方、项目、金额及税额，再勾选下方确认。修改回填信息后需重新确认。"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Audit"
+msgstr "操作留痕"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Required when cancelling or rejecting"
+msgstr "取消或驳回前请填写原因"
+
+#. module: qing_account_fapiao
+#: model:ir.actions.act_window,name:qing_account_fapiao.action_fapiao_request
+#: model:ir.ui.menu,name:qing_account_fapiao.menu_fapiao_request
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_request_count
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_account_move_form
+msgid "Invoice Requests"
+msgstr "开票申请"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_count
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_account_move_form
+msgid "Tax Invoice Registrations"
+msgstr "税票登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_account_move__qing_fapiao_status
+msgid "Tax Invoice Status"
+msgstr "税票状态"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__not_invoiced
+msgid "Not Invoiced"
+msgstr "未开票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__draft_request
+msgid "Draft Request"
+msgstr "申请草稿"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__requested
+msgid "Request In Progress"
+msgstr "申请中"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__pending_registration
+msgid "Awaiting Tax Invoice Registration"
+msgstr "待登记"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__unallocated
+msgid "Registered, Unallocated"
+msgstr "已登记待分配"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__partial
+msgid "Partially Invoiced"
+msgstr "部分开票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__account_move__qing_fapiao_status__invoiced
+msgid "Fully Invoiced"
+msgstr "已开票"
+
+#. module: qing_account_fapiao
+#: model:ir.actions.server,name:qing_account_fapiao.action_create_fapiao_request
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_account_move_form
+msgid "Create Invoice Request"
+msgstr "创建开票申请"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__state__draft
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_allocation__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__state__submitted
+msgid "Pending Approval"
+msgstr "待审核"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__state__approved
+msgid "Awaiting Invoice"
+msgstr "待开票"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__state__done
+msgid "Recorded"
+msgstr "已回填"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_request__state__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_request_form
+msgid "Reset to Draft"
+msgstr "重置草稿"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__reset_at
+msgid "Last Reset At"
+msgstr "上次重置时间"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__reset_by
+msgid "Last Reset By"
+msgstr "上次重置人"
+
+#. module: qing_account_fapiao
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Only unrecorded submitted, approved or cancelled requests can be reset to draft."
+msgstr "仅未回填的待审核、待开票或已取消申请可重置草稿。"
+
+#. module: qing_account_fapiao
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "This request contains invoice results. Verify and clear them before resetting to draft."
+msgstr "申请已填写票面结果，请核实并清空结果后再重置草稿。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__buyer_partner_id
+msgid "Buyer"
+msgstr "购买方"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request__seller_partner_id
+msgid "Seller"
+msgstr "销售方"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_product_category__qing_fapiao_tax_classification_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_product_template__qing_fapiao_tax_classification_id
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__tax_classification_id
+msgid "Tax Classification"
+msgstr "税收分类"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_request_line__tax_classification_name
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_tax_classification__name
+msgid "Tax Classification Name"
+msgstr "税收分类名称"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_tax_classification__short_name
+msgid "Invoice Short Name"
+msgstr "发票简称"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_tax_classification__invoicing_allowed
+msgid "Allowed for Invoicing"
+msgstr "允许开票"
+
+#. module: qing_account_fapiao
+#: model:ir.actions.act_window,name:qing_account_fapiao.action_fapiao_tax_classification
+#: model:ir.ui.menu,name:qing_account_fapiao.menu_fapiao_tax_classification
+msgid "Tax Classification Codes"
+msgstr "税收分类编码"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_tax_classification_search
+msgid "Not Allowed for Invoicing"
+msgstr "禁止用于开票"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_tax_classification_form
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_tax_classification_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_fapiao_tax_classification_form
+msgid "Maintenance source, version or other notes"
+msgstr "维护来源、版本或其他备注"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_account_fapiao.view_product_template_fapiao_tax_classification
+msgid "Inherit from product category"
+msgstr "继承产品类别设置"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.actions.act_window,help:qing_account_fapiao.action_fapiao_tax_classification
+msgid "Maintain or import tax classification codes"
+msgstr "维护或导入税收分类编码"
+
+#. module: qing_account_fapiao
+#: model_terms:ir.actions.act_window,help:qing_account_fapiao.action_fapiao_tax_classification
+msgid "Use Odoo Import for CSV/XLSX updates. Codes must contain exactly 19 digits."
+msgstr "使用 Odoo 导入功能更新 CSV/XLSX；编码必须为 19 位数字。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+#: code:addons/qing_account_fapiao/models/fapiao_tax_classification.py:0
+msgid "Tax classification codes must contain exactly 19 digits."
+msgstr "税收分类编码必须为 19 位数字。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/fapiao_request.py:0
+msgid "Select an active tax classification code allowed for invoicing."
+msgstr "请选择有效且允许开票的税收分类编码。"
+
+#. module: qing_account_fapiao
+msgid "The tax classification code must be unique."
+msgstr "税收分类编码不可重复。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,help:qing_account_fapiao.field_qing_fapiao_tax_classification__invoicing_allowed
+msgid "Disable summary or obsolete codes that must not be used on an invoice line."
+msgstr "汇总或已失效且不能用于发票明细的编码应关闭此项。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,help:qing_account_fapiao.field_product_category__qing_fapiao_tax_classification_id
+msgid "Default tax classification for products in this category and its child categories."
+msgstr "本类别及其子类别产品的默认税收分类。"
+
+#. module: qing_account_fapiao
+#. odoo-python
+#: code:addons/qing_account_fapiao/models/account_move.py:0
+msgid "There are no invoice detail lines eligible for a tax invoice request."
+msgstr "没有可申请税票的明细行。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,help:qing_account_fapiao.field_product_template__qing_fapiao_tax_classification_id
+msgid "Tax classification for this product. Leave empty to inherit the product category setting."
+msgstr "本产品的税收分类；留空时继承产品类别设置。"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao__color
+msgid "Invoice Color"
+msgstr "蓝红类型"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao__direction
+msgid "Invoice Direction"
+msgstr "进销项"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao__kind
+msgid "Tax Invoice Type"
+msgstr "票种"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao__state
+msgid "Registration Status"
+msgstr "登记状态"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields,field_description:qing_account_fapiao.field_qing_fapiao_allocation__state
+msgid "Allocation Status"
+msgstr "分配状态"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_allocation__state__cancelled
+msgid "Canceled"
+msgstr "已撤销"
+
+#. module: qing_account_fapiao
+#: model:ir.model.fields.selection,name:qing_account_fapiao.selection__qing_fapiao_allocation__state__confirmed
+msgid "Confirmed"
+msgstr "已确认"

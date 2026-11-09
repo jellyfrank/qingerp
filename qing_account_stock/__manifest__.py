@@ -1,0 +1,16 @@
+{
+    'name': 'Qing Account Stock',
+    'summary': 'Accounting integration for purchase returns and inventory valuation',
+    'version': '20.0.1.13',
+    'category': 'Accounting/Accounting',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'license': 'LGPL-3',
+    'depends': ['qing_account', 'purchase_stock'],
+    'data': ['security/ir.access.csv', 'views/view_unbilled_purchase_form.xml', 'views/view_accrual_batch_form.xml', 'views/view_accrual_preview_form.xml', 'views/view_account_move_form.xml', 'views/view_accrual_closing_form.xml'],
+    'auto_install': True,
+    'installable': True,
+    'application': False,
+    'description': 'Integrate purchase returns, inventory valuation and accrual accounting, with unbilled purchase and source-document review.',
+    'support': 'kevin@odoomommy.com',
+}

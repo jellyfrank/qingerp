@@ -1,0 +1,21 @@
+{
+    'name': 'QingERP Repair Portal',
+    'summary': 'Secure repair sharing, customer photos, PDF and separate signatures',
+    'version': '20.0.1.0.3',
+    'category': 'Inventory/Inventory',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'license': 'LGPL-3',
+    'depends': ['qing_repair', 'portal'],
+    'data': [
+        'security/ir.access.csv',
+        'wizard/view_repair_signature_form.xml',
+        'views/view_res_config_settings_form.xml',
+        'views/view_repair_order_form.xml',
+        'views/repair_portal_templates.xml',
+        'report/repair_report.xml',
+    ],
+    'installable': True,
+    'description': 'Share repair orders securely with customer photos, PDF documents, price confirmation and acceptance signatures.',
+    'support': 'kevin@odoomommy.com',
+}

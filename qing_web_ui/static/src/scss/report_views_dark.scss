@@ -1,0 +1,208 @@
+// Analytical renderers own their surfaces independently of the control panel.
+// Keep these rules in the regular bundle for runtime Qing theme switching.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o_calendar_view .o_content,
+    .o_pivot_view .o_content,
+    .o_graph_view .o_content,
+    .o_activity_view {
+        background-color: var(--o-qing-bg);
+        color: var(--o-qing-text);
+    }
+
+    .o_calendar_container,
+    .o_calendar_renderer,
+    .o_calendar_sidepanel_container,
+    .o_graph_canvas_container {
+        background-color: var(--o-qing-surface) !important;
+        color: var(--o-qing-text);
+    }
+
+    .o_calendar_header,
+    .o_graph_canvas_container { border-color: var(--o-qing-border) !important; }
+
+    .o_calendar_view .o_searchview_dropdown_toggler,
+    .o_pivot_view .o_searchview_dropdown_toggler,
+    .o_activity_view .o_searchview_dropdown_toggler,
+    .o_graph_view .o_searchview_dropdown_toggler {
+        background-color: var(--o-qing-surface-weak) !important;
+    }
+
+    .o_calendar_container {
+        .o_calendar_header {
+            background-color: var(--o-qing-surface);
+            h5 { color: var(--o-qing-text); }
+        }
+        .o_current_week,
+        .o_calendar_sidebar_controller .badge {
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text-soft);
+        }
+        .o_calendar_unschedule_zone {
+            background-color: var(--o-qing-surface-weak);
+            border-color: var(--o-qing-border);
+        }
+    }
+
+    .o_calendar_renderer {
+        --o-cw-border-color: var(--o-qing-border);
+        .o_calendar_widget {
+            --fc-page-bg-color: var(--o-qing-surface);
+            --fc-border-color: var(--o-qing-border);
+            --fc-neutral-bg-color: var(--o-qing-surface-weak);
+            --fc-neutral-text-color: var(--o-qing-text-soft);
+            --fc-highlight-color: color-mix(in srgb, var(--o-qing-accent) 18%, transparent);
+            color: var(--o-qing-text);
+        }
+        .fc-scrollgrid-section-body:not(.fc-scrollgrid-section-liquid) .fc-scroller-harness,
+        .fc-more-popover .fc-popover-body {
+            background-color: var(--o-qing-surface);
+        }
+        .fc-col-header,
+        .fc-popover-header,
+        .fc-daygrid-week-number {
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text-soft);
+        }
+        .fc-more-popover {
+            border-color: var(--o-qing-border);
+            color: var(--o-qing-text);
+        }
+        .fc-timegrid-slot-label,
+        .fc-timegrid-axis,
+        .fc-col-header-cell-cushion,
+        .fc-daygrid-more-link { color: var(--o-qing-text-soft); }
+        .fc-day:not(.fc-day-today) .fc-daygrid-day-number {
+            --o-cw-color: var(--o-qing-text);
+        }
+        .fc-day-other:not(.fc-day-today) .fc-daygrid-day-number {
+            --o-cw-color: var(--o-qing-text-soft);
+        }
+        .fc-dayGridYear-view {
+            .fc-toolbar-title { color: var(--o-qing-text); }
+            .fc-has-event {
+                background-color: color-mix(in srgb, var(--o-qing-accent) 20%, var(--o-qing-surface)) !important;
+            }
+        }
+        .fc-dayGridYear-view .fc-daygrid-day-top:hover > .fc-daygrid-day-number {
+            --o-cw-bg: var(--o-qing-surface-weak);
+            --o-cw-color: var(--o-qing-link);
+        }
+        .o_calendar_disabled:not(.fc-more-popover) {
+            background-color: var(--o-qing-bg);
+        }
+        .fc-event {
+            --fc-event-text-color: var(--o-qing-text);
+            --fc-event-bg-color: color-mix(in srgb, var(--o-event-bg, var(--o-qing-accent)) 24%, var(--o-qing-surface));
+            --fc-event-border-color: var(--o-event-bg, var(--o-qing-border));
+            color: var(--o-qing-text);
+            &:hover { color: var(--o-qing-text); }
+            &:not(.o_event_dot):not(.fc-dragging) {
+                --fc-event-text-color: var(--o-qing-text);
+                --fc-event-border-color: var(--o-event-bg, var(--o-qing-border));
+            }
+            &:not(.o_event_dot):not(.o_event_custom) {
+                background-color: var(--fc-event-bg-color);
+                box-shadow: 0 0 0 1px var(--o-qing-surface);
+            }
+            &.o_event_dot { --fc-event-bg-color: transparent; }
+            &.o_past_event::after { background-color: rgba(18, 26, 35, var(--o-event-overlay-opacity)); }
+        }
+    }
+
+    .o_pivot,
+    .o_activity_view {
+        --PivotView__cell-bg--hover: var(--o-qing-surface-weak);
+        .table {
+            --table-bg: var(--o-qing-surface);
+            --table-color: var(--o-qing-text);
+            --table-border-color: var(--o-qing-border);
+            --table-hover-bg: var(--o-qing-surface-weak);
+            --table-hover-color: var(--o-qing-text);
+            color: var(--o-qing-text);
+            border-color: var(--o-qing-border);
+        }
+    }
+    .o_pivot {
+        .bg-view { background-color: var(--o-qing-surface) !important; }
+        .bg-100 { background-color: var(--o-qing-surface-weak) !important; }
+        th { color: var(--o-qing-text) !important; }
+        .o_pivot_measure_row { color: var(--o-qing-text-soft) !important; }
+        .o_pivot_cell_value { color: var(--o-qing-text) !important; }
+        .o_pivot_cell_value:not(:empty):hover { color: var(--o-qing-link) !important; }
+        .o_cell_hover { background-color: var(--o-qing-surface-weak) !important; }
+    }
+
+    .o_activity_view {
+        .o_activity_view_table { background-color: var(--o-qing-surface) !important; }
+        .o_activity_view_table thead th {
+            --table-bg: var(--o-qing-surface-weak);
+            background: var(--o-qing-surface-weak);
+            color: var(--o-qing-text);
+            box-shadow: inset 0 -1px 0 var(--o-qing-border);
+        }
+        .o_activity_record:hover { background-color: var(--o-qing-surface-weak); }
+        .o_activity_type_cell .text-900 { color: var(--o-qing-text-soft) !important; }
+        .o_activity_record .text-bg-300 {
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text) !important;
+        }
+        .o_activity_view_table_footer { background-color: var(--o-qing-surface-weak); }
+        .o_activity_summary_cell {
+            background-image: none !important;
+            .o-mail-ActivityCell-counter,
+            .bg-100,
+            .bg-200 {
+                background-color: var(--o-qing-surface-weak) !important;
+                color: var(--o-qing-text) !important;
+            }
+        }
+        $activity-colors: (
+            planned: var(--o-qing-positive-text),
+            today: var(--o-qing-warning),
+            overdue: var(--o-qing-danger),
+            done: var(--o-qing-text-soft),
+        );
+        @each $state, $color in $activity-colors {
+            .o_activity_summary_cell.#{$state} {
+                background-color: color-mix(in srgb, #{$color} 14%, var(--o-qing-surface)) !important;
+                color: #{$color} !important;
+                a { color: inherit; }
+            }
+            .o_activity_filter_#{$state} {
+                background-color: color-mix(in srgb, #{$color} 8%, var(--o-qing-surface));
+            }
+        }
+    }
+
+    // Calendar and activity popovers are mounted outside their view roots.
+    .o_popover:has(.o_cw_popover, .o-mail-ActivityListPopover) {
+        --popover-bg: var(--o-qing-surface);
+        --popover-border-color: var(--o-qing-border);
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+        .bg-100 { background-color: var(--o-qing-surface-weak) !important; }
+        .o_popover_header,
+        .o_popover_footer,
+        .o-mail-ActivityListPopover-header,
+        .o-mail-ActivityListPopoverItem { border-color: var(--o-qing-border) !important; }
+        .text-900 { color: var(--o-qing-text) !important; }
+        .text-danger { color: var(--o-qing-danger) !important; }
+        .text-warning { color: var(--o-qing-warning) !important; }
+        .text-success { color: var(--o-qing-positive-text) !important; }
+    }
+
+    .o_graph_custom_tooltip,
+    .o_tooltip_legend {
+        --popover-bg: var(--o-qing-surface-weak);
+        --popover-border-color: var(--o-qing-border);
+        background-color: var(--o-qing-surface-weak);
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+        .table {
+            --table-bg: transparent;
+            --table-color: var(--o-qing-text);
+            --table-border-color: var(--o-qing-border);
+        }
+    }
+}

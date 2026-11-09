@@ -1,0 +1,72 @@
+<odoo>
+    <record id="view_stock_picking_form_scan" model="ir.ui.view">
+        <field name="name">stock.picking.form.scan</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qing_scan" type="object" string="Scan" groups="qing_stock_barcode.group_scan_user"
+                        invisible="state in ('draft', 'done', 'cancel')"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_stock_picking_form_mobile_scan" model="ir.ui.view">
+        <field name="name">stock.picking.form.mobile.scan</field>
+        <field name="model">stock.picking</field>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <form string="Internal transfer" class="qing_scan_create_form" duplicate="0">
+                <header>
+                    <button name="action_qing_confirm_scan" type="object" string="Confirm and scan" class="btn-primary" invisible="state != 'draft'" groups="qing_stock_barcode.group_scan_user"/>
+                    <button name="action_qing_save_draft" type="object" string="Save draft" invisible="state != 'draft'" groups="qing_stock_barcode.group_scan_user"/>
+                    <button name="action_qing_scan" type="object" string="Scan" invisible="state in ('draft', 'done', 'cancel')" groups="qing_stock_barcode.group_scan_user"/>
+                </header>
+                <sheet>
+                    <field name="company_id" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                    <field name="picking_type_code" invisible="1"/>
+                    <h2 invisible="id">New internal transfer</h2>
+                    <h2 invisible="not id"><field name="name" readonly="1"/></h2>
+                    <p class="text-muted">Enter planned quantities here. Actual quantities are recorded during scanning.</p>
+                    <group col="1">
+                        <field name="picking_type_id" domain="[('code', '=', 'internal'), ('active', '=', True), ('company_id', '=', company_id)]" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                        <field name="location_id" widget="many2one_barcode" domain="[('usage', '=', 'internal'), ('company_id', 'in', [False, company_id])]" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                        <field name="location_dest_id" widget="many2one_barcode" domain="[('usage', '=', 'internal'), ('company_id', 'in', [False, company_id])]" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                        <field name="scheduled_date" readonly="state != 'draft'"/>
+                        <field name="user_id" options="{'no_create': True, 'no_open': True}" readonly="state != 'draft'"/>
+                        <field name="origin" placeholder="Reason or reference" readonly="state != 'draft'"/>
+                    </group>
+                    <field name="move_ids" mode="kanban" add-label="Add a product" readonly="state != 'draft'"
+                           context="{'default_company_id': company_id, 'default_picking_type_id': picking_type_id, 'default_location_id': location_id, 'default_location_dest_id': location_dest_id, 'default_date': scheduled_date}">
+                        <kanban class="qing_scan_draft_lines">
+                            <templates>
+                                <t t-name="card">
+                                    <field name="product_id" class="fw-bold"/>
+                                    <div class="d-flex align-items-center gap-2 mt-2">
+                                        <span>Planned:</span><field name="product_uom_qty"/><field name="uom_id"/>
+                                        <a t-if="!read_only_mode" type="delete" class="btn btn-link ms-auto" title="Remove product" aria-label="Remove product"><i class="fa fa-trash-o"/></a>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                        <form string="Product and planned quantity">
+                            <group col="1">
+                                <field name="company_id" invisible="1"/>
+                                <field name="picking_type_id" invisible="1"/>
+                                <field name="location_id" invisible="1"/>
+                                <field name="location_dest_id" invisible="1"/>
+                                <field name="product_id" widget="many2one_barcode" domain="[('type', '=', 'consu')]" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="product_uom_qty" string="Planned quantity"/>
+                                <field name="uom_id" options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </form>
+                    </field>
+                    <div class="qing_scan_draft_actions d-flex gap-2 mt-3" invisible="state != 'draft'">
+                        <button name="action_qing_save_draft" type="object" string="Save draft" class="btn btn-secondary qing_scan_draft_save" groups="qing_stock_barcode.group_scan_user"/>
+                        <button name="action_qing_confirm_scan" type="object" string="Confirm and scan" class="btn btn-primary qing_scan_draft_confirm" groups="qing_stock_barcode.group_scan_user"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

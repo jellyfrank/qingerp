@@ -1,0 +1,21 @@
+id,name,model_id,group_id/id,operation,domain
+access_trial_balance_manager,trial.balance.manager,qing.trial.balance,account.group_account_manager,crud,
+trial_balance_company,trial.balance.company,qing.trial.balance,,crud,"[('company_id', 'in', company_ids)]"
+access_balance_sheet_manager,balance.sheet.manager,qing.balance.sheet,account.group_account_manager,crud,
+balance_sheet_company,balance.sheet.company,qing.balance.sheet,,crud,"[('company_id', 'in', company_ids)]"
+access_balance_mapping_manager,balance.mapping.manager,qing.balance.sheet.mapping,account.group_account_manager,crud,
+balance_mapping_company,balance.mapping.company,qing.balance.sheet.mapping,,crud,"[('company_id', 'in', company_ids)]"
+access_balance_mapping_line_manager,balance.mapping.line.manager,qing.balance.sheet.mapping.line,account.group_account_manager,crud,
+balance_mapping_line_company,balance.mapping.line.company,qing.balance.sheet.mapping.line,,crud,"[('company_id', 'in', company_ids)]"
+access_profit_statement_manager,profit.statement.manager,qing.profit.statement,account.group_account_manager,crud,
+profit_statement_company,profit.statement.company,qing.profit.statement,,crud,"[('company_id', 'in', company_ids)]"
+access_profit_mapping_manager,profit.mapping.manager,qing.profit.statement.mapping,account.group_account_manager,crud,
+profit_mapping_company,profit.mapping.company,qing.profit.statement.mapping,,crud,"[('company_id', 'in', company_ids)]"
+access_profit_mapping_line_manager,profit.mapping.line.manager,qing.profit.statement.mapping.line,account.group_account_manager,crud,
+profit_mapping_line_company,profit.mapping.line.company,qing.profit.statement.mapping.line,,crud,"[('company_id', 'in', company_ids)]"
+access_report_scheme_manager,report.scheme.manager,qing.financial.report.scheme,account.group_account_manager,crud,
+report_scheme_company,report.scheme.company,qing.financial.report.scheme,,crud,"[('company_id', 'in', company_ids)]"
+access_report_export_manager,report.export.manager,qing.financial.report.export,account.group_account_manager,crud,
+report_export_company,report.export.company,qing.financial.report.export,,crud,"[('company_id', 'in', company_ids)]"
+access_cash_flow_allocation_manager,cash.flow.allocation.manager,qing.cash.flow.allocation,account.group_account_manager,crud,
+cash_flow_allocation_company,cash.flow.allocation.company,qing.cash.flow.allocation,,crud,"[('company_id', 'in', company_ids)]"

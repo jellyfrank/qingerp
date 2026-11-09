@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_rental.Availability">
+        <button t-if="this.props.record.data.availability_state" type="button"
+                class="oi btn p-0 border-0 qing_rental_availability_icon" data-icon="area_chart"
+                t-att-class="this.props.record.data.availability_state === 'available' ? 'text-success' : 'text-danger'"
+                t-att-title="this.label" t-att-aria-label="this.label"
+                t-on-click.stop="this.showPopup"/>
+    </t>
+
+    <t t-name="qing_rental.AvailabilityPopover">
+        <div class="p-2 qing_rental_availability_popover">
+            <h6 t-att-class="this.props.record.data.availability_state === 'available' ? 'text-success' : 'text-danger'"
+                t-out="this.label"/>
+            <table class="table table-borderless table-sm mb-2">
+                <tbody>
+                    <tr>
+                        <td>Available during period</td>
+                        <td class="text-end" t-out="this.formatQuantity(this.props.record.data.available_qty)"/>
+                    </tr>
+                    <tr>
+                        <td>Required during period</td>
+                        <td class="text-end" t-out="this.formatQuantity(this.props.record.data.required_qty)"/>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-muted small mb-0">Demand includes all lines for this equipment, less returned quantities. Capacity is checked again on confirmation.</p>
+        </div>
+    </t>
+</templates>

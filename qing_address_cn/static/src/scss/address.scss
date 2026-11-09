@@ -1,0 +1,12 @@
+.o_address_format .qing_cn_address_level {
+    // Keep each hierarchy level legible in narrow contact and child-address forms.
+    min-width: 0;
+    width: 100%;
+}
+
+.o_address_format .qing_cn_province_city {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.5rem;
+}

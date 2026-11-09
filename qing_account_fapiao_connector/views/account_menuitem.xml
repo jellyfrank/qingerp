@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Keep the provider-neutral module independent from Qing.  The bridge,
+         which depends on both sides, owns their menu integration. -->
+    <record id="qing_fapiao.menu_fapiao_interface_root" model="ir.ui.menu">
+        <field name="parent_id" ref="qing_account_fapiao.menu_fapiao_root"/>
+        <field name="sequence">40</field>
+    </record>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="tool_find_customers" model="qing.ai.sale.tool">
+        <field name="name">Find Customers</field><field name="key">find_customers</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="tool_find_products" model="qing.ai.sale.tool">
+        <field name="name">Find Products</field><field name="key">find_products</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="tool_find_quotes" model="qing.ai.sale.tool">
+        <field name="name">Find Quotations</field><field name="key">find_quotes</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="tool_find_activities" model="qing.ai.sale.tool">
+        <field name="name">Find Follow-up Activities</field><field name="key">find_activities</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="tool_create_followup" model="qing.ai.sale.tool">
+        <field name="name">Create Follow-up Activity</field><field name="key">create_followup</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="tool_create_quote_draft" model="qing.ai.sale.tool">
+        <field name="name">Create Quotation Draft</field><field name="key">create_quote_draft</field>
+        <field name="allowed_group_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+</odoo>

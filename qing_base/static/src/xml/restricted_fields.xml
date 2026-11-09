@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_base.RestrictedField" t-inherit="web.Field" t-inherit-mode="extension">
+        <xpath expr="//t[@t-component]" position="before">
+            <span t-if="this.qingRestricted" class="o_qing_permission_restricted" t-out="this.qingRestrictedLabel"/>
+        </xpath>
+        <xpath expr="//t[@t-component]" position="attributes">
+            <attribute name="t-if">!this.qingRestricted</attribute>
+            <attribute name="t-props">this.qingFieldComponentProps</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_base.RestrictedListField" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set='isInvisible']" position="attributes">
+            <attribute name="t-value">this.qingCellInvisible(column, record)</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_base.RestrictedViewButton" t-inherit="web.views.ViewButton" t-inherit-mode="extension">
+        <xpath expr="//t[@t-tag='this.props.tag']" position="attributes">
+            <attribute name="t-att-aria-disabled">this.disabled ? 'true' : false</attribute>
+        </xpath>
+    </t>
+</templates>

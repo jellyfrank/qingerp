@@ -1,0 +1,47 @@
+<odoo>
+    <record id="action_rental_orders" model="ir.actions.act_window">
+        <field name="name">Rental Orders</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="domain">[('is_qing_rental', '=', True)]</field>
+        <field name="context">{'default_is_qing_rental': True}</field>
+        <field name="search_view_id" ref="view_sale_order_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a rental quotation</p>
+            <p>Choose the rental period and equipment, then confirm availability before pickup.</p>
+        </field>
+    </record>
+    <record id="action_rental_orders_list" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_sale_order_list"/>
+        <field name="act_window_id" ref="action_rental_orders"/>
+    </record>
+    <record id="action_rental_orders_form" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="sale.view_order_form"/>
+        <field name="act_window_id" ref="action_rental_orders"/>
+    </record>
+    <record id="action_rental_orders_calendar" model="ir.actions.act_window.view">
+        <field name="sequence">3</field>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="view_sale_order_calendar"/>
+        <field name="act_window_id" ref="action_rental_orders"/>
+    </record>
+    <record id="action_rental_products" model="ir.actions.act_window">
+        <field name="name">Rental Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('qing_rental_ok', '=', True)]</field>
+        <field name="context">{'default_type': 'consu', 'default_is_storable': True, 'default_qing_rental_ok': True}</field>
+    </record>
+    <menuitem id="menu_rental_root" name="Rental" sequence="35" groups="group_rental_user" web_icon="qing_rental,static/description/icon.png"/>
+    <menuitem id="menu_rental_orders" name="Orders" parent="menu_rental_root" action="action_rental_orders" sequence="10"/>
+    <menuitem id="menu_rental_products" name="Products" parent="menu_rental_root" action="action_rental_products" sequence="20"/>
+    <menuitem id="menu_rental_deposits" name="Deposits" parent="menu_rental_root" action="action_rental_deposits"
+              groups="group_rental_manager" sequence="30"/>
+    <menuitem id="menu_rental_configuration" name="Configuration" parent="menu_rental_root" groups="group_rental_manager" sequence="90"/>
+    <menuitem id="menu_rental_warehouses" name="Warehouses" parent="menu_rental_configuration"
+              action="stock.action_warehouse_form" groups="stock.group_stock_manager" sequence="10"/>
+</odoo>

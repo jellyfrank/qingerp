@@ -1,0 +1,16 @@
+<odoo>
+ <record id="view_sms_message_list" model="ir.ui.view"><field name="name">qing.sms.message.list</field><field name="model">qing.sms.message</field>
+ <field name="arch" type="xml"><list create="0" edit="0" delete="0"><field name="create_date" string="创建时间"/><field name="binding_id"/><field name="number"/><field name="state"/><field name="error_code"/></list></field></record>
+ <record id="view_sms_message_form" model="ir.ui.view"><field name="name">qing.sms.message.form</field><field name="model">qing.sms.message</field>
+ <field name="arch" type="xml"><form create="0" edit="0" delete="0">
+ <header><button name="action_query" type="object" string="查询送达结果" invisible="state not in ('unknown','accepted')"/>
+ <button name="action_cancel" type="object" string="取消排队" invisible="state != 'queued'"/>
+ <field name="state" widget="statusbar"/></header><sheet><group><field name="company_id"/><field name="binding_id"/>
+ <field name="number"/><field name="event_key" groups="qing_sms.group_sms_manager"/><field name="provider_id"/><field name="request_id"/>
+ <field name="submitted_at"/><field name="error_code"/><field name="body"/>
+ <field name="res_model" invisible="1"/><field name="res_id" invisible="not res_model"/></group>
+ <field name="attempt_ids"><list create="0" edit="0" delete="0"><field name="create_date" string="创建时间"/><field name="kind"/><field name="state"/><field name="code"/><field name="request_id"/></list></field>
+ </sheet></form></field></record>
+ <record id="action_sms_message" model="ir.actions.act_window"><field name="name">国内短信</field>
+ <field name="res_model">qing.sms.message</field><field name="view_mode">list,form</field></record>
+</odoo>

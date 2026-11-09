@@ -1,0 +1,37 @@
+// Keep the rental line editor visually consistent with its read-only columns.
+// The native list uses bottom borders to mark required cells; Qing's form
+// controls also add input underlines. Neither is needed inside this table.
+.o_qing_web_ui .o_form_sheet .o_qing_rental_line_list {
+    .o_data_row.o_selected_row {
+        > td.o_data_cell:not(.o_invalid_cell) {
+            border-bottom-width: 0;
+        }
+
+        .o_field_widget:not(.o_field_invalid) {
+            > .o_input,
+            > .o_input_dropdown,
+            > div > .o_input {
+                border-bottom: 0;
+                box-shadow: none;
+                padding-block: 0;
+                min-height: 0;
+
+                &:hover,
+                &:focus-within {
+                    border-bottom: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        > td.o_list_number {
+            vertical-align: middle;
+            font-variant-numeric: tabular-nums;
+
+            input.o_input {
+                text-align: right;
+                font-variant-numeric: tabular-nums;
+            }
+        }
+    }
+}

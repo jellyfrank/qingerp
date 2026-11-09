@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_stock_picking_type_form_scan" model="ir.ui.view">
+        <field name="name">stock.picking.type.form.scan</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Warehouse Scanning" groups="qing_stock_barcode.group_scan_manager">
+                    <field name="qing_scan_source_required"/>
+                    <field name="qing_scan_destination_required"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,169 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_sms_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 13:32+0000\n"
+"PO-Revision-Date: 2026-09-24 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sms_stock
+#: model:ir.model,name:qing_sms_stock.model_res_company
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_sms_stock
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_handler_stock_delivered__current_company
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_scenario_handler__current_company
+#: model:ir.model.fields,field_description:qing_sms_stock.field_res_company__current_company
+#: model:ir.model.fields,field_description:qing_sms_stock.field_stock_picking__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/sms_stock_handler.py:0
+msgid "Delivery contact has no mobile number."
+msgstr "发货联系人没有手机号。"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/sms_stock_handler.py:0
+msgid "Delivery is no longer eligible for SMS: %s"
+msgstr "发货单已不符合短信发送条件：%s"
+
+#. module: qing_sms_stock
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_handler_stock_delivered__display_name
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_scenario_handler__display_name
+#: model:ir.model.fields,field_description:qing_sms_stock.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_sms_stock.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_sms_stock
+#: model:ir.module.module,description:base.module_qing_sms_stock
+msgid "Free stock delivery event integration for QingERP domestic SMS."
+msgstr "QingERP 国内短信的免费库存发货事件集成。"
+
+#. module: qing_sms_stock
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_handler_stock_delivered__id
+#: model:ir.model.fields,field_description:qing_sms_stock.field_qing_sms_scenario_handler__id
+#: model:ir.model.fields,field_description:qing_sms_stock.field_res_company__id
+#: model:ir.model.fields,field_description:qing_sms_stock.field_stock_picking__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "Only completed outgoing deliveries can send a delivery SMS."
+msgstr "只有已完成的客户出库单可以发送发货短信。"
+
+#. module: qing_sms_stock
+#: model:ir.module.module,shortdesc:base.module_qing_sms_stock
+msgid "QingERP 发货短信"
+msgstr "QingERP 发货短信"
+
+#. module: qing_sms_stock
+#: model:ir.model,name:qing_sms_stock.model_qing_sms_scenario_handler
+msgid "Registered SMS scenario handlers"
+msgstr "已注册短信场景处理器"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "SMS is suppressed for this delivery."
+msgstr "此发货单已设置不发送短信。"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "SMS send permission is required."
+msgstr "需要短信发送权限。"
+
+#. module: qing_sms_stock
+#: model:ir.model.fields,field_description:qing_sms_stock.field_stock_picking__qing_sms_status
+msgid "SMS status"
+msgstr "短信状态"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "SMS task"
+msgstr "短信任务"
+
+#. module: qing_sms_stock
+#: model:ir.model,name:qing_sms_stock.model_qing_sms_handler_stock_delivered
+msgid "Stock delivery SMS handler"
+msgstr "库存发货短信处理器"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "The delivery binding contains unsupported input variables."
+msgstr "发货绑定包含不支持的输入变量。"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "This delivery already has an SMS task."
+msgstr "此发货单已有短信任务。"
+
+#. module: qing_sms_stock
+#: model:ir.model,name:qing_sms_stock.model_stock_picking
+msgid "Transfer"
+msgstr "调拨"
+
+#. module: qing_sms_stock
+#: model:ir.model.fields,field_description:qing_sms_stock.field_res_company__qing_sms_delivery_binding_id
+msgid "发货短信业务模板"
+msgstr "发货短信业务模板"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "发货短信已加入队列，请在国内短信中查看受理和送达结果。"
+msgstr "发货短信已加入队列，请在国内短信中查看受理和送达结果。"
+
+#. module: qing_sms_stock
+#: model_terms:ir.ui.view,arch_db:qing_sms_stock.view_aliyun_picking_form
+msgid "发送短信"
+msgstr "发送短信"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "已加入发送队列；重复点击不会重复发送。"
+msgstr "已加入发送队列；重复点击不会重复发送。"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "短信任务"
+msgstr "短信任务"
+
+#. module: qing_sms_stock
+#: model_terms:ir.ui.view,arch_db:qing_sms_stock.view_res_company_form
+msgid "短信通知"
+msgstr "短信通知"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "请为收件人填写手机号码。"
+msgstr "请为收件人填写手机号码。"
+
+#. module: qing_sms_stock
+#. odoo-python
+#: code:addons/qing_sms_stock/models/stock_picking.py:0
+msgid "请在公司设置中选择发货短信模板。"
+msgstr "请在公司设置中选择发货短信模板。"

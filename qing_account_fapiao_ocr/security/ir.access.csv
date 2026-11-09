@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_ocr_manager,ocr.manager,qing.fapiao.ocr,account.group_account_manager,crud,
+ocr_company,ocr.company,qing.fapiao.ocr,,crud,"[('company_id', 'in', company_ids)]"
+ocr_owner,ocr.owner,qing.fapiao.ocr,,crud,"[('create_uid', '=', user.id)]"

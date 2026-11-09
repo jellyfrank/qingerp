@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="qing_web_ui.QingThemeSettingsDialog">
+        <Dialog title="this.title" size="'md'" footer="true" contentClass="'o_qing_theme_settings_modal'">
+            <div class="o_qing_web_ui_settings_dialog p-1">
+                <p class="text-muted mb-3" t-out="this.labels.description"/>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" for="o_qing_ui_theme" t-out="this.labels.theme"/>
+                    <select id="o_qing_ui_theme" class="form-select" t-on-change="this.setThemeMode">
+                        <t t-foreach="this.themeOptions" t-as="themeOption" t-key="themeOption.value">
+                            <option t-att-value="themeOption.value" t-att-selected="this.state.themeMode === themeOption.value" t-out="themeOption.label"/>
+                        </t>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <span class="form-label fw-bold d-block mb-2" t-out="this.labels.accent"/>
+                    <div class="o_qing_web_ui_settings__accent_grid" role="radiogroup" t-att-aria-label="this.labels.accent">
+                        <t t-foreach="this.accentOptions" t-as="accentOption" t-key="accentOption.value">
+                            <label class="o_qing_web_ui_settings__accent_option" t-att-title="accentOption.label">
+                                <input class="visually-hidden" type="radio" name="o_qing_ui_accent" t-att-value="accentOption.value" t-att-checked="this.state.accentColor === accentOption.value" t-on-change="this.setAccentColor"/>
+                                <span class="o_qing_web_ui_settings__accent_swatch" t-att-style="'background-color:' + accentOption.color"/>
+                                <span class="visually-hidden" t-out="accentOption.label"/>
+                            </label>
+                        </t>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" for="o_qing_ui_density" t-out="this.labels.density"/>
+                    <select
+                        id="o_qing_ui_density"
+                        class="form-select"
+                        t-on-change="this.setDensity"
+                    >
+                        <t t-foreach="this.densityOptions" t-as="densityOption" t-key="densityOption.value">
+                            <option t-att-value="densityOption.value" t-att-selected="this.state.density === densityOption.value" t-out="densityOption.label"/>
+                        </t>
+                    </select>
+                    <p class="form-text text-muted small mt-1">
+                        <t t-out="this.densityHint"/>
+                    </p>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" t-out="this.labels.navigation"/>
+                    <div class="o_qing_web_ui_settings__stack gap-2">
+                        <t t-foreach="this.sidebarOptions" t-as="sidebarOption" t-key="sidebarOption.value">
+                            <div class="form-check">
+                                <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    t-att-id="'o_qing_ui_sidebar_' + sidebarOption.value"
+                                    t-att-name="'o_qing_ui_sidebar'"
+                                    t-att-value="sidebarOption.value"
+                                    t-att-checked="this.state.sidebarState === sidebarOption.value"
+                                    t-on-change="this.setSidebarState"
+                                />
+                                <label class="form-check-label w-100" t-att-for="'o_qing_ui_sidebar_' + sidebarOption.value">
+                                    <span class="d-block fw-semibold" t-out="sidebarOption.label"/>
+                                    <span class="text-muted small d-block" t-out="sidebarOption.hint"/>
+                                </label>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="form-label fw-bold d-block mb-2" t-out="this.labels.sidebarStyle"/>
+                    <div class="o_qing_web_ui_settings__stack gap-2">
+                        <t t-foreach="this.sidebarStyleOptions" t-as="styleOption" t-key="styleOption.value">
+                            <div class="form-check">
+                                <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    t-att-id="'o_qing_ui_sidebar_style_' + styleOption.value"
+                                    t-att-name="'o_qing_ui_sidebar_style'"
+                                    t-att-value="styleOption.value"
+                                    t-att-checked="this.state.sidebarStyle === styleOption.value"
+                                    t-on-change="this.setSidebarStyle"
+                                />
+                                <label class="form-check-label w-100" t-att-for="'o_qing_ui_sidebar_style_' + styleOption.value">
+                                    <span class="d-block fw-semibold" t-out="styleOption.label"/>
+                                    <span class="text-muted small d-block" t-out="styleOption.hint"/>
+                                </label>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="small text-muted mt-1" t-out="this.labels.sidebarStyleHint"/>
+                </div>
+                <div class="mb-4">
+                    <span class="form-label fw-bold d-block mb-2" t-out="this.labels.menuGroupsDefault"/>
+                    <div class="o_qing_web_ui_settings__stack gap-2">
+                        <t t-foreach="this.sidebarGroupOptions" t-as="groupOption" t-key="groupOption.value">
+                            <div class="form-check">
+                                <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    t-att-id="'o_qing_ui_sidebar_groups_' + groupOption.value"
+                                    t-att-name="'o_qing_ui_sidebar_groups'"
+                                    t-att-value="groupOption.value"
+                                    t-att-checked="this.state.sidebarGroupsDefault === groupOption.value"
+                                    t-on-change="this.setSidebarGroupsDefault"
+                                />
+                                <label class="form-check-label w-100" t-att-for="'o_qing_ui_sidebar_groups_' + groupOption.value">
+                                    <span class="d-block fw-semibold" t-out="groupOption.label"/>
+                                    <span class="text-muted small d-block" t-out="groupOption.hint"/>
+                                </label>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" for="o_qing_ui_chatter">Chatter Position</label>
+                    <select id="o_qing_ui_chatter" class="form-select" t-on-change="(event) => this.state.chatterPosition = event.target.value">
+                        <option value="auto" t-att-selected="this.state.chatterPosition === 'auto'">Automatic</option>
+                        <option value="right" t-att-selected="this.state.chatterPosition === 'right'">Right</option>
+                        <option value="bottom" t-att-selected="this.state.chatterPosition === 'bottom'">Bottom</option>
+                    </select>
+                    <div class="small text-muted mt-1">Automatic places the chatter on the right on wide screens (1534px and up) and below the form otherwise. Right keeps it beside the form from 1200px; smaller screens always use the bottom. Attachment previews keep the native layout.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" for="o_qing_ui_list_actions">List action alignment</label>
+                    <select id="o_qing_ui_list_actions" class="form-select" t-on-change="(event) => this.state.listActionsAlignment = event.target.value">
+                        <option value="left" t-att-selected="this.state.listActionsAlignment === 'left'">Align left</option>
+                        <option value="right" t-att-selected="this.state.listActionsAlignment === 'right'">Align right</option>
+                    </select>
+                    <div class="small text-muted mt-1">Position New and Export in desktop collection views. Mobile keeps the compact layout.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-bold mb-2" for="o_qing_ui_text_size" t-out="this.labels.textSize"/>
+                    <select id="o_qing_ui_text_size" class="form-select" t-on-change="this.setTextSize">
+                        <t t-foreach="this.textSizeOptions" t-as="textSizeOption" t-key="textSizeOption.value">
+                            <option t-att-value="textSizeOption.value" t-att-selected="this.state.textSize === textSizeOption.value" t-out="textSizeOption.label"/>
+                        </t>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <span class="form-label fw-bold d-block mb-2" t-out="this.labels.navigationBehavior"/>
+                    <div class="o_qing_web_ui_settings__stack gap-3">
+                        <div class="form-check form-switch">
+                            <input id="o_qing_ui_swipe_actions" class="form-check-input" type="checkbox" role="switch" t-att-checked="this.state.swipeActions" t-on-change="(event) => this.setBooleanPreference('swipeActions', event)"/>
+                            <label class="form-check-label" for="o_qing_ui_swipe_actions"><span class="d-block fw-semibold" t-out="this.labels.swipeActions"/><span class="text-muted small d-block" t-out="this.labels.swipeActionsHint"/></label>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-check form-switch">
+                        <input
+                            id="o_qing_ui_reduced_motion"
+                            class="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            t-att-checked="this.state.reducedMotion"
+                            t-on-change="this.setReducedMotion"
+                        />
+                        <label class="form-check-label fw-semibold" for="o_qing_ui_reduced_motion">
+                            <t t-out="this.labels.reducedMotion"/>
+                        </label>
+                        <p class="form-text text-muted small mt-1 mb-0">
+                            <t t-out="this.labels.reducedMotionHint"/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-outline-secondary" type="button" t-att-disabled="this.state.saving" t-on-click="this.resetPreferences">
+                    <t t-out="this.labels.restoreDefaults"/>
+                </button>
+                <button class="btn btn-primary" type="button" t-att-disabled="this.state.saving" t-on-click="this.applyPreferences">
+                    <t t-out="this.labels.apply"/>
+                </button>
+                <button class="btn btn-light" type="button" t-att-disabled="this.state.saving" t-on-click="this.props.close">
+                    <t t-out="this.labels.cancel"/>
+                </button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

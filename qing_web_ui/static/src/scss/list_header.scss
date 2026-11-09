@@ -1,0 +1,442 @@
+.o_qing_web_ui .o_main_navbar:has(.o_qing_collection_path) {
+    .o_qing_command_search { display: none; }
+    .o_navbar_breadcrumbs { display: flex !important; min-width: 0; flex: 1; }
+    .o_qing_collection_path { background: transparent; margin: 0; padding: 0; flex-wrap: nowrap; align-items: center; min-width: 0; font-size: 14px; }
+    .o_qing_collection_path .btn { min-height: 24px; border: 0; background: transparent; color: var(--o-qing-link); }
+    .o_qing_collection_path a { color: var(--o-qing-link); font-weight: 500; }
+    .breadcrumb-item + .breadcrumb-item::before { content: '›'; color: var(--o-qing-text-soft); }
+}
+.o_qing_web_ui .o_qing_list_header {
+    position: relative;
+    padding: 16px 20px 12px !important;
+    .o_control_panel_main {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px 16px !important;
+        align-items: start !important;
+    }
+    .o_control_panel_breadcrumbs { grid-column: 1 / -1; grid-row: 1; min-width: 0; min-height: 36px; gap: 8px !important; align-items: center !important; flex-wrap: wrap; }
+    .o_control_panel_breadcrumbs > .me-auto { display: none; }
+    .o_breadcrumb { align-items: center; padding-block: 0; min-width: 0; max-width: 100%; }
+    .o_breadcrumb > .d-flex, .o_control_panel_breadcrumbs_actions { align-items: center; }
+    .o_control_panel_breadcrumbs_actions { gap: 4px; }
+    .o_control_panel_breadcrumbs_actions .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        min-width: 34px;
+        height: 34px;
+        min-height: 34px !important;
+        padding: 0 !important;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        background: transparent;
+        color: var(--o-qing-text-soft);
+    }
+    .o_control_panel_breadcrumbs_actions .btn:hover {
+        border-color: var(--o-qing-border);
+        background: var(--o-qing-surface-weak);
+        color: var(--o-qing-text);
+    }
+    .breadcrumb { background: transparent !important; margin: 0 0 4px; padding: 0; font-size: 12px; }
+    .breadcrumb-item + .breadcrumb-item::before { content: '›'; color: var(--o-qing-text-soft); }
+    .breadcrumb a { color: var(--o-qing-link); background: transparent; }
+    .breadcrumb .dropdown-toggle { background: transparent; color: var(--o-qing-link); }
+    .breadcrumb .btn { border: 0; box-shadow: none; min-height: 20px !important; height: 20px; border-radius: 4px; }
+    .breadcrumb .fw-bold { font-weight: 400 !important; color: var(--o-qing-text-soft); }
+    .o_breadcrumb:has(.breadcrumb) { justify-content: flex-start !important; gap: 8px; }
+    .o_last_breadcrumb_item { font-size: calc(var(--o-qing-font-size) + 6px) !important; font-weight: 650; line-height: 1.25; letter-spacing: -.2px; }
+    .o_qing_record_count {
+        align-self: center;
+        margin: 0;
+        padding: 3px 9px; border-radius: 999px;
+        color: var(--o-qing-text-soft); background: var(--o-qing-surface-weak);
+        font-size: 12px; font-weight: 600; line-height: 20px; white-space: nowrap;
+    }
+    .o_control_panel_main_buttons { position: static; order: 3; margin-inline-start: auto; justify-content: end; align-items: center; flex-wrap: wrap; max-width: 100%; gap: 6px !important; padding-inline-end: 0 !important; }
+    .o_control_panel_main_buttons .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 34px !important;
+        padding: 5px 11px;
+        border-radius: 7px;
+        font-size: var(--o-qing-font-size);
+        font-weight: 600;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
+    .o_qing_list_export { border-color: var(--o-qing-border); background: var(--o-qing-surface); color: var(--o-qing-text); }
+    .o_control_panel_main_buttons .o_qing_action_icon { order: -1; }
+    :is(.o_control_panel_main_buttons, .o_selection_container) .o_qing_icon_action {
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+        min-height: 36px !important;
+        padding: 0 !important;
+        gap: 0;
+        font-size: 0 !important;
+        line-height: 1;
+        white-space: nowrap;
+        > :is(.oi, .fa, .o_button_icon) {
+            font-size: 18px;
+            line-height: 1;
+            margin: 0 !important;
+        }
+        .o_qing_action_label, .o_dropdown_title { font-size: 0 !important; }
+    }
+    .o_selection_container .o_cp_action_menus .o_qing_icon_action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .o_control_panel_actions { grid-column: 1; grid-row: 2; min-width: 0; width: 100% !important; flex-direction: column; align-items: stretch !important; gap: 12px; }
+    .o_control_panel_navigation { grid-column: 2; grid-row: 2; align-items: center; flex-direction: row-reverse; min-height: 38px; }
+    .o_cp_switch_buttons { border: 0; border-radius: 6px; padding: 3px; gap: 2px; background: var(--o-qing-surface-weak); }
+    .o_cp_switch_buttons .btn { border: 0; border-radius: 4px; min-height: 30px; background: transparent; color: var(--o-qing-text); }
+    .o_cp_switch_buttons .btn.active { color: var(--o-qing-link); background: color-mix(in srgb, var(--o-qing-accent) 10%, var(--o-qing-surface)); }
+    .o_pager .btn { border: 0; background: transparent; }
+}
+.o_qing_web_ui .o_qing_list_search {
+    width: 100%; min-width: 0;
+    .o_qing_search_contents { display: grid; grid-template-columns: minmax(160px, 1fr) auto; align-items: start; gap: 12px; width: 100%; }
+    .o_searchview { min-width: 0; width: 100%; min-height: 38px; border: 1px solid var(--o-qing-border); border-radius: 8px; background: var(--o-qing-surface-weak); padding: 6px 12px; }
+    .o_searchview { flex-wrap: wrap; gap: 4px; }
+    .o_searchview_input { min-width: 100px; width: auto; flex: 1 1 120px !important; background: transparent; padding: 0; }
+    .o_searchview_facet { max-width: 100%; margin: 0; }
+    .o_searchview > .btn { min-height: 0 !important; color: var(--o-qing-text-soft); }
+    .o_searchview:focus-within { box-shadow: none !important; border-color: var(--o-qing-accent); }
+    .o_qing_search_categories { display: flex; gap: 8px; }
+    .o_qing_search_categories .btn { display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; min-height: 38px !important; border-color: var(--o-qing-border); border-radius: 6px; background: var(--o-qing-surface); color: var(--o-qing-text); font-size: 13px; }
+    .o_qing_search_categories .btn:hover { background: var(--o-qing-surface-weak); color: var(--o-qing-text); }
+    .o_qing_search_categories .btn.is-active { color: var(--o-qing-link); border-color: transparent; background: var(--o-qing-accent-soft); }
+    .o_qing_search_facets { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+    .o_searchview_facet { border: 0 !important; border-radius: 5px !important; background: var(--o-qing-accent-soft) !important; color: var(--o-qing-link); padding: 2px 5px; }
+    .o_searchview_facet_label { background: transparent !important; color: inherit !important; border: 0; min-height: 0 !important; border-radius: 20px !important; }
+    .o_facet_remove { color: inherit !important; min-height: 0 !important; }
+    .o_facet_value { font-size: 13px; }
+}
+.o_qing_web_ui .o_qing_search_menu {
+    min-width: 260px; max-width: 420px;
+    .o_dropdown_container { border: 0 !important; margin-bottom: 0 !important; }
+}
+.o_qing_web_ui {
+    .o_list_renderer .o_list_record_selector {
+        width: 32px; min-width: 32px; max-width: 32px;
+        padding-inline: 6px !important; vertical-align: middle;
+        .o-checkbox { display: flex !important; justify-content: center; align-items: center; padding: 0; margin: 0; min-height: 20px; }
+        .form-check-input { float: none; margin: 0 !important; width: 16px; height: 16px; }
+    }
+    .o_list_renderer .form-check-input {
+        &:checked, &:indeterminate { background-color: var(--o-qing-accent) !important; border-color: var(--o-qing-accent) !important; }
+        &:focus { border-color: var(--o-qing-accent); box-shadow: var(--o-qing-focus); }
+    }
+    .o_list_renderer .o_data_row.o_data_row_selected > td {
+        background-color: var(--o-qing-accent-soft) !important;
+        --table-bg-state: var(--o-qing-accent-soft);
+        --table-accent-bg: transparent;
+    }
+    .o_selection_box .list-group-item.active {
+        background: var(--o-qing-accent-soft); border-color: transparent; color: var(--o-qing-link);
+    }
+    .o_selection_box .o_unselect_all, .o_selection_box .o_select_domain { color: var(--o-qing-link); background: transparent; }
+}
+
+// Odoo renders the optional-column menu in the overlay container, outside the
+// list renderer. Give it the same control rhythm and accent as the list itself.
+.o_qing_web_ui .o_popover.o_optional_columns_dropdown {
+    min-width: 216px;
+    max-width: calc(100vw - 24px);
+    padding: 6px;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 10px;
+    background: var(--o-qing-surface);
+    color: var(--o-qing-text);
+    box-shadow: 0 12px 30px rgba(31, 41, 40, .14);
+
+    .o-dropdown-item {
+        display: flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 6px 8px !important;
+        border-radius: 6px;
+        color: var(--o-qing-text);
+        font-size: unquote("clamp(13px, calc(var(--o-qing-font-size) - 1px), 15px)");
+        line-height: 1.35;
+
+        &:hover, &.focus, &:focus-visible {
+            background: var(--o-qing-accent-soft) !important;
+            color: var(--o-qing-link);
+        }
+    }
+
+    .o-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        min-height: 20px;
+        margin: 0;
+        padding: 0;
+    }
+    .form-check-input {
+        float: none;
+        flex: 0 0 16px;
+        width: 16px;
+        height: 16px;
+        margin: 0 !important;
+        border-color: var(--o-qing-text-soft);
+        &:checked, &:indeterminate {
+            background-color: var(--o-qing-accent) !important;
+            border-color: var(--o-qing-accent) !important;
+        }
+        &:focus { border-color: var(--o-qing-accent); box-shadow: var(--o-qing-focus); }
+    }
+    .form-check-label {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        color: inherit;
+        cursor: pointer;
+        .text-truncate { display: block; }
+    }
+    .dropdown-divider { border-color: var(--o-qing-border); }
+}
+
+.o_qing_web_ui.o_qing_ui--dark .o_list_renderer .o_list_table thead th {
+    background: var(--o-qing-surface-weak) !important;
+    color: var(--o-qing-text) !important;
+    border-color: var(--o-qing-border);
+}
+@media (max-width: 1399.98px) and (min-width: 768px) {
+    .o_qing_web_ui .o_qing_list_header {
+        .o_control_panel_actions { grid-column: 1 / -1; }
+        .o_control_panel_navigation { grid-row: 3; grid-column: 1 / -1; }
+    }
+}
+
+.o_qing_web_ui[data-qing-list-actions-alignment="left"] .o_qing_list_header .o_control_panel_main_buttons {
+    margin-inline-start: 0;
+    justify-content: start;
+}
+
+
+// Keep collection actions on one compact line on phones. Search facets and
+// selection actions still take their own row when the user opens them.
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_qing_mobile_collection_header {
+        padding: 8px 12px !important;
+        gap: 0 !important;
+
+        .o_control_panel_main {
+            display: grid !important;
+            grid-template-columns: max-content max-content minmax(0, 1fr) repeat(3, max-content);
+            align-items: center !important;
+            gap: 0 6px !important;
+            min-width: 0;
+        }
+
+        .o_control_panel_breadcrumbs {
+            grid-column: 1;
+            grid-row: 1;
+            justify-self: start;
+            min-width: 0;
+            flex-wrap: nowrap;
+            gap: 5px !important;
+        }
+
+        .o_control_panel_main_buttons {
+            min-width: 0;
+            flex-wrap: nowrap;
+            gap: 0 !important;
+            padding-inline-end: 0 !important;
+        }
+
+        .o_control_panel_main_buttons .btn:not(.o-control-panel-adaptive-dropdown) {
+            height: 36px;
+            min-height: 36px !important;
+            padding-block: 0 !important;
+            border-radius: 7px !important;
+        }
+
+        // Keep the record menu beside New while the pager, view and search
+        // controls stay together at the other edge. The native navigation
+        // wrapper otherwise stretches the gap between these controls.
+        .o_control_panel_navigation { display: contents !important; }
+        .o_control_panel_navigation .o_cp_action_menus { grid-column: 2; grid-row: 1; }
+        .o_control_panel_navigation .o_cp_pager { grid-column: 4; grid-row: 1; }
+        .o_control_panel_navigation .o_cp_switch_buttons { grid-column: 5; grid-row: 1; }
+        .o_control_panel_navigation > .btn[name="openEmbeddedActions"] {
+            grid-column: 3;
+            grid-row: 1;
+            justify-self: start;
+        }
+        .o_control_panel_navigation > .btn:not([name="openEmbeddedActions"]) {
+            grid-column: 6;
+            grid-row: 1;
+        }
+
+        .o_control_panel_actions {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            min-width: 0;
+            margin-top: 8px;
+        }
+
+        // Keep the two distinct native menus, but give each a recognizable
+        // purpose: more view buttons and record actions.
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown,
+        .o_cp_action_menus button.btn {
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 36px;
+            box-sizing: border-box;
+            width: 36px !important;
+            min-width: 36px !important;
+            max-width: 36px;
+            height: 36px !important;
+            min-height: 36px !important;
+            padding: 0 !important;
+            border: 1px solid var(--o-qing-border);
+            border-radius: 7px !important;
+            background: var(--o-qing-surface);
+            color: var(--o-qing-text);
+            box-shadow: none;
+        }
+
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown {
+            margin-inline-start: 6px !important;
+            // Final 20.0 already supplies a vertical ellipsis. Keep only the
+            // theme's horizontal icon, including in the older native template.
+            > .oi[data-icon="more_vert"] { display: none !important; }
+            > .oi[data-icon="more_horiz"] {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                font-size: 18px;
+                line-height: 1;
+                vertical-align: top;
+            }
+            &::after { display: none !important; }
+        }
+
+        .o_cp_action_menus,
+        .o_cp_action_menus > .lh-1 { width: 36px; }
+        .o_cp_action_menus button.btn {
+            display: inline-flex;
+            margin: 0 !important;
+            max-height: 36px !important;
+            line-height: 1;
+        }
+
+        // Odoo loads CogMenu's icon through a separate template bundle.
+        // Override only its glyph in the mobile collection header.
+        .o_cp_action_menus .oi[data-icon="more_vert"] { font-size: 18px; }
+        .o_cp_action_menus .oi[data-icon="more_vert"]::before {
+            content: "tune";
+        }
+
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown:hover,
+        .o_cp_action_menus button.btn:hover,
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown:focus-visible,
+        .o_cp_action_menus button.btn:focus-visible {
+            background: var(--o-qing-surface-weak);
+            color: var(--o-qing-link);
+        }
+
+        .o_control_panel_navigation .o_cp_pager .btn,
+        .o_control_panel_navigation .o_cp_switch_buttons .btn,
+        .o_control_panel_navigation > .btn {
+            min-height: 36px !important;
+        }
+
+        // Pager's native h-100 and align-self-stretch must not dictate the
+        // row height or stretch its button group beyond the other controls.
+        .o_control_panel_navigation .o_cp_pager,
+        .o_control_panel_navigation .o_cp_pager .o_pager,
+        .o_control_panel_navigation .o_cp_pager .o_pager > .btn-group {
+            height: 36px !important;
+            min-height: 36px !important;
+            max-height: 36px !important;
+            align-self: center !important;
+            align-items: center;
+        }
+        .o_control_panel_navigation .o_cp_pager .o_pager { gap: 0 !important; }
+
+        .o_control_panel_navigation .o_cp_pager .btn,
+        .o_control_panel_navigation .o_cp_switch_buttons .btn,
+        .o_control_panel_navigation > .btn {
+            width: 36px;
+            min-width: 36px;
+            height: 36px !important;
+            max-height: 36px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .o_control_panel_navigation .o_cp_switch_buttons {
+            padding: 0;
+            background: transparent;
+        }
+    }
+}
+
+@media (max-width: 359.98px) {
+    .o_qing_web_ui .o_qing_mobile_collection_header {
+        .o_control_panel_main { gap: 0 3px !important; }
+        .o_control_panel_breadcrumbs { gap: 2px !important; }
+        .o_control_panel_main_buttons .btn:not(.o-control-panel-adaptive-dropdown) {
+            padding-inline: 6px !important;
+            font-size: 14px;
+        }
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown {
+            margin-inline-start: 3px !important;
+        }
+        .o_control_panel_main_buttons .btn.o-control-panel-adaptive-dropdown,
+        .o_cp_action_menus button.btn,
+        .o_control_panel_navigation .o_cp_pager .btn,
+        .o_control_panel_navigation .o_cp_switch_buttons .btn,
+        .o_control_panel_navigation > .btn {
+            width: 32px !important;
+            min-width: 32px !important;
+            max-width: 32px;
+            height: 36px !important;
+        }
+        .o_cp_action_menus,
+        .o_cp_action_menus > .lh-1 { width: 32px; }
+    }
+}
+
+// Keep the shared display index compact; longer page numbers can still grow.
+.o_qing_web_ui .o_list_renderer .o_qing_row_number {
+    width: 36px;
+    min-width: 36px;
+    padding-inline: 4px !important;
+}
+@media (pointer: coarse) {
+    .o_qing_web_ui .o_list_renderer .o_list_record_selector {
+        width: 44px;
+        min-width: 44px;
+        max-width: 44px;
+        padding-inline: 12px !important;
+    }
+}
+
+// An empty activity slot is a quiet affordance, not data: fade the stock
+// "schedule" glyph until the row is hovered; scheduled states keep colors.
+.o_qing_web_ui .o_list_renderer .o_data_row .o-mail-ActivityButton > i:not(.oi-filled):not([class*="text-"]) {
+    color: var(--o-qing-text-soft);
+    opacity: .4;
+    transition: opacity .12s ease;
+}
+.o_qing_web_ui .o_list_renderer .o_data_row:is(:hover, :focus-within) .o-mail-ActivityButton > i:not(.oi-filled):not([class*="text-"]) {
+    opacity: 1;
+}

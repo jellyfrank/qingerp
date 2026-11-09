@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.tax.invoice.upload</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_upload_fapiao" type="object" string="Upload Issued Tax Invoice" groups="account.group_account_manager" invisible="state != 'sale'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

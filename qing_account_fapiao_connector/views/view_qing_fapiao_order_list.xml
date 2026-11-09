@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_fapiao_order_list_download_icon" model="ir.ui.view">
+        <field name="name">qing.fapiao.order.list.download.icon.qing</field>
+        <field name="model">qing.fapiao.order</field>
+        <field name="inherit_id" ref="qing_fapiao.view_qing_fapiao_order_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_download_pdf']" position="attributes">
+                <attribute name="icon">fa-arrow-down</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

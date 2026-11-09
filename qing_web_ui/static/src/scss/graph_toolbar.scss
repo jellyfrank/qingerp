@@ -1,0 +1,70 @@
+// Keep complete native graph action groups reachable on narrow screens.
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_graph_renderer > .d-print-none {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        overflow: visible !important;
+        gap: 6px !important;
+        margin: 10px 12px 12px !important;
+
+        > .btn-group {
+            flex: 0 0 auto;
+            min-width: 0;
+            max-width: 100%;
+        }
+        .o_report_measures {
+            height: 36px;
+            max-width: 140px;
+            padding: 0 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+        > .ms-auto {
+            flex: 1 1 200px;
+            min-width: 0;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px !important;
+        }
+        .vr { display: none; }
+        .form-switch {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            gap: 6px;
+            min-height: 36px;
+            padding: 0;
+            margin: 0 !important;
+            white-space: nowrap;
+            .form-check-label {
+                margin: 0;
+                font-size: 13px;
+            }
+            .form-check-input {
+                order: -1;
+                float: none;
+                width: 28px;
+                height: 16px;
+                margin: 0;
+                flex: 0 0 28px;
+                cursor: pointer;
+            }
+        }
+        .o_switcher {
+            flex: 0 0 auto;
+            .o_graph_button {
+                display: inline-flex;
+                flex: 0 0 36px;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                font-size: 18px;
+            }
+        }
+    }
+}

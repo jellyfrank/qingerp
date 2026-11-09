@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Do not preselect a module classification; show modules from every category. -->
+    <record id="base.open_module_tree" model="ir.actions.act_window" forcecreate="0">
+        <field name="context">{}</field>
+    </record>
+</odoo>

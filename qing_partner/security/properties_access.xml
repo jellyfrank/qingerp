@@ -1,0 +1,9 @@
+<odoo>
+    <record id="properties_partner_internal_read" model="ir.access">
+        <field name="name">Contact properties definition: internal read</field>
+        <field name="model_id" ref="base.model_properties_base_definition"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="operation">r</field>
+        <field name="domain" eval="[('properties_field_id', '=', ref('base.field_res_partner__properties'))]"/>
+    </record>
+</odoo>

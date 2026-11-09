@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fapiao_tax_classification_list" model="ir.ui.view">
+        <field name="name">qing.fapiao.tax.classification.list</field>
+        <field name="model">qing.fapiao.tax.classification</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="action_sync_online_catalog" type="object"
+                            string="Sync Online Tax Classification Codes" display="always"
+                            groups="account.group_account_manager" class="btn-primary"/>
+                </header>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="short_name" optional="show"/>
+                <field name="invoicing_allowed"/>
+                <field name="active" optional="hide"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_fapiao_tax_classification_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.tax.classification.form</field>
+        <field name="model">qing.fapiao.tax.classification</field>
+        <field name="arch" type="xml">
+            <form string="Tax Classification Code">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="short_name"/>
+                        </group>
+                        <group>
+                            <field name="invoicing_allowed"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Maintenance source, version or other notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_fapiao_tax_classification_search" model="ir.ui.view">
+        <field name="name">qing.fapiao.tax.classification.search</field>
+        <field name="model">qing.fapiao.tax.classification</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="short_name"/>
+                <filter name="not_allowed" string="Not Allowed for Invoicing" domain="[('invoicing_allowed', '=', False)]"/>
+                <separator/>
+                <filter name="inactive" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_fapiao_tax_classification" model="ir.actions.act_window">
+        <field name="name">Tax Classification Codes</field>
+        <field name="res_model">qing.fapiao.tax.classification</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_fapiao_tax_classification_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Maintain or import tax classification codes</p>
+            <p>Use Odoo Import for CSV/XLSX updates. Codes must contain exactly 19 digits.</p>
+        </field>
+    </record>
+    <menuitem id="menu_fapiao_tax_classification" name="Tax Classification Codes"
+              parent="menu_fapiao_root" action="action_fapiao_tax_classification" sequence="5"
+              groups="account.group_account_manager"/>
+</odoo>

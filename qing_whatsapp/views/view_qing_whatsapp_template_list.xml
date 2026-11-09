@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_template_list" model="ir.ui.view">
+        <field name="name">qing.whatsapp.template.list</field>
+        <field name="model">qing.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="language"/>
+                <field name="category"/>
+                <field name="status"/>
+                <field name="quality"/>
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

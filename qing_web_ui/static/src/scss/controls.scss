@@ -1,0 +1,536 @@
+/* Shared backend control contract. Use native semantic classes so primary,
+   secondary, destructive, disabled and link actions keep their meaning. */
+.o_qing_web_ui {
+    --o-qing-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans", sans-serif;
+    --o-qing-font-size: 14px;
+    --o-qing-control-height: 36px;
+    --o-qing-accent-hover: color-mix(in srgb, var(--o-qing-accent) 86%, black);
+    --o-qing-link: var(--o-qing-accent);
+    // Odoo renders overflow smart buttons in an overlay, outside the button
+    // box that normally supplies these colors. Keep that menu on the theme accent.
+    --o-stat-button-color: var(--o-qing-link);
+    --o-stat-text-color: var(--o-qing-link);
+    --o-qing-positive-text: #167452;
+    --o-qing-info-text: #176c85;
+    --o-qing-accent-soft: color-mix(in srgb, var(--o-qing-accent) 9%, var(--o-qing-surface));
+    --o-qing-focus: 0 0 0 3px color-mix(in srgb, var(--o-qing-accent) 20%, transparent);
+    --body-font-family: var(--o-qing-font);
+    --body-font-size: var(--o-qing-font-size);
+    --body-color: var(--o-qing-text);
+    --body-bg: var(--o-qing-bg);
+    --link-color: var(--o-qing-accent);
+    --link-hover-color: var(--o-qing-accent-hover);
+    font-family: var(--o-qing-font);
+    font-size: var(--o-qing-font-size);
+    color: var(--o-qing-text);
+
+    &.o_qing_ui--text-small { --o-qing-font-size: 13px; }
+    &.o_qing_ui--text-large { --o-qing-font-size: 16px; }
+    &.o_qing_ui--compact { --o-qing-control-height: 32px; }
+    &.o_qing_ui--relaxed { --o-qing-control-height: 40px; }
+    &.o_qing_ui--dark {
+        color-scheme: dark;
+        --o-qing-on-accent: #fff;
+        --body-color: var(--o-qing-text);
+        --body-bg: var(--o-qing-bg);
+        &[data-qing-theme-accent="amber"],
+        &[data-qing-theme-accent="green"] {
+            --o-qing-on-accent: #121a23;
+            --o-qing-accent-hover: color-mix(in srgb, var(--o-qing-accent) 88%, white);
+        }
+        --link-color: var(--o-qing-link);
+        --link-hover-color: var(--o-qing-link);
+        .o_form_view, .o_search_panel, .o_kanban_view, .o_list_renderer {
+            background-color: var(--o-qing-bg);
+            color: var(--o-qing-text);
+        }
+        .o_form_sheet, .o_list_table, .o_control_panel, .modal-content {
+            background-color: var(--o-qing-surface);
+            color: var(--o-qing-text);
+            border-color: var(--o-qing-border);
+        }
+        .text-muted, .text-body-secondary, .text-black-50, .form-text {
+            color: var(--o-qing-text-soft) !important;
+        }
+        .modal-content .text-dark, .modal-content .text-black,
+        .o_form_sheet .text-dark, .o_control_panel .text-dark {
+            color: var(--o-qing-text) !important;
+        }
+        .modal-title, .modal-header, .modal-body, .modal-footer {
+            color: var(--o-qing-text);
+        }
+        .modal-header, .modal-footer { border-color: var(--o-qing-border); }
+        // Native form wizards without a sheet paint their own light surface.
+        // Keep the dialog body on the same surface as its header and footer.
+        .modal-content .o_form_nosheet {
+            background-color: var(--o-qing-surface);
+            color: var(--o-qing-text);
+        }
+        .modal-content .o_mail_extra_comments {
+            border-color: var(--o-qing-border) !important;
+        }
+        .modal-content .o-autocomplete--dropdown-menu .dropdown-item {
+            color: var(--o-qing-text);
+            &:hover, &:focus-visible, &.ui-state-active {
+                background-color: var(--o-qing-surface-weak);
+                color: var(--o-qing-link);
+            }
+        }
+        .modal-content .o-autocomplete--dropdown-menu .o_m2o_dropdown_option > a {
+            color: var(--o-qing-link);
+        }
+        .modal-content .btn-close,
+        .o_notification_close {
+            filter: brightness(0) invert(1);
+            opacity: .8;
+            &:hover, &:focus-visible { opacity: 1; }
+        }
+        .btn-primary {
+            --btn-color: var(--o-qing-on-accent);
+            --btn-hover-color: var(--o-qing-on-accent);
+            --btn-active-color: var(--o-qing-on-accent);
+            color: var(--o-qing-on-accent) !important;
+        }
+        .o_form_button_save { color: var(--o-qing-on-accent) !important; }
+        .btn-outline-secondary {
+            --btn-color: var(--o-qing-text);
+            --btn-border-color: var(--o-qing-border);
+            --btn-hover-bg: var(--o-qing-surface-weak);
+            --btn-hover-color: var(--o-qing-text);
+            --btn-hover-border-color: var(--o-qing-text-soft);
+            color: var(--o-qing-text);
+            border-color: var(--o-qing-border);
+            background-color: transparent;
+            &:hover, &:focus-visible {
+                color: var(--o-qing-text);
+                background-color: var(--o-qing-surface-weak);
+            }
+        }
+        .btn-light {
+            color: var(--o-qing-text);
+            background-color: var(--o-qing-surface-weak);
+            border-color: var(--o-qing-border);
+        }
+        .form-control::placeholder { color: var(--o-qing-text-soft); opacity: .85; }
+        .o_qing_theme_settings_modal {
+            background-color: var(--o-qing-surface);
+            color: var(--o-qing-text);
+            border: 1px solid var(--o-qing-border);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .42);
+            .modal-title { color: var(--o-qing-text); }
+            .modal-header, .modal-footer { background: var(--o-qing-surface); }
+            .form-label, .form-check-label { color: var(--o-qing-text); }
+            .form-select {
+                appearance: none;
+                background-color: var(--o-qing-surface-weak);
+                color: var(--o-qing-text);
+                border-color: var(--o-qing-border);
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23b7c5d6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 12px center;
+                background-size: 16px 16px;
+                option { background: var(--o-qing-surface); color: var(--o-qing-text); }
+            }
+            .form-check-input:not(:checked) {
+                background-color: var(--o-qing-surface-weak);
+                border-color: var(--o-qing-text-soft);
+            }
+            .o_qing_web_ui_settings__accent_option { border-color: var(--o-qing-border); }
+            .o_qing_web_ui_settings__accent_option:has(input:checked) {
+                border-color: var(--o-qing-accent);
+                box-shadow: var(--o-qing-focus);
+            }
+        }
+        .o_bottom_sheet_sheet, .o_bottom_sheet_body, .dropdown-menu {
+            background-color: var(--o-qing-surface);
+            color: var(--o-qing-text);
+            border-color: var(--o-qing-border);
+        }
+        // Loading feedback is mounted outside the action view. Override native
+        // utility colors here while preserving its visibility and animation.
+        .o_loading_indicator_wrap .o_loading_indicator {
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text);
+            border-color: var(--o-qing-border) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .24) !important;
+            .spinner-border { color: var(--o-qing-link) !important; }
+        }
+        .o_bottom_sheet_handle_bar { background-color: var(--o-qing-text-soft) !important; }
+        .o-dropdown-item-unstyled-button > .btn,
+        .o_bottom_sheet_body .dropdown-item {
+            color: var(--o-qing-text) !important;
+            &:hover, &:focus-visible { background-color: var(--o-qing-surface-weak) !important; }
+        }
+        .o_kanban_renderer, .o_kanban_view, .o_kanban_group {
+            background-color: var(--o-qing-bg) !important;
+        }
+        .o_kanban_record:not(.o_kanban_ghost) {
+            background-color: var(--o-qing-surface) !important;
+            border-color: var(--o-qing-border) !important;
+            color: var(--o-qing-text);
+            .text-muted, .text-body-secondary, .text-black-50 { color: var(--o-qing-text-soft) !important; }
+            .text-dark, .text-black { color: var(--o-qing-text) !important; }
+        }
+        --o-qing-link: color-mix(in srgb, var(--o-qing-accent) 50%, white);
+        --o-qing-positive-text: #7be1b2;
+        --o-qing-info-text: #80d7ec;
+        .o_notebook_headers, .o_notebook .nav-tabs { background: var(--o-qing-surface); }
+        .o_form_view .o_form_uri { color: var(--o-qing-link) !important; }
+        .o_form_view .o_notebook .nav-tabs .nav-link.active { color: var(--o-qing-link); }
+        .o_form_view .o_inner_group .o_wrap_label .o_form_label { color: var(--o-qing-text-soft) !important; }
+    }
+
+    .btn:not(.fa):not(.oi), input, select, textarea {
+        font-family: var(--o-qing-font);
+        font-size: var(--o-qing-font-size);
+    }
+    .btn {
+        --btn-border-radius: 8px;
+        --btn-font-weight: 500;
+        --btn-box-shadow: none;
+        --btn-disabled-opacity: .45;
+        border-radius: var(--btn-border-radius);
+        font-weight: var(--btn-font-weight);
+        &:focus-visible { box-shadow: var(--o-qing-focus); }
+    }
+    .btn-primary {
+        --btn-bg: var(--o-qing-accent);
+        --btn-color: #fff;
+        --btn-border-color: var(--o-qing-accent);
+        --btn-hover-bg: var(--o-qing-accent-hover);
+        --btn-hover-color: #fff;
+        --btn-hover-border-color: var(--o-qing-accent-hover);
+        --btn-active-bg: var(--o-qing-accent-hover);
+        --btn-active-color: #fff;
+        --btn-active-border-color: var(--o-qing-accent-hover);
+        --btn-disabled-bg: var(--o-qing-accent);
+        --btn-disabled-color: #fff;
+        --btn-disabled-border-color: var(--o-qing-accent);
+    }
+    .btn-secondary, .btn-light {
+        --btn-bg: var(--o-qing-surface);
+        --btn-color: var(--o-qing-text);
+        --btn-border-color: var(--o-qing-border);
+        --btn-hover-bg: var(--o-qing-surface-weak);
+        --btn-hover-color: var(--o-qing-text);
+        --btn-hover-border-color: var(--o-qing-border);
+        --btn-active-bg: var(--o-qing-accent-soft);
+        --btn-active-color: var(--o-qing-link);
+        --btn-active-border-color: var(--o-qing-border);
+        --btn-disabled-bg: var(--o-qing-surface);
+        --btn-disabled-color: var(--o-qing-text-soft);
+        --btn-disabled-border-color: var(--o-qing-border);
+    }
+    .btn-outline-primary {
+        --btn-color: var(--o-qing-link);
+        --btn-border-color: var(--o-qing-border);
+        --btn-hover-bg: var(--o-qing-accent-soft);
+        --btn-hover-color: var(--o-qing-link);
+        --btn-hover-border-color: var(--o-qing-accent);
+        --btn-active-bg: var(--o-qing-accent-soft);
+        --btn-active-color: var(--o-qing-link);
+        --btn-active-border-color: var(--o-qing-accent);
+    }
+    .btn-link {
+        --btn-color: var(--o-qing-link);
+        --btn-hover-color: var(--o-qing-accent-hover);
+        --btn-active-color: var(--o-qing-accent-hover);
+        border-color: transparent;
+        background: transparent;
+        text-decoration: none;
+    }
+    .o_control_panel, .o_form_statusbar, .modal-footer {
+        .btn:not(.oe_stat_button):not(.o_form_button_save):not(.o_form_button_cancel) {
+            min-height: var(--o-qing-control-height);
+        }
+    }
+    .o_control_panel, .o_form_statusbar, .modal-content, .o_form_sheet {
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+    }
+    .o_control_panel { border-bottom: 1px solid var(--o-qing-border); }
+    .o_field_widget a, .o_field_widget .o_form_uri {
+        color: var(--o-qing-link);
+    }
+    .o_form_label {
+        font-weight: 500;
+        color: var(--o-qing-text-soft);
+    }
+    .o_breadcrumb a { color: var(--o-qing-link); }
+    .o_form_view .o_statusbar_status {
+        --o-statusbar-background-active: var(--o-qing-accent-soft);
+        --o-statusbar-border-active: var(--o-qing-border);
+        .o_arrow_button.btn.disabled, .o_arrow_button.btn:disabled {
+            opacity: 1;
+            color: var(--o-qing-text-soft);
+        }
+    }
+    .o_field_badge .badge, .o_list_renderer .badge {
+        font-weight: 500;
+        padding: 4px 9px;
+        &.text-bg-success {
+            background-color: color-mix(in srgb, var(--o-qing-positive-text) 12%, var(--o-qing-surface)) !important;
+            color: var(--o-qing-positive-text) !important;
+        }
+        &.text-bg-info {
+            background-color: color-mix(in srgb, var(--o-qing-info-text) 12%, var(--o-qing-surface)) !important;
+            color: var(--o-qing-info-text) !important;
+        }
+    }
+    // Native ghost cards balance the last kanban row; they are not records.
+    .o_kanban_view .o_kanban_record.o_kanban_ghost {
+        height: 0 !important;
+        min-height: 0 !important;
+        padding-block: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: 0 !important;
+    }
+    .o_form_view .oe_title {
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+        h1 { font-size: 28px; font-weight: 650; letter-spacing: -.5px; }
+        h1 .o_field_widget:not(.o_field_boolean_favorite),
+        h1 .o_field_widget .o_input {
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: 1.25;
+        }
+        h1, h2, .o_field_widget, .text-black { color: var(--o-qing-text) !important; }
+    }
+    .o_form_view .form-check-input {
+        border-color: var(--o-qing-border);
+        &:checked, &:indeterminate {
+            background-color: var(--o-qing-accent) !important;
+            border-color: var(--o-qing-accent) !important;
+        }
+        &:focus {
+            border-color: var(--o-qing-accent);
+            box-shadow: var(--o-qing-focus);
+        }
+    }
+    .o_form_view .o_field_boolean_checkbox + .o_form_label {
+        color: var(--o-qing-text);
+        font-weight: 500;
+    }
+    .form-control, .form-select {
+        border-color: var(--o-qing-border);
+        border-radius: 8px;
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+        &:focus { border-color: var(--o-qing-accent); box-shadow: var(--o-qing-focus); }
+    }
+    .o_input {
+        color: var(--o-qing-text);
+        &::placeholder { color: var(--o-qing-text-soft); opacity: .8; }
+    }
+    .o_searchview {
+        border: 1px solid var(--o-qing-border);
+        border-radius: 8px;
+        background: var(--o-qing-surface);
+        &:focus-within { border-color: var(--o-qing-accent); box-shadow: var(--o-qing-focus); }
+    }
+    .o_searchview .o_searchview_input { border: 0; box-shadow: none; }
+    .o_notebook .nav-tabs {
+        border-bottom-color: var(--o-qing-border);
+        .nav-link {
+            color: var(--o-qing-text-soft);
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            font-size: var(--o-qing-font-size);
+            font-weight: 500;
+            &.active { color: var(--o-qing-link); border-bottom: 2px solid var(--o-qing-accent); }
+        }
+    }
+    .o_list_renderer .o_list_table {
+        color: var(--o-qing-text);
+        --table-bg: var(--o-qing-surface);
+        --table-striped-bg: var(--o-qing-surface-weak);
+        --table-hover-bg: var(--o-qing-accent-soft);
+        thead { color: var(--o-qing-text-soft); font-size: .86em; }
+        tbody td { border-color: var(--o-qing-border); }
+    }
+    .o_main_navbar .o_qing_launcher_trigger {
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px;
+        min-height: 36px;
+        margin-inline: 4px 8px;
+        background: transparent !important;
+        border: 0;
+        box-shadow: none;
+        &:focus-visible { box-shadow: var(--o-qing-focus); }
+        img { width: 30px; height: 30px; }
+    }
+    .o_navbar_breadcrumbs .o_back_button.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        flex: 0 0 36px;
+        width: 36px;
+        height: 36px !important;
+        min-height: 36px !important;
+        padding: 0 !important;
+        border: 0;
+        background: transparent;
+        color: var(--o-qing-text);
+        border-radius: 6px;
+        .o_qing_back_icon { width: 20px; height: 20px; flex-shrink: 0; }
+        &:hover, &:focus-visible {
+            background: var(--o-qing-accent-soft);
+            color: var(--o-qing-link);
+        }
+    }
+}
+
+.o_qing_web_ui .o_form_view .oe_stat_button .o_button_icon {
+    font-size: 16px !important;
+    width: 20px;
+    min-width: 20px;
+}
+
+@media (min-width: 768px) {
+    .o_qing_web_ui .o_form_sheet .o_field_widget:not(.o_readonly_modifier):not(.o_field_invalid) {
+        > .o_input, .o_input_dropdown, > div > .o_input {
+            border: 0;
+            border-bottom: 1px solid transparent;
+            border-radius: 0;
+            padding: 6px 0;
+            min-height: var(--o-qing-control-height);
+            background: transparent;
+            box-shadow: none;
+            &:hover { border-bottom-color: var(--o-qing-border); }
+            &:focus-within { border-bottom-color: var(--o-qing-accent); box-shadow: none; }
+        }
+        // Autocomplete wraps the input in an extra element. Only the outer
+        // dropdown owns the underline, including native hover/focus states.
+        .o_input_dropdown .o_input {
+            border: 0 !important;
+            box-shadow: none !important;
+            padding: 0;
+            background: transparent;
+        }
+    }
+
+    // Form controls inside an editable x2many row must keep the native list
+    // renderer geometry. The sheet underline style otherwise gives each
+    // column a different control height when one cell contains stacked fields.
+    .o_qing_web_ui .o_form_sheet .o_list_renderer .o_data_row.o_selected_row > .o_data_cell {
+        > .o_column_group_field > .o_field_widget:not(.o_readonly_modifier):not(.o_invisible_modifier),
+        > .o_field_widget:not(.o_readonly_modifier):not(.o_invisible_modifier) {
+            > .o_input, .o_input_dropdown, > div > .o_input {
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                min-height: 0;
+                margin: 0;
+                background: transparent;
+                box-shadow: none;
+            }
+        }
+    }
+}
+// Tags have both an outer o_input and an inner autocomplete. Neither should
+// inherit the single-value field underline or its full control height.
+.o_qing_web_ui .o_form_sheet .o_field_widget:is(.o_field_many2many_tags, .o_field_many2many_tags_avatar):not(.o_field_invalid) {
+    .o_tags_input, .o_input_dropdown, .o_input {
+        border: 0 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+    }
+    .o_tags_input {
+        min-height: 28px !important;
+        padding: 2px 0 !important;
+        align-items: center;
+        &:focus-within { background: var(--o-qing-accent-soft); }
+    }
+    .o_field_many2many_selection { align-self: center; }
+    .badge { padding: 3px 8px; min-height: 24px; font-size: 12px; line-height: 18px; align-items: center; }
+}
+
+@media (max-width: 767.98px) {
+    .o_qing_web_ui {
+        --o-qing-control-height: 40px;
+        .o_main_navbar { padding-inline: 8px; }
+        .o_main_navbar .o_menu_systray { gap: 0; }
+        .o_main_navbar .o_qing_launcher_trigger { margin-inline: 0 4px; }
+        .o_navbar_breadcrumbs .o_breadcrumb { align-items: center; }
+        .o_navbar_breadcrumbs .o_qing_breadcrumb_title_record {
+            .o_qing_breadcrumb_viewport {
+                display: block;
+                text-overflow: clip;
+            }
+            .o_qing_breadcrumb_label {
+                display: block;
+                width: max-content;
+                white-space: nowrap;
+            }
+            &.o_qing_breadcrumb_title_overflow .o_qing_breadcrumb_label {
+                will-change: transform;
+            }
+            &.o_qing_breadcrumb_title_manual .o_qing_breadcrumb_viewport {
+                overflow-x: auto;
+                scrollbar-width: none;
+                &::-webkit-scrollbar { display: none; }
+            }
+        }
+        .o_form_view .o_inner_group .o_form_label { color: var(--o-qing-text-soft); }
+        .o_form_view .o_inner_group .o_wrap_label:has(+ .o_cell:focus-within) .o_form_label {
+            color: var(--o-qing-link);
+        }
+        .o_form_view .o_statusbar_buttons .btn-secondary {
+            background: var(--btn-bg);
+            color: var(--btn-color);
+            &:hover { background: var(--btn-hover-bg); }
+        }
+    }
+}
+
+// Keep the mobile actions menu consistent across collection and form toolbars.
+// Older 20.0 runtimes draw a second surface through the circle pseudo-element.
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_control_panel .o_cp_action_menus button.o_btn_circle {
+        margin: 0 !important;
+        border: 1px solid var(--o-qing-border) !important;
+        background: var(--o-qing-surface) !important;
+        color: var(--o-qing-text);
+        &::before { display: none !important; }
+        &:hover, &.show {
+            background: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-link);
+        }
+        &:focus-visible { box-shadow: var(--o-qing-focus); }
+    }
+}
+
+// Native relation action links otherwise retain the compiled Odoo link color.
+.o_qing_web_ui .o-autocomplete .o-autocomplete--dropdown-menu {
+    .ui-menu-item.o_m2o_dropdown_option > a {
+        color: var(--o-qing-link);
+        &:hover, &:focus-visible, &.ui-state-active {
+            color: var(--o-qing-link);
+            background-color: var(--o-qing-accent-soft);
+        }
+    }
+}
+
+
+// Record titles (h1/h2 in a form sheet, with or without .oe_title) are fields too. The shell sets every
+// input to the body size, which shrank names like a partner's to body text.
+.o_qing_web_ui .o_form_view .o_form_sheet :is(h1, h2) {
+    font-weight: 650;
+    letter-spacing: -.01em;
+    :is(input, textarea, .o_input) {
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: 1.25;
+    }
+}
+.o_qing_web_ui .o_form_view .o_form_sheet h1 {
+    font-size: 28px;
+}

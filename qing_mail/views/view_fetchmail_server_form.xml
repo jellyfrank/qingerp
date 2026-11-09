@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fetchmail_server_form_qing_mail" model="ir.ui.view">
+        <field name="name">fetchmail.server.form.qing.mail</field>
+        <field name="model">fetchmail.server</field>
+        <field name="inherit_id" ref="mail.view_email_server_form"/>
+        <field name="arch" type="xml">
+            <field name="is_ssl" position="after">
+                <field name="qing_reliable_imap" invisible="server_type != 'imap'"/>
+            </field>
+        </field>
+    </record>
+</odoo>

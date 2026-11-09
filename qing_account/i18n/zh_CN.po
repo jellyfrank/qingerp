@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "1–30 Days Overdue"
+msgstr "逾期1–30天"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "31–60 Days Overdue"
+msgstr "逾期31–60天"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "61–90 Days Overdue"
+msgstr "逾期61–90天"
+
+#. module: qing_account
+#. odoo-javascript
+#: code:addons/qing_account/static/src/bank_workbench/bank_workbench.xml:0
+msgid "All Banks"
+msgstr "全部银行"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_bank_import_profile__delimiter__comma
+msgid "Comma"
+msgstr "逗号"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "Not Due"
+msgstr "未到期"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "Over 90 Days Overdue"
+msgstr "逾期90天以上"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_partner_statement__account_type__liability_payable
+msgid "Payable"
+msgstr "应付"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_partner_statement__account_type__asset_receivable
+msgid "Receivable"
+msgstr "应收"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_partner_statement__account_type__both
+msgid "Receivable and Payable"
+msgstr "应收及应付"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "Reverse Open Item"
+msgstr "反向未结"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_bank_import_profile__delimiter__semicolon
+msgid "Semicolon"
+msgstr "分号"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_bank_import_profile__amount_mode__split
+msgid "Separate income and expense columns"
+msgstr "收入、支出分列"
+
+#. module: qing_account
+#. odoo-python
+#: code:addons/qing_account/wizard/partner_statement.py:0
+msgid "Settled"
+msgstr "已结清"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_bank_import_profile__amount_mode__signed
+msgid "Single amount column: income positive, expense negative"
+msgstr "单列金额：收入正、支出负"
+
+#. module: qing_account
+#: model:ir.model.fields.selection,name:qing_account.selection__qing_bank_import_profile__delimiter__tab
+msgid "Tab"
+msgstr "制表符"
+
+#. module: qing_account
+#: model:ir.model.fields,field_description:qing_account.field_qing_bank_import_profile__amount_mode
+msgid "Amount Format"
+msgstr "金额格式"
+
+#. module: qing_account
+#: model:ir.model.fields,field_description:qing_account.field_qing_bank_import_profile__delimiter
+msgid "Delimiter"
+msgstr "分隔符"
+
+#. module: qing_account
+#: model:ir.model.fields,field_description:qing_account.field_qing_bank_import_profile__encoding
+msgid "Text Encoding"
+msgstr "编码"
+
+#. module: qing_account
+#: model:ir.model.fields,field_description:qing_account.field_qing_partner_statement__account_type
+msgid "Partner Type"
+msgstr "往来类型"

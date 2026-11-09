@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_fapiao_order_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.order.form.qing</field>
+        <field name="model">qing.fapiao.order</field>
+        <field name="inherit_id" ref="qing_fapiao.view_qing_fapiao_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_retry_qing_request" type="object" string="Retry Invoice Request"
+                        class="btn-primary" invisible="state != 'rejected' or not qing_request_id"
+                        confirm="The provider definitively rejected this task. Retrying creates a new task with a fresh request identifier. Continue?"/>
+            </xpath>
+            <xpath expr="//sheet/*[1]" position="before">
+                <field name="qing_request_id" invisible="1"/>
+                <div name="button_box" class="oe_button_box">
+                    <button name="action_open_qing_request" type="object" class="oe_stat_button"
+                            icon="fa-file-text-o" string="Invoice Request" invisible="not qing_request_id"/>
+                </div>
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='snapshot']" position="attributes">
+                <attribute name="class" add="o_qing_fapiao_json" separator=" "/>
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='provider_snapshot']" position="attributes">
+                <attribute name="class" add="o_qing_fapiao_json" separator=" "/>
+            </xpath>
+            <xpath expr="//notebook/page/field[@name='result']" position="attributes">
+                <attribute name="class" add="o_qing_fapiao_json" separator=" "/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

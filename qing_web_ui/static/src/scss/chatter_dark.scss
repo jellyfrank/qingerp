@@ -1,0 +1,51 @@
+// Qing Dark is switched at runtime, so the native light mail bundle remains loaded.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o-mail-Form-chatter, .o-mail-ChatterContainer {
+        background-color: var(--o-qing-bg);
+        color: var(--o-qing-text);
+
+        .o-mail-Chatter {
+            background-color: var(--o-qing-surface) !important;
+            border-color: var(--o-qing-border);
+            color: var(--o-qing-text);
+
+            .o-mail-Chatter-top,
+            .o-mail-Chatter-content {
+                background-color: var(--o-qing-surface) !important;
+                color: var(--o-qing-text);
+            }
+
+            .o-mail-Chatter-top.shadow-sm { background-image: none; }
+
+            .o-mail-Chatter-topbar .btn-link {
+                color: var(--o-qing-text-soft) !important;
+                &:hover, &:focus-visible { color: var(--o-qing-link) !important; }
+            }
+
+            .o-mail-Message-author { color: var(--o-qing-text); }
+            .o-mail-Message-date { color: var(--o-qing-text-soft); }
+            .o-mail-Message.o-card { background-color: var(--o-qing-surface-weak); }
+            .o-discuss-text-body { color: var(--o-qing-text) !important; }
+
+            .o-mail-DateSection {
+                .text-muted { opacity: .85 !important; }
+                .o-discuss-separator { border-color: var(--o-qing-border); opacity: 1; }
+            }
+
+            .o-mail-Composer {
+                --mail-Composer-bg: var(--o-qing-surface-weak);
+                color: var(--o-qing-text);
+
+                .o-mail-Composer-inputContainer {
+                    --border-color: var(--o-qing-border);
+                    &:focus-within { --border-color: var(--o-qing-link); }
+                }
+
+                .o-mail-Composer-input, .o-mail-Composer-html {
+                    color: var(--o-qing-text) !important;
+                    &::placeholder { color: var(--o-qing-text-soft); opacity: .85; }
+                }
+            }
+        }
+    }
+}

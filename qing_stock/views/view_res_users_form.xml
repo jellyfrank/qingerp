@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_res_users_form_negative_stock" model="ir.ui.view">
+        <field name="name">qing.stock.res.users.form.negative.stock</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']" position="inside">
+                <group string="Inventory Exceptions" groups="base.group_system" invisible="share">
+                    <field name="qing_allow_negative_stock"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

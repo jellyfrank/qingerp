@@ -1,0 +1,36 @@
+{
+    'name': 'Qing Rental',
+    'summary': 'Equipment rental reservations, native transfers, renewal and deposits',
+    'version': '20.0.1.0.10',
+    'category': 'Sales/Rental',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_base', 'qing_sale', 'sale_management', 'sale_stock', 'account'],
+    'data': [
+        'security/groups.xml',
+        'security/ir.access.csv',
+        'views/view_rental_deposit_form.xml',
+        'wizard/view_rental_renew_form.xml',
+        'views/view_sale_order_form.xml',
+        'views/view_sale_order_list.xml',
+        'views/view_product_template_form.xml',
+        'views/view_stock_warehouse_form.xml',
+        'views/rental_menus.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'qing_rental/static/src/scss/rental_line_edit.scss',
+            'qing_rental/static/src/views/rental_template_dropdown.js',
+            'qing_rental/static/src/widgets/rental_availability.js',
+            'qing_rental/static/src/widgets/rental_availability.xml',
+        ],
+        'web.assets_unit_tests': [
+            'qing_rental/static/tests/rental_template_dropdown.test.js',
+        ],
+    },
+    'application': True,
+    'installable': True,
+    'description': 'Manage equipment rental reservations, stock transfers, renewals and deposits using native sales and inventory documents.',
+}

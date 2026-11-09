@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account_cn
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__qing_cn_opening_balance_compare__comparison_mode__batch
+msgid "Detailed Partner/Currency and Complete Batch"
+msgstr "逐笔往来／原币及完整批次"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__res_company__qing_cn_taxpayer_type__general
+msgid "General VAT Taxpayer"
+msgstr "一般纳税人"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__qing_cn_opening_balance_compare__comparison_mode__account
+msgid "Net Balance by Account"
+msgstr "科目净余额"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__res_company__qing_cn_taxpayer_type__small
+msgid "Small-scale VAT Taxpayer"
+msgstr "小规模纳税人"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__res_company__qing_cn_voucher_style__standard
+msgid "Standard Voucher"
+msgstr "标准凭证"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__res_company__qing_cn_voucher_style__traditional
+msgid "Traditional Voucher (Amount Columns)"
+msgstr "传统凭证（金额分位格）"
+
+#. module: qing_account_cn
+#: model:ir.model.fields.selection,name:qing_account_cn.selection__res_company__qing_cn_taxpayer_type__unconfirmed
+msgid "Unconfirmed"
+msgstr "待确认"
+
+#. module: qing_account_cn
+#: model:ir.model.fields,field_description:qing_account_cn.field_qing_cn_opening_balance_compare__comparison_mode
+msgid "Comparison Mode"
+msgstr "核对模式"
+
+#. module: qing_account_cn
+#: model:ir.model.fields,field_description:qing_account_cn.field_res_company__qing_cn_taxpayer_type
+msgid "Taxpayer Type"
+msgstr "纳税人身份"
+
+#. module: qing_account_cn
+#: model:ir.model.fields,field_description:qing_account_cn.field_res_company__qing_cn_voucher_style
+msgid "Voucher Print Style"
+msgstr "凭证打印样式"
+
+#. module: qing_account_cn
+#: model:ir.model.fields,field_description:qing_account_cn.field_res_config_settings__qing_cn_chart_template
+msgid "Current Chart Template"
+msgstr "当前科目模板"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_financial_statement" model="report.paperformat">
+        <field name="name">Financial Statement A4 Landscape</field>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">12</field>
+        <field name="margin_bottom">14</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+    <template id="report_financial_statement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page" style="font-family: 'Noto Sans CJK SC', sans-serif; font-size: 10px;">
+                        <style type="text/css">
+                            .page h3 { text-align: center; font-size: 16px; margin: 0 0 8px; }
+                            .page p { margin: 0 0 8px; }
+                            .page .table-responsive { overflow: visible !important; }
+                            .page table { border-collapse: collapse; width: 100%; }
+                            .page th, .page td { border: 1px solid #777; padding: 1px 3px !important; font-size: 9px; line-height: 1.1; overflow-wrap: anywhere; }
+                            .page th { background: #f2f4f5; text-align: center; }
+                            .page tr { page-break-inside: avoid; }
+                        </style>
+                        <div t-field="o.html"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_financial_statement_pdf" model="ir.actions.report">
+        <field name="name">Financial Statement</field>
+        <field name="model">qing.financial.report.export</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">qing_account_reports.report_financial_statement</field>
+        <field name="paperformat_id" ref="paperformat_financial_statement"/>
+    </record>
+</odoo>

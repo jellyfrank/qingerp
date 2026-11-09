@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_crm_enroll_wizard_form" model="ir.ui.view">
+        <field name="name">qing.crm.enroll.wizard.form</field>
+        <field name="model">qing.crm.enroll.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add to Customer Management">
+                <group><field name="partner_id"/><field name="company_id" groups="base.group_multi_company"/><field name="destination"/><field name="crm_team_id"/><field name="reason"/></group>
+                <footer><button name="action_confirm" string="Confirm" type="object" class="btn-primary"/><button string="Cancel" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_crm_enroll" model="ir.actions.act_window">
+        <field name="name">Add Customer</field><field name="res_model">qing.crm.enroll.wizard</field><field name="view_mode">form</field><field name="target">new</field>
+    </record>
+</odoo>

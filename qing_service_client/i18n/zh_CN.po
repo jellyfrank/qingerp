@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# \t* qing_service_client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_service_client
+#. odoo-python
+#: code:addons/qing_service_client/models/instance.py:0
+msgid "Confirm the pending credential before rotating again."
+msgstr "请先确认待生效的新密钥，再次轮换。"
+
+#. module: qing_service_client
+#. odoo-python
+#: code:addons/qing_service_client/models/instance.py:0
+msgid "Register this database as a new online service instance."
+msgstr "请将此数据库重新注册为独立的在线服务实例。"
+
+#. module: qing_service_client
+#. odoo-python
+#: code:addons/qing_service_client/models/instance.py:0
+msgid "The online service rejected the request (HTTP %s)."
+msgstr "在线服务拒绝了请求（HTTP %s）。"
+
+#. module: qing_service_client
+#. odoo-python
+#: code:addons/qing_service_client/models/instance.py:0
+msgid "The online service did not stage the replacement credential."
+msgstr "在线服务未确认待生效的新密钥。"
+
+#. module: qing_service_client
+#. odoo-python
+#: code:addons/qing_service_client/models/instance.py:0
+msgid "The online service did not confirm the replacement credential."
+msgstr "在线服务未确认新密钥。"
+
+#. module: qing_service_client
+msgid "An active tax classification subscription is required to synchronize this catalog."
+msgstr "同步税收分类编码需要有效的在线开票订阅。"
+
+#. module: qing_service_client
+#: model_terms:ir.ui.view,arch_db:qing_service_client.view_qing_service_instance_form
+msgid "QingERP sends basic installation statistics in the background: organization name, system URL, installed module counts, product version and a random instance identifier. Confirm and Register separately sends the tax ID and contact email to request online services. Online services require operator approval and an active subscription. The ERP remains usable without online service registration."
+msgstr "QingERP 会在后台上报基本安装统计信息：公司名称、系统网址、已安装模块数量、产品版本和随机实例标识。点击“确认并注册”后，才会另行提交税号和联系邮箱以申请在线服务。在线服务需要运营方审核和有效订阅；未注册在线服务仍可使用 ERP。"

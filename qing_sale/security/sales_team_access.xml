@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_sale_team_restricted" model="res.groups">
+        <field name="name">Restrict sales documents to own teams</field>
+        <field name="comment">Team members and leaders share their team's orders and customer invoices. Accounting administrators retain cross-team access. Native company restrictions still apply.</field>
+    </record>
+</odoo>

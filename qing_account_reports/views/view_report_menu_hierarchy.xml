@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Reassert the intended direct placement under Reporting on module upgrades. -->
+    <record id="menu_trial_balance" model="ir.ui.menu">
+        <field name="parent_id" ref="account.menu_finance_reports"/>
+    </record>
+    <record id="menu_balance_sheet" model="ir.ui.menu">
+        <field name="parent_id" ref="account.menu_finance_reports"/>
+    </record>
+    <record id="menu_profit_statement" model="ir.ui.menu">
+        <field name="parent_id" ref="account.menu_finance_reports"/>
+    </record>
+    <record id="menu_cash_flow" model="ir.ui.menu">
+        <field name="parent_id" ref="account.menu_finance_reports"/>
+    </record>
+</odoo>

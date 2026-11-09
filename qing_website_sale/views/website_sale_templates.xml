@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="login_price_label" name="Login to see prices">
+        <span class="o_qing_login_price_label">
+            <a t-att-href="website._qing_price_login_url()">Login</a>
+            <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                | <a t-att-href="website._qing_price_login_url(signup=True)">Register</a>
+            </t>
+            <span class="text-muted ms-1">to see price</span>
+        </span>
+    </template>
+
+    <template id="products_item" inherit_id="website_sale.products_item">
+        <xpath expr="//t[@t-if='product_price']" position="before">
+            <t t-if="website._qing_is_price_hidden()" t-call="qing_website_sale.login_price_label"/>
+        </xpath>
+        <xpath expr="//t[@t-if='product_price']" position="attributes">
+            <attribute name="t-if">not website._qing_is_price_hidden() and product_price</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_wsale_product_sub')]/t[@t-else='']" position="attributes">
+            <attribute name="t-else"/>
+            <attribute name="t-elif">not website._qing_is_price_hidden()</attribute>
+        </xpath>
+    </template>
+
+    <template id="product_price" inherit_id="website_sale.product_price">
+        <xpath expr="//div[@name='product_price']" position="before">
+            <t t-if="website._qing_is_price_hidden()" t-call="qing_website_sale.login_price_label"/>
+        </xpath>
+        <xpath expr="//div[@name='product_price']" position="attributes">
+            <attribute name="t-if">not website._qing_is_price_hidden()</attribute>
+        </xpath>
+    </template>
+
+    <template id="product_cta" inherit_id="website_sale.cta_wrapper">
+        <xpath expr="//div[@id='contact_us_wrapper']" position="attributes">
+            <attribute name="t-if">not website._qing_is_price_hidden()</attribute>
+        </xpath>
+    </template>
+
+    <template id="snippet_price" inherit_id="website_sale.price_dynamic_filter_template_product_product">
+        <xpath expr="//t[@t-if]" position="before">
+            <t t-if="website._qing_is_price_hidden()" t-call="qing_website_sale.login_price_label"/>
+        </xpath>
+    </template>
+
+    <template id="pricelist_selector" inherit_id="website_sale.pricelist_selector">
+        <xpath expr="//div[@name='pricelist_selector']" position="attributes">
+            <attribute name="t-if" add="not website._qing_is_price_hidden()" separator=" and "/>
+        </xpath>
+    </template>
+</odoo>

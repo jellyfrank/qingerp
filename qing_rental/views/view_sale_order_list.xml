@@ -1,0 +1,84 @@
+<odoo>
+    <record id="view_sale_order_list" model="ir.ui.view">
+        <field name="name">sale.order.list.qing.rental</field>
+        <field name="model">sale.order</field>
+        <field name="priority">2000</field>
+        <field name="arch" type="xml">
+            <list string="Rental Orders" decoration-muted="state == 'cancel'">
+                <field name="currency_id" column_invisible="True"/>
+                <field name="name" decoration-bf="1"/>
+                <field name="partner_id"/>
+                <field name="qing_rental_start"/>
+                <field name="qing_rental_end"/>
+                <field name="qing_rental_status" widget="badge"
+                       decoration-info="qing_rental_status == 'booked'"
+                       decoration-warning="qing_rental_status in ('out', 'partial')"
+                       decoration-success="qing_rental_status == 'returned'"/>
+                <field name="amount_total" widget="monetary" sum="Total"/>
+                <field name="qing_payment_status" widget="badge" optional="show"
+                       decoration-success="qing_payment_status == 'paid'"
+                       decoration-warning="qing_payment_status in ('partial', 'in_payment', 'partial_refund', 'review')"
+                       decoration-danger="qing_payment_status == 'refunded'"/>
+                <field name="qing_rental_deposit_balance" optional="hide" groups="qing_rental.group_rental_manager"/>
+                <field name="state" widget="badge" optional="hide"/>
+                <field name="invoice_status" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                <field name="warehouse_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_sale_order_calendar" model="ir.ui.view">
+        <field name="name">sale.order.calendar.qing.rental</field>
+        <field name="model">sale.order</field>
+        <field name="priority">2000</field>
+        <field name="arch" type="xml">
+            <calendar string="Rental Schedule" date_start="qing_rental_start" date_stop="qing_rental_end"
+                      color="qing_rental_status" mode="month" quick_create="0" create="0" edit="0">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="qing_rental_status" filters="1"/>
+                <field name="user_id"/>
+            </calendar>
+        </field>
+    </record>
+    <record id="view_sale_order_search" model="ir.ui.view">
+        <field name="name">sale.order.search.qing.rental</field>
+        <field name="model">sale.order</field>
+        <field name="priority">2000</field>
+        <field name="arch" type="xml">
+            <search string="Rental Orders">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="qing_payment_status"/>
+                <field name="qing_rental_line_ids" string="Rental Product" filter_domain="[('qing_rental_line_ids.product_id', 'ilike', self)]"/>
+                <filter name="my_rentals" string="My Rentals" domain="[('user_id', '=', uid)]"/>
+                <separator/>
+                <filter name="draft" string="Quotations" domain="[('state', 'in', ('draft', 'sent'))]"/>
+                <filter name="booked" string="Awaiting Pickup" domain="[('qing_rental_status', '=', 'booked')]"/>
+                <filter name="out" string="On Rent" domain="[('qing_rental_status', 'in', ('out', 'partial'))]"/>
+                <filter name="returned" string="Returned" domain="[('qing_rental_status', '=', 'returned')]"/>
+                <filter name="cancel" string="Cancelled" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <filter name="qing_unpaid" string="Unpaid" domain="[('qing_payment_status', '=', 'not_paid')]"/>
+                <filter name="qing_partially_paid" string="Partially Paid" domain="[('qing_payment_status', '=', 'partial')]"/>
+                <filter name="qing_paid" string="Paid" domain="[('qing_payment_status', '=', 'paid')]"/>
+                <filter name="qing_payment_review" string="To Review" domain="[('qing_payment_status', '=', 'review')]"/>
+                <separator/>
+                <filter name="overdue" string="Overdue" domain="[('qing_rental_status', 'in', ('out', 'partial')), ('qing_rental_end', '&lt;', datetime.datetime.now().to_utc().strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                <separator/>
+                <filter name="start_date" string="Pickup Date" date="qing_rental_start"/>
+                <filter name="end_date" string="Return Date" date="qing_rental_end"/>
+                <group>
+                    <filter name="group_status" string="Rental Status" context="{'group_by': 'qing_rental_status'}"/>
+                    <filter name="qing_payment_status_group" string="Payment Status" context="{'group_by': 'qing_payment_status'}"/>
+                    <filter name="group_partner" string="Customer" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_user" string="Salesperson" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,15 @@
+{
+    'name': 'Qing Repair Purchase',
+    'summary': 'Create traceable vendor RFQs from repair parts and services',
+    'version': '20.0.1.0.2',
+    'category': 'Inventory/Repair',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_repair', 'purchase_repair'],
+    'data': ['security/ir.access.csv', 'wizard/view_repair_purchase_wizard_form.xml',
+             'views/view_repair_order_form.xml', 'views/view_purchase_order_form.xml'],
+    'installable': True,
+    'description': 'Create traceable vendor RFQs from repair parts and service requirements using native purchase workflows.',
+}

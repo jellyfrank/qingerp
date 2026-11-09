@@ -1,0 +1,1723 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_reports
+#: model:ir.module.module,shortdesc:base.module_qing_account_reports
+msgid "Qing Financial Reports"
+msgstr "Qing 财务报表"
+
+#. module: qing_account_reports
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model:ir.actions.act_window,name:qing_account_reports.action_trial_balance
+#: model:ir.actions.client,name:qing_account_reports.action_trial_balance_workspace
+#: model:ir.model,name:qing_account_reports.model_qing_trial_balance
+#: model:ir.ui.menu,name:qing_account_reports.menu_trial_balance
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_trial_balance_form
+msgid "Account Balances and Trial Balance"
+msgstr "科目余额与试算平衡"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Only accounting administrators can generate this report."
+msgstr "仅财务管理员可以生成此报表。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Switch to the company selected on this report."
+msgstr "请切换回此报表所属公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "The start date must not be later than the end date."
+msgstr "开始日期不能晚于截止日期。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Account Code"
+msgstr "科目编码"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Account Name"
+msgstr "科目名称"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Opening Debit"
+msgstr "期初借方"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Opening Credit"
+msgstr "期初贷方"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Period Debit"
+msgstr "本期借方"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Period Credit"
+msgstr "本期贷方"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Closing Debit"
+msgstr "期末借方"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Closing Credit"
+msgstr "期末贷方"
+
+#. module: qing_account_reports
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Total"
+msgstr "合计"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Opening / period / closing debit-credit difference"
+msgstr "期初／本期／期末借贷差额"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping_line__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_export__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping_line__company_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_trial_balance__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__currency_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__currency_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__currency_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_trial_balance__currency_id
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Currency"
+msgstr "本位币"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_trial_balance__date_from
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Start Date"
+msgstr "开始日期"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_trial_balance__date_to
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "End Date"
+msgstr "截止日期"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_trial_balance_form
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Generate"
+msgstr "生成报表"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_trial_balance_form
+msgid "View Source Entries"
+msgstr "查看来源分录"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_trial_balance_form
+msgid "Close"
+msgstr "关闭"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/trial_balance.py:0
+msgid "Posted Ledger through End Date"
+msgstr "截至截止日的已过账分录"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "No posted ledger entries were found for the selected date range."
+msgstr "所选日期范围内没有已过账的会计分录。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_trial_balance_form
+msgid "Posted entries only, in company currency. Opening balances include all entries before the start date; no automatic year-end earnings transfer is applied. Differences are based on records you can access and do not constitute financial approval."
+msgstr "仅统计当前公司已过账分录，金额为公司本位币。期初包含开始日期前全部分录，不自动模拟损益结转。差额基于您可访问的记录，不代表财务验收。"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__result_file
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__result_file
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_trial_balance__result_file
+msgid "CSV Download"
+msgstr "下载 CSV"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: model:ir.actions.act_window,name:qing_account_reports.action_balance_sheet
+#: model:ir.actions.client,name:qing_account_reports.action_balance_sheet_workspace
+#: model:ir.model,name:qing_account_reports.model_qing_balance_sheet
+#: model:ir.ui.menu,name:qing_account_reports.menu_balance_sheet
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_form
+msgid "Chinese Small Business Balance Sheet"
+msgstr "资产负债表（小企业会计准则）"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_mapping_form
+msgid "Balance Sheet Mapping"
+msgstr "资产负债表科目映射"
+
+#. module: qing_account_reports
+#: model:ir.actions.act_window,name:qing_account_reports.action_balance_sheet_mapping
+#: model:ir.ui.menu,name:qing_account_reports.menu_balance_sheet_mapping
+msgid "Balance Sheet Mappings"
+msgstr "资产负债表科目映射"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_balance_sheet_mapping
+msgid "Balance Sheet Mapping Version"
+msgstr "资产负债表映射版本"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_balance_sheet_mapping_line
+msgid "Balance Sheet Account Mapping"
+msgstr "资产负债表科目映射明细"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_mapping_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_mapping_form
+msgid "Suggest Native CN Accounts"
+msgstr "生成原生小企业账套映射建议"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_mapping_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_mapping_form
+msgid "Confirm Mapping"
+msgstr "确认映射版本"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_mapping_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_mapping_form
+msgid "New Revision"
+msgstr "创建新版本"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping__line_ids
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__line_ids
+msgid "Account Mappings"
+msgstr "科目映射"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__mapping_id
+msgid "Mapping Version"
+msgstr "映射版本"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping__template_version
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__template_version
+msgid "Template Version"
+msgstr "模板版本"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping_line__line_code
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping_line__line_code
+msgid "Statement Row"
+msgstr "报表行"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__source_account_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__source_account_id
+msgid "Source Account"
+msgstr "追溯科目"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+msgid "Source Entries"
+msgstr "来源分录"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet__date_to
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__date_to
+msgid "Report Date"
+msgstr "报表日期"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Date"
+msgstr "日期"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Opening Balance Date"
+msgstr "年初取数截止日"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Mapping ID"
+msgstr "映射编号"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Generated at (UTC)"
+msgstr "生成时间（UTC）"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Partner"
+msgstr "往来单位"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Opening Balance"
+msgstr "年初余额"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Closing Balance"
+msgstr "期末余额"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Account Contributions"
+msgstr "科目贡献明细"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Unmapped"
+msgstr "未映射"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_balance_sheet_mapping__state__draft
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_financial_report_scheme__state__draft
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement_mapping__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_balance_sheet_mapping__state__confirmed
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement_mapping__state__confirmed
+msgid "Confirmed"
+msgstr "已确认"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping__name
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__name
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping__state
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__state
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_balance_sheet_mapping_line__account_id
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping_line__account_id
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Account"
+msgstr "科目"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+msgid "Confirmed mappings are immutable. Duplicate the version to make changes."
+msgstr "已确认的映射版本不可修改，请创建新版本后调整。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+msgid "All mapped accounts must belong to the mapping company."
+msgstr "映射科目必须属于此版本的公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+msgid "Create a draft using the current template version."
+msgstr "请使用当前模板创建草稿版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+msgid "Use Confirm Mapping to freeze this version."
+msgstr "请通过“确认映射版本”锁定此版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+msgid "Add account mappings before confirming."
+msgstr "请先添加科目映射，再确认版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Suggestions require the current company to use the native Chinese small-business chart (cn)."
+msgstr "仅当前公司采用原生中国小企业会计准则账套（cn）时可生成建议。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/balance_sheet_mapping.py:0
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "%s (revision)"
+msgstr "%s（修订）"
+
+#. module: qing_account_reports
+#: model:ir.model.constraint,message:qing_account_reports.constraint_qing_balance_sheet_mapping_line_unique_account
+msgid "An account can only be mapped once per version."
+msgstr "同一版本内每个科目只能映射一次。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Select a report date."
+msgstr "请选择报表日期。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Select a confirmed mapping for this company."
+msgstr "请选择此公司已确认的映射版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "This mapping uses an unsupported template version."
+msgstr "此映射使用了当前不支持的模板版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Unmapped account: %s"
+msgstr "存在未映射科目：%s"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Partner missing on a non-zero trade balance: %s"
+msgstr "非零往来余额缺少往来单位：%s"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "The accessible ledger is not balanced. Check permissions and source entries."
+msgstr "可访问范围内总账不平，请检查权限和来源分录。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Assets do not equal liabilities plus equity."
+msgstr "资产不等于负债加所有者权益。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Inventory is smaller than its disclosed detail rows. Review inventory mappings."
+msgstr "存货小于其中明细项目之和，请复核存货映射。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Checks failed; resolve the listed issues before downloading."
+msgstr "检查未通过，请处理列出的问题后再下载。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Arithmetic checks passed for accessible records; financial review is still required."
+msgstr "可访问记录的算术检查通过，仍需财务复核。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/balance_sheet.py:0
+msgid "Opening / closing equation difference"
+msgstr "年初／期末平衡差额"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_mapping_form
+msgid "Review each account before confirming. Confirmation freezes this mapping, not the ledger. Use New Revision for changes. Trade rows 4/5/33/34 split debit and credit balances by account and partner. Rows 10-13 roll into inventory; do not map the same account twice."
+msgstr "确认前请逐项复核科目。确认后保留此映射版本，账务不会被冻结；修改请创建新版本。第4、5、33、34行按科目和往来单位分别分析借贷余额；第10至13行自动计入存货，同一科目不要重复映射。"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_balance_sheet_form
+msgid "Posted entries in company currency. Opening balances are reconstructed at December 31 of the previous year using this mapping; they are not a frozen prior-year filing. Map unclosed earnings to row 51. Review maturity reclassifications using separate accounts and mappings. This report does not close earnings or post adjustments."
+msgstr "按已过账分录的公司本位币取数。年初余额用当前映射重算上年12月31日余额，并非已冻结的上年申报表。未结转损益映射至第51行。跨一年到期项目请用独立明细科目和映射复核重分类。本报表不会结转损益或生成调整分录。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.actions.act_window,name:qing_account_reports.action_profit_statement
+#: model:ir.actions.client,name:qing_account_reports.action_profit_statement_workspace
+#: model:ir.model,name:qing_account_reports.model_qing_profit_statement
+#: model:ir.ui.menu,name:qing_account_reports.menu_profit_statement
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+msgid "Chinese Small Business Profit Statement"
+msgstr "利润表（小企业会计准则）"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_mapping_form
+msgid "Profit Statement Mapping"
+msgstr "利润表科目映射"
+
+#. module: qing_account_reports
+#: model:ir.actions.act_window,name:qing_account_reports.action_profit_statement_mapping
+#: model:ir.ui.menu,name:qing_account_reports.menu_profit_statement_mapping
+msgid "Profit Statement Mappings"
+msgstr "利润表科目映射"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_profit_statement_mapping
+msgid "Profit Statement Mapping Version"
+msgstr "利润表映射版本"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_profit_statement_mapping_line
+msgid "Profit Statement Account Mapping"
+msgstr "利润表科目映射明细"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement_mapping__closing_account_ids
+msgid "Earnings Closing Accounts"
+msgstr "损益结转科目"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__mapping_id
+msgid "Profit Mapping Version"
+msgstr "利润表映射版本"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Profit Mapping ID"
+msgstr "利润表映射编号"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__balance_mapping_id
+msgid "Balance Mapping Version"
+msgstr "资产负债表映射版本"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Balance Mapping ID"
+msgstr "资产负债表映射编号"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__report_mode
+msgid "Report Mode"
+msgstr "报表类型"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement__report_mode__monthly
+msgid "Monthly Report"
+msgstr "月度报表"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement__report_mode__annual
+msgid "Annual Report"
+msgstr "年度报表"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Current Year"
+msgstr "本年"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Prior Year"
+msgstr "上年"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Year to Date"
+msgstr "本年累计"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Current Month"
+msgstr "本月"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_profit_statement__source_scope
+msgid "Source Scope"
+msgstr "追溯期间"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement__source_scope__primary
+msgid "Year to Date / Current Year"
+msgstr "本年累计／本年"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_profit_statement__source_scope__secondary
+msgid "Current Month / Prior Year"
+msgstr "本月／上年"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+msgid "View Excluded Closing Entries"
+msgstr "查看已剔除结转分录"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Excluded Earnings Closing Entries"
+msgstr "已剔除的损益结转分录"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Excluded From"
+msgstr "剔除期间"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Entry"
+msgstr "分录"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Reference"
+msgstr "参考"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Balance Sheet Equity Bridge"
+msgstr "资产负债表权益勾稽"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Opening Retained Earnings"
+msgstr "年初未分配利润"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Closing Retained Earnings"
+msgstr "期末未分配利润"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Retained Earnings Movement"
+msgstr "未分配利润变动"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Year-to-Date Net Profit"
+msgstr "本年累计净利润"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Equity Bridge Difference"
+msgstr "权益勾稽差额"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Annual reports must use December 31 as the report date."
+msgstr "年度报表的报表日期必须为12月31日。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Select a confirmed profit statement mapping for this company."
+msgstr "请选择此公司已确认的利润表映射版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "This profit statement mapping uses an unsupported template version."
+msgstr "此利润表映射使用了当前不支持的模板版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Select a confirmed balance sheet mapping for this company."
+msgstr "请选择此公司已确认的资产负债表映射版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "This balance sheet mapping uses an unsupported template version."
+msgstr "此资产负债表映射使用了当前不支持的模板版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Unmapped profit or loss account: %s"
+msgstr "存在未映射损益科目：%s"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Profit or closing account is not mapped to balance sheet row 51: %s"
+msgstr "损益或结转科目未映射至资产负债表第51行：%s"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/wizard/profit_statement.py:0
+msgid "Retained earnings movement differs from year-to-date net profit by %s. Review profit distributions, prior-period adjustments, and equity reclassifications."
+msgstr "未分配利润变动与本年累计净利润相差%s，请复核利润分配、前期调整及权益重分类。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Confirmed profit mappings are immutable. Duplicate the version to make changes."
+msgstr "已确认的利润表映射不可修改，请创建新版本后调整。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "All profit and closing accounts must belong to the mapping company."
+msgstr "损益及结转科目必须属于此映射版本的公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "A closing account cannot also be a profit statement account."
+msgstr "结转科目不能同时作为利润表取数科目。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Create a draft using the current profit statement template version."
+msgstr "请使用当前利润表模板创建草稿版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Use Confirm Mapping to freeze this profit statement version."
+msgstr "请通过“确认映射版本”锁定此利润表版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Add profit statement account mappings before confirming."
+msgstr "请先添加利润表科目映射，再确认版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/profit_statement_mapping.py:0
+msgid "Select at least one earnings closing account before confirming."
+msgstr "确认前请至少选择一个损益结转科目。"
+
+#. module: qing_account_reports
+#: model:ir.model.constraint,message:qing_account_reports.constraint_qing_profit_statement_mapping_line_unique_account
+msgid "An account can only be mapped once per profit statement version."
+msgstr "同一利润表版本内每个科目只能映射一次。"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_mapping_form
+msgid "Review every account before confirmation. Closing entries are excluded only when all non-zero lines use mapped profit accounts or the selected closing accounts, and both types are present. The report lists every excluded entry for audit."
+msgstr "确认前请逐项复核科目。只有非零分录行全部使用已映射损益科目或所选结转科目，且两类科目同时存在时，才会剔除该结转凭证；报表会列出全部已剔除凭证供审计。"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_profit_statement_form
+msgid "Posted entries in company currency. Monthly reports show year-to-date and current-month activity; annual reports require December 31 and compare the current year with the prior year. Configured earnings-closing entries are excluded and listed separately. No closing or adjustment entry is created."
+msgstr "按已过账分录的公司本位币取数。月报显示本年累计及本月发生额；年报日期必须为12月31日，并比较本年与上年。符合配置的损益结转凭证会被剔除并单独列示。本报表不会生成结转或调整分录。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Balance Sheet · Small Business"
+msgstr "资产负债表 · 小企业会计准则"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Profit Statement · Small Business"
+msgstr "利润表 · 小企业会计准则"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Cash Flow Statement · Small Business"
+msgstr "现金流量表 · 小企业会计准则"
+
+#. module: qing_account_reports
+#: model:ir.actions.client,name:qing_account_reports.action_cash_flow_workspace
+#: model:ir.ui.menu,name:qing_account_reports.menu_cash_flow
+msgid "Chinese Small Business Cash Flow Statement"
+msgstr "现金流量表（小企业会计准则）"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_financial_report_scheme_form
+msgid "Financial Report Scheme"
+msgstr "财务报表方案"
+
+#. module: qing_account_reports
+#: model:ir.actions.act_window,name:qing_account_reports.action_financial_report_scheme
+msgid "Financial Report Schemes"
+msgstr "财务报表方案"
+
+#. module: qing_account_reports
+#: model:ir.ui.menu,name:qing_account_reports.menu_financial_report_scheme
+msgid "Company Report Schemes"
+msgstr "公司报表方案"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_financial_report_scheme
+msgid "Company Financial Report Scheme"
+msgstr "公司财务报表方案"
+
+#. module: qing_account_reports
+#: model:ir.ui.menu,name:qing_account_reports.menu_financial_report_configuration
+msgid "Financial Report Settings"
+msgstr "财务报表设置"
+
+#. module: qing_account_reports
+#: model:ir.actions.report,name:qing_account_reports.action_financial_statement_pdf
+msgid "Financial Statement"
+msgstr "财务报表"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_financial_report_export
+msgid "Financial Statement Export"
+msgstr "财务报表导出"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_financial_report
+msgid "Financial Statement Read Service"
+msgstr "财务报表查询服务"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__balance_mapping_id
+msgid "Balance Sheet Rules"
+msgstr "资产负债表规则"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__profit_mapping_id
+msgid "Profit Statement Rules"
+msgstr "利润表规则"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__cash_account_ids
+msgid "Cash and Cash Equivalents"
+msgstr "现金及现金等价物"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_financial_report_scheme_form
+msgid "Cash Flow Scope"
+msgstr "现金流量范围"
+
+#. module: qing_account_reports
+#: model:ir.actions.act_window,name:qing_account_reports.action_cash_flow_allocation
+#: model:ir.ui.menu,name:qing_account_reports.menu_cash_flow_allocation
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_cash_flow_allocation_form
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_cash_flow_allocation_list
+msgid "Cash Flow Classification"
+msgstr "现金流量归类"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_cash_flow_allocation
+msgid "Cash Flow Classification Exception"
+msgstr "现金流量例外归类"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__line_code
+msgid "Cash Flow Item"
+msgstr "现金流量项目"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__cash_line_id
+msgid "Cash Journal Item"
+msgstr "现金分录明细"
+
+#. module: qing_account_reports
+#: model:ir.model,name:qing_account_reports.model_qing_cash_flow_calculator
+msgid "Small Business Cash Flow Calculator"
+msgstr "小企业现金流量计算器"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_cash_flow_allocation__line_code__fx
+msgid "Foreign exchange effect"
+msgstr "汇率变动影响"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "No active report scheme applies to this company and date."
+msgstr "当前公司及日期没有生效的报表方案。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid ""
+"No active report scheme applies to this company and date. Configure the "
+"scheme once in Accounting Configuration."
+msgstr "当前公司及日期没有生效的报表方案。请在财务报表设置中配置一次。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Only accounting administrators can view financial statements."
+msgstr "仅财务管理员可以查看财务报表。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Both mappings must belong to this company."
+msgstr "两套映射必须属于当前公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Both statement mappings must be confirmed."
+msgstr "两套报表映射均须先确认。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Select both statement mappings."
+msgstr "请选择资产负债表和利润表映射。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid ""
+"Every profit and closing account must be mapped to balance sheet row 51."
+msgstr "所有损益及结转科目必须映射到资产负债表第 51 行。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid ""
+"Cash and cash-equivalent accounts must be mapped to balance sheet cash row "
+"1."
+msgstr "现金及现金等价物科目必须映射到资产负债表第 1 行。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "The report scheme uses an unsupported template version."
+msgstr "报表方案使用了不受支持的模板版本。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "The end date cannot precede the start date."
+msgstr "结束日期不能早于开始日期。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Active report schemes for a company cannot overlap."
+msgstr "同一公司的生效报表方案不能有重叠日期。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Active report schemes are immutable except for their end date."
+msgstr "已生效报表方案除结束日期外不可修改。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Active report schemes cannot be deleted."
+msgstr "已生效报表方案不可删除。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Create a draft scheme and activate it after review."
+msgstr "请先创建草稿方案，复核后再启用。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Use Activate to enable a report scheme."
+msgstr "请使用“启用”操作使报表方案生效。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Only draft report schemes can be activated."
+msgstr "只能启用草稿报表方案。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid ""
+"Multiple report schemes apply to this date. Ask an administrator to fix the "
+"configuration."
+msgstr "该日期适用多个报表方案，请财务管理员修复配置。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Built-in CN small-business statements"
+msgstr "中国小企业报表内置方案"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Built-in CN small-business balance sheet"
+msgstr "中国小企业资产负债表内置映射"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Built-in CN small-business profit statement"
+msgstr "中国小企业利润表内置映射"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report_scheme.py:0
+msgid "Company reporting scheme"
+msgstr "公司报表方案"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_financial_report_scheme__source__system
+msgid "Built-in"
+msgstr "系统内置"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_financial_report_scheme__source__existing
+msgid "Existing Mappings"
+msgstr "现有映射"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_financial_report_scheme__source__manual
+msgid "Manual"
+msgstr "手工配置"
+
+#. module: qing_account_reports
+#: model:ir.model.fields.selection,name:qing_account_reports.selection__qing_financial_report_scheme__state__active
+msgid "Active"
+msgstr "已生效"
+
+#. module: qing_account_reports
+#: model_terms:ir.ui.view,arch_db:qing_account_reports.view_financial_report_scheme_form
+msgid "Activate"
+msgstr "启用"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__date_from
+msgid "Effective From"
+msgstr "生效起始日期"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_financial_report_scheme__date_to
+msgid "Effective Until"
+msgstr "生效结束日期"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Period"
+msgstr "期间"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Month / Year to Date"
+msgstr "本月／本年累计"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Full Year"
+msgstr "完整年度"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Opening"
+msgstr "年初余额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Closing"
+msgstr "期末余额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Assets"
+msgstr "资产"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Liabilities and Equity"
+msgstr "负债和所有者权益"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Item"
+msgstr "项目"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Action"
+msgstr "操作"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__amount
+msgid "Amount"
+msgstr "金额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Journal Entry"
+msgstr "记账凭证"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Journal Items"
+msgstr "分录明细"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Unclassified Amount"
+msgstr "待归类金额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Cash entries awaiting classification"
+msgstr "待归类现金分录"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Classify"
+msgstr "归类"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Classify Cash Flow"
+msgstr "归类现金流量"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Refresh"
+msgstr "刷新"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Loading statement…"
+msgstr "正在加载报表…"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Download CSV"
+msgstr "下载 CSV"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Download PDF"
+msgstr "下载 PDF"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Download XLSX"
+msgstr "下载 XLSX"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Open Report Settings"
+msgstr "打开报表设置"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "No contributing accounts for this row and period."
+msgstr "该行次在此期间没有贡献科目。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Calculation and Mapping"
+msgstr "取数说明与科目映射"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Balance sheet:"
+msgstr "资产负债表："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "; Profit statement:"
+msgstr "；利润表："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Posted entries ·"
+msgstr "已过账分录 ·"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid ""
+"Checks incomplete. Resolve the issues before downloading a complete "
+"statement."
+msgstr "报表校验未完成。请先处理下列问题，再下载完整报表。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid ""
+"Checks passed for accessible posted entries. Financial review is still "
+"required."
+msgstr "可访问的已过账分录通过算术校验，仍需财务复核。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "Cash flow column %s does not reconcile to cash account balances: %s."
+msgstr "现金流量表第 %s 栏与现金科目余额不符，差额：%s。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "%s cash journal items need classification."
+msgstr "有 %s 条现金分录需要归类。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "Select the cash and cash-equivalent accounts in the report scheme."
+msgstr "请在报表方案中选择现金及现金等价物科目。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_allocation.py:0
+msgid "Classify a posted cash item of the same company."
+msgstr "只能归类同公司已过账的现金分录。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_allocation.py:0
+msgid "Cash flow allocation must be positive."
+msgstr "现金流量分配金额必须为正数。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_allocation.py:0
+msgid "Classified amount exceeds the cash journal item."
+msgstr "归类金额超过现金分录金额。"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,help:qing_account_reports.field_qing_cash_flow_allocation__amount
+msgid "Positive portion of the cash journal item in company currency."
+msgstr "以公司本位币填写现金分录的正数分配额。"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,help:qing_account_reports.field_qing_financial_report_scheme__cash_account_ids
+msgid ""
+"Review the actual cash scope. Suspense and transit accounts must not be "
+"included automatically."
+msgstr "请复核现金范围；待清算和中转科目不可自动纳入。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid ""
+"Resolve the listed cash flow issues before downloading a complete statement."
+msgstr "请先处理所列现金流量问题，再下载完整报表。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid ""
+"Resolve the listed report issues before downloading a complete statement."
+msgstr "请先处理所列报表问题，再下载完整报表。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Configure the report scheme before downloading."
+msgstr "下载前请先配置报表方案。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Configure the report scheme before opening source entries."
+msgstr "查看来源分录前请先配置报表方案。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Select a supported financial statement."
+msgstr "请选择受支持的财务报表。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Select a valid report date."
+msgstr "请选择有效的报表日期。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "The report date cannot be in the future."
+msgstr "报表日期不能晚于今天。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "Annual cash flow requires 31 December."
+msgstr "现金流量年报必须选择 12 月 31 日。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Select a supported reporting period."
+msgstr "请选择受支持的报表期间。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Select a supported export format."
+msgstr "请选择受支持的导出格式。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "The source account does not belong to the current company."
+msgstr "来源科目不属于当前公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "The source entry does not belong to the current company."
+msgstr "来源分录不属于当前公司。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "Select a posted cash journal item in this company."
+msgstr "请选择当前公司已过账的现金分录。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "A diagnostic file is available only for an incomplete statement."
+msgstr "只有校验未完成的报表可以下载问题清单。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "Cash flow column %s contains a foreign exchange effect of %s; review its statutory presentation."
+msgstr "现金流量表第 %s 列存在汇兑影响 %s，请复核其法定报表列示方式。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Download Issue List"
+msgstr "下载问题清单"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_allocation.py:0
+msgid "Explain the foreign exchange effect before classifying it."
+msgstr "归类汇兑影响前请填写说明。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Generated at (UTC):"
+msgstr "生成时间（UTC）："
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "No cash accounts have been configured for this report."
+msgstr "尚未为本报表配置现金及现金等价物科目。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/financial_report.py:0
+msgid "No non-zero statement amounts for the selected date."
+msgstr "所选日期没有非零报表金额。"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_calculator.py:0
+msgid "No posted cash movements in the selected period."
+msgstr "所选期间没有已过账的现金收付。"
+
+#. module: qing_account_reports
+#: model:ir.model.fields,field_description:qing_account_reports.field_qing_cash_flow_allocation__note
+msgid "Note"
+msgstr "说明"
+
+#. module: qing_account_reports
+#. odoo-python
+#: code:addons/qing_account_reports/models/cash_flow_allocation.py:0
+msgid "The journal item is outside the configured cash scope."
+msgstr "该分录不在已配置的现金科目范围内。"
+
+#. module: qing_account_reports
+#: model:ir.module.module,summary:base.module_qing_account_reports
+msgid "Trial balance and Chinese small-business financial statements for Community"
+msgstr "社区版科目余额及中国小企业财务报表"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+#: model:ir.actions.client,name:qing_account_reports.action_account_ledger
+#: model:ir.ui.menu,name:qing_account_reports.menu_account_ledger
+msgid "Account Ledger"
+msgstr "科目明细账"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Select an account"
+msgstr "请选择科目"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Loading…"
+msgstr "正在加载…"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Opening Balance:"
+msgstr "期初余额："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Closing Balance:"
+msgstr "期末余额："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Journal"
+msgstr "日记账"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Label"
+msgstr "摘要"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Debit"
+msgstr "借方"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Credit"
+msgstr "贷方"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Entry Balance"
+msgstr "单笔金额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Running Balance"
+msgstr "逐笔余额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Residual at End Date"
+msgstr "截止日未核销金额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Amount in Currency"
+msgstr "原币金额"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Period Total"
+msgstr "本期合计"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Previous Page"
+msgstr "上一页"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Next Page"
+msgstr "下一页"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "No posted entries in this period."
+msgstr "本期没有已过账分录。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Only accounting managers can open the account ledger."
+msgstr "仅会计管理员可以打开科目明细账。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Select an account."
+msgstr "请选择科目。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "The account does not belong to the current company."
+msgstr "该科目不属于当前公司。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Select a valid date range."
+msgstr "请选择有效的日期范围。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Select a valid ledger page."
+msgstr "请选择有效的明细账页码。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Limit the date range to 10,000 entries before exporting."
+msgstr "请缩小日期范围至 10000 条分录以内再导出。"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_account_reports/static/src/account_ledger.xml:0
+#: code:addons/qing_account_reports/models/account_ledger.py:0
+msgid "Entry Currency"
+msgstr "交易币种"

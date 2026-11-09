@@ -1,0 +1,47 @@
+// The native sale dashboard is shared by list and kanban renderers.
+// Load these rules in the regular backend bundle for runtime theme switching.
+.o_qing_web_ui.o_qing_ui--dark .o_website_sale_dashboard {
+    color: var(--o-qing-text);
+
+    > .bg-view {
+        background-color: var(--o-qing-surface) !important;
+        border-color: var(--o-qing-border) !important;
+    }
+
+    .o_date_filter_wrapper {
+        background-color: var(--o-qing-surface-weak) !important;
+        border-color: var(--o-qing-border) !important;
+        button { color: var(--o-qing-text); }
+    }
+
+    .o_cards_container {
+        border-color: var(--o-qing-border) !important;
+        .text-body { color: var(--o-qing-text) !important; }
+    }
+
+    .o_dashboard_card_evolution {
+        &.text-success { color: var(--o-qing-positive-text) !important; }
+        &.text-danger { color: var(--o-qing-danger) !important; }
+    }
+
+    .o_dashboard_card {
+        --btn-color: var(--o-qing-text);
+        --btn-hover-color: var(--o-qing-text);
+        --btn-active-color: var(--o-qing-text);
+        --btn-border-color: transparent;
+
+        // Supply the native card variables; preserve its hover/active behavior.
+        $status-colors: (
+            orange: var(--o-qing-warning),
+            purple: #c4b5f5,
+            cyan: var(--o-qing-info-text),
+            red: var(--o-qing-danger),
+        );
+        @each $name, $color in $status-colors {
+            --DashboardCard__#{$name}-bg-color: color-mix(in srgb, #{$color} 12%, var(--o-qing-surface));
+            --DashboardCard__#{$name}-bg-color--active: color-mix(in srgb, #{$color} 22%, var(--o-qing-surface));
+            --DashboardCard__#{$name}-color: #{$color};
+            --DashboardCard__#{$name}-color--active: #{$color};
+        }
+    }
+}

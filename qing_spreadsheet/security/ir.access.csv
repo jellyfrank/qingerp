@@ -1,0 +1,11 @@
+id,name,model_id,group_id/id,operation,domain
+sheet_owner,Workbook owner,qing.spreadsheet,base.group_user,crud,"[('owner_id', '=', user.id)]"
+sheet_editor,Workbook editor,qing.spreadsheet,base.group_user,ru,"[('editor_ids', 'in', [user.id])]"
+sheet_reader,Workbook viewer,qing.spreadsheet,base.group_user,r,"[('reader_ids', 'in', [user.id])]"
+sheet_manager,Workbook manager,qing.spreadsheet,qing_spreadsheet.group_spreadsheet_manager,crud,
+sheet_company,Workbook company,qing.spreadsheet,,crud,"[('company_id', 'in', company_ids)]"
+revision_reader,Workbook version reader,qing.spreadsheet.revision,base.group_user,r,"['|', '|', ('workbook_id.owner_id', '=', user.id), ('workbook_id.editor_ids', 'in', [user.id]), ('workbook_id.reader_ids', 'in', [user.id])]"
+revision_manager,Workbook version manager,qing.spreadsheet.revision,qing_spreadsheet.group_spreadsheet_manager,r,
+revision_company,Workbook version company,qing.spreadsheet.revision,,crud,"[('company_id', 'in', company_ids)]"
+source_reader,Data source reader,qing.spreadsheet.source,base.group_user,r,
+source_manager,Data source manager,qing.spreadsheet.source,qing_spreadsheet.group_spreadsheet_manager,crud,

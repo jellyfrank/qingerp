@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_partner_role_list" model="ir.ui.view">
+        <field name="name">qing.partner.role.list</field><field name="model">qing.partner.role</field>
+        <field name="arch" type="xml"><list decoration-muted="state == 'disabled'"><field name="partner_id"/><field name="company_id" groups="base.group_multi_company"/><field name="role"/><field name="state" widget="badge"/><field name="effective_owner_id"/><field name="team_id" invisible="role != 'supplier'"/></list></field>
+    </record>
+    <record id="view_partner_role_form" model="ir.ui.view">
+        <field name="name">qing.partner.role.form</field><field name="model">qing.partner.role</field>
+        <field name="arch" type="xml">
+            <form><sheet><group><group><field name="partner_id" readonly="id" options="{'no_create': True}"/><field name="company_id" readonly="id"/><field name="role" readonly="id"/><field name="state"/></group><group><field name="override_owner_id" options="{'no_create': True}"/><field name="team_id" invisible="role != 'supplier'"/><field name="shared_user_ids" widget="many2many_tags" options="{'no_create': True}"/></group></group></sheet><chatter/></form>
+        </field>
+    </record>
+    <record id="view_partner_role_search" model="ir.ui.view">
+        <field name="name">qing.partner.role.search</field><field name="model">qing.partner.role</field>
+        <field name="arch" type="xml"><search><field name="partner_id"/><field name="effective_owner_id"/><field name="team_id"/><filter name="pending" string="Pending Review" domain="[('state','=','pending')]"/><filter name="customer" string="Customers" domain="[('role','=','customer')]"/><filter name="supplier" string="Suppliers" domain="[('role','=','supplier')]"/><group><filter name="company" string="Company" context="{'group_by':'company_id'}"/><filter name="role" string="Role" context="{'group_by':'role'}"/></group></search></field>
+    </record>
+    <record id="action_partner_role" model="ir.actions.act_window"><field name="name">Business Roles</field><field name="res_model">qing.partner.role</field><field name="view_mode">list,form</field></record>
+</odoo>

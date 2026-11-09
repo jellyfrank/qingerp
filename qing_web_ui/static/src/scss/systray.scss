@@ -1,0 +1,75 @@
+// Keep identity details in the native menus so the app rail gets the space.
+.o_qing_web_ui {
+    .o_main_navbar .o_menu_systray {
+        .o_qing_company_trigger,
+        .o_qing_user_trigger {
+            position: relative;
+            flex: 0 0 36px;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            min-width: 36px;
+            height: 36px;
+            min-height: 36px;
+            margin: 0;
+            padding: 4px !important;
+            line-height: 1;
+            &:hover:not(:disabled),
+            &[aria-expanded="true"] {
+                background: var(--o-qing-surface-weak) !important;
+                color: var(--o-qing-text) !important;
+            }
+            &:focus-visible {
+                outline: 2px solid var(--o-qing-link);
+                outline-offset: 2px;
+            }
+        }
+    }
+    .o_qing_company_icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+    .o_qing_company_count {
+        position: absolute;
+        inset-block-start: -2px;
+        inset-inline-end: -2px;
+        min-width: 16px;
+        padding: 1px 3px;
+        border: 2px solid var(--o-qing-surface);
+        border-radius: 10px;
+        background: var(--o-qing-accent);
+        color: var(--o-qing-on-accent);
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 12px;
+    }
+    .o_qing_user_menu_dropdown {
+        width: 260px;
+        max-width: calc(100vw - 24px);
+    }
+    .o_qing_systray_identity {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        min-width: 0;
+        margin-bottom: 6px;
+        padding: 10px 12px 12px;
+        border-bottom: 1px solid var(--o-qing-border);
+        color: var(--o-qing-text);
+        &__name {
+            font-size: var(--o-qing-font-size);
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+        &__database {
+            padding: 4px 6px;
+            border-radius: 5px;
+            background: var(--o-qing-surface-weak);
+            color: var(--o-qing-text-soft);
+            font-size: 11px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+    }
+}

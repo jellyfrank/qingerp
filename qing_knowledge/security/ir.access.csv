@@ -1,0 +1,18 @@
+id,name,model_id,group_id/id,operation,domain
+knowledge_space_user,Knowledge space users,qing.knowledge.space,base.group_user,cru,
+knowledge_space_scope,Knowledge space membership,qing.knowledge.space,,ru,"[('accessible', '=', True)]"
+knowledge_member_user,Knowledge members,qing.knowledge.member,base.group_user,r,
+knowledge_member_scope,Knowledge member visibility,qing.knowledge.member,,r,"[('accessible', '=', True)]"
+knowledge_article_user,Knowledge articles,qing.knowledge.article,base.group_user,r,
+knowledge_article_scope,Knowledge article visibility,qing.knowledge.article,,r,"[('accessible', '=', True)]"
+knowledge_draft_user,Knowledge drafts,qing.knowledge.draft,base.group_user,r,
+knowledge_draft_scope,Knowledge draft visibility,qing.knowledge.draft,,r,"[('accessible', '=', True)]"
+knowledge_revision_user,Knowledge revisions,qing.knowledge.revision,base.group_user,r,
+knowledge_revision_scope,Knowledge revision visibility,qing.knowledge.revision,,r,"[('accessible', '=', True)]"
+knowledge_asset_user,Knowledge assets,qing.knowledge.asset,base.group_user,r,
+knowledge_asset_scope,Knowledge asset visibility,qing.knowledge.asset,,r,"[('accessible', '=', True)]"
+knowledge_member_wizard_user,Knowledge membership wizard,qing.knowledge.member.wizard,base.group_user,crud,
+knowledge_bookmark_user,Knowledge bookmarks,qing.knowledge.bookmark,base.group_user,r,
+knowledge_bookmark_scope,Knowledge bookmark visibility,qing.knowledge.bookmark,,r,"[('accessible', '=', True)]"
+knowledge_tag_user,Knowledge tags,qing.knowledge.tag,base.group_user,r,
+knowledge_tag_scope,Knowledge tag visibility,qing.knowledge.tag,,r,"[('accessible', '=', True)]"

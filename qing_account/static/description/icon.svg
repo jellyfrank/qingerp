@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="24" y1="20" x2="232" y2="238" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17636A"/>
+      <stop offset="1" stop-color="#103F4B"/>
+    </linearGradient>
+    <linearGradient id="page" x1="67" y1="45" x2="195" y2="204" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF5F1"/>
+    </linearGradient>
+    <filter id="shadow" x="38" y="31" width="182" height="204" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="54" fill="url(#bg)"/>
+  <path d="M52 57C52 49.268 58.268 43 66 43H126V190C107.374 180.012 88.929 178.182 68.63 186.773C60.969 190.015 52 184.389 52 176.07V57Z" fill="#092F38" fill-opacity=".24" filter="url(#shadow)"/>
+  <path d="M57 55C57 48.925 61.925 44 68 44H127V187C108.244 177.171 89.399 176.073 70.037 184.395C63.99 186.994 57 182.585 57 176.003V55Z" fill="url(#page)"/>
+  <path d="M199 55C199 48.925 194.075 44 188 44H129V187C147.756 177.171 166.601 176.073 185.963 184.395C192.01 186.994 199 182.585 199 176.003V55Z" fill="#D8ECE7"/>
+  <path d="M128 48V185" stroke="#8CB7AE" stroke-width="4" stroke-linecap="round"/>
+  <path d="M77 78H108M77 101H108M77 124H108M148 78H178M148 101H178M148 124H171" stroke="#4E8580" stroke-width="7" stroke-linecap="round"/>
+  <path d="M68 159C84 154 101 155 117 163M139 163C153 156 168 154 182 158" stroke="#9DC5BB" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="181" cy="177" r="37" fill="#F1B85E" stroke="#103F4B" stroke-width="7"/>
+  <text x="181" y="193" fill="#103F4B" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" text-anchor="middle">¥</text>
+  <path d="M57 176C57 182.585 63.99 186.994 70.037 184.395C89.399 176.073 108.244 177.171 127 187C145.756 177.171 164.601 176.073 183.963 184.395C190.01 186.994 197 182.585 197 176" stroke="#B5D9D0" stroke-width="3"/>
+</svg>

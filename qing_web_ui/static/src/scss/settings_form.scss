@@ -1,0 +1,100 @@
+// Reserve the same control column for every setting, including empty panes.
+// Match the native checkbox/switch width so dividers and labels stay aligned.
+.o_qing_web_ui .o_base_settings_view .o_form_renderer {
+    .o_setting_box {
+        display: grid;
+        grid-template-columns: max-content minmax(0, 1fr);
+        column-gap: 8px;
+        align-items: start;
+
+        > .o_setting_left_pane {
+            float: none;
+            min-width: 1.5em;
+
+            @include media-breakpoint-down(md) {
+                min-width: 2.5em;
+            }
+        }
+
+        > .o_setting_right_pane {
+            min-width: 0;
+            margin-left: 0;
+        }
+    }
+
+    // Native mx-3 also adds a right margin, so the content card stops 16px
+    // short of the navbar and control panel. Keep the gap to the category
+    // list only; the stacked phone layout stays native.
+    @media (min-width: 768px) {
+        .o_setting_container > .settings { margin-inline-end: 0 !important; }
+    }
+}
+
+// Settings use a no-sheet renderer with their own surfaces and tab variables.
+// Keep these rules in the common backend bundle for Qing's client-side toggle.
+.o_qing_web_ui.o_qing_ui--dark .o_base_settings_view .o_form_renderer {
+    --settings__tab-bg: var(--o-qing-surface);
+    --settings__tab-bg--active: var(--o-qing-accent-soft);
+    --settings__tab-color: var(--o-qing-text-soft);
+    --settings__title-bg: var(--o-qing-surface-weak);
+    --border-color: var(--o-qing-border);
+
+    background-color: var(--o-qing-bg);
+    color: var(--o-qing-text);
+
+    .o_setting_container {
+        .settings {
+            background-color: var(--o-qing-surface);
+            color: var(--o-qing-text);
+
+            h2, h3, .app_settings_header {
+                color: var(--o-qing-text);
+            }
+
+            .settingSearchHeader {
+                background-color: var(--o-qing-surface-weak);
+                color: var(--o-qing-text);
+            }
+
+            .highlighter {
+                background-color: var(--o-qing-accent-soft);
+                color: var(--o-qing-link);
+            }
+        }
+
+        .settings_tab .tab {
+            &:hover, &:focus-visible {
+                background-color: var(--o-qing-surface-weak);
+                color: var(--o-qing-text);
+            }
+
+            &.selected {
+                background-color: var(--o-qing-accent-soft);
+                color: var(--o-qing-link);
+                box-shadow: inset 3px 0 0 var(--o-qing-accent);
+            }
+
+            &.o_page_invalid {
+                background-color: color-mix(in srgb, var(--o-qing-danger) 12%, var(--o-qing-surface)) !important;
+                color: var(--o-qing-danger) !important;
+            }
+        }
+    }
+
+    .o_setting_left_pane {
+        background-color: transparent;
+    }
+
+    .o_setting_right_pane {
+        border-color: var(--o-qing-border);
+    }
+
+    .o_form_label {
+        color: var(--o-qing-text);
+    }
+
+    .form-check-input:not(:checked):not(:indeterminate) {
+        background-color: var(--o-qing-surface-weak);
+        border-color: var(--o-qing-text-soft);
+    }
+}

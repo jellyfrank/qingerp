@@ -1,0 +1,12 @@
+id,name,model_id,group_id/id,operation,domain
+partner_scope,Partner scope ceiling,res.partner,,crud,"[('qing_accessible', '=', True)]"
+partner_editor,Partner details editor,res.partner,qing_partner.group_partner_editor,cru,
+partner_manager,Partner master manager,res.partner,qing_partner.group_partner_manager,crud,
+role_user,Role read,qing.partner.role,base.group_user,r,
+role_manager,Role manage,qing.partner.role,qing_partner.group_partner_manager,cru,
+role_scope,Role scope ceiling,qing.partner.role,,crud,"[('qing_accessible', '=', True)]"
+team_user,Team read,qing.partner.team,base.group_user,r,
+team_manager,Team manage,qing.partner.team,qing_partner.group_partner_manager,crud,
+team_company,Team company,qing.partner.team,,crud,"[('company_id', 'in', company_ids)]"
+seed_manager,Role seed wizard,qing.partner.role.seed,qing_partner.group_partner_manager,crud,
+bank_partner_scope,Bank partner scope,res.partner.bank,,crud,"[('qing_accessible', '=', True)]"

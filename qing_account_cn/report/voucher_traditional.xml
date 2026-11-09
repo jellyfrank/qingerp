@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="voucher_digit_cells">
+        <t t-if="o.company_currency_id.decimal_places == 2">
+            <t t-set="amount_cells" t-value="o._qing_cn_voucher_digits(amount)"/>
+            <td class="mark" style="border: 1px solid #222 !important;"><span t-out="amount_cells['sign']"/></td>
+            <td class="digit" t-foreach="amount_cells['digits']" t-as="digit" style="border: 1px solid #222 !important;"><span t-out="digit"/></td>
+        </t>
+        <t t-else="">
+            <td class="mark" style="border: 1px solid #222 !important;"/>
+            <td colspan="11" style="text-align:right; border: 1px solid #222 !important;"><span t-out="amount" t-options="{'widget':'monetary','display_currency':o.company_currency_id}"/></td>
+        </t>
+    </template>
+    <template id="voucher_traditional">
+        <t t-set="o" t-value="o.with_company(o.company_id)"/>
+        <style>
+            .qing_traditional { font-family: 'Noto Serif CJK SC', 'Noto Sans CJK SC', serif; color:#111; font-size:11px; }
+            .qing_traditional h2 { text-align:center; letter-spacing:12px; font-size:25px; margin:0 0 10px; }
+            .qing_traditional .ledger { width:100%; border-collapse:collapse; table-layout:fixed; border:1.4px solid #111; }
+            .qing_traditional .ledger td, .qing_traditional .ledger th { border:0.7px solid #333 !important; padding:3px 2px; vertical-align:middle; }
+            .qing_traditional .ledger th { text-align:center; font-weight:normal; }
+            .qing_traditional .ledger .digit { width:2.8mm; text-align:center; padding:0; font-family:monospace; font-size:12px; }
+            .qing_traditional .ledger .mark { width:3mm; text-align:center; padding:0; }
+            .qing_traditional .entry { height:12mm; page-break-inside:avoid; }
+            .qing_traditional .text { word-wrap:break-word; }
+            .qing_traditional .signatures { width:100%; margin-top:12px; font-size:10px; }
+            .qing_traditional .meta td, .qing_traditional .signatures td { border:0 !important; }
+            .qing_traditional .meta { width:100%; margin-bottom:8px; font-size:10px; }
+        </style>
+        <t t-set="voucher_pages" t-value="o._qing_cn_voucher_pages()"/>
+        <t t-foreach="voucher_pages" t-as="page_lines">
+            <div class="page qing_cn_voucher qing_traditional" t-att-style="'page-break-before: always;' if page_lines_index else ''">
+                <h2>记账凭证</h2>
+                <div style="text-align:center;margin-bottom:8px">
+                    <span t-out="o.date.strftime('%Y 年 %m 月 %d 日')"/>
+                    <strong t-if="o.state == 'draft'">　草稿 · 未过账</strong>
+                    <strong t-if="o.state == 'cancel'">　已取消</strong>
+                </div>
+                <table class="meta">
+                    <tr><td style="width:60%">核算单位：<span t-field="o.company_id.name"/></td>
+                        <td>凭证号：<span t-out="o.name if o.name and o.name != '/' else '未编号'"/></td></tr>
+                    <tr><td>日记账：<span t-field="o.journal_id.name"/>　　本位币：<span t-field="o.company_currency_id.name"/></td>
+                        <td>本凭证第 <span t-out="page_lines_index + 1"/> / <span t-out="len(voucher_pages)"/> 页</td></tr>
+                </table>
+                <table class="ledger" name="traditional_entry_table" style="width:100%; border-collapse:collapse; table-layout:fixed; border:1.5px solid #111;">
+                    <colgroup>
+                        <col style="width:29%"/><col style="width:17%"/><col style="width:17%"/>
+                        <t t-foreach="range(2)" t-as="side"><col style="width:3mm"/><col t-foreach="range(11)" t-as="place" style="width:2.8mm"/></t>
+                    </colgroup>
+                    <thead><tr>
+                        <th rowspan="2" style="border: 1px solid #222 !important;">摘　要</th><th rowspan="2" style="border: 1px solid #222 !important;">总账科目</th><th rowspan="2" style="border: 1px solid #222 !important;">明细科目</th>
+                        <t t-foreach="['借　方','贷　方']" t-as="heading"><th rowspan="2" style="border: 1px solid #222 !important;">√</th><th colspan="11" t-out="heading" style="border: 1px solid #222 !important;"/></t>
+                    </tr><tr>
+                        <t t-foreach="range(2)" t-as="side">
+                            <t t-if="o.company_currency_id.decimal_places == 2"><th t-foreach="'亿千百十万千百十元角分'" t-as="unit" style="padding:1px 0;font-size:9px; border: 1px solid #222 !important;"><span t-out="unit"/></th></t>
+                            <th t-else="" colspan="11" style="border: 1px solid #222 !important;">本位币金额</th>
+                        </t>
+                    </tr></thead>
+                    <tbody>
+                        <tr class="entry" t-foreach="page_lines" t-as="line">
+                            <td class="text" style="border: 1px solid #222 !important;"><span t-field="line.name"/>
+                                <div t-if="line.partner_id"><span t-field="line.partner_id.name"/></div>
+                                <div t-if="line.currency_id != o.company_currency_id">原币：<span t-field="line.currency_id.name"/> <span t-field="line.amount_currency"/></div>
+                            </td>
+                            <td class="text" style="border: 1px solid #222 !important;"><span t-out="(line.account_id.parent_id or line.account_id).display_name"/></td>
+                            <td class="text" style="border: 1px solid #222 !important;"><span t-if="line.account_id.parent_id" t-out="line.account_id.display_name"/></td>
+                            <t t-set="amount" t-value="line.debit"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                            <t t-set="amount" t-value="line.credit"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                        </tr>
+                        <tr class="entry" t-foreach="range(6-len(page_lines))" t-as="blank">
+                            <td style="border: 1px solid #222 !important;"/><td style="border: 1px solid #222 !important;"/><td style="border: 1px solid #222 !important;"/><t t-foreach="range(24)" t-as="cell"><td style="border: 1px solid #222 !important;"/></t>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="border: 1px solid #222 !important;"><strong>本页小计</strong></td>
+                            <t t-set="amount" t-value="sum(page_lines.mapped('debit'))"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                            <t t-set="amount" t-value="sum(page_lines.mapped('credit'))"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                        </tr>
+                        <tr t-if="page_lines_last">
+                            <td colspan="3" style="border: 1px solid #222 !important;"><strong>凭证合计</strong>
+                                <div t-if="o.company_currency_id.name == 'CNY'">人民币大写：<span t-out="sum(o.line_ids.mapped('debit'))" t-options="{'widget':'qing_chinese_amount'}"/></div>
+                            </td>
+                            <t t-set="amount" t-value="sum(o.line_ids.mapped('debit'))"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                            <t t-set="amount" t-value="sum(o.line_ids.mapped('credit'))"/><t t-call="qing_account_cn.voucher_digit_cells"/>
+                        </tr>
+                        <tr><td colspan="27" style="height:8mm; border: 1px solid #222 !important;">结算方式及票号：________________________________　附原始凭证：______ 张</td></tr>
+                    </tbody>
+                </table>
+                <table class="signatures"><tr><td>会计主管：_______</td><td>记账：_______</td><td>稽核：_______</td><td>出纳：_______</td><td>制单：_______</td><td>领缴款人：_______</td></tr></table>
+                <p style="font-size:9px;margin-top:8px">科目按账套上下级关系列示；无上级科目时仅列总账栏。签字、结算资料及纸质附件张数由经办人填写。</p>
+            </div>
+        </t>
+    </template>
+</odoo>

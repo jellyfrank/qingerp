@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_message_form" model="ir.ui.view">
+        <field name="name">qing.whatsapp.message.form</field>
+        <field name="model">qing.whatsapp.message</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <header>
+                    <button invisible="state != 'failed' or provider_uid" name="action_retry" string="Retry failed message" type="object"/>
+                    <button invisible="state not in ['queued', 'retry_wait']" name="action_cancel" string="Cancel queued message" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="conversation_id"/>
+                        <field name="kind"/>
+                        <field name="direction"/>
+                        <field name="sender_id"/>
+                        <field name="provider_uid"/>
+                        <field name="request_key"/>
+                        <field name="purpose"/>
+                        <field name="template_id"/>
+                        <field name="attachment_id"/>
+                        <field name="error_code"/>
+                        <field name="next_attempt_at"/>
+                    </group>
+                    <field name="body"/>
+                    <field groups="qing_whatsapp.group_manager" name="attempt_ids">
+                        <list>
+                            <field name="started_at"/>
+                            <field name="finished_at"/>
+                            <field name="outcome"/>
+                            <field name="error_code"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

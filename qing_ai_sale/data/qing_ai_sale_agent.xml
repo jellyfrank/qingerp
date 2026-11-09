@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="tool_partner_search" model="qing.ai.tool">
+        <field name="name">Customers · Query Records</field>
+        <field name="key">orm_res_partner_search</field>
+        <field name="description">Query customers with runtime-readable fields, relation filters and a fixed customer scope.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="orm_operation">search</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_partner_read" model="qing.ai.tool">
+        <field name="name">Customers · Read Details</field>
+        <field name="key">orm_res_partner_read</field>
+        <field name="description">Read selected runtime-readable details for one customer.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="orm_operation">read</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_partner_count" model="qing.ai.tool">
+        <field name="name">Customers · Count Records</field>
+        <field name="key">orm_res_partner_count</field>
+        <field name="description">Count customers matching runtime-readable filters.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="orm_operation">count</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_partner_group" model="qing.ai.tool">
+        <field name="name">Customers · Grouped Statistics</field>
+        <field name="key">orm_res_partner_group</field>
+        <field name="description">Group and aggregate customers by runtime-readable stored fields.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="orm_operation">read_group</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_product_search" model="qing.ai.tool">
+        <field name="name">Products · Query Records</field>
+        <field name="key">orm_product_product_search</field>
+        <field name="description">Query sellable products with runtime-readable fields and filters.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="orm_operation">search</field>
+        <field name="orm_all_fields" eval="True"/>
+        <field name="orm_domain">[["sale_ok", "=", true]]</field>
+    </record>
+    <record id="tool_product_read" model="qing.ai.tool">
+        <field name="name">Products · Read Details</field>
+        <field name="key">orm_product_product_read</field>
+        <field name="description">Read selected runtime-readable details for one sellable product.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="orm_operation">read</field>
+        <field name="orm_all_fields" eval="True"/>
+        <field name="orm_domain">[["sale_ok", "=", true]]</field>
+    </record>
+    <record id="tool_product_count" model="qing.ai.tool">
+        <field name="name">Products · Count Records</field>
+        <field name="key">orm_product_product_count</field>
+        <field name="description">Count sellable products matching runtime-readable filters.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="orm_operation">count</field>
+        <field name="orm_all_fields" eval="True"/>
+        <field name="orm_domain">[["sale_ok", "=", true]]</field>
+    </record>
+    <record id="tool_product_group" model="qing.ai.tool">
+        <field name="name">Products · Grouped Statistics</field>
+        <field name="key">orm_product_product_group</field>
+        <field name="description">Group and aggregate sellable products by runtime-readable stored fields.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="orm_operation">read_group</field>
+        <field name="orm_all_fields" eval="True"/>
+        <field name="orm_domain">[["sale_ok", "=", true]]</field>
+    </record>
+    <record id="tool_sale_order_search" model="qing.ai.tool">
+        <field name="name">Sales Orders · Query Records</field>
+        <field name="key">orm_sale_order_search</field>
+        <field name="description">Query quotations and sales orders with runtime-readable fields and relation filters.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="orm_operation">search</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_sale_order_read" model="qing.ai.tool">
+        <field name="name">Sales Orders · Read Details</field>
+        <field name="key">orm_sale_order_read</field>
+        <field name="description">Read selected runtime-readable details for one quotation or sales order.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="orm_operation">read</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_sale_order_count" model="qing.ai.tool">
+        <field name="name">Sales Orders · Count Records</field>
+        <field name="key">orm_sale_order_count</field>
+        <field name="description">Count quotations and sales orders matching runtime-readable filters.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="orm_operation">count</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="tool_sale_order_group" model="qing.ai.tool">
+        <field name="name">Sales Orders · Grouped Statistics</field>
+        <field name="key">orm_sale_order_group</field>
+        <field name="description">Group and aggregate quotations and sales orders by runtime-readable stored fields.</field>
+        <field name="execution_type">orm</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="orm_operation">read_group</field>
+        <field name="orm_all_fields" eval="True"/>
+    </record>
+    <record id="agent_tool_create_customer" model="qing.ai.tool">
+        <field name="name">Create Customer</field>
+        <field name="key">create_customer</field>
+        <field name="description">Prepare a customer with a name and optional contact details. Creation requires confirmation and the current user's customer maintenance permissions.</field>
+    </record>
+    <record id="agent_tool_update_customer" model="qing.ai.tool">
+        <field name="name">Edit Customer</field>
+        <field name="key">update_customer</field>
+        <field name="description">Preview changes to one accessible customer's name, phone, email, address, website or notes. Confirmation applies only permitted fields under the current user's permissions.</field>
+    </record>
+    <record id="agent_tool_find_customers" model="qing.ai.tool">
+        <field name="name">Find Customers</field>
+        <field name="key">find_customers</field>
+        <field name="description">Legacy quick lookup limited to customer name, phone and email. Use the generic customer query, count or group tools for geography, relations and other fields.</field>
+    </record>
+    <record id="agent_tool_find_products" model="qing.ai.tool">
+        <field name="name">Find Products</field>
+        <field name="key">find_products</field>
+        <field name="description">Legacy quick lookup limited to product name or SKU. Use the generic product tools for other filters and statistics.</field>
+    </record>
+    <record id="agent_tool_find_quotes" model="qing.ai.tool">
+        <field name="name">Find Sales Orders</field>
+        <field name="key">find_quotes</field>
+        <field name="description">Legacy quick lookup limited to order number, customer or state. Use the generic sales order tools for other filters and statistics.</field>
+    </record>
+    <record id="agent_tool_find_activities" model="qing.ai.tool">
+        <field name="name">Find Follow-up Activities</field>
+        <field name="key">find_activities</field>
+        <field name="description">List accessible follow-up activities for one customer.</field>
+    </record>
+    <record id="agent_tool_create_followup" model="qing.ai.tool">
+        <field name="name">Create Follow-up Activity</field>
+        <field name="key">create_followup</field>
+        <field name="description">Prepare a customer follow-up activity assigned to the requesting employee. Create it only after confirmation.</field>
+    </record>
+    <record id="agent_tool_create_quote_draft" model="qing.ai.tool">
+        <field name="name">Create Sales Order Draft</field>
+        <field name="key">create_quote_draft</field>
+        <field name="description">Prepare a draft quotation from an accessible customer, products and quantities. Odoo computes prices and taxes after confirmation; the order remains a draft and is not sent to the customer.</field>
+    </record>
+    <record id="skill_customers" model="qing.ai.skill">
+        <field name="name">Customer Management</field>
+        <field name="description">Query customer lists and counts, create customers and edit permitted contact details.</field>
+        <field name="instructions">Use the customer actions for actual ERP data. An empty customer search lists and counts accessible customers. Resolve the customer before editing. Prepare a preview immediately when a write request has enough details, and wait for confirmation before applying it. Never claim a record was saved before the action succeeds.</field>
+        <field name="tool_ids" eval="[Command.link(ref('tool_partner_search')), Command.link(ref('tool_partner_read')), Command.link(ref('tool_partner_count')), Command.link(ref('tool_partner_group')), Command.link(ref('agent_tool_find_customers')), Command.link(ref('agent_tool_create_customer')), Command.link(ref('agent_tool_update_customer'))]"/>
+    </record>
+    <record id="skill_sales_orders" model="qing.ai.skill">
+        <field name="name">Sales Orders</field>
+        <field name="description">Query quotations and sales orders, find customers and products, and prepare sales order drafts.</field>
+        <field name="instructions">Use the sales actions for actual ERP data. An empty sales order search lists and counts accessible quotations and orders. Resolve customer and products before preparing a draft. Prepare a preview when the request has enough details. Creation requires confirmation and must leave the order in draft; never confirm or send an order.</field>
+        <field name="tool_ids" eval="[Command.link(ref('tool_partner_search')), Command.link(ref('tool_product_search')), Command.link(ref('tool_product_read')), Command.link(ref('tool_product_count')), Command.link(ref('tool_product_group')), Command.link(ref('tool_sale_order_search')), Command.link(ref('tool_sale_order_read')), Command.link(ref('tool_sale_order_count')), Command.link(ref('tool_sale_order_group')), Command.link(ref('agent_tool_find_customers')), Command.link(ref('agent_tool_find_products')), Command.link(ref('agent_tool_find_quotes')), Command.link(ref('agent_tool_create_quote_draft'))]"/>
+    </record>
+    <record id="skill_sales" model="qing.ai.skill">
+        <field name="name">Sales Assistant</field>
+        <field name="description">Customer queries, creation and editing, sales order drafts and follow-up workflows.</field>
+        <field name="instructions">Use only the permitted sales tools. Prepare a preview when the request has enough details, then wait for human confirmation before applying changes. Customer and sales order searches may omit search terms to list and count accessible records. Never claim a record was saved before the action succeeds.</field>
+        <field name="tool_ids" eval="[Command.link(ref('tool_partner_search')), Command.link(ref('tool_partner_read')), Command.link(ref('tool_partner_count')), Command.link(ref('tool_partner_group')), Command.link(ref('tool_product_search')), Command.link(ref('tool_product_read')), Command.link(ref('tool_product_count')), Command.link(ref('tool_product_group')), Command.link(ref('tool_sale_order_search')), Command.link(ref('tool_sale_order_read')), Command.link(ref('tool_sale_order_count')), Command.link(ref('tool_sale_order_group')), Command.link(ref('agent_tool_find_customers')), Command.link(ref('agent_tool_find_products')), Command.link(ref('agent_tool_find_quotes')), Command.link(ref('agent_tool_create_customer')), Command.link(ref('agent_tool_update_customer')), Command.link(ref('agent_tool_find_activities')), Command.link(ref('agent_tool_create_followup')), Command.link(ref('agent_tool_create_quote_draft'))]"/>
+    </record>
+    <record id="agent_sales" model="qing.ai.agent">
+        <field name="name">Sales Assistant</field>
+        <field name="description">Customer management, sales order queries and drafts, and follow-ups.</field>
+        <field name="is_default" eval="True"/>
+        <field name="sequence" eval="5"/>
+        <field name="system_prompt">You assist QingERP sales users. Only query and propose actions within their current Odoo permissions. Never claim that a draft was created before confirmation.</field>
+        <field name="skill_ids" eval="[Command.link(ref('skill_sales'))]"/>
+    </record>
+</odoo>

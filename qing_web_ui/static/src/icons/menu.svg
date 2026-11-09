@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg"><!-- Original Qing line icons, 24px grid. -->
+<symbol id="paper" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M4 4h11a2 2 0 0 1 2 2v8H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M17 8h3a2 2 0 0 1 2 2v9h-3v3l-4-3h-3 M6 8h7 M6 11h5"/></symbol>
+<symbol id="purchase" viewBox="0 0 24 24"><path d="M2 4h3l2.2 12h12l2-9H6 M8 20h.01 M18 20h.01"/></symbol>
+<symbol id="key" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0-8 0a4 4 0 1 0 8 0z M9 12h12v4h-3v-2h-3v2h-3v-4 M5 12h.01"/></symbol>
+<symbol id="spreadsheet" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M3 8h18 M3 14h18 M9 8v13 M15 8v13"/></symbol>
+<symbol id="workbook" viewBox="0 0 24 24"><path d="M6 3h15v17H6z M3 6v15h15 M6 8h15 M11 8v12 M6 14h15"/></symbol>
+<symbol id="repair" viewBox="0 0 24 24"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18a2 2 0 0 0 3 3l5.3-5.3a5 5 0 0 0 6.4-6.4l-3.1 3.1-3-3z"/></symbol>
+<symbol id="link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7 M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"/></symbol>
+<symbol id="flask" viewBox="0 0 24 24"><path d="M9 2h6 M10 2v7L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L14 9V2 M7 16h10"/></symbol>
+<symbol id="quote" viewBox="0 0 24 24"><path d="M5 3h14v18H5z M8 7h8 M8 11h3 M15 10v8 M17 11h-3v3h3v3h-3"/></symbol>
+<symbol id="order" viewBox="0 0 24 24"><path d="M7 3h10v3H7z M5 5H3v16h18V5h-2 M7 13l3 3 7-7"/></symbol>
+<symbol id="contact" viewBox="0 0 24 24"><path d="M3 5h18v15H3z M15 10h3 M15 14h3 M6 17v-1c0-4 6-4 6 0v1 M7 10a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/></symbol>
+<symbol id="person" viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0 M4 21v-3c0-7 16-7 16 0v3"/></symbol>
+<symbol id="box" viewBox="0 0 24 24"><path d="M3 7l9-5 9 5v10l-9 5-9-5z M3 7l9 5 9-5 M12 12v10 M7 5l10 5"/></symbol>
+<symbol id="sliders" viewBox="0 0 24 24"><path d="M3 6h6m4 0h8 M3 12h12m4 0h2 M3 18h3m4 0h11 M9 3v6 M15 9v6 M6 15v6"/></symbol>
+<symbol id="puzzle" viewBox="0 0 24 24"><path d="M3 3h6c-2 5 5 5 3 0h9v7c-5-2-5 5 0 3v8h-8c2-5-5-5-3 0H3v-8c5 2 5-5 0-3z"/></symbol>
+<symbol id="folders" viewBox="0 0 24 24"><path d="M9 3h12v6H9z M9 15h12v6H9z M3 3v15h6 M3 6h6"/></symbol>
+<symbol id="tags" viewBox="0 0 24 24"><path d="M3 3h8l10 10-8 8L3 11z M7 7h.01"/></symbol>
+<symbol id="ruler" viewBox="0 0 24 24"><path d="M3 7h18v10H3z M7 7v4 M11 7v6 M15 7v4 M19 7v6"/></symbol>
+<symbol id="chart" viewBox="0 0 24 24"><path d="M3 3v18h18 M6 16l5-5 4 2 6-8"/></symbol>
+<symbol id="card" viewBox="0 0 24 24"><path d="M3 5h18v14H3z M3 9h18 M6 15h4"/></symbol>
+<symbol id="template" viewBox="0 0 24 24"><path d="M8 3h13v15H8z M4 7H2v15h14v-2 M11 7h7 M11 11h7"/></symbol>
+<symbol id="layout" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M3 8h18 M3 16h18"/></symbol>
+<symbol id="calendar" viewBox="0 0 24 24"><path d="M3 5h18v16H3z M7 2v6 M17 2v6 M3 10h18 M7 14h2 M13 14h2 M7 18h2"/></symbol>
+<symbol id="activity" viewBox="0 0 24 24"><path d="M3 6h9 M3 12h6 M3 18h7 M14 11v5h4 M10 16a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></symbol>
+<symbol id="dashboard" viewBox="0 0 24 24"><path d="M3 3h7v7H3z M14 3h7v11h-7z M3 14h7v7H3z M14 18h7v3h-7z"/></symbol>
+<symbol id="receive" viewBox="0 0 24 24"><path d="M3 13v8h18v-8 M7 13l5 5 5-5 M12 3v15"/></symbol>
+<symbol id="deliver" viewBox="0 0 24 24"><path d="M3 7h11v11H3z M14 11h4l3 4v3h-7 M5 20a2 2 0 1 0 4 0a2 2 0 1 0-4 0 M16 20a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/></symbol>
+<symbol id="transfer" viewBox="0 0 24 24"><path d="M3 7h18l-4-4 M21 17H3l4 4"/></symbol>
+<symbol id="warehouse" viewBox="0 0 24 24"><path d="M3 21V8l9-6 9 6v13 M7 21V11h10v10 M7 15h10 M7 18h10"/></symbol>
+<symbol id="location" viewBox="0 0 24 24"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z M9 8a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/></symbol>
+<symbol id="barcode" viewBox="0 0 24 24"><path d="M3 7V3h4 M17 3h4v4 M21 17v4h-4 M7 21H3v-4 M7 7v10 M10 7v10 M14 7v10 M17 7v10"/></symbol>
+<symbol id="trash" viewBox="0 0 24 24"><path d="M3 6h18 M8 6V3h8v3 M5 6l1 15h12l1-15 M10 10v7 M14 10v7"/></symbol>
+<symbol id="inventory" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M6 8l2 2 3-4 M14 8h4 M6 16l2 2 3-4 M14 16h4"/></symbol>
+<symbol id="replenish" viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-5l3 3 M21 2v5h-5 M20 15a8 8 0 0 1-14 5l-3-3 M3 22v-5h5"/></symbol>
+<symbol id="route" viewBox="0 0 24 24"><path d="M5 5h10c8 0 8 14 0 14h-4 M5 2v6 M2 5h6 M11 16l-4 3 4 3"/></symbol>
+<symbol id="package" viewBox="0 0 24 24"><path d="M3 7h18v14H3z M2 3h20v4H2z M9 11h6"/></symbol>
+<symbol id="invoice" viewBox="0 0 24 24"><path d="M5 2l3 2 4-2 4 2 3-2v20l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h4"/></symbol>
+<symbol id="refund" viewBox="0 0 24 24"><path d="M6 3h14v18H6v-7 M3 9h11 M7 5L3 9l4 4"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path d="M3 3h7l2 2 2-2h7v17h-7l-2 2-2-2H3z M12 5v17"/></symbol>
+<symbol id="bank" viewBox="0 0 24 24"><path d="M3 21h18 M4 9h16 M2 9l10-6 10 6 M6 9v12 M10 9v12 M14 9v12 M18 9v12"/></symbol>
+<symbol id="bankStatement" viewBox="0 0 24 24"><path d="M5 3h11l4 4v14H5z M15 3v5h5 M8 12h4 M8 16h3 M15 13a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M15 13h3v-2"/></symbol>
+<symbol id="reconcile" viewBox="0 0 24 24"><path d="M4 6h13l-3-3 M17 6l-3 3 M20 18H7l3 3 M7 18l3-3 M10 12l2 2 4-4"/></symbol>
+<symbol id="snapshot" viewBox="0 0 24 24"><path d="M6 4h13v15 M3 7h13v14H3z M6 11h6 M6 14h4 M16 16a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M19 14v2l1 1"/></symbol>
+<symbol id="trialBalance" viewBox="0 0 24 24"><path d="M12 3v17 M7 6h10 M5 6v2 M19 6v2 M5 6l-3 7h6z M19 6l-3 7h6z M8 21h8 M10 18h4"/></symbol>
+<symbol id="balanceSheet" viewBox="0 0 24 24"><path d="M5 3h14v18H5z M12 8v9 M8 10h3 M13 10h3 M8 13h3 M13 13h3 M8 17h8"/></symbol>
+<symbol id="mapping" viewBox="0 0 24 24"><path d="M3 4h7v6H3z M14 14h7v6h-7z M10 7h4a3 3 0 0 1 3 3v4 M10 17H7a3 3 0 0 1-3-3v-4"/></symbol>
+<symbol id="profitStatement" viewBox="0 0 24 24"><path d="M3 3v18h18 M6 17h3v-5H6z M12 17h3V8h-3z M18 17h3V5h-3z"/></symbol>
+<symbol id="scan" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1v3 M17 3h3a1 1 0 0 1 1 1v3 M21 17v3a1 1 0 0 1-1 1h-3 M7 21H4a1 1 0 0 1-1-1v-3 M4 12h16 M8 9h8 M8 15h8"/></symbol>
+<symbol id="accrual" viewBox="0 0 24 24"><path d="M5 3h11l4 4v8 M15 3v5h5 M8 12h7 M8 16h5 M3 7v14h13 M17 19a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M20 17v2l1 1"/></symbol>
+<symbol id="percent" viewBox="0 0 24 24"><path d="M5 19L19 5 M3 6a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M15 18a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/></symbol>
+<symbol id="currency" viewBox="0 0 24 24"><path d="M12 2v20 M18 6H9a4 4 0 0 0 0 8h6a4 4 0 0 1 0 8H6"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0 M12 6v6l4 2"/></symbol>
+<symbol id="pipeline" viewBox="0 0 24 24"><path d="M3 3h18l-7 8v8l-4 3V11z"/></symbol>
+<symbol id="lead" viewBox="0 0 24 24"><path d="M3 10V3h7 M14 3h7v7 M21 14v7h-7 M10 21H3v-7 M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0"/></symbol>
+<symbol id="reason" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0 M8 8l8 8 M16 8l-8 8"/></symbol>
+<symbol id="project" viewBox="0 0 24 24"><path d="M3 5h7l2 3h9v13H3z M7 12h4v5H7z M15 12h2v5h-2z"/></symbol>
+<symbol id="tasks" viewBox="0 0 24 24"><path d="M3 5l2 2 3-4 M11 5h10 M3 12l2 2 3-4 M11 12h10 M3 19l2 2 3-4 M11 19h10"/></symbol>
+<symbol id="star" viewBox="0 0 24 24"><path d="M12 2l3 6 7 1-5 5 1 8-6-4-6 4 1-8-5-5 7-1z"/></symbol>
+<symbol id="factory" viewBox="0 0 24 24"><path d="M3 21V3h4v11l7-5v5l7-5v12z M7 18h1 M12 18h1 M17 18h1"/></symbol>
+<symbol id="bom" viewBox="0 0 24 24"><path d="M9 2h6v6H9z M12 8v5 M5 13h14 M5 13v3 M19 13v3 M2 16h6v6H2z M16 16h6v6h-6z"/></symbol>
+<symbol id="unbuild" viewBox="0 0 24 24"><path d="M3 7l9-5 9 5-9 5z M3 12l9 5 9-5 M3 17l9 5 9-5"/></symbol>
+<symbol id="organization" viewBox="0 0 24 24"><path d="M9 2h6v6H9z M12 8v5 M4 13h16 M4 13v3 M12 13v3 M20 13v3 M2 16h4v5H2z M10 16h4v5h-4z M18 16h4v5h-4z"/></symbol>
+<symbol id="briefcase" viewBox="0 0 24 24"><path d="M3 7h18v14H3z M8 7V3h8v4 M3 12h18 M10 11v4h4v-4"/></symbol>
+<symbol id="onboarding" viewBox="0 0 24 24"><path d="M3 3h10v18H3z M9 12h12 M17 8l4 4-4 4"/></symbol>
+<symbol id="leave" viewBox="0 0 24 24"><path d="M3 11a9 9 0 0 1 18 0H3 M12 3v16c0 4 6 4 6 0"/></symbol>
+<symbol id="allocation" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M12 7v10 M7 12h10"/></symbol>
+<symbol id="apps" viewBox="0 0 24 24"><path d="M3 3h6v6H3z M15 3h6v6h-6z M3 15h6v6H3z M15 15h6v6h-6z"/></symbol>
+<symbol id="language" viewBox="0 0 24 24"><path d="M3 4h12 M9 2v2 M5 4c0 6 6 10 10 11 M13 4c0 6-6 10-10 11 M14 22l4-11 4 11 M15 19h6"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-9 10-9 10S3 17 3 12V6z M8 12l3 3 5-6"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3z M3 5l9 8 9-8"/></symbol>
+<symbol id="automation" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 10-13h-8z"/></symbol>
+<symbol id="database" viewBox="0 0 24 24"><path d="M3 5c0-4 18-4 18 0v14c0 4-18 4-18 0z M3 5c0 4 18 4 18 0 M3 12c0 4 18 4 18 0"/></symbol>
+<symbol id="settings" viewBox="0 0 24 24"><path d="M9 3h6l1 4 4 1v7l-4 1-1 5H9l-1-5-5-1V8l5-1z M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/></symbol>
+<symbol id="team" viewBox="0 0 24 24"><path d="M7 7a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M2 21v-3c0-7 16-7 16 0v3 M17 4a3 3 0 0 1 0 6 M19 14c3 1 3 4 3 7"/></symbol>
+<symbol id="refresh" viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-5l3 3 M21 2v5h-5 M20 15a8 8 0 0 1-14 5l-3-3 M3 22v-5h5"/></symbol>
+<symbol id="vendor" viewBox="0 0 24 24"><path d="M3 21V8l9-6 9 6v13 M7 21V11h10v10 M7 15h10 M7 18h10 M10 18h4"/></symbol>
+<symbol id="personChart" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 1 0-8 0 M4 21v-3c0-7 16-7 16 0v3"/></g><g transform="translate(12 12) scale(.5)"><path d="M3 3v18h18 M6 16l5-5 4 2 6-8"/></g></symbol>
+<symbol id="boxChart" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M3 7l9-5 9 5v10l-9 5-9-5z M3 7l9 5 9-5 M12 12v10 M7 5l10 5"/></g><g transform="translate(12 12) scale(.5)"><path d="M3 3v18h18 M6 16l5-5 4 2 6-8"/></g></symbol>
+<symbol id="contactChart" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M3 5h18v15H3z M15 10h3 M15 14h3 M6 17v-1c0-4 6-4 6 0v1 M7 10a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/></g><g transform="translate(12 12) scale(.5)"><path d="M3 3v18h18 M6 16l5-5 4 2 6-8"/></g></symbol>
+<symbol id="teamSettings" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M7 7a3 3 0 1 0 6 0a3 3 0 1 0-6 0 M2 21v-3c0-7 16-7 16 0v3 M17 4a3 3 0 0 1 0 6 M19 14c3 1 3 4 3 7"/></g><g transform="translate(12 12) scale(.5)"><path d="M9 3h6l1 4 4 1v7l-4 1-1 5H9l-1-5-5-1V8l5-1z M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0"/></g></symbol>
+<symbol id="invoiceClock" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M5 2l3 2 4-2 4 2 3-2v20l-3-2-4 2-4-2-3 2z M8 8h8 M8 12h8 M8 16h4"/></g><g transform="translate(12 12) scale(.5)"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0 M12 6v6l4 2"/></g></symbol>
+<symbol id="upsell" viewBox="0 0 24 24"><g transform="scale(.72)"><path d="M3 7l9-5 9 5v10l-9 5-9-5z M3 7l9 5 9-5 M12 12v10 M7 5l10 5"/></g><g transform="translate(12 12) scale(.5)"><path d="M3 3h18v18H3z M12 7v10 M7 12h10"/></g></symbol>
+<symbol id="robot" viewBox="0 0 24 24"><path d="M5 7h14v13H5z M12 3v4 M10 3h4 M2 11v5 M22 11v5 M8 11h1 M15 11h1 M9 16h6"/></symbol>
+<symbol id="smartRobot" viewBox="0 0 24 24"><path d="M4 9h13v12H4z M10 5v4 M1 13v4 M7 13h1 M13 13h1 M8 17h5 M19 1l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/></symbol>
+<symbol id="message" viewBox="0 0 24 24"><path d="M3 3h18v14H9l-6 5z M7 8h10 M7 12h7"/></symbol>
+<symbol id="smartMessage" viewBox="0 0 24 24"><path d="M3 5h11 M21 12v5H9l-6 5V5 M7 10h6 M7 14h9 M19 1l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/></symbol>
+<symbol id="activityLog" viewBox="0 0 24 24"><path d="M5 3h12v7 M5 3v18h5 M8 7h6 M8 11h3 M12 17a5 5 0 1 0 10 0a5 5 0 1 0-10 0 M17 14v3l2 1"/></symbol>
+<symbol id="article" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M7 7h10 M7 11h4v5H7z M14 11h3 M14 15h3"/></symbol>
+<symbol id="media" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M3 17l6-7 4 5 3-3 5 5 M15 7h1"/></symbol>
+<symbol id="display" viewBox="0 0 24 24"><path d="M3 3h18v14H3z M8 21h8 M12 17v4 M6 13l4-4 3 2 5-6 M17 5h1"/></symbol>
+<symbol id="displayBoard" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M3 8h18 M8 8v13 M6 17l3-3 3 2 5-6"/></symbol>
+<symbol id="terminal" viewBox="0 0 24 24"><path d="M3 3h18v14H3z M8 21h8 M12 17v4 M10 8v5l5-2.5z"/></symbol>
+<symbol id="terminalGroup" viewBox="0 0 24 24"><path d="M8 3h8v6H8z M2 15h8v6H2z M14 15h8v6h-8z M12 9v3 M6 15v-3h12v3"/></symbol>
+<symbol id="workbench" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M3 8h18 M10 8v13 M5 12l1.5 1.5L8 11 M5 17h3 M13 18v-4 M16 18v-7 M19 18V10"/></symbol>
+<symbol id="stock3d" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7z M3 7l9 5 9-5 M12 12v10 M3 12l9 5 9-5"/></symbol>
+<symbol id="warehouse3dSettings" viewBox="0 0 24 24"><path d="m9 2 7 4v5 M2 6l7-4 M2 6l7 4 7-4 M2 6v8l7 4v-8 M13 14h9 M13 19h9 M16 12v4 M19 17v4"/></symbol>
+<symbol id="warehouseScene" viewBox="0 0 24 24"><path d="m12 3 6 3.5v7L12 17l-6-3.5v-7z M6 6.5l6 3.5 6-3.5 M12 10v7 M6 12l-4 2.5L12 21l10-6.5-4-2.5"/></symbol>
+<symbol id="warehouseLayout" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8z M2 12l10 5 10-5 M2 16l10 5 10-5"/></symbol>
+<symbol id="warehouseSceneImport" viewBox="0 0 24 24"><path d="M12 2v10 M8 8l4 4 4-4 M7 6l-4 3v9l9 4 9-4V9l-4-3 M3 9l4 2 M17 11l4-2 M3 14l9 4 9-4 M12 18v4"/></symbol>
+<symbol id="globe" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0 M3 12h18 M12 3c-5 5-5 13 0 18 M12 3c5 5 5 13 0 18"/></symbol>
+<symbol id="map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z M9 3v15 M15 6v15"/></symbol>
+<symbol id="city" viewBox="0 0 24 24"><path d="M2 21h20 M4 21V8h7v13 M11 21V3h9v18 M7 12h1 M7 16h1 M14 7h1 M17 7h1 M14 11h1 M17 11h1 M15 21v-5h2v5"/></symbol>
+<symbol id="countryGroup" viewBox="0 0 24 24"><path d="M7 8a5 5 0 1 0 10 0a5 5 0 1 0-10 0 M7 8h10 M12 3c-3 3-3 7 0 10 M12 3c3 3 3 7 0 10 M12 13v4 M5 17h14 M5 17v4 M19 17v4 M3 21h4 M17 21h4"/></symbol>
+</svg>

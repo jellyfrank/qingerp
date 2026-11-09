@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_unbilled_purchase_form" model="ir.ui.view">
+        <field name="name">qing.unbilled.purchase.form</field>
+        <field name="model">qing.unbilled.purchase</field>
+        <field name="arch" type="xml">
+            <form string="到货未到票核对">
+                <group>
+                    <field name="company_id"/>
+                    <field name="partner_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="order_ids" widget="many2many_tags" domain="[('company_id', '=', company_id), ('state', 'in', ['purchase', 'done'])]" options="{'no_create': True}"/>
+                    <field name="include_balanced"/>
+                </group>
+                <div class="alert alert-info" role="status">核对当前公司库存商品的当前净收货与已过账业务账单、贷项数量。草稿账单不计入到票。
+                    留空筛选项查询全部，供应商和采购单同时指定时取交集。负差额提示到票超过净收货或退货待贷项。
+                    本入口只读，不生成暂估分录；不代表历史截止日、税务发票或库存估值对账。请在收退货及账单处理完成后生成。</div>
+                <field name="result" nolabel="1" invisible="not result"/>
+                <group invisible="not result_file">
+                    <field name="result_file" filename="result_filename"/>
+                    <field name="result_filename" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_generate" type="object" string="生成核对" class="btn-primary"/>
+                    <button name="action_create_batch" type="object" string="生成暂估准备批次" class="btn-secondary"/>
+                    <button special="cancel" string="关闭" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_unbilled_purchase" model="ir.actions.act_window">
+        <field name="name">到货未到票核对</field>
+        <field name="res_model">qing.unbilled.purchase</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_unbilled_purchase" name="到货未到票核对" parent="account.menu_finance_entries"
+              action="action_unbilled_purchase" sequence="92" groups="account.group_account_manager"/>
+</odoo>

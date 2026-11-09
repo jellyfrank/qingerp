@@ -1,0 +1,63 @@
+<odoo>
+    <record id="sequence_accrual_batch" model="ir.sequence">
+        <field name="name">暂估准备批次</field>
+        <field name="code">qing.accrual.batch</field>
+        <field name="prefix">ZGB/</field>
+        <field name="padding">5</field>
+    </record>
+    <record id="view_accrual_batch_list" model="ir.ui.view">
+        <field name="name">qing.accrual.batch.list</field>
+        <field name="model">qing.accrual.batch</field>
+        <field name="arch" type="xml">
+            <list create="0"><field name="name"/><field name="company_id"/><field name="captured_at"/><field name="state"/><field name="reversal_date"/><field name="draft_move_id" optional="show"/><field name="reversal_move_id" optional="hide"/><field name="locked_by"/></list>
+        </field>
+    </record>
+    <record id="view_accrual_batch_form" model="ir.ui.view">
+        <field name="name">qing.accrual.batch.form</field>
+        <field name="model">qing.accrual.batch</field>
+        <field name="arch" type="xml">
+            <form create="0" duplicate="0">
+                <header>
+                    <button name="action_post" type="object" string="确认过账" class="btn-primary" invisible="state != 'prepared'"/>
+                    <button name="action_reverse" type="object" string="冲回暂估" invisible="state != 'posted'"/>
+                    <button name="action_lock" type="object" string="锁定来源" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_preview" type="object" string="暂估分录预览" invisible="state != 'locked'"/>
+                    <button name="action_check_sources" type="object" string="检查来源变化"/>
+                    <button name="action_cancel" type="object" string="取消并释放来源" invisible="state in ('cancel', 'posted', 'reversed')"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1><field name="name"/></h1>
+                    <div class="alert alert-info" role="status">此批次保留生成时的未到票快照；正常收货、退货和到票仍可继续。
+                        过账前来源变化或草稿跨日，请取消并重新生成。过账后通过本页冲回原暂估金额，再释放来源。
+                        冲回日期默认下月首日，到期后手动执行；当前不提供历史期末余额。凭证禁止直接修改。</div>
+                    <group><field name="company_id"/><field name="captured_at"/><field name="locked_by"/><field name="locked_at"/><field name="cancelled_by"/><field name="cancelled_at"/>
+                        <field name="draft_move_id"/><field name="posted_at"/><field name="posted_by"/><field name="reversal_date" readonly="state != 'posted'"/><field name="reversal_move_id"/><field name="reversed_at"/><field name="reversed_by"/><field name="notes" readonly="state != 'draft'"/></group>
+                    <field name="source_line_ids" widget="many2many_tags"/>
+                    <field name="snapshot_html" nolabel="1"/>
+                    <field name="snapshot_file" filename="snapshot_filename"/>
+                    <field name="snapshot_filename" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_accrual_batch_search" model="ir.ui.view">
+        <field name="name">qing.accrual.batch.search</field><field name="model">qing.accrual.batch</field>
+        <field name="arch" type="xml">
+            <search><field name="name"/><field name="company_id"/><field name="source_line_ids"/>
+                <filter name="due" string="到期未冲回" domain="[('state', '=', 'posted'), ('reversal_date', '&lt;=', context_today().strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter name="missing_date" string="缺少冲回日期" domain="[('state', '=', 'posted'), ('reversal_date', '=', False)]"/>
+                <separator/>
+                <filter name="pending" string="待处理批次" domain="[('state', 'in', ['draft', 'locked', 'prepared'])]"/>
+                <separator/>
+                <filter name="unreversed" string="已过账未冲回" domain="[('state', '=', 'posted')]"/>
+                <group><filter name="by_company" string="公司" context="{'group_by': 'company_id'}"/><filter name="by_state" string="状态" context="{'group_by': 'state'}"/></group>
+            </search>
+        </field>
+    </record>
+    <record id="action_accrual_batch" model="ir.actions.act_window">
+        <field name="name">暂估准备批次</field><field name="res_model">qing.accrual.batch</field><field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_accrual_batch" name="暂估准备批次" parent="account.menu_finance_entries" action="action_accrual_batch" sequence="93" groups="account.group_account_manager"/>
+</odoo>

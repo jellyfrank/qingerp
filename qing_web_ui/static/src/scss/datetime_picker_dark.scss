@@ -1,0 +1,86 @@
+// Date fields mount their picker in an overlay; calendar sidebars inline it.
+// Use the same runtime palette for both without changing native interactions.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o_popover:has(.o_datetime_picker, .o_time_picker) {
+        --popover-bg: var(--o-qing-surface);
+        --popover-border-color: var(--o-qing-border);
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+    }
+
+    .o_datetime_picker {
+        --DateTimePicker__day-week-cell-bg: var(--o-qing-surface-weak);
+        --qing-date-range-bg: color-mix(in srgb, var(--o-qing-accent) 20%, var(--o-qing-surface));
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+
+        .o_datetime_picker_header .btn {
+            --btn-color: var(--o-qing-text);
+            --btn-hover-color: var(--o-qing-text);
+            --btn-hover-bg: var(--o-qing-surface-weak);
+            --btn-active-color: var(--o-qing-text);
+            --btn-active-bg: var(--o-qing-surface-weak);
+            color: var(--o-qing-text);
+        }
+
+        .o_day_of_week_cell, .o_week_number_cell {
+            color: var(--o-qing-text-soft);
+        }
+
+        .o_selected,
+        .o_date_item_picker .o_datetime_button.o_selected:not(.o_select_start, .o_select_end) {
+            background: var(--qing-date-range-bg);
+            color: var(--o-qing-text);
+        }
+
+        // Keep the native circular endpoints and continuous range strip.
+        .o_select_start, .o_select_end {
+            --selected-day-color: var(--o-qing-accent);
+            background: var(--qing-date-range-bg) radial-gradient(circle, var(--selected-day-color) 0% var(--percent), transparent var(--percent) 100%);
+            color: var(--o-qing-on-accent);
+        }
+
+        .o_date_item_cell:hover, .o_date_item_cell:focus {
+            --DateTimePicker__date-cell-border-color-hover: var(--o-qing-link);
+        }
+
+        // A range has two time inputs; keep action labels intact on narrow phones.
+        > .d-flex:has(> .o_datetime_buttons) { flex-wrap: wrap; }
+        .o_datetime_buttons {
+            margin-left: auto;
+            .btn { white-space: nowrap; }
+        }
+
+        .o_today > div {
+            background-color: var(--o-qing-danger);
+            color: var(--o-qing-bg);
+        }
+    }
+
+    .o_time_picker_input {
+        background-color: var(--o-qing-surface-weak);
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+        &:focus { border-color: var(--o-qing-accent); }
+        &.o_invalid {
+            color: var(--o-qing-danger);
+            border-color: var(--o-qing-danger);
+            background-color: color-mix(in srgb, var(--o-qing-danger) 12%, var(--o-qing-surface));
+        }
+    }
+
+    .o_time_picker_dropdown {
+        --dropdown-bg: var(--o-qing-surface);
+        --dropdown-color: var(--o-qing-text);
+        --dropdown-border-color: var(--o-qing-border);
+        --dropdown-link-color: var(--o-qing-text);
+        --dropdown-link-hover-color: var(--o-qing-text);
+        --dropdown-link-hover-bg: var(--o-qing-surface-weak);
+        --dropdown-link-active-color: var(--o-qing-on-accent);
+        --dropdown-link-active-bg: var(--o-qing-accent);
+        background-color: var(--o-qing-surface);
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+    }
+}

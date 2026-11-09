@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_conversation_form" model="ir.ui.view">
+        <field name="name">qing.ai.conversation.form</field>
+        <field name="model">qing.ai.conversation</field>
+        <field name="arch" type="xml">
+            <form string="Daily Assistant">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="provider"/>
+                            <field name="context_model" invisible="not context_model" readonly="1"/>
+                            <field name="context_res_id" invisible="not context_model" readonly="1"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        Only text you submit and the shown record context are sent to your selected AI provider. AI answers may be inaccurate; review them before use.
+                    </div>
+                    <group string="Conversation">
+                        <field name="message_ids" nolabel="1" readonly="1">
+                            <list create="0" edit="0" delete="0">
+                                <field name="create_date"/>
+                                <field name="role"/>
+                                <field name="content"/>
+                                <field name="provider" optional="hide"/>
+                                <field name="model" optional="hide"/>
+                                <field name="state" optional="hide"/>
+                            </list>
+                        </field>
+                    </group>
+                    <group string="New Message">
+                        <field name="draft_task"/>
+                        <field name="target_language" invisible="draft_task != 'translate'"/>
+                        <field name="draft_prompt" placeholder="Ask a question or paste text to summarize or translate..." nolabel="1"/>
+                    </group>
+                    <div class="d-flex justify-content-end">
+                        <button name="action_send" type="object" string="Send" class="btn-primary"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

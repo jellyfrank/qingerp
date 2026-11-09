@@ -1,0 +1,93 @@
+// Native Apps view only: brand artwork remains unchanged.
+.o_qing_web_ui .o_modules_kanban {
+    .o_kanban_record {
+        flex: 1 1 260px !important;
+        width: 260px !important;
+    }
+    .o_kanban_record:not(.o_kanban_ghost) {
+        min-width: 0;
+        min-height: 108px;
+        padding: 10px !important;
+        gap: 10px;
+        align-items: flex-start;
+
+        > aside {
+            flex: 0 0 36px;
+            width: 36px;
+            padding-top: 2px;
+            img { width: 36px; height: 36px; object-fit: contain; }
+        }
+
+        > .o_record_main {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+            flex: 1 1 0;
+            min-width: 0;
+            margin: 0 12px 0 0 !important;
+        }
+
+        h2 {
+            min-height: 20px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            color: var(--o-qing-text);
+            overflow-wrap: anywhere;
+        }
+
+        .o_record_main > small {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 2px;
+            font-size: 12px;
+            line-height: 18px !important;
+            overflow-wrap: anywhere;
+            color: var(--o-qing-text) !important;
+            code { color: var(--o-qing-link); font-size: 12px; }
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 4px;
+            margin-top: auto;
+            padding-top: 8px;
+
+            > .btn {
+                float: none !important;
+                min-height: 24px;
+                padding: 1px 6px;
+                font-size: 12px;
+                line-height: 20px;
+            }
+            > .btn-primary { order: -2; }
+            > .btn-info { order: -1; }
+            > .o_qing_app_manage { order: -1; }
+        }
+    }
+}
+
+.o_qing_web_ui {
+    .o_search_panel, .o_search_panel_sidebar {
+        background-color: var(--o-qing-surface) !important;
+        color: var(--o-qing-text);
+    }
+    .o_search_panel_section_icon { color: var(--o-qing-link) !important; }
+    .o_search_panel_section .list-group-item {
+        background-color: transparent;
+        color: var(--o-qing-text);
+    }
+    .o_search_panel_category_value_header, .o_search_panel_filter_value {
+        border-radius: 6px;
+        &:hover { background-color: var(--o-qing-surface-weak); }
+        &.active {
+            background-color: var(--o-qing-accent-soft) !important;
+            color: var(--o-qing-link) !important;
+        }
+    }
+}

@@ -1,0 +1,278 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_sale_order_line__qing_purchase_qty
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__arranged_qty
+msgid "Arranged Purchase"
+msgstr "已安排采购"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__discount
+msgid "Discount (%)"
+msgstr "折扣（%）"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_purchase_order_line__qing_overage_reason
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__overage_reason
+msgid "Over-purchase Reason"
+msgstr "超量采购原因"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__price_unit
+msgid "Unit Price"
+msgstr "采购单价"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__quantity
+msgid "Purchase Quantity"
+msgstr "本次采购量"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_sale_order_line__qing_purchase_remaining_qty
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__remaining_qty
+msgid "Unarranged Purchase"
+msgstr "未安排采购"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__sale_qty
+msgid "Sales Quantity"
+msgstr "销售数量"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__sale_uom_id
+msgid "Sales Unit"
+msgstr "销售单位"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__selected
+msgid "Select"
+msgstr "选择"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__supplier_id
+msgid "Vendor"
+msgstr "供应商"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__uom_id
+msgid "Purchase Unit"
+msgstr "采购单位"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "Choose an active vendor for every selected line."
+msgstr "请为每条选中明细选择有效供应商。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "The vendor belongs to another company."
+msgstr "该供应商属于其他公司。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+#: code:addons/qing_sale_purchase/models/purchase_order_line.py:0
+msgid "Purchase quantity must be positive."
+msgstr "本次采购量必须大于零。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "Purchase price must be a finite, non-negative number."
+msgstr "采购价格必须是有效的非负数。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "Discount must be between 0 and 100."
+msgstr "折扣必须在 0 到 100 之间。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "Choose a purchase unit supported by this product."
+msgstr "请选择本产品支持的采购单位。"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__currency_id
+msgid "Purchase Currency"
+msgstr "采购币种"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,help:qing_sale_purchase.field_qing_sale_purchase_wizard__currency_id
+msgid "Leave empty to use each vendor currency, or the company currency."
+msgstr "留空时使用各供应商的采购币种，未设置则使用公司币种。"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__date_order
+msgid "Order Date"
+msgstr "采购日期"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__date_planned
+msgid "Expected Arrival"
+msgstr "预计到货日期"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__line_ids
+msgid "Purchase Lines"
+msgstr "采购明细"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__purchase_order_ids
+msgid "Created RFQs"
+msgstr "已创建询价单"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__supplier_id
+msgid "Default Vendor"
+msgstr "默认供应商"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__user_id
+msgid "Buyer"
+msgstr "采购员"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Purchase access is required to create RFQs."
+msgstr "创建询价单需要采购权限。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Select a confirmed sales order in an allowed company."
+msgstr "请选择有权访问公司中的已确认销售订单。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Select at least one sales line."
+msgstr "请至少选择一条销售明细。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Each source line must belong to this sales order and appear only once."
+msgstr "每条来源明细必须属于当前销售订单，且只能出现一次。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "The buyer must have access to the sales company."
+msgstr "采购员必须有权访问销售订单所属公司。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+#: model_terms:ir.ui.view,arch_db:qing_sale_purchase.view_sale_order_form
+#: model_terms:ir.ui.view,arch_db:qing_sale_purchase.view_purchase_wizard_form
+msgid "Create Purchase"
+msgstr "创建采购"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+msgid "There are no purchasable goods on this order."
+msgstr "本订单没有可采购的商品。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+msgid "Review sales purchase changes"
+msgstr "检查销售采购变更"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order.py:0
+msgid "The source sales order was cancelled or its quantity fell below the arranged purchase quantity. Review this purchase manually."
+msgstr "来源销售订单已取消，或销售数量少于已安排采购量，请人工检查本采购单。"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_purchase_order_line__qing_manual_purchase
+msgid "Manual Sales Purchase"
+msgstr "销售手工采购"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/purchase_order_line.py:0
+msgid "The manual purchase marker cannot be changed."
+msgstr "不能修改销售手工采购标记。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/purchase_order_line.py:0
+msgid "The purchase line must match its source sales product and company."
+msgstr "采购明细的产品和公司必须与来源销售明细一致。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/purchase_order_line.py:0
+msgid "The arranged quantity exceeds the sales quantity. A purchase manager must enter an over-purchase reason."
+msgstr "已安排数量超过销售数量，必须由采购经理填写超量采购原因。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/purchase_order_line.py:0
+msgid "Create a new purchase line instead of changing its source."
+msgstr "请新建采购明细，不要修改原明细的来源。"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_sale_order_line__qing_purchase_excess_qty
+msgid "Excess Purchase"
+msgstr "超额采购"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order_line.py:0
+msgid "Only positive, purchasable goods on confirmed sales orders can be purchased manually."
+msgstr "仅支持已确认销售订单上数量为正且允许采购的商品行。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order_line.py:0
+msgid "This sales line uses automatic procurement. Use its existing supply workflow: %s"
+msgstr "该销售行使用自动采购，请沿用已有供货流程：%s"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order_line.py:0
+msgid "An automatic supply chain already exists for %s."
+msgstr "%s 已存在自动供货链，请勿重复手工采购。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/models/sale_order_line.py:0
+msgid "Cancel the linked purchases before changing the product or unit."
+msgstr "更改产品或单位前，请先取消关联采购。"
+
+#. module: qing_sale_purchase
+#: model_terms:ir.ui.view,arch_db:qing_sale_purchase.view_purchase_wizard_form
+msgid "Create RFQs"
+msgstr "创建询价单"
+
+#. module: qing_sale_purchase
+#: model_terms:ir.ui.view,arch_db:qing_sale_purchase.view_purchase_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_sale_purchase
+#: model_terms:ir.ui.view,arch_db:qing_sale_purchase.view_purchase_wizard_form
+msgid "Unarranged quantities do not deduct available stock. Existing draft RFQs count as arranged.\n                    Automatic procurement lines must use their existing supply workflow."
+msgstr "未安排量不扣减现有库存，草稿询价单也计入已安排量。自动采购明细须沿用原供货流程。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Set the order date and expected arrival date."
+msgstr "请填写采购日期和预计到货日期。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard.py:0
+msgid "Choose an active buyer with purchase access."
+msgstr "请选择有效且具有采购权限的采购员。"
+
+#. module: qing_sale_purchase
+#: code:addons/qing_sale_purchase/wizard/purchase_wizard_line.py:0
+msgid "The purchase currency must be active."
+msgstr "采购币种必须处于启用状态。"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard__sale_order_id
+msgid "Sale Order"
+msgstr "销售订单"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__product_id
+msgid "Product"
+msgstr "产品"
+
+#. module: qing_sale_purchase
+#: model:ir.model.fields,field_description:qing_sale_purchase.field_qing_sale_purchase_wizard_line__currency_id
+msgid "Currency"
+msgstr "币种"

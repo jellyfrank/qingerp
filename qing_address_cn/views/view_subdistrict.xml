@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_subdistrict_list" model="ir.ui.view">
+        <field name="name">qing.address.cn.subdistrict.list</field>
+        <field name="model">qing.address.cn.subdistrict</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="district_id"/>
+                <field name="city_id"/>
+                <field name="state_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_subdistrict_form" model="ir.ui.view">
+        <field name="name">qing.address.cn.subdistrict.form</field>
+        <field name="model">qing.address.cn.subdistrict</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="district_id" options="{'no_create': True}"/>
+                        <field name="city_id"/>
+                        <field name="state_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_subdistrict_search" model="ir.ui.view">
+        <field name="name">qing.address.cn.subdistrict.search</field>
+        <field name="model">qing.address.cn.subdistrict</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="district_id"/>
+                <field name="city_id"/>
+                <field name="state_id"/>
+                <group>
+                    <filter name="group_district" string="District / County" context="{'group_by': 'district_id'}"/>
+                    <filter name="group_state" string="Province" context="{'group_by': 'state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_subdistrict" model="ir.actions.act_window">
+        <field name="name">China Subdistricts</field>
+        <field name="res_model">qing.address.cn.subdistrict</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

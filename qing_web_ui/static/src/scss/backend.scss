@@ -1,0 +1,1071 @@
+.o_qing_web_ui {
+    --o-qing-bg: #f5f7f8;
+    --o-qing-surface: #ffffff;
+    --o-qing-surface-weak: #f1f5f4;
+    --o-qing-border: #dfe6e4;
+    --o-qing-text: #1f2928;
+    --o-qing-text-soft: #74827f;
+    --o-qing-accent: #2f6aff;
+    --o-qing-accent-weak: #6c87ff;
+    --o-qing-success: #26ab7f;
+    --o-qing-warning: #e9b93f;
+    --o-qing-danger: #db4343;
+    --o-qing-focus: 0 0 0 2px rgba(47, 106, 255, 0.2);
+
+    --o-qing-page-padding: 16px;
+    --o-qing-card-radius: 10px;
+    --o-qing-control-radius: 8px;
+    --o-qing-nav-width: 264px;
+    --o-qing-topbar-height: 56px;
+    --o-qing-line: 1px solid var(--o-qing-border);
+
+    --o-qing-line-height-comfort: 44px;
+    --o-qing-line-height-compact: 36px;
+    /* Unitless text leading for kanban cards; the px values above are
+       list row heights and must not become the leading of every text line. */
+    --o-qing-text-leading-compact: 1.35;
+    --o-qing-text-leading-standard: 1.5;
+    --o-qing-text-leading-relaxed: 1.65;
+    --o-qing-row-spacing: 8px;
+}
+
+/* Navigation and launcher surfaces follow the Qing reference shell: quiet
+   controls, one accent color, and the same rhythm on desktop and mobile. */
+.o_qing_web_ui .o_main_navbar {
+    position: relative;
+    z-index: 1040;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: var(--o-qing-topbar-height);
+    padding: 0 20px;
+    background: var(--o-qing-surface) !important;
+    border-bottom: 1px solid var(--o-qing-border);
+    box-shadow: 0 1px 0 rgba(31, 41, 40, 0.02);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_navbar_apps_menu {
+    display: none !important;
+}
+
+.o_qing_web_ui .o_qing_launcher_trigger {
+    display: inline-grid !important;
+    flex: 0 0 32px;
+    width: 32px;
+    min-height: 32px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: var(--o-qing-accent);
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: none;
+}
+
+.o_qing_web_ui .o_qing_launcher_trigger:hover,
+.o_qing_web_ui .o_qing_launcher_trigger:focus-visible {
+    background: var(--o-qing-accent-weak);
+    color: #fff;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--o-qing-accent), transparent 78%);
+}
+
+.o_qing_web_ui .o_qing_launcher_trigger__logo {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Odoo's small-screen app toggle can render a separate empty brand-icon
+   slot before the current app name. The Q shell supplies the brand mark. */
+.o_qing_web_ui .o_main_navbar .o_menu_brand .o_menu_brand_icon {
+    display: none !important;
+}
+
+.o_qing_web_ui .o_qing_brand {
+    flex: 0 0 auto;
+    margin-right: 28px;
+    color: var(--o-qing-text);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_brand {
+    display: none !important;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_sections {
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_sections > .o_nav_entry,
+.o_qing_web_ui .o_main_navbar .o_menu_sections > button {
+    min-height: 34px;
+    margin: 0;
+    padding: 7px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--o-qing-text-soft) !important;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    text-decoration: none;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_sections > .o_nav_entry:hover,
+.o_qing_web_ui .o_main_navbar .o_menu_sections > .o_nav_entry:focus-visible,
+.o_qing_web_ui .o_main_navbar .o_menu_sections > button:hover,
+.o_qing_web_ui .o_main_navbar .o_menu_sections > button:focus-visible,
+.o_qing_web_ui .o_main_navbar .o_menu_sections > button[aria-expanded="true"] {
+    border-color: var(--o-qing-border);
+    background: var(--o-qing-surface-weak) !important;
+    background-color: var(--o-qing-surface-weak) !important;
+    color: var(--o-qing-text) !important;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_sections > .o_nav_entry[aria-current="page"] {
+    border-color: color-mix(in srgb, var(--o-qing-accent), transparent 78%);
+    background: color-mix(in srgb, var(--o-qing-accent), transparent 91%);
+    color: var(--o-qing-link) !important;
+    font-weight: 650;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_systray {
+    align-items: center;
+    gap: 2px;
+    margin-left: auto;
+    background: transparent !important;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_systray > button,
+.o_qing_web_ui .o_main_navbar .o_user_menu {
+    min-width: 34px;
+    min-height: 34px;
+    padding: 6px 8px !important;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--o-qing-text-soft) !important;
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_systray > button:hover,
+.o_qing_web_ui .o_main_navbar .o_menu_systray > button:focus-visible,
+.o_qing_web_ui .o_main_navbar .o_user_menu:hover,
+.o_qing_web_ui .o_main_navbar .o_user_menu:focus-visible {
+    border-color: var(--o-qing-border);
+    background: var(--o-qing-surface-weak);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_main_navbar .o_popover,
+.o_qing_web_ui .o_main_navbar .o-dropdown--menu,
+.o_qing_web_ui .o_popover.o-dropdown--menu {
+    min-width: 180px;
+    padding: 6px;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 10px;
+    background: var(--o-qing-surface);
+    box-shadow: 0 14px 34px rgba(31, 41, 40, 0.14);
+}
+
+.o_qing_web_ui .o_main_navbar .o-dropdown--menu .o-dropdown-item,
+.o_qing_web_ui .o_popover.o-dropdown--menu .o-dropdown-item {
+    min-height: 34px;
+    padding: 7px 10px !important;
+    border-radius: 7px;
+    color: var(--o-qing-text);
+    font-size: 13px;
+}
+
+.o_qing_web_ui .o_main_navbar .o-dropdown--menu .o-dropdown-item:hover,
+.o_qing_web_ui .o_main_navbar .o-dropdown--menu .o-dropdown-item:focus-visible,
+.o_qing_web_ui .o_popover.o-dropdown--menu .o-dropdown-item:hover,
+.o_qing_web_ui .o_popover.o-dropdown--menu .o-dropdown-item:focus-visible {
+    background: var(--o-qing-surface-weak);
+    color: var(--o-qing-link);
+}
+
+.o_qing_web_ui.o_qing_ui--dark {
+    --o-qing-bg: #121a23;
+    --o-qing-surface: #1d2835;
+    --o-qing-surface-weak: #273545;
+    --o-qing-border: #415369;
+    --o-qing-text: #edf3fa;
+    --o-qing-text-soft: #b7c5d6;
+    --o-qing-success: #39c69b;
+    --o-qing-warning: #f3c56e;
+    --o-qing-danger: #ff7b7b;
+    --o-qing-focus: 0 0 0 2px rgba(111, 149, 255, 0.22);
+}
+
+.o_qing_web_ui.o_qing_ui--text-small {
+    font-size: 13px;
+}
+
+.o_qing_web_ui.o_qing_ui--text-large {
+    font-size: 16px;
+}
+
+.o_qing_web_ui body,
+.o_qing_web_ui .o_web_client,
+.o_qing_web_ui .o_action_manager {
+    background: var(--o-qing-bg);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_main_navbar,
+.o_qing_web_ui .o_main_navbar .o_navbar,
+.o_qing_web_ui .o_web_client_navbar {
+    min-height: var(--o-qing-topbar-height);
+    background: var(--o-qing-surface);
+    border-bottom: var(--o-qing-line);
+}
+
+.o_qing_web_ui .o_menu_toggle {
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.o_qing_web_ui .o_qing_launcher_trigger {
+    width: 40px;
+    min-height: 40px;
+    margin-inline: 2px;
+    color: var(--o-qing-text-soft);
+    border-radius: var(--o-qing-control-radius);
+}
+
+.o_qing_web_ui .o_qing_launcher_trigger:hover,
+.o_qing_web_ui .o_qing_launcher_trigger:focus-visible {
+    color: var(--o-qing-link);
+    background: var(--o-qing-surface-weak);
+    box-shadow: var(--o-qing-focus);
+}
+
+.o_qing_web_ui .o_qing_launcher_backdrop {
+    position: fixed;
+    z-index: 1038;
+    inset: 0;
+    background: rgba(18, 24, 38, 0.28);
+}
+
+.o_qing_web_ui .o_qing_launcher {
+    position: fixed;
+    z-index: 1039;
+    top: calc(var(--o-qing-topbar-height) + 12px);
+    left: 50%;
+    width: 720px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - var(--o-qing-topbar-height) - 28px);
+    padding: 24px;
+    overflow: auto;
+    transform: translateX(-50%);
+    border: var(--o-qing-line);
+    border-radius: 14px;
+    background: var(--o-qing-surface);
+    box-shadow: 0 24px 64px rgba(18, 24, 38, 0.24);
+}
+
+.o_qing_web_ui .o_qing_launcher__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.o_qing_web_ui .o_qing_launcher__profile {
+    display: none;
+}
+
+.o_qing_web_ui .o_qing_launcher__eyebrow {
+    color: var(--o-qing-link);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.o_qing_web_ui .o_qing_launcher__title {
+    margin: 4px 0 0;
+    color: var(--o-qing-text);
+    font-size: 22px;
+}
+
+.o_qing_web_ui .o_qing_launcher__search {
+    margin-bottom: 20px;
+}
+
+.o_qing_web_ui .o_qing_launcher__search .input-group-text,
+.o_qing_web_ui .o_qing_launcher__search .form-control {
+    border-color: var(--o-qing-border);
+    background: var(--o-qing-surface-weak);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_qing_launcher__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.o_qing_web_ui .o_qing_launcher__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 11px;
+    text-align: start;
+    border: 1px solid transparent;
+    border-radius: var(--o-qing-control-radius);
+    background: transparent;
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_qing_launcher__item:hover,
+.o_qing_web_ui .o_qing_launcher__item:focus-visible {
+    border-color: var(--o-qing-border);
+    background: var(--o-qing-surface-weak);
+    box-shadow: var(--o-qing-focus);
+}
+
+.o_qing_web_ui .o_qing_launcher__icon {
+    display: grid;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--o-qing-accent);
+    color: var(--o-qing-on-accent, #fff);
+}
+
+.o_qing_web_ui .o_qing_launcher__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.o_qing_web_ui .o_qing_launcher__name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.o_qing_web_ui .o_qing_launcher__empty {
+    grid-column: 1 / -1;
+    margin: 12px 0 0;
+    text-align: center;
+}
+
+.o_qing_web_ui .o_menu_toggle:hover,
+.o_qing_web_ui .o_menu_toggle:focus {
+    background: color-mix(in srgb, var(--o-qing-surface), black 3%);
+    border-color: var(--o-qing-border);
+}
+
+.o_qing_web_ui .o_main_navbar .dropdown-item,
+.o_qing_web_ui .o_main_navbar .o_nav_entry {
+    border-radius: 6px;
+}
+
+.o_qing_web_ui .o_main_navbar .o_nav_entry.o_disabled_offline,
+.o_qing_web_ui .o_main_navbar .dropdown-item.o_disabled_offline {
+    opacity: 0.55;
+}
+
+.o_qing_web_ui .o_navbar .o_menu_toggle,
+.o_qing_web_ui .o_topbar,
+.o_qing_web_ui .o_breadcrumb,
+.o_qing_web_ui .o_cp_searchview,
+.o_qing_web_ui .o_control_panel {
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_app_menu_sidebar,
+.o_qing_web_ui .o_appmenu,
+.o_qing_web_ui .o_sidebar {
+    width: var(--o-qing-nav-width);
+}
+
+.o_qing_web_ui .o_app_menu_sidebar {
+    background: var(--o-qing-surface);
+    border-right: var(--o-qing-line);
+    box-shadow: 0 10px 36px rgba(18, 24, 38, 0.18);
+}
+
+.o_qing_web_ui .o_sidebar_topbar {
+    background: color-mix(in srgb, var(--o-qing-surface), #fff 2%);
+    border-bottom: var(--o-qing-line);
+    padding-inline: 10px;
+}
+
+.o_qing_web_ui .o_burger_menu_content {
+    background: var(--o-qing-surface);
+    padding-inline: 8px;
+}
+
+.o_qing_web_ui .o_burger_menu_content .o_app {
+    border-radius: var(--o-qing-control-radius);
+    margin: 0 8px;
+}
+
+.o_qing_web_ui .o_burger_menu_content .o_app:hover,
+.o_qing_web_ui .o_burger_menu_content .o_app.bg-primary-subtle {
+    background: var(--o-qing-surface-weak);
+}
+
+.o_qing_web_ui .o_control_panel {
+    padding: 0 16px;
+    min-height: var(--o-qing-topbar-height);
+}
+
+.o_qing_web_ui .o_cp_buttons > .btn,
+.o_qing_web_ui .o_cp_searchview .btn {
+    min-height: 34px;
+}
+
+.o_qing_web_ui .o_cp_top_left,
+.o_qing_web_ui .o_cp_top_right,
+.o_qing_web_ui .o_cp_bottom_left,
+.o_qing_web_ui .o_cp_bottom_right {
+    gap: 8px;
+}
+
+.o_qing_web_ui .o_list_renderer .o_data_row,
+.o_qing_web_ui .o_list_renderer .o_group_header,
+.o_qing_web_ui .o_list_view > .table > tbody > tr,
+.o_qing_web_ui .o_kanban_view .o_kanban_record,
+.o_qing_web_ui .o_data_cell {
+    border-color: var(--o-qing-border);
+}
+
+.o_qing_web_ui .o_list_renderer .o_data_row:hover {
+    background: var(--o-qing-surface-weak);
+}
+
+.o_qing_web_ui .o_list_renderer .o_list_record_selected,
+.o_qing_web_ui .o_list_renderer .o_data_row_selected,
+.o_qing_web_ui .o_selected {
+    background: rgba(47, 106, 255, 0.06);
+}
+
+.o_qing_web_ui .o_form_view {
+    border: var(--o-qing-line);
+    border-radius: var(--o-qing-card-radius);
+    box-shadow: 0 1px 0 rgba(18, 24, 38, 0.04);
+}
+
+// The desktop action form is a layout wrapper beneath the navbar, not a
+// second card. Its frame otherwise doubles the shared top/side dividers.
+// Keep dialog forms, sheet cards and the optional floating Glass shell intact.
+@media (min-width: 768px) {
+    .o_qing_web_ui:not(.o_qing_glass) .o_action_manager > .o_form_view {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+.o_qing_web_ui .o_form_sheet {
+    padding: 20px;
+}
+
+.o_qing_web_ui .o_form_sheet_bg > .o_form_sheet {
+    background: var(--o-qing-surface);
+    border: var(--o-qing-line);
+    border-radius: var(--o-qing-card-radius);
+}
+
+@media (min-width: 768px) {
+    .o_qing_web_ui .o_form_sheet .o_notebook:not(.vertical) {
+        // Keep tabs and inline tables within the sheet's content edges.
+        --Notebook-margin-x: 0px;
+        --Notebook-padding-x: 0px;
+    }
+}
+
+.o_qing_web_ui .o_form_view .o_notebook > .nav-link.active,
+.o_qing_web_ui .nav-tabs .nav-link.active {
+    color: var(--o-qing-text);
+    border-bottom: 2px solid var(--o-qing-accent);
+}
+
+.o_qing_web_ui .o_kanban_view .o_kanban_record {
+    border-radius: var(--o-qing-card-radius);
+    border: var(--o-qing-line);
+    background: var(--o-qing-surface);
+}
+
+.o_qing_web_ui .o_kanban_view .o_kanban_record > .oe_kanban_content {
+    padding: 14px;
+}
+
+.o_qing_web_ui .o_dialog,
+.o_qing_web_ui .o_modal {
+    border-radius: var(--o-qing-card-radius);
+}
+
+// Native notifications use their own surface variable outside the action view.
+// Keep the status bar/progress colors while following the current Qing theme.
+.o_qing_web_ui .o_notification_manager {
+    --Notification__background-color: var(--o-qing-surface);
+    --border-color: var(--o-qing-border);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_notification,
+.o_qing_web_ui .o_notification_manager .o_notification .o_notification_title {
+    border-radius: var(--o-qing-control-radius);
+}
+
+.o_qing_web_ui .o_search_panel {
+    background: var(--o-qing-surface);
+    border-radius: var(--o-qing-card-radius);
+    border: var(--o-qing-line);
+    padding: 8px;
+}
+
+.o_qing_web_ui .o_filter_box {
+    gap: 8px;
+}
+
+.o_qing_web_ui .o_notebook .tab-content,
+.o_qing_web_ui .o_notebook .nav,
+.o_qing_web_ui .o_notebook .tab-pane {
+    margin-top: var(--o-qing-row-spacing);
+}
+
+.o_qing_web_ui.o_qing_ui--compact .o_qing_root_spacing,
+.o_qing_web_ui.o_qing_ui--compact .o_form_sheet,
+.o_qing_web_ui.o_qing_ui--compact .o_field_widget,
+.o_qing_web_ui.o_qing_ui--compact .o_list_renderer,
+.o_qing_web_ui.o_qing_ui--compact .o_kanban_record {
+    --o-input-padding: 0.32rem 0.62rem;
+}
+
+.o_qing_web_ui.o_qing_ui--compact .o_list_renderer .o_list_row {
+    line-height: var(--o-qing-line-height-compact);
+}
+.o_qing_web_ui.o_qing_ui--compact .o_kanban_view .o_kanban_record {
+    line-height: var(--o-qing-text-leading-compact);
+}
+
+.o_qing_web_ui.o_qing_ui--standard .o_list_renderer .o_list_row {
+    line-height: var(--o-qing-line-height-comfort);
+}
+.o_qing_web_ui.o_qing_ui--standard .o_kanban_view .o_kanban_record {
+    line-height: var(--o-qing-text-leading-standard);
+}
+
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_loading,
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_cp_left,
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_kanban_renderer {
+    transition: none !important;
+}
+
+.o_qing_web_ui.o_qing_ui--sidebar-collapsed .o_appmenu,
+.o_qing_web_ui.o_qing_ui--sidebar-collapsed .o_sidebar {
+    width: 64px;
+}
+
+@media (max-width: 768px) {
+    // Native mobile chats are fullscreen portals outside the action manager.
+    // Keep their header and composer above the Qing navigation, below dialogs.
+    .o_qing_web_ui .o-mail-ChatWindow.o-mobile {
+        z-index: 1042 !important; // Override the native mobile !important layer.
+    }
+
+    .o_qing_web_ui .o_main_navbar {
+        min-height: 54px;
+    }
+    .o_qing_web_ui .o_form_view .o_form_sheet,
+    .o_qing_web_ui .o_form_view .o_form_sheet_bg,
+    .o_qing_web_ui .o_form_sheet {
+        padding: 12px;
+    }
+}
+
+/* Keep the brand launcher filled while it has keyboard focus; the native
+   btn-link focus rule must not turn it into a pale square. */
+.o_qing_web_ui .o_qing_launcher_trigger:hover,
+.o_qing_web_ui .o_qing_launcher_trigger:focus-visible,
+.o_qing_web_ui .o_qing_launcher_trigger[aria-expanded="true"] {
+    background: var(--o-qing-accent-weak) !important;
+    background-color: var(--o-qing-accent-weak) !important;
+    color: #fff !important;
+}
+
+.o_qing_web_ui .o_searchview .o_searchview_facet,
+.o_qing_web_ui .o_filter_panel,
+.o_qing_web_ui .o_search_panel,
+.o_qing_web_ui .o_search_panel_label,
+.o_qing_web_ui .o_facet_values {
+    border-color: var(--o-qing-border);
+}
+
+.o_qing_web_ui_settings_dialog {
+    .o_qing_web_ui_settings__stack {
+        display: grid;
+    }
+
+    .o_qing_web_ui_settings__accent_grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .o_qing_web_ui_settings__accent_option {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        padding: 3px;
+        cursor: pointer;
+        place-items: center;
+        border: 1px solid var(--o-qing-border);
+        border-radius: 50%;
+    }
+
+    .o_qing_web_ui_settings__accent_option:has(input:checked) {
+        border: 2px solid var(--o-qing-accent);
+        box-shadow: var(--o-qing-focus);
+    }
+
+    .o_qing_web_ui_settings__accent_swatch {
+        display: block;
+        width: 28px;
+        height: 28px;
+        pointer-events: none;
+        border-radius: 50%;
+    }
+}
+
+.o_qing_web_ui .o_searchview .o_searchview_input {
+    background: var(--o-qing-surface);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_kanban_view .o_kanban_quick_add {
+    color: var(--o-qing-link);
+}
+
+.o_qing_web_ui .o_kanban_view .o_kanban_record:focus-within,
+.o_qing_web_ui .o_list_view .o_list_record_selected {
+    outline: none;
+    box-shadow: var(--o-qing-focus);
+}
+
+.o_qing_web_ui.o_qing_ui--compact .o_form_sheet,
+.o_qing_web_ui.o_qing_ui--compact .o_kanban_view .o_kanban_record,
+.o_qing_web_ui.o_qing_ui--compact .o_list_renderer .o_list_record_selector {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.o_qing_web_ui.o_qing_ui--relaxed .o_form_sheet,
+.o_qing_web_ui.o_qing_ui--relaxed .o_list_renderer .o_list_row {
+    line-height: var(--o-qing-line-height-comfort);
+}
+.o_qing_web_ui.o_qing_ui--relaxed .o_kanban_view .o_kanban_record {
+    line-height: var(--o-qing-text-leading-relaxed);
+}
+
+.o_qing_web_ui .o_main_navbar .o_menu_toggle.btn,
+.o_qing_web_ui .o_main_navbar .o_menu_toggle i,
+.o_qing_web_ui .o_main_navbar .o_menu_toggle i::before {
+    transition: all 120ms ease-in-out;
+}
+
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_main_navbar .o_menu_toggle.btn,
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_main_navbar .o_menu_toggle i,
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_main_navbar .o_menu_toggle i::before,
+.o_qing_web_ui.o_qing_ui--reduced-motion .o_form_view * {
+    transition: none !important;
+}
+
+.o_qing_web_ui .o_qing_launcher_backdrop {
+    background: rgba(31, 41, 40, 0.18);
+    backdrop-filter: blur(2px);
+}
+
+.o_qing_web_ui .o_qing_launcher {
+    padding: 28px 32px 48px;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 14px;
+    background: var(--o-qing-surface);
+    box-shadow: 0 24px 64px rgba(31, 41, 40, 0.18);
+}
+
+.o_qing_web_ui .o_qing_launcher__header {
+    align-items: center;
+    max-width: 916px;
+    margin: 0 auto 18px;
+}
+
+.o_qing_web_ui .o_qing_launcher__eyebrow {
+    color: var(--o-qing-text-soft);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+}
+
+.o_qing_web_ui .o_qing_launcher__title {
+    margin-top: 5px;
+    font-size: 26px;
+    letter-spacing: -0.03em;
+}
+
+.o_qing_web_ui .o_qing_launcher__header .btn {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 8px;
+    background: var(--o-qing-surface);
+    color: var(--o-qing-text-soft);
+}
+
+.o_qing_web_ui .o_qing_launcher__header .btn:hover,
+.o_qing_web_ui .o_qing_launcher__header .btn:focus-visible {
+    border-color: var(--o-qing-accent);
+    color: var(--o-qing-link);
+}
+
+.o_qing_web_ui .o_qing_launcher__search {
+    max-width: 916px;
+    margin: 0 auto 24px;
+}
+
+.o_qing_web_ui .o_qing_launcher__search .input-group-text,
+.o_qing_web_ui .o_qing_launcher__search .form-control {
+    min-height: 44px;
+    border-color: var(--o-qing-border) !important;
+    background: var(--o-qing-surface-weak);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_qing_launcher__search .input-group-text {
+    padding-left: 14px;
+    color: var(--o-qing-text-soft);
+}
+
+.o_qing_web_ui .o_qing_launcher__section {
+    width: 100%;
+    max-width: 916px;
+    margin: 0 auto 24px;
+}
+
+.o_qing_web_ui .o_qing_launcher__section_header {
+    margin-bottom: 10px;
+    color: var(--o-qing-text-soft);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.o_qing_web_ui .o_qing_launcher__pinned_grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.o_qing_web_ui .o_qing_launcher__pinned_item,
+.o_qing_web_ui .o_qing_launcher__recent_item {
+    border: 1px solid var(--o-qing-border);
+    background: var(--o-qing-surface);
+    color: var(--o-qing-text);
+}
+
+.o_qing_web_ui .o_qing_launcher__pinned_item {
+    display: flex;
+    min-height: 92px;
+    padding: 12px 8px 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 9px;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.o_qing_web_ui .o_qing_launcher__pinned_item:hover,
+.o_qing_web_ui .o_qing_launcher__pinned_item:focus-visible,
+.o_qing_web_ui .o_qing_launcher__recent_item:hover,
+.o_qing_web_ui .o_qing_launcher__recent_item:focus-visible,
+.o_qing_web_ui .o_qing_launcher__item:hover,
+.o_qing_web_ui .o_qing_launcher__item:focus-visible {
+    border-color: color-mix(in srgb, var(--o-qing-accent), var(--o-qing-border) 50%);
+    background: color-mix(in srgb, var(--o-qing-accent), transparent 95%);
+    color: var(--o-qing-link);
+    box-shadow: 0 4px 12px rgba(31, 41, 40, 0.07);
+}
+
+.o_qing_web_ui .o_qing_launcher__recent_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.o_qing_web_ui .o_qing_launcher__recent_item {
+    display: inline-flex;
+    min-height: 42px;
+    padding: 7px 12px 7px 8px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.o_qing_web_ui .o_qing_launcher__recent_item > .oi-arrow-right {
+    margin-left: 4px;
+    color: var(--o-qing-text-soft);
+    font-size: 11px;
+}
+
+.o_qing_web_ui .o_qing_launcher__recent_icon {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 7px;
+    background: var(--o-qing-surface-weak);
+    color: var(--o-qing-link);
+}
+
+.o_qing_web_ui .o_qing_launcher__recent_icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
+.o_qing_web_ui .o_qing_launcher__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.o_qing_web_ui .o_qing_launcher__item {
+    min-height: 66px;
+    padding: 10px 12px;
+    border: 1px solid var(--o-qing-border);
+    border-radius: 9px;
+    background: var(--o-qing-surface);
+}
+
+.o_qing_web_ui .o_qing_launcher__copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+    text-align: start;
+}
+
+.o_qing_web_ui .o_qing_launcher__hint {
+    overflow: hidden;
+    color: var(--o-qing-text-soft);
+    font-size: 11px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (min-width: 769px) {
+    .o_qing_web_ui .o_qing_launcher_backdrop {
+        top: var(--o-qing-topbar-height);
+        background: rgba(31, 41, 40, 0.08);
+    }
+
+    .o_qing_web_ui .o_qing_launcher {
+        top: var(--o-qing-topbar-height);
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        max-width: none;
+        max-height: none;
+        height: calc(100vh - var(--o-qing-topbar-height));
+        padding-inline: 32px;
+        overflow: auto;
+        transform: none;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: var(--o-qing-bg);
+    }
+}
+
+@media (max-width: 768px) {
+    .o_qing_web_ui[data-qing-theme-bottom-tabs="true"] .o_action_manager {
+        padding-bottom: calc(62px + env(safe-area-inset-bottom));
+    }
+
+    .o_qing_web_ui .o_control_panel {
+        padding: 8px 12px;
+        min-height: auto;
+    }
+
+    .o_qing_web_ui .o_list_renderer {
+        padding: 0 12px 12px;
+    }
+
+    .o_qing_web_ui .o_list_renderer .o_data_row {
+        background: var(--o-qing-surface);
+        box-shadow: 0 1px 2px rgba(18, 24, 38, 0.05);
+    }
+
+    .o_qing_web_ui .o_list_renderer .o_data_row:hover,
+    .o_qing_web_ui .o_list_renderer .o_data_row_selected {
+        background: var(--o-qing-surface-weak);
+    }
+
+    .o_qing_web_ui .o_form_view {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .o_qing_web_ui .o_form_sheet,
+    .o_qing_web_ui .o_form_sheet_bg > .o_form_sheet {
+        margin: 8px 12px;
+        padding: 14px;
+        border: var(--o-qing-line);
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(18, 24, 38, 0.05);
+    }
+
+    .o_qing_web_ui .o_kanban_view {
+        padding: 8px 12px;
+    }
+
+    // Keep action toolbars full width without changing embedded kanban fields.
+    .o_qing_web_ui .o_kanban_view.o_view_controller {
+        padding: 0;
+    }
+
+    .o_qing_web_ui .o_kanban_view.o_view_controller > .o_content > .o_kanban_renderer {
+        padding: 8px 12px;
+    }
+
+    .o_qing_web_ui .o_kanban_view .o_kanban_record {
+        min-width: 0;
+    }
+
+    .o_qing_web_ui .o_qing_launcher {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        width: 324px;
+        max-width: calc(100vw - 48px);
+        max-height: none;
+        height: 100vh;
+        padding: 16px;
+        overflow: auto;
+        transform: none;
+        border-radius: 16px 0 0 16px;
+        box-shadow: -14px 0 34px rgba(31, 41, 40, 0.16);
+    }
+
+    .o_qing_web_ui .o_qing_launcher__header {
+        margin-bottom: 14px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__profile > img {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        object-fit: cover;
+        background: var(--o-qing-surface-weak);
+    }
+
+    .o_qing_web_ui .o_qing_launcher__profile > span {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__profile strong {
+        overflow: hidden;
+        color: var(--o-qing-text);
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__profile small {
+        overflow: hidden;
+        color: var(--o-qing-text-soft);
+        font-size: 11px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__eyebrow {
+        display: none;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__title {
+        font-size: 20px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__section {
+        margin-bottom: 20px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__pinned_grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__pinned_item {
+        min-height: 74px;
+        padding-inline: 4px;
+        font-size: 11px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__recent_list {
+        display: grid;
+        gap: 6px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__recent_item {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__grid {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .o_qing_web_ui .o_qing_launcher__item {
+        min-height: 58px;
+        padding: 8px 10px;
+    }
+}

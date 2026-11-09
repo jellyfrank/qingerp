@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Triggered right after a Discuss message; the hourly interval only recovers missed triggers. -->
+    <record id="ir_cron_qing_ai_discuss_reply" model="ir.cron">
+        <field name="name">Qing AI: Answer Discuss Messages</field>
+        <field name="model_id" ref="qing_ai.model_qing_ai_discuss_job"/>
+        <field name="state">code</field>
+        <field name="code">model._process_pending()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

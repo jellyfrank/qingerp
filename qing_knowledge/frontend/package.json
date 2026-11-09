@@ -1,0 +1,21 @@
+{
+  "name": "qing-knowledge-editor-assets",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild src/editor.js --bundle --format=iife --target=es2022 --supported:template-literal=false --outfile=../static/lib/markdown_editors.js --minify --legal-comments=external --loader:.ttf=dataurl --loader:.woff=dataurl --loader:.woff2=dataurl --loader:.svg=dataurl --loader:.png=dataurl",
+    "test": "esbuild tests/roundtrip.js --bundle --platform=node --format=cjs --outfile=node_modules/.cache/knowledge-roundtrip.cjs && node --test node_modules/.cache/knowledge-roundtrip.cjs"
+  },
+  "dependencies": {
+    "@codemirror/lang-markdown": "6.5.2",
+    "@milkdown/crepe": "7.22.2",
+    "@milkdown/kit": "7.22.2",
+    "codemirror": "6.0.2",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "unified": "11.0.5"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

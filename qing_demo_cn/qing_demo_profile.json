@@ -1,0 +1,12 @@
+{
+  "code": "cn_standard",
+  "name": "China Standard",
+  "name_zh": "中国标准演示 · 中文 / 中国 / 人民币",
+  "version": "1.0",
+  "language": "zh_CN",
+  "country_code": "CN",
+  "currency_code": "CNY",
+  "native_demo": true,
+  "root_module": "qing_demo_cn",
+  "sequence": 20
+}

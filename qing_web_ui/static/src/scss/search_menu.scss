@@ -1,0 +1,86 @@
+/* Native search menus share the shell palette, including their portalled overlay.
+   Keep the native check glyph, keyboard focus and accordion interactions. */
+.o_qing_web_ui .o_search_bar_menu.o-dropdown--menu {
+    --dropdown-color: var(--o-qing-text);
+    --dropdown-bg: var(--o-qing-surface);
+    --dropdown-border-color: var(--o-qing-border);
+    --dropdown-divider-bg: var(--o-qing-border);
+    --dropdown-link-color: var(--o-qing-text);
+    --dropdown-link-hover-color: var(--o-qing-text);
+    --dropdown-link-hover-bg: var(--o-qing-surface-weak);
+    --dropdown-link-active-color: var(--o-qing-link);
+    --dropdown-link-active-bg: var(--o-qing-accent-soft);
+    color-scheme: light;
+    color: var(--o-qing-text);
+    background-color: var(--o-qing-surface);
+    border-color: var(--o-qing-border);
+
+    .o_dropdown_container,
+    .o_accordion_values,
+    .dropdown-divider {
+        border-color: var(--o-qing-border) !important;
+    }
+
+    .o_dropdown_title {
+        color: var(--o-qing-text);
+        font-size: var(--o-qing-font-size);
+        font-weight: 600;
+    }
+
+    .o_dropdown_container > div > i {
+        color: var(--o-qing-link) !important;
+        font-size: var(--o-qing-font-size);
+    }
+
+    select.dropdown-item {
+        // Use the native arrow, which follows the menu color scheme.
+        appearance: auto;
+        background-image: none;
+    }
+
+    .dropdown-item {
+        position: relative;
+        min-height: 36px;
+        // Reserve a check gutter inside the row instead of outside its edge.
+        padding: 8px 12px 8px 32px !important;
+        border-radius: 6px;
+        color: var(--o-qing-text) !important;
+        font-size: var(--o-qing-font-size);
+
+        &:not(.disabled):not(:disabled) {
+            &:hover, &.focus {
+                background-color: var(--o-qing-surface-weak) !important;
+            }
+
+            &.selected, &.active {
+                color: var(--o-qing-link) !important;
+                background-color: var(--o-qing-accent-soft) !important;
+            }
+
+            &:focus-visible {
+                outline: 2px solid var(--o-qing-link);
+                outline-offset: -2px;
+            }
+        }
+
+        &.selected:not(.dropdown-item_active_noarrow)::before,
+        &.active:not(.dropdown-item_active_noarrow)::before {
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: var(--o-qing-link);
+        }
+
+        &.o_accordion_toggle {
+            padding-right: 32px !important;
+        }
+
+        &.disabled, &:disabled {
+            color: var(--o-qing-text-soft) !important;
+        }
+    }
+}
+
+.o_qing_web_ui.o_qing_ui--dark .o_search_bar_menu {
+    color-scheme: dark;
+}

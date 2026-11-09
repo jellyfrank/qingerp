@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__cancel
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__prepared
+msgid "Draft Entry Prepared"
+msgstr "已生成草稿"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__locked
+msgid "Locked"
+msgstr "已锁定"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__posted
+msgid "Posted"
+msgstr "已过账"
+
+#. module: qing_account_stock
+#: model:ir.model.fields.selection,name:qing_account_stock.selection__qing_accrual_batch__state__reversed
+msgid "Reversed"
+msgstr "已冲回"
+
+#. module: qing_account_stock
+#: model:ir.model.fields,field_description:qing_account_stock.field_qing_accrual_batch__state
+msgid "Status"
+msgstr "状态"

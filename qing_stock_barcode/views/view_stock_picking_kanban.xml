@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_stock_picking_kanban_scan" model="ir.ui.view">
+        <field name="name">stock.picking.kanban.scan</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.stock_picking_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="class" add="qing_scan_picking_kanban" separator=" "/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/div[1]" position="attributes">
+                <attribute name="class" add="qing_scan_picking_heading" separator=" "/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/div[1]/field[@name='name']" position="attributes">
+                <attribute name="class" add="qing_scan_picking_name" separator=" "/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/footer/div/field[@name='partner_id']" position="attributes">
+                <attribute name="class" add="qing_scan_picking_partner" separator=" "/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/footer" position="attributes">
+                <attribute name="class" add="qing_scan_picking_footer" separator=" "/>
+            </xpath>
+            <xpath expr="//t[@t-name='card']/footer" position="inside">
+                <button name="action_qing_scan" type="object" class="btn d-md-none qing_scan_kanban_button"
+                        title="Scan or view transfer" groups="qing_stock_barcode.group_scan_user"
+                        invisible="state in ('draft', 'cancel')">
+                    <svg t-if="record.state.raw_value !== 'done'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M7 7v10m3-10v10m4-10v10m3-10v10"/>
+                    </svg>
+                    <svg t-else="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                    <span class="visually-hidden" t-if="record.state.raw_value === 'done'">View</span>
+                    <span class="visually-hidden" t-else="">Scan</span>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

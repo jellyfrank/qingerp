@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_list_payment_status" model="ir.ui.view">
+        <field name="name">qing.sale.order.list.payment.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status" position="after">
+                <field name="qing_payment_status" widget="badge" optional="hide"
+                       decoration-success="qing_payment_status == 'paid'"
+                       decoration-warning="qing_payment_status in ('partial', 'in_payment', 'partial_refund', 'review')"
+                       decoration-danger="qing_payment_status == 'refunded'"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_sale_order_dashboard_payment_status" model="ir.ui.view">
+        <field name="name">qing.sale.order.dashboard.payment.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_list_with_dashboard"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status" position="after">
+                <field name="qing_payment_status" widget="badge" optional="hide"
+                       decoration-success="qing_payment_status == 'paid'"
+                       decoration-warning="qing_payment_status in ('partial', 'in_payment', 'partial_refund', 'review')"
+                       decoration-danger="qing_payment_status == 'refunded'"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_sale_order_search_payment_status" model="ir.ui.view">
+        <field name="name">qing.sale.order.search.payment.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter name="qing_unpaid" string="Unpaid" domain="[('qing_payment_status', '=', 'not_paid')]"/>
+                <filter name="qing_partially_paid" string="Partially Paid" domain="[('qing_payment_status', '=', 'partial')]"/>
+                <filter name="qing_paid" string="Paid" domain="[('qing_payment_status', '=', 'paid')]"/>
+                <filter name="qing_payment_review" string="To Review" domain="[('qing_payment_status', '=', 'review')]"/>
+                <group>
+                    <filter name="qing_payment_status_group" string="Payment Status" context="{'group_by': 'qing_payment_status'}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_sale_order_form_payment_status" model="ir.ui.view">
+        <field name="name">qing.sale.order.form.payment.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//group[@name='sales_person']" position="inside">
+                <field name="qing_payment_status" widget="badge" readonly="1"/>
+                <field name="qing_received_amount" readonly="1"/>
+                <field name="qing_refunded_amount" readonly="1"/>
+            </xpath>
+            <xpath expr="//button[@id='send_proforma_primary']" position="attributes">
+                <attribute name="string">Send PRO FORMA Invoice</attribute>
+            </xpath>
+            <xpath expr="//button[@id='send_proforma']" position="attributes">
+                <attribute name="string">Send PRO FORMA Invoice</attribute>
+            </xpath>
+            <xpath expr="//list[@name='sol_list']/control/create[@name='add_product_control']" position="attributes">
+                <attribute name="string">Add Line</attribute>
+            </xpath>
+            <xpath expr="//list[@name='sol_list']/control/create[@name='add_section_control']" position="attributes">
+                <attribute name="string">Add Section</attribute>
+            </xpath>
+            <xpath expr="//list[@name='sol_list']/control/create[@name='add_note_control']" position="attributes">
+                <attribute name="string">Add Note</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/kanban/control/create[@name='add_product_control']" position="attributes">
+                <attribute name="string">Line</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/kanban/control/create[@name='add_section_control']" position="attributes">
+                <attribute name="string">Section</attribute>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/kanban/control/create[@name='add_note_control']" position="attributes">
+                <attribute name="string">Note</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+// Mobile view choices are portaled into a bottom sheet outside the control panel.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o_control_panel .o_cp_switch_buttons .btn {
+        --btn-active-bg: var(--o-qing-accent-soft);
+        --btn-active-color: var(--o-qing-link);
+        --btn-active-border-color: var(--o-qing-border);
+        &.show {
+            color: var(--o-qing-link);
+            background-color: var(--o-qing-accent-soft);
+            border-color: var(--o-qing-border);
+        }
+    }
+
+    .o_bottom_sheet .o_cp_switch_buttons .o-dropdown-item {
+        --btn-bg: var(--o-qing-surface-weak);
+        --btn-color: var(--o-qing-text);
+        --btn-border-color: var(--o-qing-border);
+        --btn-hover-bg: var(--o-qing-accent-soft);
+        --btn-hover-color: var(--o-qing-link);
+        --btn-hover-border-color: var(--o-qing-link);
+        --btn-active-bg: var(--o-qing-accent-soft);
+        --btn-active-color: var(--o-qing-link);
+        --btn-active-border-color: var(--o-qing-link);
+        --btn-active-shadow: none;
+        color: var(--btn-color);
+        border-radius: 8px;
+
+        &:hover, &.focus, &:focus-visible {
+            color: var(--btn-hover-color) !important;
+            background-color: var(--btn-hover-bg) !important;
+            border-color: var(--btn-hover-border-color);
+        }
+        &.selected {
+            color: var(--btn-active-color) !important;
+            background-color: var(--btn-active-bg) !important;
+            border-color: var(--btn-active-border-color);
+        }
+    }
+}

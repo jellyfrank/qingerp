@@ -1,0 +1,21 @@
+<odoo>
+ <record id="view_sms_composer_form" model="ir.ui.view"><field name="name">sms.composer.domestic.form</field>
+ <field name="model">sms.composer</field><field name="inherit_id" ref="sms.sms_composer_view_form"/>
+ <field name="arch" type="xml">
+  <xpath expr="//sheet/group" position="after">
+   <group groups="qing_sms.group_sms_user"><field name="domestic_binding_id" domain="[('template_id','=',template_id)]"/>
+    <field name="domestic_value_ids" invisible="not domestic_binding_id"><list editable="bottom" create="0" delete="0">
+     <field name="key" column_invisible="True" force_save="1"/><field name="name" force_save="1"/><field name="value"/></list></field></group>
+   <div class="alert alert-info" role="alert" invisible="not domestic_binding_id">国内短信使用云端审核正文和下列参数，提交后由后台发送；受理与送达结果请查看国内短信发送记录。</div>
+  </xpath>
+  <xpath expr="//field[@name='body']" position="attributes"><attribute name="invisible" add="domestic_binding_id" separator=" or "/></xpath>
+  <xpath expr="//widget[@name='sms_char_counter']" position="attributes"><attribute name="invisible">domestic_binding_id</attribute></xpath>
+ </field></record>
+ <record id="view_sms_template_domestic_form" model="ir.ui.view"><field name="name">sms.template.domestic.form</field>
+ <field name="model">sms.template</field><field name="inherit_id" ref="sms.sms_template_view_form"/>
+ <field name="arch" type="xml"><xpath expr="//sheet" position="inside">
+  <group string="国内短信" groups="qing_sms.group_sms_user"><field name="domestic_binding_ids" readonly="1">
+   <list><field name="name" force_save="1"/><field name="company_id"/><field name="account_id"/><field name="needs_review"/></list>
+  </field></group>
+ </xpath></field></record>
+</odoo>

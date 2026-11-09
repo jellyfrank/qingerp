@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_stock.StockMoveProductLink">
+        <a t-if="this.props.record.data.state === 'done' and this.product"
+           class="o_form_uri text-truncate d-inline-block w-100 align-bottom"
+           t-att-href="this.productUrl" t-on-click="this.openProduct" t-esc="this.product.display_name"/>
+        <Many2One t-else="" t-props="this.m2oProps"/>
+    </t>
+</templates>

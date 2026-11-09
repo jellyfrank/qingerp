@@ -1,0 +1,15 @@
+{
+    'name': 'Qing OCR',
+    'description': 'Extract PDF text and recognize text in images locally on the server. Local recognition components are required.',
+    'summary': 'Shared local PDF text extraction and image recognition',
+    'version': '20.0.1.4',
+    'category': 'Hidden',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_base'],
+    'external_dependencies': {'python': ['PIL']},
+    'application': False,
+    'installable': True,
+}

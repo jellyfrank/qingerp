@@ -1,0 +1,580 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_web_ui
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
+msgid "My Preferences"
+msgstr "个人偏好"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Theme"
+msgstr "主题设置"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Theme Settings"
+msgstr "主题设置"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Default menu group state"
+msgstr "菜单分组默认状态"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "All collapsed"
+msgstr "全部收起"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Start with every menu section collapsed."
+msgstr "打开应用时默认收起所有菜单分组。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "All expanded"
+msgstr "全部展开"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Start with every menu section expanded."
+msgstr "打开应用时默认展开所有菜单分组。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_help_support.js:0
+msgid "Help & Support"
+msgstr "帮助与支持"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_debug_shortcut.xml:0
+msgid "Activate developer mode"
+msgstr "激活开发者模式"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Bottom"
+msgstr "底部"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Chatter Position"
+msgstr "沟通栏位置"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Automatic places the chatter on the right on wide screens (1534px and up) and below the form otherwise. Right keeps it beside the form from 1200px; smaller screens always use the bottom. Attachment previews keep the native layout."
+msgstr "“自动”在宽屏（1534px 及以上）将沟通栏放在右侧，其他情况放在表单下方。“右侧”从 1200px 起保持在表单旁边，更小的屏幕始终放在底部。附件预览保持原生布局。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Right"
+msgstr "右侧"
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Uninstall"
+msgstr "卸载"
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Upgrade"
+msgstr "升级"
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Upgrade this module?"
+msgstr "确认升级此模块？"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "More"
+msgstr "更多"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Applications"
+msgstr "应用"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_debug_shortcut.xml:0
+msgid "Developer mode active — open developer tools"
+msgstr "开发者模式已激活 — 打开开发者工具"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Expand sidebar"
+msgstr "展开侧栏"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Collapse sidebar"
+msgstr "收起侧栏"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "List action alignment"
+msgstr "列表操作按钮位置"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Align left"
+msgstr "靠左"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Align right"
+msgstr "靠右"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Position New and Export in desktop collection views. Mobile keeps the compact layout."
+msgstr "设置桌面列表等视图中新建、导出按钮的位置。移动端保留紧凑布局。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Drag apps to reorder. Alt+Shift+Arrow also moves an app."
+msgstr "拖动应用调整顺序，也可按 Alt+Shift+左右方向键移动。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Reset menu order"
+msgstr "恢复默认菜单顺序"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Could not save menu order. Please try again."
+msgstr "菜单顺序保存失败，请重试。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Technical Support: Qingdao Ohm Network Technology"
+msgstr "技术支持：青岛欧姆网络科技"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_autocomplete.js:0
+msgid "Search more..."
+msgstr "搜索更多…"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search applications"
+msgstr "搜索应用"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Switch application"
+msgstr "切换应用"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "No applications match your search."
+msgstr "没有匹配的应用。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Save your theme preferences to your account and use them in other browsers."
+msgstr "将主题偏好保存到当前账号，在其他浏览器登录时也会生效。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Could not save theme preferences. Please try again."
+msgstr "主题偏好保存失败，请重试。"
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Invalid theme preferences."
+msgstr "主题偏好无效。"
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Only internal users can customize the theme."
+msgstr "只有内部用户可以自定义主题。"
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Qing theme preferences"
+msgstr "青主题偏好"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Light"
+msgstr "浅色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Dark"
+msgstr "深色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Theme: %s"
+msgstr "主题：%s"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Follow system"
+msgstr "跟随系统"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Automatic"
+msgstr "自动"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Menu tree"
+msgstr "菜单树"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Indented groups that open and close in place."
+msgstr "按层级缩进，分组可就地展开和收起。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Grouped cards"
+msgstr "分组卡片"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Each menu group sits on its own card; nested groups are not indented."
+msgstr "每个菜单分组独占一张卡片，多级分组不再逐级缩进。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Icon rail"
+msgstr "图标导航栏"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid ""
+"Choose a group from the icon rail and browse or search its menus beside it."
+msgstr "在左侧图标栏选择分组，在旁边浏览或搜索该分组的菜单。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Sidebar style"
+msgstr "侧栏样式"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "A collapsed sidebar always shows icons only."
+msgstr "侧栏收起时，各样式都只显示图标。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Menu groups"
+msgstr "菜单分组"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search this app's menus"
+msgstr "搜索本应用菜单"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "No matching menus"
+msgstr "没有匹配的菜单"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Standard"
+msgstr "标准"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Balanced spacing for everyday use."
+msgstr "适合日常使用的均衡间距。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Compact"
+msgstr "紧凑"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Tighter rows and smaller paddings."
+msgstr "缩小行间距和内边距。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Relaxed"
+msgstr "宽松"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "More spacing and larger touch targets."
+msgstr "增大间距和点击区域。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Expanded"
+msgstr "展开"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Show full app menu labels."
+msgstr "显示完整的应用菜单名称。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Collapsed"
+msgstr "收起"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Keep only app icons in the left rail."
+msgstr "左侧导航栏仅显示应用图标。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Light"
+msgstr "浅色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Dark"
+msgstr "深色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Teal"
+msgstr "青绿色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Blue"
+msgstr "蓝色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Purple"
+msgstr "紫色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Amber"
+msgstr "琥珀色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Green"
+msgstr "绿色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Small"
+msgstr "小"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Medium"
+msgstr "中等"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Large"
+msgstr "大"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Density"
+msgstr "显示密度"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Navigation"
+msgstr "导航"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Reduce motion"
+msgstr "减少动态效果"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Disable non-essential transition animations."
+msgstr "关闭非必要的过渡动画。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Theme"
+msgstr "主题"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Accent color"
+msgstr "强调色"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Text size"
+msgstr "文字大小"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Navigation behavior"
+msgstr "导航行为"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Open launcher on launch"
+msgstr "启动时打开应用列表"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Show the application drawer when the backend starts."
+msgstr "进入后台时显示应用列表。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Swipe actions"
+msgstr "滑动操作"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Enable horizontal gestures on supported list rows."
+msgstr "在支持的列表行上启用横向滑动手势。"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Apply"
+msgstr "应用"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Restore defaults"
+msgstr "恢复默认设置"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search menus and commands"
+msgstr "搜索菜单和命令"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search menus and commands…"
+msgstr "搜索菜单和命令…"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
+msgid "records"
+msgstr "条记录"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
+msgid "groups"
+msgstr "个分组"
+
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_res_city
+msgid "Cities"
+msgstr "城市"

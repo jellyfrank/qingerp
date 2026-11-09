@@ -1,0 +1,10 @@
+<odoo>
+  <record id="view_conversation_form" model="ir.ui.view">
+    <field name="name">qing.whatsapp.conversation.form.sale</field><field name="model">qing.whatsapp.conversation</field>
+    <field name="inherit_id" ref="qing_whatsapp.view_qing_whatsapp_conversation_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside"><button name="action_new_quotation" type="object" string="New quotation" groups="sales_team.group_sale_salesman"/></xpath>
+      <xpath expr="//notebook" position="inside"><page string="Quotations" groups="sales_team.group_sale_salesman"><field name="sale_order_ids" readonly="1"><list><field name="name"/><field name="partner_id"/><field name="amount_total"/><field name="state"/></list></field></page></xpath>
+    </field>
+  </record>
+</odoo>

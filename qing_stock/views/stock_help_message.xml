@@ -1,0 +1,18 @@
+<odoo>
+    <record id="action_open_barcode" model="ir.actions.server">
+        <field name="name">QingERP Warehouse Scanning</field>
+        <field name="model_id" ref="stock.model_stock_picking_type"/>
+        <field name="group_ids" eval="[Command.link(ref('stock.group_stock_user'))]"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_redirect_to_barcode_installation()</field>
+    </record>
+    <template id="help_message_template" inherit_id="stock.help_message_template">
+        <xpath expr="//p[@name='footer_help_message']" position="replace">
+            <p name="footer_help_message" class="text-muted" groups="stock.group_stock_user">
+                <br/>
+                <a class="btn-link" name="qing_stock.action_open_barcode" type="action" groups="base.group_system">Install QingERP Warehouse Scanning</a>
+                <span groups="!base.group_system">Contact your administrator to install QingERP Warehouse Scanning.</span>
+            </p>
+        </xpath>
+    </template>
+</odoo>

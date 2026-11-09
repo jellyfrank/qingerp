@@ -1,0 +1,125 @@
+// Shared MessagingMenu is used by both Discuss and the portaled systray.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o-mail-MessagingMenuInDropdown {
+        --mail-MessagingMenu-bg: var(--o-qing-surface);
+        --mail-MessagingMenu-tabContentBorderColor: var(--o-qing-border);
+        background-color: var(--o-qing-surface);
+    }
+
+    .o-mail-MessagingMenu-navbar,
+    .o-mail-MessagingMenu {
+        background-color: var(--o-qing-surface);
+        border-color: var(--o-qing-border) !important;
+        color: var(--o-qing-text);
+    }
+
+    .o-mail-MessagingMenu-tab {
+        color: var(--o-qing-text-soft);
+
+        &:hover .o-mail-MessagingMenu-tabIcon,
+        &.active .o-mail-MessagingMenu-tabIcon {
+            background: var(--o-qing-surface-weak);
+            color: var(--o-qing-link);
+            outline-color: var(--o-qing-border);
+        }
+
+        &:focus-visible { outline-color: var(--o-qing-link) !important; }
+    }
+
+    .o-mail-MessagingMenu-filter {
+        --btn-color: var(--o-qing-text-soft);
+        --btn-hover-color: var(--o-qing-text);
+        --btn-border-color: var(--o-qing-border);
+        --btn-hover-border-color: var(--o-qing-link);
+        --btn-hover-bg: var(--o-qing-surface-weak);
+
+        &.o-active {
+            --btn-color: var(--o-qing-link);
+            --btn-hover-color: var(--o-qing-link);
+            --btn-bg: var(--o-qing-surface-weak);
+            --btn-hover-bg: var(--o-qing-surface-weak);
+            --btn-border-color: var(--o-qing-link);
+            --btn-hover-border-color: var(--o-qing-link);
+        }
+    }
+
+    .o-mail-MessagingMenu-container {
+        color: var(--o-qing-text);
+        .text-muted { color: var(--o-qing-text-soft) !important; }
+    }
+
+    .o-mail-MessagingMenu {
+        --list-group-color: var(--o-qing-text);
+        --list-group-action-color: var(--o-qing-text);
+        --mail-NotificationItem-textOpacity: 1;
+        --mail-NotificationItem-textMutedOpacity: 1;
+
+        .o-mail-NotificationItem-name,
+        .o-discuss-text-body { color: var(--o-qing-text) !important; }
+        .o-mail-NotificationItem-text,
+        .o-mail-NotificationItem-date { color: var(--o-qing-text-soft); }
+        .o-mail-NotificationItem-date { opacity: 1; }
+        .o-mail-NotificationItem-markAsRead,
+        .o-mail-DiscussApp-sidebarBgColor {
+            background-color: var(--o-qing-surface-weak) !important;
+        }
+        .o-mail-NotificationItem:hover,
+        .o-mail-NotificationItem.o-active {
+            background-color: var(--o-qing-surface-weak);
+            backdrop-filter: none;
+        }
+    }
+}
+
+// Qing Dark switches at runtime while the native Discuss light assets stay loaded.
+.o_qing_web_ui.o_qing_ui--dark .o-mail-Discuss {
+    background-color: var(--o-qing-bg);
+    color: var(--o-qing-text);
+
+    .o-mail-DiscussContent,
+    .o-mail-Thread {
+        color: var(--o-qing-text);
+    }
+
+    .o-mail-DiscussContent {
+        background-color: var(--o-qing-bg);
+    }
+
+    .o-mail-DiscussContent-headerBox,
+    .o-mail-DiscussContent-panelContainer {
+        background-color: var(--o-qing-surface);
+        border-color: var(--o-qing-border) !important;
+    }
+
+    .o-mail-DiscussContent-threadDescription:not(:focus),
+    .text-muted {
+        color: var(--o-qing-text-soft) !important;
+    }
+
+    .o-mail-DiscussApp-sidebarBgColor { background-color: var(--o-qing-surface-weak) !important; }
+    .o-discuss-text-body { color: var(--o-qing-text) !important; }
+
+    .o-mail-Message-author { color: var(--o-qing-text); }
+    .o-mail-Message-date { color: var(--o-qing-text-soft); }
+    .o-mail-Message.o-card { background-color: var(--o-qing-surface-weak); }
+    .o-mail-DateSection .o-discuss-separator {
+        border-color: var(--o-qing-border);
+        opacity: 1;
+    }
+
+    .o-mail-Composer {
+        --mail-Composer-bg: var(--o-qing-surface-weak);
+        color: var(--o-qing-text);
+
+        .o-mail-Composer-inputContainer {
+            --border-color: var(--o-qing-border);
+            &:focus-within { --border-color: var(--o-qing-link); }
+        }
+
+        .o-mail-Composer-input,
+        .o-mail-Composer-html {
+            color: var(--o-qing-text) !important;
+            &::placeholder { color: var(--o-qing-text-soft); opacity: .85; }
+        }
+    }
+}

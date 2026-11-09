@@ -1,0 +1,12 @@
+id,name,model_id,group_id/id,operation,domain
+sale_team_restriction,Sales team isolation,sale.order,,crud,"user._qing_sales_team_domain()"
+sale_line_team_restriction,Sales line team isolation,sale.order.line,,crud,"user._qing_sales_team_domain(prefix='order_id.team_id')"
+sale_report_team_restriction,Sales analysis team isolation,sale.report,,r,"user._qing_sales_team_domain()"
+invoice_team_restriction,Customer invoice team isolation,account.move,,crud,"user._qing_sales_team_domain(invoices=True)"
+invoice_line_team_restriction,Customer invoice line team isolation,account.move.line,,crud,"user._qing_sales_team_domain(invoices=True, prefix='move_id.team_id')"
+invoice_report_team_restriction,Customer invoice analysis team isolation,account.invoice.report,,r,"user._qing_sales_team_domain(invoices=True)"
+sale_team_permission,Team orders,sale.order,qing_sale.group_sale_team_restricted,cru,"user._qing_team_member_domain()"
+sale_line_team_permission,Team order lines,sale.order.line,qing_sale.group_sale_team_restricted,cru,"user._qing_team_member_domain(prefix='order_id.team_id')"
+sale_report_team_permission,Team sales analysis,sale.report,qing_sale.group_sale_team_restricted,r,"user._qing_team_member_domain()"
+invoice_team_permission,Team customer invoices,account.move,qing_sale.group_sale_team_restricted,r,"[('move_type', 'in', ('out_invoice', 'out_refund'))] + user._qing_team_member_domain()"
+invoice_line_team_permission,Team customer invoice lines,account.move.line,qing_sale.group_sale_team_restricted,r,"[('move_id.move_type', 'in', ('out_invoice', 'out_refund'))] + user._qing_team_member_domain(prefix='move_id.team_id')"

@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_res_company_form" model="ir.ui.view">
+        <field name="name">qing.address.cn.res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <field name="city" position="before">
+                <field name="qing_cn_address_enabled" invisible="1"/>
+                <field name="qing_cn_city_code" invisible="1"/>
+                <field name="city_id" string="City" placeholder="City" class="o_address_city" invisible="not qing_cn_address_enabled" readonly="not state_id" domain="[('country_id', '=', country_id), ('state_id', '=', state_id), ('qing_cn_code', '!=', False)]" options="{'no_create': True, 'no_open': True}"/>
+                <field name="qing_cn_district_id" placeholder="District / County" class="o_address_city" invisible="not qing_cn_address_enabled" readonly="not city_id" options="{'no_create': True, 'no_open': True}"/>
+                <field name="qing_cn_subdistrict_id" placeholder="Subdistrict / Township" class="o_address_state" invisible="not qing_cn_address_enabled" readonly="not qing_cn_district_id" options="{'no_create': True, 'no_open': True}"/>
+            </field>
+            <field name="city" position="attributes">
+                <attribute name="invisible">qing_cn_address_enabled and (city_id or not city)</attribute>
+            </field>
+            <field name="city_id" position="before">
+                <field name="state_id" position="move"/>
+            </field>
+        </field>
+    </record>
+</odoo>

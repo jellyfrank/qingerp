@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_form_fapiao" model="ir.ui.view">
+        <field name="name">sale.order.form.fapiao.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale_info']" position="inside">
+                <field name="qing_fapiao_issuance_state" widget="badge" readonly="1"/>
+                <field name="qing_fapiao_reversal_state" widget="badge" readonly="1" invisible="qing_fapiao_reversal_state == 'none'"/>
+                <field name="qing_fapiao_pending" readonly="1" invisible="not qing_fapiao_pending"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_sale_order_list_fapiao" model="ir.ui.view">
+        <field name="name">sale.order.list.fapiao.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="invoice_status" position="after">
+                <field name="qing_fapiao_issuance_state" widget="badge" optional="show"
+                       decoration-success="qing_fapiao_issuance_state == 'issued'"
+                       decoration-warning="qing_fapiao_issuance_state in ['partial', 'pending', 'review']"/>
+                <field name="qing_fapiao_reversal_state" widget="badge" optional="show"
+                       decoration-warning="qing_fapiao_reversal_state in ['partial', 'review']"
+                       decoration-danger="qing_fapiao_reversal_state == 'reversed'"/>
+                <field name="qing_fapiao_pending" optional="hide"/>
+            </field>
+        </field>
+    </record>
+</odoo>

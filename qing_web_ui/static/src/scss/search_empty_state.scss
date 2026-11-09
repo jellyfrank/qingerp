@@ -1,0 +1,180 @@
+// Qing's runtime theme switch does not load Odoo's separate dark asset bundle.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o_searchview {
+        // Native SearchBar uses bg-view, whose background is !important.
+        background-color: var(--o-qing-surface-weak) !important;
+        color: var(--o-qing-text);
+        border-color: var(--o-qing-border);
+
+        &:focus-within { border-color: var(--o-qing-link); }
+
+        .o_searchview_input {
+            background-color: transparent;
+            color: var(--o-qing-text);
+            &::placeholder { color: var(--o-qing-text-soft); opacity: 1; }
+        }
+
+        .o_searchview_icon { color: var(--o-qing-text-soft); }
+
+        .o_searchview_facet {
+            background-color: var(--o-qing-accent-soft) !important;
+            color: var(--o-qing-link);
+        }
+
+        .o_searchview_facet_label {
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+
+        .o_facet_overlay {
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-link) !important;
+        }
+
+        .o_facet_remove { color: var(--o-qing-link) !important; }
+    }
+
+    .o_nocontent_help {
+        color: var(--o-qing-text-soft);
+
+        > p:first-of-type, h1, h2, h3, h4 {
+            color: var(--o-qing-text);
+        }
+
+        a:not(.btn) { color: var(--o-qing-link); }
+
+        // A transparent outline keeps the create helper readable on dark surfaces
+        // and follows every accent choice without recoloring business images.
+        .o_view_nocontent_smiling_face::before {
+            width: 120px;
+            height: 140px;
+            background: var(--o-qing-link);
+            -webkit-mask: url('/qing_web_ui/static/src/img/empty_state_create.svg') no-repeat center / 88px 88px;
+            mask: url('/qing_web_ui/static/src/img/empty_state_create.svg') no-repeat center / 88px 88px;
+        }
+    }
+}
+
+// A compact mobile SearchBar is shared by every control-panel view, including
+// Calendar. Keep wrapping facets, remove controls and the native dropdown.
+@media (max-width: 767.98px) {
+    .o_qing_web_ui .o_control_panel {
+        // Keep a single search facet and the input on the same compact row.
+        // Additional facets may wrap without clipping their labels or controls.
+        .o_cp_searchview {
+            min-width: 0;
+            min-height: 40px;
+            border: 1px solid var(--o-qing-border);
+            border-radius: 8px !important;
+            background: var(--o-qing-surface-weak);
+            overflow: hidden;
+
+            &:focus-within {
+                border-color: var(--o-qing-accent);
+                box-shadow: var(--o-qing-focus);
+            }
+
+            .o_searchview {
+                min-width: 0;
+                min-height: 38px;
+                padding: 4px 8px !important;
+                border: 0 !important;
+                border-radius: 0 !important;
+                background: transparent !important;
+                box-shadow: none !important;
+            }
+
+            .o_searchview > .btn {
+                flex: 0 0 24px;
+                width: 24px;
+                min-width: 24px;
+                height: 28px;
+                min-height: 28px !important;
+            }
+
+            .o_searchview_icon { margin: 0 !important; font-size: 17px; }
+            .o_searchview_input_container { min-width: 0; gap: 4px !important; }
+            .o_searchview_input {
+                flex: 1 1 52px !important;
+                min-width: 52px !important;
+                height: 26px;
+                min-height: 26px;
+                padding: 0 2px !important;
+                background: transparent !important;
+            }
+
+            .o_searchview_facet {
+                min-width: 0;
+                min-height: 28px;
+                margin: 0;
+                padding: 0 !important;
+                border: 1px solid var(--o-qing-border) !important;
+                border-radius: 6px !important;
+                background: var(--o-qing-accent-soft) !important;
+                color: var(--o-qing-link);
+            }
+            .o_searchview_facet_label {
+                min-height: 26px !important;
+                padding: 0 4px !important;
+                background: transparent !important;
+                color: inherit !important;
+            }
+            .o_facet_values {
+                min-width: 0;
+                min-height: 26px;
+                flex-wrap: nowrap !important;
+                padding-inline-start: 2px !important;
+                color: inherit;
+            }
+            .o_facet_value { max-width: 120px; font-size: 12px; line-height: 1.3; }
+            .o_facet_remove {
+                flex: 0 0 22px;
+                width: 22px;
+                min-width: 22px;
+                height: 26px;
+                min-height: 26px !important;
+                padding: 0 !important;
+                font-size: 16px !important;
+                color: inherit !important;
+            }
+
+            // Relative date facets must keep their native navigation buttons usable.
+            .o_date_nav_btn {
+                flex: 0 0 22px;
+                width: 22px;
+                min-width: 22px;
+                height: 26px;
+                min-height: 26px !important;
+                padding: 0 !important;
+                background: transparent !important;
+                color: inherit;
+            }
+
+            .o_searchview_dropdown_toggler {
+                display: inline-flex;
+                flex: 0 0 38px;
+                align-items: center;
+                justify-content: center;
+                width: 38px;
+                min-width: 38px;
+                min-height: 38px !important;
+                padding: 0 !important;
+                border: 0 !important;
+                border-inline-start: 1px solid var(--o-qing-border) !important;
+                border-radius: 0 !important;
+                background: var(--o-qing-surface-weak) !important;
+                color: var(--o-qing-text-soft);
+                font-size: 0;
+                &::before {
+                    content: "expand_more";
+                    display: inline-block !important;
+                    font-family: "Material Symbols Outlined";
+                    font-size: 18px;
+                    line-height: 1;
+                }
+                &::after { display: none !important; }
+                &:hover, &.show { background: var(--o-qing-accent-soft) !important; color: var(--o-qing-link); }
+            }
+        }
+    }
+}

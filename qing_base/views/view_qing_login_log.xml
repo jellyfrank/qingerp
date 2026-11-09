@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_login_log_list" model="ir.ui.view">
+        <field name="name">qing.login.log.list</field>
+        <field name="model">qing.login.log</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false" decoration-danger="not success">
+                <field name="attempt_datetime"/>
+                <field name="login"/>
+                <field name="user_id"/>
+                <field name="ip_address"/>
+                <field name="success"/>
+                <field name="failure_reason"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_qing_login_log_search" model="ir.ui.view">
+        <field name="name">qing.login.log.search</field>
+        <field name="model">qing.login.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="login"/>
+                <field name="ip_address"/>
+                <field name="user_id"/>
+                <filter name="failed" string="Failed" domain="[('success', '=', False)]"/>
+                <filter name="succeeded" string="Succeeded" domain="[('success', '=', True)]"/>
+                <separator/>
+                <filter name="attempt_datetime" string="Time" date="attempt_datetime"/>
+                <group>
+                    <filter name="group_ip" string="IP Address" context="{'group_by': 'ip_address'}"/>
+                    <filter name="group_login" string="Login" context="{'group_by': 'login'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_qing_login_log" model="ir.actions.act_window">
+        <field name="name">Sign-in Logs</field>
+        <field name="res_model">qing.login.log</field>
+        <field name="view_mode">list</field>
+        <field name="search_view_id" ref="view_qing_login_log_search"/>
+    </record>
+
+    <menuitem id="menu_qing_login_log" name="Sign-in Logs" parent="base.menu_users"
+              action="action_qing_login_log" groups="base.group_system" sequence="90"/>
+</odoo>

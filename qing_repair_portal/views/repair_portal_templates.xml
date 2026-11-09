@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="repair_body" name="Customer Repair Details">
+        <div name="qing_repair_brand"/>
+        <h2><span>Repair Order</span> <span t-field="repair.name"/></h2>
+        <div class="mb-3">
+            <div><strong>Customer: </strong><span t-field="repair.partner_id.name"/></div>
+            <div><strong>Status: </strong><span t-field="repair.state"/></div>
+            <div><strong>Device Model: </strong><span t-field="repair.qing_device_model"/></div>
+            <div><strong>Serial Number: </strong><span t-field="repair.lot_id.name"/></div>
+        </div>
+        <section class="mb-3" t-if="repair.qing_fault_description">
+            <h5>Fault Description</h5><div t-field="repair.qing_fault_description" style="white-space: pre-wrap; overflow-wrap: anywhere;"/>
+        </section>
+        <section class="mb-3" t-if="repair.qing_repair_content">
+            <h5>Repair Content</h5><div t-field="repair.qing_repair_content" style="white-space: pre-wrap; overflow-wrap: anywhere;"/>
+        </section>
+        <div class="table-responsive" t-if="lines">
+            <table class="table table-sm">
+                <thead><tr><th>Description</th><th class="text-end">Quantity</th><th class="text-end">Unit Price</th><th class="text-end">Discount (%)</th><th class="text-end">Subtotal</th></tr></thead>
+                <tbody>
+                    <tr t-foreach="lines" t-as="line">
+                        <td t-out="line['description']" style="overflow-wrap: anywhere;"/>
+                        <td class="text-end" t-out="line['quantity']"/>
+                        <td class="text-end" t-out="line['unit_price']" t-options="{'widget': 'monetary', 'display_currency': repair.qing_currency_id}"/>
+                        <td class="text-end" t-out="line['discount']"/>
+                        <td class="text-end" t-out="line['subtotal']" t-options="{'widget': 'monetary', 'display_currency': repair.qing_currency_id}"/>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-end mb-4">
+            <div><span>Untaxed Amount: </span><span t-field="repair.qing_amount_untaxed"/></div>
+            <div><span>Taxes: </span><span t-field="repair.qing_amount_tax"/></div>
+            <div class="fw-bold"><span>Total: </span><span t-field="repair.qing_amount_total"/></div>
+        </div>
+        <div class="mb-4">
+            <div class="mb-3" t-if="repair.qing_photo_before">
+                <h5>Before Repair</h5><img t-att-src="image_data_uri(repair.qing_photo_before)" class="img-fluid" style="max-height: 360px;" alt="Before repair"/>
+            </div>
+            <div class="mb-3" t-if="repair.qing_photo_after">
+                <h5>After Repair</h5><img t-att-src="image_data_uri(repair.qing_photo_after)" class="img-fluid" style="max-height: 360px;" alt="After repair"/>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="qing_repair_signature mb-3" t-if="repair.qing_price_signature">
+                <h5>Price Confirmation</h5><img t-att-src="image_data_uri(repair.qing_price_signature)" class="img-fluid" style="max-height: 120px;" alt="Price signature"/>
+                <p><span t-field="repair.qing_price_signed_by"/> <span t-field="repair.qing_price_signed_on"/></p>
+            </div>
+            <div class="qing_repair_signature mb-3" t-if="repair.qing_acceptance_signature">
+                <h5>Completion Acceptance</h5><img t-att-src="image_data_uri(repair.qing_acceptance_signature)" class="img-fluid" style="max-height: 120px;" alt="Acceptance signature"/>
+                <p><span t-field="repair.qing_accepted_by"/> <span t-field="repair.qing_accepted_on"/></p>
+            </div>
+        </div>
+        <div name="qing_repair_customer_terms"/>
+    </template>
+    <template id="repair_page" name="Repair Portal">
+        <t t-call="portal.portal_layout">
+            <div class="container py-3" id="qing_repair_portal">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <a class="btn btn-secondary" t-att-href="repair.get_portal_url(report_type='pdf', download=True)"><i class="fa fa-download me-1"/>Download PDF</a>
+                    <a class="btn btn-secondary" target="_blank" t-att-href="repair.get_portal_url(report_type='pdf')"><i class="fa fa-print me-1"/>Print</a>
+                    <a t-if="repair.qing_pricing_mode == 'sale' and repair.sale_order_id" class="btn btn-primary" t-att-href="repair.sale_order_id.get_portal_url()">View Quotation</a>
+                </div>
+                <t t-call="qing_repair_portal.repair_body"/>
+                <section t-if="repair.qing_pricing_mode == 'direct' and repair.qing_price_signature_enabled and not repair.qing_price_signature and repair.state in ('draft', 'confirmed')" class="border-top pt-3">
+                    <h4>Confirm Repair Price</h4>
+                    <t t-call="portal.signature_form"
+                       call_url="repair.get_portal_url(suffix='/sign/price', query_string='price_hash=' + price_hash)"
+                       default_name="repair.partner_id.name"/>
+                </section>
+                <section t-if="repair.qing_acceptance_enabled and repair.state == 'done' and not repair.qing_acceptance_signature" class="border-top pt-3">
+                    <h4>Accept Completed Repair</h4>
+                    <t t-call="portal.signature_form"
+                       call_url="repair.get_portal_url(suffix='/sign/acceptance', query_string='price_hash=' + price_hash)"
+                       default_name="repair.partner_id.name"/>
+                </section>
+            </div>
+        </t>
+    </template>
+</odoo>

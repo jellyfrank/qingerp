@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.qing.website.sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <setting id="website_tax_inclusion_setting" position="after">
+                <setting id="qing_login_to_see_price" string="Login to See Product Prices"
+                         website_dependent="1"
+                         help="Hide shop prices from visitors until they log in. Products remain visible.">
+                    <field name="qing_login_to_see_price" readonly="not website_id"/>
+                </setting>
+            </setting>
+        </field>
+    </record>
+</odoo>

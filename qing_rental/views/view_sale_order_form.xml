@@ -1,0 +1,84 @@
+<odoo>
+    <record id="view_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.qing.rental</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qing_rental_pickup" type="object" string="Pick Up"
+                        invisible="not is_qing_rental or state != 'sale' or qing_rental_status == 'returned'"
+                        groups="qing_rental.group_rental_user"/>
+                <button name="action_qing_rental_return" type="object" string="Return"
+                        invisible="not is_qing_rental or qing_rental_status not in ('out', 'partial')"
+                        groups="qing_rental.group_rental_user"/>
+                <button name="action_qing_rental_renew" type="object" string="Renew"
+                        invisible="not is_qing_rental or state != 'sale' or qing_rental_status == 'returned'"
+                        groups="qing_rental.group_rental_user"/>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_qing_rental_pickings" type="object" class="oe_stat_button" icon="local_shipping"
+                        invisible="not is_qing_rental or not qing_rental_picking_count"
+                        groups="qing_rental.group_rental_user">
+                    <field name="qing_rental_picking_count" widget="statinfo" string="Rental Transfers"/>
+                </button>
+            </xpath>
+            <xpath expr="//sheet/notebook" position="before">
+                <field name="is_qing_rental" invisible="1"/>
+                <group name="qing_rental_period" string="Rental" invisible="not is_qing_rental"
+                       groups="qing_rental.group_rental_user">
+                    <group>
+                        <field name="qing_rental_start" required="is_qing_rental"
+                               readonly="state not in ('draft', 'sent')"/>
+                        <field name="qing_rental_end" required="is_qing_rental"
+                               readonly="state not in ('draft', 'sent')"/>
+                    </group>
+                    <group>
+                        <field name="qing_rental_status" widget="badge"/>
+                        <field name="qing_rental_deposit_balance" groups="qing_rental.group_rental_manager"/>
+                    </group>
+                </group>
+                <field name="qing_rental_status" invisible="1"/>
+            </xpath>
+            <xpath expr="//sheet/notebook/page[1]" position="before">
+                <page name="qing_rental" string="Rental Items" invisible="not is_qing_rental"
+                      groups="qing_rental.group_rental_user">
+                    <div class="d-flex gap-2 mb-3" invisible="state not in ('draft', 'sent')">
+                        <button name="action_qing_rental_reprice" type="object" string="Update Rental Charges" class="btn-secondary"
+                                invisible="state not in ('draft', 'sent')"/>
+                    </div>
+                    <field name="qing_rental_line_ids" readonly="state not in ('draft', 'sent')">
+                        <list editable="bottom" class="o_qing_rental_line_list">
+                            <field name="currency_id" column_invisible="True"/>
+                            <field name="product_id" options="{'no_create': True}"/>
+                            <field name="quantity"/>
+                            <widget name="qing_rental_availability" width="20px"/>
+                            <field name="service_product_id" optional="hide" options="{'no_create': True}"/>
+                            <field name="period"/>
+                            <field name="rate"/>
+                            <field name="padding_hours" optional="hide"/>
+                            <field name="amount" widget="monetary" sum="Rental Charges"/>
+                            <field name="available_qty" optional="show"/>
+                            <field name="qty_out" optional="show"/>
+                            <field name="qty_returned" optional="show"/>
+                        </list>
+                    </field>
+                </page>
+                <page name="qing_rental_deposits" string="Deposits" invisible="not is_qing_rental"
+                      groups="qing_rental.group_rental_manager">
+                    <field name="qing_rental_deposit_ids" context="{'default_order_id': id}">
+                        <list>
+                            <field name="currency_id" column_invisible="True"/>
+                            <field name="date"/>
+                            <field name="kind"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="reference"/>
+                            <field name="journal_id" optional="hide"/>
+                            <field name="move_id" string="Journal Entry" optional="show"/>
+                            <field name="state" widget="badge"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

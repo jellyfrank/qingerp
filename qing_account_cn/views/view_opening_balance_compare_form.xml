@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_opening_balance_compare_form" model="ir.ui.view">
+        <field name="name">qing.cn.opening.balance.compare.form</field>
+        <field name="model">qing.cn.opening.balance.compare</field>
+        <field name="arch" type="xml">
+            <form string="期初来源余额对照">
+                <div class="alert alert-info" role="alert" invisible="comparison_mode != 'account'">
+                    上传 UTF-8 CSV，表头为 account_external_id,balance；每科目一行。
+                    科目使用目标库导出的外部 ID。余额为公司本位币，借正贷负，不含千位分隔符。
+                    本操作只核对选中凭证，不修改账务。
+                </div>
+                <div class="alert alert-info" role="alert" invisible="comparison_mode != 'batch'">
+                    上传完整来源明细清单，每条分录一行，包含所有科目（含平衡科目）。
+                    比较往来单位、币种、到期日及本位币／原币金额，并检查清单与选中分录的双向缺失。
+                    请下载此模式的模板；不修改账务。
+                </div>
+                <group>
+                    <field name="comparison_mode"/>
+                    <field name="company_id"/>
+                    <field name="move_ids" widget="many2many_tags" options="{'no_open': True}"/>
+                    <field name="source_date"/>
+                    <label for="source_file"/>
+                    <div>
+                        <a href="/qing_account_cn/static/templates/opening-source-balances.csv"
+                           download="opening-source-balances.csv" invisible="comparison_mode != 'account'"
+                           class="btn btn-secondary mb-2" role="button">
+                            <i class="fa fa-download me-1" aria-hidden="true"/>下载空白 CSV 模板
+                        </a>
+                        <a href="/qing_account_cn/static/templates/opening-source-lines.csv"
+                           download="opening-source-lines.csv" invisible="comparison_mode != 'batch'"
+                           class="btn btn-secondary mb-2" role="button">
+                            <i class="fa fa-download me-1" aria-hidden="true"/>下载逐笔／完整批次模板
+                        </a>
+                        <field name="source_file" filename="source_filename" nolabel="1"/>
+                    </div>
+                    <field name="source_filename" invisible="1"/>
+                </group>
+                <group invisible="comparison_mode != 'batch'">
+                    <field name="control_enabled"/>
+                    <div colspan="2" class="text-muted" invisible="not control_enabled">
+                        从旧系统独立批次汇总填写，不要从本次 CSV 或选中凭证反算。
+                        金额为本位币借方／贷方正数合计，不是净余额，也不汇总不同原币。
+                    </div>
+                    <field name="control_move_count" invisible="not control_enabled"/>
+                    <field name="control_line_count" invisible="not control_enabled"/>
+                    <field name="control_debit" invisible="not control_enabled" required="comparison_mode == 'batch' and control_enabled" placeholder="例如 700.00"/>
+                    <field name="control_credit" invisible="not control_enabled" required="comparison_mode == 'batch' and control_enabled" placeholder="例如 700.00"/>
+                </group>
+                <field name="result" nolabel="1" invisible="not result"/>
+                <footer>
+                    <button name="action_compare" type="object" string="核对来源余额" class="btn-primary"/>
+                    <button special="cancel" string="关闭" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

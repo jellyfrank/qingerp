@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="menu_china_address" name="China Addresses" parent="contacts.menu_localisation" sequence="50" groups="base.group_system"/>
+    <menuitem id="menu_city" name="Cities" parent="menu_china_address" action="action_china_cities" sequence="10"/>
+    <menuitem id="menu_district" name="Districts / Counties" parent="menu_china_address" action="action_district" sequence="20"/>
+    <menuitem id="menu_subdistrict" name="Subdistricts / Townships" parent="menu_china_address" action="action_subdistrict" sequence="30"/>
+</odoo>

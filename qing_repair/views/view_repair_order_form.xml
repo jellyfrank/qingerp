@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">qing.repair.order.form</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_create_sale_order']" position="attributes">
+                <attribute name="invisible">qing_pricing_mode != 'sale' or not can_create_sale_or_invoice</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_create_invoice']" position="attributes">
+                <attribute name="string">Create Invoice</attribute>
+                <attribute name="invisible">qing_pricing_mode != 'direct' or not (can_create_sale_or_invoice or can_create_extra_invoice) or state != 'done'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='schedule_date']" position="before">
+                <field name="qing_can_change_mode" invisible="1"/>
+                <field name="qing_currency_id" invisible="1"/>
+                <field name="qing_pricing_mode" readonly="not qing_can_change_mode" groups="base.group_system"/>
+                <field name="qing_pricing_mode" readonly="1" groups="!base.group_system"/>
+            </xpath>
+            <xpath expr="//field[@name='product_id'][not(ancestor::list)]" position="after">
+                <field name="qing_device_model"/>
+            </xpath>
+            <xpath expr="//notebook" position="before">
+                <group name="qing_repair_details" string="Customer Repair Information">
+                    <field name="qing_fault_description"/>
+                    <field name="qing_repair_content"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='move_ids']/list/field[@name='uom_id']" position="after">
+                <field name="qing_currency_id" column_invisible="True"/>
+                <field name="qing_price_unit" column_invisible="parent.qing_pricing_mode != 'direct'" invisible="repair_line_type != 'add'"/>
+                <field name="qing_discount" column_invisible="parent.qing_pricing_mode != 'direct'" invisible="repair_line_type != 'add'" optional="hide"/>
+                <field name="qing_tax_ids" widget="many2many_tags" column_invisible="parent.qing_pricing_mode != 'direct'" invisible="repair_line_type != 'add'"/>
+                <field name="qing_price_subtotal" column_invisible="parent.qing_pricing_mode != 'direct'" invisible="repair_line_type != 'add'"/>
+            </xpath>
+            <xpath expr="//field[@name='repair_service_line_ids']/list" position="inside">
+                <field name="company_id" column_invisible="True"/>
+                <field name="qing_currency_id" column_invisible="True"/>
+                <field name="qing_price_unit" column_invisible="parent.qing_pricing_mode != 'direct'"/>
+                <field name="qing_discount" column_invisible="parent.qing_pricing_mode != 'direct'" optional="hide"/>
+                <field name="qing_tax_ids" widget="many2many_tags" column_invisible="parent.qing_pricing_mode != 'direct'"/>
+                <field name="qing_price_subtotal" column_invisible="parent.qing_pricing_mode != 'direct'"/>
+            </xpath>
+            <xpath expr="//field[@name='repair_service_line_ids']/list/field[@name='product_id']" position="attributes">
+                <attribute name="string">Service Item</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="qing_repair_photos" string="Repair Photos">
+                    <group>
+                        <group><field name="qing_photo_before" widget="image" options="{'size': [320, 240]}"/></group>
+                        <group><field name="qing_photo_after" widget="image" options="{'size': [320, 240]}"/></group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//notebook" position="after">
+                <group class="oe_subtotal_footer" name="qing_repair_totals">
+                    <field name="qing_amount_untaxed"/>
+                    <field name="qing_amount_tax"/>
+                    <field name="qing_amount_total" class="oe_subtotal_footer_separator"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

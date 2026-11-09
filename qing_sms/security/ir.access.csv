@@ -1,0 +1,47 @@
+id,name,model_id,group_id/id,operation,domain
+access_sms_account_user,SMS account read,qing.sms.account,qing_sms.group_sms_user,r,
+access_sms_account_manager,SMS account manage,qing.sms.account,qing_sms.group_sms_manager,crud,
+rule_sms_account_company,SMS account company,qing.sms.account,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_sign_user,SMS sign read,qing.sms.sign,qing_sms.group_sms_user,r,
+access_sms_sign_manager,SMS sign manage,qing.sms.sign,qing_sms.group_sms_manager,crud,
+rule_sms_sign_company,SMS sign company,qing.sms.sign,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_remote_template_user,SMS remote_template read,qing.sms.remote.template,qing_sms.group_sms_user,r,
+access_sms_remote_template_manager,SMS remote_template manage,qing.sms.remote.template,qing_sms.group_sms_manager,crud,
+rule_sms_remote_template_company,SMS remote_template company,qing.sms.remote.template,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_binding_user,SMS binding read,qing.sms.binding,qing_sms.group_sms_user,r,
+access_sms_binding_manager,SMS binding manage,qing.sms.binding,qing_sms.group_sms_manager,crud,
+rule_sms_binding_company,SMS binding company,qing.sms.binding,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_variable_user,SMS variable read,qing.sms.variable,qing_sms.group_sms_user,r,
+access_sms_variable_manager,SMS variable manage,qing.sms.variable,qing_sms.group_sms_manager,crud,
+rule_sms_variable_company,SMS variable company,qing.sms.variable,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_message_user,SMS message read,qing.sms.message,qing_sms.group_sms_user,r,"['|', ('create_uid', '=', user.id), ('event_id.sender_user_id', '=', user.id)]"
+access_sms_message_manager,SMS message manager read,qing.sms.message,qing_sms.group_sms_manager,r,"[('company_id', 'in', company_ids)]"
+access_sms_message_system,SMS message internal,qing.sms.message,base.group_system,cru,
+rule_sms_message_company,SMS message company,qing.sms.message,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_attempt_user,SMS attempt read,qing.sms.attempt,qing_sms.group_sms_user,r,"['|', ('message_id.create_uid', '=', user.id), ('message_id.event_id.sender_user_id', '=', user.id)]"
+access_sms_attempt_manager,SMS attempt manager read,qing.sms.attempt,qing_sms.group_sms_manager,r,"[('company_id', 'in', company_ids)]"
+access_sms_attempt_system,SMS attempt internal,qing.sms.attempt,base.group_system,cru,
+rule_sms_attempt_company,SMS attempt company,qing.sms.attempt,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_send,SMS send,qing.sms.send,qing_sms.group_sms_user,crud,
+access_sms_send_value,SMS send_value,qing.sms.send.value,qing_sms.group_sms_user,crud,
+access_sms_template_manager,SMS business templates,sms.template,qing_sms.group_sms_manager,crud,
+access_sms_revision_user,SMS template history,qing.sms.template.revision,qing_sms.group_sms_user,r,
+access_sms_revision_internal,SMS template history internal,qing.sms.template.revision,base.group_system,cr,
+rule_sms_revision_company,SMS revision company,qing.sms.template.revision,,crud,"[('company_id', 'in', company_ids)]"
+rule_sms_queue_company,Domestic SMS queue company,sms.sms,,crud,"['|', ('domestic_message_id', '=', False), ('domestic_message_id.company_id', 'in', company_ids)]"
+access_sms_blueprint_user,SMS blueprint read,qing.sms.blueprint,qing_sms.group_sms_user,r,
+access_sms_blueprint_manager,SMS blueprint manage,qing.sms.blueprint,qing_sms.group_sms_manager,crud,
+rule_sms_blueprint_company,SMS blueprint company,qing.sms.blueprint,,crud,"['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]"
+access_sms_scenario_user,SMS scenario read,qing.sms.scenario,qing_sms.group_sms_user,r,
+access_sms_scenario_manager,SMS scenario manage,qing.sms.scenario,qing_sms.group_sms_manager,crud,
+rule_sms_scenario_company,SMS scenario company,qing.sms.scenario,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_event_user,SMS event read,qing.sms.event,qing_sms.group_sms_user,r,"[('sender_user_id', '=', user.id)]"
+access_sms_event_manager,SMS event manager read,qing.sms.event,qing_sms.group_sms_manager,r,"[('company_id', 'in', company_ids)]"
+access_sms_event_system,SMS event internal,qing.sms.event,base.group_system,cru,
+rule_sms_event_company,SMS event company,qing.sms.event,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_application_user,SMS application read,qing.sms.template.application,qing_sms.group_sms_user,r,
+access_sms_application_manager,SMS application manage,qing.sms.template.application,qing_sms.group_sms_manager,crud,
+rule_sms_application_company,SMS application company,qing.sms.template.application,,crud,"[('company_id', 'in', company_ids)]"
+access_sms_scenario_setup,SMS scenario setup,qing.sms.scenario.setup,qing_sms.group_sms_manager,crud,
+access_sms_application_link,SMS application link,qing.sms.application.link,qing_sms.group_sms_manager,crud,
+access_sms_scenario_test,SMS scenario test,qing.sms.scenario.test,qing_sms.group_sms_manager,crud,

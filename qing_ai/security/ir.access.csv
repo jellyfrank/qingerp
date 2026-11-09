@@ -1,0 +1,18 @@
+id,name,model_id,group_id/id,operation,domain
+assistant_conversation_user,Qing AI conversation owner,qing.ai.conversation,base.group_user,crud,"[('owner_id', '=', user.id), ('company_id', 'in', company_ids)]"
+assistant_message_user,Qing AI message reader,qing.ai.message,base.group_user,r,"[('conversation_id.owner_id', '=', user.id), ('company_id', 'in', company_ids)]"
+assistant_agent_user,Qing AI agent reader,qing.ai.agent,base.group_user,r,
+assistant_agent_admin,Qing AI agent administrator,qing.ai.agent,base.group_system,crud,
+assistant_agent_identity_admin,Qing AI agent identity reader,qing.ai.agent.identity,base.group_system,r,
+assistant_skill_user,Qing AI skill reader,qing.ai.skill,base.group_user,r,
+assistant_skill_admin,Qing AI skill administrator,qing.ai.skill,base.group_system,crud,
+assistant_tool_user,Qing AI tool reader,qing.ai.tool,base.group_user,r,
+assistant_tool_admin,Qing AI tool administrator,qing.ai.tool,base.group_system,crud,
+assistant_discovery_admin,Qing AI action discovery administrator,qing.ai.discovery.wizard,base.group_system,crud,
+assistant_builder_admin,Qing AI tool builder administrator,qing.ai.tool.builder,base.group_system,crud,
+assistant_operation_user,Qing AI operation owner,qing.ai.operation,base.group_user,r,"[('owner_id', '=', user.id), ('company_id', 'in', company_ids)]"
+assistant_run_user,Qing AI run owner,qing.ai.run,base.group_user,r,"[('owner_id', '=', user.id), ('company_id', 'in', company_ids)]"
+assistant_usage_user,Qing AI daily usage owner,qing.ai.usage.daily,base.group_user,r,"[('user_id', '=', user.id)]"
+assistant_usage_admin,Qing AI daily usage administrator,qing.ai.usage.daily,base.group_system,r,
+assistant_discuss_job_admin,Qing AI Discuss reply job reader,qing.ai.discuss.job,base.group_system,r,
+assistant_agent_company,Qing AI agent company,qing.ai.agent,,r,"[('company_id', 'in', [False] + company_ids)]"

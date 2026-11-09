@@ -1,0 +1,15 @@
+{
+    'name': 'Qing AI Gemini',
+    'summary': 'Google Gemini text models for customer-owned Qing AI',
+    'version': '20.0.1.2.0',
+    'category': 'Productivity',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_ai'],
+    'data': ['views/view_res_config_settings_form.xml'],
+    'application': False,
+    'installable': True,
+    'description': 'Connect Qing AI to Google Gemini using customer-owned credentials. Requests are sent to Google.',
+}

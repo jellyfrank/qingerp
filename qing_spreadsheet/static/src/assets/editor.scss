@@ -1,0 +1,20 @@
+.o_qing_spreadsheet {
+    min-height: 0;
+    .o_qing_sheet_canvas { min-height: 300px; overflow: hidden; }
+    .o_spreadsheet_container { position: absolute; inset: 0; }
+    .o_qing_sheet_toolbar > strong { max-width: 24rem; }
+    .o_qing_sheet_icon_btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 30px;
+        padding: 0;
+        font-size: 16px;
+        &.dropdown-toggle::after { margin-left: 2px; }
+    }
+    @media (max-width: 767px) {
+        .o_qing_sheet_toolbar { font-size: 0.85rem; }
+        .o_qing_sheet_canvas { min-width: 0; }
+    }
+}

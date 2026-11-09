@@ -1,0 +1,9 @@
+<odoo>
+  <record id="view_template_form" model="ir.ui.view">
+    <field name="name">qing.whatsapp.template.form.sale</field><field name="model">qing.whatsapp.template</field>
+    <field name="inherit_id" ref="qing_whatsapp.view_qing_whatsapp_template_form"/>
+    <field name="arch" type="xml"><xpath expr="//sheet" position="inside">
+      <group string="Sales field mapping" groups="qing_whatsapp.group_manager"><field name="sale_variable_ids"><list editable="bottom"><field name="component"/><field name="position"/><field name="source"/></list></field></group>
+    </xpath></field>
+  </record>
+</odoo>

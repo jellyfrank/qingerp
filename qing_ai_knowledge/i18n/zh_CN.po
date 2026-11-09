@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_ai_knowledge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_ai_knowledge
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_agent__current_company
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_conversation__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_ai_knowledge
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_agent__display_name
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_conversation__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_ai_knowledge
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_agent__id
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_conversation__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_ai_knowledge
+#: model:ir.model.fields,field_description:qing_ai_knowledge.field_qing_ai_agent__knowledge_space_ids
+msgid "Knowledge Spaces"
+msgstr "知识空间"
+
+#. module: qing_ai_knowledge
+#: model:ir.model.fields,help:qing_ai_knowledge.field_qing_ai_agent__knowledge_space_ids
+msgid ""
+"Only published articles readable by the current user are sent to the "
+"provider."
+msgstr "仅向供应商发送当前用户有权阅读的已发布文章。"
+
+#. module: qing_ai_knowledge
+#: model:ir.module.module,summary:base.module_qing_ai_knowledge
+msgid "Permission-aware published knowledge retrieval for Qing AI agents"
+msgstr "为青云 AI 智能体提供遵守权限的已发布知识检索"
+
+#. module: qing_ai_knowledge
+#: model:ir.model,name:qing_ai_knowledge.model_qing_ai_agent
+msgid "Qing AI Agent"
+msgstr "青云 AI 智能体"
+
+#. module: qing_ai_knowledge
+#: model:ir.model,name:qing_ai_knowledge.model_qing_ai_conversation
+msgid "Qing AI Conversation"
+msgstr "青云 AI 会话"
+
+#. module: qing_ai_knowledge
+#: model:ir.module.module,shortdesc:base.module_qing_ai_knowledge
+msgid "Qing AI Knowledge"
+msgstr "青云 AI 知识库"
