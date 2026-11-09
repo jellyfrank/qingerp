@@ -44,7 +44,7 @@ QingERP 社区免费版基于 **Odoo 20.0 Community**，以可选模块扩展日
 
 ### 许可证与技术支持
 
-本仓库每个模块的许可证以其 `__manifest__.py` 为准，目前 59 个模块全部使用 LGPL-3，许可证全文见 `LICENSE` 与 `COPYING`。第三方组件保留各自的许可证，见 `THIRD_PARTY_NOTICES.md`。用户使用条款见 [USER_TERMS.md](USER_TERMS.md)。
+本仓库每个模块的许可证以其 `__manifest__.py` 为准，目前 59 个模块全部使用 LGPL-3，许可证全文见 `LICENSE` 与 `COPYING`。第三方组件保留各自的许可证，详见 [第三方组件声明](THIRD_PARTY_NOTICES.md)。用户使用条款见 [中文版](USER_TERMS.md) 和 [英文版](USER_TERMS.en.md)。
 
 - 网站 / Website: [www.qingsolution.com](https://www.qingsolution.com/)
 - 技术支持 / Technical support: [kevin@odoomommy.com](mailto:kevin@odoomommy.com)
@@ -91,7 +91,7 @@ Check each module manifest for its full dependency list. Validate installation a
 
 ### Licensing and support
 
-The license for each add-on is specified in its `__manifest__.py`. All 59 current modules are licensed under LGPL-3; the full texts are in `LICENSE` and `COPYING`. Third-party components keep their own licenses; see `THIRD_PARTY_NOTICES.md`. See [USER_TERMS.md](USER_TERMS.md) for user terms.
+The license for each add-on is specified in its `__manifest__.py`. All 59 current modules are licensed under LGPL-3; the full texts are in `LICENSE` and `COPYING`. Third-party components retain their own licenses; see the [third-party notices](THIRD_PARTY_NOTICES.md). Read the user terms in [Chinese](USER_TERMS.md) or [English](USER_TERMS.en.md).
 
 - Website: [www.qingsolution.com](https://www.qingsolution.com/)
 - Technical support: [kevin@odoomommy.com](mailto:kevin@odoomommy.com)
