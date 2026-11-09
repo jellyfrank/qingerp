@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.BinaryField" t-inherit-mode="extension">
+        <xpath expr="//t[@name='download']" position="before">
+            <button t-if="this.qingCanPreview" type="button"
+                    class="oi btn btn-link o_preview_file_button o_qing_preview_file_button"
+                    data-icon="visibility" data-tooltip="Preview" aria-label="Preview"
+                    t-on-click.stop="this.onPreviewClick"/>
+        </xpath>
+        <xpath expr="//a[hasclass('o_form_uri')][@t-on-click.prevent.stop='this.onFileDownload']" position="before">
+            <button t-if="this.qingCanPreview" type="button"
+                    class="oi btn btn-link o_preview_file_button o_qing_preview_file_button"
+                    data-icon="visibility" data-tooltip="Preview" aria-label="Preview"
+                    t-on-click.stop="this.onPreviewClick"/>
+        </xpath>
+    </t>
+    <t t-inherit="web.ListBinaryField" t-inherit-mode="extension">
+        <xpath expr="//a[hasclass('o_form_uri')][@t-on-click.prevent.stop='this.onFileDownload']" position="before">
+            <button t-if="this.qingCanPreview" type="button"
+                    class="oi btn btn-link o_preview_file_button o_qing_preview_file_button"
+                    data-icon="visibility" data-tooltip="Preview" aria-label="Preview"
+                    t-on-click.stop="this.onPreviewClick"/>
+        </xpath>
+    </t>
+</templates>

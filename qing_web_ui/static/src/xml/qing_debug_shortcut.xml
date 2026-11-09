@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.DebugShortcut">
+        <button type="button" class="o_qing_debug_shortcut o_qing_debug_button o-dropdown--narrow"
+                title="Activate developer mode" aria-label="Activate developer mode"
+                t-on-click="this.activate">
+            <t t-call="qing_web_ui.DebugIcon"/>
+        </button>
+    </t>
+
+    <t t-name="qing_web_ui.DebugIcon">
+        <svg class="o_qing_debug_icon" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M10 5.5 8.5 3.5M14 5.5l1.5-2M9.5 9V7a2.5 2.5 0 0 1 5 0v2"/>
+            <path d="M7.5 11H5M7 15H4M8 19H6M16.5 11H19M17 15h3M16 19h2"/>
+            <path d="M12 8a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0v-3a5 5 0 0 0-5-5Z"
+                  fill="currentColor" fill-opacity=".12"/>
+            <path d="M12 9v11"/>
+        </svg>
+    </t>
+
+    <t t-name="qing_web_ui.DebugIconOpen">
+        <svg class="o_qing_debug_icon o_qing_debug_icon--flying" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <g class="o_qing_debug_flight">
+                <g class="o_qing_debug_wings">
+                    <path class="o_qing_debug_wing o_qing_debug_wing--left"
+                          d="M10.7 10C7.5 10 4.8 11.5 3.9 14.5c-.4 1.4.5 2.1 1.7 1.6 2.4-1 4.3-3.7 5.1-6.1Z"
+                          fill="currentColor" fill-opacity=".12"/>
+                    <path class="o_qing_debug_wing o_qing_debug_wing--right"
+                          d="M13.3 10c3.2 0 5.9 1.5 6.8 4.5.4 1.4-.5 2.1-1.7 1.6-2.4-1-4.3-3.7-5.1-6.1Z"
+                          fill="currentColor" fill-opacity=".12"/>
+                </g>
+                <path d="M10.2 15 8.7 17M13.8 15l1.5 2"/>
+                <path d="M12 9.5c-1.4 0-2.2 1.1-2.2 2.7v4.4c0 2.2 1.2 4 2.2 4s2.2-1.8 2.2-4v-4.4c0-1.6-.8-2.7-2.2-2.7Z"
+                      fill="currentColor" fill-opacity=".6"/>
+                <g class="o_qing_debug_elytra" fill="currentColor" fill-opacity=".2">
+                    <path d="M11 9C8.3 7.5 6 6.4 3.5 6.2c-1.2-.1-1.8 1-1.1 2.3 1.5 2.8 4.5 4.5 8.6 4.2Z"/>
+                    <path d="M13 9c2.7-1.5 5-2.6 7.5-2.8 1.2-.1 1.8 1 1.1 2.3-1.5 2.8-4.5 4.5-8.6 4.2Z"/>
+                </g>
+                <path d="M10.5 5.2 9 3.5M13.5 5.2 15 3.5"/>
+                <path d="M9.8 8.5V7a2.2 2.2 0 0 1 4.4 0v1.5Z" fill="currentColor"/>
+            </g>
+        </svg>
+    </t>
+
+    <t t-inherit="web.DebugMenu" t-inherit-mode="extension">
+        <xpath expr="//Dropdown/button" position="attributes">
+            <attribute name="t-att-class">`o-dropdown--narrow o_qing_debug_button is-active ${this.env.inDialog ? 'btn btn-link' : ''}`</attribute>
+            <attribute name="title">Developer mode active — open developer tools</attribute>
+            <attribute name="aria-label">Developer mode active — open developer tools</attribute>
+        </xpath>
+        <xpath expr="//i[@data-icon='bug_report']" position="replace">
+            <t t-call="qing_web_ui.DebugIconOpen"/>
+        </xpath>
+    </t>
+</templates>

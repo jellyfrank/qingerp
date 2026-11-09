@@ -1,0 +1,23 @@
+{
+    'name': 'Qing 税票台账',
+    'summary': '独立进销项税票登记及业务账单追溯',
+    'version': '20.0.1.20',
+    'category': 'Accounting/Accounting',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_account', 'qing_service_client'],
+    'data': [
+        'security/ir.access.csv',
+        'views/view_fapiao_form.xml',
+        'views/view_fapiao_tax_classification.xml',
+        'views/view_product_fapiao_tax_classification.xml',
+        'views/view_account_move_form.xml',
+        'views/view_fapiao_review_form.xml',
+        'views/view_fapiao_request_form.xml',
+    ],
+    'installable': True,
+    'application': False,
+    'description': 'Register sales and purchase tax invoices, manage issuance requests and trace linked bills. Online tax-code synchronization requires an active service subscription.',
+}

@@ -1,0 +1,11 @@
+<odoo>
+    <record id="action_knowledge_workspace" model="ir.actions.client">
+        <field name="name">Knowledge</field>
+        <field name="tag">qing_knowledge.workspace</field>
+    </record>
+    <menuitem id="menu_knowledge_root" name="Knowledge" sequence="46" action="action_knowledge_workspace" groups="base.group_user" web_icon="qing_knowledge,static/description/icon.png"/>
+    <menuitem id="menu_knowledge_articles" name="Article Records" parent="menu_knowledge_root" action="action_knowledge_articles" sequence="70"/>
+    <menuitem id="menu_knowledge_spaces" name="Spaces" parent="menu_knowledge_root" action="action_knowledge_spaces" sequence="20"/>
+    <record id="menu_knowledge_articles" model="ir.ui.menu"><field name="active" eval="False"/></record>
+    <record id="menu_knowledge_spaces" model="ir.ui.menu"><field name="active" eval="False"/></record>
+</odoo>

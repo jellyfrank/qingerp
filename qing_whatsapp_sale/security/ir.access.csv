@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+variable_operator,Read sales variables,qing.whatsapp.template.variable,qing_whatsapp.group_user,r,"[('template_id.account_id.operator_ids', 'in', [user.id])]"
+variable_manager,Configure sales variables,qing.whatsapp.template.variable,qing_whatsapp.group_manager,crud,
+variable_company,Sales variable company,qing.whatsapp.template.variable,,crud,"[('company_id', 'in', company_ids)]"

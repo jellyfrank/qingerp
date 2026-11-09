@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_base.FileInputDropSupport" t-inherit="web.FileInput" t-inherit-mode="extension">
+        <xpath expr="//span[hasclass('o_file_input')]" position="attributes">
+            <attribute name="t-on-dragenter">this.onQingDragEnter</attribute>
+            <attribute name="t-on-dragleave">this.onQingDragLeave</attribute>
+            <attribute name="t-on-dragover">this.onQingDragOver</attribute>
+            <attribute name="t-on-drop">this.onQingDrop</attribute>
+        </xpath>
+    </t>
+
+    <t t-name="qing_base.FileUploaderDropSupport" t-inherit="web.FileUploader" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('d-contents')]" position="attributes">
+            <attribute name="t-on-dragenter">this.onQingDragEnter</attribute>
+            <attribute name="t-on-dragleave">this.onQingDragLeave</attribute>
+            <attribute name="t-on-dragover">this.onQingDragOver</attribute>
+            <attribute name="t-on-drop">this.onQingDrop</attribute>
+        </xpath>
+    </t>
+</templates>

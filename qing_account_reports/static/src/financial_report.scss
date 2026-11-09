@@ -1,0 +1,15 @@
+.o_qing_financial_report {
+    .table th, .table td { vertical-align: middle; }
+    .table td:nth-child(3), .table td:nth-child(4),
+    .table td:nth-child(7), .table td:nth-child(8) { text-align: right; font-variant-numeric: tabular-nums; }
+    .table .btn-link { color: inherit; text-decoration: none; font-variant-numeric: tabular-nums; }
+    .table .btn-link:hover { text-decoration: underline; }
+    .table tbody tr:is(:hover, :focus-within) > * { background-color: #eaf3ff !important; }
+    .o_qing_amount_link { font-weight: 500; }
+    .o_qing_amount_link:hover, .o_qing_amount_link:focus-visible { color: #2457a7; }
+    .o_qing_row_name { text-align: left; }
+    .o_qing_trial_balance_table th:nth-child(n+3),
+    .o_qing_trial_balance_table td:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
+    .o_qing_trial_balance_table tfoot { border-top: 2px solid var(--border-color, #dee2e6); }
+    .o_qing_financial_report_details { scroll-margin-top: 1rem; }
+}

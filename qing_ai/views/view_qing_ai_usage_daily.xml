@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_usage_daily_list" model="ir.ui.view">
+        <field name="name">qing.ai.usage.daily.list</field>
+        <field name="model">qing.ai.usage.daily</field>
+        <field name="arch" type="xml">
+            <list string="AI Daily Usage" create="false" edit="false" delete="false">
+                <field name="day"/>
+                <field name="user_id"/>
+                <field name="request_count" sum="Total"/>
+                <field name="input_tokens" sum="Total"/>
+                <field name="output_tokens" sum="Total"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qing_ai_usage_daily_search" model="ir.ui.view">
+        <field name="name">qing.ai.usage.daily.search</field>
+        <field name="model">qing.ai.usage.daily</field>
+        <field name="arch" type="xml">
+            <search string="AI Daily Usage">
+                <field name="user_id"/>
+                <field name="day"/>
+                <group>
+                    <filter name="group_by_user" string="User" context="{'group_by': 'user_id'}"/>
+                    <filter name="group_by_day" string="Day" context="{'group_by': 'day:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_qing_ai_usage_daily" model="ir.actions.act_window">
+        <field name="name">AI Daily Usage</field>
+        <field name="res_model">qing.ai.usage.daily</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No AI model calls have been made yet.</p>
+            <p>Each row counts the model calls and exact provider tokens of one user on one day.</p>
+        </field>
+    </record>
+    <menuitem id="menu_qing_ai_usage_daily" name="Daily Usage" parent="qing_ai.menu_qing_ai_root"
+              action="action_qing_ai_usage_daily" sequence="80" groups="base.group_system"/>
+</odoo>

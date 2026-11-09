@@ -1,0 +1,554 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_repair_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0-20260926\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-01 00:30+0000\n"
+"PO-Revision-Date: 2026-10-01 00:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_repair_portal
+#: model:ir.model,name:qing_repair_portal.model_qing_repair_signature
+msgid "Customer Repair Signature"
+msgstr "维修单客户签字"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__signature
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_signature_form
+msgid "Customer Signature"
+msgstr "客户签字"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__signed_by
+msgid "Customer Name"
+msgstr "客户姓名"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__kind
+msgid "Signature Type"
+msgstr "签字类型"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_signature_form
+msgid "Confirm Signature"
+msgstr "确认签字"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_signature_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Download Repair PDF"
+msgstr "下载维修单 PDF"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Sign Price"
+msgstr "价格确认签字"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Sign Acceptance"
+msgstr "完工验收签字"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+#: code:addons/qing_repair_portal/wizard/repair_signature.py:0
+msgid "Only repair users can collect customer signatures."
+msgstr "仅维修用户可以收集客户签字。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "The signed repair PDF could not be generated. Please try again."
+msgstr "无法生成已签字的维修单 PDF，请重试。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_page
+msgid "<i class=\"fa fa-download me-1\"/>Download PDF"
+msgstr "<i class=\"fa fa-download me-1\"/>下载 PDF"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_page
+msgid "<i class=\"fa fa-print me-1\"/>Print"
+msgstr "<i class=\"fa fa-print me-1\"/>打印"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<span>Repair Order</span>"
+msgstr "<span>维修单</span>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<span>Taxes: </span>"
+msgstr "<span>税额：</span>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<span>Total: </span>"
+msgstr "<span>合计：</span>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<span>Untaxed Amount: </span>"
+msgstr "<span>未税金额：</span>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<strong>Customer: </strong>"
+msgstr "<strong>客户：</strong>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<strong>Device Model: </strong>"
+msgstr "<strong>设备型号：</strong>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<strong>Serial Number: </strong>"
+msgstr "<strong>序列号：</strong>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "<strong>Status: </strong>"
+msgstr "<strong>状态：</strong>"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_page
+msgid "Accept Completed Repair"
+msgstr "确认维修完成"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_acceptance_signature
+msgid "Acceptance Signature"
+msgstr "完工验收签名"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_acceptance_enabled
+msgid "Acceptance Signature Enabled"
+msgstr "启用完工验收签字"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Acceptance signature"
+msgstr "完工验收签名"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_accepted_by
+msgid "Accepted By"
+msgstr "验收人"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_accepted_on
+msgid "Accepted On"
+msgstr "验收时间"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__access_warning
+msgid "Access warning"
+msgstr "访问提醒"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "After Repair"
+msgstr "维修后"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "After repair"
+msgstr "维修后照片"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Before Repair"
+msgstr "维修前"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Before repair"
+msgstr "维修前照片"
+
+#. module: qing_repair_portal
+#: model:ir.model,name:qing_repair_portal.model_res_company
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Completed repair accepted by %s."
+msgstr "客户 %s 已确认维修完成。"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields.selection,name:qing_repair_portal.selection__qing_repair_signature__kind__acceptance
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Completion Acceptance"
+msgstr "完工验收"
+
+#. module: qing_repair_portal
+#: model:ir.model,name:qing_repair_portal.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设置"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_page
+msgid "Confirm Repair Price"
+msgstr "确认维修价格"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid ""
+"Consumed parts differ from the signed price. Reopen price confirmation "
+"before completing the repair."
+msgstr "实际使用配件与已签价格不一致，请重新开放价格确认后再完成维修。"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__current_company
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__current_company
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_company__current_company
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_config_settings__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,help:qing_repair_portal.field_repair_order__access_url
+msgid "Customer Portal URL"
+msgstr "客户门户地址"
+
+#. module: qing_repair_portal
+#: model:ir.actions.report,name:qing_repair_portal.action_report_repair
+msgid "Customer Repair Order"
+msgstr "客户维修单"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Customer Signatures"
+msgstr "客户签字"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Customer signatures must be submitted through the repair portal."
+msgstr "客户签名必须通过维修门户提交。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Description"
+msgstr "描述"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_company__qing_repair_price_signature_enabled
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_config_settings__qing_repair_price_signature_enabled
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_res_config_settings_form
+msgid "Direct Price Confirmation Signature"
+msgstr "直接计价确认签字"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Discount (%)"
+msgstr "折扣 (%)"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__display_name
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__display_name
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Fault Description"
+msgstr "故障描述"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__id
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__id
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_company__id
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/controllers/portal.py:0
+msgid "Invalid repair link."
+msgstr "无效的维修分享链接。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Invalid signature image."
+msgstr "签名图片无效。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Invalid signature type."
+msgstr "签字类型无效。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_res_config_settings_form
+msgid ""
+"New direct-priced repairs require a customer signature before confirmation. "
+"Quotation signatures remain in Sales."
+msgstr "新建直接计价维修单须由客户签字后才能确认；报价单签字仍通过销售应用完成。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_res_config_settings_form
+msgid ""
+"New repairs offer a separate customer acceptance signature after completion."
+msgstr "新建维修单允许客户在完工后单独签字验收。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Only administrators can change repair signature requirements."
+msgstr "只有管理员可以修改维修签字要求。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/res_company.py:0
+msgid "Only administrators can change repair signature settings."
+msgstr "只有管理员可以修改维修签字设置。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Only administrators can reopen repair price confirmation."
+msgstr "只有管理员可以重新开放维修价格确认。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Only completed repairs awaiting acceptance can be signed."
+msgstr "只有已完成且等待验收的维修单可以签字验收。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid ""
+"Only uninvoiced, unfinished direct repairs can reopen price confirmation."
+msgstr "只有尚未开票、未完成的直接计价维修单可以重新开放价格确认。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Please provide the customer name."
+msgstr "请填写客户姓名。"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__access_url
+msgid "Portal Access URL"
+msgstr "门户访问地址"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Preview"
+msgstr "预览"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields.selection,name:qing_repair_portal.selection__qing_repair_signature__kind__price
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Price Confirmation"
+msgstr "价格确认"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_price_confirmed
+msgid "Price Confirmed"
+msgstr "价格已确认"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_price_signature
+msgid "Price Signature"
+msgstr "价格确认签名"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_price_signature_enabled
+msgid "Price Signature Enabled"
+msgstr "启用价格确认签字"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_price_signed_by
+msgid "Price Signed By"
+msgstr "价格确认人"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_price_signed_on
+msgid "Price Signed On"
+msgstr "价格确认时间"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid ""
+"Price confirmation reopened. The previous signature remains in the repair "
+"history."
+msgstr "已重新开放价格确认，原签名和价格记录保留在维修历史中。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Price signature"
+msgstr "价格确认签名"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__qing_signed_price_hash
+msgid "Qing Signed Price Hash"
+msgstr "已签价格指纹"
+
+#. module: qing_repair_portal
+#: model:ir.module.module,shortdesc:base.module_qing_repair_portal
+msgid "QingERP Repair Portal"
+msgstr "QingERP 维修门户"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Quantity"
+msgstr "数量"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Reopen Price Confirmation"
+msgstr "重新开放价格确认"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_company__qing_repair_acceptance_enabled
+#: model:ir.model.fields,field_description:qing_repair_portal.field_res_config_settings__qing_repair_acceptance_enabled
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_res_config_settings_form
+msgid "Repair Acceptance Signature"
+msgstr "维修完工验收签字"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Repair Content"
+msgstr "维修内容"
+
+#. module: qing_repair_portal
+#: model:ir.model,name:qing_repair_portal.model_repair_order
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__repair_id
+msgid "Repair Order"
+msgstr "维修单"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "Repair price confirmed by %s."
+msgstr "客户 %s 已确认维修价格。"
+
+#. module: qing_repair_portal
+#: model:ir.module.module,summary:base.module_qing_repair_portal
+msgid "Secure repair sharing, customer photos, PDF and separate signatures"
+msgstr "安全分享维修单、客户照片、PDF 与独立签字"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_repair_order__access_token
+msgid "Security Token"
+msgstr "访问令牌"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid "Share"
+msgstr "分享"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Subtotal"
+msgstr "小计"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid ""
+"The customer has signed this price. An administrator must reopen price "
+"confirmation before changing it."
+msgstr "客户已签署此价格，修改前需要管理员重新开放价格确认。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "The customer must confirm the repair price before repair confirmation."
+msgstr "确认维修前，客户必须先确认维修价格。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.view_repair_order_form
+msgid ""
+"The customer must sign the new price again. Previous signatures remain in "
+"the repair history."
+msgstr "客户需要重新签署新价格，原签名和价格记录保留在维修历史中。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "The price is already signed or has no charges."
+msgstr "价格已签署，或尚未填写维修费用。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid ""
+"The repair price changed. Refresh this page and review the new price before "
+"signing."
+msgstr "维修价格已变更，请刷新页面并核对新价格后再签字。"
+
+#. module: qing_repair_portal
+#. odoo-python
+#: code:addons/qing_repair_portal/models/repair_order.py:0
+msgid "This repair does not require a direct price signature."
+msgstr "此维修单不需要直接计价确认签字。"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_body
+msgid "Unit Price"
+msgstr "单价"
+
+#. module: qing_repair_portal
+#: model_terms:ir.ui.view,arch_db:qing_repair_portal.repair_page
+msgid "View Quotation"
+msgstr "查看报价单"
+
+#. module: qing_repair_portal
+#: model:ir.actions.report,print_report_name:qing_repair_portal.action_report_repair
+msgid "object.name"
+msgstr "object.name"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_repair_portal
+#: model:ir.model.fields,field_description:qing_repair_portal.field_qing_repair_signature__price_hash
+msgid "Price Hash"
+msgstr "价格指纹"

@@ -1,0 +1,43 @@
+# Translation of Qing Website Sale.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: qing_website_sale
+#: model:ir.model.fields,field_description:qing_website_sale.field_website__qing_login_to_see_price
+#: model:ir.model.fields,field_description:qing_website_sale.field_res_config_settings__qing_login_to_see_price
+#: model_terms:ir.ui.view,arch_db:qing_website_sale.view_res_config_settings_form
+msgid "Login to See Product Prices"
+msgstr "登录后可见商品价格"
+
+#. module: qing_website_sale
+#: model:ir.model.fields,help:qing_website_sale.field_website__qing_login_to_see_price
+#: model:ir.model.fields,help:qing_website_sale.field_res_config_settings__qing_login_to_see_price
+#: model_terms:ir.ui.view,arch_db:qing_website_sale.view_res_config_settings_form
+msgid "Hide shop prices from visitors until they log in. Products remain visible."
+msgstr "未登录访客不显示商品价格，登录后可见；商品仍可正常浏览。"
+
+#. module: qing_website_sale
+#: model_terms:ir.ui.view,arch_db:qing_website_sale.login_price_label
+msgid "Login"
+msgstr "登录"
+
+#. module: qing_website_sale
+#: model_terms:ir.ui.view,arch_db:qing_website_sale.login_price_label
+msgid "Register"
+msgstr "注册"
+
+#. module: qing_website_sale
+#: model_terms:ir.ui.view,arch_db:qing_website_sale.login_price_label
+msgid "<span class=\"text-muted ms-1\">to see price</span>"
+msgstr "<span class=\"text-muted ms-1\">查看价格</span>"
+
+#. module: qing_website_sale
+#. odoo-python
+#: code:addons/qing_website_sale/controllers/cart.py:0
+msgid "Log in to see prices and add products to your cart."
+msgstr "请先登录查看价格并将商品加入购物车。"

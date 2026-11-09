@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_qing_fapiao_service_connection" name="Online Invoicing Settings"
+              parent="account.menu_finance_configuration"
+              action="action_qing_fapiao_service_connection" sequence="5"
+              groups="account.group_account_manager,base.group_system"/>
+</odoo>

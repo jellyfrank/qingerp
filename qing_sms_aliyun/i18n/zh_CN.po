@@ -1,0 +1,367 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_sms_aliyun
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 13:32+0000\n"
+"PO-Revision-Date: 2026-09-24 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__key
+msgid "Access Key"
+msgstr "访问秘钥"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__secret
+msgid "Access Secret"
+msgstr "访问密钥"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_biz_id
+msgid "Aliyun Biz"
+msgstr "阿里云业务流水号"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_company_id
+msgid "Aliyun Company"
+msgstr "阿里云公司"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_error_msg
+msgid "Aliyun Error Msg"
+msgstr "错误详情"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_request_id
+msgid "Aliyun Request"
+msgstr "阿里云请求"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_response
+msgid "Aliyun Response"
+msgstr "阿里云响应"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields.selection,name:qing_sms_aliyun.selection__sms_sms__service_provider__aliyun
+#: model:ir.model.fields.selection,name:qing_sms_aliyun.selection__sms_template__service_provider__aliyun
+#: model:ir.ui.menu,name:qing_sms_aliyun.mommy_aliyun_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_res_company_form
+#: model:ir.model.fields.selection,name:qing_sms_aliyun.selection__qing_sms_account__provider__aliyun
+msgid "Aliyun SMS"
+msgstr "阿里云短信"
+
+#. module: qing_sms_aliyun
+#: model:ir.actions.act_window,name:qing_sms_aliyun.action_mommy_aliyun_sms_config
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_res_company__aliyun_sms_config_id
+#: model:ir.ui.menu,name:qing_sms_aliyun.mommy_aliyun_sms_root
+msgid "Aliyun SMS Config"
+msgstr "阿里云短信配置"
+
+#. module: qing_sms_aliyun
+#: model:ir.actions.act_window,name:qing_sms_aliyun.action_sms_aliyun_template
+msgid "Aliyun SMS Template"
+msgstr "阿里云短信模板"
+
+#. module: qing_sms_aliyun
+#: model:ir.module.module,description:base.module_qing_sms_aliyun
+msgid ""
+"Aliyun SMS provider for QingERP domestic messaging and template "
+"applications."
+msgstr "QingERP 国内短信的阿里云服务商连接器及模板申请。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_qing_sms_aliyun_config
+msgid "Aliyun Sms Configuration"
+msgstr "阿里云短信配置"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_qing_sms_aliyun_template
+msgid "Aliyun Sms Template"
+msgstr "阿里云短信模板"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__aliyun_template
+msgid "Aliyun Template"
+msgstr "阿里云短信模板"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "Aliyun requires an explicit rule for every template variable."
+msgstr "阿里云要求为每个模板变量明确配置规则。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid ""
+"An unknown request without a template code needs manual reconciliation."
+msgstr "结果未知且没有模板代码的申请需要人工对账。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_res_company
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_sms_aliyun
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_res_company_form
+msgid "Config"
+msgstr "配置"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__create_uid
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__create_uid
+msgid "Created by"
+msgstr "创建者"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__create_date
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_account__current_company
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__current_company
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__current_company
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_res_company__current_company
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__current_company
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_template__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields.selection,name:qing_sms_aliyun.selection__sms_sms__service_provider__default
+#: model:ir.model.fields.selection,name:qing_sms_aliyun.selection__sms_template__service_provider__default
+msgid "Default"
+msgstr "默认"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_account__display_name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__display_name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__display_name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__display_name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_template__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_account__id
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__id
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__id
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_res_company__id
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__id
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__write_uid
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__write_uid
+msgid "Last Updated by"
+msgstr "最后修改者"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__write_date
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__write_date
+msgid "Last Updated on"
+msgstr "最后更新于"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_account__legacy_config_id
+msgid "Legacy Config"
+msgstr "旧版配置"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__name
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__name
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_mommy_aliyun_sms_config_form
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_sms_sms
+msgid "Outgoing SMS"
+msgstr "发信短信息"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "Please configure the Aliyun access key, secret and signature."
+msgstr "请配置阿里云 AccessKey、Secret 和签名。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_template__service_provider
+msgid "Provider"
+msgstr "服务商"
+
+#. module: qing_sms_aliyun
+#: model:ir.module.module,shortdesc:base.module_qing_sms_aliyun
+msgid "QingERP 阿里云短信"
+msgstr "QingERP 阿里云短信"
+
+#. module: qing_sms_aliyun
+#: model:ir.ui.menu,name:qing_sms_aliyun.menu_sms_aliyun_template
+msgid "SMS Template"
+msgstr "SMS 模板"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_sms_template
+msgid "SMS Templates"
+msgstr "短信息模板"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_sms_sms__service_provider
+msgid "Service Provider"
+msgstr "服务商"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_config__sign
+msgid "Signature"
+msgstr "签名"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_aliyun_template__code
+msgid "Template Code"
+msgstr "模板编码"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "密钥认证与签名查询成功。签名状态：%(status)s。本次未发送短信；发送权限、模板、余额和实际送达仍需另行验证。"
+msgstr "密钥认证与签名查询成功。签名状态：%(status)s。本次未发送短信；发送权限、模板、余额和实际送达仍需另行验证。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "已建立通用账户与待核验绑定；请在国内短信中同步、配置变量并启用。"
+msgstr "已建立通用账户与待核验绑定；请在国内短信中同步、配置变量并启用。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "接口连接成功，但未获取到有效签名审核状态，请在阿里云控制台核查。"
+msgstr "接口连接成功，但未获取到有效签名审核状态，请在阿里云控制台核查。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_res_company__aliyun_delivery_template_id
+msgid "旧发货短信模板"
+msgstr "旧发货短信模板"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/sms_sms.py:0
+msgid "旧短信参数必须为 JSON 对象。"
+msgstr "旧短信参数必须为 JSON 对象。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.constraint,message:qing_sms_aliyun.constraint_qing_sms_account_legacy_company_unique
+msgid "旧账户在同一公司只能迁移一次。"
+msgstr "旧账户在同一公司只能迁移一次。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model.fields,field_description:qing_sms_aliyun.field_qing_sms_account__provider
+msgid "服务商"
+msgstr "服务商"
+
+#. module: qing_sms_aliyun
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_mommy_aliyun_sms_config_form
+msgid "检查密钥认证和签名审核状态，不发送短信。"
+msgstr "检查密钥认证和签名审核状态，不发送短信。"
+
+#. module: qing_sms_aliyun
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_mommy_aliyun_sms_config_form
+msgid "测试配置"
+msgstr "测试配置"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/sms_sms.py:0
+msgid "短信参数必须为对象。"
+msgstr "短信参数必须为对象。"
+
+#. module: qing_sms_aliyun
+#: model:ir.model,name:qing_sms_aliyun.model_qing_sms_account
+msgid "短信账户"
+msgstr "短信账户"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_template.py:0
+msgid "请先迁移旧配置、同步云端模板并核验唯一的业务绑定。"
+msgstr "请先迁移旧配置、同步云端模板并核验唯一的业务绑定。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "请配置阿里云 Access Key 和 Secret。"
+msgstr "请配置阿里云 Access Key 和 Secret。"
+
+#. module: qing_sms_aliyun
+#: model_terms:ir.ui.view,arch_db:qing_sms_aliyun.view_mommy_aliyun_sms_config_form
+msgid "迁移到通用短信"
+msgstr "迁移到通用短信"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "迁移完成"
+msgstr "迁移完成"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "连接阿里云失败，请检查网络、AccessKey 和 SDK 配置后重试。"
+msgstr "连接阿里云失败，请检查网络、AccessKey 和 SDK 配置后重试。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "配置检查未通过：%(code)s。%(hint)s"
+msgstr "配置检查未通过：%(code)s。%(hint)s"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "配置测试结果"
+msgstr "配置测试结果"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "阿里云变量过长或含控制字符。"
+msgstr "阿里云变量过长或含控制字符。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "阿里云查询失败：%s"
+msgstr "阿里云查询失败：%s"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "阿里云模板变量不匹配。"
+msgstr "阿里云模板变量不匹配。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/models/aliyun_sms_config.py:0
+msgid "阿里云返回了无效响应，请稍后重试。"
+msgstr "阿里云返回了无效响应，请稍后重试。"
+
+#. module: qing_sms_aliyun
+#. odoo-python
+#: code:addons/qing_sms_aliyun/services/aliyun_adapter.py:0
+msgid "验证码须为 4 至 8 位字母或数字。"
+msgstr "验证码须为 4 至 8 位字母或数字。"

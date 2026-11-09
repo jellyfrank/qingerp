@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_gemini
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 06:09+0000\n"
+"PO-Revision-Date: 2026-09-24 06:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "API Base URL"
+msgstr "API 基础地址"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "API Key"
+msgstr "API 密钥"
+
+#. module: qing_gemini
+#: model:ir.model,name:qing_gemini.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设置"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Connection Test"
+msgstr "连接测试"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_qing_ai_service__current_company
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_ai_default_provider
+msgid "Default AI Provider"
+msgstr "默认 AI 供应商"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_qing_ai_service__display_name
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_gemini_enabled
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Enable Gemini"
+msgstr "启用 Gemini"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_gemini_image_enabled
+msgid "Enable Image Input"
+msgstr "启用图片输入"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid ""
+"Enable only when the configured model accepts image input. Pasted images are"
+" sent directly to this provider."
+msgstr "仅当所配置模型支持图片输入时启用。粘贴图片将直接发送给此供应商。"
+
+#. module: qing_gemini
+#: model:ir.model.fields.selection,name:qing_gemini.selection__res_config_settings__qing_ai_default_provider__gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Gemini"
+msgstr "Gemini"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_gemini_endpoint
+msgid "Gemini API Base URL"
+msgstr "Gemini API 基础地址"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_gemini_api_key
+msgid "Gemini API Key"
+msgstr "Gemini API 密钥"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__qing_gemini_model
+msgid "Gemini Model"
+msgstr "Gemini 模型"
+
+#. module: qing_gemini
+#: model:ir.module.module,summary:base.module_qing_gemini
+msgid "Google Gemini text models for customer-owned Qing AI"
+msgstr "客户独立部署的 Qing AI Google Gemini 文本模型"
+
+#. module: qing_gemini
+#: model:ir.model.fields,field_description:qing_gemini.field_qing_ai_service__id
+#: model:ir.model.fields,field_description:qing_gemini.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Image Input"
+msgstr "图片输入"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Model"
+msgstr "模型"
+
+#. module: qing_gemini
+#: model:ir.module.module,shortdesc:base.module_qing_gemini
+msgid "Qing AI Gemini"
+msgstr "青云 AI Gemini"
+
+#. module: qing_gemini
+#: model:ir.model,name:qing_gemini.model_qing_ai_service
+msgid "Qing AI Text Service"
+msgstr "青云 AI 文本服务"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid ""
+"Save settings first. This sends one short prompt and may incur provider "
+"charges."
+msgstr "请先保存设置。测试会发送一条简短提示词，可能产生供应商费用。"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Stored in this QingERP database; never sent to a QingERP relay."
+msgstr "密钥保存在当前 QingERP 数据库，不经过 QingERP 中转服务。"
+
+#. module: qing_gemini
+#: model_terms:ir.ui.view,arch_db:qing_gemini.view_res_config_settings_form
+msgid "Test Saved Configuration"
+msgstr "测试已保存配置"
+
+#. module: qing_gemini
+#. odoo-python
+#: code:addons/qing_gemini/models/qing_ai_service.py:0
+msgid "The AI provider response has no text."
+msgstr "AI 供应商响应中没有文本。"

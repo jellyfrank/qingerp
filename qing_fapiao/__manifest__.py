@@ -1,0 +1,22 @@
+{
+    'name': 'Qing Invoice Provider Core',
+    'summary': 'Invoice protocol, recoverable orders and provider extension hooks',
+    'description': 'Provider-neutral invoicing protocol, durable task execution, verified notifications and business registration hooks.',
+    'version': '20.0.1.0.0',
+    'category': 'Accounting',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['mail'],
+    'data': [
+        'security/fapiao_security.xml',
+        'security/ir.access.csv',
+        'views/view_qing_fapiao_provider_form.xml',
+        'views/view_qing_fapiao_order_form.xml',
+        'data/ir_cron.xml',
+    ],
+    'post_init_hook': 'post_init_hook',
+    'installable': True,
+    'application': False,
+}

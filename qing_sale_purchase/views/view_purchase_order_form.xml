@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.qing.sale</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_qty']" position="after">
+                <field name="qing_manual_purchase" optional="hide"/>
+                <field name="qing_overage_reason" optional="hide" groups="purchase.group_purchase_manager"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_statement_snapshot_list" model="ir.ui.view">
+        <field name="name">qing.statement.snapshot.list</field>
+        <field name="model">qing.statement.snapshot</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="name"/><field name="company_id"/><field name="date_from"/>
+                <field name="date_to"/><field name="captured_at"/><field name="captured_by_name"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_statement_snapshot_form" model="ir.ui.view">
+        <field name="name">qing.statement.snapshot.form</field>
+        <field name="model">qing.statement.snapshot</field>
+        <field name="arch" type="xml">
+            <form string="客商对账快照" create="0" edit="0" delete="0" duplicate="0">
+                <sheet>
+                    <group>
+                        <field name="name"/><field name="company_id"/>
+                        <field name="date_from"/><field name="date_to"/>
+                        <field name="captured_at"/><field name="captured_by_name"/>
+                        <field name="account_type"/><field name="partner_scope"/>
+                        <field name="result_file" filename="result_filename"/>
+                        <field name="result_filename" invisible="1"/>
+                    </group>
+                    <div class="alert alert-info" role="status">保存的是生成时的对账结果，后续核销不会改写此记录。新快照另存，不覆盖原记录；本快照不代表客户已确认或正式会计档案。</div>
+                    <field name="result" nolabel="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_statement_snapshot" model="ir.actions.act_window">
+        <field name="name">客商对账快照</field>
+        <field name="res_model">qing.statement.snapshot</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_statement_snapshot" name="客商对账快照" parent="account.menu_finance_entries"
+              action="action_statement_snapshot" sequence="91" groups="account.group_account_manager"/>
+</odoo>

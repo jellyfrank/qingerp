@@ -1,0 +1,676 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_ai_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-25 02:55+0000\n"
+"PO-Revision-Date: 2026-09-25 02:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_ai_sale
+#: model:ir.module.module,description:base.module_qing_ai_sale
+msgid ""
+"# Qing AI 销售助手\n"
+"\n"
+"`qing_ai_sale` 依赖 `qing_ai` 与原生 `sale`，为免费版提供内置客户与销售业务能力，不修改 Odoo 核心。员工可在「Ask」中直接提出业务请求，也可显式选择「Business」。\n"
+"\n"
+"## 内置动作与技能\n"
+"\n"
+"- 客户查询：按关键词搜索，或不填关键词查询当前公司的可访问客户总数与列表；列表最多显示十项，总数按同一权限和筛选条件计算。\n"
+"- 客户创建：姓名必填，可附电话、邮箱、地址、网站和备注；预览后确认创建实际客户。\n"
+"- 客户编辑：通过准确客户名或查询结果 ID 定位，预览并确认修改姓名、电话、邮箱、街道、补充地址、城市、邮编、网站和备注。具体字段仍受员工原生维护权限限制。\n"
+"- SO 查询：查询当前公司的报价与销售订单，支持订单号或客户关键词、订单状态，以及总数和列表。\n"
+"- SO 创建：根据客户、产品和数量生成销售报价草稿。Odoo 计算价格、税和总额；AI 不自行指定价格或折扣，不确认订单，也不发送给客户。\n"
+"- 产品查询与客户跟进：查询可销售产品，查询客户活动，预览并创建由请求员工负责的待办活动。\n"
+"\n"
+"安装后提供「Customer Management」「Sales Orders」两个可直接组合到 Agent 的技能，并保留包含全部销售动作的「Sales Assistant」技能和默认 Agent。管理员在 Agent 中选择所需技能即可，不必扫描源码或编写服务端动作。仅写“创建记录”的指导文字不会新增可执行动作，技能必须关联内置的具体动作。\n"
+"\n"
+"升级会新增内置动作与技能，并只为尚未定制的默认 Sales Assistant 技能补充客户编辑动作。已调整动作子集、停用状态、允许用户组或指导文字的现有技能会保留；管理员可为这些 Agent 另行选择新技能。已停用的「Sales Tool Permissions」菜单及其历史记录仅为兼容保留，不参与授权。\n"
+"\n"
+"## 执行与权限\n"
+"\n"
+"业务模型把请求映射到固定动作；实际查询和写入使用当前 Odoo 员工身份、当前公司、原生访问权限和记录规则。不会把模型输出的任意模型名、字段、方法或 SQL 当作指令执行。Skill 与动作的允许用户组只能限制能力，不能授予业务模型权限；门户用户没有入口。\n"
+"\n"
+"客户查询只统计业务客户，不把无客户身份的联系人或供应商计入客户总数。安装 `qing_partner` 时，以当前公司的有效客户角色为准；创建客户需要已有的客户主数据管理员权限，并正常建立客户角色，不使用提权绕过规则。普通联系人编辑员仍仅能维护 `qing_partner` 允许的电话、邮箱、网站、备注等字段；修改姓名、地址等共享主数据需要管理员权限。未安装 `qing_partner` 时，按原生 `customer_rank` 标识业务客户。SO 草稿仍遵守客户角色准入及原生销售权限。\n"
+"\n"
+"写入分两步：先生成服务端保存的业务预览卡片，再由员工确认执行。模型文字声称“已经预览”不代表存在操作；没有待确认卡片时输入“确认”，系统会要求重新提出具体请求。模糊客户/产品匹配会要求补充准确名称、ID 或 SKU。姓名必填，电话和邮箱等资料只取用户明确提供的值；可见范围内相同电话/邮箱，或仅姓名输入时的同名记录，会阻止重复创建。\n"
+"\n"
+"预览绑定会话、员工、公司及业务记录快照，15 分钟有效。确认时再次检查动作授权、原生权限和记录变化；重复确认不会重复创建或修改。客户编辑预览展示变更内容，报价预览展示客户、产品和数量。图片可用于普通问答，图片直接生成业务草稿仍需后续视觉抽取与复核能力。\n"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A customer name is required."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A product is no longer available."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A quotation line is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A quotation quantity is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A quotation requires 1 to 10 product lines."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A short follow-up summary is required."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "A specific search term is required."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model_terms:ir.ui.view,arch_db:qing_ai_sale.view_qing_ai_sale_tool_form
+msgid "AI Sales Tool Permission"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model_terms:ir.ui.view,arch_db:qing_ai_sale.view_qing_ai_sale_tool_list
+msgid "AI Sales Tool Permissions"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__active
+msgid "Active"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__allowed_group_ids
+msgid "Allowed Groups"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "An accessible customer with the same %(field)s already exists."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Analyze the image with Ask before creating a business action."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__arguments
+msgid "Arguments"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.module.module,summary:base.module_qing_ai_sale
+msgid ""
+"Built-in customer queries, creation and editing, sales orders and follow-ups"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__company_id
+msgid "Company"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Confirm and create"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Confirm changes"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__conversation_id
+msgid "Conversation"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__tool_key__create_customer
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_create_customer
+msgid "Create Customer"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__tool_key__create_followup
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__create_followup
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_create_followup
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_create_followup
+msgid "Create Follow-up Activity"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__tool_key__create_quote_draft
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__create_quote_draft
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_create_quote_draft
+msgid "Create Quotation Draft"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_create_quote_draft
+msgid "Create Sales Order Draft"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Create customer in %(company)s:"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Created %(type)s %(document)s (ID %(id)s)."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__create_uid
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__create_date
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"Creating a customer identity requires partner manager permission. Contact "
+"your administrator."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_conversation__current_company
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__current_company
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__current_company
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_tool__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.skill,name:qing_ai_sale.skill_customers
+msgid "Customer Management"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_conversation__display_name
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__display_name
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__display_name
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_tool__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__state__done
+msgid "Done"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"Draft quotation for %(customer)s: %(lines)s. Pricelist: %(pricelist)s. Odoo "
+"will calculate prices, taxes and totals when the draft is created."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.constraint,message:qing_ai_sale.constraint_qing_ai_sale_tool_key_unique
+msgid "Each AI sales tool must be unique."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_update_customer
+msgid "Edit Customer"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__state__expired
+msgid "Expired"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__expires_at
+msgid "Expires At"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__find_customers
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_find_customers
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_find_customers
+msgid "Find Customers"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__find_activities
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_find_activities
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_find_activities
+msgid "Find Follow-up Activities"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__find_products
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_find_products
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_find_products
+msgid "Find Products"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_tool__key__find_quotes
+#: model:qing.ai.sale.tool,name:qing_ai_sale.tool_find_quotes
+msgid "Find Quotations"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.tool,name:qing_ai_sale.agent_tool_find_quotes
+msgid "Find Sales Orders"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__fingerprint
+msgid "Fingerprint"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"Follow-up for %(customer)s on %(date)s: %(summary)s. Assigned to you. Note: "
+"%(note)s"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_conversation__id
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__id
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__id
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_tool__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__key
+msgid "Key"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__write_uid
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__write_date
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,help:qing_ai_sale.field_qing_ai_sale_tool__allowed_group_ids
+msgid "Legacy setting. Configure allowed groups on the Skill instead."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"Matching records in the current company: %(count)s. Showing up to %(limit)s."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Matching records:"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_tool__name
+msgid "Name"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "No accessible customer matches that identifier."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "No accessible customer or product matches that name."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "No accessible matching records were found."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"No business action is awaiting confirmation. Ask for a new preview first."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"No business action was staged. Please request the record again with its name"
+" and details."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__state__pending
+msgid "Pending"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__preview
+msgid "Preview"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model,name:qing_ai_sale.model_qing_ai_conversation
+msgid "Qing AI Conversation"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.module.module,shortdesc:base.module_qing_ai_sale
+msgid "Qing AI Sales Assistant"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model,name:qing_ai_sale.model_qing_ai_sale_operation
+msgid "Qing AI Sales Operation"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model,name:qing_ai_sale.model_qing_ai_sale_tool
+msgid "Qing AI Sales Tool Permission"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model,name:qing_ai_sale.model_qing_ai_tool
+msgid "Qing AI Tool"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__result_id
+msgid "Result"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__result_model
+msgid "Result Model"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"Review the proposed business action below and confirm it to apply the "
+"changes."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.agent,name:qing_ai_sale.agent_sales
+#: model:qing.ai.skill,name:qing_ai_sale.skill_sales
+msgid "Sales Assistant"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:qing.ai.skill,name:qing_ai_sale.skill_sales_orders
+msgid "Sales Orders"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.actions.act_window,name:qing_ai_sale.action_qing_ai_sale_tool
+#: model:ir.ui.menu,name:qing_ai_sale.menu_qing_ai_sale_tool
+msgid "Sales Tool Permissions"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Several actions await confirmation. Use the card to choose one."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Several records match. Use an exact customer name or product SKU."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Specify an exact customer or product name."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Specify one customer and the fields to update."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__state
+msgid "State"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The AI could not understand this business request."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid ""
+"The AI did not return an available business action. No record was staged. "
+"Please try again with the record name and details."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The AI returned an unsupported business request."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The customer %(field)s is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The customer details are invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The customer identifier is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The customer is no longer available."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The customer or product changed. Ask again for a new preview."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The follow-up details are invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The follow-up due date must be within one year."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The follow-up note is too long."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The proposed business action is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The proposed business action is not yours."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The query filters are invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The quotation details are invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The quotation was not created as a draft."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The requested AI sales tool is not available to you."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The sales order state is invalid."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "The search text must contain at most 100 characters."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "This business action has expired. Ask again for a new preview."
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields,field_description:qing_ai_sale.field_qing_ai_sale_operation__tool_key
+msgid "Tool Key"
+msgstr ""
+
+#. module: qing_ai_sale
+#: model:ir.model.fields.selection,name:qing_ai_sale.selection__qing_ai_sale_operation__tool_key__update_customer
+msgid "Update Customer"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Update customer %(customer)s (ID %(id)s):"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Updated customer %(document)s (ID %(id)s)."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "Use a valid follow-up due date."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "You are no longer allowed to use this AI sales tool."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "You are not allowed to use AI sales tools."
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "customer"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "follow-up activity"
+msgstr ""
+
+#. module: qing_ai_sale
+#. odoo-python
+#: code:addons/qing_ai_sale/models/qing_ai_conversation.py:0
+msgid "quotation draft"
+msgstr ""

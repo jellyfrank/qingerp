@@ -1,0 +1,17 @@
+{
+    'name': 'Qing 中文进销存完整演示',
+    'summary': '串联商机、采购收货、销售交付、开票与收款',
+    'version': '20.0.1.4',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_demo_cn_sale', 'qing_demo_cn_purchase', 'qing_demo_cn_stock',
+                'qing_demo_cn_crm', 'qing_demo_cn_account', 'sale_stock', 'purchase_stock', 'sale_crm'],
+    'auto_install': ['qing_demo_cn_sale', 'qing_demo_cn_purchase', 'qing_demo_cn_stock',
+                     'qing_demo_cn_crm', 'qing_demo_cn_account'],
+    'post_init_hook': 'post_init_hook',
+    'data': [],
+    'installable': True,
+    'description': 'Connect Chinese CRM, purchasing, receipts, sales deliveries, invoicing and payment in an end-to-end demonstration.',
+}

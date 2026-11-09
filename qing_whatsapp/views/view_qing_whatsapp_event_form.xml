@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_event_form" model="ir.ui.view">
+        <field name="name">qing.whatsapp.event.form</field>
+        <field name="model">qing.whatsapp.event</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <header>
+                    <button invisible="state not in ['failed', 'waiting']" name="action_retry" string="Retry processing" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="account_id"/>
+                        <field name="kind"/>
+                        <field name="state"/>
+                        <field name="event_key"/>
+                        <field name="error_code"/>
+                    </group>
+                    <field name="payload"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

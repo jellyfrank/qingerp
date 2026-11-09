@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">qing.repair.portal.order.form</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="qing_repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qing_share" type="object" string="Share" icon="share"/>
+                <button name="action_qing_preview" type="object" string="Preview" icon="visibility"/>
+                <button name="action_qing_download_pdf" type="object" string="Download Repair PDF" icon="download"/>
+                <button name="action_qing_reopen_price" type="object" string="Reopen Price Confirmation" groups="base.group_system" invisible="not qing_price_signature or state not in ('draft', 'confirmed')" confirm="The customer must sign the new price again. Previous signatures remain in the repair history."/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="qing_repair_signatures" string="Customer Signatures">
+                    <group>
+                        <group string="Price Confirmation">
+                            <field name="qing_price_signature_enabled" readonly="not qing_can_change_mode" groups="base.group_system"/>
+                            <field name="qing_price_confirmed"/>
+                            <field name="qing_price_signed_by" readonly="1"/>
+                            <field name="qing_price_signed_on" readonly="1"/>
+                            <button name="action_qing_sign_price" type="object" string="Sign Price" icon="draw" groups="stock.group_stock_user" invisible="qing_pricing_mode != 'direct' or not qing_price_signature_enabled or qing_price_signature or state not in ('draft', 'confirmed')"/>
+                            <field name="qing_price_signature_enabled" invisible="1" groups="!base.group_system"/>
+                            <field name="qing_price_signature" widget="signature" readonly="1"/>
+                        </group>
+                        <group string="Completion Acceptance">
+                            <field name="qing_acceptance_enabled" readonly="not qing_can_change_mode" groups="base.group_system"/>
+                            <field name="qing_accepted_by" readonly="1"/>
+                            <field name="qing_accepted_on" readonly="1"/>
+                            <button name="action_qing_sign_acceptance" type="object" string="Sign Acceptance" icon="draw" groups="stock.group_stock_user" invisible="not qing_acceptance_enabled or qing_acceptance_signature or state != 'done'"/>
+                            <field name="qing_acceptance_enabled" invisible="1" groups="!base.group_system"/>
+                            <field name="qing_acceptance_signature" widget="signature" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

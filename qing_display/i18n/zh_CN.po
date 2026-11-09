@@ -1,0 +1,344 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_display
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_display
+#. odoo-python
+#: code:addons/qing_display/models/res_company.py:0
+#: model:ir.actions.client,name:qing_display.action_qing_display
+#: model:ir.module.module,shortdesc:base.module_qing_display
+#: model:ir.ui.menu,name:qing_display.menu_qing_display
+#: model:res.groups.privilege,name:qing_display.privilege_display
+msgid "Qing Display"
+msgstr "Qing 大屏"
+
+#. module: qing_display
+#: model:ir.ui.menu,name:qing_display.menu_qing_display_sales
+msgid "Sales Dashboard"
+msgstr "销售看板"
+
+#. module: qing_display
+#: model:res.groups,name:qing_display.group_display_viewer
+msgid "Display Viewer"
+msgstr "大屏查看员"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Business Operations Display"
+msgstr "企业经营数据大屏"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales overview"
+msgstr "销售经营概览"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Live"
+msgstr "实时"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Reconnecting"
+msgstr "正在重连"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/js/display.js:0
+msgid "Connection lost. Retrying…"
+msgstr "连接中断，正在重试……"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/js/display.js:0
+msgid "Sound is unavailable on this device."
+msgstr "此设备无法播放声音。"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Mute sound"
+msgstr "关闭声音"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Enable sound"
+msgstr "启用声音"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sound on"
+msgstr "声音已开启"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "♫ Sound on"
+msgstr "♫ 声音已开启"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "♫ Enable sound"
+msgstr "♫ 启用声音"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Full screen"
+msgstr "全屏"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Exit full screen"
+msgstr "退出全屏"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Back to workspace"
+msgstr "返回工作台"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Loading the display…"
+msgstr "正在加载大屏……"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Display company"
+msgstr "大屏公司"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Updated"
+msgstr "更新于"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Key sales indicators"
+msgstr "销售关键指标"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Orders today"
+msgstr "今日订单"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Confirmed orders"
+msgstr "已确认订单"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales today (incl. tax)"
+msgstr "今日销售额（含税）"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales today"
+msgstr "今日销售额"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Company currency"
+msgstr "公司本位币"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales this month (incl. tax)"
+msgstr "本月销售额（含税）"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Confirmed order lines"
+msgstr "已确认订单行"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Open quotations"
+msgstr "待确认报价"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Awaiting confirmation"
+msgstr "等待确认"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales charts"
+msgstr "销售图表"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Top customers this month"
+msgstr "本月客户排行"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "No sales yet"
+msgstr "暂无销售数据"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales trend · 7 days"
+msgstr "近七日销售趋势"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Sales amount for the last seven days"
+msgstr "近七日销售额"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Today's share of month"
+msgstr "今日占本月比例"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Today's sales share of this month"
+msgstr "今日销售额占本月比例"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "of monthly sales"
+msgstr "占本月销售额"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Today"
+msgstr "今日"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "This month"
+msgstr "本月"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Recent business activity"
+msgstr "近期业务动态"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Latest confirmed orders"
+msgstr "最新确认订单"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "No confirmed orders yet"
+msgstr "暂无已确认订单"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Order flow"
+msgstr "订单进展"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Quotation"
+msgstr "报价"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Open"
+msgstr "待确认"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Confirmed today"
+msgstr "今日已确认"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "QingERP · Live business display"
+msgstr "QingERP · 实时经营大屏"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Data refreshes every 15 seconds"
+msgstr "数据每十五秒刷新"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "New sales order"
+msgstr "新增销售订单"
+
+#. module: qing_display
+#. odoo-python
+#: code:addons/qing_display/models/res_company.py:0
+msgid "Unknown"
+msgstr "未知"
+
+#. module: qing_display
+#. odoo-python
+#: code:addons/qing_display/models/res_company.py:0
+msgid "You are not allowed to open Qing Display."
+msgstr "您没有打开 Qing 大屏的权限。"
+
+#. module: qing_display
+#. odoo-python
+#: code:addons/qing_display/models/res_company.py:0
+msgid "Invalid display request."
+msgstr "大屏请求无效。"
+
+#. module: qing_display
+#. odoo-python
+#: code:addons/qing_display/models/res_company.py:0
+msgid "You cannot view this company."
+msgstr "您无权查看这家公司。"
+
+#. module: qing_display
+#. odoo-javascript
+#: code:addons/qing_display/static/src/xml/display.xml:0
+msgid "Technical support: Qingdao Ohm Network Technology"
+msgstr "技术支持：青岛欧姆网络科技"

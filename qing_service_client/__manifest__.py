@@ -1,0 +1,17 @@
+{
+    'name': 'QingERP Online Services Client',
+    'summary': 'Online service registration and shared QingERP installation identity',
+    'version': '20.0.1.0.7',
+    'category': 'Hidden',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'license': 'LGPL-3',
+    'depends': ['qing_base'],
+    'data': ['security/ir.access.csv', 'views/service_instance_views.xml'],
+    'auto_install': True,
+    'post_init_hook': 'post_init_hook',
+    'installable': True,
+    'application': False,
+    'description': 'Submit instance registrations, synchronize subscriptions and manage credentials. Information is sent to the QingERP service center; service activation requires review.',
+    'support': 'kevin@odoomommy.com',
+}

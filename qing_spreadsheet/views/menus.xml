@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_spreadsheet" name="Spreadsheets" action="action_workbooks" sequence="45" groups="base.group_user" web_icon="qing_spreadsheet,static/description/icon.png"/>
+    <menuitem id="menu_workbooks" name="Workbooks" parent="menu_spreadsheet" action="action_workbooks" sequence="10"/>
+    <menuitem id="menu_sources" name="Data Sources" parent="menu_spreadsheet" action="action_sources" sequence="90" groups="group_spreadsheet_manager"/>
+</odoo>

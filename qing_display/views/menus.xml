@@ -1,0 +1,14 @@
+<odoo>
+    <record id="action_qing_display" model="ir.actions.client">
+        <field name="name">Qing Display</field>
+        <field name="tag">qing_display.screen</field>
+    </record>
+    <menuitem id="menu_qing_display" name="Qing Display"
+              groups="qing_display.group_display_viewer" sequence="46"
+              web_icon="qing_display,static/description/icon.png"/>
+    <record id="menu_qing_display" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+    </record>
+    <menuitem id="menu_qing_display_sales" name="Sales Dashboard" parent="menu_qing_display"
+              action="action_qing_display" groups="qing_display.group_display_viewer" sequence="10"/>
+</odoo>

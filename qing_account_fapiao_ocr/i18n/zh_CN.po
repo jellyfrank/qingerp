@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_account_fapiao_ocr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__color__blue
+msgid "Blue"
+msgstr "蓝字"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__kind__normal
+msgid "General VAT Invoice"
+msgstr "增值税普通发票"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__direction__in
+msgid "Input"
+msgstr "进项"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__kind__other
+msgid "Other Tax Invoice"
+msgstr "其他税票"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__direction__out
+msgid "Output"
+msgstr "销项"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__color__red
+msgid "Red"
+msgstr "红字"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields.selection,name:qing_account_fapiao_ocr.selection__qing_fapiao_ocr__kind__special
+msgid "Special VAT Invoice"
+msgstr "增值税专用发票"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_account_fapiao_ocr.field_qing_fapiao_ocr__color
+msgid "Invoice Color"
+msgstr "蓝红类型"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_account_fapiao_ocr.field_qing_fapiao_ocr__direction
+msgid "Invoice Direction"
+msgstr "进销项"
+
+#. module: qing_account_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_account_fapiao_ocr.field_qing_fapiao_ocr__kind
+msgid "Tax Invoice Type"
+msgstr "票种"

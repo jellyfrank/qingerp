@@ -1,0 +1,838 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-23 10:22+0000\n"
+"PO-Revision-Date: 2026-10-23 10:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "<span>WELCOME TO QINGERP</span>"
+msgstr "<span>WELCOME TO QINGERP</span>"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"A PDF appendix could not be merged. The incomplete report was not delivered."
+msgstr "有 PDF 附录无法合并。为避免内容不完整，报表未输出。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"A configured PDF appendix field is missing. The incomplete report was not "
+"delivered."
+msgstr "找不到已配置的 PDF 附录字段。为避免内容不完整，报表未输出。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Advanced Settings"
+msgstr "高级设置"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__module_qing_sms_aliyun
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Aliyun SMS"
+msgstr "阿里云短信"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_form
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Audit Log"
+msgstr "审计日志"
+
+#. module: qing_base
+#: model:ir.actions.act_window,name:qing_base.action_qing_audit_log
+#: model:ir.ui.menu,name:qing_base.menu_qing_audit_log
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_list
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Audit Logs"
+msgstr "审计日志"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_audit_retention_days
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Audit Retention (Days)"
+msgstr "日志保留天数"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/res_config_settings.py:0
+msgid "Audit retention must be between 1 and 365 days."
+msgstr "日志保留天数必须在 1 至 365 天之间。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/res_users.py:0
+msgid "Authentication failed."
+msgstr "身份验证失败。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Automatically record create, update, and delete operations on persistent "
+"models."
+msgstr "自动记录持久化业务模型的新增、修改和删除操作。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT"
+msgstr "BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_base
+msgid "Base"
+msgstr "基础"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Built On"
+msgstr "构建于"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__changes
+msgid "Changes"
+msgstr "变更"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Choose online preview or download for PDF reports. Reports with preview "
+"enabled still open online."
+msgstr "PDF 报表默认在线预览或直接下载。单张报表启用预览时仍会在线预览。"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_ir_actions_report__qing_pdf_appendix_fields
+msgid ""
+"Comma-separated binary fields of the printed record. Their PDF files are "
+"appended after the report."
+msgstr "打印记录上的二进制字段，多个用英文逗号分隔。字段中的 PDF 文件会依次附在报表后面。"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_res_company
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__company_id
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_res_config_settings
+msgid "Config Settings"
+msgstr "配置设定"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_audit_log__operation__create
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Created"
+msgstr "新增"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Day"
+msgstr "日期"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_pdf_password_edit
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Default PDF Edit Password"
+msgstr "默认 PDF 编辑密码"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_pdf_password_read
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Default PDF Read Password"
+msgstr "默认 PDF 打开密码"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Default edit password for reports with PDF password protection enabled. "
+"Individual reports can override it."
+msgstr "只作为已启用“PDF 密码保护”的报表默认编辑密码；单张报表可覆盖。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Default read password for reports with PDF password protection enabled. "
+"Enable protection per report action in Technical settings."
+msgstr "只作为已启用“PDF 密码保护”的报表默认阅读密码；在技术设置的报表动作中逐张开启保护。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_audit_log__operation__unlink
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Deleted"
+msgstr "删除"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_iap_autocomplete_api__display_name
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__display_name
+#: model:ir.model.fields,field_description:qing_base.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:qing_base.field_ir_http__display_name
+#: model:ir.model.fields,field_description:qing_base.field_ir_module_module__display_name
+#: model:ir.model.fields,field_description:qing_base.field_mail_push__display_name
+#: model:ir.model.fields,field_description:qing_base.field_mail_push_device__display_name
+#: model:ir.model.fields,field_description:qing_base.field_mail_thread__display_name
+#: model:ir.model.fields,field_description:qing_base.field_publisher_warranty_contract__display_name
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__display_name
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__display_name
+#: model:ir.model.fields,field_description:qing_base.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:qing_base.field_res_users__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_report_print_mode__download
+msgid "Download"
+msgstr "下载"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Email & SMS"
+msgstr "邮件与短信"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Enable Aliyun SMS through the QingERP unified SMS service for business "
+"notifications."
+msgstr "通过 QingERP 国内短信服务启用阿里云短信，用于业务通知。"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_ir_actions_report__qing_pdf_password_enabled
+msgid ""
+"Encrypt the rendered PDF with qpdf. qpdf must be installed on the server."
+msgstr "使用 qpdf 加密生成的 PDF，服务器需要安装 qpdf。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__event_date
+msgid "Event Date"
+msgstr "事件时间"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_company__qing_login_ip_whitelist_exclude_portal
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_ip_whitelist_exclude_portal
+msgid "Exclude Portal Users"
+msgstr "不限制门户用户"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Expired audit entries are removed in bounded batches each day."
+msgstr "每天分批清理超过保留天数的审计日志。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "Failed"
+msgstr "失败"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__failure_reason
+msgid "Failure Reason"
+msgstr "失败原因"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__field_names
+msgid "Field Names"
+msgstr "字段名"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_ir_http
+msgid "HTTP Routing"
+msgstr "HTTP 路由"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_iap_autocomplete_api
+msgid "IAP Partner Autocomplete API"
+msgstr "IAP合作伙伴自动完成API"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_iap_autocomplete_api__id
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__id
+#: model:ir.model.fields,field_description:qing_base.field_ir_config_parameter__id
+#: model:ir.model.fields,field_description:qing_base.field_ir_http__id
+#: model:ir.model.fields,field_description:qing_base.field_ir_module_module__id
+#: model:ir.model.fields,field_description:qing_base.field_mail_push__id
+#: model:ir.model.fields,field_description:qing_base.field_mail_push_device__id
+#: model:ir.model.fields,field_description:qing_base.field_mail_thread__id
+#: model:ir.model.fields,field_description:qing_base.field_publisher_warranty_contract__id
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__id
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__id
+#: model:ir.model.fields,field_description:qing_base.field_res_company__id
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__id
+#: model:ir.model.fields,field_description:qing_base.field_res_users__id
+msgid "ID"
+msgstr "编号"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__ip_address
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "IP Address"
+msgstr "IP 地址"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Install local tax invoice OCR; initial activation also installs the tax "
+"invoice ledger. The server requires Tesseract with Chinese language data and"
+" Poppler. Disabling prompts for uninstallation."
+msgstr ""
+"安装本地税票识别模块；首次启用会同时安装税票台账。服务器须预装 Tesseract 中文语言包和 Poppler。关闭时 Odoo 会提示确认卸载。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Install tax invoice management to record sales and purchase tax invoices and"
+" link accounting documents. Disabling prompts for uninstallation, which may "
+"delete tax invoice data."
+msgstr "安装税票管理模块，登记进销项税票并关联财务账单。关闭时 Odoo 会提示确认卸载；卸载可能删除税票数据。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__is_sudo
+msgid "Is Sudo"
+msgstr "超级权限"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Legacy Settings"
+msgstr "旧版设置"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__module_qing_account_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Local Tax Invoice OCR"
+msgstr "本地税票 OCR 识别"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__login
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "Login"
+msgstr "登录名"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_company__qing_login_ip_whitelist
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_ip_whitelist
+msgid "Login IP Whitelist"
+msgstr "登录 IP 白名单"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Managed by Mommy Base"
+msgstr "由 Mommy Base 管理"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Model"
+msgstr "模型"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__model_name
+msgid "Model Name"
+msgstr "模型名称"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_ir_module_module
+msgid "Module"
+msgstr "模块"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Mommy Base is still installed on this database, so it keeps managing the "
+"system title, report printing, PDF passwords and sign-in security in its own"
+" settings."
+msgstr "此数据库仍安装了 Mommy Base，系统标题、报表打印、PDF 密码和登录安全继续在其设置中管理。"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Odoo"
+msgstr "Odoo"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_res_company__qing_login_ip_whitelist
+#: model:ir.model.fields,help:qing_base.field_res_config_settings__qing_login_ip_whitelist
+msgid ""
+"One IP address, CIDR subnet or range (start-end) per line. Text after # is a"
+" comment."
+msgstr "每行一个 IP 地址、CIDR 网段或地址范围（起始-结束），# 后面的内容为注释。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_report_print_mode__preview
+msgid "Online Preview"
+msgstr "在线预览"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_res_company__qing_login_ip_whitelist_group_ids
+#: model:ir.model.fields,help:qing_base.field_res_config_settings__qing_login_ip_whitelist_group_ids
+msgid ""
+"Only members of these groups are restricted. Leave empty to restrict every "
+"user."
+msgstr "只限制这些用户组的成员；留空则限制所有用户。"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_ir_actions_report__qing_print_preview
+msgid "Open this PDF report in a new browser tab instead of downloading it."
+msgstr "在浏览器新标签页中打开此 PDF 报表，而不是下载。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__operation
+msgid "Operation"
+msgstr "操作"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_ir_actions_report__qing_pdf_password_edit
+msgid ""
+"Owner password that controls editing. Uses the default from Advanced "
+"Settings when empty."
+msgstr "控制编辑权限的所有者密码；留空时使用高级设置中的默认密码。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_pdf_appendix_fields
+msgid "PDF Appendix Fields"
+msgstr "PDF 附录字段"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_pdf_password_edit
+msgid "PDF Edit Password"
+msgstr "PDF 编辑密码"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_pdf_password_enabled
+msgid "PDF Password Protection"
+msgstr "PDF 密码保护"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_pdf_password_read
+msgid "PDF Read Password"
+msgstr "PDF 打开密码"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid "PDF appendix fields must be binary fields of %(model)s: %(fields)s"
+msgstr "PDF 附录字段必须是 %(model)s 的二进制字段：%(fields)s"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"PDF password protection failed, so the report was not delivered. Contact "
+"your administrator."
+msgstr "PDF 密码保护失败，报表未交付。请联系管理员。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"PDF password protection is enabled for this report, but no password is "
+"configured."
+msgstr "此报表已启用 PDF 密码保护，但未配置密码。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"PDF password protection is unavailable because qpdf is not installed. "
+"Contact your administrator."
+msgstr "服务器未安装 qpdf，无法使用 PDF 密码保护。请联系管理员。"
+
+#. module: qing_base
+#: model:ir.model.fields,help:qing_base.field_ir_actions_report__qing_pdf_password_read
+msgid ""
+"Password required to open the PDF. Uses the default from Advanced Settings "
+"when empty."
+msgstr "打开 PDF 所需的密码；留空时使用高级设置中的默认密码。"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/restricted_fields.js:0
+msgid "Permission restricted"
+msgstr "权限受限"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "Powered by"
+msgstr "技术支持"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/binary_preview.xml:0
+msgid "Preview"
+msgstr "预览"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_print_preview
+msgid "Preview Online"
+msgstr "在线预览"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_report_print_preview
+msgid "Preview PDF Reports Online"
+msgstr "在线预览 PDF 报表"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_ir_actions_report_form
+msgid "Printing and Protection"
+msgstr "打印与保护"
+
+#. module: qing_base
+#: model:ir.module.module,description:base.module_qing_base
+msgid ""
+"Provide branding, shared settings, audit logs, sign-in IP restrictions and "
+"logs, report preview and PDF passwords, row numbers and file previews. "
+"Periodically report basic installation details, including company name, URL "
+"and module counts, to the service center."
+msgstr ""
+"提供品牌、共享设置、审计日志、登录 IP 限制与登录日志、报表预览与 PDF "
+"密码、行号和文件预览，并定期向服务中心报告公司名称、网址和模块数量等基本安装信息。"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_publisher_warranty_contract
+msgid "Publisher Warranty Contract"
+msgstr "出版商保修合同"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_mail_push
+msgid "Push Notification"
+msgstr "推送通知"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_mail_push_device
+msgid "Push Notification Device"
+msgstr "推送通知设备"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+#: model_terms:ir.ui.view,arch_db:qing_base.offline_branding
+#: model_terms:ir.ui.view,arch_db:qing_base.promotion_branding
+msgid "Qing"
+msgstr "Qing"
+
+#. module: qing_base
+#: model:ir.actions.server,name:qing_base.ir_cron_qing_audit_purge_ir_actions_server
+msgid "Qing Audit: Remove Expired Logs"
+msgstr "Qing 审计：清理过期日志"
+
+#. module: qing_base
+#: model:ir.module.module,shortdesc:base.module_qing_base
+msgid "Qing Base"
+msgstr "Qing 基础"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_legacy_mommy_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_legacy_mommy_base
+msgid "Qing Legacy Mommy Base"
+msgstr "旧版 Mommy Base"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_qing_audit_log
+msgid "Qing ORM Audit Log"
+msgstr "Qing ORM 审计日志"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_ir_actions_report__qing_print_preview_effective
+msgid "Qing Print Preview Effective"
+msgstr "实际启用在线预览"
+
+#. module: qing_base
+#: model:ir.actions.server,name:qing_base.ir_cron_qing_login_log_purge_ir_actions_server
+msgid "Qing: Remove Expired Sign-in Logs"
+msgstr "Qing：清理过期登录日志"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "QingERP"
+msgstr "QingERP"
+
+#. module: qing_base
+#: model:ir.actions.server,name:qing_base.ir_cron_qing_telemetry_heartbeat_ir_actions_server
+msgid "QingERP: Installation Heartbeat"
+msgstr "QingERP：安装情况上报"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__record_id
+msgid "Record"
+msgstr "记录"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_audit_enabled
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Record ORM Changes"
+msgstr "记录增删改操作"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_ir_actions_report
+msgid "Report Action"
+msgstr "报表动作"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/report_preview.js:0
+msgid "Report Preview"
+msgstr "报表预览"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_report_print_mode
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Report Printing"
+msgstr "报表打印"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Reporting"
+msgstr "报表"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_company__qing_login_ip_whitelist_enabled
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_ip_whitelist_enabled
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Restrict Sign-in by IP"
+msgstr "按 IP 限制登录"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_company__qing_login_ip_whitelist_group_ids
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_ip_whitelist_group_ids
+msgid "Restricted Groups"
+msgstr "受限用户组"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_audit_log__source__server
+msgid "Server"
+msgstr "服务器"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__session_user_id
+msgid "Session User"
+msgstr "会话用户"
+
+#. module: qing_base
+#: model:ir.module.module,summary:base.module_qing_base
+msgid "Shared foundation for Qing business modules"
+msgstr "Qing 业务模块的共享基础"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Shown in browser tab titles and on the sign-in page. Refresh the page to "
+"apply."
+msgstr "显示在浏览器标签页标题和登录页上，刷新页面后生效。"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_qing_login_log
+msgid "Sign-in Log"
+msgstr "登录日志"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_log_retention_days
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Sign-in Log Retention (Days)"
+msgstr "登录日志保留天数"
+
+#. module: qing_base
+#: model:ir.actions.act_window,name:qing_base.action_qing_login_log
+#: model:ir.ui.menu,name:qing_base.menu_qing_login_log
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Sign-in Logs"
+msgstr "登录日志"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Sign-in Security"
+msgstr "登录安全"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Sign-in attempts older than this are removed every day."
+msgstr "每天清理早于此天数的登录记录。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/res_config_settings.py:0
+msgid "Sign-in log retention must be between 1 and 3650 days."
+msgstr "登录日志保留天数必须在 1 到 3650 之间。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__source
+msgid "Source"
+msgstr "来源"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "Succeeded"
+msgstr "成功"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__success
+msgid "Success"
+msgstr "成功"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "System"
+msgstr "系统"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_ir_config_parameter
+msgid "System Parameter"
+msgstr "系统参数"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_web_title
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "System Title"
+msgstr "系统名称"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__module_qing_account_fapiao
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Tax Invoice Ledger"
+msgstr "税票台账"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Tax Invoices"
+msgstr "税票"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/report_preview.js:0
+msgid "The PDF report opened in a new tab."
+msgstr "PDF 报表已在新标签页中打开。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_actions_report.py:0
+msgid ""
+"The main PDF could not be merged. The incomplete report was not delivered."
+msgstr "报表主体 PDF 无法合并。为避免内容不完整，报表未输出。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__attempt_datetime
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "Time"
+msgstr "时间"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_audit_log__operation__write
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "Updated"
+msgstr "修改"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid ""
+"Use the latest Chrome, Edge, Firefox, or Safari. Chrome/Edge versions below "
+"122 are not supported."
+msgstr "请使用最新版 Chrome、Edge、Firefox 或 Safari；Chrome/Edge 低于 122 的版本不受支持。"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_res_users
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__user_id
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__user_id
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+msgid "User"
+msgstr "用户"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Users of this company can sign in only from the listed IP addresses. An "
+"enabled empty list blocks every restricted user."
+msgstr "该公司的用户只能从列出的 IP 地址登录。启用后若列表为空，所有受限用户都无法登录。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_audit_log__source__http
+msgid "Web or API"
+msgstr "网页或接口"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/res_users.py:0
+msgid "Your IP address is not allowed to sign in."
+msgstr "您的 IP 地址不允许登录。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_ir_actions_report_form
+msgid "e.g. contract_file, drawing_file"
+msgstr "例如：contract_file, drawing_file"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "© QingERP · 青岛欧姆网络科技 2026"
+msgstr "© QingERP · 青岛欧姆网络科技 2026"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "欢迎回来"
+msgstr "欢迎回来"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_form_branding
+msgid "登录 QingERP →"
+msgstr "登录 QingERP →"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "社区版"
+msgstr "社区版"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_form_branding
+msgid "请输入密码"
+msgstr "请输入密码"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_form_branding
+msgid "请输入账号"
+msgstr "请输入账号"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "青岛五月的风与灯塔海滨素描"
+msgstr "青岛五月的风与灯塔海滨素描"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+msgid "青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描"
+msgstr "青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描"

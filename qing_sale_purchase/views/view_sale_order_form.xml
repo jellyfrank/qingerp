@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.qing.purchase</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qing_create_purchase" type="object" string="Create Purchase"
+                        invisible="state != 'sale'" groups="purchase.group_purchase_user"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/column[@name='sol_qty']" position="after">
+                <field name="qing_purchase_qty" optional="hide"/>
+                <field name="qing_purchase_remaining_qty" optional="hide"/>
+                <field name="qing_purchase_excess_qty" optional="hide" decoration-danger="qing_purchase_excess_qty &gt; 0"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

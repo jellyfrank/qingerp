@@ -1,0 +1,12 @@
+.o_qing_bank_workbench {
+    background: var(--o-view-background-color, #fff);
+    .qing-bank-columns { display: grid; grid-template-columns: minmax(230px, 28%) minmax(320px, 1fr) minmax(230px, 25%); min-height: 0; }
+    .qing-bank-queue, .qing-bank-candidates, .qing-bank-result { overflow-y: auto; }
+    .qing-bank-line, .qing-bank-candidate { white-space: normal; }
+    @media (max-width: 1000px) {
+        overflow-y: auto;
+        .qing-bank-columns { display: flex; flex-direction: column; }
+        .qing-bank-queue { max-height: 280px; flex-shrink: 0; }
+        .qing-bank-candidates, .qing-bank-result { overflow: visible; }
+    }
+}

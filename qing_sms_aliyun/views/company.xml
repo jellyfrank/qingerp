@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_company_form" model="ir.ui.view">
+        <field name="name">res company form</field>
+        <field name="active" eval="False"/>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Aliyun SMS" name="aliyun_sms" groups="base.group_system">
+                    <group>
+                        <field name="aliyun_sms_config_id" string="Config"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

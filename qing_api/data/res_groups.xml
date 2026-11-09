@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base.group_portal" model="res.groups">
+        <field name="api_key_duration">365</field>
+    </record>
+</odoo>

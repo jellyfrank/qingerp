@@ -1,0 +1,51 @@
+// Point of Sale dashboard and its modal configuration form. Native layout and
+// actions stay; only surfaces and colors follow the Qing theme. The selectors
+// match nothing when Point of Sale is not installed.
+.o_qing_web_ui {
+    // The card menu is a quiet icon button inset from the card corner, not a
+    // bordered light square stuck to the edge.
+    .o_pos_kanban .o_kanban_record .o_dropdown_kanban {
+        inset-block-start: 10px;
+        inset-inline-end: 10px;
+        > .btn, > .o-dropdown {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            border: 0;
+            border-radius: var(--o-qing-control-radius, 8px);
+            background: transparent;
+            color: var(--o-qing-text-soft);
+            box-shadow: none;
+            &:hover, &:focus-visible, &[aria-expanded="true"] {
+                background: var(--o-qing-surface-weak);
+                color: var(--o-qing-text);
+            }
+        }
+    }
+    .o_pos_kanban .dropdown-pos-config {
+        .o_kanban_card_manage_title { color: var(--o-qing-text-soft); font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+        a { color: var(--o-qing-text); }
+        a:hover { color: var(--o-qing-link); }
+    }
+
+    // Settings boxes inside ordinary forms (e.g. the POS Configure dialog)
+    // reuse native setting.scss, which paints each BooleanField wrapper white.
+    .o_form_view .o_setting_box .o_setting_left_pane,
+    .o_form_view .o_setting_box .o_setting_left_pane .o_field_boolean:not(:where(.o_field_invalid, .o_field_invalid *)) {
+        background-color: transparent;
+    }
+    // Native setting.scss and notebook borders use fixed light grays, which
+    // read as bright rules in dark mode; follow the theme border token.
+    .o_form_view .o_setting_box .o_setting_right_pane,
+    .o_form_view .o_notebook_content.tab-content {
+        border-color: var(--o-qing-border);
+    }
+    // Inline form links (o_form_uri) keep the legacy brand purple natively.
+    .o_form_view a.btn-link.o_form_uri {
+        color: var(--o-qing-link);
+        &:hover, &:focus-visible { color: var(--o-qing-link); text-decoration: underline; }
+    }
+}

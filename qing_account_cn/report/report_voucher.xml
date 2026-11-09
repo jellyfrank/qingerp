@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_voucher" model="report.paperformat">
+        <field name="name">中国记账凭证 A4</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">15</field>
+        <field name="margin_bottom">18</field>
+        <field name="margin_left">12</field>
+        <field name="margin_right">12</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <template id="voucher_layout">
+        <div class="article" t-att-data-oe-model="o._name" t-att-data-oe-id="o.id"
+             t-att-data-oe-lang="o.env.context.get('lang')">
+            <t t-out="0"/>
+        </div>
+        <div class="footer" style="font-family: 'Noto Sans CJK SC', sans-serif; font-size: 10px; text-align: center;">
+            <span t-field="o.company_id.name"/> · <span t-out="o.name if o.name and o.name != '/' else '草稿'"/>
+            · 第 <span class="page"/> / <span class="topage"/> 页
+        </div>
+    </template>
+    <record id="l10n_cn.account_voucher_cn" model="ir.actions.report">
+        <field name="binding_view_types">form,list</field>
+        <field name="paperformat_id" ref="paperformat_voucher"/>
+    </record>
+
+    <template id="report_voucher_document" inherit_id="l10n_cn.report_voucher_document">
+        <xpath expr="//t[@t-call='l10n_cn.external_layout_standard']" position="attributes">
+            <attribute name="t-call">qing_account_cn.voucher_layout</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('page')]" position="replace">
+            <t t-if="o.company_id.qing_cn_voucher_style == 'traditional'" t-call="qing_account_cn.voucher_traditional"/>
+            <div t-else="" class="page qing_cn_voucher" style="font-family: 'Noto Sans CJK SC', sans-serif; color: #222; font-size: 12px;">
+                <h2 style="text-align: center;">记账凭证</h2>
+                <p style="text-align: center;" t-if="o.state != 'posted'">
+                    <strong t-if="o.state == 'draft'">草稿 · 未过账</strong>
+                    <strong t-else="">已取消</strong>
+                </p>
+                <p><strong>核算单位：</strong><span t-field="o.company_id.name"/></p>
+                <table style="width: 100%; margin-bottom: 12px;">
+                    <tr>
+                        <td><strong>日期：</strong><span t-field="o.date"/></td>
+                        <td><strong>凭证号：</strong><span t-out="o.name if o.name and o.name != '/' else '未编号'"/></td>
+                        <td><strong>附件数：</strong><span t-out="o._count_attachments()"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>日记账：</strong><span t-field="o.journal_id.name"/></td>
+                        <td colspan="2"><strong>本位币：</strong><span t-field="o.company_currency_id.name"/>（借贷金额均为本位币）</td>
+                    </tr>
+                </table>
+                <table name="entry_line_table" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+                    <thead style="display: table-header-group;">
+                        <tr>
+                            <th style="width: 32%; border: 1px solid #777; padding: 8px;">摘要 / 往来单位</th>
+                            <th style="width: 32%; border: 1px solid #777; padding: 8px;">会计科目</th>
+                            <th style="width: 18%; border: 1px solid #777; padding: 8px;">借方金额</th>
+                            <th style="width: 18%; border: 1px solid #777; padding: 8px;">贷方金额</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total_debit" t-value="sum(o.line_ids.mapped('debit'))"/>
+                        <t t-set="total_credit" t-value="sum(o.line_ids.mapped('credit'))"/>
+                        <tr t-foreach="o.line_ids.filtered(lambda line: line.account_id)" t-as="line" style="page-break-inside: avoid;">
+                            <td style="border: 1px solid #777; padding: 8px; overflow-wrap: break-word;">
+                                <span t-field="line.name"/>
+                                <div t-if="line.partner_id"><span t-field="line.partner_id.name"/></div>
+                                <div t-if="line.currency_id and line.currency_id != o.company_currency_id">
+                                    原币：<span t-field="line.currency_id.name"/>
+                                    <span t-field="line.amount_currency"/>
+                                </div>
+                            </td>
+                            <td style="border: 1px solid #777; padding: 8px; overflow-wrap: break-word;">
+                                <span t-field="line.account_id.code"/> <span t-field="line.account_id.name"/>
+                            </td>
+                            <td name="debit" style="border: 1px solid #777; padding: 8px; text-align: right; white-space: nowrap;">
+                                <span t-if="line.debit" t-field="line.debit"/>
+                            </td>
+                            <td name="credit" style="border: 1px solid #777; padding: 8px; text-align: right; white-space: nowrap;">
+                                <span t-if="line.credit" t-field="line.credit"/>
+                            </td>
+                        </tr>
+                        <tr style="page-break-inside: avoid;">
+                            <td colspan="2" style="border: 1px solid #777; padding: 8px;">
+                                <strong>合计</strong>
+                                <t t-if="o.company_currency_id.name == 'CNY'">
+                                    <div>人民币大写：<span t-out="total_debit" t-options="{'widget': 'qing_chinese_amount'}"/></div>
+                                </t>
+                            </td>
+                            <td name="total_debit" style="border: 1px solid #777; padding: 8px; text-align: right; white-space: nowrap;">
+                                <span t-out="total_debit" t-options="{'widget': 'monetary', 'display_currency': o.company_currency_id}"/>
+                            </td>
+                            <td name="total_credit" style="border: 1px solid #777; padding: 8px; text-align: right; white-space: nowrap;">
+                                <span t-out="total_credit" t-options="{'widget': 'monetary', 'display_currency': o.company_currency_id}"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 18px; page-break-inside: avoid;">
+                    <p>审核签字：________________　　记账签字：________________　　制单签字：________________</p>
+                    <p style="font-size: 10px; color: #555;">签字栏供人工复核；附件数为系统关联附件数量，不代表纸质原始凭证张数。</p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

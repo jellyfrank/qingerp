@@ -1,0 +1,2518 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_sms
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 13:32+0000\n"
+"PO-Revision-Date: 2026-09-24 13:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "A blueprint variable has an invalid key."
+msgstr "蓝本变量的键无效。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "A blueprint variable has an invalid maximum length."
+msgstr "蓝本变量的最大长度无效。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "A blueprint variable has an unsupported type."
+msgstr "蓝本变量的类型不受支持。"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_scenario_company_event_unique
+msgid "A company can configure each SMS event once."
+msgstr "每家公司只能配置一次同类短信事件。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_test_form
+msgid ""
+"A test SMS may incur a provider charge. Sending requires a separate click "
+"after preview."
+msgstr "测试短信可能产生厂商费用；预览后需单独点击发送。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__accept_new
+msgid "Accept New"
+msgstr "接受新任务"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__accepted
+msgid "Accepted"
+msgstr "已受理"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__key
+msgid "Access Key"
+msgstr "访问秘钥"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__secret
+msgid "Access Secret"
+msgstr "访问密钥"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__account_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__account_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__account_id
+msgid "Account"
+msgstr "账户"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Account and sign must belong to the application company."
+msgstr "账户和签名必须属于申请公司。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__active
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__active
+msgid "Active"
+msgstr "有效"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__actor_user_id
+msgid "Actor User"
+msgstr "操作用户"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__application_id
+msgid "Application"
+msgstr "应用"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__application_remark
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__application_remark
+msgid "Application Remark"
+msgstr "申请备注"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_template_application_request_unique
+msgid "Application request key already exists."
+msgstr "申请请求标识已存在。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Application result fields cannot be edited."
+msgstr "不能编辑申请结果字段。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Application result fields cannot be set directly."
+msgstr "不能直接设置申请结果字段。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Application variables and content do not match."
+msgstr "申请变量与正文不匹配。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__apply_scene_content
+msgid "Apply Scene Content"
+msgstr "使用场景说明"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__approved
+msgid "Approved"
+msgstr "批准"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__audit_state
+msgid "Audit State"
+msgstr "审核状态"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__trigger__automatic
+msgid "Automatic"
+msgstr "自动"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__binding_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__binding_ids
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__binding_id
+msgid "Binding"
+msgstr "业务绑定"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__binding_frozen_at
+msgid "Binding Frozen At"
+msgstr "绑定冻结时间"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__state__blocked
+msgid "Blocked"
+msgstr "受阻"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__blueprint_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__blueprint_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__blueprint_id
+msgid "Blueprint"
+msgstr "蓝图"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__blueprint_code
+msgid "Blueprint Code"
+msgstr "蓝本代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__blueprint_version
+msgid "Blueprint Version"
+msgstr "蓝本版本"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Blueprint belongs to another company."
+msgstr "蓝本属于其他公司。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Blueprint content contains control characters."
+msgstr "蓝本正文包含控制字符。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Blueprint placeholders and variable schema must match exactly."
+msgstr "蓝本占位符必须与变量定义完全一致。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Blueprint variables must be an ordered list of at most 30 items."
+msgstr "蓝本变量必须是最多 30 项的有序列表。"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_blueprint_identity_unique
+msgid "Blueprint version already exists."
+msgstr "蓝本版本已存在。"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_event
+#: model:ir.ui.menu,name:qing_sms.menu_sms_event
+msgid "Business events"
+msgstr "业务事件"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_scenario
+#: model:ir.ui.menu,name:qing_sms.menu_sms_scenario
+msgid "Business scenarios"
+msgstr "业务场景"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_link_form
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_setup_form
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_test_form
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_attempt__kind__cancel
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__state__canceled
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__canceled
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__canceled
+msgid "Canceled"
+msgstr "已取消"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "Captured business values do not cover the template mapping."
+msgstr "冻结的业务值未覆盖模板变量映射。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__category
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__category
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__category
+msgid "Category"
+msgstr "类别"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_link_form
+msgid ""
+"Check the cloud template code, content, category and variables before "
+"linking. The same name alone is insufficient."
+msgstr "关联前请核对云端模板代码、正文、类别和变量；仅名称相同不足以确认。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_setup.py:0
+msgid "Choose a matching company, account, sign and scenario blueprint."
+msgstr "请选择相互匹配的公司、账户、签名和场景蓝本。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_form
+msgid "Clone draft"
+msgstr "复制草稿"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_blueprint_form
+msgid "Clone for company"
+msgstr "复制到公司"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Cloud template content, category or variables do not match."
+msgstr "云端模板正文、类别或变量不匹配。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_setup.py:0
+msgid "Cloud template variables do not match the blueprint schema."
+msgstr "云端模板变量与蓝本定义不匹配。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__code
+msgid "Code"
+msgstr "代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__composer_id
+msgid "Composer"
+msgstr "编辑器"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__config_revision
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__config_revision
+msgid "Config Revision"
+msgstr "配置版本"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_setup_form
+msgid "Configure binding"
+msgstr "配置绑定"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__content
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__content
+msgid "Content"
+msgstr "内容"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__create_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__create_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__create_date
+msgid "Created on"
+msgstr "创建日期"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_mail_thread__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_handler_native_template__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_handler__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_sms_sms__current_company
+#: model:ir.model.fields,field_description:qing_sms.field_sms_template__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__delivered
+msgid "Delivered"
+msgstr "已送达"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_form
+msgid "Disable"
+msgstr "禁用"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_mail_thread__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_handler_native_template__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_handler__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_sms_sms__display_name
+#: model:ir.model.fields,field_description:qing_sms.field_sms_template__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_sms_sms__domestic_company_id
+msgid "Domestic Company"
+msgstr "国内短信公司"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__domestic_event_key
+msgid "Domestic Event Key"
+msgstr "国内短信事件标识"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_sms_sms__domestic_message_id
+msgid "Domestic Message"
+msgstr "国内短信任务"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "Domestic SMS binding does not match the message template and company."
+msgstr "国内短信绑定与消息模板或公司不匹配。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_blueprint
+msgid "Domestic SMS blueprint"
+msgstr "国内短信蓝本"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_event
+msgid "Domestic SMS business event"
+msgstr "国内短信业务事件"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_event_company_key_unique
+msgid "Domestic SMS business event already exists."
+msgstr "国内短信业务事件已存在。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_scenario
+msgid "Domestic SMS scenario"
+msgstr "国内短信场景"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_scenario_setup
+msgid "Domestic SMS scenario setup"
+msgstr "国内短信场景设置"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_template_application
+msgid "Domestic SMS template application"
+msgstr "国内短信模板申请"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Domestic SMS template binding is unavailable."
+msgstr "国内短信模板绑定不可用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "Domestic SMS template is not configured."
+msgstr "未配置国内短信模板。"
+
+#. module: qing_sms
+#: model:ir.actions.server,name:qing_sms.ir_cron_prepare_events_ir_actions_server
+msgid "Domestic SMS: prepare business events"
+msgstr "国内短信：准备业务事件"
+
+#. module: qing_sms
+#: model:ir.actions.server,name:qing_sms.ir_cron_template_application_ir_actions_server
+msgid "Domestic SMS: template applications"
+msgstr "国内短信：处理模板申请"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_form
+msgid "Enable"
+msgstr "启用"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__enabled
+msgid "Enabled"
+msgstr "已启用"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__enabled_from
+msgid "Enabled From"
+msgstr "启用时间"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__state__enqueued
+msgid "Enqueued"
+msgstr "已入队"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__error_code
+msgid "Error Code"
+msgstr "错误代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__event_id
+msgid "Event"
+msgstr "活动"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__event_code
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__event_code
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__event_code
+msgid "Event Code"
+msgstr "事件代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__event_key
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__event_key
+msgid "Event Key"
+msgstr "事件标识"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__expires_at
+msgid "Expires At"
+msgstr "过期时间"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_form
+msgid "Export materials"
+msgstr "导出申请材料"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__failed
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__failed
+msgid "Failed"
+msgstr "失败"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__fingerprint
+msgid "Fingerprint"
+msgstr "记录快照"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_mail_thread__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_handler_native_template__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_handler__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__id
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__id
+#: model:ir.model.fields,field_description:qing_sms.field_sms_sms__id
+#: model:ir.model.fields,field_description:qing_sms.field_sms_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__is_sensitive
+msgid "Is Sensitive"
+msgstr "敏感内容"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__key
+msgid "Key"
+msgstr "密钥KEY"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__last_check_code
+msgid "Last Check Code"
+msgstr "上次检查结果"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__last_checked_at
+msgid "Last Checked At"
+msgstr "上次检查时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__last_sync_at
+msgid "Last Sync At"
+msgstr "上次同步时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__write_uid
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__write_date
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_form
+msgid "Link cloud template"
+msgstr "关联云端模板"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_link_form
+msgid "Link verified template"
+msgstr "关联已核验模板"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__mail_message_id
+msgid "Mail Message"
+msgstr "邮件消息"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__trigger__manual
+msgid "Manual"
+msgstr "手动"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__message_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__message_ids
+msgid "Message"
+msgstr "信息"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__model_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__model_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__sample_model
+msgid "Model"
+msgstr "模型"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "More than one domestic binding matches this SMS template."
+msgstr "此短信模板匹配多个国内短信绑定。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__trigger__native
+msgid "Native"
+msgstr "原生"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_event_native_mail_unique
+msgid "Native SMS message event already exists."
+msgstr "原生短信消息事件已存在。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Native SMS message identity does not match its source."
+msgstr "原生短信消息身份与来源单据不匹配。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_handler_native_template
+msgid "Native SMS template preflight"
+msgstr "原生短信模板发送前检查"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "Native SMS variable has no matching readable business field."
+msgstr "原生短信变量没有对应的可读业务字段。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__native_template_id
+msgid "Native Template"
+msgstr "原生模板"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__next_check_at
+msgid "Next Check At"
+msgstr "下次检查时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__next_query_at
+msgid "Next Query At"
+msgstr "下次查询时间"
+
+#. module: qing_sms
+#: model:res.groups.privilege,placeholder:qing_sms.privilege_sms
+msgid "No"
+msgstr "否"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "No SMS event"
+msgstr "无短信事件"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "No active binding exists for this scenario variant."
+msgstr "此场景变体没有可用绑定。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__normalized_content
+msgid "Normalized Content"
+msgstr "标准化正文"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__not_before
+msgid "Not Before"
+msgstr "最早发送时间"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_blueprint__category__notification
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__category__notification
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__category__notification
+msgid "Notification"
+msgstr "通知"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__number
+msgid "Number"
+msgstr "号码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__occurred_at
+msgid "Occurred At"
+msgstr "发生时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__template_id
+msgid "Odoo 业务模板"
+msgstr "Odoo 业务模板"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_blueprint__category__otp
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__category__otp
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__category__otp
+msgid "One-time code"
+msgstr "验证码"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "One-time codes require the dedicated secure SMS flow."
+msgstr "验证码必须使用专用的安全短信流程。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Only SMS managers can clone blueprints."
+msgstr "只有短信管理员可以复制蓝本。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+#: code:addons/qing_sms/wizard/sms_scenario_setup.py:0
+msgid "Only SMS managers can configure scenarios."
+msgstr "只有短信管理员可以配置场景。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Only SMS managers can prepare template applications."
+msgstr "只有短信管理员可以准备模板申请。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Only SMS managers can recheck blocked events."
+msgstr "只有短信管理员可以重新检查受阻事件。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Only SMS managers can submit template applications."
+msgstr "只有短信管理员可以提交模板申请。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Only module installation can create public blueprints."
+msgstr "只有模块安装过程可以创建公共蓝本。"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_binding_scenario_variant_unique
+msgid "Only one current binding is allowed for each scenario variant."
+msgstr "每个场景变体只允许一个当前绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Only unresolved applications may be linked to a cloud template."
+msgstr "只有未完成的申请可以关联云端模板。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Only unsent blocked events may be rechecked."
+msgstr "只有未发送的受阻事件可以重新检查。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__unknown
+msgid "Outcome unknown"
+msgstr "结果未知"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_sms_sms
+msgid "Outgoing SMS"
+msgstr "发信短信息"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__parameters
+msgid "Parameters"
+msgstr "参数"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__payload_hash
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__payload_hash
+msgid "Payload Hash"
+msgstr "载荷摘要"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__state__pending
+msgid "Pending"
+msgstr "待定"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__preflight_reason_code
+msgid "Preflight Reason Code"
+msgstr "发送前检查原因代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__preflight_reason_message
+msgid "Preflight Reason Message"
+msgstr "发送前检查原因说明"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_blueprint_form
+msgid "Prepare application"
+msgstr "准备申请"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_test_form
+msgid "Preview"
+msgstr "预览"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__preview_body
+msgid "Preview Body"
+msgstr "预览正文"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__preview_number
+msgid "Preview Number"
+msgstr "预览号码"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_form
+msgid "Preview and test"
+msgstr "预览与测试"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_scenario_test
+msgid "Preview and test a domestic SMS scenario"
+msgstr "预览并测试国内短信场景"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "Preview the current number and content before sending."
+msgstr "发送前请预览当前号码与正文。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__provider_order_id
+msgid "Provider Order"
+msgstr "厂商工单号"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__provider_request_id
+msgid "Provider Request"
+msgstr "厂商请求号"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__provider_variable_rules
+msgid "Provider Variable Rules"
+msgstr "厂商变量规则"
+
+#. module: qing_sms
+#: model:ir.module.module,description:base.module_qing_sms
+msgid ""
+"Provider-neutral domestic SMS accounts, blueprints, applications, events, "
+"and reliable delivery."
+msgstr "厂商无关的国内短信账户、蓝本、申请、事件与可靠发送。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Public blueprints are immutable. Clone one for your company."
+msgstr "公共蓝本不可修改，请先复制到本公司。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_blueprint.py:0
+msgid "Public blueprints cannot be deleted."
+msgstr "不能删除公共蓝本。"
+
+#. module: qing_sms
+#: model:ir.module.module,shortdesc:base.module_qing_sms
+msgid "QingERP 短信"
+msgstr "QingERP 短信"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__query_count
+msgid "Query Count"
+msgstr "查询次数"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__queued
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__queued
+msgid "Queued"
+msgstr "排队"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__raw_status
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__raw_status
+msgid "Raw Status"
+msgstr "原始状态"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__reason_code
+msgid "Reason Code"
+msgstr "原因代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__reason_message
+msgid "Reason Message"
+msgstr "原因说明"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_event_form
+msgid "Recheck"
+msgstr "重新检查"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__recipient_policy
+msgid "Recipient Policy"
+msgstr "收件人规则"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__recipient_snapshot
+msgid "Recipient Snapshot"
+msgstr "收件人快照"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_application_link
+msgid "Reconcile a cloud SMS template"
+msgstr "核对云端短信模板"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_scenario__recipient_policy__record_contact
+msgid "Record contact"
+msgstr "单据联系人"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_scenario_handler
+msgid "Registered SMS scenario handlers"
+msgstr "已注册短信场景处理器"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__reject_reason
+msgid "Reject Reason"
+msgstr "驳回原因"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__rejected
+msgid "Rejected"
+msgstr "拒绝"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__record_model
+msgid "Related Document Model"
+msgstr "相关文档模型"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__remote_code
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__remote_code
+msgid "Remote Code"
+msgstr "云端模板代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_application_link__remote_template_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__remote_template_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__remote_template_id
+msgid "Remote Template"
+msgstr "云端模板"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__request_key
+msgid "Request Key"
+msgstr "请求标识"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__res_id
+msgid "Res"
+msgstr "业务单据"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__res_model
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__res_model
+msgid "Res Model"
+msgstr "Res 模型"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__resolution_user_id
+msgid "Resolution User"
+msgstr "处理用户"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__retired_at
+msgid "Retired At"
+msgstr "停用时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__retry_after
+msgid "Retry After"
+msgstr "重试时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__review_hash
+msgid "Review Hash"
+msgstr "核验摘要"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_sms_template
+msgid "SMS Templates"
+msgstr "短信息模板"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "SMS event facts cannot be edited directly."
+msgstr "不能直接修改短信事件事实。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "SMS event history cannot be deleted."
+msgstr "不能删除短信事件历史。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "SMS events are created by registered business handlers."
+msgstr "短信事件只能由已注册的业务处理器创建。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "SMS send permission is required."
+msgstr "需要短信发送权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "SMS template belongs to another business model."
+msgstr "短信模板属于其他业务模型。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__sample_res_id
+msgid "Sample Res"
+msgstr "样例单据"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__scenario_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__scenario_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__scenario_id
+msgid "Scenario"
+msgstr "场景"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "Scenario test sends require both SMS manager and sender permissions."
+msgstr "测试发送同时需要短信管理员和发送权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "Scheduled domestic SMS event is invalid."
+msgstr "定时国内短信事件无效。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "Select a reviewed default template binding."
+msgstr "请选择已核验的默认模板绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "Select an active sender with access to this company."
+msgstr "请选择有权访问本公司的有效发送用户。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "Select an existing sample business record."
+msgstr "请选择已有的样例业务单据。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_sms_composer
+msgid "Send SMS Wizard"
+msgstr "发送短信息向导"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_test_form
+msgid "Send test SMS"
+msgstr "发送测试短信"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__sender_user_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario__sender_user_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__sender_user_id
+msgid "Sender User"
+msgstr "发送用户"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__sequence
+msgid "Sequence"
+msgstr "序列"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_scenario_setup
+msgid "Set up domestic SMS scenario"
+msgstr "配置国内短信场景"
+
+#. module: qing_sms
+#: model:ir.ui.menu,name:qing_sms.menu_sms_scenario_setup
+msgid "Set up scenario"
+msgstr "设置场景"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_setup__sign_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__sign_id
+msgid "Sign"
+msgstr "电子签名"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__sign_name
+msgid "Sign Name"
+msgstr "签名名称"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__sign_names
+msgid "Sign Names"
+msgstr "可用签名"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_event__state__skipped
+msgid "Skipped"
+msgstr "忽略"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__sms_id
+msgid "Sms"
+msgstr "短信"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__sms_uuid
+msgid "Sms Uuid"
+msgstr "短信 UUID"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__source_blueprint_id
+msgid "Source Blueprint"
+msgstr "来源蓝本"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__state
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__state
+msgid "State"
+msgstr "省/州"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_application_form
+msgid "Submit for review"
+msgstr "提交审核"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__submitted_at
+msgid "Submitted At"
+msgstr "提交时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__submitted_payload
+msgid "Submitted Payload"
+msgstr "已提交载荷"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "Submitted applications are immutable. Clone a new draft."
+msgstr "已提交的申请不可修改，请复制新草稿。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__template_id
+msgid "Template"
+msgstr "模板"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__template_apply_not_before
+msgid "Template Apply Not Before"
+msgstr "模板申请最早提交时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__template_hash
+msgid "Template Hash"
+msgstr "模板摘要"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__template_revision_id
+msgid "Template Revision"
+msgstr "模板版本"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_application
+#: model:ir.ui.menu,name:qing_sms.menu_sms_application
+msgid "Template applications"
+msgstr "模板申请"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_blueprint
+#: model:ir.ui.menu,name:qing_sms.menu_sms_blueprint
+msgid "Template blueprints"
+msgstr "模板蓝本"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_scenario_test__test_key
+msgid "Test Key"
+msgstr "测试标识"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The SMS event does not match the business record."
+msgstr "短信事件与业务单据不匹配。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "The SMS scenario is no longer enabled."
+msgstr "短信场景已停用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_setup.py:0
+msgid ""
+"The approved cloud template must exactly match blueprint content and "
+"category."
+msgstr "已审核云端模板的正文和类别必须与蓝本完全一致。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "The binding belongs to another company or model."
+msgstr "绑定属于其他公司或业务模型。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The binding was retired before this event was captured."
+msgstr "此事件捕获前绑定已停用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The blueprint belongs to another company."
+msgstr "蓝本属于其他公司。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The business event is not eligible: %s"
+msgstr "业务事件不符合发送条件：%s"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "The business record is unavailable."
+msgstr "业务单据不可用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The captured SMS binding cannot be reused."
+msgstr "已冻结的短信绑定不能复用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_application_link.py:0
+msgid "The cloud template belongs to another account."
+msgstr "云端模板属于其他账户。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "The cloud template cannot be linked to this application."
+msgstr "此云端模板不能关联当前申请。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The configured sender no longer has SMS permission."
+msgstr "配置的发送用户已失去短信权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "The event and business model do not match a registered handler."
+msgstr "事件和业务模型与已注册处理器不匹配。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The event has no captured template or sender."
+msgstr "事件未冻结模板或发送用户。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+msgid "The native SMS binding was retired before capture."
+msgstr "原生短信绑定在捕获前已停用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_native_handler.py:0
+msgid "The native SMS event has an invalid source or template."
+msgstr "原生短信事件的来源或模板无效。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The native SMS schedule cannot use this retired binding."
+msgstr "原生定时短信不能使用此已停用绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The native SMS sender has no company or SMS permission."
+msgstr "原生短信发送用户没有公司或短信权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The recipient has no mobile number."
+msgstr "收件人没有手机号。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The recipient or template values are missing."
+msgstr "缺少收件人或模板变量值。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "The sample record is not eligible: %s"
+msgstr "样例单据不符合发送条件：%s"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "The scenario belongs to another company."
+msgstr "场景属于其他公司。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+#: code:addons/qing_sms/models/sms_message.py:0
+#: code:addons/qing_sms/models/sms_scenario.py:0
+#: code:addons/qing_sms/wizard/sms_scenario_test.py:0
+msgid "The scenario handler is unavailable."
+msgstr "场景处理器不可用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The scenario is no longer enabled."
+msgstr "场景已停用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The scenario or sender is unavailable."
+msgstr "场景或发送用户不可用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The scenario sender has no company or SMS permission."
+msgstr "场景发送用户没有公司或短信权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "The scenario sender lost SMS permission."
+msgstr "场景发送用户已失去短信权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The scenario variant has no binding."
+msgstr "场景变体没有绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/mail_thread.py:0
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "The scheduled sender no longer has SMS permission."
+msgstr "定时短信发送用户已失去短信权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "The sender needs SMS send permission."
+msgstr "发送用户需要短信发送权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "The sender needs read access to the business model."
+msgstr "发送用户需要业务模型读取权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_application.py:0
+msgid "The sign must be approved before application."
+msgstr "提交申请前签名必须审核通过。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "The source record no longer exists."
+msgstr "来源单据已不存在。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "This binding no longer accepts new SMS events."
+msgstr "此绑定不再接收新短信事件。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid ""
+"This provider does not support template creation. Export the application "
+"materials instead."
+msgstr "此服务商不支持自动创建模板，请导出申请材料。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid ""
+"This provider does not support template status queries. Synchronize "
+"templates instead."
+msgstr "此服务商不支持查询模板状态，请同步模板。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_scenario_setup_form
+msgid ""
+"This setup creates a reviewed binding. Enable the scenario separately after "
+"checking the sender and variables."
+msgstr "此向导创建已核验绑定；核对发送用户和变量后请单独启用场景。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__trigger
+msgid "Trigger"
+msgstr "触发方式"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_template_application__state__pending
+msgid "Under review"
+msgstr "审核中"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Unknown SMS event."
+msgstr "未知短信事件。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_scenario.py:0
+msgid "Use scenario actions to change activation."
+msgstr "请使用场景操作修改启用状态。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_event__value_snapshot
+msgid "Value Snapshot"
+msgstr "变量快照"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__variable_rules
+msgid "Variable Rules"
+msgstr "变量规则"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__variable_schema
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_application__variable_schema
+msgid "Variable Schema"
+msgstr "变量定义"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__variables
+msgid "Variables"
+msgstr "变量"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__variant_code
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__variant_code
+msgid "Variant Code"
+msgstr "变体代码"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_blueprint__version
+msgid "Version"
+msgstr "版本"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_event.py:0
+msgid "Waiting for preparation"
+msgstr "等待准备"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__wizard_id
+msgid "Wizard"
+msgstr "向导"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__event_key
+msgid "业务事件标识"
+msgstr "业务事件标识"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__res_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__record_id
+msgid "业务单据"
+msgstr "业务单据"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__key
+msgid "业务变量"
+msgstr "业务变量"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__name
+msgid "业务场景"
+msgstr "业务场景"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_variable__source__field
+msgid "Business Field"
+msgstr "业务字段"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__binding_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__binding_id
+#: model:ir.ui.menu,name:qing_sms.menu_sms_binding
+msgid "业务模板"
+msgstr "业务模板"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "业务记录不存在。"
+msgstr "业务记录不存在。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "业务记录与短信账户公司不一致。"
+msgstr "业务记录与短信账户公司不一致。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "中间字段必须为单条关联记录。"
+msgstr "中间字段必须为单条关联记录。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "事件标识必须为不超过 200 字符的文本。"
+msgstr "事件标识必须为不超过 200 字符的文本。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "云端列表含空编号或重复编号，本次同步已回滚。"
+msgstr "云端列表含空编号或重复编号，本次同步已回滚。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__variables
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__remote_name
+msgid "云端变量"
+msgstr "云端变量"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_remote_template.py:0
+#: code:addons/qing_sms/models/sms_sign.py:0
+msgid "云端审核信息只能通过同步写入。"
+msgstr "云端审核信息只能通过同步写入。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__remote_id
+msgid "云端标识"
+msgstr "云端标识"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__template_ids
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__remote_template_id
+#: model:ir.ui.menu,name:qing_sms.menu_sms_template
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_account_form
+msgid "云端模板"
+msgstr "云端模板"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "云端模板的占位符不能正确渲染。"
+msgstr "云端模板的占位符不能正确渲染。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__content
+msgid "云端正文"
+msgstr "云端正文"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_remote_template
+msgid "云端短信模板"
+msgstr "云端短信模板"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_template_revision
+msgid "云端短信模板历史版本"
+msgstr "云端短信模板历史版本"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_sign
+msgid "云端短信签名"
+msgstr "云端短信签名"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "仅支持文本、数值和日期字段。"
+msgstr "仅支持文本、数值和日期字段。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "任务正在处理，请稍后查询状态。"
+msgstr "任务正在处理，请稍后查询状态。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__value
+msgid "值"
+msgstr "值"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__enabled
+msgid "允许发送"
+msgstr "允许发送"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__company_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__company_id
+msgid "公司"
+msgstr "公司"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_sms.py:0
+msgid "公司已启用国内短信，请选择已核验的国内模板；不能将自由正文转发到 IAP。"
+msgstr "公司已启用国内短信，请选择已核验的国内模板；不能将自由正文转发到 IAP。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_message_form
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_message_list
+msgid "创建时间"
+msgstr "创建时间"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_send_form
+msgid "加入发送队列"
+msgstr "加入发送队列"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__variable_rules
+msgid "厂商变量规则"
+msgstr "厂商变量规则"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__provider_id
+msgid "厂商流水号"
+msgstr "厂商流水号"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_revision.py:0
+msgid "历史模板版本不可修改。"
+msgstr "历史模板版本不可修改。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_template_revision.py:0
+msgid "历史模板版本不可删除。"
+msgstr "历史模板版本不可删除。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_send
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_send_form
+msgid "发送国内短信"
+msgstr "发送国内短信"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+#: code:addons/qing_sms/sms_send.py:0
+#: code:addons/qing_sms/wizard/sms_send.py:0
+#: model:res.groups,name:qing_sms.group_sms_user
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_binding_form
+msgid "发送短信"
+msgstr "发送短信"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_send.py:0
+#: code:addons/qing_sms/wizard/sms_send.py:0
+#: model:ir.ui.menu,name:qing_sms.menu_sms_message
+msgid "发送记录"
+msgstr "发送记录"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "发送记录不可直接修改。"
+msgstr "发送记录不可直接修改。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "发送记录不可直接删除。"
+msgstr "发送记录不可直接删除。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__source
+msgid "Value Source"
+msgstr "取值方式"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_send_form
+msgid "取消"
+msgstr "取消"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__canceled
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__canceled
+msgid "Review Canceled"
+msgstr "取消审核"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_message_form
+msgid "取消排队"
+msgstr "取消排队"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send_value__name
+msgid "变量"
+msgstr "变量"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__variable_ids
+msgid "变量映射"
+msgstr "变量映射"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "只有短信管理员可以同步账户。"
+msgstr "只有短信管理员可以同步账户。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "只能取消尚未提交的短信。"
+msgstr "只能取消尚未提交的短信。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "同一事件标识不能用于不同的短信内容。"
+msgstr "同一事件标识不能用于不同的短信内容。"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_remote_template_remote_unique
+msgid "同一账户不能重复登记模板。"
+msgstr "同一账户不能重复登记模板。"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_sign_remote_unique
+msgid "同一账户不能重复登记签名。"
+msgstr "同一账户不能重复登记签名。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__revision_ids
+msgid "同步历史"
+msgstr "同步历史"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "同步失败，未覆盖本地模板。请检查连接、查询权限和厂商控制台。"
+msgstr "同步失败，未覆盖本地模板。请检查连接、查询权限和厂商控制台。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__last_sync_at
+msgid "同步时间"
+msgstr "同步时间"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_account_form
+msgid "同步签名与模板"
+msgstr "同步签名与模板"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "同步结果"
+msgstr "同步结果"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__sync_error
+msgid "同步错误"
+msgstr "同步错误"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__name
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__name
+msgid "名称"
+msgstr "名称"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__active
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__active
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__active
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__active
+msgid "启用"
+msgstr "启用"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__constant
+msgid "固定值"
+msgstr "固定值"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_variable__source__constant
+msgid "Fixed Value"
+msgstr "固定值"
+
+#. module: qing_sms
+#: model:ir.actions.act_window,name:qing_sms.action_sms_account
+#: model:ir.actions.act_window,name:qing_sms.action_sms_binding
+#: model:ir.actions.act_window,name:qing_sms.action_sms_message
+#: model:ir.actions.act_window,name:qing_sms.action_sms_remote_template
+#: model:ir.ui.menu,name:qing_sms.menu_sms_root
+#: model:res.groups.privilege,name:qing_sms.privilege_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_template_domestic_form
+msgid "国内短信"
+msgstr "国内短信"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_sms.py:0
+msgid "国内短信不能直接重置重发。请先查询结果，确认需要再次发送后创建新的业务事件。"
+msgstr "国内短信不能直接重置重发。请先查询结果，确认需要再次发送后创建新的业务事件。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_composer_form
+msgid "国内短信使用云端审核正文和下列参数，提交后由后台发送；受理与送达结果请查看国内短信发送记录。"
+msgstr "国内短信使用云端审核正文和下列参数，提交后由后台发送；受理与送达结果请查看国内短信发送记录。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__domestic_value_ids
+msgid "国内短信参数"
+msgstr "国内短信参数"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_message
+msgid "国内短信发送记录"
+msgstr "国内短信发送记录"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_sms_composer__domestic_binding_id
+#: model:ir.model.fields,field_description:qing_sms.field_sms_template__domestic_binding_ids
+msgid "国内短信绑定"
+msgstr "国内短信绑定"
+
+#. module: qing_sms
+#: model:ir.actions.server,name:qing_sms.ir_cron_dispatch_ir_actions_server
+msgid "国内短信：发送与回执查询"
+msgstr "国内短信：发送与回执查询"
+
+#. module: qing_sms
+#: model:ir.actions.server,name:qing_sms.ir_cron_sync_ir_actions_server
+msgid "国内短信：同步签名与模板"
+msgstr "国内短信：同步签名与模板"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "国内绑定必须属于当前 Odoo 模板。"
+msgstr "国内绑定必须属于当前 Odoo 模板。"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__category__international
+msgid "International"
+msgstr "国际"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__attempt_ids
+msgid "处理记录"
+msgstr "处理记录"
+
+#. module: qing_sms
+#: model:ir.model.fields,help:qing_sms.field_qing_sms_variable__field_path
+msgid "如 partner_id.name，只允许读取业务字段，不执行代码。"
+msgstr "如 partner_id.name，只允许读取业务字段，不执行代码。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "字段映射需要有效业务记录和字段路径。"
+msgstr "字段映射需要有效业务记录和字段路径。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__field_path
+msgid "字段路径"
+msgstr "字段路径"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "字段路径无效。"
+msgstr "字段路径无效。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "字段路径最多四层。"
+msgstr "字段路径最多四层。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__auto_sync
+msgid "定时同步"
+msgstr "定时同步"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__pending
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__pending
+msgid "Under Review"
+msgstr "审核中"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__rejected
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__rejected
+msgid "Review Rejected"
+msgstr "审核失败"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_template_revision__content
+msgid "审核正文"
+msgstr "审核正文"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__audit_state
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__audit_state
+msgid "Audit Status"
+msgstr "审核状态"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__approved
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__approved
+msgid "Review Approved"
+msgstr "审核通过"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "当前模块支持国内通知和验证码，请使用对应类别的模板。"
+msgstr "当前模块支持国内通知和验证码，请使用对应类别的模板。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "当前签名不在模板允许的签名范围内。"
+msgstr "当前签名不在模板允许的签名范围内。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "当前连接器仅支持国内通知和验证码。"
+msgstr "当前连接器仅支持国内通知和验证码。"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__unknown
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__unknown
+msgid "Not Verified"
+msgstr "待核验"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__number
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__number
+msgid "手机号码"
+msgstr "手机号码"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "排队后模板已变更，请重新创建短信任务。"
+msgstr "排队后模板已变更，请重新创建短信任务。"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_attempt__kind__submit
+msgid "Submit"
+msgstr "提交"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__submitted_at
+msgid "提交时间"
+msgstr "提交时间"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__kind
+msgid "Operation"
+msgstr "操作"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "无权使用其他公司的短信配置。"
+msgstr "无权使用其他公司的短信配置。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_variable__max_length
+msgid "最大长度"
+msgstr "最大长度"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__last_sync_at
+msgid "最近同步"
+msgstr "最近同步"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__provider
+msgid "SMS Provider"
+msgstr "服务商"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__audit_state__missing
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_sign__audit_state__missing
+msgid "Not Found in Latest Sync"
+msgstr "本次未发现"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_attempt__kind__query
+msgid "Query"
+msgstr "查询"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "查询失败，请检查密钥、网络和模板查询权限。"
+msgstr "查询失败，请检查密钥、网络和模板查询权限。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "查询成功；尚未验证发送权限、余额或送达能力，本次未发送短信。"
+msgstr "查询成功；尚未验证发送权限、余额或送达能力，本次未发送短信。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_message_form
+msgid "查询送达结果"
+msgstr "查询送达结果"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_binding_form
+msgid "核验并启用绑定"
+msgstr "核验并启用绑定"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "模板、签名或变量已变更，请重新核验业务绑定。"
+msgstr "模板、签名或变量已变更，请重新核验业务绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "模板正文不能为空。"
+msgstr "模板正文不能为空。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__remote_id
+msgid "模板编号"
+msgstr "模板编号"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__body
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__preview
+msgid "正文预览"
+msgstr "正文预览"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_variable_remote_unique
+msgid "每个云端变量只能映射一次。"
+msgstr "每个云端变量只能映射一次。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "没有可发送的收件人，请检查号码、黑名单和退订设置。"
+msgstr "没有可发送的收件人，请检查号码、黑名单和退订设置。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_account_form
+msgid "测试配置"
+msgstr "测试配置"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__state
+msgid "状态"
+msgstr "状态"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__state
+msgid "Message Status"
+msgstr "状态"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_binding_form
+msgid "生成变量映射"
+msgstr "生成变量映射"
+
+#. module: qing_sms
+#: model:ir.model.constraint,message:qing_sms.constraint_qing_sms_message_event_unique
+msgid "短信业务事件不能重复。"
+msgstr "短信业务事件不能重复。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_binding
+msgid "短信业务模板绑定"
+msgstr "短信业务模板绑定"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_send__parameter_ids
+msgid "短信参数"
+msgstr "短信参数"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "短信参数必须为对象。"
+msgstr "短信参数必须为对象。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_send_value
+msgid "短信参数输入"
+msgstr "短信参数输入"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_attempt
+msgid "短信发送与回执记录"
+msgstr "短信发送与回执记录"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "短信变量为空、过长或含控制字符。"
+msgstr "短信变量为空、过长或含控制字符。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "短信变量值无效。"
+msgstr "短信变量值无效。"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_variable
+msgid "短信变量映射"
+msgstr "短信变量映射"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "短信已加入队列：%s"
+msgstr "短信已加入队列：%s"
+
+#. module: qing_sms
+#: model:res.groups,name:qing_sms.group_sms_manager
+msgid "短信管理员"
+msgstr "短信管理员"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__category
+msgid "SMS Category"
+msgstr "短信类别"
+
+#. module: qing_sms
+#: model:ir.model,name:qing_sms.model_qing_sms_account
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__account_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__account_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__account_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__account_id
+#: model:ir.ui.menu,name:qing_sms.menu_sms_account
+msgid "短信账户"
+msgstr "短信账户"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "短信账户或业务绑定未启用。"
+msgstr "短信账户或业务绑定未启用。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "短信账户所属公司已变更。"
+msgstr "短信账户所属公司已变更。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_account__sign_ids
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__sign_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__name
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_account_form
+msgid "签名"
+msgstr "签名"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "签名、模板必须属于同一短信账户。"
+msgstr "签名、模板必须属于同一短信账户。"
+
+#. module: qing_sms
+#: model:ir.module.module,summary:base.module_qing_sms
+msgid "签名与模板同步、业务变量和可靠短信队列"
+msgstr "签名与模板同步、业务变量和可靠短信队列"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "签名与模板同步完成，请复核业务绑定。"
+msgstr "签名与模板同步完成，请复核业务绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "签名和模板均须审核通过。"
+msgstr "签名和模板均须审核通过。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__code
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__error_code
+msgid "结果代码"
+msgstr "结果代码"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_message__state__unknown
+msgid "Outcome Unknown"
+msgstr "结果未知"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_remote_template__category__marketing
+msgid "Marketing"
+msgstr "营销"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__not_before
+msgid "计划发送时间"
+msgstr "计划发送时间"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "该模板需要选择本公司的国内短信绑定。"
+msgstr "该模板需要选择本公司的国内短信绑定。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "请使用核验动作确认模板。"
+msgstr "请使用核验动作确认模板。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_sms.py:0
+msgid "请在国内短信记录中查询结果；重新发送需要创建新的业务事件。"
+msgstr "请在国内短信记录中查询结果；重新发送需要创建新的业务事件。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "请安装并选择短信服务商连接器。"
+msgstr "请安装并选择短信服务商连接器。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "请完整配置云端模板的变量映射。"
+msgstr "请完整配置云端模板的变量映射。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/sms_composer.py:0
+#: code:addons/qing_sms/wizard/sms_composer.py:0
+msgid "请指定计划发送时间。"
+msgstr "请指定计划发送时间。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_attempt__request_id
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_message__request_id
+msgid "请求编号"
+msgstr "请求编号"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "请输入有效的中国大陆手机号码。"
+msgstr "请输入有效的中国大陆手机号码。"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_account__provider__abstract
+msgid "Select a Provider Connector"
+msgstr "请选择连接器"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "请通过业务模板发送短信。"
+msgstr "请通过业务模板发送短信。"
+
+#. module: qing_sms
+#: model:ir.model.fields.selection,name:qing_sms.selection__qing_sms_variable__source__input
+msgid "Call Parameter"
+msgstr "调用参数"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "调用参数与业务变量不一致。"
+msgstr "调用参数与业务变量不一致。"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__sign_names
+msgid "适用签名"
+msgstr "适用签名"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_account.py:0
+msgid "配置检查"
+msgstr "配置检查"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_binding__needs_review
+msgid "需复核"
+msgstr "需复核"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_binding.py:0
+msgid "需要短信发送权限。"
+msgstr "需要短信发送权限。"
+
+#. module: qing_sms
+#: model_terms:ir.ui.view,arch_db:qing_sms.view_sms_send_form
+msgid "预览并校验"
+msgstr "预览并校验"
+
+#. module: qing_sms
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_remote_template__reject_reason
+#: model:ir.model.fields,field_description:qing_sms.field_qing_sms_sign__reject_reason
+msgid "驳回原因"
+msgstr "驳回原因"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+msgid "验证码任务已过期。"
+msgstr "验证码任务已过期。"
+
+#. module: qing_sms
+#. odoo-python
+#: code:addons/qing_sms/models/sms_message.py:0
+#: code:addons/qing_sms/sms_send.py:0
+#: code:addons/qing_sms/wizard/sms_send.py:0
+msgid "验证码内容已隐藏"
+msgstr "验证码内容已隐藏"

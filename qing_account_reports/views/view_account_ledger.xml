@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_account_ledger" model="ir.actions.client">
+        <field name="name">Account Ledger</field>
+        <field name="tag">qing_account_reports.account_ledger</field>
+    </record>
+    <menuitem id="menu_account_ledger" name="Account Ledger" parent="account.menu_finance_reports"
+              action="action_account_ledger" groups="account.group_account_manager" sequence="11"/>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ir_actions_report_form" model="ir.ui.view">
+        <field name="name">qing.base.ir.actions.report.form</field>
+        <field name="model">ir.actions.report</field>
+        <field name="inherit_id" ref="base.act_report_xml_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Printing and Protection" name="qing_report_protection" invisible="report_type != 'qweb-pdf' or qing_legacy_mommy_base">
+                    <field name="qing_legacy_mommy_base" invisible="1"/>
+                    <group>
+                        <field name="qing_print_preview"/>
+                        <field name="qing_pdf_appendix_fields" placeholder="e.g. contract_file, drawing_file"/>
+                        <field name="qing_pdf_password_enabled"/>
+                        <field name="qing_pdf_password_read" password="True" invisible="not qing_pdf_password_enabled"/>
+                        <field name="qing_pdf_password_edit" password="True" invisible="not qing_pdf_password_enabled"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

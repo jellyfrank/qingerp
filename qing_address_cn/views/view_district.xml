@@ -1,0 +1,51 @@
+<odoo>
+    <record id="view_district_list" model="ir.ui.view">
+        <field name="name">qing.address.cn.district.list</field>
+        <field name="model">qing.address.cn.district</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="city_id"/>
+                <field name="state_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_district_form" model="ir.ui.view">
+        <field name="name">qing.address.cn.district.form</field>
+        <field name="model">qing.address.cn.district</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="city_id" options="{'no_create': True}"/>
+                        <field name="state_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_district_search" model="ir.ui.view">
+        <field name="name">qing.address.cn.district.search</field>
+        <field name="model">qing.address.cn.district</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="city_id"/>
+                <field name="state_id"/>
+                <group>
+                    <filter name="group_city" string="City" context="{'group_by': 'city_id'}"/>
+                    <filter name="group_state" string="Province" context="{'group_by': 'state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="action_district" model="ir.actions.act_window">
+        <field name="name">China Districts</field>
+        <field name="res_model">qing.address.cn.district</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

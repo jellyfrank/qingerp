@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_agent_list" model="ir.ui.view">
+        <field name="name">qing.ai.agent.list</field><field name="model">qing.ai.agent</field>
+        <field name="arch" type="xml"><list>
+            <field name="sequence" widget="handle"/><field name="avatar_128" widget="image" options="{'size': [32, 32]}"/>
+            <field name="name"/><field name="company_id"/>
+            <field name="is_default"/><field name="provider_code"/><field name="active"/>
+        </list></field>
+    </record>
+    <record id="view_qing_ai_agent_form" model="ir.ui.view">
+        <field name="name">qing.ai.agent.form</field><field name="model">qing.ai.agent</field>
+        <field name="arch" type="xml"><form>
+            <header><button name="action_open_discuss" type="object" string="Open in Discuss" class="btn-primary"/></header>
+            <sheet>
+            <field name="image_1920" widget="image" class="oe_avatar"
+                   options="{'preview_image': 'avatar_128'}"/>
+            <group><field name="name"/><field name="description"/><field name="company_id"/>
+                <field name="is_default"/><field name="provider_code"/><field name="active"/></group>
+            <group><field name="group_ids" widget="many2many_tags"/><field name="skill_ids" widget="many2many_tags"/></group>
+            <group><field name="system_prompt"/></group>
+        </sheet></form></field>
+    </record>
+    <record id="view_qing_ai_skill_list" model="ir.ui.view">
+        <field name="name">qing.ai.skill.list</field><field name="model">qing.ai.skill</field>
+        <field name="arch" type="xml"><list>
+            <field name="sequence" widget="handle"/><field name="name"/><field name="skill_type"/>
+            <field name="active"/>
+        </list></field>
+    </record>
+    <record id="view_qing_ai_skill_form" model="ir.ui.view">
+        <field name="name">qing.ai.skill.form</field><field name="model">qing.ai.skill</field>
+        <field name="arch" type="xml"><form>
+            <header>
+                <button name="action_open_builder" type="object" string="Configure Actions" class="btn-primary"/>
+                <button name="action_open_discovery" type="object" string="Discover Actions" groups="base.group_no_one"/>
+                <button name="action_open_candidates" type="object" string="Review Candidates" groups="base.group_no_one"/>
+            </header><sheet>
+            <group><field name="name"/><field name="description"/><field name="sequence"/><field name="active"/><field name="skill_type"/></group>
+            <group><field name="group_ids" widget="many2many_tags"/>
+                <field name="tool_ids" widget="many2many_tags" domain="[('review_state', '=', 'published')]" options="{'no_create': True, 'no_create_edit': True}"/>
+            </group>
+            <group><field name="instructions"/></group>
+        </sheet></form></field>
+    </record>
+    <record id="view_qing_ai_tool_list" model="ir.ui.view">
+        <field name="name">qing.ai.tool.list</field><field name="model">qing.ai.tool</field>
+        <field name="arch" type="xml"><list create="0" delete="0">
+            <header><button name="action_open_builder" type="object" string="Configure Actions" display="always"/></header>
+            <field name="name"/><field name="execution_type"/><field name="model_id"/>
+            <field name="orm_operation" optional="hide"/><field name="review_state"/>
+            <field name="active"/>
+        </list></field>
+    </record>
+    <record id="view_qing_ai_tool_form" model="ir.ui.view">
+        <field name="name">qing.ai.tool.form</field><field name="model">qing.ai.tool</field>
+        <field name="arch" type="xml"><form create="0" delete="0">
+            <header>
+                <button name="action_analyze_source" type="object" string="Analyze Method with AI"
+                        invisible="not method_name"/>
+                <button name="action_publish" type="object" string="Publish Reviewed Action"
+                        class="btn-primary" invisible="not source_module_id or review_state == 'published'"/>
+            </header>
+            <sheet>
+                <group><group>
+                    <field name="name"/><field name="execution_type" readonly="1"/>
+                    <field name="model_id" readonly="execution_type != 'orm'" invisible="execution_type != 'orm' and not model_id"/>
+                    <field name="orm_model_name" invisible="1"/>
+                    <field name="orm_operation" invisible="execution_type != 'orm'"/>
+                </group><group>
+                    <field name="review_state" readonly="1"/>
+                    <field name="group_ids" widget="many2many_tags"/><field name="active"/>
+                </group></group>
+                <group><field name="description"/></group>
+                <notebook>
+                    <page string="Fields and Scope" invisible="execution_type != 'orm'">
+                        <group>
+                            <field name="orm_all_fields"/>
+                            <field name="orm_field_ids" invisible="orm_all_fields" widget="many2many_tags" domain="[('model_id', '=', model_id)]" options="{'no_create': True}"/>
+                            <field name="orm_group_field_ids" widget="many2many_tags" invisible="orm_operation != 'read_group' or orm_all_fields" required="execution_type == 'orm' and orm_operation == 'read_group' and not orm_all_fields" domain="[('model_id', '=', model_id), ('store', '=', True), ('ttype', 'in', ['char', 'boolean', 'integer', 'selection', 'date', 'datetime', 'many2one'])]" options="{'no_create': True}"/>
+                            <field name="orm_measure_field_ids" widget="many2many_tags" invisible="orm_operation != 'read_group' or orm_all_fields" domain="[('model_id', '=', model_id), ('store', '=', True), ('ttype', 'in', ['integer', 'float', 'monetary'])]" options="{'no_create': True}"/>
+                            <field name="orm_write_field_ids" widget="many2many_tags" domain="[('model_id', '=', model_id), ('readonly', '=', False)]" options="{'no_create': True}" invisible="orm_operation not in ('create', 'write')"/>
+                            <field name="orm_domain" widget="domain" options="{'model': 'orm_model_name'}"/>
+                            <field name="orm_limit" invisible="orm_operation not in ('search', 'read', 'count', 'read_group')"/>
+                        </group>
+                    </page>
+                    <page string="Advanced" groups="base.group_no_one">
+                        <group><field name="key"/>
+                            <field name="orm_defaults" invisible="execution_type != 'orm' or orm_operation not in ('create', 'write')"/>
+                        </group>
+                        <group string="Source Discovery" invisible="not source_module_id">
+                            <field name="source_module_id"/><field name="discovery_kind"/><field name="method_name"/>
+                            <field name="server_action_id"/><field name="adapter_tool_id"/>
+                            <field name="source_summary"/><field name="ai_analysis"/>
+                            <field name="source_version"/><field name="source_fingerprint"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet></form></field>
+    </record>
+    <record id="view_qing_ai_discovery_wizard_form" model="ir.ui.view">
+        <field name="name">qing.ai.discovery.wizard.form</field>
+        <field name="model">qing.ai.discovery.wizard</field>
+        <field name="arch" type="xml"><form string="Discover AI Actions">
+            <group><field name="module_id"/><field name="model_id"/></group>
+            <footer>
+                <button name="action_scan" type="object" string="Scan Installed Module" class="btn-primary"/>
+                <button string="Cancel" special="cancel"/>
+            </footer>
+        </form></field>
+    </record>
+    <record id="action_qing_ai_agent" model="ir.actions.act_window">
+        <field name="name">AI Agents</field><field name="res_model">qing.ai.agent</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qing_ai_skill" model="ir.actions.act_window">
+        <field name="name">AI Skills</field><field name="res_model">qing.ai.skill</field><field name="view_mode">list,form</field>
+    </record>
+    <record id="action_qing_ai_tool" model="ir.actions.act_window">
+        <field name="name">AI Tools</field><field name="res_model">qing.ai.tool</field><field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_qing_ai_agent" name="Agents" parent="qing_ai.menu_qing_ai_root"
+              action="action_qing_ai_agent" sequence="50" groups="base.group_system"/>
+    <menuitem id="menu_qing_ai_skill" name="Skills" parent="qing_ai.menu_qing_ai_root"
+              action="action_qing_ai_skill" sequence="60" groups="base.group_system"/>
+    <menuitem id="menu_qing_ai_tool" name="Tools" parent="qing_ai.menu_qing_ai_root"
+              action="action_qing_ai_tool" sequence="70" groups="base.group_no_one"/>
+</odoo>

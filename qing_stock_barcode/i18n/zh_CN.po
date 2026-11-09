@@ -1,0 +1,2119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_stock_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 00:55+0000\n"
+"PO-Revision-Date: 2026-09-21 00:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.help_message_template
+msgid "Open QingERP Warehouse Scanning"
+msgstr "打开 QingERP 仓库扫码"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__planned_quantity
+msgid "Planned Quantity"
+msgstr "原始计划数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/request_queue.js:0
+msgid "Resolve pending requests before scanning more items."
+msgstr "请先核实待确认请求，再继续扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "A lot or serial number is required for every tracked item."
+msgstr "每个追踪商品都必须填写批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "A serial number can represent only one item."
+msgstr "一个序列号只能对应一件商品。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "A specific operation line is selected."
+msgstr "已选定具体作业行。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "A valid request UUID is required."
+msgstr "请求必须包含有效的 UUID。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Absolute counts are only available in inventory sessions."
+msgstr "仅盘点作业支持直接设置实盘数量。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_event__state__accepted
+msgid "Accepted"
+msgstr "已接受"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__active_key
+msgid "Active Key"
+msgstr "作业占用标识"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Actual count"
+msgstr "实盘数量"
+
+#. module: qing_stock_barcode
+#: model:ir.model.constraint,message:qing_stock_barcode.constraint_qing_stock_scan_session_active_unique
+msgid "Another operator is already working on this operation."
+msgstr "已有其他操作员正在处理此作业。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid ""
+"Another operator is already working on this operation. Ask a scan manager to"
+" take over."
+msgstr "已有其他操作员正在处理此作业，请联系扫码主管接管。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Apply reviewed count"
+msgstr "应用已复核盘点"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid ""
+"Apply the scanned quantities and continue with native stock validation?"
+msgstr "应用已扫描数量并继续原生库存验证？"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid ""
+"Assign this session to yourself? The previous operator will lose edit "
+"access."
+msgstr "将此作业分配给自己？原操作员将失去编辑权限。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Automatic"
+msgstr "自动识别"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Available"
+msgstr "可用"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid ""
+"Available stock changed or is insufficient. Refresh the transfer before "
+"continuing."
+msgstr "库存已变化或不足，请刷新单据后再继续。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__state__review
+msgid "Awaiting review"
+msgstr "待复核"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__state__applied
+msgid "Awaiting validation"
+msgstr "待验证"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Barcode"
+msgstr "条码"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__baseline_quantity
+msgid "Baseline Quantity"
+msgstr "基准数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Cancel session"
+msgstr "取消作业"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Cancel this scan session? Stock will remain unchanged."
+msgstr "取消本次扫码作业？库存不会改变。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__state__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Check and retry"
+msgstr "核实并重试"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Choose Source or Destination before scanning this location."
+msgstr "扫描此库位前，请先选择来源库位或目标库位模式。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Clear pending scan"
+msgstr "清除待扫项"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Clear selection"
+msgstr "取消选择"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Close"
+msgstr "关闭"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__company_id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__company_id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Complete at least one count and clear any pending scan first."
+msgstr "请至少完成一项盘点，并清除待扫项。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Complete or clear the pending lot or serial scan first."
+msgstr "请先完成或清除待扫描的批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Complete the native validation dialog to finish the transfer."
+msgstr "请完成原生验证对话框，才能完成调拨。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Confirm operation"
+msgstr "确认操作"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Confirm package contents"
+msgstr "确认包裹内容"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "Confirm the transfer before starting a scan session."
+msgstr "请先确认库存单据，再开始扫码。"
+
+#. module: qing_stock_barcode
+#: model:ir.model,name:qing_stock_barcode.model_qing_stock_scan_guard
+msgid "Controlled Scan Record Mutation"
+msgstr "扫码记录受控修改"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Count"
+msgstr "盘点"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid "Count at least one item. Uncounted items are not treated as zero."
+msgstr "请至少盘点一项商品，未盘商品不会视为零库存。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Count one leaf location at a time."
+msgstr "每次只能盘点一个末级库位。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Count package contents individually using their assigned count lines."
+msgstr "请按指定盘点行逐项清点包裹内商品。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Count submitted for review. Uncounted lines will remain unchanged."
+msgstr "盘点已提交复核，未盘商品保持不变。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Count this location. Uncounted items will remain unchanged."
+msgstr "请盘点此库位，未盘商品保持不变。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__counted
+msgid "Counted"
+msgstr "已盘"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Counting location confirmed."
+msgstr "盘点库位已确认。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Create a native return from this completed transfer?"
+msgstr "从此已完成单据创建原生退货单？"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Create return"
+msgstr "创建退货"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__create_uid
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__create_uid
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__create_date
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__create_date
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__current_company
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_guard__current_company
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__current_company
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__current_company
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking__current_company
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking_type__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__destination_id
+msgid "Destination"
+msgstr "目标"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__destination_confirmed
+msgid "Destination Confirmed"
+msgstr "目标库位已确认"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Destination location"
+msgstr "目标库位"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__device
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__device
+msgid "Device"
+msgstr "设备"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__display_name
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_guard__display_name
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__display_name
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__display_name
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking__display_name
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking_type__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__state__done
+msgid "Done"
+msgstr "已完成"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid ""
+"Duplicate inventory dimensions exist. Consolidate native quants before "
+"starting this count."
+msgstr "存在重复的库存维度，请先在库存应用中合并库存记录，再开始盘点。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "Enter a finite numeric quantity."
+msgstr "请输入有限的有效数值。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Enter the actual count, including zero when appropriate."
+msgstr "请输入实盘数量，确认为零时请填写 0。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__event_ids
+msgid "Event"
+msgstr "事件"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_scan_session_form
+msgid "Events"
+msgstr "事件记录"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Expected"
+msgstr "应做"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Find Stock"
+msgstr "查库存"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Find product"
+msgstr "查找商品"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid ""
+"Finish or cancel the active scan session before validating this transfer."
+msgstr "验证此单据前，请先完成或取消正在进行的扫码作业。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_guard__id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking__id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Invalid scan request."
+msgstr "扫码请求无效。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__inventory_location_id
+msgid "Inventory Location"
+msgstr "盘点库位"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__kind__inventory
+msgid "Inventory count"
+msgstr "库存盘点"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__kind
+msgid "Kind"
+msgstr "类型"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__write_uid
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__write_uid
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__write_date
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__write_date
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__line_ids
+msgid "Line"
+msgstr "明细行"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__location_id
+msgid "Location"
+msgstr "库位"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__location_dest_id
+msgid "Location Dest"
+msgstr "目标库位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Location confirmed: %s"
+msgstr "库位已确认：%s"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__lot_id
+msgid "Lot"
+msgstr "批次"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Lot / Serial"
+msgstr "批次／序列号"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__lot_name
+msgid "Lot Name"
+msgstr "批次名称"
+
+#. module: qing_stock_barcode
+#: model:res.groups,name:qing_stock_barcode.group_scan_manager
+msgid "Manager"
+msgstr "主管"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__message
+msgid "Message"
+msgstr "消息"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Mode"
+msgstr "模式"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "More results are available. Narrow your search."
+msgstr "还有更多结果，请缩小搜索范围。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__move_id
+msgid "Move"
+msgstr "库存移动"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__move_line_id
+msgid "Move Line"
+msgstr "库存移动明细"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_stock_barcode
+#: model:res.groups.privilege,placeholder:qing_stock_barcode.privilege_scan
+msgid "No"
+msgstr "否"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "No matching stock in the current company."
+msgstr "当前公司没有匹配的库存。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid ""
+"No open transfers. Confirm a receipt, delivery or internal transfer in "
+"Inventory first."
+msgstr "暂无待处理单据，请先在库存应用中确认收货、发货或内部调拨单。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "No unique transfer matches this barcode."
+msgstr "没有唯一匹配此条码的库存单据。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Not counted"
+msgstr "未盘"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Offline. Scanning is paused until the connection is restored."
+msgstr "当前已断网，恢复连接前暂停扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "On hand"
+msgstr "在手"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Only a completed transfer can be returned."
+msgstr "只能对已完成的调拨办理退货。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Only a scan manager can apply an inventory count."
+msgstr "只有扫码主管可以应用盘点结果。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Only a scan manager can release a session awaiting validation."
+msgstr "只有扫码主管可以释放待验证作业。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Only a scan manager can take over an active session."
+msgstr "只有扫码主管可以接管进行中的作业。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid ""
+"Only the assigned operator or a scan manager can validate this session."
+msgstr "只有指定操作员或扫码主管可以验证此作业。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Only tracked inventory products can be counted or moved here."
+msgstr "这里只能盘点或移动启用库存跟踪的商品。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__open_key
+msgid "Open Key"
+msgstr "领单请求标识"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_scan_session_form
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_scan_session_list
+msgid "Open Workbench"
+msgstr "打开扫码工作台"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Open transfer"
+msgstr "打开单据"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Operation completed."
+msgstr "作业已完成。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Operation lines"
+msgstr "作业明细"
+
+#. module: qing_stock_barcode
+#: model:res.groups,name:qing_stock_barcode.group_scan_user
+msgid "Operator"
+msgstr "操作员"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__owner_id
+msgid "Owner"
+msgstr "货主"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__package_id
+msgid "Package"
+msgstr "包裹"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Package recorded: %s"
+msgstr "包裹已记录：%s"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__payload
+msgid "Payload"
+msgstr "请求内容"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__pending_line_id
+msgid "Pending Line"
+msgstr "待扫明细行"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__pending_product_id
+msgid "Pending Product"
+msgstr "待扫商品"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__pending_quantity
+msgid "Pending Quantity"
+msgstr "待扫数量"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__pending_uom_id
+msgid "Pending Uom"
+msgstr "待扫单位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Pending scan cleared."
+msgstr "待扫项已清除。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Pick & Deliver"
+msgstr "拣货／发货"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__picking_id
+msgid "Picking"
+msgstr "库存单据"
+
+#. module: qing_stock_barcode
+#: model:ir.model,name:qing_stock_barcode.model_stock_picking_type
+msgid "Picking Type"
+msgstr "作业类型"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Print labels"
+msgstr "打印标签"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__product_id
+msgid "Product"
+msgstr "产品"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Product name or reference"
+msgstr "商品名称或内部参考"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Progress"
+msgstr "作业进度"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "QINGERP"
+msgstr "QINGERP"
+
+#. module: qing_stock_barcode
+#: model:ir.module.module,shortdesc:base.module_qing_stock_barcode
+msgid "Qing Warehouse Barcode"
+msgstr "Qing 仓库扫码"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__quant_id
+msgid "Quant"
+msgstr "库存记录"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid ""
+"Quantities have already been applied. Finish validation or review the native"
+" transfer."
+msgstr "数量已写入原生单据，请完成验证或检查该单据。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__quantity
+msgid "Quantity"
+msgstr "数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Quantity per scan"
+msgstr "每次扫码数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Receive"
+msgstr "收货"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Recent activity"
+msgstr "最近操作"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Recorded %(quantity)s %(unit)s of %(product)s."
+msgstr "已记录 %(product)s：%(quantity)s %(unit)s。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Recorded stock:"
+msgstr "账面库存："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Refresh"
+msgstr "刷新"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_event__state__rejected
+msgid "Rejected"
+msgstr "已拒绝"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid ""
+"Release scanner control? Applied quantities will remain on the native "
+"transfer. Review and correct them in Inventory before validating."
+msgstr "释放扫码控制？已应用数量会保留在原生单据上，请先在库存应用中复核、修正，再验证。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Release to Inventory"
+msgstr "交回库存应用"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Remaining"
+msgstr "剩余"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Remaining transfers:"
+msgstr "剩余单据："
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__request_hash
+msgid "Request Hash"
+msgstr "请求内容摘要"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__request_key
+msgid "Request Key"
+msgstr "请求标识"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking_type__qing_scan_destination_required
+msgid "Require destination scan"
+msgstr "必须扫描目标库位"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_stock_picking_type__qing_scan_source_required
+msgid "Require source scan"
+msgstr "必须扫描来源库位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Reserve sufficient stock on this transfer before scanning."
+msgstr "扫码前，请先为此单据预留足够的库存。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Reserved"
+msgstr "预留"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Resolve pending scans before changing operations."
+msgstr "切换作业前，请先核实待确认的扫描请求。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__result
+msgid "Result"
+msgstr "结果"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__result_package_id
+msgid "Result Package"
+msgstr "目标包裹"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Resume a session"
+msgstr "继续已有作业"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Reversed"
+msgstr "已撤销"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Review the package contents and confirm the package scan."
+msgstr "请核对包裹内容并确认整包扫描。"
+
+#. module: qing_stock_barcode
+#: model:res.groups,name:qing_stock_barcode.group_scan_reviewer
+msgid "Reviewer"
+msgstr "复核员"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_scan
+#: model:ir.ui.menu,name:qing_stock_barcode.menu_scan_workbench
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_kanban_scan
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Scan"
+msgstr "扫码"
+
+#. module: qing_stock_barcode
+#: model:ir.actions.act_window,name:qing_stock_barcode.action_scan_sessions
+#: model:ir.ui.menu,name:qing_stock_barcode.menu_scan_history
+msgid "Scan History"
+msgstr "扫码历史"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_scan_session_form
+msgid "Scan Lines"
+msgstr "扫码明细"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan a barcode between 1 and 512 characters."
+msgstr "请扫描长度为 1 至 512 个字符的条码。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan a product before its lot or serial number."
+msgstr "请先扫描商品，再扫描批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Scan a product or location to begin."
+msgstr "请扫描商品或库位，开始作业。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan a valid lot or serial number."
+msgstr "请扫描有效的批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Scan a valid transfer number."
+msgstr "请扫描有效的库存单号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "Scan at least one item before completing the transfer."
+msgstr "请至少扫描一件商品，再完成调拨。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_guard.py:0
+msgid "Scan evidence cannot be deleted. Cancel the session instead."
+msgstr "扫码凭证不能删除，需要停止时请取消作业。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Scan lot or serial:"
+msgstr "请扫描批次或序列号："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Barcode / SKU"
+msgstr "条码 / SKU"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan the destination location first."
+msgstr "请先扫描目标库位。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan the location assigned to this count."
+msgstr "请扫描本次盘点指定的库位。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan the lot or serial number for %s."
+msgstr "请扫描 %s 的批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Scan the source location first."
+msgstr "请先扫描来源库位。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Scanned"
+msgstr "已扫"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid ""
+"Scanner control released. Applied quantities remain on the native transfer; "
+"review them in Inventory before proceeding."
+msgstr "扫码控制已释放。已应用数量仍保留在原生单据上，请先到库存应用中复核，再继续。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__state__scanning
+msgid "Scanning"
+msgstr "扫码中"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Scanning is paused. Resolve the pending operation before continuing."
+msgstr "扫码已暂停，请先处理待确认操作。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Search"
+msgstr "搜索"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Search tasks or locations"
+msgstr "搜索任务或库位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Select a count line."
+msgstr "请选择盘点明细行。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid ""
+"Select a line when the same product has different locations, lots, owners or"
+" packages."
+msgstr "同一商品存在不同库位、批次、货主或包裹时，请选择具体作业行。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "Select a record in the current company."
+msgstr "请选择当前公司的记录。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Select a valid operation line."
+msgstr "请选择有效的作业明细行。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Select a valid operation type."
+msgstr "请选择有效的作业类型。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "Select a valid record."
+msgstr "请选择有效记录。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Select an internal location in the current company."
+msgstr "请选择当前公司的内部库位。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"Select the matching operation line to specify its location, lot, owner and "
+"package."
+msgstr "请选择匹配的作业行，明确库位、批次、货主和包裹。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__session_id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__session_id
+msgid "Session"
+msgstr "扫码作业"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Session assigned to you."
+msgstr "作业已分配给您。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Session cancelled. Stock was not changed."
+msgstr "作业已取消，库存未改变。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Set"
+msgstr "设置"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Showing the first 100 stock records."
+msgstr "仅显示前 100 条库存记录。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__snapshot_hash
+msgid "Snapshot Hash"
+msgstr "快照摘要"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid ""
+"Some requests are not confirmed. Reconcile them before scanning more items."
+msgstr "部分请求尚未确认，请先核实，再继续扫码。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__source_id
+msgid "Source"
+msgstr "来源"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__source_confirmed
+msgid "Source Confirmed"
+msgstr "来源库位已确认"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Source location"
+msgstr "来源库位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid "Split this location into smaller counting areas before scanning."
+msgstr "请将此库位拆分为更小的盘点区域后再扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "Split this transfer into smaller operations before scanning."
+msgstr "请将此单据拆分为更小的作业后再扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Start count"
+msgstr "开始盘点"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Start scanning"
+msgstr "开始扫码"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__state
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid ""
+"Stock changed while counting. Cancel this count and recount the location."
+msgstr "盘点期间库存发生变化，请取消本次盘点并重新清点此库位。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Stock lookup"
+msgstr "库存查询"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Submit count"
+msgstr "提交盘点"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Submit the count for review before applying it."
+msgstr "请先提交盘点复核，再应用结果。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Submit the count for review? Uncounted items will remain unchanged."
+msgstr "提交盘点复核？未盘商品将保持不变。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Switch to the session company before continuing."
+msgstr "请先切换到作业所属公司，再继续。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Take over"
+msgstr "接管作业"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The GS1 barcode contains conflicting identifiers."
+msgstr "GS1 条码包含相互冲突的标识。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The GS1 barcode could not be parsed. Check the separator and label."
+msgstr "无法解析 GS1 条码，请检查分隔符和标签。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The GS1 barcode must identify a product or package."
+msgstr "GS1 条码必须标识商品或包裹。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The barcode unit is not compatible with the product unit."
+msgstr "条码单位与商品单位不兼容。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "The device label must be at most 100 characters."
+msgstr "设备名称最多为 100 个字符。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"The entire package contents must be reserved on this transfer before "
+"scanning it as a whole."
+msgstr "整包扫码前，包裹内全部商品必须预留在此单据上。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "The last quantity event was reversed."
+msgstr "上一次数量操作已撤销。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "The line changed after this event and cannot be undone safely."
+msgstr "此操作后明细行已发生变化，无法安全撤销。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid ""
+"The native inventory check requires review. Reopen the count in Inventory."
+msgstr "原生盘点检查需要复核，请到库存应用中重新打开盘点。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "The native return operation is ready."
+msgstr "原生退货单已准备好。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The product belongs to another company."
+msgstr "此商品属于其他公司。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "The quantity does not match the unit rounding."
+msgstr "数量不符合计量单位的舍入精度。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "The quantity is outside the permitted range."
+msgstr "数量超出允许范围。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "The request could not be completed."
+msgstr "请求未能完成。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "The same request UUID cannot be reused with different content."
+msgstr "同一请求 UUID 不能用于不同的请求内容。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The scanned quantity would exceed the transfer demand."
+msgstr "扫码数量将超过单据需求量。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The selected line does not match this scan."
+msgstr "所选明细行与本次扫描不匹配。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "The selected lot is not reserved on this line."
+msgstr "所选批次未预留在此明细行上。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "The selected record no longer exists."
+msgstr "所选记录已不存在。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid ""
+"The transfer changed outside this session. Cancel and reopen it to reload "
+"current reservations."
+msgstr "单据已被其他操作修改。请取消并重新领单，以加载最新预留；若已应用数量，请由主管交回库存应用复核。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "The transfer is no longer available for scanning."
+msgstr "此单据已无法继续扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "There is no quantity event to undo."
+msgstr "没有可撤销的数量操作。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This GS1 application identifier is not supported: %s"
+msgstr "暂不支持此 GS1 应用标识：%s"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This barcode or SKU has multiple matches. Choose a scan mode or select the product manually."
+msgstr "此条码或 SKU 匹配到多个对象，请选择扫码模式或手动选择商品。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"This code also identifies a product, location or package. Select Lot / "
+"Serial explicitly or clear the pending scan."
+msgstr "此条码也标识商品、库位或包裹。请明确选择批次／序列号模式，或清除待扫项。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This location does not belong to the transfer route."
+msgstr "此库位不属于本次调拨路线。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"This lot is ambiguous in the current company. Resolve its master data first."
+msgstr "当前公司中此批次存在歧义，请先修正基础资料。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This operation does not allow existing lot numbers."
+msgstr "此作业类型不允许使用已有批次号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"This package is not reserved here or some of its contents have already been "
+"scanned."
+msgstr "此包裹未在本单预留，或部分内容已经扫描。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid ""
+"This package was scanned as a whole. Undo that package event before scanning"
+" individual items."
+msgstr "此包裹已整包扫描。逐件扫码前，请先撤销整包扫描记录。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This product is not expected on this transfer."
+msgstr "此商品不在本次调拨单中。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This product, lot or location is not expected on this transfer."
+msgstr "此商品、批次或库位不在本次调拨预期范围内。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "This request UUID was used for a different operation."
+msgstr "此请求 UUID 已用于另一项作业。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.constraint,message:qing_stock_barcode.constraint_qing_stock_scan_event_request_unique
+msgid "This request has already been recorded."
+msgstr "此请求已记录。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "This scan session is assigned to another operator."
+msgstr "此扫码作业已分配给其他操作员。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "This serial number has already been scanned."
+msgstr "此序列号已扫描。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid "This serial number is already in stock."
+msgstr "此序列号已有在库库存。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "This session is awaiting review or validation."
+msgstr "此作业正在等待复核或验证。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "This session is closed."
+msgstr "此作业已关闭。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.constraint,message:qing_stock_barcode.constraint_qing_stock_scan_session_open_unique
+msgid "This session request has already been used."
+msgstr "此领单请求已使用。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/picking.py:0
+msgid ""
+"This transfer already contains manually picked lines. Review those "
+"quantities in Inventory before starting a scan session."
+msgstr "此单据已有人工拣选明细。请先到库存应用中复核这些数量，再开始扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: model:ir.model,name:qing_stock_barcode.model_stock_picking
+#: model:ir.model.fields.selection,name:qing_stock_barcode.selection__qing_stock_scan_session__kind__picking
+msgid "Transfer"
+msgstr "内部调拨"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Undo last quantity"
+msgstr "撤销上次数量"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__undone
+msgid "Undone"
+msgstr "已撤销"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Unknown barcode. Check the label or select the item manually."
+msgstr "未知条码，请检查标签或手工选择商品。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Unknown scan mode."
+msgstr "未知扫码模式。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Unknown scan operation."
+msgstr "未知扫码操作。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "Unsupported scan request fields."
+msgstr "扫码请求包含不支持的字段。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__uom_id
+msgid "Uom"
+msgstr "计量单位"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/resolver.py:0
+msgid "Use an existing lot or serial number for this operation."
+msgstr "此作业请使用已有的批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/counting.py:0
+msgid "Use an existing lot or serial number when counting tracked products."
+msgstr "盘点追踪商品时，请使用已有的批次或序列号。"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/models/scan_guard.py:0
+msgid "Use the warehouse scanning workflow to change these records."
+msgstr "请通过仓库扫码流程修改这些记录。"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_event__user_id
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_session__user_id
+msgid "User"
+msgstr "用户"
+
+#. module: qing_stock_barcode
+#: model:ir.model,name:qing_stock_barcode.model_qing_stock_scan_event
+msgid "Warehouse Scan Event"
+msgstr "仓库扫码事件"
+
+#. module: qing_stock_barcode
+#: model:ir.model,name:qing_stock_barcode.model_qing_stock_scan_line
+msgid "Warehouse Scan Line"
+msgstr "仓库扫码明细"
+
+#. module: qing_stock_barcode
+#: model:ir.model,name:qing_stock_barcode.model_qing_stock_scan_session
+msgid "Warehouse Scan Session"
+msgstr "仓库扫码作业"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model:ir.actions.client,name:qing_stock_barcode.action_scan_workbench
+#: model:ir.ui.menu,name:qing_stock_barcode.menu_scan_root
+#: model:res.groups.privilege,name:qing_stock_barcode.privilege_scan
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_type_form_scan
+msgid "Warehouse Scanning"
+msgstr "仓库扫码"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Warehouse operations"
+msgstr "仓库作业"
+
+#. module: qing_stock_barcode
+#. odoo-python
+#: code:addons/qing_stock_barcode/services/common.py:0
+msgid "Warehouse scanning permission is required."
+msgstr "需要仓库扫码权限。"
+
+#. module: qing_stock_barcode
+#: model:ir.module.module,summary:base.module_qing_stock_barcode
+msgid "Warehouse scanning, inventory counts and reliable stock execution"
+msgstr "仓库扫码、库存盘点与可靠的库存作业执行"
+
+#. module: qing_stock_barcode
+#: model:ir.model.fields,field_description:qing_stock_barcode.field_qing_stock_scan_line__whole_package
+msgid "Whole Package"
+msgstr "整包"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Whole package"
+msgstr "整包"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "You are offline. Reconnect before scanning."
+msgstr "当前已断网，请恢复连接后再扫码。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "awaiting confirmation"
+msgstr "待确认"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "· Difference:"
+msgstr "· 差异："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "PDA mode"
+msgstr "PDA 模式"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Return to scanning"
+msgstr "返回扫码"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Keyboard"
+msgstr "软键盘"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Set the device to keyboard output with Enter or Tab. Return to scanning after editing another field."
+msgstr "设备设为键盘输出，以回车或 Tab 结束。修改其他字段后，请点击“返回扫码”。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Camera"
+msgstr "摄像头"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Device setup and scan test"
+msgstr "设备设置与扫码自检"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Device name"
+msgstr "设备名称"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "For example: PDA-01"
+msgstr "例如：PDA-01"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Test scans only (no stock changes)"
+msgstr "仅测试扫码（不修改库存）"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Scan test is active. Turn it off before warehouse operations."
+msgstr "当前为扫码自检，请关闭后再执行仓库作业。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Test scans:"
+msgstr "测试次数："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "· Characters:"
+msgstr "· 字符数："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "␝ represents the GS1 separator (ASCII 29)."
+msgstr "␝ 表示 GS1 分隔符（ASCII 29）。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Camera scanning requires HTTPS and camera access in this browser."
+msgstr "摄像头扫码需要通过 HTTPS 访问，并允许浏览器使用摄像头。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Test scan received. No stock was changed."
+msgstr "已收到测试条码，未修改库存。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Turn off scan testing before warehouse operations."
+msgstr "请先关闭扫码自检，再执行仓库作业。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Validate"
+msgstr "验证"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Deliver"
+msgstr "发货"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Move stock"
+msgstr "调拨"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Scan mode"
+msgstr "扫码模式"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Responsible"
+msgstr "负责人"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Open transfers"
+msgstr "待处理单据"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Transfer number"
+msgstr "单号"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Back to list"
+msgstr "返回列表"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Completed"
+msgstr "已完成"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Transfers"
+msgstr "单据"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Action"
+msgstr "操作"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "No matching transfers. Confirm a receipt, delivery or internal transfer in Inventory first."
+msgstr "没有匹配的单据。请先在库存中确认收货、发货或内部调拨单。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Overall progress"
+msgstr "整单进度"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "No operation lines."
+msgstr "暂无作业明细。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Unit"
+msgstr "单位"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Backorder of:"
+msgstr "前序单据："
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Review pending requests"
+msgstr "核对待确认请求"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Connection restored."
+msgstr "连接已恢复。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+msgid "Connection lost. Reconnect before retrying."
+msgstr "连接已中断，请恢复连接后重试。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Offline"
+msgstr "离线"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Show completed"
+msgstr "显示已完成"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "View completed transfer"
+msgstr "查看已完成明细"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+msgid "Completed quantity"
+msgstr "已完成数量"
+
+#. module: qing_stock_barcode
+#: code:addons/qing_stock_barcode/models/scan_session.py:0
+msgid "This transfer is not completed. Refresh the list before continuing."
+msgstr "此调拨单尚未完成，请刷新列表后继续。"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_kanban_scan
+msgid "Scan or view transfer"
+msgstr "扫码或查看调拨单"
+
+#. module: qing_stock_barcode
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+msgid "Confirm this transfer before scanning."
+msgstr "请先确认调拨单，再开始扫码。"
+
+#. module: qing_stock_barcode
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_kanban_scan
+msgid "View"
+msgstr "查看"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Internal transfer"
+msgstr "内部调拨"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Confirm and scan"
+msgstr "确认并开始扫码"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Save draft"
+msgstr "保存草稿"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "New internal transfer"
+msgstr "新建内部调拨"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Edit draft"
+msgstr "编辑草稿"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Enter planned quantities here. Actual quantities are recorded during scanning."
+msgstr "此处填写计划数量，实际完成数量在扫码时记录。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Reason or reference"
+msgstr "原因或参考单号"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Add a product"
+msgstr "添加商品"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "<span>Planned:</span>"
+msgstr "<span>计划：</span>"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Remove product"
+msgstr "移除商品"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Product and planned quantity"
+msgstr "商品与计划数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Planned quantity"
+msgstr "计划数量"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "No matching internal transfers."
+msgstr "没有匹配的内部调拨单。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Select an active internal transfer operation."
+msgstr "请选择有效的内部调拨作业类型。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Configure an internal transfer operation in the current company first."
+msgstr "请先为当前公司配置内部调拨作业类型。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "This transfer is no longer a draft. Refresh the list."
+msgstr "此调拨单已不是草稿，请刷新列表。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "This transfer is already completed or cancelled. Refresh the list."
+msgstr "此调拨单已完成或已取消，请刷新列表。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Choose active internal source and destination locations."
+msgstr "请选择有效的内部来源库位和目标库位。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Source and destination locations must be different."
+msgstr "来源库位和目标库位不能相同。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Add at least one product and its planned quantity."
+msgstr "请至少添加一个商品及计划数量。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Select active goods in the current company."
+msgstr "请选择当前公司可用的有效商品。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "The product locations differ from this transfer. Review them in Inventory."
+msgstr "商品明细库位与调拨单不一致，请在库存中核对。"
+
+#. module: qing_stock_barcode
+#. odoo-javascript
+#: code:addons/qing_stock_barcode/models/stock_picking.py:0
+#: code:addons/qing_stock_barcode/static/src/workbench.js:0
+#: code:addons/qing_stock_barcode/static/src/workbench.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_stock_barcode.view_stock_picking_form_mobile_scan
+msgid "Some products could not be fully reserved. Scan only reserved quantities, or review availability in Inventory."
+msgstr "部分商品未能足额预留。请仅扫描已预留数量，或在库存中检查可用量。"

@@ -1,0 +1,10 @@
+<odoo>
+    <template id="help_message_template" inherit_id="qing_stock.help_message_template">
+        <xpath expr="//p[@name='footer_help_message']" position="replace">
+            <p name="footer_help_message" class="text-muted" groups="qing_stock_barcode.group_scan_user">
+                <br/>
+                <a class="btn-link" name="qing_stock.action_open_barcode" type="action">Open QingERP Warehouse Scanning</a>
+            </p>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fapiao_review_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.review.form</field>
+        <field name="model">qing.fapiao.review</field>
+        <field name="arch" type="xml">
+            <form string="Tax Invoice Difference Review" create="0" duplicate="0">
+                <header><button name="action_check" type="object" string="Check / Refresh" class="btn-primary"/></header>
+                <sheet>
+                    <div class="alert alert-info" role="alert">Check currently visible tax invoices by invoice date and posted bills by accounting date. Allocation balances use all current confirmed allocations, including those outside the date range. This is a working list, not a historical snapshot. Refresh after correcting a source document.</div>
+                    <group>
+                        <group><field name="company_id" options="{'no_create': True}"/><field name="partner_id" options="{'no_create': True}"/><field name="direction"/></group>
+                        <group><field name="date_from"/><field name="date_to"/><field name="generated_at"/><field name="source_count"/></group>
+                    </group>
+                    <div class="alert alert-success" role="status" invisible="not generated_at or line_ids">No differences found in the selected scope.</div>
+                    <field name="line_ids" nolabel="1">
+                        <list create="0" edit="0" delete="0" decoration-danger="issue in ('overallocated', 'legacy_red', 'unsupported')">
+                            <field name="document_date"/><field name="document_name"/><field name="issue"/>
+                            <field name="partner_id" optional="show"/><field name="direction" optional="hide"/><field name="color" optional="show"/>
+                            <field name="currency_id"/>
+                            <field name="amount_untaxed" optional="hide"/><field name="amount_tax" optional="hide"/>
+                            <field name="allocated_untaxed" optional="hide"/><field name="allocated_tax" optional="hide"/>
+                            <field name="remaining_untaxed"/><field name="remaining_tax"/><field name="pending_count" optional="show"/>
+                            <button name="action_open_source" type="object" string="Open Source" icon="fa-external-link"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_fapiao_review" model="ir.actions.act_window">
+        <field name="name">Tax Invoice Differences</field>
+        <field name="res_model">qing.fapiao.review</field>
+        <field name="view_mode">form</field>
+    </record>
+    <menuitem id="menu_fapiao_review" name="Tax Invoice Differences" parent="menu_fapiao_root"
+              action="action_fapiao_review" sequence="30" groups="account.group_account_manager"/>
+</odoo>

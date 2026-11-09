@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_partner_statement_manager,partner.statement.manager,qing.partner.statement,account.group_account_manager,crud,
+access_bank_profile_manager,bank.profile.manager,qing.bank.import.profile,account.group_account_manager,crud,
+access_bank_import_manager,bank.import.manager,qing.bank.import,account.group_account_manager,crud,
+access_bank_match_manager,bank.match.manager,qing.bank.payment.match,account.group_account_manager,crud,
+access_bank_line_manager,bank.line.manager,account.bank.statement.line,account.group_account_manager,crud,"[('journal_id.type', '=', 'bank')]"
+access_statement_snapshot_manager,statement.snapshot.manager,qing.statement.snapshot,account.group_account_manager,cr,
+statement_snapshot_company,statement.snapshot.company,qing.statement.snapshot,,cr,"[('company_id', 'in', company_ids)]"

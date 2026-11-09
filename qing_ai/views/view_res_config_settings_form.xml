@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.qing.ai</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_base.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='qing_advanced_settings']" position="after">
+                <app name="qing_ai" string="Qing AI" data-string="Qing AI" logo="/qing_base/static/img/qing_logo.png" groups="base.group_system">
+                    <block title="AI Service" name="qing_ai_service">
+                        <setting id="qing_ai_default_provider" string="Default Provider"
+                                 help="QingERP sends requests directly from this customer deployment using your provider account. Install and enable a provider below first.">
+                            <field name="qing_ai_default_provider"/>
+                        </setting>
+                        <setting id="qing_ai_daily_request_limit" string="Daily Model Calls per User"
+                                 help="Limit the AI model calls each user can start per day in their own time zone (1 to 10000). Every planning round of a business request counts as one call; failed calls count too.">
+                            <field name="qing_ai_daily_request_limit"/>
+                        </setting>
+                        <setting id="qing_ai_max_output_tokens" string="Maximum Output Tokens"
+                                 help="Upper limit for one answer (256 to 8192). Reasoning models spend part of it before answering; answers that reach it are marked as cut off.">
+                            <field name="qing_ai_max_output_tokens"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

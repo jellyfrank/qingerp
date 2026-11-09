@@ -1,0 +1,10 @@
+<odoo>
+    <record id="view_sale_order_form" model="ir.ui.view">
+        <field name="name">qing.partner.sale.order.form</field><field name="model">sale.order</field><field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml"><xpath expr="//field[@name='partner_id']" position="attributes"><attribute name="domain">[('qing_customer_available','=',True)]</attribute><attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'qing_role_company_id': company_id}</attribute></xpath></field>
+    </record>
+    <record id="view_purchase_order_form" model="ir.ui.view">
+        <field name="name">qing.partner.purchase.order.form</field><field name="model">purchase.order</field><field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml"><xpath expr="//field[@name='partner_id']" position="attributes"><attribute name="domain">[('qing_supplier_available','=',True)]</attribute><attribute name="context">{'res_partner_search_mode': 'supplier', 'show_vat': True, 'qing_role_company_id': company_id}</attribute></xpath></field>
+    </record>
+</odoo>

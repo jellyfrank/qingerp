@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <record id="base.state_cn_BJ" model="res.country.state">
+    <field name="qing_cn_code">11</field>
+  </record>
+  <record id="base.state_cn_TJ" model="res.country.state">
+    <field name="qing_cn_code">12</field>
+  </record>
+  <record id="base.state_cn_HE" model="res.country.state">
+    <field name="qing_cn_code">13</field>
+  </record>
+  <record id="base.state_cn_SX" model="res.country.state">
+    <field name="qing_cn_code">14</field>
+  </record>
+  <record id="base.state_cn_NM" model="res.country.state">
+    <field name="qing_cn_code">15</field>
+  </record>
+  <record id="base.state_cn_LN" model="res.country.state">
+    <field name="qing_cn_code">21</field>
+  </record>
+  <record id="base.state_cn_JL" model="res.country.state">
+    <field name="qing_cn_code">22</field>
+  </record>
+  <record id="base.state_cn_HL" model="res.country.state">
+    <field name="qing_cn_code">23</field>
+  </record>
+  <record id="base.state_cn_SH" model="res.country.state">
+    <field name="qing_cn_code">31</field>
+  </record>
+  <record id="base.state_cn_JS" model="res.country.state">
+    <field name="qing_cn_code">32</field>
+  </record>
+  <record id="base.state_cn_ZJ" model="res.country.state">
+    <field name="qing_cn_code">33</field>
+  </record>
+  <record id="base.state_cn_AH" model="res.country.state">
+    <field name="qing_cn_code">34</field>
+  </record>
+  <record id="base.state_cn_FJ" model="res.country.state">
+    <field name="qing_cn_code">35</field>
+  </record>
+  <record id="base.state_cn_JX" model="res.country.state">
+    <field name="qing_cn_code">36</field>
+  </record>
+  <record id="base.state_cn_SD" model="res.country.state">
+    <field name="qing_cn_code">37</field>
+  </record>
+  <record id="base.state_cn_HA" model="res.country.state">
+    <field name="qing_cn_code">41</field>
+  </record>
+  <record id="base.state_cn_HB" model="res.country.state">
+    <field name="qing_cn_code">42</field>
+  </record>
+  <record id="base.state_cn_HN" model="res.country.state">
+    <field name="qing_cn_code">43</field>
+  </record>
+  <record id="base.state_cn_GD" model="res.country.state">
+    <field name="qing_cn_code">44</field>
+  </record>
+  <record id="base.state_cn_GX" model="res.country.state">
+    <field name="qing_cn_code">45</field>
+  </record>
+  <record id="base.state_cn_HI" model="res.country.state">
+    <field name="qing_cn_code">46</field>
+  </record>
+  <record id="base.state_cn_CQ" model="res.country.state">
+    <field name="qing_cn_code">50</field>
+  </record>
+  <record id="base.state_cn_SC" model="res.country.state">
+    <field name="qing_cn_code">51</field>
+  </record>
+  <record id="base.state_cn_GZ" model="res.country.state">
+    <field name="qing_cn_code">52</field>
+  </record>
+  <record id="base.state_cn_YN" model="res.country.state">
+    <field name="qing_cn_code">53</field>
+  </record>
+  <record id="base.state_cn_XZ" model="res.country.state">
+    <field name="qing_cn_code">54</field>
+  </record>
+  <record id="base.state_cn_SN" model="res.country.state">
+    <field name="qing_cn_code">61</field>
+  </record>
+  <record id="base.state_cn_GS" model="res.country.state">
+    <field name="qing_cn_code">62</field>
+  </record>
+  <record id="base.state_cn_QH" model="res.country.state">
+    <field name="qing_cn_code">63</field>
+  </record>
+  <record id="base.state_cn_NX" model="res.country.state">
+    <field name="qing_cn_code">64</field>
+  </record>
+  <record id="base.state_cn_XJ" model="res.country.state">
+    <field name="qing_cn_code">65</field>
+  </record>
+</odoo>

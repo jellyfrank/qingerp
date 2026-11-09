@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_tool_builder_form" model="ir.ui.view">
+        <field name="name">qing.ai.tool.builder.form</field>
+        <field name="model">qing.ai.tool.builder</field>
+        <field name="arch" type="xml">
+            <form string="Configure AI Tools">
+                <group><field name="template"/><field name="skill_id" options="{'no_create': True}"/></group>
+                <div class="alert alert-info" role="status" invisible="template == 'custom'">
+                    Reuse the built-in customer or sales actions and add them to the selected skill.
+                    Existing action permissions and business validation remain in effect.
+                </div>
+                <group invisible="template != 'custom'">
+                    <field name="model_id" required="template == 'custom'" options="{'no_create': True}" domain="[('transient', '=', False)]"/>
+                    <field name="model_name" invisible="1"/>
+                </group>
+                <group string="Operations" invisible="template != 'custom'" col="4">
+                    <field name="use_read_group"/><field name="use_search"/><field name="use_read"/><field name="use_count"/>
+                    <field name="use_create"/><field name="use_write"/><field name="use_archive"/>
+                    <field name="use_restore"/><field name="use_unlink"/>
+                </group>
+                <group string="Fields" invisible="template != 'custom' or not model_id">
+                    <field name="all_read_fields"/>
+                    <field name="read_field_ids" invisible="all_read_fields" widget="many2many_tags" domain="[('model_id', '=', model_id), ('ttype', 'in', ['char', 'text', 'boolean', 'integer', 'float', 'monetary', 'selection', 'date', 'datetime', 'many2one'])]" options="{'no_create': True}"/>
+                    <field name="group_field_ids" widget="many2many_tags" invisible="not use_read_group or all_read_fields" required="template == 'custom' and use_read_group and not all_read_fields" domain="[('model_id', '=', model_id), ('store', '=', True), ('ttype', 'in', ['char', 'boolean', 'integer', 'selection', 'date', 'datetime', 'many2one'])]" options="{'no_create': True}"/>
+                    <field name="measure_field_ids" widget="many2many_tags" invisible="not use_read_group or all_read_fields" domain="[('model_id', '=', model_id), ('store', '=', True), ('ttype', 'in', ['integer', 'float', 'monetary'])]" options="{'no_create': True}"/>
+                    <field name="write_field_ids" widget="many2many_tags" invisible="not use_create and not use_write" domain="[('model_id', '=', model_id), ('readonly', '=', False), ('name', 'not in', ['id', 'state', 'active', 'company_id', 'company_ids', 'create_uid', 'create_date', 'write_uid', 'write_date']), ('ttype', 'in', ['char', 'text', 'boolean', 'integer', 'float', 'monetary', 'selection', 'date', 'datetime', 'many2one'])]" options="{'no_create': True}"/>
+                </group>
+                <group string="Scope and Access" invisible="template != 'custom' or not model_id">
+                    <field name="fixed_domain" widget="domain" options="{'model': 'model_name'}"/>
+                    <field name="query_limit" invisible="not use_search and not use_read and not use_count and not use_read_group"/>
+                    <field name="group_ids" widget="many2many_tags"/>
+                </group>
+                <div class="text-muted" invisible="template != 'custom'">
+                    Each selected operation creates one tool. Queries respect the current user's permissions.
+                    Changes require a preview and confirmation. Use business templates for workflow documents such as sales orders.
+                </div>
+                <group string="Advanced" groups="base.group_no_one" invisible="template != 'custom' or (not use_create and not use_write)">
+                    <field name="fixed_values"/>
+                </group>
+                <footer>
+                    <button name="action_generate" type="object" string="Configure Actions" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

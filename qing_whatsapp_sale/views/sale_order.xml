@@ -1,0 +1,13 @@
+<odoo>
+  <record id="view_sale_order_form" model="ir.ui.view">
+    <field name="name">sale.order.form.whatsapp</field><field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//header" position="inside">
+        <button name="action_qing_whatsapp" type="object" string="Send WhatsApp quotation" groups="qing_whatsapp.group_user" invisible="state == 'cancel'"/>
+        <button name="action_qing_conversation" type="object" string="WhatsApp chat" groups="qing_whatsapp.group_user" invisible="not qing_conversation_id"/>
+      </xpath>
+      <xpath expr="//sheet" position="inside"><field name="qing_conversation_id" invisible="1"/></xpath>
+    </field>
+  </record>
+</odoo>

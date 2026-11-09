@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">qing.api.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_base.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='qing_advanced_settings']" position="inside">
+                <block title="API Documentation" name="qing_api_documentation">
+                    <setting id="qing_api_documentation_access"
+                             string="Documentation Access"
+                             help="Allow public access or require users to sign in before viewing /api/docs and /api/openapi.json.">
+                        <field name="qing_api_documentation_access"/>
+                    </setting>
+                    <setting id="qing_api_documentation_ui"
+                             string="Documentation Interface"
+                             help="Choose the interface rendered at /api/docs. All interfaces use the same OpenAPI document.">
+                        <field name="qing_api_documentation_ui"/>
+                        <div class="text-muted mt-2">
+                            Scalar is the default. Swagger UI and ReDoc remain available for compatibility and read-only documentation.
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

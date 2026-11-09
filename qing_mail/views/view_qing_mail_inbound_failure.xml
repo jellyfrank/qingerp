@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_mail_inbound_failure_list" model="ir.ui.view">
+        <field name="name">qing.mail.inbound.failure.list</field>
+        <field name="model">qing.mail.inbound.failure</field>
+        <field name="arch" type="xml">
+            <list string="Incoming Email Recovery" create="false">
+                <field name="server_id"/>
+                <field name="create_date"/>
+                <field name="payload_size"/>
+                <field name="failure_type"/>
+                <field name="retry_count"/>
+                <field name="state" widget="badge"/>
+                <button name="action_retry" type="object" string="Retry" invisible="state != 'pending'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qing_mail_inbound_failure_form" model="ir.ui.view">
+        <field name="name">qing.mail.inbound.failure.form</field>
+        <field name="model">qing.mail.inbound.failure</field>
+        <field name="arch" type="xml">
+            <form string="Incoming Email Recovery" create="false">
+                <header>
+                    <button name="action_retry" type="object" string="Retry" class="btn-primary"
+                            invisible="state != 'pending'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="server_id" readonly="1"/>
+                        <field name="create_date" readonly="1"/>
+                        <field name="payload_sha256" readonly="1"/>
+                        <field name="payload_size" readonly="1"/>
+                        <field name="failure_type" readonly="1"/>
+                        <field name="retry_count" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qing_mail_inbound_failure" model="ir.actions.act_window">
+        <field name="name">Incoming Email Recovery</field>
+        <field name="res_model">qing.mail.inbound.failure</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_qing_mail_inbound_failure"
+              name="Incoming Email Recovery"
+              parent="base.menu_email"
+              action="action_qing_mail_inbound_failure"
+              sequence="7"
+              groups="base.group_system"/>
+</odoo>

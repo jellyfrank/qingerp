@@ -1,0 +1,13 @@
+id,name,model_id,group_id/id,operation,domain
+session_operator,Scan session operator,qing.stock.scan.session,qing_stock_barcode.group_scan_user,cru,"[('user_id', '=', user.id)]"
+session_reviewer,Scan session reviewer,qing.stock.scan.session,qing_stock_barcode.group_scan_reviewer,r,
+session_manager,Scan session manager,qing.stock.scan.session,qing_stock_barcode.group_scan_manager,cru,
+session_company,Scan session company,qing.stock.scan.session,,crud,"[('company_id', 'in', company_ids)]"
+line_operator,Scan line operator,qing.stock.scan.line,qing_stock_barcode.group_scan_user,cru,"[('session_id.user_id', '=', user.id)]"
+line_reviewer,Scan line reviewer,qing.stock.scan.line,qing_stock_barcode.group_scan_reviewer,r,
+line_manager,Scan line manager,qing.stock.scan.line,qing_stock_barcode.group_scan_manager,cru,
+line_company,Scan line company,qing.stock.scan.line,,crud,"[('company_id', 'in', company_ids)]"
+event_operator,Scan event operator,qing.stock.scan.event,qing_stock_barcode.group_scan_user,cru,"[('session_id.user_id', '=', user.id)]"
+event_reviewer,Scan event reviewer,qing.stock.scan.event,qing_stock_barcode.group_scan_reviewer,r,
+event_manager,Scan event manager,qing.stock.scan.event,qing_stock_barcode.group_scan_manager,cru,
+event_company,Scan event company,qing.stock.scan.event,,crud,"[('company_id', 'in', company_ids)]"

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_profit_statement_form" model="ir.ui.view">
+        <field name="name">qing.profit.statement.form</field>
+        <field name="model">qing.profit.statement</field>
+        <field name="arch" type="xml">
+            <form string="Chinese Small Business Profit Statement">
+                <header>
+                    <button name="action_generate" type="object" string="Generate" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="date_to"/>
+                            <field name="report_mode"/>
+                        </group>
+                        <group>
+                            <field name="currency_id"/>
+                            <field name="mapping_id" options="{'no_create': True}"/>
+                            <field name="balance_mapping_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="status">Posted entries in company currency. Monthly reports show year-to-date and current-month activity; annual reports require December 31 and compare the current year with the prior year. Configured earnings-closing entries are excluded and listed separately. No closing or adjustment entry is created.</div>
+                    <field name="result" nolabel="1" invisible="not result"/>
+                    <group invisible="not result_file">
+                        <field name="result_file" filename="result_filename"/>
+                        <field name="result_filename" invisible="1"/>
+                    </group>
+                    <group string="Source Entries">
+                        <field name="source_scope"/>
+                        <field name="source_account_id" context="{'active_test': False}" options="{'no_create': True}"/>
+                        <button name="action_open_lines" type="object" string="View Source Entries" class="btn-secondary"/>
+                        <button name="action_open_closing_entries" type="object" string="View Excluded Closing Entries" class="btn-secondary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_profit_statement" model="ir.actions.act_window">
+        <field name="name">Chinese Small Business Profit Statement</field>
+        <field name="res_model">qing.profit.statement</field>
+        <field name="view_mode">form</field>
+    </record>
+    <record id="action_profit_statement_workspace" model="ir.actions.client">
+        <field name="name">Chinese Small Business Profit Statement</field>
+        <field name="tag">qing_account_reports.financial_report</field>
+        <field name="params" eval="{'report_type': 'profit'}"/>
+    </record>
+    <menuitem id="menu_profit_statement" name="Chinese Small Business Profit Statement" parent="account.menu_finance_reports" action="action_profit_statement_workspace" groups="account.group_account_manager" sequence="14"/>
+</odoo>

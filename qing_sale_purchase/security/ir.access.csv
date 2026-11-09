@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+wizard_purchase_user,Sales Purchase Wizard,qing.sale.purchase.wizard,purchase.group_purchase_user,crud,
+wizard_line_purchase_user,Sales Purchase Wizard Line,qing.sale.purchase.wizard.line,purchase.group_purchase_user,crud,
+wizard_company,Sales Purchase Wizard Company,qing.sale.purchase.wizard,,crud,"[('company_id', 'in', company_ids)]"
+wizard_line_company,Sales Purchase Wizard Line Company,qing.sale.purchase.wizard.line,,crud,"[('company_id', 'in', company_ids)]"

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_account_reports.AccountLedger">
+        <div class="o_qing_account_ledger p-3 h-100 overflow-auto">
+            <header class="d-flex flex-wrap justify-content-between gap-3 mb-3">
+                <div><h2>Account Ledger</h2><span class="text-muted" t-out="this.state.data?.company"/></div>
+                <div class="d-flex flex-wrap gap-2 align-items-end">
+                    <label>Account<select class="form-select" style="max-width: 24rem" t-att-value="this.state.account" t-on-change="(event) => this.changeScope('account', event)"><option value="">Select an account</option><option t-foreach="this.state.accounts" t-as="account" t-key="account.id" t-att-value="account.id" t-att-selected="account.id == this.state.account" t-out="account.name"/></select></label>
+                    <label>Start Date<input class="form-control" type="date" t-att-value="this.state.start" t-on-change="(event) => this.changeScope('start', event)"/></label>
+                    <label>End Date<input class="form-control" type="date" t-att-value="this.state.end" t-on-change="(event) => this.changeScope('end', event)"/></label>
+                    <button class="btn btn-primary" t-on-click="() => this.load()" t-att-disabled="!this.valid || this.state.loading">Generate</button>
+                    <button class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center" style="width: 2.25rem; height: 2.25rem" title="Download CSV" t-on-click="() => this.download()" t-att-disabled="!this.current || this.state.loading"><i class="oi" data-icon="download"/></button>
+                </div>
+            </header>
+            <p t-if="this.state.loading" role="status">Loading…</p>
+            <div t-if="this.state.error" class="alert alert-danger" role="alert" t-out="this.state.error"/>
+            <t t-if="this.state.data &amp;&amp; !this.state.loading">
+                <div class="d-flex flex-wrap gap-4 mb-3 border-bottom pb-2">
+                    <strong t-out="this.state.data.account"/><span><t t-out="this.state.data.date_from"/> / <t t-out="this.state.data.date_to"/></span><span t-out="this.state.data.currency"/>
+                    <span>Opening Balance: <strong t-out="this.money(this.state.data.opening)"/></span>
+                    <span>Closing Balance: <strong t-out="this.money(this.state.data.closing)"/></span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-hover align-middle" style="min-width: 1050px">
+                        <thead><tr><th>Date</th><th>Journal Entry</th><th>Journal</th><th>Partner</th><th>Label</th><th>Debit</th><th>Credit</th><th>Entry Balance</th><th>Running Balance</th><th>Residual at End Date</th><th>Entry Currency</th><th>Amount in Currency</th></tr></thead>
+                        <tbody><tr t-foreach="this.state.data.rows" t-as="row" t-key="row.id">
+                            <td class="text-nowrap" t-out="row.date"/><td><button class="btn btn-link p-0 text-nowrap" t-on-click="() => this.openMove(row)" t-out="row.move"/></td>
+                            <td t-out="row.journal"/><td t-out="row.partner"/><td t-out="row.label"/>
+                            <td class="text-end text-nowrap" t-out="this.money(row.debit)"/><td class="text-end text-nowrap" t-out="this.money(row.credit)"/>
+                            <td class="text-end text-nowrap" t-out="this.money(row.balance)"/><td class="text-end text-nowrap fw-bold" t-out="this.money(row.running)"/>
+                            <td class="text-end text-nowrap" t-out="this.money(row.residual)"/><td t-out="row.currency"/><td class="text-end text-nowrap" t-out="row.amount_currency"/>
+                        </tr><tr t-if="!this.state.data.rows.length"><td colspan="12" class="text-center text-muted">No posted entries in this period.</td></tr></tbody>
+                        <tfoot><tr class="fw-bold"><td colspan="5">Period Total</td><td class="text-end" t-out="this.money(this.state.data.debit)"/><td class="text-end" t-out="this.money(this.state.data.credit)"/><td/><td class="text-end" t-out="this.money(this.state.data.closing)"/><td colspan="3"/></tr></tfoot>
+                    </table>
+                </div>
+                <nav class="d-flex gap-2 justify-content-end align-items-center">
+                    <span><t t-out="this.state.data.rows.length ? this.state.data.offset + 1 : 0"/>–<t t-out="this.state.data.offset + this.state.data.rows.length"/> / <t t-out="this.state.data.count"/></span>
+                    <button class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center" style="width: 2.25rem; height: 2.25rem" title="Previous Page" t-on-click="() => this.load(Math.max(0, this.state.data.offset - this.state.data.limit))" t-att-disabled="!this.current || this.state.loading || !this.state.data.offset"><i class="oi" data-icon="arrow_back_ios_new"/></button>
+                    <button class="btn btn-outline-secondary d-inline-flex align-items-center justify-content-center" style="width: 2.25rem; height: 2.25rem" title="Next Page" t-on-click="() => this.load(this.state.data.offset + this.state.data.limit)" t-att-disabled="!this.current || this.state.loading || this.state.data.offset + this.state.data.limit >= this.state.data.count"><i class="oi" data-icon="arrow_forward_ios"/></button>
+                </nav>
+            </t>
+        </div>
+    </t>
+</templates>

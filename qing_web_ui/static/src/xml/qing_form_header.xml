@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.RelatedSmartButtons" t-inherit="web.Form.ButtonBox" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-form-buttonbox')]" position="attributes">
+            <attribute name="t-ref">this.qingButtonBoxRef</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.StatusTimeline" t-inherit="web.StatusBarField" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_statusbar_status')]" position="attributes">
+            <attribute name="t-att-class">{'o_qing_status_timeline': this.env.qingFormHeader}</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.BreadcrumbHistory" t-inherit="web.Breadcrumbs" t-inherit-mode="extension">
+        <xpath expr="//ol/li/Dropdown/button/i" position="attributes">
+            <attribute name="class">oi oi-fw align-middle</attribute>
+            <attribute name="data-icon">more_horiz</attribute>
+        </xpath>
+        <xpath expr="//ol/li/Dropdown/button" position="attributes">
+            <attribute name="aria-label">Navigation history</attribute>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.FormControlPanel" t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_control_panel')]" position="attributes">
+            <attribute name="t-att-class">{'o_qing_list_header': ['list', 'kanban', 'graph'].includes(this.env.config.viewType) and !this.uiService.isSmall and !this.env.inDialog, 'o_qing_mobile_collection_header': ['list', 'kanban'].includes(this.env.config.viewType) and this.uiService.isSmall and !this.env.inDialog, 'o_qing_form_header': this.env.qingFormHeader and !this.uiService.isSmall}</attribute>
+        </xpath>
+        <xpath expr="//t[@t-else='']/Breadcrumbs" position="attributes">
+            <attribute name="t-if">!this.env.qingFormHeader</attribute>
+        </xpath>
+        <xpath expr="//t[@t-else='']/Breadcrumbs" position="after">
+            <t t-if="this.env.qingFormHeader">
+                <t t-call-slot="control-panel-status-indicator"/>
+                <t t-call-slot="control-panel-additional-actions"/>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('o_control_panel_main')]" position="before">
+            <div t-if="this.env.qingFormHeader and !this.uiService.isSmall" class="o_qing_form_context">
+                <div t-if="!this.env.config.noBreadcrumbs" class="o_qing_form_breadcrumb">
+                    <Breadcrumbs breadcrumbs="this.breadcrumbs"/>
+                </div>
+                <div t-att-id="this.env.qingFormHeader.workflowId" class="o_qing_form_workflow"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('o_control_panel_breadcrumbs')]" position="inside">
+            <div t-if="this.env.qingFormHeader and !this.uiService.isSmall" t-att-id="this.env.qingFormHeader.portalId" class="o_qing_form_actions"/>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.FormActions" t-inherit="web.StatusBarButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_statusbar_buttons')]" position="attributes">
+            <attribute name="t-if">!this.env.qingFormHeader or this.uiService.isSmall</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_statusbar_buttons')]" position="after">
+            <t t-if="this.env.qingFormHeader and !this.uiService.isSmall" t-custom-portal="'#' + this.env.qingFormHeader.portalId">
+                <div class="o_statusbar_buttons o_qing_form_business_buttons d-flex align-items-center flex-nowrap gap-2">
+                    <t t-foreach="this.qingMainSlotNames.slice(0, this.qingOverflow.count)" t-as="slot" t-key="slot"><span class="o_qing_action_slot"><t t-call-slot="{{ slot }}"/></span></t>
+                    <Dropdown t-if="this.qingAdditionalSlotNames.length">
+                        <button class="btn btn-secondary" title="More actions" aria-label="More actions"><i class="oi oi-fw" data-icon="more_horiz" aria-hidden="true"/></button>
+                        <t t-set-slot="content">
+                            <t t-foreach="this.qingAdditionalSlotNames" t-as="slot" t-key="slot">
+                                <DropdownItem class="'o-dropdown-item-unstyled-button'"><t t-call-slot="{{ slot }}"/></DropdownItem>
+                            </t>
+                        </t>
+                    </Dropdown>
+                </div>
+            </t>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.FormSaveLabels" t-inherit="web.FormStatusIndicator" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_form_button_save')]/i" position="attributes">
+            <attribute name="class">oi oi-fw</attribute>
+            <attribute name="data-icon">save</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_form_button_cancel')]/i" position="attributes">
+            <attribute name="class">oi oi-fw</attribute>
+            <attribute name="data-icon">undo</attribute>
+        </xpath>
+        <xpath expr="//button[hasclass('o_form_button_save')]" position="inside">
+            <span t-if="this.env.qingFormHeader" class="o_qing_save_label">Save</span>
+        </xpath>
+        <xpath expr="//button[hasclass('o_form_button_cancel')]" position="inside">
+            <span t-if="this.env.qingFormHeader" class="o_qing_save_label">Discard</span>
+        </xpath>
+    </t>
+</templates>

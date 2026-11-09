@@ -1,0 +1,15 @@
+<odoo>
+    <menuitem id="menu_customer_management" name="Customer Management" parent="crm.crm_menu_root" sequence="10" groups="sales_team.group_sale_salesman"/>
+    <menuitem id="menu_my_crm_customers" name="My Customers" parent="menu_customer_management" action="action_my_crm_customers" sequence="10"/>
+    <menuitem id="menu_collaborating_crm_customers" name="Collaborating" parent="menu_customer_management" action="action_collaborating_crm_customers" sequence="20"/>
+    <menuitem id="menu_team_crm_customers" name="Team Customers" parent="menu_customer_management" action="action_team_crm_customers" sequence="25"/>
+    <menuitem id="menu_crm_public_pool" name="Public Pool" parent="menu_customer_management" action="action_crm_public_pool" sequence="30"/>
+    <menuitem id="menu_crm_add_customer" name="Add Customer" parent="menu_customer_management" action="action_crm_enroll" sequence="40"/>
+    <menuitem id="menu_all_crm_customers" name="All Managed Customers" parent="menu_customer_management" action="action_all_crm_customers" sequence="50" groups="sales_team.group_sale_manager"/>
+    <menuitem id="menu_crm_followup" name="Follow-up Records" parent="menu_customer_management" action="action_crm_followup" sequence="60"/>
+    <menuitem id="menu_crm_reports" name="Customer Reports" parent="crm.crm_menu_root" sequence="40" groups="sales_team.group_sale_salesman"/>
+    <menuitem id="menu_crm_followup_report" name="Follow-up Analysis" parent="menu_crm_reports" action="action_crm_followup_report" sequence="10"/>
+    <menuitem id="menu_crm_customer_history" name="Customer History" parent="menu_crm_reports" action="action_crm_customer_history" sequence="20"/>
+    <menuitem id="menu_crm_pool_config" name="Customer Pools" parent="crm.crm_menu_config" action="action_crm_pool" sequence="60" groups="sales_team.group_sale_manager"/>
+    <menuitem id="crm.res_partner_menu_customer" name="All Contacts" parent="menu_customer_management" action="base.action_partner_form" sequence="90" groups="sales_team.group_sale_manager"/>
+</odoo>

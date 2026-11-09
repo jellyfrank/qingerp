@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_profit_statement_mapping_list" model="ir.ui.view">
+        <field name="name">qing.profit.statement.mapping.list</field>
+        <field name="model">qing.profit.statement.mapping</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="template_version"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_profit_statement_mapping_form" model="ir.ui.view">
+        <field name="name">qing.profit.statement.mapping.form</field>
+        <field name="model">qing.profit.statement.mapping</field>
+        <field name="arch" type="xml">
+            <form string="Profit Statement Mapping">
+                <header>
+                    <button name="action_suggest_cn" type="object" string="Suggest Native CN Accounts" invisible="state != 'draft'"/>
+                    <button name="action_confirm" type="object" string="Confirm Mapping" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_duplicate_version" type="object" string="New Revision" invisible="state != 'confirmed'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="alert alert-info" role="status">Review every account before confirmation. Closing entries are excluded only when all non-zero lines use mapped profit accounts or the selected closing accounts, and both types are present. The report lists every excluded entry for audit.</div>
+                    <group>
+                        <group>
+                            <field name="name" readonly="state != 'draft'"/>
+                            <field name="company_id" readonly="state != 'draft' or line_ids or closing_account_ids"/>
+                        </group>
+                        <group>
+                            <field name="template_version"/>
+                            <field name="closing_account_ids" widget="many2many_tags" readonly="state != 'draft'" context="{'active_test': False}" domain="[('company_ids', 'in', company_id)]" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state != 'draft'">
+                        <list editable="bottom">
+                            <field name="company_id" column_invisible="True"/>
+                            <field name="account_id" context="{'active_test': False}" domain="[('company_ids', 'in', parent.company_id)]" options="{'no_create': True}"/>
+                            <field name="line_code"/>
+                        </list>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_profit_statement_mapping" model="ir.actions.act_window">
+        <field name="name">Profit Statement Mappings</field>
+        <field name="res_model">qing.profit.statement.mapping</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_profit_statement_mapping" name="Profit Statement Mappings" parent="menu_financial_report_configuration" action="action_profit_statement_mapping" groups="account.group_account_manager" sequence="3"/>
+</odoo>

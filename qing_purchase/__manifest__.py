@@ -1,0 +1,15 @@
+{
+    'name': 'Qing Purchase',
+    'summary': 'Buyer-scoped purchases and native vendor bill creation',
+    'version': '20.0.1.0.5',
+    'category': 'Inventory/Purchase',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_base', 'purchase'],
+    'data': ['security/ir.access.csv', 'views/view_purchase_order_form.xml'],
+    'application': False,
+    'installable': True,
+    'description': 'Control purchase access by buyer and create draft vendor bills through native workflows.',
+}

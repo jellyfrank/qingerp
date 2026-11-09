@@ -1,0 +1,9 @@
+id,name,model_id,group_id/id,operation,domain
+purchase_buyer_restriction,Purchase buyer isolation,purchase.order,,crud,"user._qing_purchase_order_domain()"
+purchase_line_buyer_restriction,Purchase line buyer isolation,purchase.order.line,,crud,"user._qing_purchase_order_domain(prefix='order_id.user_id')"
+purchase_report_buyer_restriction,Purchase analysis buyer isolation,purchase.report,,r,"user._qing_purchase_order_domain()"
+vendor_bill_buyer_restriction,Vendor bill buyer isolation,account.move,,crud,"user._qing_purchase_bill_domain()"
+vendor_bill_line_buyer_restriction,Vendor bill line buyer isolation,account.move.line,,crud,"user._qing_purchase_source_domain('move_id')"
+vendor_bill_report_buyer_restriction,Vendor bill analysis buyer isolation,account.invoice.report,,r,"user._qing_purchase_source_domain('move_id')"
+purchase_bill_union_buyer_restriction,Purchase bill autocomplete buyer isolation,purchase.bill.union,,r,"user._qing_purchase_matching_domain('purchase_order_id', 'vendor_bill_id')"
+purchase_bill_match_buyer_restriction,Purchase bill matching buyer isolation,purchase.bill.line.match,,r,"user._qing_purchase_matching_domain('purchase_order_id', 'account_move_id')"

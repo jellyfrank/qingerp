@@ -1,0 +1,7 @@
+.o_qing_file_drop_active {
+    outline: 2px dashed $o-action;
+    outline-offset: 4px;
+    border-radius: $border-radius;
+    background-color: rgba($o-action, 0.08);
+    transition: background-color 120ms ease-out, outline-color 120ms ease-out;
+}

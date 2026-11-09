@@ -1,0 +1,13 @@
+{'application': False,
+ 'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+ 'data': ['views/company.xml', 'views/picking.xml'],
+ 'depends': ['qing_sms', 'stock_sms'],
+ 'license': 'LGPL-3',
+ 'name': 'QingERP 发货短信',
+ 'description': 'Connect customer deliveries to SMS events and templates, with notification sending from delivery orders.',
+ 'post_init_hook': 'post_init_hook',
+ 'version': '20.0.3.0.3',
+ 'website': 'https://www.qingsolution.com/',
+    'summary': 'Connect customer deliveries to SMS events and templates, with notification sending from delivery orders.',
+    'support': 'kevin@odoomommy.com',
+}

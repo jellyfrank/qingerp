@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_list_delivery_status" model="ir.ui.view">
+        <field name="name">qing.sale.stock.order.list.delivery.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='delivery_status']" position="replace">
+                <field name="qing_delivery_status" string="Delivery Status" widget="badge" optional="show"
+                       decoration-info="qing_delivery_status == 'no'"
+                       decoration-warning="qing_delivery_status in ('partial', 'partial_return')"
+                       decoration-success="qing_delivery_status == 'delivered'"
+                       decoration-danger="qing_delivery_status == 'returned'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_dashboard_delivery_status" model="ir.ui.view">
+        <field name="name">qing.sale.stock.order.dashboard.delivery.status</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_list_with_dashboard"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="before">
+                <field name="qing_delivery_status" string="Delivery Status" widget="badge" optional="show"
+                       decoration-info="qing_delivery_status == 'no'"
+                       decoration-warning="qing_delivery_status in ('partial', 'partial_return')"
+                       decoration-success="qing_delivery_status == 'delivered'"
+                       decoration-danger="qing_delivery_status == 'returned'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

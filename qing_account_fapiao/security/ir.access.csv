@@ -1,0 +1,16 @@
+id,name,model_id,group_id/id,operation,domain
+access_fapiao_manager,fapiao.manager,qing.fapiao,account.group_account_manager,crud,
+fapiao_company,fapiao.company,qing.fapiao,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_tax_classification_manager,fapiao.tax.classification.manager,qing.fapiao.tax.classification,account.group_account_manager,crud,
+access_fapiao_allocation_manager,fapiao.allocation.manager,qing.fapiao.allocation,account.group_account_manager,crud,
+fapiao_allocation_company,fapiao.allocation.company,qing.fapiao.allocation,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_review_manager,fapiao.review.manager,qing.fapiao.review,account.group_account_manager,crud,
+fapiao_review_company,fapiao.review.company,qing.fapiao.review,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_review_line_manager,fapiao.review.line.manager,qing.fapiao.review.line,account.group_account_manager,crud,
+fapiao_review_line_company,fapiao.review.line.company,qing.fapiao.review.line,,crud,"[('company_id', 'in', company_ids)]"
+fapiao_review_owner,fapiao.review.owner,qing.fapiao.review,,crud,"[('create_uid', '=', user.id)]"
+fapiao_review_line_owner,fapiao.review.line.owner,qing.fapiao.review.line,,crud,"[('create_uid', '=', user.id)]"
+access_fapiao_request_manager,fapiao.request.manager,qing.fapiao.request,account.group_account_manager,crud,
+fapiao_request_company,fapiao.request.company,qing.fapiao.request,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_request_line_manager,fapiao.request.line.manager,qing.fapiao.request.line,account.group_account_manager,crud,
+fapiao_request_line_company,fapiao.request.line.company,qing.fapiao.request.line,,crud,"[('company_id', 'in', company_ids)]"

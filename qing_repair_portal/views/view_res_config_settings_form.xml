@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">qing.repair.portal.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_repair.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='qing_repair_settings']" position="inside">
+                <setting id="qing_repair_price_signature" string="Direct Price Confirmation Signature" company_dependent="1" help="New direct-priced repairs require a customer signature before confirmation. Quotation signatures remain in Sales.">
+                    <field name="qing_repair_price_signature_enabled"/>
+                </setting>
+                <setting id="qing_repair_acceptance" string="Repair Acceptance Signature" company_dependent="1" help="New repairs offer a separate customer acceptance signature after completion.">
+                    <field name="qing_repair_acceptance_enabled"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

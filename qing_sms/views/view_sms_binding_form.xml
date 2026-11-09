@@ -1,0 +1,17 @@
+<odoo>
+ <record id="view_sms_binding_list" model="ir.ui.view"><field name="name">qing.sms.binding.list</field><field name="model">qing.sms.binding</field>
+ <field name="arch" type="xml"><list><field name="name"/><field name="company_id"/><field name="account_id"/><field name="template_id"/><field name="needs_review"/></list></field></record>
+ <record id="view_sms_binding_form" model="ir.ui.view"><field name="name">qing.sms.binding.form</field><field name="model">qing.sms.binding</field>
+ <field name="arch" type="xml"><form>
+ <header><button name="action_prepare_variables" type="object" string="生成变量映射" groups="qing_sms.group_sms_manager"/>
+ <button name="action_review" type="object" string="核验并启用绑定" groups="qing_sms.group_sms_manager"/>
+ <button name="action_open_send" type="object" string="发送短信" class="btn-primary"/></header>
+ <sheet><group><field name="name"/><field name="company_id" readonly="1"/><field name="account_id"/>
+ <field name="template_id"/><field name="remote_template_id" domain="[('account_id','=',account_id)]"/>
+ <field name="sign_id" domain="[('account_id','=',account_id)]"/><field name="active"/><field name="needs_review"/></group>
+ <field name="variable_ids"><list editable="bottom"><field name="sequence" widget="handle"/>
+ <field name="remote_name"/><field name="key"/><field name="source"/><field name="field_path"/>
+ <field name="constant"/><field name="max_length"/></list></field></sheet></form></field></record>
+ <record id="action_sms_binding" model="ir.actions.act_window"><field name="name">国内短信</field>
+ <field name="res_model">qing.sms.binding</field><field name="view_mode">list,form</field></record>
+</odoo>

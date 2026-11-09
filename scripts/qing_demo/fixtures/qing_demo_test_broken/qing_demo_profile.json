@@ -1,0 +1,11 @@
+{
+    "code": "test_broken",
+    "name": "TEST ONLY - Broken Profile",
+    "version": "1.0",
+    "language": "zh_CN",
+    "country_code": "CN",
+    "currency_code": "CNY",
+    "native_demo": true,
+    "root_module": "qing_demo_test_broken",
+    "sequence": 999
+}

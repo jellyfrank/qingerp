@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_scan_session_list" model="ir.ui.view">
+        <field name="name">qing.stock.scan.session.list</field>
+        <field name="model">qing.stock.scan.session</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false" delete="false" decoration-success="state == 'done'" decoration-muted="state == 'cancelled'">
+                <field name="name"/><field name="kind"/><field name="user_id"/><field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/><field name="create_date"/>
+                <button name="action_open_workbench" type="object" string="Open Workbench" icon="fa-barcode"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_scan_sessions" model="ir.actions.act_window">
+        <field name="name">Scan History</field><field name="res_model">qing.stock.scan.session</field><field name="view_mode">list,form</field>
+    </record>
+</odoo>

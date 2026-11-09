@@ -1,0 +1,7 @@
+<odoo><record id="view_sms_send_form" model="ir.ui.view">
+ <field name="name">qing.sms.send.form</field><field name="model">qing.sms.send</field><field name="arch" type="xml">
+ <form string="发送国内短信"><group><field name="binding_id"/><field name="number"/><field name="record_model" invisible="1"/><field name="record_id" options="{'no_create': True}"/></group>
+ <field name="parameter_ids"><list editable="bottom" create="0" delete="0"><field name="key" column_invisible="True" force_save="1"/><field name="name" force_save="1"/><field name="value"/></list></field>
+ <group><field name="preview"/></group><footer><button name="action_preview" type="object" string="预览并校验"/>
+ <button name="action_send" type="object" string="加入发送队列" class="btn-primary"/><button special="cancel" string="取消"/></footer></form>
+ </field></record></odoo>

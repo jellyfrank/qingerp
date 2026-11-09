@@ -1,0 +1,6 @@
+# SaaS Control copies this file alone into its release image. Keep direct pins
+# here; relative -r includes cannot resolve after the file is relocated.
+markdown-it-py==2.2.0
+jieba==0.42.1
+aliyun-sms==0.0.7
+dnspython==2.8.0

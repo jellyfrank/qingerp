@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_product_template_form" model="ir.ui.view">
+        <field name="name">product.template.form.qing.rental</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <span name="qing_rental_option" class="d-inline-flex" groups="qing_rental.group_rental_user">
+                    <field name="qing_rental_ok" widget="boolean_checkbox" class="w-auto"/>
+                    <label for="qing_rental_ok"/>
+                </span>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="qing_rental" string="Rental" invisible="not qing_rental_ok"
+                      groups="qing_rental.group_rental_user">
+                    <group>
+                        <group>
+                            <field name="qing_rental_service_id" invisible="not qing_rental_ok"
+                                   required="qing_rental_ok" options="{'no_create': True}"/>
+                            <field name="qing_rental_padding_hours" invisible="not qing_rental_ok"/>
+                        </group>
+                        <group invisible="not qing_rental_ok">
+                            <field name="qing_rental_period"/>
+                            <field name="qing_rental_rate"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,12 @@
+.o_qing_permission_restricted,
+.o_qing_restricted_field {
+    color: var(--o-main-text-color, inherit);
+    font-style: italic;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.o_qing_permission_restricted {
+    display: inline-block;
+    max-width: 100%;
+}

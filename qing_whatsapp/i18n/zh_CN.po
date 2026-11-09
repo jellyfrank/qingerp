@@ -1,0 +1,1352 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_whatsapp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-12 03:24+0000\n"
+"PO-Revision-Date: 2026-09-12 03:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__accepted
+msgid "Accepted"
+msgstr "平台已接受"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__access_token
+msgid "Access Token"
+msgstr "访问令牌"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__account_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__account_id
+msgid "Account"
+msgstr "账户"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Account disabled."
+msgstr "账户已停用。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Account identity cannot change after conversations exist."
+msgstr "已有会话后不能修改账户所属公司、WABA 或业务号码。"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_accounts
+#: model:ir.ui.menu,name:qing_whatsapp.menu_accounts
+msgid "Accounts"
+msgstr "账户配置"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_needaction
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_needaction
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__active
+msgid "Active"
+msgstr "启用"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__api_version
+msgid "Api Version"
+msgstr "Graph API 版本"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__app_secret
+msgid "App Secret"
+msgstr "应用密钥"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__attachment_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__attachment_id
+msgid "Attachment"
+msgstr "附件"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_attachment_count
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_attachment_count
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__attachment_hash
+msgid "Attachment Hash"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__attempt_ids
+msgid "Attempt"
+msgstr "发送尝试"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__attempt_count
+msgid "Attempt Count"
+msgstr "尝试次数"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__attempts
+msgid "Attempts"
+msgstr "处理次数"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__audio
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__audio
+msgid "Audio"
+msgstr "音频"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_template__category__authentication
+msgid "Authentication"
+msgstr "身份验证"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__body
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__body
+msgid "Body"
+msgstr "正文"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__callback_url
+msgid "Callback Url"
+msgstr "回调地址"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_compose_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_message_form
+msgid "Cancel queued message"
+msgstr "取消待发消息"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__catalog_uid
+msgid "Catalog Uid"
+msgstr "Meta 商品目录 ID"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__category
+msgid "Category"
+msgstr "类别"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_conversation__state__closed
+msgid "Closed"
+msgstr "已结束"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_commerce
+#: model:ir.ui.menu,name:qing_whatsapp.menu_commerce
+msgid "Commerce events"
+msgstr "商城事件"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__company_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__components_json
+msgid "Components Json"
+msgstr "模板组件定义"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "Components must be a JSON list."
+msgstr "模板组件必须是 JSON 列表。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Configure the access token first."
+msgstr "请先配置访问令牌。"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_account_form
+msgid "Connection"
+msgstr "连接配置"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Connection failed. Provider code: %s"
+msgstr "连接失败，平台错误代码：%s"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Connection successful"
+msgstr "连接成功"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_consents
+#: model:ir.ui.menu,name:qing_whatsapp.menu_consents
+msgid "Consent evidence"
+msgstr "客户授权记录"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_consent.py:0
+msgid "Consent evidence cannot be deleted."
+msgstr "客户授权依据不能删除。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_consent.py:0
+msgid "Consent evidence is append-only. Record a new decision."
+msgstr "授权记录不可覆盖，请追加新的授权决定。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Consent is missing or has been revoked."
+msgstr "缺少客户授权，或客户已撤回授权。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__conversation_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__conversation_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__conversation_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__conversation_id
+msgid "Conversation"
+msgstr "会话"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "Conversation identity and window are managed by the service."
+msgstr "会话身份和客服窗口由系统维护。"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_conversations
+#: model:ir.ui.menu,name:qing_whatsapp.menu_conversations
+msgid "Conversations"
+msgstr "客户会话"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "Create conversations through the message composer."
+msgstr "请通过发送新消息功能创建会话。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__create_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__create_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__delivered
+msgid "Delivered"
+msgstr "已送达"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__direction
+msgid "Direction"
+msgstr "方向"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__display_name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__document
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__document
+msgid "Document"
+msgstr "文档"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_event__state__done
+msgid "Done"
+msgstr "已完成"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__button_values
+msgid "Dynamic URL values"
+msgstr "动态链接参数"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "Enter a valid international phone number with country code."
+msgstr "请输入包含国家区号的有效国际电话号码。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Enter text up to 4096 characters."
+msgstr "请填写正文，最多 4096 个字符。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__error_code
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__error_code
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__error_code
+msgid "Error Code"
+msgstr "错误代码"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__event_id
+msgid "Event"
+msgstr "回调事件"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__event_key
+msgid "Event Key"
+msgstr "事件标识"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__evidence
+msgid "Evidence"
+msgstr "授权依据"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__expired
+msgid "Expired"
+msgstr "已过期"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_event__state__failed
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__failed
+msgid "Failed"
+msgstr "失败"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__upload_name
+msgid "Filename"
+msgstr "文件名"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__finished_at
+msgid "Finished At"
+msgstr "完成时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_follower_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_follower_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_partner_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_partner_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_consent__state__granted
+msgid "Granted"
+msgstr "已授权"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_commerce_event__state__handled
+msgid "Handled"
+msgstr "已处理"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__has_message
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__has_message
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__header_value
+msgid "Header value"
+msgstr "模板头部变量"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_account__message_needaction
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__message_needaction
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_template__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_account__message_has_error
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__message_has_error
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_template__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__image
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__image
+msgid "Image"
+msgstr "图片"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__direction__in
+msgid "Inbound"
+msgstr "收到"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__interactive
+msgid "Interactive"
+msgstr "交互消息"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Invalid JSON parameters."
+msgstr "模板参数格式无效。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_event.py:0
+msgid "Invalid future event timestamp."
+msgstr "回调时间超出允许的未来时间范围。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Invalid message request."
+msgstr "消息请求无效。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_is_follower
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_is_follower
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__kind
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__kind
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__kind
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__kind
+msgid "Kind"
+msgstr "消息类型"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__language
+msgid "Language"
+msgstr "语言"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__last_attempt_at
+msgid "Last Attempt At"
+msgstr "最后尝试时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__last_customer_at
+msgid "Last Customer At"
+msgstr "客户最后消息时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__write_uid
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__write_date
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__mail_message_id
+msgid "Mail Message"
+msgstr "聊天消息"
+
+#. module: qing_whatsapp
+#: model:res.groups,name:qing_whatsapp.group_manager
+msgid "Manager"
+msgstr "管理员"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_consent__purpose__marketing
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__purpose__marketing
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_template__category__marketing
+msgid "Marketing"
+msgstr "营销"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__media_kind
+msgid "Media Kind"
+msgstr "媒体类型"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Media captions must not exceed 1024 characters."
+msgstr "媒体说明不能超过1024个字符。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__message_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__message_id
+msgid "Message"
+msgstr "消息"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_has_error
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_has_error
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_messages
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_ids
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_ids
+#: model:ir.ui.menu,name:qing_whatsapp.menu_messages
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_conversation_form
+msgid "Messages"
+msgstr "消息记录"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_account__catalog_uid
+msgid "Meta catalog ID; used by the optional commerce integration."
+msgstr ""
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_event.py:0
+msgid "Missing platform message ID."
+msgstr "缺少平台消息 ID。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__name
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_compose
+#: model:ir.ui.menu,name:qing_whatsapp.menu_compose
+msgid "New message"
+msgstr "发送新消息"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__next_attempt_at
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__next_attempt_at
+msgid "Next Attempt At"
+msgstr "下次尝试时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__number
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__number
+msgid "Number"
+msgstr "客户国际号码"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_account__message_needaction_counter
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__message_needaction_counter
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_template__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_account__message_has_error_counter
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__message_has_error_counter
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_template__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_compose__button_values
+msgid "One URL suffix per dynamic button, in button order."
+msgstr "按按钮顺序填写链接后缀，每行一个。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_compose__parameter_values
+msgid "One value per line, in placeholder number order."
+msgstr "按占位符编号顺序填写，每行一个值。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Only a manager can synchronize templates."
+msgstr "只有管理员可以同步模板。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Only a manager can test credentials."
+msgstr "只有管理员可以测试账户凭据。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid ""
+"Only definitely failed messages without a platform ID may be retried. "
+"Unknown results require reconciliation."
+msgstr "只能重试明确失败且没有平台ID的消息；结果未知的消息需先核实。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_event.py:0
+msgid "Only failed or waiting events may be retried."
+msgstr "仅可重新处理失败或等待关联的事件。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_event.py:0
+msgid "Only managers can retry events."
+msgstr "只有管理员可以重新处理事件。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "Only managers may submit templates."
+msgstr "只有管理员可以提交模板。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Only messages waiting to send may be cancelled."
+msgstr "只能取消尚未开始发送的消息。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_conversation__state__open
+msgid "Open"
+msgstr "进行中"
+
+#. module: qing_whatsapp
+#: model:res.groups,name:qing_whatsapp.group_user
+msgid "Operator"
+msgstr "操作员"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__operator_ids
+msgid "Operators"
+msgstr "操作员"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Operators must be internal users of the account company."
+msgstr "操作员必须是账户所属公司的内部用户。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__other
+msgid "Other"
+msgstr "其他"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__direction__out
+msgid "Outbound"
+msgstr "发出"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__outcome
+msgid "Outcome"
+msgstr "结果"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__owner_id
+msgid "Owner"
+msgstr "负责人"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__partner_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__partner_id
+msgid "Partner"
+msgstr "联系人"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__payload
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__payload
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__payload
+msgid "Payload"
+msgstr "原始数据"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_event__state__pending
+msgid "Pending"
+msgstr "待处理"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_commerce_event__state__pending
+msgid "Pending integration"
+msgstr "等待商城模块处理"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__phone_uid
+msgid "Phone Uid"
+msgstr "业务号码 ID"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Provide a value for each dynamic URL button."
+msgstr "请填写每个动态链接按钮的参数。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Provide one value per template placeholder, in numeric order."
+msgstr "请按占位符数字编号填写对应值，每行一个。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__provider_uid
+msgid "Provider Uid"
+msgstr "平台消息 ID"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__purpose
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__purpose
+msgid "Purpose"
+msgstr "消息用途"
+
+#. module: qing_whatsapp
+#: model:ir.ui.menu,name:qing_whatsapp.menu_root
+#: model:res.groups.privilege,name:qing_whatsapp.privilege_whatsapp
+msgid "Qing WhatsApp"
+msgstr "欧姆 WhatsApp"
+
+#. module: qing_whatsapp
+#: model:ir.actions.server,name:qing_whatsapp.cron_events_ir_actions_server
+msgid "Qing WhatsApp: Process webhook events"
+msgstr "欧姆 WhatsApp：处理回调事件"
+
+#. module: qing_whatsapp
+#: model:ir.actions.server,name:qing_whatsapp.cron_send_ir_actions_server
+msgid "Qing WhatsApp: Send messages"
+msgstr "欧姆 WhatsApp：发送队列"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__quality
+msgid "Quality"
+msgstr "模板质量"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_compose_form
+msgid "Queue message"
+msgstr "加入发送队列"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__queued
+msgid "Queued"
+msgstr "待发送"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__read
+msgid "Read"
+msgstr "客户已读"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__received
+msgid "Received"
+msgstr "已接收"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__remote_uid
+msgid "Remote Uid"
+msgstr "平台模板 ID"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__request_digest
+msgid "Request Digest"
+msgstr "请求摘要"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__request_key
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__request_key
+msgid "Request Key"
+msgstr "请求标识"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_event__state__retry
+msgid "Retry"
+msgstr "重试"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__retry_wait
+msgid "Retry Wait"
+msgstr "等待重试"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_message_form
+msgid "Retry failed message"
+msgstr "重试确定失败消息"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_event_form
+msgid "Retry processing"
+msgstr "重新处理"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_consent__state__revoked
+msgid "Revoked"
+msgstr "已撤回授权"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Select a template for this account."
+msgstr "请选择当前账户的消息模板。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Select an attachment."
+msgstr "请选择附件。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "Select the media attachment required by this template."
+msgstr "请选择模板要求的媒体附件。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_conversation_form
+msgid "Send WhatsApp"
+msgstr "发送 WhatsApp"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_compose
+msgid "Send WhatsApp Message"
+msgstr "发送 WhatsApp 消息"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__sender_id
+msgid "Sender"
+msgstr "发送人"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__sending
+msgid "Sending"
+msgstr "正在发送"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__purpose__service
+msgid "Service"
+msgstr "客户服务"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_consent__purpose__service
+msgid "Service notifications"
+msgstr "服务通知"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_attempt__started_at
+msgid "Started At"
+msgstr "开始时间"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_commerce_event__state
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_consent__state
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__state
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_event__state
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_template__status
+msgid "Status"
+msgstr "审批状态"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_template_form
+msgid "Submit to Meta"
+msgstr "提交 Meta 审核"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_account_form
+msgid "Synchronize templates"
+msgstr "同步平台模板"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__template_id
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_message__template_id
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__template
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__template
+msgid "Template"
+msgstr "模板"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "Template approval is managed by Meta."
+msgstr "模板审批状态由 Meta 管理。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Template pagination limit reached. Please contact support."
+msgstr "模板数量超过同步分页上限，请联系支持。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "Template parameters must be a JSON list."
+msgstr "模板参数必须是 JSON 列表。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid ""
+"Template submission result is unavailable (code %s). Synchronize before "
+"submitting again."
+msgstr "模板提交结果尚未确认（代码%s），请先同步平台状态再决定是否重新提交。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Template sync failed. Provider code: %s"
+msgstr "模板同步失败，平台错误代码：%s"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__parameter_values
+msgid "Template values"
+msgstr "模板正文变量"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_templates
+#: model:ir.ui.menu,name:qing_whatsapp.menu_templates
+msgid "Templates"
+msgstr "消息模板"
+
+#. module: qing_whatsapp
+#: model_terms:ir.ui.view,arch_db:qing_whatsapp.view_qing_whatsapp_account_form
+msgid "Test connection"
+msgstr "测试连接"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__text
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__text
+msgid "Text"
+msgstr "文本"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "The account belongs to another company."
+msgstr "该账户属于其他公司。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "The attachment is empty or exceeds 16 MB."
+msgstr "附件为空或超过 16 MB。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "The contact belongs to another company."
+msgstr "联系人属于其他公司。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/wizard/whatsapp_compose.py:0
+msgid "The conversation belongs to another account."
+msgstr "该会话属于其他 WhatsApp 账户。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "The customer service window expired. Send an approved template."
+msgstr "客服会话窗口已过期，请发送审核通过的模板。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "The owner must be an account operator."
+msgstr "负责人必须是该账户的操作员。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_account_phone_unique
+msgid "The phone ID is already configured."
+msgstr "该业务号码 ID 已配置。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "The request key belongs to another conversation."
+msgstr "该请求标识已被其他会话或不同内容使用。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "The sending user is inactive."
+msgstr "发送用户已停用。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "The template is no longer available."
+msgstr "该模板当前不可发送。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "The template is not approved or has poor quality."
+msgstr "模板尚未审核通过或质量过低。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_commerce_event_source_unique
+msgid "This commerce event already exists."
+msgstr "商城事件已存在。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_conversation_identity_unique
+msgid "This conversation already exists."
+msgstr "该会话已存在。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_event_event_unique
+msgid "This event has been received."
+msgstr "该事件已接收。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_message_provider_unique
+msgid "This platform message exists."
+msgstr "平台消息已存在。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_message_logical_unique
+msgid "This request has already been queued."
+msgstr "该请求已加入队列。"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_template_template_unique
+msgid "This template language exists."
+msgstr "该模板语言版本已存在。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "This template requires a media attachment."
+msgstr "此模板必须附带媒体文件。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,help:qing_whatsapp.field_qing_whatsapp_conversation__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__state__unknown
+msgid "Unknown"
+msgstr "发送结果待确认"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_conversation.py:0
+msgid "Unsupported commerce interaction."
+msgstr "不支持的商城交互类型。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Unsupported media type. Use PDF/text, JPEG/PNG, audio or MP4."
+msgstr "不支持此媒体类型，请使用 PDF、文本、JPEG/PNG、音频或 MP4。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_message.py:0
+msgid "Unsupported outbound message type."
+msgstr "不支持此发送类型。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_compose__upload_data
+msgid "Upload attachment"
+msgstr "上传附件"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "Use a Graph API version such as v23.0."
+msgstr "请填写 Graph API 版本，例如 v23.0。"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_template.py:0
+msgid "Use lowercase letters, numbers and underscores in template names."
+msgstr "模板名称仅使用小写字母、数字和下划线。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_template__category__utility
+msgid "Utility"
+msgstr "事务通知"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__verify_token
+msgid "Verify Token"
+msgstr "回调验证令牌"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_compose__kind__video
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_message__kind__video
+msgid "Video"
+msgstr "视频"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "WABA and phone IDs must contain digits only."
+msgstr "WABA 和业务号码 ID 必须为数字。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__waba_uid
+msgid "Waba Uid"
+msgstr "WABA 账户 ID"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields.selection,name:qing_whatsapp.selection__qing_whatsapp_event__state__waiting
+msgid "Waiting"
+msgstr "等待关联"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_account__webhook_key
+msgid "Webhook Key"
+msgstr "回调标识"
+
+#. module: qing_whatsapp
+#: model:ir.actions.act_window,name:qing_whatsapp.action_events
+#: model:ir.ui.menu,name:qing_whatsapp.menu_events
+msgid "Webhook events"
+msgstr "回调收件箱"
+
+#. module: qing_whatsapp
+#: model:ir.model.constraint,message:qing_whatsapp.constraint_qing_whatsapp_account_webhook_unique
+msgid "Webhook key must be unique."
+msgstr "回调标识不能重复。"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_account
+msgid "WhatsApp Account"
+msgstr "WhatsApp 账户"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_commerce_event
+msgid "WhatsApp Commerce Event"
+msgstr "WhatsApp 商城事件"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_consent
+msgid "WhatsApp Consent Evidence"
+msgstr "WhatsApp 客户授权记录"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_conversation
+msgid "WhatsApp Conversation"
+msgstr "WhatsApp 客户会话"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_attempt
+msgid "WhatsApp Delivery Attempt"
+msgstr "WhatsApp 发送尝试"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_message
+msgid "WhatsApp Message"
+msgstr "WhatsApp 消息"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_template
+msgid "WhatsApp Template"
+msgstr "WhatsApp 模板"
+
+#. module: qing_whatsapp
+#: model:ir.model,name:qing_whatsapp.model_qing_whatsapp_event
+msgid "WhatsApp Webhook Inbox"
+msgstr "WhatsApp 回调收件箱"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "WhatsApp access is unavailable."
+msgstr "没有 WhatsApp 操作权限或账户已停用。"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__whatsapp_message_ids
+msgid "Whatsapp Message"
+msgstr "WhatsApp 消息"
+
+#. module: qing_whatsapp
+#: model:ir.model.fields,field_description:qing_whatsapp.field_qing_whatsapp_conversation__window_until
+msgid "Window Until"
+msgstr "客服窗口截止时间"
+
+#. module: qing_whatsapp
+#. odoo-python
+#: code:addons/qing_whatsapp/models/whatsapp_account.py:0
+msgid "You are not assigned to this account."
+msgstr "您未被分配到此 WhatsApp 账户。"

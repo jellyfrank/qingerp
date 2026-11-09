@@ -1,0 +1,178 @@
+.o_qing_scan {
+    background: var(--body-bg, #f4f6f8);
+    .qing_scan_content { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    .qing_scan_header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .qing_scan_header > div { flex: 1; min-width: 0; }
+    h1 { font-size: 26px; margin: 4px 0 0; font-weight: 650; }
+    h2 { font-size: 19px; font-weight: 600; margin: 0 0 12px; }
+    .qing_scan_company { opacity: .7; }
+    .btn { flex-shrink: 0; white-space: nowrap; }
+    .qing_scan_nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 22px; }
+    .qing_scan_nav button { min-width: 0; min-height: 84px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; white-space: normal; border-radius: 10px; font-weight: 600; line-height: 1.3; }
+    .qing_scan_nav_icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .qing_scan_nav button span { max-width: 100%; overflow-wrap: anywhere; }
+    .qing_scan_panel, .qing_scan_input_panel { background: var(--o-view-background-color, #fff); border: 1px solid var(--border-color, #dce2e8); border-radius: 8px; padding: 18px; margin-bottom: 18px; }
+    .qing_scan_input_row { display: flex; }
+    .qing_scan_entry { display: flex; align-items: center; gap: 4px; width: 100%; min-width: 0; padding-right: 4px; border: 1px solid var(--border-color, #dce2e8); border-radius: 8px; background: var(--o-view-background-color, #fff); }
+    .qing_scan_entry:focus-within { border-color: var(--primary, #2864bb); box-shadow: 0 0 0 3px rgba(40, 100, 187, .15); }
+    .qing_scan_entry textarea { flex: 1 1 0; width: 0; min-width: 0; height: 52px; min-height: 52px; box-sizing: border-box; padding: 14px 10px; line-height: 24px; font-size: 16px; resize: none; white-space: pre; overflow-y: hidden; border: 0; background: transparent; border-radius: 8px 0 0 8px; }
+    .qing_scan_entry textarea:focus { border: 0; box-shadow: none; outline: none; }
+    .qing_scan_entry textarea::placeholder { line-height: 24px; }
+    .qing_scan_icon_button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; min-height: 44px; padding: 10px; }
+    .qing_scan_icon_button svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .qing_scan_keyboard[aria-pressed="true"] { color: var(--primary, #2864bb); background: var(--primary-rgba, #e8f0fc); }
+    .qing_scan_confirm { background: #198754; color: #fff; border: 1px solid #198754; }
+    .qing_scan_confirm:hover, .qing_scan_confirm:focus-visible { background: #157347; color: #fff; border-color: #157347; }
+    .qing_scan_confirm:disabled { background: #e9edef; color: #7b858d; border-color: #e9edef; opacity: 1; }
+    .qing_scan_device_toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+    .qing_scan_device_toolbar .form-check { margin: 0; }
+    .qing_scan_device_toolbar .btn { min-height: 44px; }
+    .o_barcode_mobile_container {
+        flex-shrink: 0;
+        img, .o_barcode_laser { display: none; }
+        .o_mobile_barcode { position: static; display: block; width: auto; height: auto; opacity: 1; padding: 12px; }
+    }
+    .qing_scan_options { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-top: 16px; }
+    .qing_scan_options label, .qing_scan_mode_field { flex: 1; min-width: 145px; font-size: 12px; }
+    .qing_scan_options .form-control, .qing_scan_options .form-select { margin-top: 4px; min-height: 42px; }
+    .qing_scan_feedback {
+        position: fixed; top: 70px; left: 50%; transform: translateX(-50%); z-index: 1040;
+        width: calc(100% - 24px); max-width: 560px; margin: 0; display: flex; align-items: center; gap: 12px;
+        font-size: 16px; overflow-wrap: anywhere; box-shadow: 0 6px 20px #0002; animation: qing-scan-notice-in .25s ease-out;
+        > span { flex: 1; min-width: 0; }
+        .btn-close { flex-shrink: 0; padding: 12px; }
+    }
+    .qing_scan_backorder_source { margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+    .qing_scan_route { display: flex; align-items: center; gap: 14px; margin: 0 0 16px; flex-wrap: wrap; }
+    .qing_scan_cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(245px, 1fr)); gap: 12px; }
+    .qing_scan_card { display: flex; flex-direction: column; gap: 9px; padding: 16px; background: transparent; color: inherit; border: 1px solid var(--border-color, #dce2e8); border-radius: 7px; min-width: 0; overflow-wrap: anywhere; }
+    button.qing_scan_card:hover { border-color: var(--primary, #2864bb); }
+    .qing_scan_session_header {
+        position: relative; isolation: isolate; overflow: hidden; background: #fff; color: #173b2b;
+        border: 1px solid #dce2e8; border-radius: 8px; padding: 12px; margin-bottom: 16px;
+        &::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--qing-progress, 0%); z-index: -1; background: linear-gradient(90deg, #e3f5e9, #a5deb7); transition: width .25s ease; }
+    }
+    .qing_scan_session_header.qing_scan_count_header {
+        background: #fff3cd; color: #664d03; border-color: #ffecb5;
+        &::before { display: none; }
+    }
+    .qing_scan_session_top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .qing_scan_session_identity { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; overflow: hidden; }
+    .qing_scan_session_identity h2 { font-size: 16px; line-height: 44px; margin: 0; max-width: 75%; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .qing_scan_responsible { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .qing_scan_session_actions { display: flex; gap: 4px; flex-shrink: 0; }
+    .qing_scan_session_bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 13px; }
+    .qing_scan_progress_list { display: grid; gap: 12px; }
+    .qing_scan_progress { border: 1px solid var(--border-color, #dce2e8); border-radius: 7px; min-width: 0; overflow: hidden; }
+    .qing_scan_progress_toggle { display: flex; flex-direction: column; gap: 12px; width: 100%; border: 0; padding: 14px; background: var(--o-view-background-color, #fff); color: inherit; text-align: left; white-space: normal; }
+    .qing_scan_progress_toggle:focus-visible { outline: 2px solid #2864bb; outline-offset: -2px; }
+    .qing_scan_progress_heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; width: 100%; font-size: 15px; overflow-wrap: anywhere; }
+    .qing_scan_expand_icon { flex-shrink: 0; width: 22px; height: 22px; }
+    .qing_scan_progress_track { display: block; width: 100%; height: 12px; border-radius: 6px; background: #edf1ee; overflow: hidden; }
+    .qing_scan_progress_fill { display: block; height: 100%; width: var(--qing-progress, 0%); border-radius: inherit; background: linear-gradient(90deg, #86dba5, #198754); transition: width .25s ease; }
+    .qing_scan_progress_summary { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; width: 100%; font-size: 14px; }
+    .qing_scan_progress_percent { font-weight: 700; white-space: nowrap; }
+    .qing_scan_operation_details { border-top: 1px solid var(--border-color, #dce2e8); padding: 12px; }
+    .qing_scan_operation_details h3 { font-size: 15px; }
+    @media (prefers-reduced-motion: reduce) { .qing_scan_session_header::before, .qing_scan_progress_fill { transition: none; } }
+    .qing_scan_card strong { font-size: 15px; }
+    .qing_scan_card small { opacity: .7; }
+    .qing_scan_select { display: flex; flex-direction: column; gap: 6px; color: inherit; }
+    .qing_scan_selected { background-color: #e7f1ff; border-color: var(--primary, #2864bb); box-shadow: inset 0 0 0 1px var(--primary, #2864bb); }
+    .qing_scan_amount { font-size: 30px; line-height: 1.1; }
+    .qing_scan_quantities { display: flex; gap: 12px; justify-content: space-between; }
+    .qing_scan_quantities span { font-size: 11px; flex: 1; }
+    .qing_scan_quantities b { display: block; font-size: 24px; line-height: 1.5; }
+    .qing_scan_empty { padding: 28px 8px; text-align: center; opacity: .7; }
+    .qing_scan_footer { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+    .qing_scan_footer .btn { min-height: 44px; }
+    .qing_scan_validation { margin: 0 0 20px; }
+    .qing_scan_validate {
+        min-height: 48px;
+        background-color: #198754;
+        border-color: #198754;
+        color: #fff;
+        &:hover, &:focus-visible { background-color: #157347; border-color: #157347; color: #fff; }
+        &:disabled { background-color: #6c757d; border-color: #6c757d; color: #fff; opacity: 1; }
+    }
+    .qing_scan_event { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border-color, #e6e9ed); }
+    summary { cursor: pointer; font-weight: 600; }
+    @media (max-width: 600px) {
+        .qing_scan_content { padding: 12px; }
+        .qing_scan_header { margin-bottom: 14px; }
+        h1 { font-size: 21px; }
+        .qing_scan_company { max-width: 110px; font-size: 12px; }
+        .qing_scan_nav { gap: 4px; }
+        .qing_scan_nav button { min-height: 76px; padding: 10px 2px; font-size: 12px; gap: 7px; }
+        .qing_scan_panel, .qing_scan_input_panel { padding: 12px; }
+        .qing_scan_cards { grid-template-columns: 1fr; }
+        .qing_scan_options label, .qing_scan_mode_field { min-width: 110px; }
+        .qing_scan_options > .btn { flex: 1; }
+        .o_barcode_mobile_container { flex-basis: 100%; }
+        .qing_scan_footer > .btn { flex: 1 1 42%; }
+    }
+}
+@keyframes qing-scan-notice-in { from { opacity: 0; transform: translate(-50%, -24px); } to { opacity: 1; transform: translate(-50%, 0); } }
+@media (prefers-reduced-motion: reduce) { .o_qing_scan .qing_scan_feedback { animation: none; } }
+
+.o_qing_scan {
+    .qing_scan_mode_button { --o-qing-font-size: 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 44px; margin-top: 4px; font-size: 16px; }
+    .qing_scan_scanned { color: #198754; }
+    .qing_scan_task_header { display: grid; grid-template-columns: minmax(88px, 1.25fr) minmax(0, 1.35fr) minmax(0, .8fr) 48px; gap: 6px; padding: 12px 6px; font-size: 13px; font-weight: 600; background: var(--body-bg, #f4f6f8); }
+    .qing_scan_task_list { max-height: 65vh; overflow-y: auto; border: 1px solid var(--border-color, #dce2e8); border-radius: 0 0 6px 6px; }
+    .qing_scan_task_row { display: grid; grid-template-columns: minmax(0, 1fr) 48px; gap: 6px; align-items: center; padding: 0 6px; min-height: 64px; border-bottom: 1px solid var(--border-color, #dce2e8); color: inherit; }
+    .qing_scan_task_select { display: grid; grid-template-columns: minmax(88px, 1.25fr) minmax(0, 1.35fr) minmax(0, .8fr); gap: 6px; align-items: center; width: 100%; min-height: 64px; border: 0; padding: 12px 0; background: transparent; color: inherit; text-align: left; font-size: 14px; overflow-wrap: anywhere; }
+    .qing_scan_task_row.qing_scan_selected { background: #e7f1ff; color: #123b61; box-shadow: inset 3px 0 #2864bb; }
+    .qing_scan_task_select:focus-visible { outline: 2px solid #2864bb; outline-offset: -2px; }
+    .qing_scan_task_row:hover:not(.qing_scan_selected) { background: #eff5fc; color: #123b61; }
+    .qing_scan_task_row strong { font-size: 13px; }
+    .qing_scan_task_route { display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+    .qing_scan_start, .qing_scan_edit { color: #2864bb; border: 1px solid #c4d7ee; background: #fff; }
+    .qing_scan_task_done { color: #198754; font-size: 13px; font-weight: 600; text-align: center; }
+    .qing_scan_location_header { grid-template-columns: minmax(0, 1fr) 48px; }
+    .qing_scan_location_select { grid-template-columns: minmax(0, 1fr); gap: 4px; align-content: center; }
+    .qing_scan_stock_scroll { max-width: 100%; overflow-x: auto; border: 1px solid #dce2e8; border-radius: 6px; }
+    .qing_scan_stock_table {
+        width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; background: #fff; color: #212529;
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #dce2e8; vertical-align: middle; }
+        th { background: #f4f6f8; font-weight: 600; white-space: nowrap; }
+        td:first-child { min-width: 150px; overflow-wrap: anywhere; }
+        td:nth-child(3) { min-width: 100px; overflow-wrap: anywhere; }
+        th:nth-child(n+4), td:nth-child(n+4) { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+        tbody tr:last-child td { border-bottom: 0; }
+        .qing_scan_stock_onhand { color: #000; font-weight: 600; }
+        .qing_scan_stock_available { color: #198754; font-weight: 600; }
+        .qing_scan_stock_reserved { color: #dc3545; font-weight: 600; }
+    }
+    @media (max-width: 600px) { .qing_scan_mode_field { min-width: 110px; } }
+}
+.qing_scan_mode_choices { display: grid; gap: 8px; }
+.qing_scan_mode_choices .qing_scan_mode_choice { --o-qing-font-size: 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 12px 16px; font-size: 18px; line-height: 1.4; text-align: left; white-space: normal; border: 1px solid var(--border-color, #dce2e8); color: var(--body-color, #212529); }
+.qing_scan_mode_choices .qing_scan_mode_active { background: #e7f1ff; color: #123b61; border-color: #2864bb; }
+
+.o_qing_scan {
+    .qing_scan_task_row, .qing_scan_location {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: var(--qing-progress, 0%);
+            z-index: -1;
+            background: linear-gradient(90deg, #e3f5e9, #a5deb7);
+        }
+    }
+    .qing_scan_task_active { color: #173b2b; }
+    .qing_scan_task_active.qing_scan_selected { color: #123b61; box-shadow: inset 3px 0 #2864bb; }
+}
+
+.o_qing_scan {
+    .qing_scan_title { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+    .qing_scan_completed_filter { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12px; white-space: nowrap; }
+    .qing_scan_completed_filter .form-check-input { margin-top: 0; }
+    .qing_scan_task_completed, .qing_scan_task_completed.qing_scan_selected, .qing_scan_task_completed:hover { background: #d9f0e1; color: #173b2b; }
+    .qing_scan_view { color: #198754; border: 1px solid #99c9aa; background: #fff; }
+    .qing_scan_view:hover { color: #146c43; background: #eef8f1; }
+}

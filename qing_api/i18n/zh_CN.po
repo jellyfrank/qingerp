@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_api
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_api
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid "API Documentation"
+msgstr "API 文档"
+
+#. module: qing_api
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid ""
+"Allow public access or require users to sign in before viewing /api/docs and"
+" /api/openapi.json."
+msgstr "允许公开访问，或要求用户登录后才能查看 /api/docs 和 /api/openapi.json。"
+
+#. module: qing_api
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid ""
+"Choose the interface rendered at /api/docs. All interfaces use the same "
+"OpenAPI document."
+msgstr "选择 /api/docs 使用的展示界面。所有界面共用同一份 OpenAPI 文档。"
+
+#. module: qing_api
+#: model:ir.model.fields,field_description:qing_api.field_res_config_settings__qing_api_documentation_access
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid "Documentation Access"
+msgstr "文档访问权限"
+
+#. module: qing_api
+#: model:ir.model.fields,field_description:qing_api.field_res_config_settings__qing_api_documentation_ui
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid "Documentation Interface"
+msgstr "文档界面"
+
+#. module: qing_api
+#: model:ir.model.fields.selection,name:qing_api.selection__res_config_settings__qing_api_documentation_access__public
+msgid "Public"
+msgstr "允许公开访问"
+
+#. module: qing_api
+#: model_terms:ir.ui.view,arch_db:qing_api.view_res_config_settings_form
+msgid ""
+"Scalar is the default. Swagger UI and ReDoc remain available for "
+"compatibility and read-only documentation."
+msgstr "默认使用 Scalar；Swagger UI 和 ReDoc 仍可用于兼容及只读文档展示。"
+
+#. module: qing_api
+#: model:ir.model.fields.selection,name:qing_api.selection__res_config_settings__qing_api_documentation_access__authenticated
+msgid "Signed-in users"
+msgstr "登录后可见"
+
+#. module: qing_api
+#. odoo-python
+#: code:addons/qing_api/controllers/docs.py:0
+msgid "You are not allowed to view API documentation."
+msgstr "您无权查看 API 文档。"

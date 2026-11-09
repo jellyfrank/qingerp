@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_form_delivery_photos" model="ir.ui.view">
+        <field name="name">qing.sale.order.form.delivery.photos</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="qing_delivery_information" string="Delivery Information">
+                    <field name="qing_delivery_photo_ids" mode="kanban,list" context="{'default_order_id': id}">
+                        <kanban>
+                            <templates>
+                                <t t-name="card">
+                                    <field name="image_128" widget="image" class="w-100" options="{'img_class': 'o_image_128_contain'}"/>
+                                    <field name="name"/>
+                                </t>
+                            </templates>
+                        </kanban>
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="image_1920" widget="image" options="{'size': [80, 80], 'preview_image': 'image_128'}"/>
+                            <field name="name"/>
+                        </list>
+                        <form string="Delivery Photo">
+                            <sheet>
+                                <field name="sequence" invisible="1"/>
+                                <field name="order_id" invisible="1"/>
+                                <field name="image_1920" widget="image" options="{'size': [320, 240], 'zoom': True}"/>
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

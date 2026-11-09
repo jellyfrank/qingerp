@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_message_list" model="ir.ui.view">
+        <field name="name">qing.whatsapp.message.list</field>
+        <field name="model">qing.whatsapp.message</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="create_date"/>
+                <field name="conversation_id"/>
+                <field name="direction"/>
+                <field name="kind"/>
+                <field name="state"/>
+                <field name="attempt_count"/>
+                <field name="error_code"/>
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

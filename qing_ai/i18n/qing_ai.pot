@@ -1,0 +1,2829 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_ai
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-25 09:22+0000\n"
+"PO-Revision-Date: 2026-09-25 09:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_ai
+#: model:ir.module.module,description:base.module_qing_ai
+msgid ""
+"# QingERP AI 基础设置\n"
+"\n"
+"`qing_ai` 依赖 `qing_base`，提供供应商选择、统一文本调用接口、管理员连接测试、Agent/Skill 配置和员工日常助手。`qing_deepseek`、`qing_openai`、`qing_gemini`、`qing_glm` 分别独立安装；不依赖 Odoo Enterprise 的 `ai_app` 或 IAP 中转。\n"
+"\n"
+"管理员现在可从技能页点击「配置操作」，选择业务模型并勾选常见增删改查等操作，即可生成可执行工具并加入技能。查询、关联字段和分组字段默认按调用员工权限在运行时发现；写入字段仍需明确选择。安装销售模块后，还可直接选用客户管理与销售订单模板。详见 [配置 AI 业务操作](docs/orm_tools.md)。源码发现入口保留在开发者模式的高级流程中。\n"
+"\n"
+"系统管理员可在「Qing AI → Agents / Skills」配置多个专业 Agent。Agent 定义角色、首选供应商、可用公司和用户组；Skill 复用指令，并在「Available Actions」中选择业务模块登记的固定动作。动作目录仅作内部执行白名单；启用开发者模式后可通过「Qing AI → Tools」检查，普通模式不显示该入口，也不能执行模型给出的任意 Python、ORM 或 SQL。默认提供通用 Agent，安装 `qing_ai_sale` 后另外提供销售 Agent。员工可在会话选项中选择 Agent；已有消息的会话改选时会创建新会话，以保留原会话的 Agent 上下文。管理员撤销 Agent 或 Skill、取消 Skill 中的动作后，下一次请求立即重新校验。历史上没有 Agent 的会话仍可查看；首次再次发送前会绑定当前可用的默认 Agent，然后才校验业务动作和预算。\n"
+"\n"
+"技能页显示「Guidance / Executable」，避免把一段说明误认为业务执行能力。管理员可点「Discover Actions」选择已安装模块：扫描该模块登记的模型字段、视图 object 按钮和 Server Action，形成候选卡片；再次扫描按固定来源更新，不执行被发现的方法或 Server Action。候选卡片不自动授予员工权限，也不会进入聊天动作列表。方法候选可由管理员主动点击「Analyze Method with AI」：系统仅发送该模块源码中去除字面常量后的语法结构到已配置的模型，保存分析草稿供人工审阅。管理员审核后，可为模型查询/创建候选选择匹配的内置适配器并发布，再在技能的「Available Actions」中组合使用。当前内置匹配仅涵盖客户查询与创建；其他未知按钮和 Server Action 仍保持「Needs Adapter」，需业务模块提供并测试受控适配器。来源变化后已发布候选会变为「Needs Review」，暂停调用。\n"
+"\n"
+"独立部署时先安装 `qing_ai/requirements.txt` 中的 Python 依赖，再安装 Odoo 模块。AI 回复和用户输入支持安全的 Markdown 展示（标题、列表、链接、表格和代码块）；原始 HTML 被净化，外部图片不加载。长内容中的图片会按会话宽度缩放。\n"
+"\n"
+"会话使用 Odoo 原生富文本编辑器，可粘贴带格式的内容、粘贴或拖入文件，也可点击回形针选择文件。支持一张 PNG、JPEG、WebP 图片（最多 4 MB、2000 万像素），以及最多三个 PDF、TXT、MD、CSV 文档（每个最多 4 MB）。文档必须能提取可读文本，PDF 限 20 页且不能加密，总文本上限 12000 字符；图片和文档以私有附件保存在当前用户的消息中。文档提取出的文本由客户环境直接发送给所选模型厂商，不经过 QingERP IAP 中转。OpenAI、Gemini 默认启用图像输入；DeepSeek、GLM 需先将模型改为支持视觉的型号，再在对应供应商设置中启用「Image Input」。通过输入校验并发送后，已发送的文本与附件立即从编辑框清空，会话中先显示本条消息和动态三个点；等待回复时可继续编辑和添加下一条消息的附件，回复到达后草稿仍会保留。为避免同一账号重复执行，上一条请求结束前暂不可再次发送。模型不支持图像等错误仍显示在会话中。附件不会自动转换为业务单据。\n"
+"\n"
+"## 启用\n"
+"\n"
+"1. 安装 `qing_ai` 和需要的供应商模块。\n"
+"2. 系统管理员打开「设置 → Qing AI」，填写供应商 API Key、HTTPS 接口地址、模型名称并启用。\n"
+"3. 选择默认供应商，保存后点击该供应商的「测试已保存配置」。测试发送一条短文本，可能产生供应商费用。\n"
+"4. 员工可随时点击顶部工具栏的 Qing AI 图标，在弹层中搜索、创建、继续会话；也可打开「Qing AI → 日常助手」全屏处理较长内容。打开会话和收到新回复时自动滚动至最新消息；弹层和全屏会话列表均可经确认后永久删除本人会话及其私有附件。任务与供应商选项默认折叠，按 Enter 发送、Alt+Enter 换行；可直接粘贴或拖入文件。业务请求执行期间显示经过脱敏的步骤摘要和工具名称，完成后可折叠查看，并显示供应商实际返回的输入、输出、推理及总 Token；不展示模型隐藏推理，也不推算供应商未返回的用量。联系人和产品表单的「操作 → 询问 Qing AI」会打开带有该记录只读上下文的新会话。\n"
+"5. 安装可选的 `qing_ai_sale` 后，销售 Agent 的任务列表增加「Business」；普通「Ask」文本也会先区分可执行销售请求与一般问答。销售查询、客户创建和草稿写入由该模块提供，详见其说明。安装 `qing_ai_knowledge` 后，可将有权限的知识空间绑定到 Agent。\n"
+"\n"
+"每位员工每天默认最多发起 30 次请求，管理员可在设置中调整为 1–1000 次。每条消息、回复、供应商、模型和供应商返回的 token 用量保存在客户数据库中；员工只能读取自己且属于有权访问公司的会话。助手每次使用最多 12 条已成功消息作为有限上下文。单条输入上限 4000 字符。当前记录在每次请求前重新检查读取权限和公司，只发送明确列出的少量字段；删除、撤权或跨公司后不会继续发送旧快照。\n"
+"\n"
+"未安装业务模块时，「提问」「总结」「翻译」仅作问答。安装 `qing_ai_sale` 后，文本提问可以选择当前 Agent 已发布的销售动作；查询任务支持“选择工具 → 执行 → 根据结果继续选择”的受限多步规划，最多 6 轮模型调用、10 次工具执行并在 120 秒内结束。所有写入仍要求预览后再次确认。附件仅在用户明确添加时发送，附件问答不直接执行业务动作；「Business」任务不接受附件。等待期间编辑框保持可用，规划进度保存在数据库中，重新打开会话可继续。知识库检索由独立的 `qing_ai_knowledge` 桥接模块提供；未安装或未给 Agent 指定空间时不会读取知识文章。当前没有独立后台 worker、流式回答或向量检索，模型输出须由员工复核。\n"
+"\n"
+"密钥存于当前 Odoo 数据库的 `ir.config_parameter`，仅系统管理员可在设置页维护；数据库管理员与备份持有人也可访问。请求由客户自己的 QingERP 服务直连所选供应商，不经过 QingERP 统一额度/IAP 服务。出海部署可按实际网络和合同使用 OpenAI/Gemini；国内可使用 DeepSeek/GLM。接口地址和模型名可按账号可用范围调整。\n"
+"\n"
+"## 服务端调用约定\n"
+"\n"
+"可信业务模块在服务器端调用：\n"
+"\n"
+"```python\n"
+"result = self.env['qing.ai.service']._complete_text('Summarize this record.')\n"
+"text = result['text']\n"
+"model = result['model']\n"
+"usage = result['usage']\n"
+"```\n"
+"\n"
+"`provider='deepseek'` 等参数可覆盖默认供应商；返回结构为 `text`、`model`、`usage`。默认输出上限为 1024 token，可通过 `max_output_tokens` 在 1–8192 范围内调整；连接测试限定 256 token。服务端方法以 `_` 开头，不是面向浏览器的公开 RPC。调用方负责业务权限、可发送字段白名单和提示词脱敏。Agent 的可用业务动作由 Skill 与业务模块原生权限相交决定；商业版 `qing_ai_pro` 可另加月度预算、匿名化用量审计和回归用例。\n"
+"\n"
+"测试使用独立数据库和模拟 HTTP 响应，不需要真实供应商密钥。真实密钥和套餐是否可用需由客户在自己部署环境完成连接测试。\n"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_agent.py:0
+msgid "%(agent)s in Discuss"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "%(operation)s %(model)s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_builder.py:0
+msgid ""
+"%(operation)s on %(model)s within the configured fields and record filter."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "%(tool)s — %(company)s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "A filter uses an unavailable field or operator."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "A fixed value cannot be overridden."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "A required field cannot be cleared: %s"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.act_window,name:qing_ai.action_qing_ai_agent
+msgid "AI Agents"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_agent_identity.py:0
+msgid "AI Discuss identities are managed by Qing AI."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid "AI Service"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.act_window,name:qing_ai.action_qing_ai_skill
+msgid "AI Skills"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.act_window,name:qing_ai.action_qing_ai_tool
+msgid "AI Tools"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/discuss_channel.py:0
+msgid "AI chat identity is managed by Qing AI."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "AI connection successful"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "AI conversation"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "AI is thinking"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__active
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__active
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__active
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__active
+msgid "Active"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__skill_id
+msgid "Add to Skill"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Adjusting the plan and trying again"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_form
+msgid "Advanced"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__agent_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__agent_id
+msgid "Agent"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_agent
+msgid "Agents"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__ai_analysis
+msgid "Ai Analysis"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_all_fields
+msgid "All Readable Fields"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__group_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__group_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__group_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__group_ids
+msgid "Allowed Groups"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.constraint,message:qing_ai.constraint_qing_ai_agent_identity_agent_company_unique
+msgid "An AI agent can have only one Discuss identity per company."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "An identical successful tool call was already executed."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Analysis saved"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_form
+msgid "Analyze Method with AI"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Analyze attachments with Ask before creating a business action."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Analyze the attached files."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Analyze the image with Ask before creating a business action."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Analyzing the request and selecting an allowed action"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Another AI request from your account is in progress."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_archive
+msgid "Archive"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__archive
+msgid "Archive Record"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__arguments
+msgid "Arguments"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_conversation__draft_task__ask
+msgid "Ask"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.server,name:qing_ai.action_qing_ai_product_template
+#: model:ir.actions.server,name:qing_ai.action_qing_ai_res_partner
+msgid "Ask Qing AI"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+msgid "Ask a question or paste text to summarize or translate..."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Ask a question, paste text to summarize, or choose Translate."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__role__assistant
+msgid "Assistant"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Assistant: %(record)s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Attach a PDF, TXT, MD or CSV document."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Attach a PNG, JPEG, WebP, PDF, TXT, MD or CSV file."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Attach file"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Attach up to three documents, each under 4 MB."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Attach up to three documents."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Attached image"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool__orm_all_fields
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool_builder__all_read_fields
+msgid ""
+"Automatically include all supported fields readable by the current user, "
+"including newly added fields. Sensitive fields and unsupported field types "
+"are excluded. Writable fields remain separately configured."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__tool_ids
+msgid "Available Actions"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__avatar_1920
+msgid "Avatar"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__avatar_1024
+msgid "Avatar 1024"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__avatar_128
+msgid "Avatar 128"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__avatar_256
+msgid "Avatar 256"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__avatar_512
+msgid "Avatar 512"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Average"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Back to AI conversations"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_conversation__draft_task__business
+msgid "Business"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__model_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__model_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__model_id
+msgid "Business Model"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__execution_type__adapter
+msgid "Business Template"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Business action"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Business tasks are not available."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_discovery_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid "Cancel"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__review_state__candidate
+msgid "Candidate"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Choose 1 to 12 readable fields returned by this tool."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool_builder__template__custom
+msgid "Choose Model and Operations"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool__adapter_tool_id
+msgid "Choose a built-in adapter with the same business model and operation."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Choose a business model when scanning a large module."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_builder.py:0
+msgid "Choose a model and at least one operation."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Choose a persistent business model for this tool."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Choose an existing related record."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Choose at most three group by fields and seven measures."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Choose one existing record."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Choose only configured statistics fields and supported functions."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Choose only one interval for each date field."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__company_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__company_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__company_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__company_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__company_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__company_id
+msgid "Company"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Company: %s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Completed"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Completed %(tool)s. Record ID: %(id)s."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+#: model:ir.model,name:qing_ai.model_qing_ai_tool_builder
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid "Configure AI Tools"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_skill_form
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_list
+msgid "Configure Actions"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_builder.py:0
+msgid "Configured AI Tools"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Confirm and create"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Confirm changes"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__content
+msgid "Content"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__context_model
+msgid "Context Model"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__context_res_id
+msgid "Context Res"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__conversation_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__conversation_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__conversation_id
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+msgid "Conversation"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Could not complete"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Count"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_count
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__count
+msgid "Count Records"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_create
+msgid "Create"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__create
+msgid "Create Record"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__create_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__create_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_service__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__current_company
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.module.module,summary:base.module_qing_ai
+msgid "Customer-owned AI providers and daily assistant"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+#: code:addons/qing_ai/static/src/js/ai_systray.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.actions.act_window,name:qing_ai.action_qing_ai_conversation
+#: model:ir.actions.client,name:qing_ai.action_qing_ai_daily_assistant
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_assistant
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_list
+msgid "Daily Assistant"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__qing_ai_default_provider
+msgid "Default AI Provider"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__is_default
+msgid "Default Agent"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid "Default Provider"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_unlink
+msgid "Delete"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__unlink
+msgid "Delete Record"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Delete conversation"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Delete this conversation, its messages and attachments permanently?"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Describe this image."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__description
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__description
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__description
+msgid "Description"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_skill.py:0
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_discovery_wizard_form
+msgid "Discover AI Actions"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_skill_form
+msgid "Discover Actions"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__all_read_fields
+msgid "Discover Readable Fields Automatically"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_discovery_wizard.py:0
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Discovered Actions"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Discovered from a view. Review side effects and add an adapter."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__discovery_kind
+msgid "Discovery Kind"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__identity_ids
+msgid "Discuss Identities"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_discuss_channel
+msgid "Discussion Channel"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_service__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__display_name
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_discuss_job__state__done
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__state__done
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_operation__state__done
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__state__done
+msgid "Done"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.constraint,message:qing_ai.constraint_qing_ai_tool_key_unique
+msgid "Each AI tool key must be unique."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Each document must be under 4 MB."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid ""
+"Each selected operation creates one tool. Queries respect the current user's permissions.\n"
+"                    Changes require a preview and confirmation. Use business templates for workflow documents such as sales orders."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Enable the selected AI provider in Settings."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Enter a message for the AI assistant."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Enter a text prompt."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Enter sends · Alt+Enter for new line"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Enter sends · Alt+Enter for new line · Maximum 4,000 characters"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Enter valid JSON for the fixed values or filter."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__error
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__role__error
+msgid "Error"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_skill__skill_type__operation
+msgid "Executable"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__execution_type
+msgid "Execution Type"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Execution process ·"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__expires_at
+msgid "Expires At"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_discuss_job__state__failed
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__state__failed
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__state__failed
+msgid "Failed"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid "Fields"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_form
+msgid "Fields and Scope"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__file_attachment_ids
+msgid "File Attachment"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__fingerprint
+msgid "Fingerprint"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_defaults
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__fixed_values
+msgid "Fixed Values (JSON)"
+msgstr ""
+
+#. module: qing_ai
+#: model:qing.ai.skill,name:qing_ai.skill_general
+msgid "General Assistant"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_group_field_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__group_field_ids
+msgid "Group By Fields"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_read_group
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__read_group
+msgid "Grouped Statistics"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_skill__skill_type__guidance
+msgid "Guidance"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_service__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__id
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__image_attachment_id
+msgid "Image Attachment"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Image input is not enabled for this provider and model."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid ""
+"Include the currency field in readable fields before aggregating amounts."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Input"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Cache hit"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Install a Qing AI business module to use business tasks."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__module_id
+msgid "Installed Module"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__instructions
+msgid "Instructions"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_skill__instructions
+msgid "Instructions for the assistant. Do not put secrets here."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__key
+msgid "Key"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Knowledge sources:"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__last_message_at
+msgid "Last Message At"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__write_uid
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discovery_wizard__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__write_date
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_agent__group_ids
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_skill__group_ids
+msgid "Leave empty for all internal users."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool__group_ids
+msgid ""
+"Leave empty for all internal users. Business model permissions still apply."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool_builder__group_ids
+msgid "Leave empty for all internal users. Native access rights still apply."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_agent__company_id
+msgid "Leave empty to make this agent available in every company."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_agent__provider_code
+msgid "Leave empty to use the system default provider."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Matching records: %s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Maximum"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_limit
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__query_limit
+msgid "Maximum Query Results"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_measure_field_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__measure_field_ids
+msgid "Measure Fields"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__method_name
+msgid "Method Name"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Minimum"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__model
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__model
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_model_name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__model_name
+msgid "Model"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__discovery_kind__model_create
+msgid "Model Create"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__discovery_kind__model_query
+msgid "Model Query"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Model and fields found. A reviewed adapter is required before use."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__name
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__name
+msgid "Name"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Native action type: %(type)s."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__review_state__needs_adapter
+msgid "Needs Adapter"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__review_state__needs_review
+msgid "Needs Review"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+msgid "New Message"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "New chat"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "New conversation"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "No"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "No AI agent is available to you."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid ""
+"No business action is awaiting confirmation. Ask for a new preview first."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid ""
+"No business action was staged. Request a preview with the record details."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "No conversations yet. Start a new chat."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "No executable tool is available for this agent."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "No matching conversations."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "No matching records."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__normalized
+msgid "Normalized"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__res_config_settings__qing_ai_default_provider__none
+msgid "Not configured"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Not set"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__execution_type__orm
+msgid "ORM Operation"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__discovery_kind__button
+msgid "Object Button"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Only discovered actions may bind an adapter."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Only one image can be attached."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Only system administrators can review AI actions."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_discovery_wizard.py:0
+#: code:addons/qing_ai/models/qing_ai_skill.py:0
+msgid "Only system administrators can scan AI actions."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Only system administrators can test AI providers."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+msgid ""
+"Only text you submit and the shown record context are sent to your selected "
+"AI provider. AI answers may be inaccurate; review them before use."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Only the configured writable fields may be changed."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid ""
+"Only the first %s groups are shown. Narrow the filters for the remaining "
+"groups."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid ""
+"Only your text and the shown record fields are sent to your chosen AI "
+"provider. Check answers before use."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/ai_systray.xml:0
+msgid "Open Qing AI conversations"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Open full assistant"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_agent_form
+msgid "Open in Discuss"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Open record: %s"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_operation
+msgid "Operation"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid "Operations"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_tool__orm_measure_field_ids
+msgid ""
+"Optional numeric measures. Counts are always available; sums are used by "
+"default."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Output"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__owner_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__owner_id
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent_identity__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Paste a PNG, JPEG or WebP image."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Pasted image preview"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_discuss_job__state__pending
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__state__pending
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_operation__state__pending
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__state__pending
+msgid "Pending"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__planner_prompt
+msgid "Planner Prompt"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__provider_code
+msgid "Preferred Provider"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__preview
+msgid "Preview"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__process_steps
+msgid "Process Steps"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_agent__system_prompt
+msgid "Professional role and response rules. Do not put secrets here."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Provide at least one field value."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__provider
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__provider
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__provider
+msgid "Provider"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_form
+msgid "Publish Reviewed Action"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Publish discovered actions after reviewing their adapter."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__review_state__published
+msgid "Published"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/ai_systray.xml:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.module.module,shortdesc:base.module_qing_ai
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_root
+#: model:qing.ai.agent,name:qing_ai.agent_general
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid "Qing AI"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_discovery_wizard
+msgid "Qing AI Action Discovery"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_agent
+msgid "Qing AI Agent"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_agent_identity
+msgid "Qing AI Agent Discuss Identity"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_conversation
+msgid "Qing AI Conversation"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_message
+msgid "Qing AI Message"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_operation
+msgid "Qing AI Operation"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_run
+msgid "Qing AI Run"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_skill
+msgid "Qing AI Skill"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_service
+msgid "Qing AI Text Service"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_tool
+msgid "Qing AI Tool"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__qing_ai_agent_id
+msgid "Qing Ai Agent"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__qing_ai_conversation_id
+msgid "Qing Ai Conversation"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__qing_ai_identity_id
+msgid "Qing Ai Identity"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_discuss_channel__qing_ai_owner_id
+msgid "Qing Ai Owner"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid ""
+"QingERP sends requests directly from this customer deployment using your "
+"provider account. Install and enable a provider below first."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Query"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_search
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__search
+msgid "Query Records"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Query result:"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_read
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__read
+msgid "Read Details"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_field_ids
+msgid "Readable Fields"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__read_field_ids
+msgid "Readable and Filter Fields"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Reasoning"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Recent conversations"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_domain
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__fixed_domain
+msgid "Record Filter"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Record context:"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Record: %(name)s (ID: %(id)s)"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Remove"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Remove file"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Remove image"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__request_text
+msgid "Request Text"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Request error"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Required fields need values or defaults: %s"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_restore
+msgid "Restore"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__restore
+msgid "Restore Record"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Restricted record"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__result_id
+msgid "Result"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__result_model
+msgid "Result Model"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Return one valid JSON planning object."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid ""
+"Reuse the built-in customer or sales actions and add them to the selected skill.\n"
+"                    Existing action permissions and business validation remain in effect."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_skill_form
+msgid "Review Candidates"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__review_state
+msgid "Review State"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Review business action"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Review fields sent to AI"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Review the AI analysis and add an adapter before publication."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid ""
+"Review the proposed business action below and confirm it to apply the "
+"changes."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__adapter_tool_id
+msgid "Reviewed Adapter"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__role
+msgid "Role"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__round_count
+msgid "Round Count"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__state__running
+msgid "Running"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_discovery_wizard_form
+msgid "Scan Installed Module"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_builder_form
+msgid "Scope and Access"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Search AI conversations"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Search conversations"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Select a conversation or start a new one."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Select an AI agent."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Select an installed AI provider in Settings."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Select an installed module to scan."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Select at least one group by field."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Select at least one readable field."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Select at least one writable field."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_conversation_form
+msgid "Send"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/discuss_channel.py:0
+msgid "Send text to this AI agent in Discuss."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__sequence
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__server_action_id
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__discovery_kind__action
+msgid "Server Action"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "Server action discovered. Its code is not executed by the scanner."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Set the AI provider key, endpoint and model."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Several actions await confirmation. Use the card to choose one."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_skill__skill_type
+msgid "Skill Type"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__skill_ids
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_skill
+msgid "Skills"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Skipped a repeated action"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_tool_form
+msgid "Source Discovery"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__source_fingerprint
+msgid "Source Fingerprint"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__source_module_id
+msgid "Source Module"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__source_refs
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__source_refs
+msgid "Source Refs"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__source_summary
+msgid "Source Summary"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__source_version
+msgid "Source Version"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.actions.act_window,help:qing_ai.action_qing_ai_conversation
+msgid "Start a conversation with Qing AI."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Start a new conversation to change the AI agent."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__state
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__state
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__state
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__state
+msgid "State"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "Sum"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_conversation__draft_task__summarize
+msgid "Summarize"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_agent__system_prompt
+msgid "System Prompt"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__target_language
+msgid "Target Language"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Target language"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__draft_task
+msgid "Task"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Task and provider"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__template
+msgid "Template"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The %(provider)s model %(model)s responded."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI assistant task is not supported."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI conversation ownership and context cannot be changed."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI could not complete the request with the allowed tools."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI could not understand this business request."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI did not return a valid business plan."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid ""
+"The AI did not return an available business action. No record was staged. "
+"Please try again with the record name and details."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI endpoint cannot contain a query or fragment."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI endpoint is not a valid URL."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI endpoint must be an HTTPS URL without credentials."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "The AI message is too long."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI output token limit must be between 1 and 8192."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider could not be reached."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider is not installed."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider response has no text."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider returned HTTP %(status)s."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider returned an unexpected response."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider returned invalid JSON."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI reached its safe planning limit before completing the request."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI record belongs to another company."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI record context is not available."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI record context is not supported."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/discuss_channel.py:0
+msgid "The AI request failed. Please try again or open Qing AI for details."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "The AI request failed. Please try again."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI request mode is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI request timed out before it could finish safely."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI returned an unsupported business request."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The AI run is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The attached document is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The attached documents contain too much text."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The document contains no readable text."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid ""
+"The document must contain readable text (PDF: up to 20 unencrypted pages)."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "The file could not be read."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The filter expression is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The filter value is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "The image could not be read."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "The image must be under 4 MB."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The new record does not match the configured tool scope."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The pasted image exceeds 4 MB."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The pasted image is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The proposed business action is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The proposed business action is not yours."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The query limit must be between 1 and 100."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "The record or tool configuration changed. Request a new preview."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The related record is unavailable in this company."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The requested sort field is unavailable."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The requested sort order is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The selected AI provider is not installed."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "The selected adapter does not match this discovered operation."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The selected field is unavailable: %s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "The selected method source is unavailable in this addon."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "The selected model is not defined by this module."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "The statistics field is unavailable: %s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The target language is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The tool arguments do not match its configuration."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "The value for field %s is invalid."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_agent.py:0
+msgid "This AI agent is not available to you."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "This AI conversation is not available in your current company."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "This AI run is not available to you."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "This business action has expired. Ask again for a new preview."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_builder.py:0
+msgid "This business template is unavailable."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "This candidate has no addon method to analyze."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "This conversation already has an AI request in progress."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "This model does not support archiving."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid ""
+"This record is no longer available to you. Requests using it will be "
+"blocked."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "This record is outside the allowed tool scope."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "This tool is no longer available to you."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Token usage ·"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_operation__tool_id
+msgid "Tool"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__tool_call_count
+msgid "Tool Call Count"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_tool
+msgid "Tools"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Total tokens"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__trace
+msgid "Trace"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_conversation__draft_task__translate
+msgid "Translate"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/js/daily_assistant.js:0
+msgid "Type a message…"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "UI button: %(label)s. Method: %(method)s. Source digest: %(digest)s."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__use_write
+msgid "Update"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_tool__orm_operation__write
+msgid "Update Record"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_message__usage
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__usage
+msgid "Usage"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "Use a PNG, JPEG or WebP image under 20 megapixels."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Use a business template to change workflow documents."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Use at most 30 simple filter conditions."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_orm.py:0
+msgid "Use at most three sort fields."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__user_id
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_message__role__user
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_usage_daily_search
+msgid "User"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,help:qing_ai.field_qing_ai_agent__is_default
+msgid ""
+"When several agents are default, the first available agent by sequence is "
+"used."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_write_field_ids
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__write_field_ids
+msgid "Writable Fields"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "You"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__draft_prompt
+msgid "Your Message"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Your conversations"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_usage_daily.py:0
+msgid "Your daily AI request limit has been reached."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-javascript
+#: code:addons/qing_ai/static/src/xml/daily_assistant.xml:0
+msgid "Your message"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_discovery_wizard.py:0
+#: code:addons/qing_ai/models/qing_ai_tool_builder.py:0
+msgid "id"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "model_create"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool.py:0
+msgid "review_state"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.act_window,name:qing_ai.action_qing_ai_usage_daily
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_usage_daily_list
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_usage_daily_search
+msgid "AI Daily Usage"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__qing_ai_daily_request_limit
+msgid "Daily AI Model Calls per User"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid "Daily Model Calls per User"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.ui.menu,name:qing_ai.menu_qing_ai_usage_daily
+msgid "Daily Usage"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__day
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_usage_daily_search
+msgid "Day"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.actions.act_window,help:qing_ai.action_qing_ai_usage_daily
+msgid ""
+"Each row counts the model calls and exact provider tokens of one user on one"
+" day."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__input_tokens
+msgid "Input Tokens"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid ""
+"Limit the AI model calls each user can start per day in their own time zone "
+"(1 to 10000). Every planning round of a business request counts as one call;"
+" failed calls count too."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_res_config_settings__qing_ai_max_output_tokens
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid "Maximum Output Tokens"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__request_count
+msgid "Model Calls"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.actions.act_window,help:qing_ai.action_qing_ai_usage_daily
+msgid "No AI model calls have been made yet."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.constraint,message:qing_ai.constraint_qing_ai_usage_daily_user_day_unique
+msgid "Only one daily AI usage row may exist per user and day."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_usage_daily__output_tokens
+msgid "Output Tokens"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "Provider error code: %(code)s."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_usage_daily
+msgid "Qing AI Daily Usage"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI model used its whole output token limit before writing an answer. "
+"Increase the maximum output tokens in Qing AI settings or choose a model "
+"that reasons less."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider did not answer within %(seconds)s seconds. Please try again."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider endpoint or model was not found (HTTP 404). Check the "
+"endpoint and model name."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider is temporarily unavailable (HTTP %(status)s). Please try "
+"again later."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider rate limit or account quota was exceeded (HTTP 429). Try "
+"again later or check the provider account balance."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider rejected the API key or the key lacks permission (HTTP "
+"%(status)s)."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The AI provider rejected the request (HTTP %(status)s). Check the model name"
+" and the features it supports."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider timed out (HTTP %(status)s). Please try again."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The answer was cut off because it reached the output token limit."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid ""
+"The request is too large for the AI provider (HTTP 413). Shorten the message"
+" or attachments."
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_qing_ai_usage_daily_list
+msgid "Total"
+msgstr ""
+
+#. module: qing_ai
+#: model_terms:ir.ui.view,arch_db:qing_ai.view_res_config_settings_form
+msgid ""
+"Upper limit for one answer (256 to 8192). Reasoning models spend part of it "
+"before answering; answers that reach it are marked as cut off."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "After you confirm, I will continue with: %(steps)s"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_conversation__pending_plan
+msgid "Pending Plan"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation.py:0
+msgid "The AI conversation plan is managed by Qing AI."
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__mode__triage
+msgid "Answer First"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__answer_prompt
+msgid "Answer Prompt"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__channel_id
+msgid "Channel"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_discuss_job__message_id
+msgid "Message"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__mode
+msgid "Mode"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields.selection,name:qing_ai.selection__qing_ai_run__mode__plan
+msgid "Plan Actions"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model.fields,field_description:qing_ai.field_qing_ai_run__planner_system
+msgid "Planner System"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.model,name:qing_ai.model_qing_ai_discuss_job
+msgid "Qing AI Discuss Reply Job"
+msgstr ""
+
+#. module: qing_ai
+#: model:ir.actions.server,name:qing_ai.ir_cron_qing_ai_discuss_reply_ir_actions_server
+msgid "Qing AI: Answer Discuss Messages"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_service.py:0
+msgid "The AI provider stopped responding while streaming the answer."
+msgstr ""

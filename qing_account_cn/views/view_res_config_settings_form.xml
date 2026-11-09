@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.qing.account.cn</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='account']" position="inside">
+                <block title="中国核算基础" name="qing_account_cn" groups="account.group_account_manager">
+                    <setting id="qing_cn_taxpayer_setting" string="纳税人身份" help="由财务确认，独立于会计准则；修改身份不会自动改变税率或历史单据。">
+                        <field name="qing_cn_taxpayer_type"/>
+                    </setting>
+                    <setting id="qing_cn_voucher_style_setting" string="凭证打印样式" help="按凭证所属公司选择样式；标准格式保留原版，传统格式采用横式金额分位格。">
+                        <field name="qing_cn_voucher_style"/>
+                    </setting>
+                    <setting id="qing_cn_check_setting" string="核算配置检查" help="检查当前公司已保存的基础配置。检查通过不代表财税合规验收通过。">
+                        <div class="content-group"><field name="qing_cn_chart_template"/></div>
+                        <button name="action_qing_cn_check_configuration" type="object" string="检查已保存配置" class="btn-link" icon="fa-check-square-o"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

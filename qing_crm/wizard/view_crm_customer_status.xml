@@ -1,0 +1,6 @@
+<odoo>
+    <record id="view_crm_customer_status_wizard_form" model="ir.ui.view">
+        <field name="name">qing.crm.customer.status.wizard.form</field><field name="model">qing.crm.customer.status.wizard</field>
+        <field name="arch" type="xml"><form string="Update Customer Status"><group><field name="role_id" readonly="1"/><field name="lifecycle_stage"/><field name="health_status"/><field name="customer_grade"/><field name="reason"/></group><footer><button name="action_confirm" string="Confirm" type="object" class="btn-primary"/><button string="Cancel" special="cancel"/></footer></form></field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_base.ResConfigEdition" t-inherit="res_config_edition" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('user-heading')]" position="replace">
+            <div class="user-heading d-flex align-items-center gap-3 mb-2 flex-wrap">
+                <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="64" height="64" style="object-fit:contain;"/>
+                <h3 class="px-0 mb-0">QingERP <t t-out="this.qingBaseVersion"/></h3>
+            </div>
+        </xpath>
+        <xpath expr="//small[a[@id='license']]" position="replace">
+            <small>Built On <a href="https://www.odoo.com/page/community" target="_blank" rel="noopener noreferrer">Odoo <t t-out="this.serverVersion"/> 社区版</a></small>
+        </xpath>
+    </t>
+</templates>

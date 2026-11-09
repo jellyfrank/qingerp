@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "%(label)s: file %(file)s / invoice %(invoice)s"
+msgstr "%(label)s：票面 %(file)s / 客户发票 %(invoice)s"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Close"
+msgstr "关闭"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Company, customer, currency and tax invoice direction are fixed by the sales order."
+msgstr "公司、客户、币种及税票方向由销售订单确定，不能更改。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/models/sale_order.py:0
+msgid "Confirm the sales order before uploading its tax invoice."
+msgstr "请先确认销售订单，再上传已开税票。"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Create / Link Customer Invoice"
+msgstr "生成 / 关联客户发票"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_sale_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_sale_fapiao_ocr.field_qing_fapiao_ocr__deduct_down_payments
+msgid "Deduct Down Payments"
+msgstr "扣减预付款"
+
+#. module: qing_sale_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_sale_fapiao_ocr.field_qing_fapiao_ocr__sale_invoice_id
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Existing Customer Invoice"
+msgstr "已有客户发票"
+
+#. module: qing_sale_fapiao_ocr
+#: model:ir.model.fields,help:qing_sale_fapiao_ocr.field_sale_order__qing_invoice_upload_revision
+msgid "Internal revision used to serialize invoice creation for this order."
+msgstr "用于协调此订单开票并发的内部修订号。"
+
+#. module: qing_sale_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_sale_fapiao_ocr.field_sale_order__qing_invoice_upload_revision
+msgid "Invoice Upload Revision"
+msgstr "上传开票修订号"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Invoice amounts must be finite and non-negative."
+msgstr "票面金额必须为有效的非负数字。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Issued tax invoice uploaded from the sales order. Tax invoice number: %s. Registration is pending."
+msgstr "从销售订单上传已开税票，票号：%s。税票登记待完成。"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Leave empty to reuse a matching invoice or invoice all remaining invoiceable sales order lines. For a partial tax invoice, select its existing customer invoice."
+msgstr "留空时优先关联金额匹配的已有发票，否则按订单剩余可开票明细生成发票。部分税票请选择对应的已有客户发票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/models/sale_order.py:0
+msgid "Only accounting administrators can upload issued tax invoices."
+msgstr "仅财务管理员可以上传已开税票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Open the upload from a sales order before selecting a customer invoice."
+msgstr "请先从销售订单打开上传向导，再选择客户发票。"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Recognize / Recognize Again"
+msgstr "识别 / 重新识别"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Recognize the file and review its details before generating an invoice."
+msgstr "请先识别文件并核对票面信息，再生成发票。"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Review Tax Invoice"
+msgstr "核对税票"
+
+#. module: qing_sale_fapiao_ocr
+#: model:ir.model.fields,field_description:qing_sale_fapiao_ocr.field_qing_fapiao_ocr__sale_order_id
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Select a draft or posted customer invoice belonging to this sales order, company, customer and currency."
+msgstr "请选择仅属于本销售订单、同公司、同客户、同币种的草稿或已过账客户发票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Several customer invoices match this file. Select the intended existing invoice."
+msgstr "存在多张金额匹配的客户发票，请选择本次对应的发票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/models/sale_order.py:0
+msgid "Switch to the sales order company before uploading its tax invoice."
+msgstr "请先切换到销售订单所属公司。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Tax"
+msgstr "税额"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "The buyer or seller tax ID differs from the sales customer or company. Review the document and master data."
+msgstr "购销方税号与订单客户或本公司不一致，请核对原票和基础资料。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/models/sale_order.py:0
+msgid "The invoice upload revision is managed internally."
+msgstr "上传开票修订号由系统维护。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "The sales order context has changed. Open a new upload from the sales order."
+msgstr "销售订单信息已变更，请从订单重新打开上传向导。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "The saved customer invoice link is missing. Review the tax invoice record."
+msgstr "已保存的客户发票关联缺失，请检查税票记录。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "The source sales order cannot be changed. Open a new upload."
+msgstr "不能更改来源销售订单，请重新打开上传向导。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "The uploaded tax invoice does not match the customer invoice:\n%s\nReview the recognized values or select the corresponding existing invoice. For partial invoicing, prepare the matching customer invoice first. No invoice was created."
+msgstr "上传税票与客户发票金额不一致：\n%s\n请核对识别结果或选择对应的已有发票。部分开票时，请先准备对应的客户发票。本次未创建发票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "This customer invoice already has an active tax invoice source. Review that record first."
+msgstr "该客户发票已关联有效税票，请先检查已有记录。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "This customer invoice has an invoice request. Complete or cancel that request before importing its tax invoice."
+msgstr "该客户发票存在开票申请，请先在申请中回填税票，或取消未完成的申请后再导入。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "This tax invoice number is already recorded. Open the existing tax invoice instead of creating another customer invoice."
+msgstr "该税票号码已有记录，请打开已有税票，避免重复生成客户发票。"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Total"
+msgstr "价税合计"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+msgid "Untaxed Amount"
+msgstr "不含税金额"
+
+#. module: qing_sale_fapiao_ocr
+#. odoo-python
+#: code:addons/qing_sale_fapiao_ocr/models/sale_order.py:0
+#: code:addons/qing_sale_fapiao_ocr/wizard/fapiao_ocr.py:0
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_order_form
+msgid "Upload Issued Tax Invoice"
+msgstr "上传已开税票"
+
+#. module: qing_sale_fapiao_ocr
+#: model_terms:ir.ui.view,arch_db:qing_sale_fapiao_ocr.view_sale_fapiao_upload_form
+msgid "Upload one issued blue tax invoice (single-page PDF, PNG, or JPEG; up to 10 MB). Review the recognized fields against the original file before creating the customer invoice."
+msgstr "上传一张已开具的蓝字税票：单页 PDF、PNG 或 JPEG，最大 10 MB。请对照原文件核对识别内容，再生成客户发票。"

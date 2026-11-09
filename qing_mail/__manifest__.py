@@ -1,0 +1,20 @@
+{
+    'name': 'Qing Mail',
+    'summary': 'Reliable domestic business email foundation for QingERP',
+    'version': '20.0.1.0.3',
+    'category': 'Productivity/Discuss',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_base', 'mail'],
+    'data': [
+        'security/ir.access.csv',
+        'views/view_fetchmail_server_form.xml',
+        'views/view_ir_mail_server_form.xml',
+        'views/view_qing_mail_inbound_failure.xml',
+    ],
+    'application': True,
+    'installable': True,
+    'description': 'Improve domestic business email handling: assign outgoing servers to companies, require the authenticated mailbox as sender, record recoverable incoming failures and retry them using native mail workflows.',
+}

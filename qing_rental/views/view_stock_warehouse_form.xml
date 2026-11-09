@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_stock_warehouse_form" model="ir.ui.view">
+        <field name="name">stock.warehouse.form.qing.rental</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="before">
+                <group name="qing_rental" string="Rental" groups="stock.group_stock_manager">
+                    <group>
+                        <field name="qing_rental_stock_location_id" options="{'no_create': True}"/>
+                        <field name="qing_rental_out_location_id" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <button name="action_qing_setup_rental" type="object" string="Set Up Rental Locations" class="btn-secondary"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

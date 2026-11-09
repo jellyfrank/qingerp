@@ -1,0 +1,9 @@
+{
+  "description": "Synthetic opening entry. Replace bracketed XML IDs with exported IDs from the target company. Run through account.move.load; this JSON is not a UI upload file.",
+  "fields": ["id", "company_id/id", "journal_id/id", "date", "ref", "move_type", "line_ids/id", "line_ids/account_id/id", "line_ids/partner_id/id", "line_ids/name", "line_ids/date_maturity", "line_ids/currency_id/id", "line_ids/amount_currency", "line_ids/debit", "line_ids/credit"],
+  "rows": [
+    ["__import__.qing_opening_demo", "{company}", "{journal}", "2026-08-31", "OPEN-DEMO-001", "entry", "__import__.qing_opening_ar", "{receivable}", "{partner}", "OLD-INV-001", "2026-09-15", "base.CNY", "700.00", "700.00", "0.00"],
+    ["", "", "", "", "", "", "__import__.qing_opening_ap", "{payable}", "{partner}", "OLD-BILL-001", "2026-09-20", "base.CNY", "-500.00", "0.00", "500.00"],
+    ["", "", "", "", "", "", "__import__.qing_opening_balance", "{equity}", "", "期初平衡项（仅为测试）", "", "base.CNY", "-200.00", "0.00", "200.00"]
+  ]
+}

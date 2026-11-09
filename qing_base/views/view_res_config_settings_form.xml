@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">qing.base.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Advanced Settings" string="Advanced Settings" name="qing_advanced_settings"
+                     logo="/qing_base/static/img/qing_logo.png">
+                    <field name="qing_legacy_mommy_base" invisible="1"/>
+                    <block title="Managed by Mommy Base" name="qing_legacy_notice" invisible="not qing_legacy_mommy_base">
+                        <setting id="qing_legacy_mommy_base_notice" string="Legacy Settings"
+                                 help="Mommy Base is still installed on this database, so it keeps managing the system title, report printing, PDF passwords and sign-in security in its own settings."/>
+                    </block>
+                    <block title="System" name="qing_system_settings" invisible="qing_legacy_mommy_base">
+                        <setting id="qing_web_title" string="System Title"
+                                 help="Shown in browser tab titles and on the sign-in page. Refresh the page to apply.">
+                            <field name="qing_web_title"/>
+                        </setting>
+                    </block>
+                    <block title="Reporting" name="qing_report_settings" invisible="qing_legacy_mommy_base">
+                        <setting id="qing_report_print_mode" string="Report Printing"
+                                 help="Choose online preview or download for PDF reports. Reports with preview enabled still open online.">
+                            <field name="qing_report_print_mode" widget="radio" options="{'horizontal': true}"/>
+                        </setting>
+                        <setting id="qing_pdf_password_read" string="Default PDF Read Password"
+                                 help="Default read password for reports with PDF password protection enabled. Enable protection per report action in Technical settings.">
+                            <field name="qing_pdf_password_read" password="True"/>
+                        </setting>
+                        <setting id="qing_pdf_password_edit" string="Default PDF Edit Password"
+                                 help="Default edit password for reports with PDF password protection enabled. Individual reports can override it.">
+                            <field name="qing_pdf_password_edit" password="True"/>
+                        </setting>
+                    </block>
+                    <block title="Sign-in Security" name="qing_login_security" invisible="qing_legacy_mommy_base">
+                        <setting id="qing_login_ip_whitelist_enabled" string="Restrict Sign-in by IP" company_dependent="1"
+                                 help="Users of this company can sign in only from the listed IP addresses. An enabled empty list blocks every restricted user.">
+                            <field name="qing_login_ip_whitelist_enabled"/>
+                            <div class="content-group" invisible="not qing_login_ip_whitelist_enabled">
+                                <div class="mt8">
+                                    <field name="qing_login_ip_whitelist" class="w-100"
+                                           placeholder="192.168.1.10&#10;10.0.0.0/24&#10;172.16.0.1-172.16.0.50"/>
+                                </div>
+                                <div class="mt8">
+                                    <field name="qing_login_ip_whitelist_exclude_portal" class="w-auto me-2"/>
+                                    <label for="qing_login_ip_whitelist_exclude_portal"/>
+                                </div>
+                                <div class="mt8">
+                                    <label for="qing_login_ip_whitelist_group_ids" class="me-2"/>
+                                    <field name="qing_login_ip_whitelist_group_ids" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </setting>
+                        <setting id="qing_login_log_retention_days" string="Sign-in Log Retention (Days)"
+                                 help="Sign-in attempts older than this are removed every day.">
+                            <field name="qing_login_log_retention_days"/>
+                            <div>
+                                <button name="%(qing_base.action_qing_login_log)d" type="action"
+                                        string="Sign-in Logs" icon="oi-arrow-right" class="btn-link"/>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Email &amp; SMS" name="qing_email_sms_settings">
+                        <setting id="qing_aliyun_sms" string="Aliyun SMS"
+                                 help="Enable Aliyun SMS through the QingERP unified SMS service for business notifications.">
+                            <field name="module_qing_sms_aliyun"/>
+                        </setting>
+                    </block>
+                    <block title="Tax Invoices" name="qing_tax_invoice_settings">
+                        <setting id="qing_account_fapiao" string="Tax Invoice Ledger"
+                                 help="Install tax invoice management to record sales and purchase tax invoices and link accounting documents. Disabling prompts for uninstallation, which may delete tax invoice data.">
+                            <field name="module_qing_account_fapiao"/>
+                        </setting>
+                        <setting id="qing_account_fapiao_ocr" string="Local Tax Invoice OCR"
+                                 help="Install local tax invoice OCR; initial activation also installs the tax invoice ledger. The server requires Tesseract with Chinese language data and Poppler. Disabling prompts for uninstallation.">
+                            <field name="module_qing_account_fapiao_ocr"/>
+                        </setting>
+                    </block>
+                    <block title="Audit Log" name="qing_audit_settings">
+                        <setting id="qing_audit_enabled" string="Record ORM Changes"
+                                 help="Automatically record create, update, and delete operations on persistent models.">
+                            <field name="qing_audit_enabled"/>
+                        </setting>
+                        <setting id="qing_audit_retention_days" string="Audit Retention (Days)"
+                                 help="Expired audit entries are removed in bounded batches each day."
+                                 invisible="not qing_audit_enabled">
+                            <field name="qing_audit_retention_days"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+            <xpath expr="//app[@name='general_settings']" position="after">
+                <xpath expr="//app[@name='qing_advanced_settings']" position="move"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

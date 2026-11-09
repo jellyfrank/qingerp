@@ -1,0 +1,8 @@
+<odoo>
+    <menuitem id="menu_customer" name="Customers" parent="contacts.menu_contacts" action="action_customer" sequence="10"/>
+    <menuitem id="menu_supplier" name="Suppliers" parent="contacts.menu_contacts" action="action_supplier" sequence="20"/>
+    <menuitem id="menu_business_roles" name="Business Roles" parent="contacts.res_partner_menu_config" sequence="5" groups="qing_partner.group_partner_manager"/>
+    <menuitem id="menu_roles" name="Roles" parent="menu_business_roles" action="action_partner_role" sequence="10" groups="qing_partner.group_partner_manager"/>
+    <menuitem id="menu_team" name="Teams" parent="menu_business_roles" action="action_partner_team" sequence="20" groups="qing_partner.group_partner_manager"/>
+    <menuitem id="menu_seed" name="Review Historical Roles" parent="menu_business_roles" action="action_partner_role_seed" sequence="30" groups="qing_partner.group_partner_manager"/>
+</odoo>

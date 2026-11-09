@@ -1,0 +1,19 @@
+# Local credentials and runtime data
+.env
+.env.*
+*.env
+*.pem
+*.key
+/filestore/
+/backups/
+*.dump
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.DS_Store
+
+# Excluded from the public repository
+/deploy/
+/docs/

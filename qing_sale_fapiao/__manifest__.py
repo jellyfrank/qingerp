@@ -1,0 +1,15 @@
+{
+    'name': 'Qing Sale Tax Invoice Status',
+    'summary': 'Show issued tax invoice and red reversal progress on sales orders',
+    'version': '20.0.1.4',
+    'category': 'Sales/Sales',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'depends': ['qing_sale', 'qing_account_fapiao'],
+    'data': ['views/sale_order_views.xml'],
+    'application': False,
+    'installable': True,
+    'description': 'Show issued tax-invoice coverage and red-reversal progress on sales orders.',
+}

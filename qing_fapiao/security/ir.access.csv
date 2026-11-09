@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_fapiao_provider_manager,Invoice provider manager,qing.fapiao.provider,qing_fapiao.group_fapiao_manager,crud,
+fapiao_provider_company,Invoice provider companies,qing.fapiao.provider,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_order_manager,Invoice order manager,qing.fapiao.order,qing_fapiao.group_fapiao_manager,cru,
+fapiao_order_company,Invoice order companies,qing.fapiao.order,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_event_manager,Invoice audit manager,qing.fapiao.event,qing_fapiao.group_fapiao_manager,cru,
+fapiao_event_company,Invoice audit event companies,qing.fapiao.event,,crud,"[('company_id', 'in', company_ids)]"
+access_fapiao_order_system_delete,Cancelled invoice task deletion,qing.fapiao.order,base.group_system,d,

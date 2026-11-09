@@ -1,0 +1,594 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * qing_web_ui
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-07 12:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
+msgid "My Preferences"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Theme"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Theme Settings"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Default menu group state"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "All collapsed"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Start with every menu section collapsed."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "All expanded"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Start with every menu section expanded."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_help_support.js:0
+msgid "Help & Support"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_debug_shortcut.xml:0
+msgid "Activate developer mode"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Bottom"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Chatter Position"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Right"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Uninstall"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Upgrade"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-python
+#: code:addons/qing_web_ui/models/ir_module_module.py:0
+msgid "Upgrade this module?"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "More"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Applications"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_debug_shortcut.xml:0
+msgid "Developer mode active — open developer tools"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Expand sidebar"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Collapse sidebar"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "List action alignment"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Align left"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Align right"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid ""
+"Position New and Export in desktop collection views. Mobile keeps the "
+"compact layout."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Drag apps to reorder. Alt+Shift+Arrow also moves an app."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Reset menu order"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Could not save menu order. Please try again."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_navbar.js:0
+msgid "Technical Support: Qingdao Ohm Network Technology"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_autocomplete.js:0
+msgid "Search more..."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search applications"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Switch application"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "No applications match your search."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid ""
+"Save your theme preferences to your account and use them in other "
+"browsers."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Could not save theme preferences. Please try again."
+msgstr ""
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Invalid theme preferences."
+msgstr ""
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Only internal users can customize the theme."
+msgstr ""
+
+#. module: qing_web_ui
+#: code:addons/qing_web_ui/models/res_users_settings.py:0
+msgid "Qing theme preferences"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Light"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Dark"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+#, python-format
+msgid "Theme: %s"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_theme_shortcut.js:0
+msgid "Follow system"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid ""
+"Automatic places the chatter on the right on wide screens (1534px and up) "
+"and below the form otherwise. Right keeps it beside the form from 1200px; "
+"smaller screens always use the bottom. Attachment previews keep the native "
+"layout."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
+msgid "Automatic"
+
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Menu tree"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Indented groups that open and close in place."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Grouped cards"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Each menu group sits on its own card; nested groups are not indented."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Icon rail"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid ""
+"Choose a group from the icon rail and browse or search its menus beside it."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Sidebar style"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "A collapsed sidebar always shows icons only."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Menu groups"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search this app's menus"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "No matching menus"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Standard"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Balanced spacing for everyday use."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Compact"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Tighter rows and smaller paddings."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Relaxed"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "More spacing and larger touch targets."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Expanded"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Show full app menu labels."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Collapsed"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Keep only app icons in the left rail."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Light"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Qing Dark"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Teal"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Blue"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Purple"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Amber"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Green"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Small"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Medium"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Large"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Density"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Navigation"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Reduce motion"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Disable non-essential transition animations."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Theme"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Accent color"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Text size"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Navigation behavior"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Open launcher on launch"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Show the application drawer when the backend starts."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Swipe actions"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Enable horizontal gestures on supported list rows."
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Apply"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Restore defaults"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
+msgid "Cancel"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search menus and commands"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_web_ui_navbar.xml:0
+msgid "Search menus and commands…"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
+msgid "records"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
+msgid "groups"
+msgstr ""
+
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_res_city
+msgid "Cities"
+msgstr ""

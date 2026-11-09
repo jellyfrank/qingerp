@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fapiao_request_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.request.form.provider</field>
+        <field name="model">qing.fapiao.request</field>
+        <field name="inherit_id" ref="qing_account_fapiao.view_fapiao_request_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_reset_draft']" position="attributes">
+                <attribute name="invisible">state not in ('submitted', 'approved', 'cancelled') or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_record_invoice']" position="attributes">
+                <attribute name="invisible">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_record_invoice']" position="after">
+                <button name="action_select_provider" type="object" string="Online Invoicing" class="btn-primary" invisible="state != 'approved' or provider_order_id"/>
+                <button name="action_open_provider_order" type="object" string="Open Provider Task" invisible="not provider_order_id"/>
+            </xpath>
+            <xpath expr="//header/button[@name='action_cancel']" position="attributes">
+                <attribute name="invisible">state not in ('draft', 'submitted', 'approved') or (provider_order_id and provider_order_state not in ('cancelled', 'rejected'))</attribute>
+            </xpath>
+            <xpath expr="//sheet/div[@role='alert']" position="replace">
+                <div class="alert alert-info" role="alert" invisible="provider_order_id">After approval, choose manual invoice recording or select an invoicing provider. Requests created before structured tax snapshots remain available for manual recording; recreate and approve them to use a provider.</div>
+                <div class="alert alert-info" role="alert" invisible="not provider_order_id or state == 'done'">This request is bound to its provider task. Pending, unknown and issued tasks retain the reservation. If local recording fails after issuance, retry recording from that task.</div>
+            </xpath>
+            <xpath expr="//field[@name='fapiao_id']" position="after">
+                <field name="provider_order_id" invisible="not provider_order_id"/>
+                <field name="provider_order_state" invisible="not provider_order_id"/>
+                <field name="provider_registration_state" invisible="not provider_order_id"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='tax_description']" position="after">
+                <field name="provider_tax_rate_display" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='result_number']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_code']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_date']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_amount_untaxed']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_amount_tax']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_file']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='result_checked']" position="attributes">
+                <attribute name="readonly">state != 'approved' or provider_order_id</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

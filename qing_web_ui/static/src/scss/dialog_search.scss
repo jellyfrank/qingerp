@@ -1,0 +1,83 @@
+// Search toolbars inside dialogs (Search More / select-records). Dialogs have
+// no breadcrumbs, but the native control panel still reserves a third of the
+// row for them, centering a narrow search box. Collapse that column and let
+// the search fill the row up to the pager. Native search, facets, filters and
+// paging are unchanged.
+@media (min-width: 992px) {
+    .o_qing_web_ui .modal .o_control_panel:not(.o_qing_list_header) {
+        .o_control_panel_main { gap: 12px; align-items: center !important; }
+        .o_control_panel_breadcrumbs:not(:has(> :not(.me-auto))) { display: none !important; }
+        .o_control_panel_breadcrumbs { flex: 0 0 auto; }
+        .o_control_panel_navigation { flex: 0 0 auto !important; width: auto !important; min-width: 0 !important; }
+        .o_control_panel_actions {
+            flex: 1 1 auto;
+            min-width: 0;
+            justify-content: flex-start !important;
+            > .o_cp_searchview { flex: 1 1 auto; min-width: 0; }
+        }
+    }
+}
+// One pill: the input and its filter toggle share a single border and focus
+// ring; the toggle is a borderless filter icon at the inside end instead of
+// the native divided strip.
+.o_qing_web_ui .modal .o_control_panel:not(.o_qing_list_header) {
+    .o_cp_searchview {
+        flex-wrap: nowrap !important;
+        align-items: center;
+        border: 1px solid var(--o-qing-border);
+        border-radius: var(--o-qing-control-radius, 8px) !important;
+        background: var(--o-qing-surface);
+        &:focus-within {
+            border-color: var(--o-qing-accent);
+            box-shadow: 0 0 0 2px var(--o-qing-accent-soft);
+        }
+    }
+    .o_searchview {
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .o_searchview_dropdown_toggler {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin: 0 6px 0 0 !important;
+        padding: 0;
+        border: 0 !important;
+        border-radius: calc(var(--o-qing-control-radius, 8px) - 2px) !important;
+        // Native bg-view is !important and stays white in Qing dark.
+        background: transparent !important;
+        color: var(--o-qing-text-soft);
+        &::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            background-color: currentColor;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%272%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M4 6h16M7 12h10M10 18h4%27/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%272%27 stroke-linecap=%27round%27%3E%3Cpath d=%27M4 6h16M7 12h10M10 18h4%27/%3E%3C/svg%3E") center / contain no-repeat;
+        }
+        &::after { display: none; }
+        &:hover, &:focus-visible, &[aria-expanded="true"] {
+            background: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text);
+        }
+    }
+}
+
+// Filter menu pinned under the dialog search pill (see qing_dialog_search_menu.js):
+// share its width and spread the columns evenly instead of hugging content.
+.o_qing_web_ui .o_search_bar_menu.o_qing_dialog_search_menu {
+    max-width: none;
+    margin-inline: 0 !important;
+
+    > .o_dropdown_container {
+        flex: 1 1 0;
+        max-width: none;
+    }
+}

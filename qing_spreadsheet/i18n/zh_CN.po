@@ -1,0 +1,1568 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_spreadsheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 09:18+0000\n"
+"PO-Revision-Date: 2026-09-22 09:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "%s (copy)"
+msgstr "%s（副本）"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"%s is editing. You can view this workbook or try editing again after they "
+"close it."
+msgstr "%s 正在编辑。您可以查看此工作簿，或在对方关闭后重试编辑。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "A private copy was created."
+msgstr "已创建私人副本。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid ""
+"A save has not been confirmed. Recover it before submitting another change."
+msgstr "一次保存尚未得到确认。请先恢复该次保存，再提交其他更改。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.constraint,message:qing_spreadsheet.constraint_qing_spreadsheet_revision_request_unique
+msgid "A save request must be unique."
+msgstr "保存请求必须唯一。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "A saved workbook cannot be moved to another company."
+msgstr "已保存的工作簿不能转移到其他公司。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "A valid save request identifier is required."
+msgstr "必须提供有效的保存请求标识。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "A workbook may contain at most 100,000 populated cells."
+msgstr "一个工作簿最多包含 100,000 个有内容的单元格。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "A workbook must be a JSON object."
+msgstr "工作簿必须是 JSON 对象。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "A workbook must contain between 1 and 50 worksheets."
+msgstr "工作簿必须包含 1 至 50 个工作表。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.constraint,message:qing_spreadsheet.constraint_qing_spreadsheet_revision_version_unique
+msgid "A workbook version must be unique."
+msgstr "工作簿版本必须唯一。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__active
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__active
+msgid "Active"
+msgstr "启用"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "After"
+msgstr "修改后"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Aggregation"
+msgstr "汇总方式"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__field_ids
+msgid "Allowed Fields"
+msgstr "允许的字段"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Applied to record"
+msgstr "已应用到业务记录"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields.selection,name:qing_spreadsheet.selection__qing_spreadsheet_revision__operation__apply
+msgid "Apply"
+msgstr "应用"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Apply to record"
+msgstr "应用到业务记录"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid ""
+"Applying updates the business record after checking its permissions, rules "
+"and current version."
+msgstr "应用前将检查业务记录的权限、规则和当前版本。"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_form
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__author_id
+msgid "Author"
+msgstr "作者"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Average"
+msgstr "平均值"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Before"
+msgstr "修改前"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__binding_model
+msgid "Binding Model"
+msgstr "绑定模型"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__binding_res_id
+msgid "Binding Res"
+msgstr "绑定记录"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__binding_version
+msgid "Binding Version"
+msgstr "绑定版本"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__tag
+msgid "Category"
+msgstr "分类"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Cell coordinates exceed the supported limit."
+msgstr "单元格坐标超出支持范围。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Change"
+msgstr "变更"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Choose an allowed company."
+msgstr "请选择您有权访问的公司。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.js:0
+msgid "Choose at least one field."
+msgstr "请至少选择一个字段。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.js:0
+msgid "Choose between 1 and 5,000 rows."
+msgstr "请选择 1 至 5,000 行。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Choose supported fields from the selected model."
+msgstr "请选择当前模型支持的字段。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Close"
+msgstr "关闭"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Close the active editing session before deleting this workbook."
+msgstr "请先关闭正在使用的编辑会话，再删除工作簿。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__company_id
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_spreadsheet
+#: model:ir.model.constraint,message:qing_spreadsheet.constraint_qing_spreadsheet_source_model_unique
+msgid "Configure a model only once."
+msgstr "每个模型只能配置一次。"
+
+#. module: qing_spreadsheet
+#: model:qing.spreadsheet.source,name:qing_spreadsheet.source_contacts
+msgid "Contacts"
+msgstr "联系人"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__content_version
+msgid "Content Version"
+msgstr "内容版本"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_form
+msgid "Create a Copy"
+msgstr "创建副本"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Created"
+msgstr "已创建"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__create_uid
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__create_uid
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__create_date
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__create_date
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__current_company
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_record_mixin__current_company
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__current_company
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__data
+msgid "Data"
+msgstr "数据"
+
+#. module: qing_spreadsheet
+#: model:ir.actions.act_window,name:qing_spreadsheet.action_sources
+#: model:ir.ui.menu,name:qing_spreadsheet.menu_sources
+msgid "Data Sources"
+msgstr "数据源"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid ""
+"Data is read with your current permissions in this workbook's company. Date "
+"groups use months. Lists contain at most 5,000 rows."
+msgstr "按您当前的权限读取工作簿所属公司的数据。日期按月分组，明细列表最多 5,000 行。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Data is still loading. Refresh and try exporting again."
+msgstr "数据仍在加载。请刷新后重试导出。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Data source"
+msgstr "数据源"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.js:0
+msgid "Data sources"
+msgstr "数据源"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__description
+msgid "Description"
+msgstr "说明"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Details and sharing"
+msgstr "详情与共享"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__digest
+msgid "Digest"
+msgstr "摘要值"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Discard the local draft and pending request, then load the latest saved "
+"version?"
+msgstr "是否放弃本地草稿及待确认的请求，重新加载最新保存的版本？"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__display_name
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_record_mixin__display_name
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__display_name
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Download saved JSON"
+msgstr "下载已保存的 JSON"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Duplicate archive entries are not supported."
+msgstr "不支持重复的压缩包条目。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Each worksheet needs a unique identifier."
+msgstr "每个工作表必须有唯一标识。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Edit"
+msgstr "编辑"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.js:0
+msgid "Edit data source"
+msgstr "编辑数据源"
+
+#. module: qing_spreadsheet
+#: model:ir.module.module,summary:base.module_qing_spreadsheet
+msgid "Editable workbooks, live Odoo data and reusable record editors"
+msgstr "可编辑工作簿、实时 Odoo 数据及可复用的业务记录编辑器"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__editor_ids
+msgid "Editors"
+msgstr "编辑者"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Embed PNG or JPEG images; remote image URLs are not supported."
+msgstr "请嵌入 PNG 或 JPEG 图片，不支持远程图片地址。"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_source_form
+msgid ""
+"Enable only the fields needed for analysis. This policy does not grant "
+"access to business records."
+msgstr "仅启用分析所需的字段。本配置不会授予业务记录的访问权限。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Encrypted files and unsafe archive paths are not supported."
+msgstr "不支持加密文件或不安全的压缩包路径。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Every worksheet needs a name."
+msgstr "每个工作表必须有名称。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/controllers/spreadsheet.py:0
+msgid ""
+"Excel macros and external workbook links are not supported. Review imported "
+"formulas and charts before saving."
+msgstr "不支持 Excel 宏和外部工作簿链接。保存前请检查导入的公式和图表。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Export XLSX"
+msgstr "导出 XLSX"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_list
+msgid "Favorite"
+msgstr "收藏"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__favorite_user_ids
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_search
+msgid "Favorites"
+msgstr "收藏"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Filters"
+msgstr "筛选条件"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Fix the reported cell errors before applying changes."
+msgstr "请先修正标出的单元格错误，再应用更改。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Group by"
+msgstr "分组字段"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "History"
+msgstr "历史版本"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__id
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_record_mixin__id
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__id
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Import XLSX / JSON"
+msgstr "导入 XLSX / JSON"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Imported"
+msgstr "已导入"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Imported as a new workbook. Review formulas, dates and charts before relying"
+" on its results."
+msgstr "已导入为新工作簿。使用结果前请检查公式、日期和图表。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Imported spreadsheet"
+msgstr "导入的电子表格"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__input_digest
+msgid "Input Digest"
+msgstr "输入摘要值"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Insert"
+msgstr "插入"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.js:0
+msgid "Insert Odoo data"
+msgstr "插入 Odoo 数据"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Insert as"
+msgstr "插入方式"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_form
+msgid "Internal Sharing"
+msgstr "内部共享"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid cell address: %s"
+msgstr "无效的单元格地址：%s"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid cell value: %s"
+msgstr "无效的单元格值：%s"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid data source definitions."
+msgstr "无效的数据源定义。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid data source field definition."
+msgstr "无效的数据源字段定义。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid data source fields."
+msgstr "无效的数据源字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Invalid editing session token."
+msgstr "无效的编辑会话令牌。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid embedded image."
+msgstr "无效的嵌入图片。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid export package."
+msgstr "无效的导出包。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid export path."
+msgstr "无效的导出路径。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid filter condition."
+msgstr "无效的筛选条件。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid filter domain."
+msgstr "无效的筛选域。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid measure definition."
+msgstr "无效的度量定义。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid ordering definition."
+msgstr "无效的排序定义。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Invalid spreadsheet query."
+msgstr "无效的表格查询。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid worksheet figure data."
+msgstr "无效的工作表图形数据。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Invalid worksheet figures."
+msgstr "无效的工作表图形。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__is_favorite
+msgid "Is Favorite"
+msgstr "已收藏"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__label
+msgid "Label"
+msgstr "标签"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__write_uid
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__write_uid
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__write_uid
+msgid "Last Updated by"
+msgstr "最后修改人"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__write_date
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__write_date
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__write_date
+msgid "Last Updated on"
+msgstr "最后修改时间"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__lease_digest
+msgid "Lease Digest"
+msgstr "编辑锁摘要值"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__lease_until
+msgid "Lease Until"
+msgstr "编辑锁有效期"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__lease_user_id
+msgid "Lease User"
+msgstr "编辑锁持有人"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Leave"
+msgstr "离开"
+
+#. module: qing_spreadsheet
+#: model:res.groups,name:qing_spreadsheet.group_spreadsheet_manager
+msgid "Manager"
+msgstr "管理员"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Maximum"
+msgstr "最大值"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Maximum rows"
+msgstr "最大行数"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Measure"
+msgstr "度量"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Minimum"
+msgstr "最小值"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__model_id
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__model_name
+msgid "Model"
+msgstr "模型"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_search
+msgid "My Workbooks"
+msgstr "我的工作簿"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__name
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_source__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Nested business fields are not supported."
+msgstr "不支持读取嵌套业务字段。"
+
+#. module: qing_spreadsheet
+#: model:res.groups.privilege,placeholder:qing_spreadsheet.privilege_spreadsheet
+msgid "No"
+msgstr "否"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid ""
+"No readable data sources are enabled. Ask a spreadsheet manager to configure"
+" them."
+msgstr "尚未启用您可读取的数据源，请联系表格管理员配置。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Note"
+msgstr "备注"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Numbers must be finite."
+msgstr "数值必须是有限数。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Only UTF-8 XLSX XML is supported."
+msgstr "仅支持采用 UTF-8 编码的 XLSX XML。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Only embedded PNG or JPEG images can be exported."
+msgstr "只能导出嵌入的 PNG 或 JPEG 图片。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Only the copy name, description and category can be changed."
+msgstr "只能修改副本的名称、说明和分类。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid ""
+"Only the owner or a spreadsheet manager can change sharing and ownership."
+msgstr "只有所有者或表格管理员可以修改共享范围及所有者。"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_list
+msgid "Open"
+msgstr "打开"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_form
+msgid "Open Spreadsheet"
+msgstr "打开电子表格"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__operation
+msgid "Operation"
+msgstr "操作"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__owner_id
+msgid "Owner"
+msgstr "所有者"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Pivot table"
+msgstr "透视表"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Positional query arguments are not supported."
+msgstr "不支持查询的位置参数。"
+
+#. module: qing_spreadsheet
+#: model:qing.spreadsheet.source,name:qing_spreadsheet.source_products
+msgid "Products"
+msgstr "产品"
+
+#. module: qing_spreadsheet
+#: model:ir.module.module,shortdesc:base.module_qing_spreadsheet
+msgid "Qing Spreadsheet"
+msgstr "Qing 电子表格"
+
+#. module: qing_spreadsheet
+#: model:ir.model,name:qing_spreadsheet.model_qing_spreadsheet
+msgid "Qing Workbook"
+msgstr "Qing 工作簿"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Record count"
+msgstr "记录数量"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Record list"
+msgstr "记录列表"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Record lists are limited to 5,000 rows."
+msgstr "明细列表最多 5,000 行。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Record lists are limited to 5,000 rows. Use a pivot table for larger totals."
+msgstr "明细列表最多 5,000 行。汇总更多记录时请使用透视表。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Recover save"
+msgstr "恢复保存"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Recovered draft differs from the server version. Save a copy or reload; it "
+"will not overwrite the server."
+msgstr "恢复的草稿与服务器版本不同。请另存副本或重新加载，不会覆盖服务器上的版本。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Recovered unsaved changes from this tab. Review and save them."
+msgstr "已从当前浏览器页签恢复未保存的更改，请检查并保存。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Refresh data"
+msgstr "刷新数据"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields.selection,name:qing_spreadsheet.selection__qing_spreadsheet_revision__operation__reload
+msgid "Reload"
+msgstr "重新加载"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Reload record"
+msgstr "重新加载业务记录"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Reload saved workbook"
+msgstr "重新加载已保存的工作簿"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Reloaded business record"
+msgstr "已重新加载业务记录"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Remove macros and external workbook links before importing."
+msgstr "导入前请移除宏和外部工作簿链接。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Replace the current draft with this version? A new version will be saved."
+msgstr "是否使用此版本替换当前草稿？系统将保存一个新版本。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"Replace this draft with the current business record? Saved versions remain "
+"available."
+msgstr "是否使用当前业务记录替换草稿？已保存的历史版本仍会保留。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__request_id
+msgid "Request"
+msgstr "请求"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Restore"
+msgstr "恢复"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Restore this archived workbook before editing."
+msgstr "请先取消工作簿归档，再进行编辑。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Restored version %s"
+msgstr "已恢复版本 %s"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid ""
+"Restoring creates a new version. History includes saved values and hidden "
+"sheets."
+msgstr "恢复操作会创建新版本。历史记录包含已保存的值和隐藏工作表。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__result_json
+msgid "Result Json"
+msgstr "结果 JSON"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Review and apply to record"
+msgstr "检查并应用到业务记录"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Review record changes"
+msgstr "检查业务记录变更"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__revision_ids
+msgid "Revision"
+msgstr "修订版本"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: model:ir.model.fields.selection,name:qing_spreadsheet.selection__qing_spreadsheet_revision__operation__save
+msgid "Save"
+msgstr "保存"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Save a private copy"
+msgstr "另存私人副本"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Save needs recovery"
+msgstr "保存需要恢复"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Saved at"
+msgstr "保存时间"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_revision.py:0
+msgid "Saved versions are immutable."
+msgstr "已保存的版本不能修改。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_revision.py:0
+msgid "Saved versions are removed only with their workbook."
+msgstr "历史版本只能随工作簿一起删除。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Saved · version %s"
+msgstr "已保存 · 版本 %s"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Saving…"
+msgstr "正在保存…"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_search
+msgid "Shared with Me"
+msgstr "与我共享"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_form
+msgid ""
+"Sharing includes saved values, hidden sheets and version history. Live data "
+"continues to follow each viewer's access rights."
+msgstr "共享范围包含已保存的值、隐藏工作表和历史版本。实时数据仍遵循各查看者的访问权限。"
+
+#. module: qing_spreadsheet
+#: model:ir.model,name:qing_spreadsheet.model_qing_spreadsheet_record_mixin
+msgid "Spreadsheet Business Record Adapter"
+msgstr "电子表格业务记录适配器"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__spreadsheet_data
+msgid "Spreadsheet Data"
+msgstr "电子表格数据"
+
+#. module: qing_spreadsheet
+#: model:ir.model,name:qing_spreadsheet.model_qing_spreadsheet_source
+msgid "Spreadsheet Data Source Policy"
+msgstr "电子表格数据源策略"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__spreadsheet_file_name
+msgid "Spreadsheet File Name"
+msgstr "电子表格文件名"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__spreadsheet_binary_data
+msgid "Spreadsheet file"
+msgstr "电子表格文件"
+
+#. module: qing_spreadsheet
+#: model:ir.actions.act_window,name:qing_spreadsheet.action_workbooks
+#: model:ir.ui.menu,name:qing_spreadsheet.menu_spreadsheet
+#: model:res.groups.privilege,name:qing_spreadsheet.privilege_spreadsheet
+msgid "Spreadsheets"
+msgstr "电子表格"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Stay"
+msgstr "留在此页"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Sum"
+msgstr "合计"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__is_template
+msgid "Template"
+msgstr "模板"
+
+#. module: qing_spreadsheet
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_search
+msgid "Templates"
+msgstr "模板"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_record_mixin.py:0
+msgid "The adapter must implement a complete source fingerprint."
+msgstr "适配器必须实现完整的数据源版本指纹。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_record_mixin.py:0
+msgid "The adapter must implement business record locking."
+msgstr "适配器必须实现业务记录锁定。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "The aggregation field is not allowed."
+msgstr "不允许使用该汇总字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The business record adapter is unavailable."
+msgstr "业务记录适配器不可用。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid ""
+"The business record has changed. Reload its data before applying changes."
+msgstr "业务记录已发生更改，请重新加载后再应用修改。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "The data could not be inserted at this position."
+msgstr "无法在此位置插入数据。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "The data source contains a field that is not allowed."
+msgstr "数据源包含未获允许的字段。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "The data source could not be updated."
+msgstr "无法更新数据源。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The editing session has expired or another editor owns the lock."
+msgstr "编辑会话已过期，或编辑锁已由其他用户持有。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The editing session has expired. Reopen the workbook."
+msgstr "编辑会话已过期，请重新打开工作簿。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "The export is too large."
+msgstr "导出文件过大。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "The file exceeds the 20 MB limit."
+msgstr "文件超过 20 MB 限制。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "The filter uses an unsupported field or operator."
+msgstr "筛选条件包含不支持的字段或运算符。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "The grouping field is not allowed."
+msgstr "不允许使用该分组字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "The ordering field is not allowed."
+msgstr "不允许使用该排序字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The record belongs to another company."
+msgstr "该记录属于其他公司。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "The server version changed. Keep your draft as a copy and reload."
+msgstr "服务器版本已发生更改，请将草稿另存为副本并重新加载。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "The uncompressed workbook is too large."
+msgstr "工作簿解压后的体积过大。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "The workbook contains an unsupported object key."
+msgstr "工作簿包含不支持的对象键。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "The workbook exceeds the 20 MB limit."
+msgstr "工作簿超过 20 MB 限制。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The workbook has changed. Reload before applying changes."
+msgstr "工作簿已发生更改，请重新加载后再应用修改。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The workbook has changed. Reload before replacing its draft."
+msgstr "工作簿已发生更改，请重新加载后再替换草稿。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The workbook has changed. Reload before reviewing changes."
+msgstr "工作簿已发生更改，请重新加载后再检查变更。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "The workbook has changed. Reload it before saving your changes."
+msgstr "工作簿已发生更改，请重新加载后再保存修改。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "The workbook is not valid JSON."
+msgstr "工作簿不是有效的 JSON。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "This archive is not an XLSX workbook."
+msgstr "此压缩包不是 XLSX 工作簿。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"This browser could not retain the draft. Keep this tab open until the server"
+" confirms a save."
+msgstr "浏览器无法保留草稿，请保持当前页签打开，直到服务器确认保存成功。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "This data source is not enabled."
+msgstr "该数据源未启用。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "This is not a valid XLSX file."
+msgstr "这不是有效的 XLSX 文件。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_record_mixin.py:0
+msgid "This model has no spreadsheet editor configured."
+msgstr "此模型尚未配置电子表格编辑器。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_record_mixin.py:0
+msgid "This model has no spreadsheet save adapter configured."
+msgstr "此模型尚未配置电子表格保存适配器。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_record_mixin.py:0
+msgid "This model has no spreadsheet validation configured."
+msgstr "此模型尚未配置电子表格校验逻辑。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "This request identifier was already used for different content."
+msgstr "此请求标识已用于保存其他内容。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "This request identifier was used for another operation."
+msgstr "此请求标识已用于其他操作。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "This version does not belong to the workbook."
+msgstr "此版本不属于当前工作簿。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "This workbook has no Odoo data sources yet."
+msgstr "当前工作簿尚无 Odoo 数据源。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid ""
+"This workbook has unsaved changes. Stay to save or recover them, or leave "
+"with the draft retained in this browser tab."
+msgstr "工作簿有未保存的更改。您可以留下保存或恢复，也可以离开并将草稿保留在当前浏览器页签中。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "This workbook is not connected to a business record."
+msgstr "此工作簿未关联业务记录。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "This workbook uses a data source that is not enabled."
+msgstr "此工作簿使用了未启用的数据源。"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__thumbnail
+msgid "Thumbnail"
+msgstr "缩略图"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Too many pivot groups. Add filters or use fewer grouping fields."
+msgstr "透视表分组过多，请增加筛选条件或减少分组字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Transient models cannot be spreadsheet data sources."
+msgstr "临时模型不能作为电子表格数据源。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+msgid "Try editing"
+msgstr "尝试编辑"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Unsaved changes"
+msgstr "有未保存的更改"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Unsupported aggregation."
+msgstr "不支持该汇总方式。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Unsupported spreadsheet query options."
+msgstr "不支持该表格查询选项。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Unsupported spreadsheet query."
+msgstr "不支持该表格查询。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Untitled spreadsheet"
+msgstr "未命名电子表格"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/source_dialog.xml:0
+msgid "Update"
+msgstr "更新"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Use a desktop browser to edit. Mobile viewing is available."
+msgstr "请使用桌面浏览器编辑，手机支持查看。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Use a domain with at most 100 conditions."
+msgstr "筛选域最多包含 100 个条件。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Use at most 16 grouping combinations."
+msgstr "最多使用 16 种分组组合。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "Use at most four grouping fields."
+msgstr "最多使用四个分组字段。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Use the workbook actions to change content, versions or favorites."
+msgstr "请通过工作簿操作修改内容、版本或收藏。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Use the workbook import and save actions to change its content."
+msgstr "请通过导入和保存操作修改工作簿内容。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__version
+#: model_terms:ir.ui.view,arch_db:qing_spreadsheet.view_qing_spreadsheet_list
+msgid "Version"
+msgstr "版本"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Version history"
+msgstr "历史版本"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_revision.py:0
+msgid "Versions can only be created by saving a workbook."
+msgstr "只能通过保存工作簿创建历史版本。"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "View only"
+msgstr "只读"
+
+#. module: qing_spreadsheet
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet__reader_ids
+msgid "Viewers"
+msgstr "查看者"
+
+#. module: qing_spreadsheet
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.xml:0
+#: model:ir.model.fields,field_description:qing_spreadsheet.field_qing_spreadsheet_revision__workbook_id
+msgid "Workbook"
+msgstr "工作簿"
+
+#. module: qing_spreadsheet
+#: model:ir.model,name:qing_spreadsheet.model_qing_spreadsheet_revision
+msgid "Workbook Version"
+msgstr "工作簿版本"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Workbook content cannot be supplied through context defaults."
+msgstr "不能通过上下文默认值提供工作簿内容。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "Workbook members must be internal users with access to its company."
+msgstr "工作簿成员必须是有权访问所属公司的内部用户。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Workbook nesting is too deep."
+msgstr "工作簿嵌套层级过深。"
+
+#. module: qing_spreadsheet
+#: model:ir.ui.menu,name:qing_spreadsheet.menu_workbooks
+msgid "Workbooks"
+msgstr "工作簿"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Worksheet cells must be an object."
+msgstr "工作表单元格必须是对象。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "Worksheet dimensions exceed the supported limit."
+msgstr "工作表行列数量超出支持范围。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/services/workbook.py:0
+msgid "XML entities are not supported."
+msgstr "不支持 XML 实体。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet.py:0
+msgid "You can only create workbooks owned by yourself."
+msgstr "您只能创建自己拥有的工作簿。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/models/spreadsheet_source.py:0
+msgid "You cannot read this data source."
+msgstr "您无权读取该数据源。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#: code:addons/qing_spreadsheet/controllers/spreadsheet.py:0
+msgid "You do not have permission to export this workbook."
+msgstr "您无权导出此工作簿。"
+
+#. module: qing_spreadsheet
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "You cannot import workbooks."
+msgstr "您无权导入工作簿。"
+
+
+#. module: qing_spreadsheet
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Choose an XLSX or JSON workbook."
+msgstr "请选择 XLSX 或 JSON 工作簿。"
+
+
+#. module: qing_spreadsheet
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Recover the pending save before submitting another change."
+msgstr "请先恢复待确认的保存，再提交其他修改。"
+
+
+#. module: qing_spreadsheet
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Wait for the current request to finish."
+msgstr "请等待当前请求完成。"
+
+
+#. module: qing_spreadsheet
+#. odoo-python
+#. odoo-javascript
+#: code:addons/qing_spreadsheet/static/src/bundle/editor.js:0
+msgid "Invalid chart data source."
+msgstr "无效的图表数据源。"

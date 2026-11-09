@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+qing_ai_sale_tool_admin,Qing AI sales tool administrator,qing.ai.sale.tool,base.group_system,crud,
+qing_ai_sale_operation_user,Qing AI sales operation owner,qing.ai.sale.operation,base.group_user,r,"[('owner_id', '=', user.id), ('company_id', 'in', company_ids)]"
+qing_ai_sale_operation_admin,Qing AI sales operation administrator,qing.ai.sale.operation,base.group_system,crud,
+qing_ai_sale_customer_creator,Qing AI customer creator,res.partner,sales_team.group_sale_salesman,c,

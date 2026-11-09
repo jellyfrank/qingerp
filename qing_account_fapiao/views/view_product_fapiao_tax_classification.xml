@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_category_fapiao_tax_classification" model="ir.ui.view">
+        <field name="name">product.category.fapiao.tax.classification</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="qing_fapiao_tax_classification_id" groups="account.group_account_manager"
+                       options="{'no_create': True}"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_product_template_fapiao_tax_classification" model="ir.ui.view">
+        <field name="name">product.template.fapiao.tax.classification</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="qing_fapiao_tax_classification_id" groups="account.group_account_manager"
+                       options="{'no_create': True}" placeholder="Inherit from product category"/>
+            </field>
+        </field>
+    </record>
+</odoo>

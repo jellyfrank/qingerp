@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">repair.order.form.qing.purchase</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="purchase_repair.view_repair_order_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_qing_create_purchase" type="object" string="Create Purchase" groups="purchase.group_purchase_user" invisible="state == 'cancel'"/>
+            </xpath>
+            <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
+                <attribute name="invisible">purchase_count == 0</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

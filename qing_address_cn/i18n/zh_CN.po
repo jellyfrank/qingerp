@@ -1,0 +1,2049 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_address_cn
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-05 03:12+0000\n"
+"PO-Revision-Date: 2026-10-05 03:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_address_cn
+#: model:ir.model.constraint,message:qing_address_cn.constraint_res_city_qing_cn_code_unique
+msgid "A China city administrative code must be unique."
+msgstr "中国城市行政代码必须唯一。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_city.py:0
+msgid ""
+"A China city requires a six-digit city-level code and its matching province."
+msgstr "中国城市须填写六位市级行政代码，并归属相应省份。"
+
+#. module: qing_address_cn
+#: model:ir.model.constraint,message:qing_address_cn.constraint_qing_address_cn_district_code_unique
+msgid "A China district administrative code must be unique."
+msgstr "中国区县行政代码必须唯一。"
+
+#. module: qing_address_cn
+#: model:ir.model.constraint,message:qing_address_cn.constraint_res_country_state_qing_cn_code_unique
+msgid "A China province administrative code must be unique."
+msgstr "中国省级行政代码必须唯一。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_country_state.py:0
+msgid "A China province requires a two-digit administrative code."
+msgstr "中国省份须填写两位行政代码。"
+
+#. module: qing_address_cn
+#: model:ir.model.constraint,message:qing_address_cn.constraint_qing_address_cn_subdistrict_code_unique
+msgid "A China subdistrict administrative code must be unique."
+msgstr "中国街镇行政代码必须唯一。"
+
+#. module: qing_address_cn
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+msgid "Additional address details..."
+msgstr "补充地址信息…"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__code
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__code
+msgid "Administrative Code"
+msgstr "行政代码"
+
+#. module: qing_address_cn
+#: model:ir.ui.menu,name:qing_address_cn.menu_china_address
+msgid "China Addresses"
+msgstr "中国地址"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_city__qing_cn_code
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__qing_cn_city_code
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_country_state__qing_cn_code
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__qing_cn_city_code
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_users__qing_cn_city_code
+msgid "China Administrative Code"
+msgstr "中国行政代码"
+
+#. module: qing_address_cn
+#: model:ir.actions.act_window,name:qing_address_cn.action_china_cities
+msgid "China Cities"
+msgstr "中国城市"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_qing_address_cn_district
+msgid "China District"
+msgstr "中国区县"
+
+#. module: qing_address_cn
+#: model:ir.actions.act_window,name:qing_address_cn.action_district
+msgid "China Districts"
+msgstr "中国区县"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_qing_address_cn_subdistrict
+msgid "China Subdistrict"
+msgstr "中国街镇"
+
+#. module: qing_address_cn
+#: model:ir.actions.act_window,name:qing_address_cn.action_subdistrict
+msgid "China Subdistricts"
+msgstr "中国街镇"
+
+#. module: qing_address_cn
+#: model:ir.module.module,description:base.module_qing_address_cn
+msgid ""
+"China province, city, district and subdistrict selection\n"
+"Administrative codes for unambiguous address relationships\n"
+"Structured contact and company addresses\n"
+"Native address formatting and contact address inheritance"
+msgstr ""
+"中国省市区县与街镇联动选择\n"
+"行政代码关联，避免重名地址混淆\n"
+"联系人与公司结构化地址\n"
+"原生地址显示与子联系人地址继承"
+
+#. module: qing_address_cn
+#: model:ir.ui.menu,name:qing_address_cn.menu_city
+msgid "Cities"
+msgstr "城市"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_res_city
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__city_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__city_id
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_district_search
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_company_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_partner_form
+msgid "City"
+msgstr "城市"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__city_id
+msgid "City ID"
+msgstr "城市"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_res_company
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_res_partner
+msgid "Contact"
+msgstr "联系人"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__country_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__country_id
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+msgid "Country"
+msgstr "国家/地区"
+
+#. module: qing_address_cn
+#: model:ir.model,name:qing_address_cn.model_res_country_state
+msgid "Country state"
+msgstr "省/州"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__create_uid
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__create_date
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__current_company
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__current_company
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_city__current_company
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__current_company
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_country_state__current_company
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__display_name
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__display_name
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_city__display_name
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_country_state__display_name
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__district_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__qing_cn_district_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__qing_cn_district_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_users__qing_cn_district_id
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_company_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_partner_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_subdistrict_search
+msgid "District / County"
+msgstr "区县"
+
+#. module: qing_address_cn
+#: model:ir.ui.menu,name:qing_address_cn.menu_district
+msgid "Districts / Counties"
+msgstr "区县"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__id
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_city__id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_country_state__id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__write_uid
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__write_date
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_address_cn
+#: model:ir.module.module,summary:base.module_qing_address_cn
+msgid "Linked province, city, district and subdistrict selection for China"
+msgstr "中国省市区县与街镇联动选择"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__name
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_city.py:0
+#: code:addons/qing_address_cn/models/res_country_state.py:0
+msgid "Only an administrator can maintain the China address catalog."
+msgstr "仅管理员可以维护中国地址目录。"
+
+#. module: qing_address_cn
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_district_search
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_subdistrict_search
+msgid "Province"
+msgstr "省份"
+
+#. module: qing_address_cn
+#: model:ir.module.module,shortdesc:base.module_qing_address_cn
+msgid "Qing China Addresses"
+msgstr "Qing中国地址"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__qing_cn_address_enabled
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__qing_cn_address_enabled
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_users__qing_cn_address_enabled
+msgid "Qing Cn Address Enabled"
+msgstr "启用中国地址联动"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid ""
+"Select a city from the China address catalog; select its district in the "
+"District / County field."
+msgstr "请从中国地址目录选择城市，并在区县栏选择所属区县。"
+
+#. module: qing_address_cn
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+msgid ""
+"Select a province and city from the list to complete this legacy address."
+msgstr "请选择目录中的省份和城市，补全此历史地址。"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_district__state_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_qing_address_cn_subdistrict__state_id
+msgid "State"
+msgstr "省/州"
+
+#. module: qing_address_cn
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+msgid "Street and building number..."
+msgstr "详细地址与门牌号…"
+
+#. module: qing_address_cn
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_company__qing_cn_subdistrict_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_partner__qing_cn_subdistrict_id
+#: model:ir.model.fields,field_description:qing_address_cn.field_res_users__qing_cn_subdistrict_id
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_company_form
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_res_partner_form
+msgid "Subdistrict / Township"
+msgstr "街道/乡镇"
+
+#. module: qing_address_cn
+#: model:ir.ui.menu,name:qing_address_cn.menu_subdistrict
+msgid "Subdistricts / Townships"
+msgstr "街道/乡镇"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid "The city must belong to the selected country and province."
+msgstr "城市必须属于所选国家和省份。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid "The city text must match the structured China address."
+msgstr "城市文本必须与所选中国地址一致。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/district.py:0
+msgid "The district administrative code must belong to its selected city."
+msgstr "区县行政代码必须属于所选城市。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid "The district must belong to the selected city."
+msgstr "区县必须属于所选城市。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid "The selected China address levels do not belong to the same hierarchy."
+msgstr "所选省、市、区县和街镇不属于同一地址层级。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/subdistrict.py:0
+msgid ""
+"The subdistrict administrative code must belong to its selected district."
+msgstr "街镇行政代码必须属于所选区县。"
+
+#. module: qing_address_cn
+#. odoo-python
+#: code:addons/qing_address_cn/models/res_partner.py:0
+msgid "The subdistrict must belong to the selected district."
+msgstr "街镇必须属于所选区县。"
+
+#. module: qing_address_cn
+#: model_terms:ir.ui.view,arch_db:qing_address_cn.view_china_address_form
+msgid "ZIP"
+msgstr "邮政编码"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230900
+msgid "七台河市"
+msgstr "七台河市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_460200
+msgid "三亚市"
+msgstr "三亚市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350400
+msgid "三明市"
+msgstr "三明市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_460300
+msgid "三沙市"
+msgstr "三沙市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411200
+msgid "三门峡市"
+msgstr "三门峡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_310000
+msgid "上海市"
+msgstr "上海市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_361100
+msgid "上饶市"
+msgstr "上饶市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441900
+msgid "东莞市"
+msgstr "东莞市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370500
+msgid "东营市"
+msgstr "东营市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_640500
+msgid "中卫市"
+msgstr "中卫市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_442000
+msgid "中山市"
+msgstr "中山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_622900
+msgid "临夏回族自治州"
+msgstr "临夏回族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_141000
+msgid "临汾市"
+msgstr "临汾市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371300
+msgid "临沂市"
+msgstr "临沂市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530900
+msgid "临沧市"
+msgstr "临沧市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210600
+msgid "丹东市"
+msgstr "丹东市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_331100
+msgid "丽水市"
+msgstr "丽水市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530700
+msgid "丽江市"
+msgstr "丽江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150900
+msgid "乌兰察布市"
+msgstr "乌兰察布市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150300
+msgid "乌海市"
+msgstr "乌海市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_650100
+msgid "乌鲁木齐市"
+msgstr "乌鲁木齐市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511100
+msgid "乐山市"
+msgstr "乐山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360400
+msgid "九江市"
+msgstr "九江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_445300
+msgid "云浮市"
+msgstr "云浮市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341600
+msgid "亳州市"
+msgstr "亳州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230700
+msgid "伊春市"
+msgstr "伊春市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_654000
+msgid "伊犁哈萨克自治州"
+msgstr "伊犁哈萨克自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440600
+msgid "佛山市"
+msgstr "佛山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230800
+msgid "佳木斯市"
+msgstr "佳木斯市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130600
+msgid "保定市"
+msgstr "保定市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530500
+msgid "保山市"
+msgstr "保山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411500
+msgid "信阳市"
+msgstr "信阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_460400
+msgid "儋州市"
+msgstr "儋州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_653000
+msgid "克孜勒苏柯尔克孜自治州"
+msgstr "克孜勒苏柯尔克孜自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_650200
+msgid "克拉玛依市"
+msgstr "克拉玛依市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341500
+msgid "六安市"
+msgstr "六安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520200
+msgid "六盘水市"
+msgstr "六盘水市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620100
+msgid "兰州市"
+msgstr "兰州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_152200
+msgid "兴安盟"
+msgstr "兴安盟"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511000
+msgid "内江市"
+msgstr "内江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_513400
+msgid "凉山彝族自治州"
+msgstr "凉山彝族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150200
+msgid "包头市"
+msgstr "包头市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_110000
+msgid "北京市"
+msgstr "北京市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450500
+msgid "北海市"
+msgstr "北海市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420300
+msgid "十堰市"
+msgstr "十堰市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320100
+msgid "南京市"
+msgstr "南京市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511300
+msgid "南充市"
+msgstr "南充市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450100
+msgid "南宁市"
+msgstr "南宁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350700
+msgid "南平市"
+msgstr "南平市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360100
+msgid "南昌市"
+msgstr "南昌市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320600
+msgid "南通市"
+msgstr "南通市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411300
+msgid "南阳市"
+msgstr "南阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_652700
+msgid "博尔塔拉蒙古自治州"
+msgstr "博尔塔拉蒙古自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350200
+msgid "厦门市"
+msgstr "厦门市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230500
+msgid "双鸭山市"
+msgstr "双鸭山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_331000
+msgid "台州市"
+msgstr "台州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340100
+msgid "合肥市"
+msgstr "合肥市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360800
+msgid "吉安市"
+msgstr "吉安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220200
+msgid "吉林市"
+msgstr "吉林市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_650400
+msgid "吐鲁番市"
+msgstr "吐鲁番市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_141100
+msgid "吕梁市"
+msgstr "吕梁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_640300
+msgid "吴忠市"
+msgstr "吴忠市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411600
+msgid "周口市"
+msgstr "周口市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150700
+msgid "呼伦贝尔市"
+msgstr "呼伦贝尔市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150100
+msgid "呼和浩特市"
+msgstr "呼和浩特市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_653200
+msgid "和田地区"
+msgstr "和田地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_421200
+msgid "咸宁市"
+msgstr "咸宁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610400
+msgid "咸阳市"
+msgstr "咸阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_650500
+msgid "哈密市"
+msgstr "哈密市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230100
+msgid "哈尔滨市"
+msgstr "哈尔滨市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130200
+msgid "唐山市"
+msgstr "唐山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411400
+msgid "商丘市"
+msgstr "商丘市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_611000
+msgid "商洛市"
+msgstr "商洛市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_653100
+msgid "喀什地区"
+msgstr "喀什地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330400
+msgid "嘉兴市"
+msgstr "嘉兴市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620200
+msgid "嘉峪关市"
+msgstr "嘉峪关市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220300
+msgid "四平市"
+msgstr "四平市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_640400
+msgid "固原市"
+msgstr "固原市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_654200
+msgid "塔城地区"
+msgstr "塔城地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_232700
+msgid "大兴安岭地区"
+msgstr "大兴安岭地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140200
+msgid "大同市"
+msgstr "大同市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230600
+msgid "大庆市"
+msgstr "大庆市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_532900
+msgid "大理白族自治州"
+msgstr "大理白族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210200
+msgid "大连市"
+msgstr "大连市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620500
+msgid "天水市"
+msgstr "天水市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_120000
+msgid "天津市"
+msgstr "天津市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140100
+msgid "太原市"
+msgstr "太原市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371000
+msgid "威海市"
+msgstr "威海市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_431300
+msgid "娄底市"
+msgstr "娄底市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420900
+msgid "孝感市"
+msgstr "孝感市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350900
+msgid "宁德市"
+msgstr "宁德市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330200
+msgid "宁波市"
+msgstr "宁波市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340800
+msgid "安庆市"
+msgstr "安庆市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610900
+msgid "安康市"
+msgstr "安康市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410500
+msgid "安阳市"
+msgstr "安阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520400
+msgid "安顺市"
+msgstr "安顺市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_621100
+msgid "定西市"
+msgstr "定西市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511500
+msgid "宜宾市"
+msgstr "宜宾市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420500
+msgid "宜昌市"
+msgstr "宜昌市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360900
+msgid "宜春市"
+msgstr "宜春市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610300
+msgid "宝鸡市"
+msgstr "宝鸡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341800
+msgid "宣城市"
+msgstr "宣城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341300
+msgid "宿州市"
+msgstr "宿州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_321300
+msgid "宿迁市"
+msgstr "宿迁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540500
+msgid "山南市"
+msgstr "山南市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430600
+msgid "岳阳市"
+msgstr "岳阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_451400
+msgid "崇左市"
+msgstr "崇左市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511900
+msgid "巴中市"
+msgstr "巴中市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150800
+msgid "巴彦淖尔市"
+msgstr "巴彦淖尔市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_652800
+msgid "巴音郭楞蒙古自治州"
+msgstr "巴音郭楞蒙古自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320400
+msgid "常州市"
+msgstr "常州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430700
+msgid "常德市"
+msgstr "常德市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620800
+msgid "平凉市"
+msgstr "平凉市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410400
+msgid "平顶山市"
+msgstr "平顶山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510800
+msgid "广元市"
+msgstr "广元市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511600
+msgid "广安市"
+msgstr "广安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440100
+msgid "广州市"
+msgstr "广州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_621000
+msgid "庆阳市"
+msgstr "庆阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_131000
+msgid "廊坊市"
+msgstr "廊坊市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610600
+msgid "延安市"
+msgstr "延安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_222400
+msgid "延边朝鲜族自治州"
+msgstr "延边朝鲜族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410200
+msgid "开封市"
+msgstr "开封市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130700
+msgid "张家口市"
+msgstr "张家口市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430800
+msgid "张家界市"
+msgstr "张家界市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620700
+msgid "张掖市"
+msgstr "张掖市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320300
+msgid "徐州市"
+msgstr "徐州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_533100
+msgid "德宏傣族景颇族自治州"
+msgstr "德宏傣族景颇族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371400
+msgid "德州市"
+msgstr "德州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510600
+msgid "德阳市"
+msgstr "德阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140900
+msgid "忻州市"
+msgstr "忻州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_431200
+msgid "怀化市"
+msgstr "怀化市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_533300
+msgid "怒江傈僳族自治州"
+msgstr "怒江傈僳族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_422800
+msgid "恩施土家族苗族自治州"
+msgstr "恩施土家族苗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441300
+msgid "惠州市"
+msgstr "惠州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510100
+msgid "成都市"
+msgstr "成都市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_321000
+msgid "扬州市"
+msgstr "扬州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130800
+msgid "承德市"
+msgstr "承德市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_361000
+msgid "抚州市"
+msgstr "抚州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210400
+msgid "抚顺市"
+msgstr "抚顺市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540100
+msgid "拉萨市"
+msgstr "拉萨市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_445200
+msgid "揭阳市"
+msgstr "揭阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510400
+msgid "攀枝花市"
+msgstr "攀枝花市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_532600
+msgid "文山壮族苗族自治州"
+msgstr "文山壮族苗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410700
+msgid "新乡市"
+msgstr "新乡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360500
+msgid "新余市"
+msgstr "新余市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320200
+msgid "无锡市"
+msgstr "无锡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540200
+msgid "日喀则市"
+msgstr "日喀则市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371100
+msgid "日照市"
+msgstr "日照市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530100
+msgid "昆明市"
+msgstr "昆明市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_652300
+msgid "昌吉回族自治州"
+msgstr "昌吉回族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540300
+msgid "昌都市"
+msgstr "昌都市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530600
+msgid "昭通市"
+msgstr "昭通市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140700
+msgid "晋中市"
+msgstr "晋中市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140500
+msgid "晋城市"
+msgstr "晋城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530800
+msgid "普洱市"
+msgstr "普洱市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360200
+msgid "景德镇市"
+msgstr "景德镇市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530300
+msgid "曲靖市"
+msgstr "曲靖市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140600
+msgid "朔州市"
+msgstr "朔州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_211300
+msgid "朝阳市"
+msgstr "朝阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210500
+msgid "本溪市"
+msgstr "本溪市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_451300
+msgid "来宾市"
+msgstr "来宾市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330100
+msgid "杭州市"
+msgstr "杭州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220700
+msgid "松原市"
+msgstr "松原市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540400
+msgid "林芝市"
+msgstr "林芝市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632600
+msgid "果洛藏族自治州"
+msgstr "果洛藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370400
+msgid "枣庄市"
+msgstr "枣庄市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450200
+msgid "柳州市"
+msgstr "柳州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430200
+msgid "株洲市"
+msgstr "株洲市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450300
+msgid "桂林市"
+msgstr "桂林市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441400
+msgid "梅州市"
+msgstr "梅州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450400
+msgid "梧州市"
+msgstr "梧州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_532300
+msgid "楚雄彝族自治州"
+msgstr "楚雄彝族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610800
+msgid "榆林市"
+msgstr "榆林市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620600
+msgid "武威市"
+msgstr "武威市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420100
+msgid "武汉市"
+msgstr "武汉市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520500
+msgid "毕节市"
+msgstr "毕节市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_431100
+msgid "永州市"
+msgstr "永州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610700
+msgid "汉中市"
+msgstr "汉中市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440500
+msgid "汕头市"
+msgstr "汕头市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441500
+msgid "汕尾市"
+msgstr "汕尾市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440700
+msgid "江门市"
+msgstr "江门市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341700
+msgid "池州市"
+msgstr "池州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210100
+msgid "沈阳市"
+msgstr "沈阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130900
+msgid "沧州市"
+msgstr "沧州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_451200
+msgid "河池市"
+msgstr "河池市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441600
+msgid "河源市"
+msgstr "河源市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350500
+msgid "泉州市"
+msgstr "泉州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370900
+msgid "泰安市"
+msgstr "泰安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_321200
+msgid "泰州市"
+msgstr "泰州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510500
+msgid "泸州市"
+msgstr "泸州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410300
+msgid "洛阳市"
+msgstr "洛阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370100
+msgid "济南市"
+msgstr "济南市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370800
+msgid "济宁市"
+msgstr "济宁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_630200
+msgid "海东市"
+msgstr "海东市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632200
+msgid "海北藏族自治州"
+msgstr "海北藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632500
+msgid "海南藏族自治州"
+msgstr "海南藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_460100
+msgid "海口市"
+msgstr "海口市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632800
+msgid "海西蒙古族藏族自治州"
+msgstr "海西蒙古族藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370300
+msgid "淄博市"
+msgstr "淄博市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340600
+msgid "淮北市"
+msgstr "淮北市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340400
+msgid "淮南市"
+msgstr "淮南市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320800
+msgid "淮安市"
+msgstr "淮安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440300
+msgid "深圳市"
+msgstr "深圳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441800
+msgid "清远市"
+msgstr "清远市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330300
+msgid "温州市"
+msgstr "温州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610500
+msgid "渭南市"
+msgstr "渭南市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330500
+msgid "湖州市"
+msgstr "湖州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430300
+msgid "湘潭市"
+msgstr "湘潭市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_433100
+msgid "湘西土家族苗族自治州"
+msgstr "湘西土家族苗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440800
+msgid "湛江市"
+msgstr "湛江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341100
+msgid "滁州市"
+msgstr "滁州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371600
+msgid "滨州市"
+msgstr "滨州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411100
+msgid "漯河市"
+msgstr "漯河市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350600
+msgid "漳州市"
+msgstr "漳州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370700
+msgid "潍坊市"
+msgstr "潍坊市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_445100
+msgid "潮州市"
+msgstr "潮州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410900
+msgid "濮阳市"
+msgstr "濮阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370600
+msgid "烟台市"
+msgstr "烟台市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410800
+msgid "焦作市"
+msgstr "焦作市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_231000
+msgid "牡丹江市"
+msgstr "牡丹江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450900
+msgid "玉林市"
+msgstr "玉林市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632700
+msgid "玉树藏族自治州"
+msgstr "玉树藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_530400
+msgid "玉溪市"
+msgstr "玉溪市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440400
+msgid "珠海市"
+msgstr "珠海市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_623000
+msgid "甘南藏族自治州"
+msgstr "甘南藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_513300
+msgid "甘孜藏族自治州"
+msgstr "甘孜藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220800
+msgid "白城市"
+msgstr "白城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220600
+msgid "白山市"
+msgstr "白山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620400
+msgid "白银市"
+msgstr "白银市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_451000
+msgid "百色市"
+msgstr "百色市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430900
+msgid "益阳市"
+msgstr "益阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320900
+msgid "盐城市"
+msgstr "盐城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_211100
+msgid "盘锦市"
+msgstr "盘锦市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_419000
+#: model:res.city,name:qing_address_cn.city_429000
+#: model:res.city,name:qing_address_cn.city_469000
+msgid "省直辖县级行政区划"
+msgstr "省直辖县级行政区划"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511400
+msgid "眉山市"
+msgstr "眉山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_640200
+msgid "石嘴山市"
+msgstr "石嘴山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130100
+msgid "石家庄市"
+msgstr "石家庄市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350100
+msgid "福州市"
+msgstr "福州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130300
+msgid "秦皇岛市"
+msgstr "秦皇岛市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_532500
+msgid "红河哈尼族彝族自治州"
+msgstr "红河哈尼族彝族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330600
+msgid "绍兴市"
+msgstr "绍兴市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_231200
+msgid "绥化市"
+msgstr "绥化市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510700
+msgid "绵阳市"
+msgstr "绵阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371500
+msgid "聊城市"
+msgstr "聊城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441200
+msgid "肇庆市"
+msgstr "肇庆市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_659000
+msgid "自治区直辖县级行政区划"
+msgstr "自治区直辖县级行政区划"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510300
+msgid "自贡市"
+msgstr "自贡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330900
+msgid "舟山市"
+msgstr "舟山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340200
+msgid "芜湖市"
+msgstr "芜湖市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320500
+msgid "苏州市"
+msgstr "苏州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440900
+msgid "茂名市"
+msgstr "茂名市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_421000
+msgid "荆州市"
+msgstr "荆州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420800
+msgid "荆门市"
+msgstr "荆门市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350300
+msgid "莆田市"
+msgstr "莆田市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_371700
+msgid "菏泽市"
+msgstr "菏泽市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360300
+msgid "萍乡市"
+msgstr "萍乡市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210800
+msgid "营口市"
+msgstr "营口市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_211400
+msgid "葫芦岛市"
+msgstr "葫芦岛市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340300
+msgid "蚌埠市"
+msgstr "蚌埠市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_131100
+msgid "衡水市"
+msgstr "衡水市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430400
+msgid "衡阳市"
+msgstr "衡阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330800
+msgid "衢州市"
+msgstr "衢州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420600
+msgid "襄阳市"
+msgstr "襄阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_532800
+msgid "西双版纳傣族自治州"
+msgstr "西双版纳傣族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_630100
+msgid "西宁市"
+msgstr "西宁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610100
+msgid "西安市"
+msgstr "西安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411000
+msgid "许昌市"
+msgstr "许昌市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450800
+msgid "贵港市"
+msgstr "贵港市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520100
+msgid "贵阳市"
+msgstr "贵阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_451100
+msgid "贺州市"
+msgstr "贺州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_512000
+msgid "资阳市"
+msgstr "资阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360700
+msgid "赣州市"
+msgstr "赣州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150400
+msgid "赤峰市"
+msgstr "赤峰市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220400
+msgid "辽源市"
+msgstr "辽源市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_211000
+msgid "辽阳市"
+msgstr "辽阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511700
+msgid "达州市"
+msgstr "达州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140800
+msgid "运城市"
+msgstr "运城市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_320700
+msgid "连云港市"
+msgstr "连云港市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_533400
+msgid "迪庆藏族自治州"
+msgstr "迪庆藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220500
+msgid "通化市"
+msgstr "通化市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150500
+msgid "通辽市"
+msgstr "通辽市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_510900
+msgid "遂宁市"
+msgstr "遂宁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520300
+msgid "遵义市"
+msgstr "遵义市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130500
+msgid "邢台市"
+msgstr "邢台市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_540600
+msgid "那曲市"
+msgstr "那曲市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_130400
+msgid "邯郸市"
+msgstr "邯郸市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430500
+msgid "邵阳市"
+msgstr "邵阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410100
+msgid "郑州市"
+msgstr "郑州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_431000
+msgid "郴州市"
+msgstr "郴州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_150600
+msgid "鄂尔多斯市"
+msgstr "鄂尔多斯市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420700
+msgid "鄂州市"
+msgstr "鄂州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620900
+msgid "酒泉市"
+msgstr "酒泉市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_500000
+msgid "重庆市"
+msgstr "重庆市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_330700
+msgid "金华市"
+msgstr "金华市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_620300
+msgid "金昌市"
+msgstr "金昌市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450700
+msgid "钦州市"
+msgstr "钦州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_211200
+msgid "铁岭市"
+msgstr "铁岭市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_520600
+msgid "铜仁市"
+msgstr "铜仁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_610200
+msgid "铜川市"
+msgstr "铜川市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340700
+msgid "铜陵市"
+msgstr "铜陵市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_640100
+msgid "银川市"
+msgstr "银川市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_152500
+msgid "锡林郭勒盟"
+msgstr "锡林郭勒盟"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210700
+msgid "锦州市"
+msgstr "锦州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_321100
+msgid "镇江市"
+msgstr "镇江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_220100
+msgid "长春市"
+msgstr "长春市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_430100
+msgid "长沙市"
+msgstr "长沙市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140400
+msgid "长治市"
+msgstr "长治市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210900
+msgid "阜新市"
+msgstr "阜新市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341200
+msgid "阜阳市"
+msgstr "阜阳市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_450600
+msgid "防城港市"
+msgstr "防城港市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_441700
+msgid "阳江市"
+msgstr "阳江市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_140300
+msgid "阳泉市"
+msgstr "阳泉市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_652900
+msgid "阿克苏地区"
+msgstr "阿克苏地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_654300
+msgid "阿勒泰地区"
+msgstr "阿勒泰地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_513200
+msgid "阿坝藏族羌族自治州"
+msgstr "阿坝藏族羌族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_152900
+msgid "阿拉善盟"
+msgstr "阿拉善盟"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_542500
+msgid "阿里地区"
+msgstr "阿里地区"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_621200
+msgid "陇南市"
+msgstr "陇南市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_421300
+msgid "随州市"
+msgstr "随州市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_511800
+msgid "雅安市"
+msgstr "雅安市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_370200
+msgid "青岛市"
+msgstr "青岛市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_210300
+msgid "鞍山市"
+msgstr "鞍山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_440200
+msgid "韶关市"
+msgstr "韶关市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_340500
+msgid "马鞍山市"
+msgstr "马鞍山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_411700
+msgid "驻马店市"
+msgstr "驻马店市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230300
+msgid "鸡西市"
+msgstr "鸡西市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_410600
+msgid "鹤壁市"
+msgstr "鹤壁市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230400
+msgid "鹤岗市"
+msgstr "鹤岗市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_360600
+msgid "鹰潭市"
+msgstr "鹰潭市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_421100
+msgid "黄冈市"
+msgstr "黄冈市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_632300
+msgid "黄南藏族自治州"
+msgstr "黄南藏族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_341000
+msgid "黄山市"
+msgstr "黄山市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_420200
+msgid "黄石市"
+msgstr "黄石市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_231100
+msgid "黑河市"
+msgstr "黑河市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_522600
+msgid "黔东南苗族侗族自治州"
+msgstr "黔东南苗族侗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_522700
+msgid "黔南布依族苗族自治州"
+msgstr "黔南布依族苗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_522300
+msgid "黔西南布依族苗族自治州"
+msgstr "黔西南布依族苗族自治州"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_230200
+msgid "齐齐哈尔市"
+msgstr "齐齐哈尔市"
+
+#. module: qing_address_cn
+#: model:res.city,name:qing_address_cn.city_350800
+msgid "龙岩市"
+msgstr "龙岩市"

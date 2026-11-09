@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_sale_fapiao
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: qing_sale_fapiao 20.0.1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,field_description:qing_sale_fapiao.field_sale_order__qing_fapiao_issuance_state
+msgid "Tax Invoice Status"
+msgstr "税票开具状态"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,field_description:qing_sale_fapiao.field_sale_order__qing_fapiao_reversal_state
+msgid "Tax Invoice Reversal"
+msgstr "税票红冲状态"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,field_description:qing_sale_fapiao.field_sale_order__qing_fapiao_pending
+msgid "Tax Invoice Work Pending"
+msgstr "税票处理中"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__no_invoice
+msgid "No Posted Customer Invoice"
+msgstr "无已过账客户发票"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__not_issued
+msgid "Not Issued"
+msgstr "未开票"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__pending
+msgid "Pending Tax Invoice"
+msgstr "待处理税票"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__partial
+msgid "Partially Issued"
+msgstr "部分开票"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__issued
+msgid "Issued"
+msgstr "已开票"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_issuance_state__review
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_reversal_state__review
+msgid "Needs Review"
+msgstr "待核对"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_reversal_state__none
+msgid "No Red Reversal"
+msgstr "无红冲"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_reversal_state__pending
+msgid "Pending Red Reversal"
+msgstr "待红冲"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_reversal_state__partial
+msgid "Partially Reversed"
+msgstr "部分红冲"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields.selection,name:qing_sale_fapiao.selection__sale_order__qing_fapiao_reversal_state__reversed
+msgid "Fully Reversed"
+msgstr "已红冲"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,help:qing_sale_fapiao.field_sale_order__qing_fapiao_issuance_state
+msgid "Compares confirmed allocations of registered blue tax invoices with posted customer invoices. This differs from the accounting invoice status."
+msgstr "按已登记蓝票的已确认分配金额与已过账客户发票比较，与业务发票状态不同。"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,help:qing_sale_fapiao.field_sale_order__qing_fapiao_reversal_state
+msgid "Red tax invoices are assessed separately. A red invoice shared across orders needs review."
+msgstr "红票单独判断。涉及多张销售订单的红票须人工核对。"
+
+#. module: qing_sale_fapiao
+#: model:ir.model.fields,help:qing_sale_fapiao.field_sale_order__qing_fapiao_pending
+msgid "An active request, draft tax invoice, or unconfirmed allocation exists."
+msgstr "存在进行中的申请、草稿税票或未确认分配。"

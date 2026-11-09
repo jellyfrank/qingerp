@@ -1,0 +1,12 @@
+.o_qing_web_ui .o_graph_renderer,
+.o_qing_web_ui .o_pivot_renderer,
+.o_qing_web_ui .o_graph_view,
+.o_qing_web_ui .o_pivot_view {
+    border: var(--o-qing-line);
+    border-radius: var(--o-qing-card-radius);
+}
+
+.o_qing_web_ui .o_graph_renderer,
+.o_qing_web_ui .o_pivot_renderer {
+    background: var(--o-qing-surface);
+}

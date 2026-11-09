@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_repair_order_search" model="ir.ui.view">
+        <field name="name">qing.repair.order.search</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="qing_device_model" filter_domain="[('qing_device_model', 'ilike', self)]"/>
+                <field name="qing_repair_content" filter_domain="[('qing_repair_content', 'ilike', self)]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

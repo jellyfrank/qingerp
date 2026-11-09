@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="layout_branding" inherit_id="web.layout" name="Qing browser icon">
+        <xpath expr="//link[@rel='shortcut icon']" position="attributes">
+            <attribute name="type">image/png</attribute>
+            <attribute name="t-att-href">x_icon or '/qing_base/static/img/qing_logo.png'</attribute>
+        </xpath>
+    </template>
+    <template id="login_branding" inherit_id="web.login_layout" name="Qing login logo" priority="18">
+        <xpath expr="//t[@t-call='web.frontend_layout']" position="before">
+            <t t-set="title" t-value="title or request.env['ir.config_parameter'].sudo().get_str('qing_base.title', 'QingERP 20.0')"/>
+        </xpath>
+        <xpath expr="//div[hasclass('container', 'py-5')]" position="attributes">
+            <attribute name="t-attf-class">container py-5 #{'qing-login-layout' if request.httprequest.path == '/web/login' else ''}</attribute>
+        </xpath>
+        <xpath expr="//div[contains(@t-attf-class, 'o_database_list')]" position="before">
+            <section class="qing-login-scene" aria-label="青岛五月的风与灯塔海滨素描" t-if="request.httprequest.path == '/web/login'">
+                <img class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
+                    width="1672" height="941" alt="青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描" fetchpriority="high"/>
+                <svg class="qing-login-water-filter" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" focusable="false">
+                    <defs>
+                        <filter id="qing-login-water-refraction" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.08" numOctaves="1" seed="7" result="ripples"/>
+                            <feDisplacementMap in="SourceGraphic" in2="ripples" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+                        </filter>
+                    </defs>
+                </svg>
+                <div class="qing-login-water" aria-hidden="true">
+                    <img class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
+                        width="1672" height="941" alt="" decoding="async"/>
+                </div>
+                <div class="qing-login-scene-footer">BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT</div>
+            </section>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/t[@t-out='0']" position="before">
+            <div class="qing-login-heading" t-if="request.httprequest.path == '/web/login'">
+                <span>WELCOME TO QINGERP</span>
+                <h2>欢迎回来</h2>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div[img]" position="attributes">
+            <attribute name="t-if"></attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div/img" position="attributes">
+            <attribute name="t-attf-src">/qing_base/static/img/qing_logo.png</attribute>
+            <attribute name="alt">Qing</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('card-body')]/div[hasclass('small', 'border-top')]" position="replace">
+            <div class="qing-login-footer" t-if="not disable_footer and request.httprequest.path == '/web/login'">
+                <div class="qing-login-copyright">© QingERP · 青岛欧姆网络科技 2026</div>
+                <div class="qing-login-browser-support">Use the latest Chrome, Edge, Firefox, or Safari. Chrome/Edge versions below 122 are not supported.</div>
+            </div>
+            <div class="text-center small mt-4 pt-3 border-top" t-elif="not disable_footer">
+                <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">Powered by <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="24" height="24" style="object-fit:contain;vertical-align:middle;"/></a>
+            </div>
+        </xpath>
+    </template>
+    <template id="login_form_branding" inherit_id="web.login" name="Qing login form" priority="18">
+        <xpath expr="//form[contains(@t-attf-class, 'oe_login_form')]//button[@type='submit' and hasclass('btn-primary')]" position="replace">
+            <button type="submit" class="btn btn-primary">登录 QingERP →</button>
+        </xpath>
+        <xpath expr="//form[contains(@t-attf-class, 'oe_login_form')]//input[@name='login']" position="attributes">
+            <attribute name="placeholder">请输入账号</attribute>
+        </xpath>
+        <xpath expr="//form[contains(@t-attf-class, 'oe_login_form')]//input[@name='password']" position="attributes">
+            <attribute name="placeholder">请输入密码</attribute>
+        </xpath>
+    </template>
+    <template id="promotion_branding" inherit_id="web.brand_promotion_message" name="Qing brand promotion">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="32" height="32" style="object-fit:contain;vertical-align:middle;"/>
+                </a>
+            </t>
+        </xpath>
+    </template>
+    <template id="bootstrap_branding" inherit_id="web.webclient_bootstrap" name="Qing mobile icon">
+        <xpath expr="//link[@rel='apple-touch-icon']" position="attributes">
+            <attribute name="href">/qing/brand/icon/180</attribute>
+        </xpath>
+    </template>
+    <template id="offline_branding" inherit_id="web.webclient_offline" name="Qing offline logo">
+        <xpath expr="//img" position="attributes">
+            <attribute name="alt">Qing</attribute>
+        </xpath>
+    </template>
+</odoo>

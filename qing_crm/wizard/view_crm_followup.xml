@@ -1,0 +1,6 @@
+<odoo>
+    <record id="view_crm_followup_wizard_form" model="ir.ui.view">
+        <field name="name">qing.crm.followup.wizard.form</field><field name="model">qing.crm.followup.wizard</field>
+        <field name="arch" type="xml"><form string="Log Follow-up"><group><field name="role_id" readonly="1"/><field name="occurred_at"/><field name="channel"/><field name="result"/><field name="effective_contact"/><field name="duration_minutes"/><field name="note"/><field name="attachment_ids" widget="many2many_binary"/></group><group string="Next Activity"><field name="schedule_next"/><field name="activity_type_id" invisible="not schedule_next" required="schedule_next"/><field name="next_activity_date" invisible="not schedule_next" required="schedule_next"/><field name="next_activity_summary" invisible="not schedule_next"/></group><footer><button name="action_confirm" string="Save Follow-up" type="object" class="btn-primary"/><button string="Cancel" special="cancel"/></footer></form></field>
+    </record>
+</odoo>

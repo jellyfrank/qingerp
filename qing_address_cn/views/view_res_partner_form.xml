@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_china_address_form" model="ir.ui.view">
+        <field name="name">qing.address.cn.partner.address.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="o_address_format">
+                    <field name="country_code" invisible="1"/>
+                    <field name="country_enforce_cities" invisible="1"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="qing_cn_address_enabled" invisible="1"/>
+                    <field name="qing_cn_city_code" invisible="1"/>
+                    <field name="country_id" placeholder="Country" class="o_address_country w-100" readonly="type == 'contact' and parent_id" options="{'no_create': True, 'no_open': True}"/>
+                    <div class="qing_cn_province_city w-100">
+                        <field name="state_id" placeholder="Province" class="qing_cn_address_level w-100" domain="[('country_id', '=', country_id)]" readonly="type == 'contact' and parent_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="city_id" placeholder="City" string="City" class="qing_cn_address_level w-100" domain="[('country_id', '=', country_id), ('state_id', '=', state_id), ('qing_cn_code', '!=', False)] if qing_cn_address_enabled else [('country_id', '=', country_id)]" invisible="not qing_cn_address_enabled and (country_code == 'CN' or not country_enforce_cities)" readonly="(qing_cn_address_enabled and not state_id) or (type == 'contact' and parent_id)" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="city" placeholder="City" class="qing_cn_address_level w-100" invisible="(qing_cn_address_enabled or (country_code != 'CN' and country_enforce_cities)) and (city_id or not city)" readonly="type == 'contact' and parent_id"/>
+                    </div>
+                    <div class="d-flex flex-column gap-1 w-100" invisible="not qing_cn_address_enabled">
+                        <field name="qing_cn_district_id" placeholder="District / County" class="qing_cn_address_level w-100" readonly="not city_id or (type == 'contact' and parent_id)" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="qing_cn_subdistrict_id" placeholder="Subdistrict / Township" class="qing_cn_address_level w-100" readonly="not qing_cn_district_id or (type == 'contact' and parent_id)" options="{'no_create': True, 'no_open': True}"/>
+                    </div>
+                    <field name="street" placeholder="Street and building number..." class="o_address_street" readonly="type == 'contact' and parent_id"/>
+                    <field name="street2" placeholder="Additional address details..." class="o_address_street" readonly="type == 'contact' and parent_id"/>
+                    <field name="zip" placeholder="ZIP" class="w-100" readonly="type == 'contact' and parent_id"/>
+                    <div class="alert alert-warning mt-2 w-100" role="alert" invisible="not qing_cn_address_enabled or qing_cn_city_code or (not city_id and not city)">Select a province and city from the list to complete this legacy address.</div>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="view_res_partner_form" model="ir.ui.view">
+        <field name="name">qing.address.cn.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='city_id']" position="attributes">
+                <attribute name="domain">[('country_id', '=', country_id), ('state_id', '=', state_id), ('qing_cn_code', '!=', False)] if qing_cn_address_enabled else [('country_id', '=', country_id)]</attribute>
+                <attribute name="string">City</attribute>
+                <attribute name="invisible">not qing_cn_address_enabled and (country_code == 'CN' or not country_enforce_cities)</attribute>
+                <attribute name="readonly">(qing_cn_address_enabled and not state_id) or (type == 'contact' and parent_id)</attribute>
+                <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_address_format')]/field[@name='city']" position="attributes">
+                <attribute name="invisible">(qing_cn_address_enabled or (country_code != 'CN' and country_enforce_cities)) and (city_id or not city)</attribute>
+            </xpath>
+            <xpath expr="//field[@name='city_id']" position="after">
+                <field name="country_code" invisible="1"/>
+                <field name="qing_cn_address_enabled" invisible="1"/>
+                <field name="qing_cn_city_code" invisible="1"/>
+                <field name="qing_cn_district_id" placeholder="District / County" class="o_address_city" invisible="not qing_cn_address_enabled" readonly="not city_id or (type == 'contact' and parent_id)" options="{'no_create': True, 'no_open': True}"/>
+                <field name="qing_cn_subdistrict_id" placeholder="Subdistrict / Township" class="o_address_state" invisible="not qing_cn_address_enabled" readonly="not qing_cn_district_id or (type == 'contact' and parent_id)" options="{'no_create': True, 'no_open': True}"/>
+            </xpath>
+            <field name="child_ids" position="attributes">
+                <attribute name="context">{'default_parent_id': id, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_city_id': city_id, 'default_qing_cn_district_id': qing_cn_district_id, 'default_qing_cn_subdistrict_id': qing_cn_subdistrict_id, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'contact'}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

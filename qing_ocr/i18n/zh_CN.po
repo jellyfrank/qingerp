@@ -1,0 +1,106 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Qing OCR 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The requested OCR engine is not available."
+msgstr "所选 OCR 引擎不可用。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "Upload a PNG, JPEG or PDF file of at most 10 MB."
+msgstr "请上传不超过 10 MB 的 PNG、JPEG 或 PDF 文件。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The image is invalid. Use a single PNG or JPEG image."
+msgstr "图片无效，请上传单张 PNG 或 JPEG 图片。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The image exceeds 20 million pixels. Resize it before uploading."
+msgstr "图片超过 2000 万像素，请缩小后上传。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The document contains too much text. Split it into smaller files."
+msgstr "文件文字过多，请拆分后分别上传。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "A local recognition dependency is missing. Install Tesseract, its required language packs and Poppler."
+msgstr "服务器缺少本地识别依赖，请安装 Tesseract、所需语言包和 Poppler。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "Local recognition timed out. Use a smaller or clearer document."
+msgstr "本地识别超时，请上传较小或更清晰的文件。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "Local recognition failed. Check the file and installed language packs."
+msgstr "本地识别失败，请检查文件和已安装的语言包。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The OCR language setting is invalid."
+msgstr "OCR 识别语言设置无效。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The page limit must be an integer between 1 and 10."
+msgstr "页数上限必须为 1 至 10 的整数。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "The PDF exceeds the allowed page count or its page count cannot be read."
+msgstr "PDF 超过允许的页数上限，或无法读取页数。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "Encrypted PDF files are not supported."
+msgstr "不支持加密 PDF 文件。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "No text was recognized. Use a clearer document or enter the data manually."
+msgstr "未识别出文字，请上传更清晰的文件或手工录入。"
+
+#. module: qing_ocr
+#. odoo-python
+#: code:addons/qing_ocr/models/ocr_service.py:0
+#, python-format
+msgid "Document recognition failed."
+msgstr "文件识别失败。"

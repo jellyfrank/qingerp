@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">qing.repair.res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_base.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='qing_advanced_settings']" position="inside">
+                <block title="Repairs" name="qing_repair_settings">
+                    <setting id="qing_repair_pricing_mode" string="Default Repair Pricing" company_dependent="1"
+                        help="Applies to new repairs only. Existing repairs retain their pricing mode.">
+                        <field name="qing_repair_pricing_mode" widget="radio"/>
+                    </setting>
+                    <setting id="qing_repair_auto_invoice" string="Create Draft Invoice on Repair Completion" company_dependent="1"
+                        help="Direct-priced repairs only. Creates a draft customer invoice; never posts it or records a payment.">
+                        <field name="qing_repair_auto_invoice"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

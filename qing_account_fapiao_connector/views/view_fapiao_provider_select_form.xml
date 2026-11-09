@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fapiao_provider_select_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.provider.select.form</field>
+        <field name="model">qing.fapiao.provider.select</field>
+        <field name="arch" type="xml">
+            <form string="Select Invoicing Provider">
+                <div class="alert alert-info" role="alert">A provider task keeps the approved amount and tax reserved. After acceptance, query an unknown result instead of sending another invoice request.</div>
+                <group>
+                    <field name="request_id"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="seller_tax_id"/>
+                    <field name="provider_id" domain="[('company_id', '=', company_id), ('seller_tax_id', '=', seller_tax_id), ('enabled', '=', True)]" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_queue" type="object" string="Create Provider Task" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

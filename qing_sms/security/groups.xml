@@ -1,0 +1,14 @@
+<odoo>
+    <record id="privilege_sms" model="res.groups.privilege"><field name="name">国内短信</field></record>
+    <record id="group_sms_user" model="res.groups">
+        <field name="name">发送短信</field><field name="privilege_id" ref="privilege_sms"/>
+        <field name="implied_ids" eval="[Command.link(ref('base.group_user'))]"/>
+    </record>
+    <record id="group_sms_manager" model="res.groups">
+        <field name="name">短信管理员</field><field name="privilege_id" ref="privilege_sms"/>
+        <field name="implied_ids" eval="[Command.link(ref('group_sms_user'))]"/>
+    </record>
+    <record id="base.group_system" model="res.groups">
+        <field name="implied_ids" eval="[Command.link(ref('group_sms_manager'))]"/>
+    </record>
+</odoo>

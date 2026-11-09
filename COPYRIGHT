@@ -1,0 +1,16 @@
+QingERP Community Edition
+Copyright (c) 2026 Qingdao Ohm Network Technology Co., Ltd.
+
+Each add-on in this repository is licensed under the license declared in its
+__manifest__.py. All add-ons are currently licensed under the GNU Lesser
+General Public License v3 (see LICENSE), which supplements the GNU General
+Public License v3 (see COPYING).
+
+Some add-ons were ported from the rights holder's own Solutions modules
+(mommy_base, mommy_fapiao, mommy_mail) and are relicensed here under LGPL-3.
+Third-party components keep their own notices; see THIRD_PARTY_NOTICES.md.
+
+QingERP is built on Odoo Community. It is not affiliated with or endorsed by
+Odoo S.A., and "QingERP Enterprise" does not refer to Odoo Enterprise Edition.
+
+Contact: kevin@odoomommy.com

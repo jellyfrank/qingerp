@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_template_form" model="ir.ui.view">
+        <field name="name">qing.whatsapp.template.form</field>
+        <field name="model">qing.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button groups="qing_whatsapp.group_manager" name="action_submit" string="Submit to Meta" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="account_id"/>
+                        <field name="language"/>
+                        <field name="category"/>
+                        <field name="status"/>
+                        <field name="quality"/>
+                        <field name="remote_uid"/>
+                    </group>
+                    <label for="components_json"/>
+                    <field name="components_json"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,2980 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_knowledge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-24 06:00+0000\n"
+"PO-Revision-Date: 2026-09-24 06:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: zh_CN\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "A page cannot move across spaces or into its descendants."
+msgstr "页面不能跨空间移动，也不能移入自己的子页面。"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_draft_unique_draft
+msgid "A user has one working copy per article."
+msgstr "每位用户对每篇文章只能有一个工作草稿。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "A valid import operation UUID is required."
+msgstr "必须提供有效的导入操作 UUID。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "A valid operation UUID is required."
+msgstr "必须提供有效的操作 UUID。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__access_mode
+msgid "Access Mode"
+msgstr "访问模式"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__accessible
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__accessible
+msgid "Accessible"
+msgstr "可访问"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__active
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__active
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__active
+msgid "Active"
+msgstr "启用"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__actor_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__actor_id
+msgid "Actor"
+msgstr "操作人"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Add child article"
+msgstr "添加子文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "All space members"
+msgstr "所有空间成员"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Allowed members"
+msgstr "允许访问的成员"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "An asset exceeds 20 MiB."
+msgstr "资源文件超过 20 MiB。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__ancestor_ids
+msgid "Ancestor"
+msgstr "上级页面"
+
+#. module: qing_knowledge
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_member_wizard_form
+msgid "Apply"
+msgstr "应用"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Apply access"
+msgstr "应用访问权限"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Archive"
+msgstr "归档"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Archive a space instead of deleting it."
+msgstr "请归档空间，不要删除。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__lifecycle__archived
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__archived
+msgid "Archived"
+msgstr "已归档"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__article_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__article_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__article_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__article_id
+msgid "Article"
+msgstr "文章"
+
+#. module: qing_knowledge
+#: model:ir.ui.menu,name:qing_knowledge.menu_knowledge_articles
+msgid "Article Records"
+msgstr "文章记录"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_article_unique_uuid
+msgid "Article UUID must be unique."
+msgstr "文章 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article access"
+msgstr "文章访问权限"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article details"
+msgstr "文章详情"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article records"
+msgstr "文章记录"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article title"
+msgstr "文章标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article view"
+msgstr "文章视图"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_asset_unique_uuid
+msgid "Asset UUID must be unique."
+msgstr "资源 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Asset added to the draft."
+msgstr "资源已添加到草稿。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Asset exceeds 20 MiB."
+msgstr "资源文件超过 20 MiB。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Asset must be between 1 byte and 20 MiB."
+msgstr "资源大小必须在 1 字节到 20 MiB 之间。"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_asset_asset_owner
+msgid "Asset must belong to a draft or revision."
+msgstr "资源必须且只能属于一个草稿或修订版。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__asset_ids
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__asset_ids
+msgid "Assets"
+msgstr "资源"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_ir_attachment
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__attachment_id
+msgid "Attachment"
+msgstr "附件"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_attachment_share
+msgid "Attachment Share"
+msgstr "附件分享"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__author_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__author_id
+msgid "Author"
+msgstr "作者"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__base_revision_id
+msgid "Base Revision"
+msgstr "基准修订版"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Blank"
+msgstr "空白"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_bookmark_unique_user_article
+msgid "Bookmark already exists."
+msgstr "收藏记录已存在。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_bookmark.py:0
+msgid "Bookmarks are retained until account removal."
+msgstr "收藏记录将在账户删除前保留。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Bullet list"
+msgstr "无序列表"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_member_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Changes from the published version"
+msgstr "与正式版本的差异"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Checklist"
+msgstr "任务清单"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__checksum
+msgid "Checksum"
+msgstr "校验值"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Choose 1–30 unique articles for export."
+msgstr "请选择 1 到 30 篇不重复的文章导出。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Choose a Markdown or ZIP file."
+msgstr "请选择 Markdown 或 ZIP 文件。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Choose an article or create one."
+msgstr "请选择一篇文章，或创建新文章。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Choose at most 20 tags."
+msgstr "最多选择 20 个标签。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Choose one of your enabled companies."
+msgstr "请选择您有权限使用的公司。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Close PDF preview"
+msgstr "关闭 PDF 预览"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Close details"
+msgstr "关闭详情"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Close search"
+msgstr "关闭搜索"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Code block"
+msgstr "代码块"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Collapse knowledge sidebar"
+msgstr "收起知识库侧栏"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__company_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Compare latest two"
+msgstr "比较最新两个版本"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__content_hash
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__content_hash
+msgid "Content Hash"
+msgstr "内容哈希"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Continue editing my draft"
+msgstr "继续编辑我的草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Continue where you left off."
+msgstr "继续上次的阅读与写作。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Create a space to get started."
+msgstr "创建空间开始使用。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Create space"
+msgstr "创建空间"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__create_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__create_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_attachment_share__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_ir_attachment__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__current_company
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Current space"
+msgstr "当前空间"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "DRAFT_CONFLICT: Reload the latest draft before saving."
+msgstr "草稿冲突：请重新加载最新草稿后保存。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "DRAFT_CONFLICT: Reload the latest draft before submitting."
+msgstr "草稿冲突：请重新加载最新草稿后提交。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "DRAFT_CONFLICT: Submission content has changed."
+msgstr "草稿冲突：提交内容已变化。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "DRAFT_CONFLICT: The saved draft has changed."
+msgstr "DRAFT_CONFLICT：已保存的草稿发生变化，请先检查最新内容。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "DRAFT_CONFLICT: This submission has changed."
+msgstr "草稿冲突：该提交已变化。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_member.py:0
+msgid "Deactivate a member instead of deleting it."
+msgstr "请停用成员，不要删除。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Discard a draft instead of deleting it."
+msgstr "请丢弃草稿，不要直接删除。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_draft__state__discarded
+msgid "Discarded"
+msgstr "已丢弃"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_attachment_share__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__display_name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Divider"
+msgstr "分隔线"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Download"
+msgstr "下载"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Download my copy"
+msgstr "下载我的副本"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__draft_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__draft_id
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_draft_unique_uuid
+msgid "Draft UUID must be unique."
+msgstr "草稿 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__draft_version
+msgid "Draft Version"
+msgstr "草稿版本"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Draft not found."
+msgstr "找不到草稿。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Draft saved"
+msgstr "草稿已保存"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Drag to change parent"
+msgstr "拖拽以更改父文章"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Each space needs an active manager."
+msgstr "每个空间至少需要一位有效的管理员。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Edit"
+msgstr "编辑"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_draft__state__editing
+msgid "Editing"
+msgstr "编辑中"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Editing resumed"
+msgstr "已恢复编辑"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member__role__editor
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member_wizard__role__editor
+msgid "Editor"
+msgstr "编辑者"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Editor failed to load."
+msgstr "编辑器加载失败。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Encrypted ZIP files are not supported."
+msgstr "不支持加密 ZIP 文件。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Enter a title of at most 255 characters."
+msgstr "请输入不超过 255 个字符的标题。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Enter a valid article title."
+msgstr "请输入有效的文章标题。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Expand knowledge sidebar"
+msgstr "展开知识库侧栏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Export Markdown"
+msgstr "导出 Markdown"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Export ZIP"
+msgstr "导出 ZIP"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Export exceeds the 50 MiB ZIP limit."
+msgstr "导出文件超过 50 MiB ZIP 限额。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Export exceeds the current interactive size limit."
+msgstr "导出内容超过当前交互操作的大小限制。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "FAQ"
+msgstr "常见问题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Favorites"
+msgstr "我的收藏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Focus"
+msgstr "专注"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 1"
+msgstr "1 级标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 2"
+msgstr "2 级标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 3"
+msgstr "3 级标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 4"
+msgstr "4 级标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 5"
+msgstr "5 级标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Heading 6"
+msgstr "6 级标题"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_attachment_share__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_ir_attachment__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__id
+msgid "ID"
+msgstr "编号"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Image dimensions exceed the limit."
+msgstr "图片尺寸超过限制。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Implementation"
+msgstr "实施方案"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Import Markdown or ZIP"
+msgstr "导入 Markdown 或 ZIP"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_transfer_unique_operation
+msgid "Import operation UUID must be unique."
+msgstr "导入操作 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Import operation UUID was already used."
+msgstr "导入操作 UUID 已被使用。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Imported as personal drafts. Review before publishing."
+msgstr "已导入为个人草稿，请检查后再发布。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Insert an image or a PDF"
+msgstr "插入图片或 PDF"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Insert one image or PDF at a time."
+msgstr "请每次插入一张图片或一个 PDF。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid ZIP archive."
+msgstr "ZIP 压缩包无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Invalid ZIP encoding."
+msgstr "ZIP 编码无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid article entry in package manifest."
+msgstr "内容包清单中的文章条目无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid article identity in package."
+msgstr "内容包中的文章标识无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Invalid article state transition."
+msgstr "文章状态转换无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid article tags in package."
+msgstr "内容包中的文章标签无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid article title in package."
+msgstr "内容包中的文章标题无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Invalid asset encoding."
+msgstr "资源编码无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Invalid knowledge role."
+msgstr "知识库角色无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid package asset."
+msgstr "内容包资源无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Invalid package manifest."
+msgstr "内容包清单无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Invalid search rebuild batch."
+msgstr "检索重建批次参数无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Invalid tag name."
+msgstr "标签名称无效。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__is_current
+msgid "Is Current"
+msgstr "是否当前版本"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__is_favorite
+msgid "Is Favorite"
+msgstr "是否收藏"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__kind
+msgid "Kind"
+msgstr "类型"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model:ir.actions.client,name:qing_knowledge.action_knowledge_workspace
+#: model:ir.ui.menu,name:qing_knowledge.menu_knowledge_root
+msgid "Knowledge"
+msgstr "知识库"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_article
+msgid "Knowledge Article"
+msgstr "知识文章"
+
+#. module: qing_knowledge
+#: model:ir.actions.act_window,name:qing_knowledge.action_knowledge_articles
+msgid "Knowledge Articles"
+msgstr "知识文章"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_event
+msgid "Knowledge Change Event"
+msgstr "知识库变更事件"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_transfer
+msgid "Knowledge Import Idempotency Record"
+msgstr "知识库导入幂等记录"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_asset
+msgid "Knowledge Revision or Draft Asset"
+msgstr "知识库修订版或草稿资源"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_space
+msgid "Knowledge Space"
+msgstr "知识空间"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_member
+msgid "Knowledge Space Member"
+msgstr "知识空间成员"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_tag
+msgid "Knowledge Space Tag"
+msgstr "知识空间标签"
+
+#. module: qing_knowledge
+#: model:ir.actions.act_window,name:qing_knowledge.action_knowledge_spaces
+msgid "Knowledge Spaces"
+msgstr "知识空间"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Knowledge assets cannot be changed."
+msgstr "知识库资源不能修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Knowledge assets cannot be deleted through RPC."
+msgstr "不能通过 RPC 删除知识库资源。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_event.py:0
+msgid "Knowledge events are immutable."
+msgstr "知识库事件不可修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_event.py:0
+msgid "Knowledge events are written by server actions."
+msgstr "知识库事件只能由服务端业务动作写入。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/ir_attachment.py:0
+msgid "Knowledge file content and ownership are immutable."
+msgstr "知识库文件的内容和归属不可修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/ir_attachment.py:0
+msgid "Knowledge files cannot be deleted through RPC."
+msgstr "不能通过 RPC 删除知识库文件。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/attachment_share.py:0
+msgid "Knowledge files cannot be shared publicly."
+msgstr "知识库文件不能公开分享。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/ir_attachment.py:0
+msgid "Knowledge files cannot use share tokens."
+msgstr "知识库文件不能使用分享令牌。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/ir_attachment.py:0
+msgid "Knowledge files must remain private."
+msgstr "知识库文件必须保持私有。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Knowledge shortcuts"
+msgstr "知识快捷入口"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_tag.py:0
+msgid "Knowledge tags cannot be changed in place."
+msgstr "知识库标签不能原地修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_tag.py:0
+msgid "Knowledge tags cannot be deleted in place."
+msgstr "知识库标签不能原地删除。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_transfer.py:0
+msgid "Knowledge transfer records are immutable."
+msgstr "知识库传输记录不可修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_transfer.py:0
+msgid "Knowledge transfer records are server-managed."
+msgstr "知识库传输记录由服务端管理。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__last_opened_at
+msgid "Last Opened At"
+msgstr "最近打开时间"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__write_uid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__write_date
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__lifecycle
+msgid "Lifecycle"
+msgstr "生命周期"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Lists"
+msgstr "列表"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Live preview"
+msgstr "实时预览"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__logical_path
+msgid "Logical Path"
+msgstr "逻辑路径"
+
+#. module: qing_knowledge
+#: model:ir.module.module,description:base.module_qing_knowledge
+msgid ""
+"Manage private knowledge spaces, articles, reviews, revision history and "
+"controlled attachments."
+msgstr "管理私有知识空间、文章、审核、版本历史和受控附件。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member__role__manager
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member_wizard__role__manager
+msgid "Manager"
+msgstr "管理员"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__markdown
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__markdown
+msgid "Markdown"
+msgstr "Markdown"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Markdown article exceeds 1 MiB."
+msgstr "Markdown 文章超过 1 MiB。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Markdown article must be valid UTF-8."
+msgstr "Markdown 文章必须使用有效的 UTF-8 编码。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/markdown.py:0
+msgid "Markdown contains an invalid character."
+msgstr "Markdown 包含无效字符。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/markdown.py:0
+msgid "Markdown exceeds the 1 MiB limit."
+msgstr "Markdown 超过 1 MiB 限额。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Markdown source"
+msgstr "Markdown 源码"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/markdown.py:0
+msgid "Markdown source must be text."
+msgstr "Markdown 源码必须是文本。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Member must be an active internal user of this company."
+msgstr "成员必须是本公司的有效内部用户。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__member_ids
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_space_form
+msgid "Members"
+msgstr "成员"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__mime
+msgid "Mime"
+msgstr "MIME 类型"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "More blocks"
+msgstr "更多内容"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Move"
+msgstr "移动"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Move articles to trash instead of deleting them."
+msgstr "请将文章移入回收站，不要删除。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Move to trash"
+msgstr "移入回收站"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "My drafts"
+msgstr "我的草稿"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__name
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "New article"
+msgstr "新建文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "New space"
+msgstr "新建空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No articles here yet. Choose a space or create an article."
+msgstr "这里还没有文章，请选择空间或新建文章。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No matching articles."
+msgstr "没有找到匹配的文章。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No visible articles."
+msgstr "没有可见的文章。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__normalized_name
+msgid "Normalized Name"
+msgstr "规范化名称"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Not published"
+msgstr "尚未发布"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__number
+msgid "Number"
+msgstr "序号"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Numbered list"
+msgstr "有序列表"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "On this page"
+msgstr "本文目录"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "One or more articles are not available for export."
+msgstr "一篇或多篇文章无权导出。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "One or more revisions are unavailable."
+msgstr "一个或多个修订版不可用。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Only PNG, JPEG, WebP, GIF and PDF files are supported."
+msgstr "仅支持 PNG、JPEG、WebP、GIF 和 PDF 文件。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Only internal users may create spaces."
+msgstr "只有内部用户可以创建空间。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Only published articles can be favorited."
+msgstr "只能收藏已发布的文章。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Only system administrators can rebuild search terms."
+msgstr "只有系统管理员可以重建检索词。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Only the author may edit this draft."
+msgstr "只有作者可以编辑此草稿。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Only the author may preview an editing draft."
+msgstr "只有作者可以预览编辑中的草稿。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Only the author or space manager may withdraw a draft."
+msgstr "只有作者或空间管理员可以撤回草稿。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Only the first 2,000 articles are shown. Use search for the rest."
+msgstr "仅显示前 2,000 篇文章。请使用搜索查找其余文章。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_revision.py:0
+msgid "Only the publish action can create revisions."
+msgstr "只有发布动作可以创建修订版。"
+
+#. module: qing_knowledge
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_article_form
+msgid "Open My Draft"
+msgstr "打开我的草稿"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Open an article draft instead."
+msgstr "请通过文章打开草稿。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Open in a new tab"
+msgstr "在新标签页打开"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_event_unique_operation
+msgid "Operation UUID must be unique."
+msgstr "操作 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Operation UUID was already used for another request."
+msgstr "该操作 UUID 已用于其他请求。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__operation_uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__operation_uuid
+msgid "Operation Uuid"
+msgstr "操作 UUID"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Operation failed."
+msgstr "操作失败。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Organization and access"
+msgstr "组织与权限"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Outline"
+msgstr "目录"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__owner_id
+msgid "Owner"
+msgstr "负责人"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "PDF preview"
+msgstr "PDF 预览"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Package article hierarchy contains a cycle."
+msgstr "内容包文章层级存在循环。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package article path is missing or invalid."
+msgstr "内容包文章路径不存在或无效。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Package asset checksum does not match its path."
+msgstr "内容包资源校验值与路径不一致。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package contains an unsafe or duplicate path."
+msgstr "内容包包含不安全或重复的路径。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package contains an unsafe path."
+msgstr "内容包包含不安全路径。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package contains duplicate article identities."
+msgstr "内容包包含重复的文章标识。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package contains duplicate article paths."
+msgstr "内容包包含重复的文章路径。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package directory nesting exceeds 20 levels."
+msgstr "内容包目录层级超过 20 层。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Package is missing a referenced asset."
+msgstr "内容包缺少引用的资源。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Package must contain 1–500 Markdown articles."
+msgstr "内容包必须包含 1 到 500 篇 Markdown 文章。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Paragraph"
+msgstr "段落"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__parent_id
+msgid "Parent"
+msgstr "父页面"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__parent_uuid
+msgid "Parent Uuid"
+msgstr "父页面 UUID"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Parent article"
+msgstr "父文章"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Parent article does not exist."
+msgstr "父文章不存在。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Parent article is not editable in this space."
+msgstr "无法编辑此空间中的父文章。"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_bookmark
+msgid "Personal Knowledge Bookmark"
+msgstr "个人知识收藏"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_draft
+msgid "Personal Knowledge Draft"
+msgstr "个人知识草稿"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__draft_ids
+msgid "Personal drafts"
+msgstr "个人草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Policy"
+msgstr "制度"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__policy_epoch
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__policy_epoch
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__policy_epoch
+msgid "Policy Epoch"
+msgstr "权限版本"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__policy
+msgid "Policy changed"
+msgstr "权限已变化"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Preview PDF: %s"
+msgstr "预览 PDF：%s"
+
+#. module: qing_knowledge
+#: model:ir.module.module,summary:base.module_qing_knowledge
+msgid "Private Markdown knowledge spaces with review and revisions"
+msgstr "支持审核和版本管理的私有 Markdown 知识空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Product"
+msgstr "产品说明"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__publication_policy
+msgid "Publication Policy"
+msgstr "发布策略"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Publish"
+msgstr "发布"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid ""
+"Publish a new version for authorized space members? Your later edits will "
+"remain personal drafts."
+msgstr "向有权限的空间成员发布新版本吗？后续修改仍保存在个人草稿中。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Publish article"
+msgstr "发布文章"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__lifecycle__published
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_draft__state__merged
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__published
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_article_form
+msgid "Published"
+msgstr "已发布"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__published_at
+msgid "Published At"
+msgstr "发布时间"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__published_by
+msgid "Published By"
+msgstr "发布人"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_revision
+msgid "Published Knowledge Revision"
+msgstr "已发布的知识修订版"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__published_revision_id
+msgid "Published Revision"
+msgstr "已发布修订版"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Published articles"
+msgstr "已发布文章"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_revision.py:0
+msgid "Published revision content is immutable."
+msgstr "已发布修订版的内容不可修改。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_revision.py:0
+msgid "Published revisions cannot be deleted."
+msgstr "已发布修订版不能删除。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Published version"
+msgstr "正式发布版本"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member__role__publisher
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member_wizard__role__publisher
+msgid "Publisher"
+msgstr "发布者"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_space__publication_policy__direct
+msgid "Publishers may publish directly"
+msgstr "发布者可直接发布"
+
+#. module: qing_knowledge
+#: model:ir.module.module,shortdesc:base.module_qing_knowledge
+msgid "Qing Knowledge"
+msgstr "青 ERP 知识库"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "REVISION_CONFLICT: Review the latest published version first."
+msgstr "REVISION_CONFLICT：请先检查最新的正式发布版本。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "REVISION_CONFLICT: The article or submission has changed."
+msgstr "修订冲突：文章或提交已变化。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Read"
+msgstr "阅读"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member__role__reader
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_member_wizard__role__reader
+msgid "Reader"
+msgstr "读者"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Recent articles"
+msgstr "最近阅读"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid ""
+"Relative images must use the package assets/<checksum>.<ext> convention."
+msgstr "相对图片路径必须使用内容包的 assets/<校验值>.<扩展名> 格式。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Reload latest draft"
+msgstr "重新加载最新草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Reloading replaces your local edits. Download a copy first. Continue?"
+msgstr "重新加载会替换当前编辑内容，请先下载副本。继续吗？"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid ""
+"Replace your current draft with this revision? The published version will "
+"stay unchanged."
+msgstr "用此版本替换当前草稿？正式发布版本不会改变。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__request_hash
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__request_hash
+msgid "Request Hash"
+msgstr "请求哈希"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Resize knowledge sidebar"
+msgstr "调整知识库侧栏宽度"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Restore"
+msgstr "恢复"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Restore to draft"
+msgstr "恢复为草稿"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__restored
+msgid "Restored"
+msgstr "已恢复"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__restricted_member_ids
+msgid "Restricted Member"
+msgstr "受限成员"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Restricted readers must be active members of this space."
+msgstr "受限读者必须是本空间的有效成员。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__result_json
+msgid "Result Json"
+msgstr "结果 JSON"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Retry save"
+msgstr "重试保存"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_space__publication_policy__review
+msgid "Review before publishing"
+msgstr "审核后发布"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Review queue"
+msgstr "待审核"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__revision_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__revision_id
+msgid "Revision"
+msgstr "修订版"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_revision_unique_uuid
+msgid "Revision UUID must be unique."
+msgstr "修订版 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_revision_unique_number
+msgid "Revision number must be unique per article."
+msgstr "同一文章的修订版序号必须唯一。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__role
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__role
+msgid "Role"
+msgstr "角色"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "SOP"
+msgstr "操作规程"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Save"
+msgstr "保存"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Save failed."
+msgstr "保存失败。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Save failed. Your local changes are preserved."
+msgstr "保存失败，当前编辑内容仍保留。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Save or close the current draft before creating a space."
+msgstr "请先保存或关闭当前草稿，再创建空间。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Saving draft…"
+msgstr "正在保存草稿…"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__search_terms
+msgid "Search Terms"
+msgstr "检索词"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Search knowledge"
+msgstr "搜索知识"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Search parameters exceed the allowed limits."
+msgstr "搜索参数超出限制。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Search scope"
+msgstr "搜索范围"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__access_mode__restricted
+msgid "Selected members"
+msgstr "指定成员"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Selected space members"
+msgstr "指定空间成员"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__sequence
+msgid "Sequence"
+msgstr "排序"
+
+#. module: qing_knowledge
+#: model:ir.model,name:qing_knowledge.model_qing_knowledge_member_wizard
+msgid "Set Knowledge Space Member"
+msgstr "设置知识空间成员"
+
+#. module: qing_knowledge
+#: model_terms:ir.ui.view,arch_db:qing_knowledge.view_knowledge_space_form
+msgid "Set Member"
+msgstr "设置成员"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Set space member"
+msgstr "设置空间成员"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_tag.py:0
+msgid "Set tags through an editing draft."
+msgstr "请通过编辑中的草稿设置标签。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__size
+msgid "Size"
+msgstr "大小"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Source"
+msgstr "源码"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__space_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__space_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__space_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__space_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_tag__space_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_transfer__space_id
+msgid "Space"
+msgstr "空间"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_space_uuid_unique
+msgid "Space UUID must be unique."
+msgstr "空间 UUID 必须唯一。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Space management"
+msgstr "空间管理"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__access_mode__inherit
+msgid "Space members"
+msgstr "空间成员"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Space members and publication policy"
+msgstr "空间成员与发布策略"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Space name"
+msgstr "空间名称"
+
+#. module: qing_knowledge
+#: model:ir.ui.menu,name:qing_knowledge.menu_knowledge_spaces
+msgid "Spaces"
+msgstr "空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Spaces and articles"
+msgstr "空间与文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Split preview"
+msgstr "分屏预览"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Submit for review"
+msgstr "提交审核"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Submit this saved draft to the space publishers for review?"
+msgstr "将已保存的草稿提交给空间发布者审核吗？"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_draft__state__submitted
+msgid "Submitted"
+msgstr "已提交"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__submitted_at
+msgid "Submitted At"
+msgstr "提交时间"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Submitted draft is unavailable."
+msgstr "提交的草稿不可用。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Submitted for review"
+msgstr "已提交审核"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__summary
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__summary
+msgid "Summary"
+msgstr "摘要"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Table"
+msgstr "表格"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__tag_ids
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__tag_ids
+msgid "Tag"
+msgstr "标签"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__tag_names
+msgid "Tag Names"
+msgstr "标签名称"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_tag_unique_name
+msgid "Tag name already exists in this space."
+msgstr "本空间已存在同名标签。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Tag names must be a list."
+msgstr "标签名称必须是列表。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Tag names must contain 1–64 characters."
+msgstr "标签名称必须包含 1 到 64 个字符。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Tags (comma separated)"
+msgstr "标签（用逗号分隔）"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Team spaces"
+msgstr "团队空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Template"
+msgstr "模板"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Text"
+msgstr "文本"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "The draft references assets that have not been uploaded."
+msgstr "草稿引用了尚未上传的资源。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "The selected file could not be read."
+msgstr "无法读取所选文件。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid ""
+"This Markdown cannot safely round-trip through visual editing. Source mode "
+"is preserved."
+msgstr "此 Markdown 无法安全地往返转换为可视化编辑，已保留源码模式。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "This article has not been published."
+msgstr "此文章尚未发布。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid ""
+"This draft could not be saved. Download a copy before discarding your "
+"changes. Leave anyway?"
+msgstr "草稿未能保存，请在放弃修改前下载副本。仍要离开吗？"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "This draft has unsaved changes. Leave anyway?"
+msgstr "此草稿有未保存的更改，仍要离开吗？"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "This import exceeds the current interactive article limit."
+msgstr "导入文章数超过当前交互操作的限制。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "This space requires review before publishing."
+msgstr "此空间需要审核后才能发布。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__title
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__title
+msgid "Title"
+msgstr "标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Toggle article"
+msgstr "展开或收起文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Toggle space"
+msgstr "展开或收起空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Top level"
+msgstr "顶层"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__lifecycle__trashed
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Trash"
+msgstr "回收站"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__trashed
+msgid "Trashed"
+msgstr "已移入回收站"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Troubleshooting"
+msgstr "故障排查"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Unknown knowledge template."
+msgstr "未知的知识库模板。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Unpublish"
+msgstr "撤销发布"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_article__lifecycle__unpublished
+msgid "Unpublished"
+msgstr "未发布"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Unsaved changes"
+msgstr "未保存的更改"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "Unsupported package schema."
+msgstr "不支持的内容包格式版本。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Unsupported space creation field."
+msgstr "空间创建字段不受支持。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Upload a file"
+msgstr "上传文件"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Uploading…"
+msgstr "正在上传…"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Use an article management action."
+msgstr "请使用文章管理动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+#: code:addons/qing_knowledge/models/knowledge_member.py:0
+#: code:addons/qing_knowledge/models/knowledge_revision.py:0
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Use equality for accessibility."
+msgstr "请使用等值条件检查可访问性。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_bookmark.py:0
+msgid "Use equality for bookmark visibility."
+msgstr "请使用等值条件检查收藏可见性。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_tag.py:0
+msgid "Use equality for tag visibility."
+msgstr "请使用等值条件检查标签可见性。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_draft.py:0
+msgid "Use save, submit or withdraw actions."
+msgstr "请使用保存、提交或撤回动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_bookmark.py:0
+msgid "Use the article favorite action."
+msgstr "请使用文章收藏动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "Use the create article action."
+msgstr "请使用创建文章动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Use the draft upload action."
+msgstr "请使用草稿上传动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/ir_attachment.py:0
+msgid "Use the knowledge upload action."
+msgstr "请使用知识库上传动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "Use the space management actions."
+msgstr "请使用空间管理动作。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_member.py:0
+msgid "Use the space member action."
+msgstr "请使用空间成员管理动作。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_bookmark__user_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member__user_id
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_member_wizard__user_id
+msgid "User"
+msgstr "用户"
+
+#. module: qing_knowledge
+#: model:ir.model.constraint,message:qing_knowledge.constraint_qing_knowledge_member_unique_member
+msgid "User is already a member of this space."
+msgstr "用户已是此空间的成员。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_article__uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_asset__uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_draft__uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_event__uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_revision__uuid
+#: model:ir.model.fields,field_description:qing_knowledge.field_qing_knowledge_space__uuid
+msgid "Uuid"
+msgstr "UUID"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Visual editing"
+msgstr "可视化编辑"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Withdraw and continue editing"
+msgstr "撤回并继续编辑"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_asset.py:0
+msgid "Withdraw the submitted draft before uploading."
+msgstr "请先撤回已提交的草稿，再上传资源。"
+
+#. module: qing_knowledge
+#: model:ir.model.fields.selection,name:qing_knowledge.selection__qing_knowledge_event__kind__withdrawn
+msgid "Withdrawn"
+msgstr "已撤回"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Write here, or type / to insert"
+msgstr "直接开始写作，或输入 / 插入内容"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_article.py:0
+msgid "You cannot change this article."
+msgstr "您无权修改此文章。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "You do not have the required role in this space."
+msgstr "您在此空间没有所需角色。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Your local changes are still here. Download a copy before reloading."
+msgstr "当前编辑内容仍保留，请在重新加载前下载副本。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP contains a link or device."
+msgstr "ZIP 包含链接或设备文件。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP contains case or Unicode equivalent paths."
+msgstr "ZIP 包含大小写或 Unicode 等价的重复路径。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP contains duplicate paths."
+msgstr "ZIP 包含重复路径。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP contains too many files."
+msgstr "ZIP 文件数量超过限制。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/models/knowledge_space.py:0
+msgid "ZIP encoding exceeds the upload limit."
+msgstr "ZIP 编码内容超过上传限制。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "ZIP exceeds 50 MiB."
+msgstr "ZIP 超过 50 MiB。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP expanded size or compression ratio exceeds the limit."
+msgstr "ZIP 展开大小或压缩比超过限制。"
+
+#. module: qing_knowledge
+#. odoo-python
+#: code:addons/qing_knowledge/services/package.py:0
+msgid "ZIP size must be between 1 byte and 50 MiB."
+msgstr "ZIP 大小必须在 1 字节到 50 MiB 之间。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "v"
+msgstr "v"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "★ Saved"
+msgstr "★ 已收藏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "☆ Favorite"
+msgstr "☆ 收藏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Review changes before publishing"
+msgstr "发布前审阅修改内容"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No headings yet. Add a heading to build the outline."
+msgstr "正文还没有标题。添加标题后，将在这里显示目录。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Untitled heading"
+msgstr "未命名标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid ""
+"This heading is not available yet. Wait for the editor to load and try "
+"again."
+msgstr "编辑器尚未就绪，请稍后再点击目录标题。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Body"
+msgstr "正文"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Insert"
+msgstr "插入"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Attachments"
+msgstr "附件"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "No tags"
+msgstr "暂无标签"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Visibility"
+msgstr "可见范围"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Publication policy"
+msgstr "发布策略"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Reading and search use the article's current access rules."
+msgstr "阅读与搜索沿用文章当前的访问权限。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Publishers can publish directly"
+msgstr "发布者可直接发布"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Publisher review required"
+msgstr "需发布者审核"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Edit article information"
+msgstr "编辑文章信息"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Article actions"
+msgstr "文章操作"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Cancel new article"
+msgstr "取消新建文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Leave useful knowledge for your team"
+msgstr "为团队留下一份有用的知识"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Start from a template"
+msgstr "从模板开始"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Blank article"
+msgstr "空白文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Write freely"
+msgstr "自由书写"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Operating procedure"
+msgstr "操作规范"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Steps and precautions"
+msgstr "步骤与注意事项"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Frequently asked questions"
+msgstr "常见问题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Questions and answers"
+msgstr "问题与答案"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "More options"
+msgstr "更多选项"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Creating…"
+msgstr "正在创建…"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Create and edit"
+msgstr "创建并编辑"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Close insert menu"
+msgstr "关闭插入菜单"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Insert content"
+msgstr "插入内容"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Organize fields, steps or comparisons"
+msgstr "整理字段、步骤或对照信息"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Highlight conditions and precautions"
+msgstr "强调前提、限制和注意事项"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Image or PDF"
+msgstr "图片或 PDF"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Upload a file and insert it at the cursor"
+msgstr "上传文件并插入到光标处"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Keep code formatting and whitespace"
+msgstr "保留代码格式与空白"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Separate sections"
+msgstr "分隔章节"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Enter an article title."
+msgstr "请输入文章标题。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Save the current draft before creating another article."
+msgstr "请先保存当前草稿，再创建另一篇文章。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Item"
+msgstr "项目"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Description"
+msgstr "内容"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "New item"
+msgstr "新项目"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Enter details here."
+msgstr "请填写说明。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Note: add important conditions or reminders here."
+msgstr "提醒：在这里填写关键条件或注意事项。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "PDF · Click to preview"
+msgstr "PDF · 点击预览"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Knowledge space"
+msgstr "所属空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article owner"
+msgstr "负责人"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Version history"
+msgstr "版本记录"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No published versions yet."
+msgstr "尚无发布版本。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Article draft"
+msgstr "草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Current published version"
+msgstr "当前发布版本"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Previous version"
+msgstr "历史版本"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Version actions"
+msgstr "版本操作"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Bold"
+msgstr "加粗"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Italic"
+msgstr "斜体"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Strikethrough"
+msgstr "删除线"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Inline code"
+msgstr "行内代码"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Text formatting"
+msgstr "文字格式"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Link"
+msgstr "链接"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Highlight callout"
+msgstr "高亮提示框"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Articles in this space can be restored from the trash."
+msgstr "此空间中的文章可以从回收站恢复。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Trash is empty."
+msgstr "回收站为空。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "This article is in the trash. Restore it before editing."
+msgstr "此文章已在回收站中，请先恢复再编辑。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "%s articles"
+msgstr "%s 篇文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Add to favorites"
+msgstr "收藏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "All spaces"
+msgstr "全部空间"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Awaiting review"
+msgstr "待审核"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "B"
+msgstr "B"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Continue reading"
+msgstr "继续阅读"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Continue where you left off, or write down what you learned today."
+msgstr "继续上次的阅读，或者把今天的经验写下来。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Create in knowledge"
+msgstr "新建"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Create “%s” as a new article"
+msgstr "以“%s”为标题新建文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Drafts and reviews"
+msgstr "我的草稿与审核"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Drafts submitted for review in this space."
+msgstr "当前空间中已提交审核的草稿。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Esc"
+msgstr "Esc"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Good afternoon, %s"
+msgstr "下午好，%s"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Good evening, %s"
+msgstr "晚上好，%s"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Good morning, %s"
+msgstr "早上好，%s"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Home"
+msgstr "首页"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "I"
+msgstr "I"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Import documents"
+msgstr "导入文档"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Knowledge path"
+msgstr "知识库路径"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Markdown or ZIP"
+msgstr "Markdown 或 ZIP"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "No articles yet"
+msgstr "暂无文章"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "No drafts or reviews."
+msgstr "暂无草稿或待审核内容。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Nothing to continue yet. Articles you open will appear here."
+msgstr "还没有阅读记录，打开过的文章会显示在这里。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Remove from favorites"
+msgstr "取消收藏"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Result types"
+msgstr "结果类型"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "S"
+msgstr "S"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Search articles and drafts"
+msgstr "搜索文章和草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Search results"
+msgstr "搜索结果"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Search titles, content and my drafts"
+msgstr "搜索标题、正文和我的草稿"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Tags"
+msgstr "标签"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "Type to search all accessible articles."
+msgstr "输入关键字，搜索你有权限查看的全部文章。"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.js:0
+msgid "Untitled"
+msgstr "无标题"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "View all"
+msgstr "查看全部"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "to close"
+msgstr "关闭"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "to open"
+msgstr "打开"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "to select"
+msgstr "选择"
+
+#. module: qing_knowledge
+#. odoo-javascript
+#: code:addons/qing_knowledge/static/src/knowledge_action.xml:0
+msgid "⌘K"
+msgstr "⌘K"

@@ -1,0 +1,15 @@
+{
+    "name": "Qing Product",
+    "summary": "Product, category and unit management APIs for QingERP",
+    "version": '20.0.1.0.4',
+    "category": "Sales",
+    "author": "Qingdao Ohm Network Technology Co., Ltd.",
+    "website": "https://www.qingsolution.com/",
+    "support": "kevin@odoomommy.com",
+    "license": "LGPL-3",
+    "depends": ["qing_api", "product"],
+    "post_init_hook": "post_init_hook",
+    "application": False,
+    "installable": True,
+    'description': 'Provide controlled business APIs for products, product categories and units of measure.',
+}

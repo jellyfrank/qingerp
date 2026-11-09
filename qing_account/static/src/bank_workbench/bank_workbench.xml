@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+<t t-name="qing_account.BankWorkbench">
+<div class="o_qing_bank_workbench h-100 d-flex flex-column">
+    <header class="p-3 border-bottom">
+        <div class="d-flex justify-content-between align-items-center mb-3"><div><h3 class="mb-1">银行对账工作台</h3><span class="text-muted" t-esc="this.state.company"/></div><button class="btn btn-outline-secondary" t-on-click="() => this.undo()" t-att-disabled="!this.state.lastMatched || this.state.busy || this.state.loading">撤销上次匹配</button></div>
+        <div class="d-flex gap-2 flex-wrap align-items-end">
+            <label>银行<select class="form-select" t-att-value="this.state.journal" t-on-change="(event) => { this.state.journal = event.target.value; }" t-att-disabled="this.state.busy"><option value="">All Banks</option><t t-foreach="this.state.journals" t-as="journal" t-key="journal.id"><option t-att-value="journal.id" t-esc="journal.name"/></t></select></label>
+            <label>开始日期<input class="form-control" type="date" t-att-value="this.state.from" t-on-input="(event) => { this.state.from = event.target.value; }" t-att-disabled="this.state.busy"/></label>
+            <label>结束日期<input class="form-control" type="date" t-att-value="this.state.to" t-on-input="(event) => { this.state.to = event.target.value; }" t-att-disabled="this.state.busy"/></label>
+            <button class="btn btn-primary" t-on-click="() => this.reload(true)" t-att-disabled="this.state.busy || this.state.loading">刷新待处理</button>
+            <span class="text-muted">本位币 · 整笔收付款匹配</span>
+        </div>
+    </header>
+    <div class="qing-bank-columns flex-grow-1">
+        <aside class="qing-bank-queue p-3 border-end">
+            <div class="d-flex justify-content-between mb-3"><strong>待处理流水</strong><span t-esc="this.state.lines.length + ' 笔 / 本页'"/></div>
+            <t t-foreach="this.state.lines" t-as="line" t-key="line.id"><button class="qing-bank-line btn w-100 text-start border mb-2 p-3" t-att-class="{'border-primary bg-primary-subtle': this.state.line &amp;&amp; this.state.line.id === line.id, 'opacity-50': this.state.skipped.includes(line.id)}" t-on-click="() => this.selectLine(line)" t-att-disabled="this.state.busy">
+                <div class="d-flex justify-content-between gap-2"><span t-esc="line.date"/><strong t-att-class="line.amount &gt; 0 ? 'text-success' : 'text-danger'" t-esc="line.amount.toFixed(2) + ' ' + line.currency"/></div><div class="mt-2" t-esc="line.partner || '未识别往来单位'"/><div class="small text-muted text-break" t-esc="line.memo"/>
+            </button></t>
+            <p t-if="!this.state.lines.length &amp;&amp; !this.state.loading" class="text-muted">当前筛选下没有待处理流水。</p>
+            <div class="d-flex gap-2"><button class="btn btn-outline-secondary" t-att-disabled="!this.state.offset || this.state.loading || this.state.busy" t-on-click="() => this.page(-1)">上一页</button><button class="btn btn-outline-secondary" t-att-disabled="!this.state.more || this.state.loading || this.state.busy" t-on-click="() => this.page(1)">下一页</button></div>
+        </aside>
+        <main class="qing-bank-candidates p-3">
+            <t t-if="this.state.line">
+                <div class="border rounded p-3 mb-3"><h5>当前流水</h5><div class="text-break" t-esc="this.state.line.memo"/><div class="mt-2 text-muted"><t t-esc="this.state.line.journal"/> · <t t-esc="this.state.line.date"/></div><div>对方：<t t-esc="this.state.line.partner || '未识别'"/></div><div>对方账号：<t t-esc="this.state.line.account || '未提供'"/></div><div>银行流水号：<t t-esc="this.state.line.reference || '未提供'"/></div></div>
+                <h5>候选收付款</h5><p class="small text-muted">按往来单位、对方账号及日期接近程度排序。金额相同仍需核实。</p>
+                <form class="d-flex gap-2 mb-3" t-on-submit.prevent="() => this.findCandidates()"><input class="form-control" placeholder="搜索往来单位或收付款单号" aria-label="搜索候选收付款" t-att-value="this.state.query" t-on-input="(event) => { this.state.query = event.target.value; }" t-att-disabled="this.state.busy"/><button class="btn btn-outline-primary" t-att-disabled="this.state.busy || this.state.loading">搜索</button></form>
+                <div t-if="this.state.notice" class="alert alert-warning" role="status" t-esc="this.state.notice"/>
+                <p t-if="this.state.loading" role="status">正在加载候选…</p>
+                <t t-foreach="this.state.candidates" t-as="candidate" t-key="candidate.id"><button class="qing-bank-candidate btn w-100 text-start border p-3 mb-2" t-att-class="{'border-primary bg-primary-subtle': this.state.selected &amp;&amp; this.state.selected.id === candidate.id}" t-on-click="() => { this.state.selected = candidate; }" t-att-disabled="this.state.busy || this.state.loading">
+                    <div class="d-flex justify-content-between"><strong t-esc="candidate.partner"/><strong t-esc="candidate.amount.toFixed(2) + ' ' + candidate.currency"/></div><div><t t-esc="candidate.name"/> · <t t-esc="candidate.date"/></div><div class="small text-muted mt-2" t-esc="candidate.reasons.join(' · ')"/>
+                </button></t>
+                <div t-if="!this.state.loading &amp;&amp; !this.state.candidates.length &amp;&amp; !this.state.notice" class="alert alert-light border" role="status">没有符合条件的已登记收付款。可修改搜索词，或暂时跳过此流水；手续费、拆分合并等场景将在后续支持。</div>
+            </t>
+            <div t-else="" class="text-muted p-4">请选择左侧流水。已暂时跳过的流水可重新选择，或点击“刷新待处理”。</div>
+        </main>
+        <section class="qing-bank-result p-3 border-start">
+            <h5>本次匹配</h5>
+            <t t-if="this.state.line"><div class="my-3">银行金额<strong class="d-block fs-4" t-esc="this.state.line.amount.toFixed(2) + ' ' + this.state.line.currency"/></div></t>
+            <t t-if="this.state.selected"><div class="border rounded p-3 mb-3"><strong t-esc="this.state.selected.partner"/><div t-esc="this.state.selected.name"/><div t-esc="this.state.selected.date"/><button class="btn btn-link px-0" t-on-click="() => this.openPayment()">查看收付款</button></div><div class="mb-3">剩余差额：<strong t-esc="(this.state.line.amount - this.state.selected.signed_amount).toFixed(2)"/></div></t>
+            <p t-else="" class="text-muted">请在候选列表中选择一笔收付款。</p>
+            <button class="qing-bank-confirm btn btn-primary w-100 mb-2" t-on-click="() => this.confirm()" t-att-disabled="!this.state.selected || this.state.busy || this.state.loading"><t t-if="this.state.busy">正在处理…</t><t t-else="">确认并下一笔</t></button>
+            <button class="btn btn-outline-secondary w-100" t-on-click="() => this.skip()" t-att-disabled="!this.state.line || this.state.busy || this.state.loading">暂时跳过</button>
+            <p class="small text-muted mt-3">确认仅完成银行清算，不会重复登记收付款。</p>
+        </section>
+    </div>
+</div>
+</t></templates>

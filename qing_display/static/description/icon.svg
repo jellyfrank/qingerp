@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="20" y1="18" x2="236" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17636A"/>
+      <stop offset="1" stop-color="#103F4B"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="54" y1="49" x2="204" y2="161" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DDF0EB"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="70" y1="86" x2="180" y2="148" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#36D5D6"/>
+      <stop offset="1" stop-color="#388F91"/>
+    </linearGradient>
+    <filter id="shadow" x="28" y="31" width="202" height="201" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="54" fill="url(#bg)"/>
+  <rect x="41" y="46" width="174" height="131" rx="18" fill="#092F38" fill-opacity=".34" filter="url(#shadow)"/>
+  <rect x="39" y="37" width="178" height="137" rx="17" fill="url(#screen)" stroke="#0D3E48" stroke-width="7"/>
+  <path d="M45 57a13 13 0 0 1 13-13h140a13 13 0 0 1 13 13v13H45V57Z" fill="#D7ECE7"/>
+  <circle cx="61" cy="57" r="4" fill="#24C7D0"/>
+  <circle cx="74" cy="57" r="4" fill="#F1B85E"/>
+  <circle cx="87" cy="57" r="4" fill="#7CBBAE"/>
+  <path d="M61 91h134M61 116h134M61 141h134" stroke="#BED8D2" stroke-width="3" stroke-linecap="round"/>
+  <path d="M70 136v9h18v-23H70v14Zm31 9h18v-39h-18v39Zm31 0h18V99h-18v46Zm31 0h18V81h-18v64Z" fill="url(#bar)"/>
+  <path d="m70 113 29-12 28 7 31-29 22-9" stroke="#E3A841" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70" cy="113" r="4.5" fill="#FFFFFF" stroke="#D99A32" stroke-width="3"/>
+  <circle cx="99" cy="101" r="4.5" fill="#FFFFFF" stroke="#D99A32" stroke-width="3"/>
+  <circle cx="127" cy="108" r="4.5" fill="#FFFFFF" stroke="#D99A32" stroke-width="3"/>
+  <circle cx="158" cy="79" r="4.5" fill="#FFFFFF" stroke="#D99A32" stroke-width="3"/>
+  <circle cx="180" cy="70" r="4.5" fill="#FFFFFF" stroke="#D99A32" stroke-width="3"/>
+  <path d="M112 177v20H96a5 5 0 0 0-5 5v3h74v-3a5 5 0 0 0-5-5h-16v-20h-32Z" fill="#D7ECE7" stroke="#0D3E48" stroke-width="6" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,51 @@
+@media (min-width: 768px) {
+    .o_qing_web_ui .o_form_sheet {
+        // A single nested group must fill its already allocated outer column.
+        .o_group.col-lg-6:not(:has(> .o_group)):not(:has(> .o_inner_group ~ .o_inner_group)) > .o_inner_group.col-lg-6 {
+            width: 100%;
+        }
+
+        .o_inner_group:not(.oe_subtotal_footer):has(> .o_wrap_label) {
+            grid-template-columns: minmax(110px, 150px) minmax(0, 1fr);
+            column-gap: 12px;
+            row-gap: 4px;
+            margin-bottom: 12px;
+
+            > .o_cell { min-width: 0; }
+            .o_wrap_label {
+                align-self: start;
+                padding-top: 5px;
+                .o_form_label {
+                    line-height: 20px;
+                    margin-bottom: 0;
+                    font-weight: 500;
+                    color: var(--o-qing-text);
+                    word-break: normal;
+                }
+            }
+            // Readonly values have no input padding; align their labels with the text.
+            .o_wrap_label:has(+ .o_wrap_input > .o_field_widget.o_readonly_modifier:not(.o_field_boolean)) {
+                padding-top: 0;
+                align-self: start;
+            }
+            > .o_wrap_input > .o_field_widget:not(.o_field_boolean) {
+                min-width: 0;
+                width: 100%;
+                > .o_input, .o_input_dropdown {
+                    min-height: 30px;
+                    padding-top: 3px;
+                    padding-bottom: 3px;
+                }
+                // Native selection menus already contain their own input.
+                .o_select_menu.o_input_dropdown {
+                    padding: 0;
+                    .o_select_menu_input {
+                        min-height: 30px;
+                        padding: 3px 18px 3px 0;
+                    }
+                }
+            }
+
+        }
+    }
+}

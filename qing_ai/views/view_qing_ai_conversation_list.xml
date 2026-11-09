@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_conversation_list" model="ir.ui.view">
+        <field name="name">qing.ai.conversation.list</field>
+        <field name="model">qing.ai.conversation</field>
+        <field name="arch" type="xml">
+            <list string="Daily Assistant">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="provider"/>
+                <field name="last_message_at"/>
+            </list>
+        </field>
+    </record>
+</odoo>

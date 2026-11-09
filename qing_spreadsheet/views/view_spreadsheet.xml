@@ -1,0 +1,72 @@
+<odoo>
+    <record id="view_qing_spreadsheet_list" model="ir.ui.view">
+        <field name="name">qing.spreadsheet.list</field>
+        <field name="model">qing.spreadsheet</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="tag"/>
+                <field name="owner_id"/>
+                <field name="content_version" string="Version"/>
+                <field name="is_template"/>
+                <field name="write_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <button name="action_open" type="object" string="Open" icon="folder_open"/>
+                <button name="action_toggle_favorite" type="object" string="Favorite" icon="fa-star"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qing_spreadsheet_form" model="ir.ui.view">
+        <field name="name">qing.spreadsheet.form</field>
+        <field name="model">qing.spreadsheet</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_open" type="object" string="Open Spreadsheet" class="btn-primary"/>
+                    <button name="action_duplicate" type="object" string="Create a Copy"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-secondary" invisible="active"/>
+                    <group>
+                        <field name="name"/>
+                        <field name="tag"/>
+                        <field name="description"/>
+                        <field name="owner_id" readonly="not can_manage"/>
+                        <field name="company_id" groups="base.group_multi_company" readonly="id"/>
+                        <field name="is_template" readonly="not can_manage"/>
+                        <field name="active" invisible="1"/>
+                        <field name="can_manage" invisible="1"/>
+                        <field name="content_version"/>
+                    </group>
+                    <group string="Internal Sharing">
+                        <p class="text-muted" colspan="2">Sharing includes saved values, hidden sheets and version history. Live data continues to follow each viewer's access rights.</p>
+                        <field name="editor_ids" readonly="not can_manage" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="reader_ids" readonly="not can_manage" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_qing_spreadsheet_search" model="ir.ui.view">
+        <field name="name">qing.spreadsheet.search</field>
+        <field name="model">qing.spreadsheet</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="tag"/>
+                <field name="owner_id"/>
+                <filter name="mine" string="My Workbooks" domain="[('owner_id', '=', uid)]"/>
+                <filter name="shared" string="Shared with Me" domain="[('owner_id', '!=', uid)]"/>
+                <filter name="favorites" string="Favorites" domain="[('favorite_user_ids', 'in', [uid])]"/>
+                <filter name="templates" string="Templates" domain="[('is_template', '=', True)]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+    <record id="action_workbooks" model="ir.actions.act_window">
+        <field name="name">Spreadsheets</field>
+        <field name="res_model">qing.spreadsheet</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

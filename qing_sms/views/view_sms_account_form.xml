@@ -1,0 +1,16 @@
+<odoo>
+ <record id="view_sms_account_list" model="ir.ui.view"><field name="name">qing.sms.account.list</field><field name="model">qing.sms.account</field>
+ <field name="arch" type="xml"><list><field name="name"/><field name="company_id"/><field name="provider"/><field name="enabled"/><field name="last_sync_at"/></list></field></record>
+ <record id="view_sms_account_form" model="ir.ui.view"><field name="name">qing.sms.account.form</field><field name="model">qing.sms.account</field>
+ <field name="arch" type="xml"><form>
+ <header><button name="action_test_configuration" type="object" string="测试配置" groups="qing_sms.group_sms_manager"/>
+ <button name="action_sync" type="object" string="同步签名与模板" class="btn-primary" groups="qing_sms.group_sms_manager"/></header>
+ <sheet><group><field name="name"/><field name="company_id"/><field name="provider"/><field name="enabled"/>
+ <field name="key" groups="base.group_system"/><field name="secret" password="True" groups="base.group_system"/>
+ <field name="active"/><field name="auto_sync"/><field name="last_sync_at"/><field name="sync_error"/></group>
+ <notebook><page string="签名"><field name="sign_ids" readonly="1"><list><field name="name"/><field name="audit_state"/><field name="reject_reason"/></list></field></page>
+ <page string="云端模板"><field name="template_ids" readonly="1"><list><field name="remote_id"/><field name="name"/><field name="audit_state"/><field name="category"/></list></field></page></notebook>
+ </sheet></form></field></record>
+ <record id="action_sms_account" model="ir.actions.act_window"><field name="name">国内短信</field>
+ <field name="res_model">qing.sms.account</field><field name="view_mode">list,form</field></record>
+</odoo>

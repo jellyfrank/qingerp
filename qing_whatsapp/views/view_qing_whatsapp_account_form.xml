@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_qing_whatsapp_account_form" model="ir.ui.view">
+        <field name="name">qing.whatsapp.account.form</field>
+        <field name="model">qing.whatsapp.account</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button groups="qing_whatsapp.group_manager" name="action_test_connection" string="Test connection" type="object"/>
+                    <button groups="qing_whatsapp.group_manager" name="action_sync_templates" string="Synchronize templates" type="object"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                        <field name="company_id"/>
+                        <field name="operator_ids" widget="many2many_tags"/>
+                        <field name="phone_uid"/>
+                        <field name="waba_uid"/>
+                        <field name="api_version"/>
+                        <field name="catalog_uid"/>
+                    </group>
+                    <group groups="qing_whatsapp.group_manager" string="Connection">
+                        <field name="access_token" password="True"/>
+                        <field name="app_secret" password="True"/>
+                        <field name="verify_token" password="True"/>
+                        <field name="callback_url" widget="url"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

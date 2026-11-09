@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="action_conversations" model="ir.actions.act_window">
+        <field name="name">Conversations</field>
+        <field name="res_model">qing.whatsapp.conversation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_accounts" model="ir.actions.act_window">
+        <field name="name">Accounts</field>
+        <field name="res_model">qing.whatsapp.account</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_templates" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">qing.whatsapp.template</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_messages" model="ir.actions.act_window">
+        <field name="name">Messages</field>
+        <field name="res_model">qing.whatsapp.message</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_events" model="ir.actions.act_window">
+        <field name="name">Webhook events</field>
+        <field name="res_model">qing.whatsapp.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_consents" model="ir.actions.act_window">
+        <field name="name">Consent evidence</field>
+        <field name="res_model">qing.whatsapp.consent</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record id="action_commerce" model="ir.actions.act_window">
+        <field name="name">Commerce events</field>
+        <field name="res_model">qing.whatsapp.commerce.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem action="action_conversations" groups="group_user" id="menu_root" name="Qing WhatsApp" sequence="40" web_icon="qing_whatsapp,static/description/icon.png"/>
+
+
+    <menuitem action="action_conversations" id="menu_conversations" name="Conversations" parent="menu_root" sequence="10"/>
+
+
+    <menuitem action="action_messages" id="menu_messages" name="Messages" parent="menu_root" sequence="20"/>
+
+
+    <menuitem action="action_templates" id="menu_templates" name="Templates" parent="menu_root" sequence="30"/>
+
+
+    <menuitem action="action_commerce" id="menu_commerce" name="Commerce events" parent="menu_root" sequence="40"/>
+
+
+    <menuitem action="action_consents" groups="group_manager" id="menu_consents" name="Consent evidence" parent="menu_root" sequence="50"/>
+
+
+    <menuitem action="action_events" groups="group_manager" id="menu_events" name="Webhook events" parent="menu_root" sequence="60"/>
+
+
+    <menuitem action="action_accounts" groups="group_manager" id="menu_accounts" name="Accounts" parent="menu_root" sequence="70"/>
+
+
+</odoo>

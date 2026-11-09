@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.ListRenderer" t-inherit-mode="extension">
+        <xpath expr="//thead/tr/t[@t-foreach='this.columns']/th[@t-else]" position="before">
+            <th t-elif="column.type === 'qing_row_number'" class="o_qing_row_number text-center" scope="col">#</th>
+        </xpath>
+    </t>
+
+    <t t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension">
+        <xpath expr="//t[@t-foreach='this.getColumns(record)']/t[1]" position="before">
+            <t t-if="column.type === 'qing_row_number'">
+                <td class="o_qing_row_number text-center text-muted user-select-none">
+                    <t t-out="list.offset + record_index + 1"/>
+                </td>
+            </t>
+        </xpath>
+    </t>
+</templates>

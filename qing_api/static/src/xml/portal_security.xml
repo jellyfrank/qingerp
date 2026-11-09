@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_api.PortalKeyDescription" t-inherit="portal.keydescription" t-inherit-mode="extension">
+        <xpath expr="//input[@name='duration']" position="attributes">
+            <attribute name="t-att-default-checked">duration_selection.some((option) => option[0] === '365') ? duration[0] === '365' : duration[0] === default_duration</attribute>
+        </xpath>
+    </t>
+</templates>

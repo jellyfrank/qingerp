@@ -1,0 +1,73 @@
+<templates xml:space="preserve">
+    <t t-name="qing_spreadsheet.WorkbookEditor">
+        <div class="o_qing_spreadsheet d-flex flex-column h-100">
+            <div class="o_qing_sheet_toolbar d-flex flex-wrap align-items-center gap-2 p-2 border-bottom">
+                <strong class="text-truncate me-auto" t-esc="this.state.name"/>
+                <span class="small text-muted" aria-live="polite" t-esc="this.status"/>
+                <span t-if="this.state.editable" t-att-data-tooltip="this.actionLabels.save">
+                    <button type="button" class="btn btn-primary btn-sm o_qing_sheet_icon_btn" t-on-click="this.save" t-att-disabled="this.state.busy || this.state.pending || !this.state.dirty" t-att-aria-label="this.actionLabels.save"><i class="oi" data-icon="save" aria-hidden="true"/></button>
+                </span>
+                <span t-else="" t-att-data-tooltip="this.actionLabels.retryEditing">
+                    <button type="button" class="btn btn-outline-primary btn-sm o_qing_sheet_icon_btn" t-on-click="this.retryEditing" t-att-disabled="this.state.busy" t-att-aria-label="this.actionLabels.retryEditing"><i class="oi" data-icon="edit" aria-hidden="true"/></button>
+                </span>
+                <span t-att-data-tooltip="this.actionLabels.metadata">
+                    <button type="button" class="btn btn-light btn-sm o_qing_sheet_icon_btn" t-on-click="this.metadata" t-att-disabled="this.state.busy" t-att-aria-label="this.actionLabels.metadata"><i class="oi" data-icon="share" aria-hidden="true"/></button>
+                </span>
+                <span t-att-data-tooltip="this.actionLabels.history">
+                    <button type="button" class="btn btn-light btn-sm o_qing_sheet_icon_btn" t-on-click="this.history" t-att-disabled="this.state.busy" t-att-aria-label="this.actionLabels.history"><i class="oi" data-icon="history" aria-hidden="true"/></button>
+                </span>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-light btn-sm dropdown-toggle o_qing_sheet_icon_btn" data-bs-toggle="dropdown" t-att-data-tooltip="this.actionLabels.workbook" t-att-aria-label="this.actionLabels.workbook"><i class="oi" data-icon="folder" aria-hidden="true"/></button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <button class="dropdown-item" t-on-click="this.copyDraft" t-att-disabled="this.state.busy">Save a private copy</button>
+                        <label class="dropdown-item mb-0">Import XLSX / JSON<input class="d-none" type="file" accept=".xlsx,.json" t-on-change="this.importFile" t-att-disabled="this.state.busy"/></label>
+                        <button t-if="this.state.canExport" class="dropdown-item" t-on-click="() => this.exportFile('xlsx')" t-att-disabled="this.state.busy">Export XLSX</button>
+                        <button t-if="this.state.canExport" class="dropdown-item" t-on-click="() => this.exportFile('json')" t-att-disabled="this.state.busy || this.state.dirty">Download saved JSON</button>
+                        <button class="dropdown-item" t-on-click="this.reload" t-att-disabled="this.state.busy">Reload saved workbook</button>
+                    </div>
+                </div>
+                <span t-if="this.state.editable" t-att-data-tooltip="this.actionLabels.insertSource">
+                    <button type="button" class="btn btn-outline-secondary btn-sm o_qing_sheet_icon_btn" t-on-click="this.insertSource" t-att-disabled="this.state.busy || this.state.pending" t-att-aria-label="this.actionLabels.insertSource"><i class="oi" data-icon="playlist_add" aria-hidden="true"/></button>
+                </span>
+                <span t-if="this.state.editable" t-att-data-tooltip="this.actionLabels.manageSources">
+                    <button type="button" class="btn btn-light btn-sm o_qing_sheet_icon_btn" t-on-click="this.manageSources" t-att-disabled="this.state.busy || this.state.pending" t-att-aria-label="this.actionLabels.manageSources"><i class="oi" data-icon="database" aria-hidden="true"/></button>
+                </span>
+                <span t-att-data-tooltip="this.actionLabels.refresh">
+                    <button type="button" class="btn btn-light btn-sm o_qing_sheet_icon_btn" t-on-click="this.refresh" t-att-aria-label="this.actionLabels.refresh"><i class="oi" data-icon="refresh" aria-hidden="true"/></button>
+                </span>
+                <t t-if="this.state.bound and this.state.editable">
+                    <span t-att-data-tooltip="this.actionLabels.reviewRecord">
+                        <button type="button" class="btn btn-outline-primary btn-sm o_qing_sheet_icon_btn" t-on-click="this.reviewRecord" t-att-disabled="this.state.busy || this.state.pending" t-att-aria-label="this.actionLabels.reviewRecord"><i class="oi" data-icon="fact_check" aria-hidden="true"/></button>
+                    </span>
+                    <span t-att-data-tooltip="this.actionLabels.reloadRecord">
+                        <button type="button" class="btn btn-light btn-sm o_qing_sheet_icon_btn" t-on-click="this.reloadRecord" t-att-disabled="this.state.busy || this.state.pending" t-att-aria-label="this.actionLabels.reloadRecord"><i class="oi" data-icon="replay" aria-hidden="true"/></button>
+                    </span>
+                </t>
+            </div>
+            <div t-if="this.state.message" class="alert alert-info rounded-0 m-0 py-2" t-esc="this.state.message"/>
+            <div t-if="this.state.error" class="alert alert-danger rounded-0 m-0 py-2" role="alert" t-esc="this.state.error"/>
+            <div t-if="this.state.pending" class="alert alert-warning rounded-0 m-0 py-2 d-flex align-items-center gap-2">
+                <span>A save has not been confirmed. Recover it before submitting another change.</span>
+                <button class="btn btn-sm btn-warning" t-on-click="this.recoverSave" t-att-disabled="this.state.busy">Recover save</button>
+            </div>
+            <div t-if="this.model" class="o_qing_sheet_canvas flex-grow-1 position-relative" t-key="this.state.modelKey"><SpreadsheetComponent model="this.model"/></div>
+        </div>
+    </t>
+    <t t-name="qing_spreadsheet.HistoryDialog">
+        <Dialog title="this.title" size="'lg'">
+            <p>Restoring creates a new version. History includes saved values and hidden sheets.</p>
+            <table class="table table-sm"><thead><tr><th>Version</th><th>Author</th><th>Saved at</th><th>Note</th><th/></tr></thead>
+                <tbody><tr t-foreach="this.props.versions" t-as="version" t-key="version.id"><td t-esc="version.version"/><td t-esc="version.author_id[1]"/><td t-esc="version.create_date"/><td t-esc="version.label"/><td><button t-if="this.props.canRestore" class="btn btn-sm btn-secondary" t-on-click="() => this.restore(version.id)">Restore</button></td></tr></tbody>
+            </table>
+            <t t-set-slot="footer"><button class="btn btn-secondary" t-on-click="this.props.close">Close</button></t>
+        </Dialog>
+    </t>
+    <t t-name="qing_spreadsheet.ReviewDialog">
+        <Dialog title="this.title" size="'lg'">
+            <div t-if="this.props.review.errors.length" class="alert alert-danger"><div t-foreach="this.props.review.errors" t-as="error" t-key="error_index"><strong><t t-esc="error.sheet"/> <t t-esc="error.cell"/>: </strong><t t-esc="error.message"/></div></div>
+            <table class="table"><thead><tr><th>Change</th><th>Before</th><th>After</th></tr></thead><tbody><tr t-foreach="this.props.review.changes" t-as="change" t-key="change_index"><td t-esc="change.label"/><td t-esc="change.before"/><td t-esc="change.after"/></tr></tbody></table>
+            <p>Applying updates the business record after checking its permissions, rules and current version.</p>
+            <t t-set-slot="footer"><button class="btn btn-primary" t-att-disabled="this.props.review.errors.length" t-on-click="this.apply">Apply to record</button><button class="btn btn-secondary" t-on-click="this.props.close">Cancel</button></t>
+        </Dialog>
+    </t>
+</templates>

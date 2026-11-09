@@ -1,0 +1,7 @@
+.qing_scan_create_form {
+    .o_form_sheet { max-width: 720px; }
+    .qing_scan_draft_actions .btn { flex: 1; white-space: normal; min-height: 40px; }
+    .qing_scan_draft_lines .o_kanban_record { border-radius: 0; box-shadow: none; }
+    .qing_scan_draft_lines .o_kanban_renderer { gap: 0; }
+}
+.o_qing_scan .qing_scan_new { flex: 0 0 44px; }

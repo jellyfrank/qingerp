@@ -1,0 +1,20 @@
+{
+    'name': 'QingERP Repairs',
+    'summary': 'Repair information and optional direct pricing with native invoicing',
+    'version': '20.0.1.0.4',
+    'category': 'Inventory/Inventory',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'license': 'LGPL-3',
+    'depends': ['qing_base', 'repair'],
+    'data': [
+        'views/view_res_config_settings_form.xml',
+        'views/view_repair_order_form.xml',
+        'views/view_repair_order_list.xml',
+        'views/view_repair_order_search.xml',
+    ],
+    'post_init_hook': 'post_init_hook',
+    'installable': True,
+    'description': 'Manage service and parts charges on native repair orders, with linked quotations or direct pricing and invoicing.',
+    'support': 'kevin@odoomommy.com',
+}

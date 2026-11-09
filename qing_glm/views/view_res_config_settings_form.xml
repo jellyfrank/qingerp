@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.qing.glm</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_ai.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='qing_ai']" position="inside">
+                <block title="GLM" name="qing_glm">
+                    <setting id="qing_glm_enabled" string="Enable GLM">
+                        <field name="qing_glm_enabled"/>
+                    </setting>
+                    <setting id="qing_glm_api_key" string="API Key" help="Stored in this QingERP database; never sent to a QingERP relay.">
+                        <field name="qing_glm_api_key" password="True"/>
+                    </setting>
+                    <setting id="qing_glm_endpoint" string="API Endpoint">
+                        <field name="qing_glm_endpoint"/>
+                    </setting>
+                    <setting id="qing_glm_model" string="Model">
+                        <field name="qing_glm_model"/>
+                    </setting>
+                    <setting id="qing_glm_image_enabled" string="Image Input"
+                             help="Enable only when the configured model accepts image input. Pasted images are sent directly to this provider.">
+                        <field name="qing_glm_image_enabled"/>
+                    </setting>
+                    <setting id="qing_glm_test" string="Connection Test" help="Save settings first. This sends one short prompt and may incur provider charges.">
+                        <button name="action_test_qing_glm" type="object" string="Test Saved Configuration" class="btn-link"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id,group_id/id,operation,domain
+access_unbilled_purchase_manager,unbilled.purchase.manager,qing.unbilled.purchase,account.group_account_manager,crud,
+access_accrual_batch_manager,accrual.batch.manager,qing.accrual.batch,account.group_account_manager,crud,
+accrual_batch_company,accrual.batch.company,qing.accrual.batch,,crud,"[('company_id', 'in', company_ids)]"
+access_accrual_source_manager,accrual.source.manager,qing.accrual.source,account.group_account_manager,crud,
+accrual_source_company,accrual.source.company,qing.accrual.source,,crud,"[('company_id', 'in', company_ids)]"
+access_accrual_preview_manager,accrual.preview.manager,qing.accrual.preview,account.group_account_manager,crud,
+access_accrual_closing_manager,accrual.closing.manager,qing.accrual.closing,account.group_account_manager,crud,

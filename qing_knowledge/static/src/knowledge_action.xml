@@ -1,0 +1,342 @@
+<templates xml:space="preserve">
+    <t t-name="qing_knowledge.Workspace">
+        <div class="o_qing_knowledge d-flex h-100" t-ref="this.workspaceRoot" t-att-class="{ 'is-sidebar-collapsed': this.state.sidebarCollapsed, 'is-resizing-sidebar': this.state.resizingSidebar }" t-att-style="'--qing-knowledge-sidebar-width: ' + this.state.sidebarWidth + 'px'">
+            <aside class="o_qing_knowledge_sidebar d-flex flex-column" t-att-inert="this.hasModal ? '' : undefined">
+                <div class="o_qing_knowledge_sidebar_heading d-flex align-items-center gap-2">
+                    <t t-if="!this.state.sidebarCollapsed">
+                        <span class="o_qing_knowledge_brand" aria-hidden="true"><i class="oi" data-icon="article"/></span>
+                        <strong class="me-auto">Knowledge</strong>
+                    </t>
+                    <button type="button" class="o_qing_knowledge_icon_button" t-on-click="this.toggleSidebar" t-att-aria-label="this.sidebarToggleLabel" t-att-title="this.sidebarToggleLabel" t-att-aria-expanded="!this.state.sidebarCollapsed"><i class="oi" t-att-data-icon="this.state.sidebarCollapsed ? 'left_panel_open' : 'left_panel_close'" aria-hidden="true"/></button>
+                </div>
+                <nav t-if="this.state.sidebarCollapsed" class="o_qing_knowledge_rail" aria-label="Knowledge shortcuts">
+                    <button type="button" t-on-click="this.openSearch" aria-label="Search knowledge" title="Search knowledge"><i class="oi" data-icon="search" aria-hidden="true"/></button>
+                    <button type="button" t-att-class="{ active: this.state.navigation === 'home' }" t-on-click="() => this.navigateList('home')" aria-label="Home" title="Home"><i class="oi" data-icon="home" aria-hidden="true"/></button>
+                    <button type="button" t-att-class="{ active: this.state.navigation === 'favorites' }" t-on-click="() => this.navigateList('favorites')" aria-label="Favorites" title="Favorites"><i class="oi" data-icon="star" aria-hidden="true"/></button>
+                    <span class="o_qing_knowledge_rail_divider" aria-hidden="true"/>
+                    <button t-foreach="this.state.spaces" t-as="space" t-key="space.id" type="button" t-att-class="{ active: space.id === this.state.spaceId }" t-on-click="() => this.selectSpace(space.id)" t-att-aria-label="space.name" t-att-title="space.name"><span class="o_qing_knowledge_space_chip" t-att-style="'--qk-chip: ' + this.spaceColor(space.id)" aria-hidden="true" t-out="this.spaceInitial(space.name)"/></button>
+                </nav>
+                <div t-if="!this.state.sidebarCollapsed" class="o_qing_knowledge_sidebar_body d-flex flex-column gap-2 flex-grow-1">
+                    <button type="button" class="o_qing_knowledge_search_trigger" t-on-click="this.openSearch"><i class="oi" data-icon="search" aria-hidden="true"/><span>Search articles and drafts</span><kbd>⌘K</kbd></button>
+                    <nav class="o_qing_knowledge_shortcuts" aria-label="Knowledge shortcuts">
+                        <button type="button" t-att-class="{ active: this.state.navigation === 'home' }" t-att-aria-current="this.state.navigation === 'home' ? 'page' : undefined" t-on-click="() => this.navigateList('home')"><i class="oi" data-icon="home" aria-hidden="true"/><span>Home</span></button>
+                        <button type="button" t-att-class="{ active: this.state.navigation === 'recent' }" t-att-aria-current="this.state.navigation === 'recent' ? 'page' : undefined" t-on-click="() => this.navigateList('recent')"><i class="oi" data-icon="history" aria-hidden="true"/><span>Recent articles</span></button>
+                        <button type="button" t-att-class="{ active: this.state.navigation === 'favorites' }" t-att-aria-current="this.state.navigation === 'favorites' ? 'page' : undefined" t-on-click="() => this.navigateList('favorites')"><i class="oi" data-icon="star" aria-hidden="true"/><span>Favorites</span><small t-if="this.state.favorites.length" class="o_qing_knowledge_count" t-out="this.state.favorites.length"/></button>
+                        <button type="button" t-att-class="{ active: this.state.navigation === 'drafts' }" t-att-aria-current="this.state.navigation === 'drafts' ? 'page' : undefined" t-on-click="() => this.navigateList('drafts')"><i class="oi" data-icon="edit" aria-hidden="true"/><span>My drafts</span><small t-if="this.state.myDrafts.length" class="o_qing_knowledge_count" t-out="this.state.myDrafts.length"/></button>
+                        <button t-if="this.state.pending.length" type="button" t-att-class="{ active: this.state.navigation === 'review' }" t-att-aria-current="this.state.navigation === 'review' ? 'page' : undefined" t-on-click="() => this.navigateList('review')"><i class="oi" data-icon="inbox" aria-hidden="true"/><span>Review queue</span><small class="o_qing_knowledge_badge" t-out="this.state.pending.length"/></button>
+                    </nav>
+                    <div class="o_qing_knowledge_spaces_heading d-flex align-items-center gap-1">
+                        <span class="me-auto">Team spaces</span>
+                        <div class="o_qing_knowledge_add_menu">
+                            <button type="button" class="o_qing_knowledge_icon_button" t-on-click="this.toggleAddMenu" aria-label="Create in knowledge" title="Create in knowledge" aria-haspopup="menu" t-att-aria-expanded="this.state.addMenuOpen ? 'true' : 'false'"><i class="oi" data-icon="add" aria-hidden="true"/></button>
+                            <t t-if="this.state.addMenuOpen">
+                                <button type="button" class="o_qing_knowledge_menu_backdrop" tabindex="-1" aria-hidden="true" t-on-click="this.closeAddMenu"/>
+                                <div class="o_qing_knowledge_menu" role="menu" t-on-keydown="this.onAddMenuKeydown">
+                                    <button t-if="this.canCreateArticle" type="button" role="menuitem" t-on-click="() => this.runAddMenu('article')"><i class="oi" data-icon="description" aria-hidden="true"/>New article</button>
+                                    <button type="button" role="menuitem" t-on-click="() => this.runAddMenu('space')"><i class="oi" data-icon="folder_open" aria-hidden="true"/>New space</button>
+                                    <button t-if="this.canCreateArticle" type="button" role="menuitem" t-on-click="() => this.runAddMenu('import')"><i class="oi" data-icon="upload" aria-hidden="true"/>Import Markdown or ZIP</button>
+                                </div>
+                            </t>
+                        </div>
+                        <input class="d-none" t-ref="this.importFileInput" type="file" accept=".md,.zip" aria-label="Import Markdown or ZIP" t-on-change="this.importFile"/>
+                    </div>
+                    <div t-if="this.state.creatingSpace" class="o_qing_knowledge_create">
+                        <label for="qing_new_space_name" class="form-label">Space name</label>
+                        <input id="qing_new_space_name" class="form-control form-control-sm" t-att-value="this.state.newSpaceName" t-on-input="(ev) => this.state.newSpaceName = ev.target.value" t-on-keydown="(ev) => ev.key === 'Enter' &amp;&amp; this.createSpace()"/>
+                        <div class="d-flex gap-2 mt-2"><button class="btn btn-primary btn-sm" t-on-click="this.createSpace">Create space</button><button class="btn btn-light btn-sm" t-on-click="() => this.state.creatingSpace = false">Cancel</button></div>
+                    </div>
+                <nav class="o_qing_knowledge_tree overflow-auto flex-grow-1" aria-label="Spaces and articles">
+                    <t t-foreach="this.state.spaces" t-as="space" t-key="space.id">
+                        <div class="o_qing_knowledge_tree_row o_qing_knowledge_space_row" t-att-class="(space.id === this.state.spaceId ? ' is-current' : '') + (this.state.dropTarget === 'space:' + space.id ? ' is-drop-target' : '')" t-on-dragover="(ev) => space.id === this.state.spaceId &amp;&amp; this.dragOverParent(ev, null)" t-on-dragleave="this.leaveDropTarget" t-on-drop="(ev) => space.id === this.state.spaceId &amp;&amp; this.dropOnParent(ev, null)">
+                            <button type="button" class="o_qing_knowledge_tree_toggle" t-on-click="() => this.toggleSpace(space.id)" t-att-aria-expanded="space.id === this.state.spaceId &amp;&amp; !this.state.treeCollapsed ? 'true' : 'false'" aria-label="Toggle space"><i class="oi" t-att-data-icon="space.id === this.state.spaceId &amp;&amp; !this.state.treeCollapsed ? 'expand_more' : 'chevron_right'" aria-hidden="true"/></button>
+                            <button type="button" class="o_qing_knowledge_tree_label" t-on-click="() => this.selectSpace(space.id)"><span class="o_qing_knowledge_space_chip" t-att-style="'--qk-chip: ' + this.spaceColor(space.id)" aria-hidden="true" t-out="this.spaceInitial(space.name)"/><span t-out="space.name"/></button>
+                            <small t-if="this.state.spaceCounts[space.id]" class="o_qing_knowledge_count" t-out="this.state.spaceCounts[space.id]"/>
+                        </div>
+                        <div t-if="space.id === this.state.spaceId &amp;&amp; !this.state.treeCollapsed" class="o_qing_knowledge_tree_group">
+                            <t t-foreach="this.visibleArticles" t-as="article" t-key="article.uuid">
+                                <div class="o_qing_knowledge_tree_row o_qing_knowledge_article_row" t-att-class="(article.id === this.state.articleId ? ' is-current' : '') + (this.state.dropTarget === 'article:' + article.id ? ' is-drop-target' : '')" t-att-style="'padding-inline-start: ' + (12 + article.depth * 16) + 'px'" t-att-draggable="this.canManageSpace &amp;&amp; !this.state.query.trim() ? 'true' : 'false'" t-on-dragstart="(ev) => this.startArticleDrag(ev, article.id)" t-on-dragend="this.endArticleDrag" t-on-dragover="(ev) => this.dragOverParent(ev, article.id)" t-on-dragleave="this.leaveDropTarget" t-on-drop="(ev) => this.dropOnParent(ev, article.id)">
+                                    <button t-if="article.hasChildren &amp;&amp; !this.state.query.trim()" type="button" class="o_qing_knowledge_tree_toggle" t-on-click="() => this.toggleArticle(article.id)" t-att-aria-expanded="this.state.expandedArticleIds.includes(article.id) ? 'true' : 'false'" aria-label="Toggle article"><i class="oi" t-att-data-icon="this.state.expandedArticleIds.includes(article.id) ? 'expand_more' : 'chevron_right'" aria-hidden="true"/></button>
+                                    <span t-else="" class="o_qing_knowledge_tree_toggle" aria-hidden="true"/>
+                                    <button type="button" class="o_qing_knowledge_tree_label" t-on-click="() => this.openArticle(article.id)"><i class="oi" data-icon="article" aria-hidden="true"/><span t-out="article.name"/></button>
+                                    <span t-if="this.canManageSpace &amp;&amp; !this.state.query.trim()" class="o_qing_knowledge_drag_handle" title="Drag to change parent" aria-hidden="true"><i class="oi" data-icon="drag_indicator"/></span>
+                                    <button t-if="this.canCreateArticle &amp;&amp; !this.state.query.trim()" type="button" class="o_qing_knowledge_tree_add" t-on-click="() => this.prepareNewArticle(article.id)" aria-label="Add child article" title="Add child article"><i class="oi" data-icon="add" aria-hidden="true"/></button>
+                                </div>
+                            </t>
+                            <p t-if="!this.visibleArticles.length" class="small text-muted ps-3 mt-2">No visible articles.</p>
+                            <p t-if="this.state.treeTruncated &amp;&amp; !this.state.query.trim()" class="small text-muted ps-3 mt-2">Only the first 2,000 articles are shown. Use search for the rest.</p>
+                        </div>
+                    </t>
+                    <p t-if="!this.state.spaces.length" class="small text-muted mt-2">Create a space to get started.</p>
+                </nav>
+                    <div t-if="this.canManageSpace" class="o_qing_knowledge_sidebar_footer mt-auto">
+                        <button type="button" t-att-class="{ active: this.state.navigation === 'trash' }" t-on-click="() => this.navigateList('trash')"><i class="oi" data-icon="delete" aria-hidden="true"/><span>Trash</span></button>
+                        <button type="button" t-on-click="this.manageSpaces"><i class="oi" data-icon="settings" aria-hidden="true"/><span>Space management</span></button>
+                        <button type="button" class="o_qing_knowledge_icon_button" t-on-click="this.manageArticles" aria-label="Article records" title="Article records"><i class="oi" data-icon="format_list_bulleted" aria-hidden="true"/></button>
+                    </div>
+                </div>
+            </aside>
+            <div t-if="!this.state.sidebarCollapsed" class="o_qing_knowledge_sidebar_resize" t-att-inert="this.hasModal ? '' : undefined" role="separator" tabindex="0" aria-orientation="vertical" aria-label="Resize knowledge sidebar" aria-valuemin="220" aria-valuemax="480" t-att-aria-valuenow="this.state.sidebarWidth" t-on-pointerdown="this.startSidebarResize" t-on-pointermove="this.resizeSidebar" t-on-pointerup="this.endSidebarResize" t-on-pointercancel="this.endSidebarResize" t-on-keydown="this.resizeSidebarByKeyboard"/>
+            <main class="o_qing_knowledge_main" t-att-inert="this.hasModal ? '' : undefined">
+                <header class="o_qing_knowledge_actionbar">
+                    <button type="button" class="o_qing_knowledge_icon_button o_qing_knowledge_mobile_nav" t-on-click="this.toggleSidebar" t-att-aria-label="this.sidebarToggleLabel" t-att-title="this.sidebarToggleLabel"><i class="oi" data-icon="left_panel_open" aria-hidden="true"/></button>
+                    <nav class="o_qing_knowledge_breadcrumb" aria-label="Knowledge path">
+                        <t t-foreach="this.breadcrumbs" t-as="crumb" t-key="crumb_index">
+                            <span t-if="crumb_index" class="o_qing_knowledge_crumb_separator" aria-hidden="true">/</span>
+                            <span t-att-class="{ 'is-current': crumb_last }" t-att-aria-current="crumb_last ? 'page' : undefined" t-out="crumb"/>
+                        </t>
+                    </nav>
+                    <div t-if="!this.state.article and this.canCreateArticle" class="o_qing_knowledge_actions">
+                        <button type="button" class="o_qing_knowledge_icon_button" t-on-click="this.chooseImportFile" aria-label="Import Markdown or ZIP" title="Import Markdown or ZIP"><i class="oi" data-icon="upload" aria-hidden="true"/></button>
+                        <button type="button" class="btn btn-primary o_qing_knowledge_primary" t-on-click="() => this.prepareNewArticle(null)"><i class="oi" data-icon="add" aria-hidden="true"/><span>New article</span></button>
+                    </div>
+                    <div t-if="this.state.article" class="o_qing_knowledge_actions">
+                        <div t-if="this.state.mode !== 'review'" class="o_qing_knowledge_view_tabs" role="group" aria-label="Article view">
+                            <button type="button" t-att-class="{ active: this.state.mode === 'read' }" t-att-aria-pressed="this.state.mode === 'read' ? 'true' : 'false'" t-on-click="this.showPublished">Read</button>
+                            <button t-if="this.state.article.can_edit" type="button" t-att-class="{ active: this.state.mode === 'edit' and this.state.editorMode === 'visual' }" t-att-aria-pressed="this.state.mode === 'edit' and this.state.editorMode === 'visual' ? 'true' : 'false'" t-on-click="() => this.chooseEditorMode('visual')" t-att-disabled="this.state.draft?.state === 'submitted' || this.state.publishing">Edit</button>
+                            <button t-if="this.state.article.can_edit" type="button" t-att-class="{ active: this.state.mode === 'edit' and this.state.editorMode === 'source' }" t-att-aria-pressed="this.state.mode === 'edit' and this.state.editorMode === 'source' ? 'true' : 'false'" t-on-click="() => this.chooseEditorMode('source')" t-att-disabled="this.state.draft?.state === 'submitted' || this.state.publishing">Source</button>
+                        </div>
+                        <span t-if="this.state.mode === 'edit'" class="o_qing_knowledge_save_status" aria-live="polite" t-out="this.state.status"/>
+                        <button t-if="this.state.mode === 'edit' and this.state.draft?.state === 'editing'" type="button" class="btn btn-light btn-sm" t-on-click="this.save" t-att-disabled="!this.state.dirty || this.state.saving || this.state.publishing">Save</button>
+                        <button t-if="this.state.mode === 'edit' and this.state.draft?.state === 'editing'" type="button" class="btn btn-primary btn-sm" t-on-click="this.confirmPublication" t-att-disabled="this.state.uploadingAsset || this.state.publishing || this.state.saving"><t t-out="this.publicationLabel"/></button>
+                        <button t-if="this.state.draft?.state === 'submitted' and this.state.article.can_publish" type="button" class="btn btn-primary btn-sm" t-on-click="this.confirmPublication">Publish</button>
+                        <div class="o_qing_knowledge_icon_group">
+                            <button t-if="this.state.article.published" type="button" class="o_qing_knowledge_icon_button o_qing_knowledge_favorite" t-att-class="{ active: this.state.article.is_favorite }" t-on-click="this.toggleFavorite" t-att-aria-pressed="this.state.article.is_favorite ? 'true' : 'false'" t-att-aria-label="this.favoriteActionLabel" t-att-title="this.favoriteActionLabel"><i class="oi" data-icon="star" aria-hidden="true"/></button>
+                            <button type="button" class="o_qing_knowledge_icon_button" t-att-class="{ active: this.state.showOutline }" t-on-click="this.toggleOutline" t-att-aria-pressed="this.state.showOutline ? 'true' : 'false'" aria-controls="qing_knowledge_outline" aria-label="Outline" title="Outline"><i class="oi" data-icon="format_list_bulleted" aria-hidden="true"/></button>
+                            <button type="button" class="o_qing_knowledge_icon_button o_qing_knowledge_focus_toggle" t-att-class="{ active: this.state.sidebarCollapsed }" t-on-click="this.toggleSidebar" t-att-aria-pressed="this.state.sidebarCollapsed ? 'true' : 'false'" aria-label="Focus" title="Focus"><i class="oi" data-icon="expand_content" aria-hidden="true"/></button>
+                            <button type="button" class="o_qing_knowledge_icon_button" t-att-class="{ active: this.state.detailsOpen }" t-on-click="() => this.state.detailsOpen = !this.state.detailsOpen" t-att-aria-expanded="this.state.detailsOpen ? 'true' : 'false'" aria-label="Article details" title="Article details"><i class="oi" data-icon="info" aria-hidden="true"/></button>
+                        </div>
+                    </div>
+                </header>
+                <div t-if="this.state.error || this.state.saveError" class="alert alert-danger m-3" role="alert">
+                    <div t-out="this.state.saveError || this.state.error"/>
+                    <t t-if="this.state.draft and (this.state.dirty or this.saveConflict)"><p class="mt-2 mb-2">Your local changes are still here. Download a copy before reloading.</p><div class="d-flex gap-2"><button t-if="!this.saveConflict" type="button" class="btn btn-outline-danger btn-sm" t-on-click="this.save">Retry save</button><button type="button" class="btn btn-outline-danger btn-sm" t-on-click="this.downloadDraftCopy">Download my copy</button><button type="button" class="btn btn-outline-danger btn-sm" t-on-click="this.reloadDraft">Reload latest draft</button></div></t>
+                </div>
+                <section t-if="this.state.navigation === 'home'" class="o_qing_knowledge_home">
+                    <button type="button" class="o_qing_knowledge_search_trigger o_qing_knowledge_home_search" t-on-click="this.openSearch"><i class="oi" data-icon="search" aria-hidden="true"/><span>Search articles and drafts</span></button>
+                    <div class="o_qing_knowledge_home_intro">
+                        <h1 t-out="this.greeting"/>
+                        <p>Continue where you left off, or write down what you learned today.</p>
+                    </div>
+                    <div t-if="this.canCreateArticle" class="o_qing_knowledge_quickstart">
+                        <button type="button" class="o_qing_knowledge_card is-row" t-on-click="() => this.startFromTemplate('blank')"><span class="o_qing_knowledge_tile is-accent" aria-hidden="true"><i class="oi" data-icon="description"/></span><span><strong>Blank article</strong><small>Write freely</small></span></button>
+                        <button type="button" class="o_qing_knowledge_card is-row" t-on-click="() => this.startFromTemplate('sop')"><span class="o_qing_knowledge_tile is-blue" aria-hidden="true"><i class="oi" data-icon="checklist"/></span><span><strong>Operating procedure</strong><small>Steps and precautions</small></span></button>
+                        <button type="button" class="o_qing_knowledge_card is-row" t-on-click="() => this.startFromTemplate('faq')"><span class="o_qing_knowledge_tile is-green" aria-hidden="true"><i class="oi" data-icon="help"/></span><span><strong>Frequently asked questions</strong><small>Questions and answers</small></span></button>
+                        <button type="button" class="o_qing_knowledge_card is-row" t-on-click="this.chooseImportFile"><span class="o_qing_knowledge_tile" aria-hidden="true"><i class="oi" data-icon="upload"/></span><span><strong>Import documents</strong><small>Markdown or ZIP</small></span></button>
+                    </div>
+                    <section class="o_qing_knowledge_home_section" aria-labelledby="qing_home_recent">
+                        <div class="o_qing_knowledge_section_heading"><h2 id="qing_home_recent">Continue reading</h2><button t-if="this.state.recent.length" type="button" class="btn btn-link" t-on-click="() => this.navigateList('recent')">View all</button></div>
+                        <p t-if="!this.homeRecent.length" class="o_qing_knowledge_muted">Nothing to continue yet. Articles you open will appear here.</p>
+                        <div t-else="" class="o_qing_knowledge_recent_grid">
+                            <button t-foreach="this.homeRecent" t-as="item" t-key="item.id" type="button" class="o_qing_knowledge_card" t-on-click="() => this.openArticle(item.article_id)">
+                                <span class="o_qing_knowledge_card_space"><span class="o_qing_knowledge_dot" t-att-style="'--qk-chip: ' + this.spaceColor(item.space_id)" aria-hidden="true"/><t t-out="item.space_name"/></span>
+                                <strong t-out="item.title"/>
+                                <small t-out="item.when"/>
+                            </button>
+                        </div>
+                    </section>
+                    <div class="o_qing_knowledge_home_columns">
+                        <section class="o_qing_knowledge_home_section" aria-labelledby="qing_home_work">
+                            <div class="o_qing_knowledge_section_heading"><h2 id="qing_home_work">Drafts and reviews</h2></div>
+                            <p t-if="!this.homeWork.length" class="o_qing_knowledge_muted">No drafts or reviews.</p>
+                            <div t-else="" class="o_qing_knowledge_panel_list">
+                                <button t-foreach="this.homeWork" t-as="item" t-key="item.key" type="button" class="o_qing_knowledge_row" t-on-click="() => this.openWorkItem(item)">
+                                    <span class="o_qing_knowledge_tile" aria-hidden="true"><i class="oi" t-att-data-icon="item.kind === 'review' ? 'inbox' : 'edit'"/></span>
+                                    <span class="o_qing_knowledge_row_text"><strong t-out="item.title"/><small t-out="item.meta"/></span>
+                                    <span class="o_qing_knowledge_pill" t-att-class="'is-' + item.tone" t-out="item.label"/>
+                                </button>
+                            </div>
+                        </section>
+                        <section class="o_qing_knowledge_home_section" aria-labelledby="qing_home_spaces">
+                            <div class="o_qing_knowledge_section_heading"><h2 id="qing_home_spaces">Team spaces</h2><button type="button" class="btn btn-link" t-on-click="() => this.runAddMenu('space')">New space</button></div>
+                            <p t-if="!this.state.spaces.length" class="o_qing_knowledge_muted">Create a space to get started.</p>
+                            <div t-else="" class="o_qing_knowledge_space_grid">
+                                <button t-foreach="this.state.spaces" t-as="space" t-key="space.id" type="button" class="o_qing_knowledge_card is-compact" t-on-click="() => this.selectSpace(space.id)">
+                                    <span class="o_qing_knowledge_space_chip" t-att-style="'--qk-chip: ' + this.spaceColor(space.id)" aria-hidden="true" t-out="this.spaceInitial(space.name)"/>
+                                    <strong t-out="space.name"/>
+                                    <small t-out="this.spaceCountLabel(space.id)"/>
+                                </button>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <section t-elif="this.state.navigation !== 'article'" class="o_qing_knowledge_list">
+                    <h2 t-out="this.listTitle"/><p t-if="this.state.navigation === 'trash'" class="text-muted">Articles in this space can be restored from the trash.</p><p t-elif="this.state.navigation === 'review'" class="text-muted">Drafts submitted for review in this space.</p><p t-else="" class="text-muted">Continue where you left off.</p>
+                    <div t-if="!this.listItems.length" class="o_qing_knowledge_empty"><i class="oi" data-icon="article" aria-hidden="true"/><p t-if="this.state.navigation === 'trash'">Trash is empty.</p><p t-else="">No articles here yet. Choose a space or create an article.</p><button t-if="this.canCreateArticle and this.state.navigation !== 'trash'" type="button" class="btn btn-primary" t-on-click="() => this.prepareNewArticle(null)">New article</button></div>
+                    <div t-else="" class="o_qing_knowledge_panel_list">
+                        <button t-foreach="this.listItems" t-as="item" t-key="item.id" type="button" class="o_qing_knowledge_row" t-on-click="() => this.openListItem(item)"><span class="o_qing_knowledge_tile" aria-hidden="true"><i class="oi" t-att-data-icon="this.state.navigation === 'drafts' ? 'edit' : this.state.navigation === 'review' ? 'inbox' : 'article'"/></span><span class="o_qing_knowledge_row_text"><strong t-out="item.title"/><small t-out="item.meta"/></span><span t-if="item.label" class="o_qing_knowledge_pill" t-att-class="'is-' + item.tone" t-out="item.label"/></button>
+                    </div>
+                </section>
+                <div t-elif="!this.state.article" class="o_qing_knowledge_empty"><i class="oi" data-icon="article" aria-hidden="true"/><p>Choose an article or create one.</p><button t-if="this.canCreateArticle" type="button" class="btn btn-primary" t-on-click="() => this.prepareNewArticle(null)">New article</button></div>
+                <div t-else="" class="o_qing_knowledge_document_layout">
+                    <div class="o_qing_knowledge_document" t-att-class="{ 'is-source': this.state.mode === 'edit' and this.state.editorMode === 'source' }">
+                <div t-if="this.state.mode !== 'read' and !(this.state.mode === 'edit' and this.state.editorMode === 'visual')" class="o_qing_knowledge_document_tools">
+                    <span class="o_qing_knowledge_mode_hint"><t t-if="this.state.mode === 'edit' and this.state.editorMode === 'source'">Markdown source</t><t t-elif="this.state.mode === 'edit'">Write here, or type / to insert</t><t t-else="">Review changes before publishing</t></span>
+                    <div class="o_qing_knowledge_tool_buttons">
+                        <button t-if="this.state.mode === 'edit' and this.state.editorMode === 'source' and this.state.draft?.state === 'editing'" type="button" class="btn o_qing_knowledge_tool" t-att-class="{ active: this.state.showPreview }" t-on-click="this.togglePreview" t-att-aria-pressed="this.state.showPreview"><i class="oi" data-icon="splitscreen" aria-hidden="true"/>Split preview</button>
+                    </div>
+                </div>
+                        <input t-if="this.state.mode === 'edit' and this.state.draft?.state === 'editing'" id="qing_title" class="o_qing_knowledge_document_title" aria-label="Article title" maxlength="255" placeholder="Article title" t-att-value="this.state.draft.title" t-on-input="(ev) => this.changeField('title', ev)" t-att-disabled="this.state.publishing"/>
+                        <h1 t-else="" class="o_qing_knowledge_document_title" t-out="this.state.mode === 'read' ? this.state.article.title : this.state.draft?.title"/>
+                        <div class="o_qing_knowledge_metadata">
+                            <span class="o_qing_knowledge_avatar" aria-hidden="true" t-out="this.metadataAuthor.slice(0, 1)"/><span class="o_qing_knowledge_author" t-out="this.metadataAuthor"/>
+                            <span t-if="this.state.mode === 'read' and this.state.article.published_at" t-out="this.relativeTime(this.state.article.published_at)"/>
+                            <span t-if="this.state.article.number">v<t t-out="this.state.article.number"/></span>
+                            <span t-if="this.state.mode === 'read'" class="o_qing_knowledge_status" t-att-class="{ 'is-published': this.state.article.published }"><t t-if="this.state.article.published">Published version</t><t t-elif="this.state.article.lifecycle === 'trashed'">Trash</t><t t-else="">Not published</t></span>
+                            <span t-else="" class="o_qing_knowledge_status"><t t-if="this.state.draft?.state === 'submitted'">Submitted for review</t><t t-else="">Article draft</t></span>
+                            <button type="button" class="btn btn-link btn-sm" t-on-click="() => this.state.detailsOpen = true"><i class="oi me-1" data-icon="lock" aria-hidden="true"/><t t-out="this.detailVisibility"/></button>
+                            <span t-foreach="this.detailTags" t-as="tag" t-key="tag" class="o_qing_knowledge_tag" t-out="tag"/>
+                            <span t-if="this.state.mode === 'edit'" class="o_qing_knowledge_metadata_save" aria-live="polite" t-out="this.state.status"/>
+                            <button t-if="this.state.draft?.state === 'submitted' and this.state.mode === 'edit'" type="button" class="btn btn-link btn-sm" t-on-click="this.withdrawSubmission">Withdraw and continue editing</button>
+                        </div>
+                        <article t-if="this.state.mode === 'read' and this.state.article.published" class="o_qing_knowledge_content" t-on-click="this.onContentClick" t-out="this.safeHtml"/>
+                        <div t-elif="this.state.mode === 'read' and this.state.article.lifecycle === 'trashed'" class="o_qing_knowledge_empty"><p>This article is in the trash. Restore it before editing.</p><button t-if="this.state.article.can_manage" type="button" class="btn btn-primary" t-on-click="() => this.setLifecycle('unpublished')">Restore</button></div>
+                        <div t-elif="this.state.mode === 'read'" class="o_qing_knowledge_empty"><p>This article has not been published.</p><button t-if="this.state.article.can_edit" class="btn btn-primary" t-on-click="this.edit">Continue editing my draft</button></div>
+                        <div t-elif="this.state.draft" class="o_qing_knowledge_split" t-att-class="{ 'is-preview-hidden': !this.previewVisible or this.state.draft.state === 'submitted' }">
+                            <section t-if="this.state.mode === 'edit' and this.state.draft.state === 'editing'" class="o_qing_knowledge_edit_pane" t-att-inert="this.state.publishing ? '' : undefined">
+                                <div class="o_qing_knowledge_editor_toolbar">
+                                    <span t-if="this.state.editorMode === 'source'" class="o_qing_knowledge_toolbar_label">Markdown</span>
+                                    <div class="o_qing_knowledge_formats" role="group" aria-label="Text formatting">
+                                        <button type="button" title="Bold" aria-label="Bold" t-att-aria-pressed="(this.state.editorMode === 'visual' and !!this.state.formats.bold) ? 'true' : 'false'" t-on-mousedown.prevent="() => {}" t-on-click="() => this.formatText('bold')" t-att-disabled="!this.state.editorReady"><b aria-hidden="true">B</b></button>
+                                        <button type="button" title="Italic" aria-label="Italic" t-att-aria-pressed="(this.state.editorMode === 'visual' and !!this.state.formats.italic) ? 'true' : 'false'" t-on-mousedown.prevent="() => {}" t-on-click="() => this.formatText('italic')" t-att-disabled="!this.state.editorReady"><i aria-hidden="true">I</i></button>
+                                        <button type="button" title="Strikethrough" aria-label="Strikethrough" t-att-aria-pressed="(this.state.editorMode === 'visual' and !!this.state.formats.strike) ? 'true' : 'false'" t-on-mousedown.prevent="() => {}" t-on-click="() => this.formatText('strike')" t-att-disabled="!this.state.editorReady"><s aria-hidden="true">S</s></button>
+                                        <button type="button" title="Inline code" aria-label="Inline code" t-att-aria-pressed="(this.state.editorMode === 'visual' and !!this.state.formats.code) ? 'true' : 'false'" t-on-mousedown.prevent="() => {}" t-on-click="() => this.formatText('code')" t-att-disabled="!this.state.editorReady"><i class="oi" data-icon="code" aria-hidden="true"/></button>
+                                        <button type="button" class="o_qing_knowledge_reminder" title="Highlight callout" t-att-aria-pressed="(this.state.editorMode === 'visual' and !!this.state.formats.quote) ? 'true' : 'false'" t-on-mousedown.prevent="() => {}" t-on-click="() => this.formatText('quote')" t-att-disabled="!this.state.editorReady"><i class="oi" data-icon="info" aria-hidden="true"/>Highlight callout</button>
+                                    </div>
+                                    <button type="button" class="o_qing_knowledge_inline_tool" t-on-click="this.openInsert" t-att-disabled="this.state.uploadingAsset || !this.state.editorReady"><i class="oi" data-icon="add_circle" aria-hidden="true"/>Insert</button>
+                                    <button type="button" class="o_qing_knowledge_inline_tool" t-on-click="() => this.requestAssetUpload()" t-att-disabled="this.state.uploadingAsset || !this.state.editorReady"><i class="oi" data-icon="attach_file" aria-hidden="true"/><t t-if="this.state.uploadingAsset">Uploading…</t><t t-else="">Attachments</t></button>
+                                    <input class="d-none" t-ref="this.assetFileInput" type="file" accept="image/png,image/jpeg,image/gif,image/webp,application/pdf" aria-label="Upload a file" t-on-change="this.uploadAsset" t-on-cancel="this.cancelAssetUpload"/>
+                                </div>
+                                <div class="o_qing_knowledge_editor" t-ref="this.editorRoot" t-att-data-ready="this.state.editorReady" t-on-click="this.onContentClick" t-on-dragover="this.onEditorDragOver" t-on-drop="this.onEditorDrop" t-on-paste="this.onEditorPaste"/>
+                            </section>
+                            <section t-if="this.previewVisible || this.state.draft.state === 'submitted'" class="o_qing_knowledge_preview_pane">
+                                <div t-if="this.state.editorMode === 'source' and this.state.mode === 'edit'" class="small text-muted mb-3">Live preview</div>
+                                <article class="o_qing_knowledge_content" t-on-click="this.onContentClick" t-out="this.safeHtml"/>
+                                <details t-if="this.state.mode === 'review'" class="mt-3"><summary>Changes from the published version</summary><pre class="o_qing_knowledge_diff" t-out="this.state.diff"/></details>
+                            </section>
+                        </div>
+                    </div>
+                    <aside t-if="this.state.showOutline" id="qing_knowledge_outline" class="o_qing_knowledge_outline" aria-label="Outline">
+                        <strong>On this page</strong>
+                        <p t-if="!this.outlineItems.length" class="o_qing_knowledge_outline_empty">No headings yet. Add a heading to build the outline.</p>
+                        <button t-foreach="this.outlineItems" t-as="heading" t-key="heading.id" type="button" t-att-class="{ active: this.state.activeOutlineId === heading.id }" t-att-aria-current="this.state.activeOutlineId === heading.id ? 'location' : undefined" t-att-style="'padding-inline-start: ' + (8 + (heading.depth - 1) * 10) + 'px'" t-on-click="() => this.scrollToHeading(heading.id)"><t t-out="heading.title"/></button>
+                    </aside>
+                </div>
+            </main>
+            <div t-if="this.state.detailsOpen and this.state.article" class="o_qing_knowledge_drawer_layer">
+                <button type="button" class="o_qing_knowledge_backdrop" t-on-click="() => this.state.detailsOpen = false" aria-label="Close details"/>
+                <aside class="o_qing_knowledge_drawer" role="dialog" aria-modal="true" aria-label="Article details" t-on-keydown="this.handleSearchKey"><header><h4>Article details</h4><button type="button" class="btn btn-light btn-sm" t-on-click="() => this.state.detailsOpen = false" aria-label="Close details"><i class="oi" data-icon="close" aria-hidden="true"/></button></header>
+                    <div class="o_qing_knowledge_detail_row"><label>Knowledge space</label><span t-out="this.currentSpaceName"/></div>
+                    <div class="o_qing_knowledge_detail_row"><label>Tags</label><span><span t-foreach="this.detailTags" t-as="tag" t-key="tag" class="o_qing_knowledge_tag" t-out="tag"/><span t-if="!this.detailTags.length" class="text-muted">No tags</span></span></div>
+                    <div class="o_qing_knowledge_detail_row"><label>Visibility</label><span><t t-out="this.detailVisibility"/><small>Reading and search use the article's current access rules.</small></span></div>
+                    <div class="o_qing_knowledge_detail_row"><label>Article owner</label><span t-out="this.state.ownerName"/></div>
+                    <div class="o_qing_knowledge_detail_row"><label>Publication policy</label><span><t t-if="this.state.article.publication_policy === 'direct'">Publishers can publish directly</t><t t-else="">Publisher review required</t></span></div>
+                    <div t-if="this.state.draft?.summary || this.state.article.summary" class="o_qing_knowledge_detail_row"><label>Summary</label><span t-out="this.state.mode === 'edit' ? this.state.draft?.summary : this.state.article.summary"/></div>
+                    <details t-if="this.state.mode === 'edit' and this.state.draft?.state === 'editing'" class="o_qing_knowledge_detail_section"><summary>Edit article information</summary><div class="mt-3"><label for="qing_summary" class="form-label">Summary</label><textarea id="qing_summary" class="form-control mb-3" rows="2" t-att-value="this.state.draft.summary" t-on-input="(ev) => this.changeField('summary', ev)"/><label for="qing_tags" class="form-label">Tags (comma separated)</label><input id="qing_tags" class="form-control" t-att-value="this.state.draft.tag_names" t-on-input="(ev) => this.changeField('tag_names', ev)"/></div></details>
+                    <section class="o_qing_knowledge_detail_section"><h6>Version history</h6><p t-if="!this.state.revisions.length" class="text-muted small">No published versions yet.</p>
+                    <div t-foreach="this.state.revisions" t-as="revision" t-key="revision.uuid" class="o_qing_knowledge_revision"><div class="o_qing_knowledge_revision_heading"><i class="oi" data-icon="commit" aria-hidden="true"/><span>v<t t-out="revision.number"/> · <t t-if="revision.uuid === this.state.article.revision_uuid">Current published version</t><t t-else="">Previous version</t></span></div><small><t t-out="revision.author"/> · <t t-out="this.formatRevisionDate(revision.published_at)"/></small><details t-if="this.state.article.can_edit" class="o_qing_knowledge_revision_actions"><summary>Version actions</summary><button class="btn btn-link btn-sm" t-on-click="() => this.restoreRevision(revision.id)">Restore to draft</button></details></div>
+                    <button t-if="this.state.revisions.length &gt; 1" class="btn btn-light btn-sm mt-2" t-on-click="this.comparePrevious">Compare latest two</button><pre t-if="this.state.diff" class="o_qing_knowledge_diff mt-3" t-out="this.state.diff"/>
+                    </section>
+                    <details t-if="this.state.article.published" class="o_qing_knowledge_detail_section"><summary>Article actions</summary><div class="o_qing_knowledge_detail_actions"><button class="btn btn-outline-secondary btn-sm" t-on-click="this.toggleFavorite"><t t-out="this.favoriteLabel"/></button><button class="btn btn-outline-secondary btn-sm" t-on-click="this.exportMarkdown">Export Markdown</button><button class="btn btn-outline-secondary btn-sm" t-on-click="this.exportPackage">Export ZIP</button></div></details>
+                    <t t-if="this.state.article.can_manage"><details class="o_qing_knowledge_detail_section"><summary>Organization and access</summary>
+                    <div t-if="this.state.article.can_manage" class="d-flex align-items-center gap-2 mt-3">
+                        <label for="qing_move_parent" class="text-nowrap">Parent</label>
+                        <select id="qing_move_parent" class="form-select form-select-sm" t-att-value="this.state.moveParentId || ''" t-on-change="this.chooseMoveParent">
+                            <option value="">Top level</option>
+                            <option t-foreach="this.moveParentCandidates" t-as="candidate" t-key="candidate.id" t-att-value="candidate.id" t-att-selected="candidate.id === this.state.moveParentId"><t t-out="this.articleOptionLabel(candidate)"/></option>
+                        </select>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" t-on-click="this.moveArticle">Move</button>
+                    </div>
+                    <div t-if="this.state.article.can_manage" class="mt-3">
+                        <label for="qing_access_mode" class="form-label">Article access</label>
+                        <select id="qing_access_mode" class="form-select form-select-sm" t-att-value="this.state.restrictionMode" t-on-change="(ev) => this.state.restrictionMode = ev.target.value">
+                            <option value="inherit">All space members</option>
+                            <option value="restricted">Selected space members</option>
+                        </select>
+                        <select t-if="this.state.restrictionMode === 'restricted'" class="form-select form-select-sm mt-2" multiple="multiple" aria-label="Allowed members" t-on-change="this.chooseRestrictedMembers">
+                            <option t-foreach="this.state.members" t-as="member" t-key="member.id" t-att-value="member.id" t-att-selected="this.state.restrictedMemberIds.includes(member.id)"><t t-out="member.user_id[1]"/></option>
+                        </select>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mt-2" t-on-click="this.saveRestriction">Apply access</button>
+                    </div>
+
+                        <button class="btn btn-link btn-sm" t-on-click="this.manageSpaces">Space members and publication policy</button>
+                        <div class="d-flex flex-wrap gap-2 mt-4"><button t-if="this.state.article.published and this.state.article.can_publish" class="btn btn-outline-warning btn-sm" t-on-click="() => this.setLifecycle('unpublished')">Unpublish</button><button t-if="this.state.article.lifecycle !== 'trashed'" class="btn btn-outline-secondary btn-sm" t-on-click="() => this.setLifecycle('archived')">Archive</button><button t-if="this.state.article.lifecycle !== 'trashed'" class="btn btn-outline-danger btn-sm" t-on-click="() => this.setLifecycle('trashed')">Move to trash</button><button t-if="this.state.article.lifecycle === 'archived' or this.state.article.lifecycle === 'trashed'" class="btn btn-outline-primary btn-sm" t-on-click="() => this.setLifecycle('unpublished')">Restore</button></div>
+                    </details></t>
+                </aside>
+            </div>
+            <div t-if="this.state.creatingArticle" class="o_qing_knowledge_layer">
+                <button class="o_qing_knowledge_backdrop" t-on-click="this.closeNewArticle" aria-label="Cancel new article"/>
+                <section class="o_qing_knowledge_modal" role="dialog" aria-modal="true" aria-labelledby="qing_new_article_heading" t-on-keydown="this.handleSearchKey">
+                    <header><h2 id="qing_new_article_heading">New article</h2><button class="o_qing_knowledge_close" t-on-click="this.closeNewArticle" aria-label="Cancel new article" t-att-disabled="this.state.creatingBusy"><i class="oi" data-icon="close" aria-hidden="true"/></button></header>
+                    <form t-on-submit.prevent="this.createArticle">
+                        <div class="o_qing_knowledge_formrow"><label for="qing_new_title">Article title</label><input id="qing_new_title" t-ref="this.newTitleInput" type="text" class="form-control" maxlength="255" placeholder="Leave useful knowledge for your team" t-att-value="this.state.newTitle" t-on-input="(ev) => this.state.newTitle = ev.target.value" t-att-disabled="this.state.creatingBusy"/></div>
+                        <div class="o_qing_knowledge_formrow"><label for="qing_new_space">Knowledge space</label><select id="qing_new_space" class="form-select" t-att-value="this.state.newSpaceId" t-on-change="this.chooseNewSpace" t-att-disabled="this.state.creatingBusy"><option t-foreach="this.state.newSpaces" t-as="space" t-key="space.id" t-att-value="space.id" t-att-selected="space.id === this.state.newSpaceId" t-out="space.name"/></select></div>
+                        <div class="o_qing_knowledge_formrow"><label>Start from a template</label><div class="o_qing_knowledge_templates">
+                            <button type="button" t-att-class="{ active: this.state.newTemplate === 'blank' }" t-att-aria-pressed="this.state.newTemplate === 'blank'" t-on-click="() => this.state.newTemplate = 'blank'" t-att-disabled="this.state.creatingBusy"><i class="oi" data-icon="draft" aria-hidden="true"/><strong>Blank article</strong><small>Write freely</small></button>
+                            <button type="button" t-att-class="{ active: this.state.newTemplate === 'sop' }" t-att-aria-pressed="this.state.newTemplate === 'sop'" t-on-click="() => this.state.newTemplate = 'sop'" t-att-disabled="this.state.creatingBusy"><i class="oi" data-icon="checklist" aria-hidden="true"/><strong>Operating procedure</strong><small>Steps and precautions</small></button>
+                            <button type="button" t-att-class="{ active: this.state.newTemplate === 'faq' }" t-att-aria-pressed="this.state.newTemplate === 'faq'" t-on-click="() => this.state.newTemplate = 'faq'" t-att-disabled="this.state.creatingBusy"><i class="oi" data-icon="help" aria-hidden="true"/><strong>Frequently asked questions</strong><small>Questions and answers</small></button>
+                        </div></div>
+                        <details class="o_qing_knowledge_new_options"><summary>More options</summary><div class="o_qing_knowledge_formrow"><label for="qing_new_parent">Parent article</label><select id="qing_new_parent" class="form-select" t-att-value="this.state.newParentId || ''" t-on-change="this.chooseNewParent" t-att-disabled="this.state.creatingBusy"><option value="">Top level</option><option t-foreach="this.state.newParents" t-as="candidate" t-key="candidate.id" t-att-value="candidate.id" t-att-selected="candidate.id === this.state.newParentId" t-out="this.articleOptionLabel(candidate)"/></select></div>
+                        <div class="o_qing_knowledge_formrow"><label for="qing_new_template">Template</label><select id="qing_new_template" class="form-select" t-att-value="this.state.newTemplate" t-on-change="(ev) => this.state.newTemplate = ev.target.value" t-att-disabled="this.state.creatingBusy"><option value="blank">Blank</option><option value="sop">SOP</option><option value="faq">FAQ</option><option value="product">Product</option><option value="troubleshooting">Troubleshooting</option><option value="implementation">Implementation</option><option value="policy">Policy</option></select></div></details>
+                        <p t-if="this.state.newError" class="alert alert-danger mt-3" role="alert" t-out="this.state.newError"/>
+                        <footer><button type="button" class="btn btn-light" t-on-click="this.closeNewArticle" t-att-disabled="this.state.creatingBusy">Cancel</button><button type="submit" class="btn btn-primary" t-att-disabled="this.state.creatingBusy"><t t-if="this.state.creatingBusy">Creating…</t><t t-else="">Create and edit</t></button></footer>
+                    </form>
+                </section>
+            </div>
+            <div t-if="this.state.insertOpen" class="o_qing_knowledge_layer">
+                <button class="o_qing_knowledge_backdrop" t-on-click="this.closeInsert" aria-label="Close insert menu"/>
+                <section class="o_qing_knowledge_modal" role="dialog" aria-modal="true" aria-labelledby="qing_insert_heading" t-on-keydown="this.handleSearchKey">
+                    <header><h2 id="qing_insert_heading">Insert content</h2><button class="o_qing_knowledge_close" t-on-click="this.closeInsert" aria-label="Close insert menu"><i class="oi" data-icon="close" aria-hidden="true"/></button></header>
+                    <div class="o_qing_knowledge_insert_options">
+                        <button type="button" t-on-click="() => this.insertContent('table')"><i class="oi" data-icon="table" aria-hidden="true"/><span>Table<small>Organize fields, steps or comparisons</small></span></button>
+                        <button type="button" t-on-click="() => this.insertContent('callout')"><i class="oi" data-icon="info" aria-hidden="true"/><span>Highlight callout<small>Highlight conditions and precautions</small></span></button>
+                        <button type="button" t-on-click="() => this.insertContent('asset')"><i class="oi" data-icon="attach_file" aria-hidden="true"/><span>Image or PDF<small>Upload a file and insert it at the cursor</small></span></button>
+                        <button type="button" t-on-click="() => this.insertContent('code')"><i class="oi" data-icon="code" aria-hidden="true"/><span>Code block<small>Keep code formatting and whitespace</small></span></button>
+                        <button type="button" t-on-click="() => this.insertContent('divider')"><i class="oi" data-icon="horizontal_rule" aria-hidden="true"/><span>Divider<small>Separate sections</small></span></button>
+                    </div>
+                </section>
+            </div>
+            <div t-if="this.state.pdfUrl" class="o_qing_knowledge_drawer_layer"><button type="button" class="o_qing_knowledge_backdrop" t-on-click="() => this.state.pdfUrl = ''" aria-label="Close PDF preview"/><aside class="o_qing_knowledge_drawer o_qing_knowledge_pdf" role="dialog" aria-modal="true" aria-label="PDF preview" t-on-keydown="this.handleSearchKey"><header><h4 t-out="this.state.pdfName"/><button class="btn btn-light btn-sm" t-on-click="() => this.state.pdfUrl = ''" aria-label="Close PDF preview"><i class="oi" data-icon="close" aria-hidden="true"/></button></header><div class="d-flex gap-2 mb-3"><a class="btn btn-outline-secondary btn-sm" t-att-href="this.state.pdfUrl + '?download=1'">Download</a><a class="btn btn-outline-secondary btn-sm" t-att-href="this.pdfViewerUrl" target="_blank" rel="noopener">Open in a new tab</a></div><iframe t-att-src="this.pdfViewerUrl" title="PDF preview"/></aside></div>
+            <div t-if="this.state.searchOpen" class="o_qing_knowledge_search_layer"><button type="button" class="o_qing_knowledge_backdrop" t-on-click="this.closeSearch" aria-label="Close search"/><section class="o_qing_knowledge_search_dialog" role="dialog" aria-modal="true" aria-label="Search knowledge" t-on-keydown="this.handleSearchKey">
+                <div class="o_qing_knowledge_search_query">
+                    <i class="oi" data-icon="search" aria-hidden="true"/>
+                    <input type="search" t-ref="this.searchInput" aria-label="Search knowledge" placeholder="Search titles, content and my drafts" t-att-value="this.state.query" maxlength="100" role="combobox" aria-expanded="true" aria-controls="qing_knowledge_search_results" aria-autocomplete="list" t-att-aria-activedescendant="this.searchItems.length ? 'qing_knowledge_hit_' + this.state.searchActive : undefined" t-on-input="this.search" t-on-keydown="this.onSearchInputKeydown"/>
+                    <button type="button" class="o_qing_knowledge_kbd_button" t-on-click="this.closeSearch" aria-label="Close search"><kbd>Esc</kbd></button>
+                </div>
+                <div class="o_qing_knowledge_search_filters">
+                    <div class="o_qing_knowledge_chip_group" role="group" aria-label="Search scope">
+                        <button type="button" class="o_qing_knowledge_chip" t-att-class="{ active: this.state.searchScope === 'all' }" t-att-aria-pressed="this.state.searchScope === 'all' ? 'true' : 'false'" t-on-click="() => this.setSearchScope('all')">All spaces</button>
+                        <button type="button" class="o_qing_knowledge_chip" t-att-class="{ active: this.state.searchScope === 'space' }" t-att-aria-pressed="this.state.searchScope === 'space' ? 'true' : 'false'" t-on-click="() => this.setSearchScope('space')" t-att-disabled="!this.state.spaceId">Current space</button>
+                    </div>
+                    <span class="o_qing_knowledge_chip_divider" aria-hidden="true"/>
+                    <div class="o_qing_knowledge_chip_group" role="group" aria-label="Result types">
+                        <button type="button" class="o_qing_knowledge_chip" t-att-class="{ active: this.state.searchTypes.published }" t-att-aria-pressed="this.state.searchTypes.published ? 'true' : 'false'" t-on-click="() => this.toggleSearchType('published')">Published <span t-out="this.state.searchResults.length"/></button>
+                        <button type="button" class="o_qing_knowledge_chip" t-att-class="{ active: this.state.searchTypes.drafts }" t-att-aria-pressed="this.state.searchTypes.drafts ? 'true' : 'false'" t-on-click="() => this.toggleSearchType('drafts')">My drafts <span t-out="this.state.draftResults.length"/></button>
+                    </div>
+                </div>
+                <div id="qing_knowledge_search_results" class="o_qing_knowledge_search_results" role="listbox" aria-label="Search results">
+                    <t t-foreach="this.searchGroups" t-as="group" t-key="group.key">
+                        <div class="o_qing_knowledge_search_group" role="presentation"><span t-out="group.label"/><small t-out="group.items.length"/></div>
+                        <button t-foreach="group.items" t-as="item" t-key="item.key" type="button" role="option" t-att-id="'qing_knowledge_hit_' + item.index" class="o_qing_knowledge_hit" t-att-class="{ active: item.index === this.state.searchActive }" t-att-aria-selected="item.index === this.state.searchActive ? 'true' : 'false'" t-on-mousemove="() => this.state.searchActive = item.index" t-on-click="() => this.openSearchItem(item)">
+                            <i class="oi" t-att-data-icon="item.kind === 'draft' ? 'edit' : 'description'" aria-hidden="true"/>
+                            <span class="o_qing_knowledge_hit_text">
+                                <strong t-out="this.highlight(item.title)"/>
+                                <span t-if="item.summary" class="o_qing_knowledge_hit_snippet" t-out="this.highlight(item.summary)"/>
+                                <small t-out="item.meta"/>
+                            </span>
+                            <span t-if="item.kind === 'draft'" class="o_qing_knowledge_pill" t-att-class="'is-' + item.tone" t-out="item.label"/>
+                            <span t-elif="item.index === this.state.searchActive" class="o_qing_knowledge_hit_hint" aria-hidden="true">↵</span>
+                        </button>
+                    </t>
+                    <p t-if="!this.searchItems.length and this.state.query.trim()" class="o_qing_knowledge_search_empty">No matching articles.</p>
+                    <p t-elif="!this.searchItems.length" class="o_qing_knowledge_search_empty">Type to search all accessible articles.</p>
+                </div>
+                <footer class="o_qing_knowledge_search_footer">
+                    <span><kbd>↑</kbd><kbd>↓</kbd> to select</span>
+                    <span><kbd>↵</kbd> to open</span>
+                    <span><kbd>Esc</kbd> to close</span>
+                    <button t-if="this.canCreateArticle and this.state.query.trim()" type="button" class="btn btn-link" t-on-click="this.createFromSearch" t-out="this.createFromSearchLabel"/>
+                </footer>
+            </section></div>
+        </div>
+    </t>
+</templates>

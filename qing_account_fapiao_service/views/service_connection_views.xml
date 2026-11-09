@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_fapiao_service_connection_list" model="ir.ui.view">
+        <field name="name">qing.fapiao.service.connection.list</field>
+        <field name="model">qing.fapiao.service.connection</field>
+        <field name="arch" type="xml">
+            <list><field name="company_id"/><field name="seller_name"/><field name="seller_tax_id"/>
+                <field name="service_state"/><field name="last_sync_at"/></list>
+        </field>
+    </record>
+    <record id="view_qing_fapiao_service_connection_form" model="ir.ui.view">
+        <field name="name">qing.fapiao.service.connection.form</field>
+        <field name="model">qing.fapiao.service.connection</field>
+        <field name="arch" type="xml">
+            <form string="Online Invoicing Settings">
+                <header>
+                    <button name="action_apply" type="object" string="申请接入／更新申请" class="btn-primary"/>
+                    <button name="action_sync_status" type="object" string="同步开通状态"/>
+                    <button name="action_rotate_access_token" type="object" string="轮换接入密钥"
+                            invisible="not service_client_id"/>
+                    <button name="action_confirm_access_token_rotation" type="object" string="确认新密钥已保存"
+                            invisible="not credential_rotation_pending"/>
+                    <button name="action_open_provider_account" type="object" string="配置已开通服务商" class="btn-primary"
+                            invisible="service_state not in ('sandbox', 'production')"/>
+                    <field name="service_state" widget="statusbar" statusbar_visible="pending,sandbox,production,rejected,suspended"/>
+                </header>
+                <field name="service_client_id" invisible="1"/>
+                <field name="credential_rotation_pending" invisible="1"/>
+                <field name="registration_editable" invisible="1"/>
+                <sheet>
+                    <div class="alert alert-info" role="status">
+                        申请默认进入沙箱审核。沙箱只返回合成测试数据，不是税务发票；正式开票需服务方后台单独审核开通。已批准申请及发票快照会发送到 QingERP 在线服务。
+                    </div>
+                    <div class="alert alert-warning" role="status" invisible="not registration_editable">
+                        在线服务已重置本企业的注册资料。请修改企业或销方名称、税号后重新提交申请。
+                    </div>
+                    <group>
+                        <group string="企业与销方身份">
+                            <field name="company_id" readonly="service_client_id and not registration_editable"/>
+                            <field name="seller_name" readonly="service_client_id and not registration_editable"/>
+                            <field name="seller_tax_id" readonly="service_client_id and not registration_editable"/>
+                        </group>
+
+                    </group>
+                    <div class="text-muted">接入密钥仅保存在本企业 Odoo 中；服务端只保存不可逆摘要。</div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_qing_fapiao_service_connection" model="ir.actions.act_window">
+        <field name="name">Online Invoicing Settings</field>
+        <field name="res_model">qing.fapiao.service.connection</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

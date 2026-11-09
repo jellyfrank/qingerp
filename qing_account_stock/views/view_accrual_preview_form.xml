@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_accrual_preview_form" model="ir.ui.view">
+        <field name="name">qing.accrual.preview.form</field>
+        <field name="model">qing.accrual.preview</field>
+        <field name="arch" type="xml">
+            <form>
+                <group><field name="batch_id"/><field name="company_id"/><field name="entry_date"/><field name="journal_id" options="{'no_create': True}"/><field name="liability_account_id" options="{'no_create': True}"/></group>
+                <div class="alert alert-info" role="status">预览采用当前采购未税参考额：借原生库存变动/费用科目，贷所选暂估负债。
+                    原生期末库存调整单独处理库存余额，避免重复借记库存。生成预览不写账；生成凭证草稿后须回到批次复核过账。不计算税额，
+                    不代表历史期末余额；过账及到期冲回须由财务人员在批次中执行。</div>
+                <field name="result" nolabel="1"/>
+                <footer><button name="action_preview" type="object" string="生成预览" class="btn-primary"/><button name="action_create_draft" type="object" string="生成凭证草稿"/><button string="关闭" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+</odoo>

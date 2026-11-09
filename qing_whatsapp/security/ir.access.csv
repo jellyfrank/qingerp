@@ -1,0 +1,25 @@
+id,name,model_id,group_id/id,operation,domain
+account_operator,account_operator,qing.whatsapp.account,qing_whatsapp.group_user,r,"[('operator_ids', 'in', [user.id])]"
+account_manager,account_manager,qing.whatsapp.account,qing_whatsapp.group_manager,cru,
+account_company,account_company,qing.whatsapp.account,,crud,"[('company_id', 'in', company_ids)]"
+conversation_operator,conversation_operator,qing.whatsapp.conversation,qing_whatsapp.group_user,ru,"[('account_id.operator_ids', 'in', [user.id])]"
+conversation_manager,conversation_manager,qing.whatsapp.conversation,qing_whatsapp.group_manager,r,
+conversation_company,conversation_company,qing.whatsapp.conversation,,crud,"[('company_id', 'in', company_ids)]"
+consent_operator,consent_operator,qing.whatsapp.consent,qing_whatsapp.group_user,r,"[('account_id.operator_ids', 'in', [user.id])]"
+consent_manager,consent_manager,qing.whatsapp.consent,qing_whatsapp.group_manager,cr,
+consent_company,consent_company,qing.whatsapp.consent,,crud,"[('company_id', 'in', company_ids)]"
+template_operator,template_operator,qing.whatsapp.template,qing_whatsapp.group_user,r,"[('account_id.operator_ids', 'in', [user.id])]"
+template_manager,template_manager,qing.whatsapp.template,qing_whatsapp.group_manager,cru,
+template_company,template_company,qing.whatsapp.template,,crud,"[('company_id', 'in', company_ids)]"
+message_operator,message_operator,qing.whatsapp.message,qing_whatsapp.group_user,r,"[('account_id.operator_ids', 'in', [user.id])]"
+message_manager,message_manager,qing.whatsapp.message,qing_whatsapp.group_manager,r,
+message_company,message_company,qing.whatsapp.message,,crud,"[('company_id', 'in', company_ids)]"
+attempt_manager,attempt_manager,qing.whatsapp.attempt,qing_whatsapp.group_manager,r,
+attempt_company,attempt_company,qing.whatsapp.attempt,,crud,"[('company_id', 'in', company_ids)]"
+event_manager,event_manager,qing.whatsapp.event,qing_whatsapp.group_manager,r,
+event_company,event_company,qing.whatsapp.event,,crud,"[('company_id', 'in', company_ids)]"
+commerce_event_operator,commerce_event_operator,qing.whatsapp.commerce.event,qing_whatsapp.group_user,r,"[('account_id.operator_ids', 'in', [user.id])]"
+commerce_event_manager,commerce_event_manager,qing.whatsapp.commerce.event,qing_whatsapp.group_manager,r,
+commerce_event_company,commerce_event_company,qing.whatsapp.commerce.event,,crud,"[('company_id', 'in', company_ids)]"
+compose_operator,compose_operator,qing.whatsapp.compose,qing_whatsapp.group_user,crud,"[('create_uid', '=', user.id)]"
+channel_whatsapp_boundary,WhatsApp channel access,discuss.channel,,crud,"['|', ('qing_conversation_id', '=', False), '&', ('qing_conversation_id.company_id', 'in', company_ids), ('qing_conversation_id.account_id.operator_ids', 'in', [user.id] if user.has_group('qing_whatsapp.group_user') else [])]"

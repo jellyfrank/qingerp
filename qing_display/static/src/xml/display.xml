@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_display.Screen">
+        <div class="o_qing_display" t-ref="this.rootRef">
+            <div class="o_qing_display_ambient" aria-hidden="true"/>
+            <header class="o_qing_display_header">
+                <div class="o_qing_display_brand" t-if="this.state.data">
+                    <img class="o_qing_display_company_logo"
+                         t-att-src="'/web/binary/company_logo?company=' + this.state.data.company_id"
+                         t-att-alt="this.state.data.company"/>
+                    <span class="o_qing_display_company_name" t-att-title="this.state.data.company" t-esc="this.state.data.company"/>
+                </div>
+                <div t-else=""/>
+                <div class="o_qing_display_title">
+                    <span class="o_qing_display_title_ornament" aria-hidden="true"/>
+                    <div>
+                        <h1>Business Operations Display</h1>
+                        <small>Technical support: Qingdao Ohm Network Technology</small>
+                    </div>
+                    <span class="o_qing_display_title_ornament" aria-hidden="true"/>
+                </div>
+                <div class="o_qing_display_header_tools">
+                    <span class="o_qing_display_clock" t-esc="this.clockText"/>
+                    <span class="o_qing_display_connection" t-att-class="this.state.error ? 'is-offline' : 'is-online'">
+                        <span class="o_qing_display_dot"/>
+                        <t t-if="this.state.error">Reconnecting</t><t t-else="">Live</t>
+                    </span>
+                    <button t-if="this.state.soundEnabled" type="button" t-on-click="() => this.toggleSound()"
+                            aria-label="Mute sound">♫ Sound on</button>
+                    <button t-else="" type="button" t-on-click="() => this.toggleSound()"
+                            aria-label="Enable sound">♫ Enable sound</button>
+                    <button t-if="this.state.fullScreen" type="button" t-on-click="() => this.toggleFullScreen()"
+                            aria-label="Exit full screen">⛶</button>
+                    <button t-else="" type="button" t-on-click="() => this.toggleFullScreen()"
+                            aria-label="Full screen">⛶</button>
+                    <button type="button" t-on-click="() => this.leave()" aria-label="Back to workspace">✕</button>
+                </div>
+            </header>
+
+            <div t-if="this.state.error" class="o_qing_display_error" role="status" t-esc="this.state.error"/>
+            <div t-if="this.state.loading" class="o_qing_display_loading">Loading the display…</div>
+            <main t-if="this.state.data" class="o_qing_display_main">
+                <div class="o_qing_display_subhead">
+                    <span>Sales overview</span>
+                    <select t-if="this.state.data.companies.length &gt; 1" aria-label="Display company"
+                            t-on-change="(event) => this.changeCompany(event)">
+                        <t t-foreach="this.state.data.companies" t-as="company" t-key="company.id">
+                            <option t-att-value="company.id" t-att-selected="company.id === this.state.data.company_id"
+                                    t-esc="company.name"/>
+                        </t>
+                    </select>
+                    <span class="o_qing_display_updated">Updated <t t-esc="this.state.data.generated_at"/></span>
+                </div>
+
+                <section class="o_qing_display_metrics" aria-label="Key sales indicators">
+                    <article class="o_qing_display_metric"><span>Orders today</span><strong t-esc="this.formatNumber(this.state.data.today_count)"/><small>Confirmed orders</small></article>
+                    <article class="o_qing_display_metric"><span>Sales today (incl. tax)</span><strong t-esc="this.formatMoney(this.state.data.today_amount)"/><small>Company currency</small></article>
+                    <article class="o_qing_display_metric"><span>Sales this month (incl. tax)</span><strong t-esc="this.formatMoney(this.state.data.month_amount)"/><small>Confirmed order lines</small></article>
+                    <article class="o_qing_display_metric"><span>Open quotations</span><strong t-esc="this.formatNumber(this.state.data.pending_quotations)"/><small>Awaiting confirmation</small></article>
+                </section>
+
+                <section class="o_qing_display_content" aria-label="Sales charts">
+                    <div class="o_qing_display_panel o_qing_display_rank_panel">
+                        <h2><span class="o_qing_display_panel_icon">◆</span> Top customers this month</h2>
+                        <div class="o_qing_display_rank_list">
+                            <t t-if="!this.state.data.ranking.length"><div class="o_qing_display_empty">No sales yet</div></t>
+                            <t t-foreach="this.state.data.ranking" t-as="entry" t-key="entry_index">
+                                <div class="o_qing_display_rank_row">
+                                    <span class="o_qing_display_rank_index" t-esc="entry_index + 1"/>
+                                    <div class="o_qing_display_rank_info">
+                                        <div><span t-esc="entry.name"/><strong t-esc="this.formatMoney(entry.amount)"/></div>
+                                        <div class="o_qing_display_rank_bar"><i t-att-style="'width: ' + (this.state.data.ranking[0].amount ? Math.max(3, entry.amount / this.state.data.ranking[0].amount * 100) : 3) + '%'"/></div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div class="o_qing_display_panel o_qing_display_trend_panel">
+                        <h2><span class="o_qing_display_panel_icon">◆</span> Sales trend · 7 days</h2>
+                        <div class="o_qing_display_chart" t-ref="this.trendRef" role="img" aria-label="Sales amount for the last seven days"/>
+                    </div>
+
+                    <div class="o_qing_display_panel o_qing_display_share_panel">
+                        <h2><span class="o_qing_display_panel_icon">◆</span> Today's share of month</h2>
+                        <div class="o_qing_display_share_chart" t-ref="this.shareRef" role="img" aria-label="Today's sales share of this month"/>
+                        <div class="o_qing_display_share_value"><strong t-esc="this.dailyShare + '%'"/><small>of monthly sales</small></div>
+                        <p><span>Today</span><strong t-esc="this.formatMoney(this.state.data.today_amount)"/></p>
+                        <p><span>This month</span><strong t-esc="this.formatMoney(this.state.data.month_amount)"/></p>
+                    </div>
+                </section>
+
+                <section class="o_qing_display_bottom" aria-label="Recent business activity">
+                    <div class="o_qing_display_panel o_qing_display_recent_panel">
+                        <h2><span class="o_qing_display_panel_icon">◆</span> Latest confirmed orders</h2>
+                        <t t-if="!this.state.data.recent_orders.length"><div class="o_qing_display_empty">No confirmed orders yet</div></t>
+                        <div class="o_qing_display_recent_list">
+                            <t t-foreach="this.state.data.recent_orders" t-as="order" t-key="order.name">
+                                <div><strong t-esc="order.name"/><span t-esc="order.partner"/><em t-esc="this.formatMoney(order.amount)"/><small t-esc="order.time"/></div>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="o_qing_display_panel o_qing_display_flow_panel">
+                        <h2><span class="o_qing_display_panel_icon">◆</span> Order flow</h2>
+                        <div class="o_qing_display_flow_steps">
+                            <div><span>01</span><strong>Quotation</strong><small>Open <t t-esc="this.formatNumber(this.state.data.pending_quotations)"/></small></div>
+                            <div><span>02</span><strong>Confirmed today</strong><small t-esc="this.formatNumber(this.state.data.today_count)"/></div>
+                            <div><span>03</span><strong>Sales today</strong><small t-esc="this.formatMoney(this.state.data.today_amount)"/></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="o_qing_display_footer"><span>QingERP · Live business display</span><span>Data refreshes every 15 seconds</span></footer>
+
+            <div t-if="this.state.announcement" class="o_qing_display_announcement" role="status" aria-live="polite">
+                <div class="o_qing_display_sparks" aria-hidden="true">✦ ✧ ✦ ✧ ✦</div>
+                <span>New sales order</span>
+                <strong t-esc="this.state.announcement.name"/>
+                <p t-esc="this.state.announcement.partner"/>
+                <em t-esc="this.formatMoney(this.state.announcement.amount)"/>
+                <small t-esc="this.state.announcement.time"/>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_purchase
+#: model_terms:ir.ui.view,arch_db:qing_purchase.view_purchase_order_form
+msgid "Create Bill"
+msgstr "创建账单"
+
+#. module: qing_purchase
+#. odoo-python
+#: code:addons/qing_purchase/models/purchase_order.py:0
+msgid "Confirm the purchase order before creating a bill."
+msgstr "请先确认采购订单，再创建账单。"
+
+#. module: qing_purchase
+#. odoo-python
+#: code:addons/qing_purchase/models/purchase_order.py:0
+msgid "There is no quantity to bill. Check the received quantities and existing vendor bills, including drafts."
+msgstr "当前没有可开票数量。请检查已收货数量和现有供应商账单（包括草稿账单）。"
+
+#. module: qing_purchase
+#. odoo-python
+#: code:addons/qing_purchase/models/purchase_order.py:0
+msgid "Only a purchase administrator may assign purchases to another buyer."
+msgstr "只有采购管理员可以将采购单分配给其他采购员。"

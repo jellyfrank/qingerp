@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="skill_general" model="qing.ai.skill">
+        <field name="name">General Assistant</field>
+        <field name="description">Answer questions, summarize and translate.</field>
+        <field name="instructions">Use the supplied context as evidence. State uncertainty clearly and cite knowledge sources when supplied.</field>
+    </record>
+    <record id="agent_general" model="qing.ai.agent">
+        <field name="name">Qing AI</field>
+        <field name="description">General assistant for everyday work.</field>
+        <field name="is_default" eval="True"/>
+        <field name="system_prompt">You are a careful assistant for QingERP users. Answer in the user's language. Respect the user's business permissions and distinguish verified facts from suggestions.</field>
+        <field name="skill_ids" eval="[Command.link(ref('skill_general'))]"/>
+    </record>
+</odoo>
