@@ -23,7 +23,7 @@ The components below keep their own copyright notices and licenses.
 | --- | --- | --- | --- |
 | markdown-it-py | 2.2.0 | MIT | `qing_ai`, `qing_knowledge` |
 | jieba | 0.42.1 | MIT | `qing_knowledge` |
-| dnspython | 2.8.0 | ISC | commercial mail checks |
+| dnspython | 2.8.0 | ISC | deployment requirements |
 | aliyun-sms | 0.0.7 | AGPL-3.0 | `qing_sms_aliyun` |
 | phonenumbers | — | Apache-2.0 | `qing_sms`, `qing_whatsapp` |
 | requests | — | Apache-2.0 | `qing_whatsapp`, provider adapters |
@@ -42,3 +42,11 @@ that includes it.
   `mommy_qweb_chinese_num` module by lmch; the source note is kept in the file.
 - Menu icons in `qing_web_ui` are original artwork. Sign-in illustrations in
   `qing_base/static/img/` were generated for QingERP.
+
+## System dependencies installed separately
+
+The OCR image configuration installs Tesseract OCR, the Simplified Chinese language package and Poppler tools. Tesseract and the upstream tessdata project use Apache-2.0; see the [Tesseract license](https://github.com/tesseract-ocr/tesseract/blob/main/LICENSE) and [tessdata license](https://github.com/tesseract-ocr/tessdata/blob/main/LICENSE). See the [Poppler project](https://poppler.freedesktop.org/) and the copyright notices supplied with the actual installed distribution package for Poppler's applicable terms.
+
+PDF report password functionality may use qpdf installed by the environment; see the [qpdf license](https://github.com/qpdf/qpdf/blob/main/LICENSE.txt) and the notices supplied with the installed version. Versions and transitive dependencies depend on the actual system or distribution image. Retain all applicable bundled and package-provided copyright and license notices when redistributing.
+
+Third-party online services have their own service terms, separate from the software licenses listed here. The presence of a connector does not mean this repository distributes the service provider's server software.
