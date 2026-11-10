@@ -9,6 +9,12 @@ from odoo.tests import TransactionCase, tagged
 
 @tagged('post_install', '-at_install')
 class TestServiceInstance(TransactionCase):
+    def test_online_service_interface_is_removed(self):
+        for name in ('menu_qing_service_instance', 'action_qing_service_instance',
+                     'view_qing_service_instance_form', 'view_qing_service_instance_list'):
+            self.assertFalse(self.env.ref('qing_service_client.' + name, raise_if_not_found=False))
+        self.assertTrue(self.env['qing.service.instance'].sudo()._local_instance())
+
     def test_install_is_local_until_admin_confirms(self):
         instance = self.env['qing.service.instance'].sudo()._local_instance()
         self.assertEqual(instance.state, 'local')
