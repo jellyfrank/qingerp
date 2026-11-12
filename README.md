@@ -36,8 +36,6 @@ QingERP 社区免费版基于 **Odoo 20.0 Community**，以可选模块扩展日
    addons_path = /opt/odoo/odoo/addons,/opt/odoo/custom-addons/qingerp
    ```
 
-   从旧版本升级且数据库中仍装有 `mommy_base`、`mommy_mail` 或 `mommy_fapiao` 时，升级期间保留原 Solutions 路径。升级会把相关设置和开票数据复制到 QingERP 模块，并让旧模块的同类功能保持主导或停用，避免重复执行。
-
 3. 确认所有依赖均为兼容的 20.0 版本后重启 Odoo。在 **应用** 中更新应用列表，再搜索并安装需要的 `QingERP` 模块。创建新数据库时也要先配置好插件路径。
 
 各模块的完整依赖以模块清单为准。生产环境安装前，请先在测试数据库验证选定模块和依赖的安装及升级。
@@ -82,8 +80,6 @@ These capabilities are delivered by separate `qing_*` add-ons. Availability depe
    ```ini
    addons_path = /opt/odoo/odoo/addons,/opt/odoo/custom-addons/qingerp
    ```
-
-   When upgrading a database that still has `mommy_base`, `mommy_mail` or `mommy_fapiao` installed, keep the Solutions path during the upgrade. The upgrade copies the related settings and invoicing data into QingERP add-ons and keeps the legacy features either authoritative or disabled so nothing runs twice.
 
 3. Make sure every dependency is on a compatible 20.0 version, then restart Odoo. Update the Apps list and install the QingERP modules you need. Configure the add-on paths before creating a new database as well.
 
