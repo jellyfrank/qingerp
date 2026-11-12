@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_wework_sync_departments" model="ir.actions.server">
+            <field name="name">Sync Departments</field>
+            <field name="model_id" ref="model_hr_department"/>
+            <field name="state">code</field>
+            <field name="code">action=model.action_sync_wework_departments()</field>
+        </record>
+
+        <menuitem id="menu_sync_departments" name="Sync Departments" parent="menu_wework_config" action="action_wework_sync_departments" sequence="15" active="False"/>
+
+        <record id="action_wework_sync_employees" model="ir.actions.server">
+            <field name="name">Sync Emoployees</field>
+            <field name="model_id" ref="model_hr_department"/>
+            <field name="state">code</field>
+            <field name="code">action=model.action_syn_wework_employees()</field>
+        </record>
+
+        <menuitem id="menu_sync_employees" name="Sync Employees" parent="menu_wework_config" action="action_wework_sync_employees" sequence="16" active="False"/>
+    </data>
+</odoo>

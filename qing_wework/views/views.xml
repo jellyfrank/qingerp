@@ -1,0 +1,11 @@
+<odoo>
+  <data>
+    <menuitem id="menu_qing_wework_root" groups="qing_wework.group_wework_user" name="WeWork" web_icon="qing_wework,static/description/icon.png"/>
+
+    <menuitem id="menu_wework_app"  name="App"  parent="menu_qing_wework_root" sequence="95"/>
+    <menuitem id="menu_wework_config" name="Configuration" parent="menu_qing_wework_root" sequence="99"/>
+    <menuitem id="menu_wework_departments"  name="Departments"  parent="menu_qing_wework_root" groups="group_wework_manager" action="hr.hr_department_kanban_action"  sequence="97"/>
+    <menuitem id="menu_wework_employees"  name="Employees"  parent="menu_qing_wework_root" groups="group_wework_manager" action="hr.open_view_employee_list_my"  sequence="97"/>
+    <menuitem id="menu_company"  name="Company"  parent="menu_qing_wework_root" groups="group_wework_manager" action="base.action_res_company_form" sequence="98"/>
+  </data>
+</odoo>

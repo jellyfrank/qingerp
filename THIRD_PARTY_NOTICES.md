@@ -28,6 +28,8 @@ The components below keep their own copyright notices and licenses.
 | phonenumbers | — | Apache-2.0 | `qing_sms`, `qing_whatsapp` |
 | requests | — | Apache-2.0 | `qing_whatsapp`, provider adapters |
 | Pillow | — | MIT-CMU | `qing_ocr` |
+| odoo-wechatpy | — | [MIT](https://pypi.org/project/odoo-wechatpy/) | `qing_wework` (imported as `wechatpy`) |
+| websocket-client | — | [Apache-2.0](https://pypi.org/project/websocket-client/) | optional for `qing_wework` intelligent-bot WebSocket mode |
 
 `aliyun-sms` is declared AGPL-3.0 on PyPI. Installing `qing_sms_aliyun` brings
 that package into the deployment; review its terms before distributing a build

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_intelligent_bot_media_message_form" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.media.message.form</field>
+            <field name="model">wework.intelligent.bot.media.message</field>
+            <field name="arch" type="xml">
+                <form string="Intelligent Bot File Link">
+                    <header>
+                        <button name="action_queue_send" type="object" string="Queue Delivery" class="oe_highlight" invisible="state not in ('draft', 'failed', 'cancelled')"/>
+                        <button name="action_retry" type="object" string="Retry" invisible="state != 'failed'"/>
+                        <button name="action_cancel" type="object" string="Cancel" invisible="state not in ('pending', 'retry', 'processing')"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,pending,processing,retry,sent,failed,cancelled"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="bot_id" readonly="state != 'draft'"/>
+                                <field name="conversation_type" readonly="state != 'draft'"/>
+                                <field name="conversation_id" readonly="state != 'draft'"/>
+                                <field name="incoming_message_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="source_file" filename="source_file_name" readonly="state != 'draft'"/>
+                                <field name="source_file_name" invisible="1"/>
+                                <field name="requested_by_id" readonly="1"/>
+                            </group>
+                        </group>
+                        <group string="Delivery">
+                            <field name="attempts" readonly="1"/>
+                            <field name="next_run" readonly="1"/>
+                            <field name="started_at" readonly="1"/>
+                            <field name="sent_at" readonly="1"/>
+                            <field name="download_url" widget="url" readonly="1" groups="qing_wework.group_wework_manager"/>
+                            <field name="response_payload" readonly="1" groups="qing_wework.group_wework_manager"/>
+                            <field name="finished_at" readonly="1"/>
+                        </group>
+                        <group string="Error" invisible="not error_message">
+                            <field name="error_message" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_media_message_list" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.media.message.list</field>
+            <field name="model">wework.intelligent.bot.media.message</field>
+            <field name="arch" type="xml">
+                <list string="Intelligent Bot File Links">
+                    <field name="bot_id"/>
+                    <field name="source_file_name"/>
+                    <field name="conversation_type"/>
+                    <field name="conversation_id"/>
+                    <field name="state"/>
+                    <field name="attempts"/>
+                    <field name="sent_at"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_media_message_search" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.media.message.search</field>
+            <field name="model">wework.intelligent.bot.media.message</field>
+            <field name="arch" type="xml">
+                <search string="Intelligent Bot File Links">
+                    <field name="bot_id"/>
+                    <field name="conversation_id"/>
+                    <field name="source_file_name"/>
+                    <filter string="Pending" name="pending" domain="[('state', 'in', ('pending', 'retry', 'processing'))]"/>
+                    <filter string="Sent" name="sent" domain="[('state', '=', 'sent')]"/>
+                    <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                    <group>
+                        <filter string="Bot" name="bot" context="{'group_by': 'bot_id'}"/>
+                        <filter string="Status" name="state" context="{'group_by': 'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wework_intelligent_bot_media_message" model="ir.actions.act_window">
+            <field name="name">Intelligent Bot File Links</field>
+            <field name="res_model">wework.intelligent.bot.media.message</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

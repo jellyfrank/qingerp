@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_qing_wework_form" model="ir.ui.view">
+            <field name="name">qing.wework.form</field>
+            <field name="model">qing.wework</field>
+            <field name="arch" type="xml">
+                <form string="WeWork">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_contact_sync_jobs" type="object" class="oe_stat_button" icon="swap_horiz">
+                                <field name="contact_sync_job_count" widget="statinfo" string="Contact Jobs"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <notebook>
+                            <page string="Connection" name="connection">
+                                <group>
+                                    <group string="Application">
+                                        <field name="company_id"/>
+                                        <field name="agent_id"/>
+                                        <field name="secret" password="True"/>
+                                        <button name="action_test" type="object" string="Test Connection" class="oe_highlight" icon="power"/>
+                                    </group>
+                                    <group string="Callback Security">
+                                        <field name="encoding_aes_key"/>
+                                        <field name="token"/>
+                                    </group>
+                                </group>
+                                <group string="Domain Validation">
+                                    <field name="file_name"/>
+                                    <field name="file_content"/>
+                                </group>
+                            </page>
+                            <page string="Organization" name="organization">
+                                <group>
+                                    <group string="Employee Policy">
+                                        <field name="emp_sync_policy"/>
+                                        <field name="emp_user_create"/>
+                                        <field name="auto_bind_user"/>
+                                        <field name="auto_bind_policy" invisible="not auto_bind_user"/>
+                                        <field name="top_department_id" required="1"/>
+                                    </group>
+                                    <group string="Contact Synchronization">
+                                        <field name="contact_sync_enabled"/>
+                                        <field name="contact_sync_secret" password="True"/>
+                                        <field name="contact_sync_batch_size"/>
+                                    </group>
+                                </group>
+                                <group string="Synchronization Actions">
+                                    <button name="action_queue_departments_from_wework" type="object" string="Pull Departments" class="oe_highlight" icon="download"/>
+                                    <button name="action_queue_users_from_wework" type="object" string="Pull Employees" class="oe_highlight" icon="download"/>
+                                    <button name="action_queue_contact_sync" type="object" string="Push Organization and Users" icon="upload"/>
+                                </group>
+                            </page>
+                            <page string="Messaging" name="messaging">
+                                <group string="Message Defaults">
+                                    <field name="message_type"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_qing_wework_list" model="ir.ui.view">
+            <field name="name">qing.wework.list</field>
+            <field name="model">qing.wework</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="WeWork">
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="agent_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_qing_wework" model="ir.actions.act_window">
+            <field name="name">WeWork</field>
+            <field name="path">wework</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qing.wework</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework" name="WeWork" parent="menu_wework_config" groups="group_wework_manager" action="action_qing_wework" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wiew_wework_menu_form" model="ir.ui.view">
+            <field name="name">wework menu form</field>
+            <field name="model">wework.menu</field>
+            <field name="arch" type="xml">
+                <form string="Wework Form" class="">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Basic">
+                                <field name="key"/>
+                                <field name="type"/>
+                                <field name="url"/>
+                            </group>
+                            <group string="Advance">
+                                <field name="need_authorized"/>
+                                <field name="pagepath"/>
+                                <field name="appid"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="child_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="key"/>
+                                    <field name="url"/>
+                                </list>
+                            </field>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_wework_menu_list" model="ir.ui.view">
+            <field name="name">Wework Menu</field>
+            <field name="model">wework.menu</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="key"/>
+                    <field name="type"/>
+                    <field name="url"/>
+                    <field name="parent_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_wework_menu" model="ir.actions.act_window">
+            <field name="name">Wework Menu</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.menu</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_menu" name="Menu" parent="menu_wework_app" action="action_wework_menu" sequence="1"/>
+    </data>
+</odoo>

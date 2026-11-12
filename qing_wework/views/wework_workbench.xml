@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_bench_form" model="ir.ui.view">
+            <field name="name">Wework Bench Form</field>
+            <field name="model">wework.workbench</field>
+            <field name="arch" type="xml">
+                <form string="" class="">
+                    <header>
+                        <button name="publish" type="object" string="Publish" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="items">
+                                <form>
+                                    <group>
+                                        <field name="type" invisible="1"/>
+                                        <field name="name"/>
+                                        <field name="data" widget="ace" required="type == 'keydata'" invisible="type != 'keydata'"/>
+                                        <field name="need_authorized"/>
+                                        <field name="jump_url" widget="ace"/>
+                                        <field name="pagepath"/>
+                                    </group>
+                                    <group>
+                                        <field name="height" invisible="type != 'webview'"/>
+                                        <field name="hide_title" invisible="type != 'webview'"/>
+                                        <field name="url"/>
+                                        <field name="enable_webview_click" invisible="type != 'webview'"/>
+                                    </group>
+                                </form>
+                                <list>
+                                    <field name="type" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="data"/>
+                                    <field name="hide_title" column_invisible="parent.type != 'webview'"/>
+                                    <field name="jump_url" invisible="1"/>
+                                    <field name="pagepath" invisible="1"/>
+                                    <field name="url"/>
+                                    <field name="enable_webview_click" column_invisible="parent.type != 'webview'"/>
+                                </list>
+                            </field>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_wework_workbench_list" model="ir.ui.view">
+            <field name="name">wework workbench</field>
+            <field name="model">wework.workbench</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="type"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_wework_workbench" model="ir.actions.act_window">
+            <field name="name">WorkBench</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.workbench</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_bench" name="WorkBench" parent="menu_wework_app" action="action_wework_workbench" sequence="3"/>
+    </data>
+</odoo>

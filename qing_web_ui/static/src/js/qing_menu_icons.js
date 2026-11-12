@@ -82,6 +82,7 @@ const appIcons = {
     "mail.menu_root_discuss": "mail",
     "calendar.mail_menu_calendar": "calendar",
     "mommy_wework.menu_mommy_wework_root": "chat",
+    "qing_wework.menu_qing_wework_root": "chat",
     "qing_stock_barcode.menu_scan_root": "barcode",
     "qing_display.menu_qing_display": "display",
     "qing_display_pro.menu_display_pro": "display",
@@ -232,5 +233,5 @@ for (const [id, icon] of Object.entries({ ...appIcons, ...sectionIcons })) {
 
 export function menuIconHref(menu) {
     const icon = menuIcons.get(menu.xmlid || "", "paper");
-    return `/qing_web_ui/static/src/icons/menu.svg?v=8#${icon}`;
+    return `/qing_web_ui/static/src/icons/menu.svg?v=9#${icon}`;
 }

@@ -1,0 +1,3334 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_wework
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-11 02:36+0000\n"
+"PO-Revision-Date: 2026-11-11 02:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_wework
+#: model:ir.module.module,description:base.module_qing_wework
+msgid ""
+"\n"
+"QingERP WeCom (企业微信) integration, ported from the Ohm Solutions WeWork module.\n"
+"\n"
+"* Employee and department sync\n"
+"* OAuth / QR code login\n"
+"* Application messages and message templates\n"
+"* Group robots and scheduled robot messages\n"
+"* Intelligent bot (callback and WebSocket)\n"
+"* Application menus and workbench\n"
+"* Multi-company\n"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__news
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__news
+msgid " External Article"
+msgstr " 外部文章"
+
+#. module: qing_wework
+#: model:ir.model.constraint,message:qing_wework.constraint_wework_department_binding_id_unique
+msgid "A WeWork department can only be bound once per WeWork configuration."
+msgstr "同一企业微信配置下，企业微信部门只能绑定一次。"
+
+#. module: qing_wework
+#: model:ir.model.constraint,message:qing_wework.constraint_wework_contact_binding_userid_unique
+msgid "A WeWork user ID can only be bound once per WeWork configuration."
+msgstr "同一企业微信配置下，企业微信用户 ID 只能绑定一次。"
+
+#. module: qing_wework
+#: model:ir.model.constraint,message:qing_wework.constraint_wework_department_binding_unique
+msgid "A department can only have one binding per WeWork configuration."
+msgstr "同一企业微信配置下，每个部门只能有一个绑定。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "A file is required for a file robot template."
+msgstr "文件机器人模板需要上传文件。"
+
+#. module: qing_wework
+#: model:ir.model.constraint,message:qing_wework.constraint_wework_contact_binding_user_unique
+msgid "A user can only have one binding per WeWork configuration."
+msgstr "同一企业微信配置下，每个用户只能有一个绑定。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/oauth_controller.py:0
+msgid "Access Denied"
+msgstr "拒绝访问"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__wework_access_token
+msgid "Access Token"
+msgstr "访问令牌"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_needaction
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_needaction
+msgid "Action Needed"
+msgstr "待处理"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__active
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__active
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__active
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__active
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__active
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__active
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_binding__state__active
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_department_binding__state__active
+msgid "Active"
+msgstr "启用"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_exception_decoration
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "活动异常符号"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_plans_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_plans_ids
+msgid "Activity Plans"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_type_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "活动类型图标"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.wiew_wework_menu_form
+msgid "Advance"
+msgstr "高级设置"
+
+#. module: qing_wework
+#: model:ir.model.constraint,message:qing_wework.constraint_wework_intelligent_bot_message_external_message_unique
+msgid "An intelligent bot message with this external ID already exists."
+msgstr "已存在具有此外部 ID 的智能机器人消息。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__emp_sync_policy__any
+msgid "Any one condition"
+msgstr "任何一个条件"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_app
+msgid "App"
+msgstr "应用"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Application"
+msgstr "应用"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_search
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Are you sure to sync departments from wework?"
+msgstr "确定要从企业微信同步部门数据吗？"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Are you sure to sync employees from wework?"
+msgstr "确定要从企业微信同步员工信息吗？"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_article
+#: model:ir.ui.menu,name:qing_wework.menu_wework_article
+msgid "Article"
+msgstr "内部文章"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__articles
+msgid "Articles"
+msgstr "文章"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_attachment_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__attempts
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__attempts
+msgid "Attempts"
+msgstr "尝试次数"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__author
+msgid "Author"
+msgstr "作者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__auto_bind_user
+msgid "Auto Bind User by Name"
+msgstr "根据用户名自动绑定"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_res_company_wework_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.wiew_wework_menu_form
+msgid "Basic"
+msgstr "基础"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__batch_size
+msgid "Batch Size"
+msgstr "批量大小"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Batch size must be greater than 0."
+msgstr "批量大小必须大于 0。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__bench_id
+msgid "Bench Id"
+msgstr "工作台ID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__binding_id
+msgid "Binding"
+msgstr "绑定"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__bot_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__bot_id
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_search
+msgid "Bot"
+msgstr "机器人"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_message_template_form
+msgid "Build"
+msgstr "构建"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__button_text
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__button_text
+msgid "Button Text"
+msgstr "按钮文字"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__auto_bind_policy__email
+msgid "By Email"
+msgstr "按邮件"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__auto_bind_policy__name
+msgid "By Name"
+msgstr "按名称"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__callback
+msgid "Callback"
+msgstr "回调"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Callback Security"
+msgstr "回调安全"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__callback_token
+msgid "Callback Token"
+msgstr "回调 Token"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__callback_url
+msgid "Callback URL"
+msgstr "回调 URL"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__callback_uuid
+msgid "Callback Uuid"
+msgstr "回调 UUID"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "Callback credentials were generated. Update them in the WeCom console."
+msgstr "回调凭据已生成。请在企业微信管理后台更新。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot.py:0
+msgid "Can not delete this message."
+msgstr "无法删除此信息。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_confirm_wizard_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__cancelled
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__message_type__card
+msgid "Card"
+msgstr "卡片"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__child_ids
+msgid "Child Menus"
+msgstr "子菜单"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__click
+msgid "Click"
+msgstr "点击推事件"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__name
+msgid "Code"
+msgstr "代码"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_res_company
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__company_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__company_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__company_id
+#: model:ir.ui.menu,name:qing_wework.menu_company
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_config
+msgid "Configuration"
+msgstr "配置"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_confirm_wizard_form
+msgid "Confirm"
+msgstr "确认"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_binding__state__conflict
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__conflict
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_department_binding__state__conflict
+msgid "Conflict"
+msgstr "冲突"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__policy
+msgid "Connect Police"
+msgstr "关联策略"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_connect_wizard
+msgid "Connect Wizard"
+msgstr "关联向导"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__websocket_status__connected
+msgid "Connected"
+msgstr "已连接"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__websocket_status__connecting
+msgid "Connecting"
+msgstr "连接中"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Connection"
+msgstr "连接"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__connection_mode
+msgid "Connection Mode"
+msgstr "连接模式"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Contact Jobs"
+msgstr "通讯录任务"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__contact_sync_batch_size
+msgid "Contact Sync Batch Size"
+msgstr "通讯录同步批量大小"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__contact_sync_job_count
+msgid "Contact Sync Job Count"
+msgstr "通讯录同步任务数"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_contact_sync_job
+#: model:ir.ui.menu,name:qing_wework.menu_wework_contact_sync_job
+msgid "Contact Sync Jobs"
+msgstr "通讯录同步任务"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__contact_sync_secret
+msgid "Contact Sync Secret"
+msgstr "通讯录同步密钥"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Contact Synchronization"
+msgstr "通讯录同步"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__content
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__content
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__content
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__content
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Content"
+msgstr "内容"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__content_template
+msgid "Content Template"
+msgstr "内容模板"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "Content is required for text and markdown robot templates."
+msgstr "文本和 Markdown 机器人模板需要填写内容。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__conversation_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__conversation_id
+msgid "Conversation"
+msgstr "会话"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__conversation_type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__conversation_type
+msgid "Conversation Type"
+msgstr "会话类型"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_auth_oauth_provider__corp_id
+msgid "Corp ID"
+msgstr "企业ID"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Create Server Action"
+msgstr "创建服务器动作"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__emp_user_create
+msgid "Create User"
+msgstr "创建用户"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Created On"
+msgstr "创建于"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__create_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__create_uid
+msgid "Created by"
+msgstr "创建者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__create_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Creating user: %s, data:%s"
+msgstr "创建用户：%s，数据：%s"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/res_company.py:0
+msgid ""
+"Current company has't config the WeWork settings, please go to company "
+"settings."
+msgstr "当前公司尚未配置企业微信应用设置，请前往公司设置。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__data
+msgid "Data"
+msgstr "数据"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__datetime_field_id
+msgid "Datetime Field"
+msgstr "日期时间字段"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__datetime_value
+msgid "Datetime Value"
+msgstr "日期时间值"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Datetime field must be a Datetime field."
+msgstr "日期时间字段必须是 Datetime 类型字段。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Datetime field must belong to selected model."
+msgstr "日期时间字段必须属于所选模型。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Delivery"
+msgstr "发送记录"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_hr_department
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__department_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__department_id
+msgid "Department"
+msgstr "部门"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__department_binding_id
+msgid "Department Binding"
+msgstr "部门绑定"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Department synchronization has been queued."
+msgstr "部门同步已加入队列。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__department_ids
+#: model:ir.ui.menu,name:qing_wework.menu_wework_departments
+msgid "Departments"
+msgstr "部门"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__digest
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__description
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__description
+msgid "Description"
+msgstr "描述"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__direction
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_search
+msgid "Direction"
+msgstr "方向"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_auth_oauth_provider__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_hr_department__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_mail_thread__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_res_company__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_res_users__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_mixin__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__display_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__domain
+msgid "Domain"
+msgstr "域"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Domain Validation"
+msgstr "域验证"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Domain must be a list or tuple."
+msgstr "域必须是列表或元组。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__done
+msgid "Done"
+msgstr "完成"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench_item__height__double_row
+msgid "Double Row"
+msgstr "双行"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__download_url
+msgid "Download Url"
+msgstr "下载 URL"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "Download file"
+msgstr "下载文件"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "Download link"
+msgstr "下载链接"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__draft
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__state__draft
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__state__draft
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_temp_state__state__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__emp_sync_policy__email
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_connect_wizard__policy__email
+msgid "Email"
+msgstr "邮件"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_connect_wizard__policy__email_or_phone
+msgid "Email Or Phone"
+msgstr "邮件或电话"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__emp_sync_policy__email_or_phone
+msgid "Email or Phone"
+msgstr "邮件或电话"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_hr_employee
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__employee_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__employee_ids
+msgid "Employee"
+msgstr "员工"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Employee Policy"
+msgstr "员工策略"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__emp_sync_policy
+msgid "Employee Sync Policy"
+msgstr "员工同步策略"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_employees
+msgid "Employees"
+msgstr "员工"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__enable_webview_click
+msgid "Enable Webview Redirect"
+msgstr "启用Webview跳转"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__encoding_aes_key
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__encoding_aes_key
+msgid "EncodingAESKey"
+msgstr ""
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "Enter the WebSocket Bot ID and WebSocket Secret first."
+msgstr "请先输入 WebSocket Bot ID 和 WebSocket Secret。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__websocket_status__error
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Error"
+msgstr "错误"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__error_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__error_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__error_message
+msgid "Error Message"
+msgstr "错误信息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__error_message
+msgid "Error Message."
+msgstr "错误信息。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Example: ${object.display_name} needs attention. Open: ${record_url}"
+msgstr "示例：${object.display_name} 需要关注。打开：${record_url}"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_article__type__news
+msgid "External Article"
+msgstr "外部文章"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__external_message_id
+msgid "External Message"
+msgstr "外部消息"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__state__fail
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__state__failed
+msgid "Fail"
+msgstr "失败"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__failed
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__failed
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_schedule_log__state__failed
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Failed"
+msgstr "失败"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "Failed to render expression %s: %s"
+msgstr "渲染表达式 %s 失败：%s"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__media_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__file
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__file
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__media_type__file
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__file
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__file
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__file
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_template__message_type__file
+msgid "File"
+msgstr "文件"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__media_message_ids
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "File Links"
+msgstr "文件链接"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__file_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__file_name
+msgid "File Name"
+msgstr "文件名"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "File ready: [%(filename)s](%(url)s)"
+msgstr "文件已准备好：[%(filename)s](%(url)s)"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__redirect_url
+msgid "Final Redirect URL"
+msgstr "最终跳转链接"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__finished_at
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__finished_at
+msgid "Finished At"
+msgstr "完成于"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__employee_ids
+msgid "Fixed Mentioned Employees"
+msgstr "固定提及员工"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_follower_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_partner_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者(合作伙伴)"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__from_user
+msgid "From"
+msgstr "从"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Generate Credentials"
+msgstr "生成凭据"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__conversation_type__group
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__conversation_type__group
+msgid "Group Chat"
+msgstr "群聊"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__has_message
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__has_message
+msgid "Has Message"
+msgstr "消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__height
+msgid "Height"
+msgstr "高度"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__hide_title
+msgid "Hide title"
+msgstr "隐藏标题"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_auth_oauth_provider__id
+#: model:ir.model.fields,field_description:qing_wework.field_hr_department__id
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee__id
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee_public__id
+#: model:ir.model.fields,field_description:qing_wework.field_mail_thread__id
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__id
+#: model:ir.model.fields,field_description:qing_wework.field_res_company__id
+#: model:ir.model.fields,field_description:qing_wework.field_res_users__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_mixin__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_exception_icon
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_exception_icon
+msgid "Icon"
+msgstr "图标"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_message__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__activity_exception_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "用于指示异常活动的图标。"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_message__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__message_needaction
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "如果选中,你需要关注新消息。"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_message__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_message__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__message_has_sms_error
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__message_has_error
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "如果选中,某些消息有传输错误。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__media_type__image
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__type__image
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__image
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench__type__image
+msgid "Image"
+msgstr "图片"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__image
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__image
+msgid "Image Message"
+msgstr "图片信息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__reply_message
+msgid "Immediate Reply"
+msgstr "即时回复"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Immediate acknowledgement sent after a verified callback..."
+msgstr "验证通过回调后立即发送确认回复..."
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__direction__inbound
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_search
+msgid "Inbound"
+msgstr "入站"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__incoming_message_id
+msgid "Incoming Message"
+msgstr "收到的消息"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_article__type__mpnews
+msgid "Inside Article"
+msgstr "内部文章"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Intelligent Bot File Link"
+msgstr "智能机器人文件链接"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+#: model:ir.actions.act_window,name:qing_wework.action_wework_intelligent_bot_media_message
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+msgid "Intelligent Bot File Links"
+msgstr "智能机器人文件链接"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_form
+msgid "Intelligent Bot Message"
+msgstr "智能机器人消息"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+#: model:ir.actions.act_window,name:qing_wework.action_wework_intelligent_bot_message
+#: model:ir.ui.menu,name:qing_wework.menu_wework_intelligent_bot_message
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_search
+msgid "Intelligent Bot Messages"
+msgstr "智能机器人消息"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_intelligent_bot
+#: model:ir.ui.menu,name:qing_wework.menu_wework_intelligent_bot
+msgid "Intelligent Bots"
+msgstr "智能机器人"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Intelligent bot name..."
+msgstr "智能机器人名称..."
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__mpnews
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__mpnews
+msgid "Internal Article"
+msgstr "内部文章"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_is_follower
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_is_follower
+msgid "Is Follower"
+msgstr "是否关注"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__job_key
+msgid "Job Key"
+msgstr "任务键"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__job_type
+msgid "Job Type"
+msgstr "任务类型"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__key
+msgid "Key"
+msgstr "键"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench__type__keydata
+msgid "Key Data"
+msgstr "关键数据"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__last_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__last_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__last_error
+msgid "Last Error"
+msgstr "最后错误"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__last_run_at
+msgid "Last Run At"
+msgstr "上次运行时间"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__last_sync_at
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__last_sync_at
+msgid "Last Sync At"
+msgstr "上次同步时间"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__last_sync_hash
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__last_sync_hash
+msgid "Last Sync Hash"
+msgstr "上次同步哈希"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__write_uid
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__write_uid
+msgid "Last Updated by"
+msgstr "最后修改者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_connect_wizard__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__write_date
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__write_date
+msgid "Last Updated on"
+msgstr "最后更新于"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench__type__list
+msgid "List"
+msgstr "列表"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__location_select
+msgid "Location Select"
+msgstr "弹出地理位置选择器"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__log_count
+msgid "Log Count"
+msgstr "日志数量"
+
+#. module: qing_wework
+#: model:auth.oauth.provider,body:qing_wework.oauth_provider_wework
+msgid "Login with Wework"
+msgstr "企业微信登录"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+msgid "Logs"
+msgstr "日志"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__markdown
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__markdown
+msgid "Markdown"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__markdown
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_template__message_type__markdown
+msgid "Markdown Message"
+msgstr "Markdown消息"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__markdown_v2
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_template__message_type__markdown_v2
+msgid "Markdown V2 Message"
+msgstr "Markdown V2 消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_message__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__activity_type_icon
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__activity_type_icon
+msgid "Material Symbols icon e.g. checklist"
+msgstr "Font awesome图标 例如 fa-tasks"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__max_overdue_hours
+msgid "Max Overdue Hours"
+msgstr "最大逾期小时数"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Max overdue hours must be greater than or equal to 0."
+msgstr "最大逾期小时数必须大于或等于 0。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__media_id
+#: model:ir.ui.menu,name:qing_wework.menu_wework_media
+msgid "Media"
+msgstr "媒体"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__media_message_count
+msgid "Media Message Count"
+msgstr "媒体消息数量"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__media_type
+msgid "Media Type"
+msgstr "媒体类型"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__mention_all
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__mention_all
+msgid "Mention All"
+msgstr "提及所有人"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__mention_create_uid
+msgid "Mention Creator"
+msgstr "提及创建者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__mention_field_ids
+msgid "Mention Fields"
+msgstr "提及字段"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__mention_followers
+msgid "Mention Followers"
+msgstr "提及关注者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__mention_responsible
+msgid "Mention Responsible User"
+msgstr "提及负责用户"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__group_ids
+msgid "Mention employees whose users belong to these groups."
+msgstr "提及其用户属于这些用户组的员工。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Mentions"
+msgstr "提及"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_menu
+msgid "Menu"
+msgstr "菜单"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_menu.py:0
+msgid "Menus sync success."
+msgstr "菜单同步成功。"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_qing_wework_message
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_message_form
+msgid "Message"
+msgstr "消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__content
+msgid "Message Body"
+msgstr "消息正文"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_count
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__robot_message_count
+msgid "Message Count"
+msgstr "消息数量"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Message Defaults"
+msgstr "消息默认值"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_has_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_has_error
+msgid "Message Delivery error"
+msgstr "消息传输错误"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_qing_message_template
+#: model:ir.ui.menu,name:qing_wework.menu_qing_message_template
+msgid "Message Template"
+msgstr "消息模板"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__message_type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__msg_type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__msg_type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_type
+msgid "Message Type"
+msgstr "消息类型"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_message_mixin.py:0
+msgid "Message type %s is not supported."
+msgstr "不支持消息类型 %s。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_ids
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_ids
+#: model:ir.ui.menu,name:qing_wework.menu_qing_wework_messages
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_form
+msgid "Messages"
+msgstr "消息"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Messaging"
+msgstr "消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__appid
+msgid "MiniProgram AppId"
+msgstr "小程序APPID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__appid
+msgid "Miniprogram AppID"
+msgstr "小程序APPID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__pagepath
+msgid "Miniprogram Page Path"
+msgstr "小程序页面路径"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__pagepath
+msgid "Miniprogram Path"
+msgstr "小程序路径"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__res_model
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__model_id
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_search
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_search
+msgid "Model"
+msgstr "资源模型"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/tools/actions.py:0
+msgid "Model: %s has no valid action for this operation."
+msgstr "模型 %s 没有可用于此操作的窗口动作。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__my_activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "我的活动Deadline"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__name
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__emp_sync_policy__name
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_message_template_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_bench_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.wiew_wework_menu_form
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__need_authorized
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__need_authorized
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__need_authorized
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__need_authorized
+msgid "Need Authorized"
+msgstr "免登录"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__news
+msgid "News"
+msgstr "新闻"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_date_deadline
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下一个活动到期时间"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_summary
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一个活动总结"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_type_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一个活动类型"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__next_run
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__next_run
+msgid "Next Run"
+msgstr "下次运行"
+
+#. module: qing_wework
+#: model:res.groups.privilege,placeholder:qing_wework.privilege_wework
+msgid "No"
+msgstr "否"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "No WeWork employee can be mentioned for record %s."
+msgstr "记录 %s 没有可提及的企业微信员工。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/mail_thread.py:0
+msgid "No company has configured the WeCom app."
+msgstr "还没有公司配置企业微信应用。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/wizard/wework_connect_wizard.py:0
+msgid "No users need to connect."
+msgstr "没有用户需要同步。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_res_users__notify_wework
+msgid "Notify on Wework"
+msgstr "企业微信通知"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_needaction_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_needaction_counter
+msgid "Number of Actions"
+msgstr "活动数量"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_has_error_counter
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_has_error_counter
+msgid "Number of errors"
+msgstr "错误数量"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_message__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__message_needaction_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "需要处理的消息数量"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_message__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__message_has_error_counter
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "传递错误的消息数量"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_auth_oauth_provider
+msgid "OAuth2 provider"
+msgstr "OAuth2服务商"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "Open Send File from an inbound intelligent bot message."
+msgstr "从入站智能机器人消息打开发送文件。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Organization"
+msgstr "组织"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__direction__outbound
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_search
+msgid "Outbound"
+msgstr "出站"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__page_path
+msgid "Page Path of MiniProgram"
+msgstr "小程序页面路径"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__parent_id
+msgid "Parent Menu"
+msgstr "上级菜单"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__parent_path
+msgid "Parent Path"
+msgstr "上级路径"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__payload
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__payload
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+msgid "Payload"
+msgstr "载荷"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__pending
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__pending
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+msgid "Pending"
+msgstr "待处理"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__emp_sync_policy__phone
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_connect_wizard__policy__phone
+msgid "Phone"
+msgstr "电话"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__pic_photo_or_album
+msgid "Pic Photo or Album"
+msgstr "弹出系统拍照发图"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__pic_sysphoto
+msgid "Pic Sysphoto"
+msgstr "弹出拍照或者相册发图"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__pic_weixin
+msgid "Pic WeiXin"
+msgstr "弹出企业微信相册发图器"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__pic_url
+msgid "Picture URL"
+msgstr "图片URL"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_employee.py:0
+msgid "Please click this card to authorize Odoo to sync your infomation."
+msgstr "请单击卡片授权Odoo同步您的信息。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Please configure WeWork for this company first."
+msgstr "请先为此公司配置企业微信。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid ""
+"Please configure a company and top department before synchronizing "
+"departments."
+msgstr "同步部门前，请先配置公司和顶级部门。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid "Please configure a contact synchronization Secret."
+msgstr "请配置通讯录同步密钥。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid ""
+"Please configure a top department before synchronizing departments from "
+"WeWork."
+msgstr "从企业微信同步部门前，请先配置顶级部门。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid ""
+"Please configure a top department before synchronizing the department tree."
+msgstr "同步部门树前，请先配置顶级部门。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "Please generate the intelligent bot callback credentials first."
+msgstr "请先生成智能机器人回调凭据。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid "Please link this WeWork app to an Odoo company first."
+msgstr "请先将此企业微信应用关联到 Odoo 公司。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "Please provide a WeWork robot template."
+msgstr "请提供企业微信机器人模板。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_message.py:0
+msgid "Please select a WeCom media file before sending it."
+msgstr "发送前请选择企业微信媒体文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot.py:0
+msgid "Please select a file before sending the robot message."
+msgstr "发送机器人消息前请选择文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_media.py:0
+msgid "Please select a file before uploading it to WeCom."
+msgstr "上传到企业微信前请选择文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_message_template.py:0
+msgid "Please select an uploaded WeWork file."
+msgstr "请选择已上传的企业微信文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_media.py:0
+msgid "Please upload a WeCom media file before sending it."
+msgstr "发送前请上传企业微信媒体文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "Please upload a file before sending it."
+msgstr "发送前请上传文件。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+msgid "Process Now"
+msgstr "立即处理"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__processing
+msgid "Processing"
+msgstr "处理中"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_hr_employee_public
+msgid "Public Employee"
+msgstr "公共员工"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_bench_form
+msgid "Publish"
+msgstr "发布"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__job_type__department_pull
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Pull Departments"
+msgstr "拉取部门"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Pull Employees"
+msgstr "拉取员工"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__job_type__user_pull
+msgid "Pull Users"
+msgstr "拉取用户"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__job_type__department
+msgid "Push Department"
+msgstr "推送部门"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Push Organization and Users"
+msgstr "推送组织和用户"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__job_type__user
+msgid "Push User"
+msgstr "推送用户"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Queue Delivery"
+msgstr "加入发送队列"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid ""
+"Queued %s department records and their eligible users for synchronization."
+msgstr "已将 %s 条部门记录及其符合条件的用户加入同步队列。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Queued %s employee synchronization jobs."
+msgstr "已将 %s 个员工同步任务加入队列。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__redirect_url
+msgid "Real Redirect URL"
+msgstr "实际跳转URL"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_message_template.py:0
+msgid "Receipt user can't be empty."
+msgstr "接收用户不能为空。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__employee_ids
+msgid "Receive Employees"
+msgstr "接收员工"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__state__received
+msgid "Received"
+msgstr "已接收"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__received_at
+msgid "Received At"
+msgstr "接收于"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_message_form
+msgid "Receivers"
+msgstr "接收者"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__employee_ids
+msgid "Reciepts"
+msgstr "接收人"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__url
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__redirect_url
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__jump_url
+msgid "Redirect URL"
+msgstr "重定向URL"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__remind_before_minutes
+msgid "Remind Before Minutes"
+msgstr "提前提醒分钟数"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Remind before minutes must be greater than or equal to 0."
+msgstr "提前提醒分钟数必须大于或等于 0。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_schedule__repeat_policy__interval
+msgid "Repeat By Interval"
+msgstr "按间隔重复"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__repeat_interval_hours
+msgid "Repeat Interval Hours"
+msgstr "重复间隔小时数"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__repeat_policy
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_search
+msgid "Repeat Policy"
+msgstr "重复策略"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Repeat interval hours must be greater than 0."
+msgstr "重复间隔小时数必须大于 0。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__requested_by_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__requested_by_id
+msgid "Requested By"
+msgstr "请求人"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__res_ids
+msgid "Res"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__res_id
+msgid "Res Id"
+msgstr "资源ID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_confirm_wizard__res_model
+msgid "Res Model"
+msgstr "关联模型"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_message_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_message_form
+msgid "Reset"
+msgstr "重置"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__res_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__res_id
+msgid "Resource ID"
+msgstr "资源 ID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__res_model
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__res_model
+msgid "Resource Model"
+msgstr "资源模型"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__response_payload
+msgid "Response Payload"
+msgstr "响应载荷"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__response_url
+msgid "Response Url"
+msgstr "响应 URL"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__activity_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__activity_user_id
+msgid "Responsible User"
+msgstr "负责用户"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+msgid "Result"
+msgstr "结果"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__result_summary
+msgid "Result Summary"
+msgstr "结果摘要"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__retry
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__retry
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_contact_sync_job_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_form
+msgid "Retry"
+msgstr "重试"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__robot_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__robot_id
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot_root
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_search
+msgid "Robot"
+msgstr "机器人"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot_message
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_message_form
+msgid "Robot Message"
+msgstr "机器人消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__robot_message_ids
+msgid "Robot Messages"
+msgstr "机器人消息"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_robot_schedule
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot_schedule
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+msgid "Robot Schedule"
+msgstr "机器人计划"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_robot_schedule_log
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot_schedule_log
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_form
+msgid "Robot Schedule Log"
+msgstr "机器人计划日志"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Robot Schedule Logs"
+msgstr "机器人计划日志"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_search
+msgid "Robot Schedules"
+msgstr "机器人计划"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_wework_robot_template
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Robot Template"
+msgstr "机器人模板"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_search
+msgid "Robot Templates"
+msgstr "机器人模板"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot.py:0
+msgid "Robot message type %s is not supported yet."
+msgstr "暂不支持机器人消息类型 %s。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Robot template name..."
+msgstr "机器人模板名称..."
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+msgid "Run Now"
+msgstr "立即运行"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__running
+msgid "Running"
+msgstr "运行中"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__message_has_sms_error
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS发送错误"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__scancode_push
+msgid "Scancode Push"
+msgstr "扫码推事件"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__scancode_waitmsg
+msgid "Scancode Waitmsg"
+msgstr "扫码推事件且弹出“消息接收中”提示框"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__schedule_id
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Schedule"
+msgstr "计划"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Schedule Logs"
+msgstr "计划日志"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+msgid "Schedule name..."
+msgstr "计划名称..."
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "Select WebSocket Long Connection before starting it."
+msgstr "启动前请选择 WebSocket 长连接。"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__mention_field_ids
+msgid ""
+"Select fields on the target model that point to res.users or hr.employee."
+msgstr "请选择目标模型上指向 res.users 或 hr.employee 的字段。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_message_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_message_form
+msgid "Send"
+msgstr "发送"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.action_sync_invitation_authorize
+msgid "Send Authorize Messages"
+msgstr "发送授权信息"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_message_form
+msgid "Send File"
+msgstr "发送文件"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_schedule__repeat_policy__once
+msgid "Send Once"
+msgstr "发送一次"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "Send WeWork Robot: %s"
+msgstr "发送企业微信机器人：%s"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__sender_user_id
+msgid "Sender User"
+msgstr "发送用户"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__state__sent
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__state__sent
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+msgid "Sent"
+msgstr "已发送"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__sent_at
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__sent_at
+msgid "Sent At"
+msgstr "发送于"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule__server_action_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__server_action_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__server_action_id
+msgid "Server Action"
+msgstr "服务器动作"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_schedule.py:0
+msgid "Server action must belong to selected model."
+msgstr "服务器动作必须属于所选模型。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/oauth_controller.py:0
+msgid "Sign up is not allowed on this database."
+msgstr "该数据库不允许注册。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_media_message__conversation_type__single
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot_message__conversation_type__single
+msgid "Single Chat"
+msgstr "单聊"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench_item__height__single_row
+msgid "Single Row"
+msgstr "单行"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/oauth_controller.py:0
+msgid ""
+"Someting was wrong when talking to wechat server, please try again later."
+msgstr "与企业微信通讯失败,请稍后再试。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/wework_controller.py:0
+msgid "Sorry, You don't have permission to login."
+msgstr "对不起,你无权登录。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/wework_controller.py:0
+msgid ""
+"Sorry, no company has correct wework configuration, please contact your "
+"admin."
+msgstr "很抱歉，没有公司有正确的企业微信配置，请联系您的管理员。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/wework_controller.py:0
+msgid ""
+"Sorry, we can't find proper employee infomation that match with you, please "
+"contact your administrator."
+msgstr "对不起, 无法找到与您匹配的员工信息,请联系您的管理员。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__source_file
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__source_file
+msgid "Source File"
+msgstr "源文件"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__source_file_name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__source_file_name
+msgid "Source File Name"
+msgstr "源文件名"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__content_source_url
+msgid "Soure URL"
+msgstr "源URL"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Start Connection"
+msgstr "启动连接"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__started_at
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__started_at
+msgid "Started At"
+msgstr "启动于"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_media_message__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__state
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_message_form
+msgid "State"
+msgstr "状态"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__state
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_schedule_log__state
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_media_message_search
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_message_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Status"
+msgstr "状态"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_message__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__activity_state
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"基于活动的状态\n"
+"过期:已超过到期日期\n"
+"今天：活动日期是今天\n"
+"计划：未来的活动。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Stop Connection"
+msgstr "停止连接"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__websocket_status__stopped
+msgid "Stopped"
+msgstr "已停止"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__stream_id
+msgid "Stream"
+msgstr "流"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__state__success
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__state__success
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_schedule_log__state__success
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_log_search
+msgid "Success"
+msgstr "成功"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.action_wework_sync_departments
+#: model:ir.ui.menu,name:qing_wework.menu_sync_departments
+msgid "Sync Departments"
+msgstr "同步部门"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.action_wework_sync_employees
+msgid "Sync Emoployees"
+msgstr "同步员工"
+
+#. module: qing_wework
+#: model:ir.ui.menu,name:qing_wework.menu_sync_employees
+msgid "Sync Employees"
+msgstr "同步员工"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_hr_deparment_form
+msgid "Sync To WeWork"
+msgstr "同步到企业微信"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_hr_deparment_form
+msgid "Sync WeWork Users"
+msgstr "同步企业微信用户"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.cron_sync_wework_departments_ir_actions_server
+msgid "Sync Wework Departments"
+msgstr "同步企业微信部门"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Sync departments"
+msgstr "同步部门"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "Sync employees"
+msgstr "同步员工"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_employee.py:0
+msgid "Sync from wework error, message:%s"
+msgstr "从企业微信同步员工出错, 详细信息 %s"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Synchronization Actions"
+msgstr "同步操作"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__contact_sync_enabled
+msgid "Synchronize Organization and Users"
+msgstr "同步组织和用户"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__wework_type
+msgid "TYPE"
+msgstr "类型"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "Target"
+msgstr "目标"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__model_id
+msgid "Target Model"
+msgstr "目标模型"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__type__temp
+msgid "Temp Media"
+msgstr "临时媒体"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_message__template_id
+msgid "Template"
+msgstr "模板"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot_template.py:0
+msgid "Template %s can only be used on model %s."
+msgstr "模板 %s 只能用于模型 %s。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__template_card
+msgid "Template Card"
+msgstr "模板卡片"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+msgid "Test Connection"
+msgstr "测试连接"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__qing_wework__message_type__text
+msgid "Text"
+msgstr "文本"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__card
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__card
+msgid "Text Card"
+msgstr "文字卡片"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__text
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__text
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_message__type__text
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_robot_template__message_type__text
+msgid "Text Message"
+msgstr "文本消息"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__content
+msgid "Text Template"
+msgstr "文本模板"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid "The WeWork connection is valid."
+msgstr "企业微信连接有效。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "The WebSocket connection is starting in the background."
+msgstr "WebSocket 连接正在后台启动。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "The WebSocket connection is stopping."
+msgstr "WebSocket 连接正在停止。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid ""
+"The callback credentials are valid. Complete the remote verification in the "
+"WeCom console."
+msgstr "回调凭据有效。请在企业微信管理后台完成远程验证。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_department.py:0
+msgid "The department was queued for WeWork synchronization."
+msgstr "部门已加入企业微信同步队列。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid "The employee department has not been synchronized to WeWork."
+msgstr "员工所属部门尚未同步到企业微信。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "The intelligent bot file link has been queued."
+msgstr "智能机器人文件链接已加入队列。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_workbench.py:0
+msgid "The max count of items is 1 when type is image or webview."
+msgstr "图片或Webview最多只能有1个条目。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_workbench.py:0
+msgid "The max count of items is 3 when type is list."
+msgstr "列表类型下最多只能有3个条目。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_workbench.py:0
+msgid "The max count of items is 4 when type is keydata."
+msgstr "KeyData类型时最多只能有4个条目。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_menu.py:0
+msgid "The max menu count is 3."
+msgstr "最大菜单数量是3。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_media.py:0
+msgid "The media file was uploaded to WeCom."
+msgstr "媒体文件已上传到企业微信。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid "The parent department has not been synchronized yet."
+msgstr "上级部门尚未同步。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot.py:0
+msgid "The robot webhook URL is invalid."
+msgstr "机器人 Webhook URL 无效。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_media.py:0
+msgid "The selected file is not valid Base64 data."
+msgstr "所选文件不是有效的 Base64 数据。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid "The source department no longer exists."
+msgstr "源部门已不存在。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid ""
+"The source message has no temporary response URL for sending the download "
+"link."
+msgstr "源消息没有用于发送下载链接的临时响应 URL。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_menu.py:0
+msgid "The sub menus max count is 5."
+msgstr "子菜单最多只能有5个。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "The uploaded file could not be found."
+msgstr "找不到已上传的文件。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid ""
+"The worker did not finish within %s minutes; the file link was re-queued."
+msgstr "工作进程未在 %s 分钟内完成；文件链接已重新加入队列。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid "The worker did not finish within %s minutes; the job was re-queued."
+msgstr "工作进程未在 %s 分钟内完成；任务已重新加入队列。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/wizard/wework_confirm_wizard.py:0
+msgid "This confirmation is not allowed."
+msgstr "不允许执行此确认操作。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "This delivery is not configured for a WebSocket connection."
+msgstr "此发送记录未配置 WebSocket 连接。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_message.py:0
+msgid "This inbound message does not include a temporary response URL."
+msgstr "此入站消息不包含临时响应 URL。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_message_template.py:0
+msgid "This type not available yet."
+msgstr "此消息类型尚不支持。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__thumb_media_id
+msgid "Thumb Meida Id"
+msgstr "缩略图ID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee__ticket_expire
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee_public__ticket_expire
+msgid "Ticket Expired"
+msgstr "Ticket过期"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__name
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__title
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message_template__title
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__title
+msgid "Title"
+msgstr "标题"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__to_all
+msgid "To ALL"
+msgstr "全部"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_message__to_user
+msgid "To User"
+msgstr "发至用户"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__token
+msgid "Token"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__top_department_id
+msgid "Top Department"
+msgstr "顶级部门"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__type
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__type
+msgid "Type"
+msgstr "类型"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_media_message__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_intelligent_bot_message__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_menu__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_message__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_robot__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_message__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_schedule__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__activity_exception_decoration
+#: model:ir.model.fields,help:qing_wework.field_wework_workbench__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "活动异常符号。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_article__url
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__wework_url
+#: model:ir.model.fields,field_description:qing_wework.field_wework_menu__url
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench_item__url
+msgid "URL"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__connection_mode__callback
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "URL Callback"
+msgstr "URL 回调"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_media.py:0
+msgid "Unable to upload the file to WeCom: %s"
+msgstr "无法将文件上传到企业微信：%s"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_robot.py:0
+msgid "Unable to upload the robot file: %s"
+msgstr "无法上传机器人文件：%s"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "Untitled file"
+msgstr "未命名文件"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_media_form
+msgid "Upload to WeCom"
+msgstr "上传到企业微信"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__uploaded_at
+msgid "Uploaded At"
+msgstr "上传于"
+
+#. module: qing_wework
+#: model:ir.model.fields,help:qing_wework.field_wework_robot_template__content_template
+msgid ""
+"Use ${object.name}, ${record_url}, ${raw_record_url}, or other expressions "
+"from the record context."
+msgstr "可以使用 ${object.name}、${record_url}、${raw_record_url} 或记录上下文中的其他表达式。"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_temp_state__state__done
+msgid "Used"
+msgstr "使用的"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_res_users
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__user_id
+msgid "User"
+msgstr "用户"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_employee.py:0
+msgid "User Authorization"
+msgstr "用户授权"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__auto_bind_policy
+msgid "User Bind Policy"
+msgstr "用户绑定策略"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee__user_ticket
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee_public__user_ticket
+msgid "User Ticket"
+msgstr "用户Ticket"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_employee.py:0
+msgid ""
+"User ticket has expried, please authorized in wework app, then try again."
+msgstr "用户Ticke过期,请授权企业微信应用并重试。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "Validate Configuration"
+msgstr "验证配置"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__file_content
+msgid "Verify File Content"
+msgstr "域名验证文件内容"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__file_name
+msgid "Verify File Name"
+msgstr "域名验证文件名称"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__media_type__video
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__video
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__video
+msgid "Video"
+msgstr "视频"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__video_description
+msgid "Video Description"
+msgstr "描述"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__video_title
+msgid "Video Title"
+msgstr "视频标题"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__view
+msgid "View"
+msgstr "跳转URL"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_menu__type__view_miniprogram
+msgid "View Miniprogram"
+msgstr "跳转到小程序"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_media__media_type__voice
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__voice
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__voice
+msgid "Voice"
+msgstr "音频"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_contact_sync_job__state__waiting_department
+msgid "Waiting for Department"
+msgstr "等待部门"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/hr/hr_employee.py:0
+msgid "Warning"
+msgstr "警告"
+
+#. module: qing_wework
+#: model:ir.module.module,shortdesc:base.module_qing_wework
+msgid "WeCom / 企业微信"
+msgstr "企业微信"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_confirm_wizard
+msgid "WeCom Confirmation"
+msgstr "企业微信确认"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_intelligent_bot
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "WeCom Intelligent Bot"
+msgstr "企业微信智能机器人"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_intelligent_bot_media_message
+msgid "WeCom Intelligent Bot File Link"
+msgstr "企业微信智能机器人文件链接"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_intelligent_bot_message
+msgid "WeCom Intelligent Bot Message"
+msgstr "企业微信智能机器人消息"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.ir_cron_wework_intelligent_bot_websocket_ir_actions_server
+msgid "WeCom Intelligent Bot: Ensure WebSocket Connections"
+msgstr "企业微信智能机器人：确保 WebSocket 连接"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_list
+msgid "WeCom Intelligent Bots"
+msgstr "企业微信智能机器人"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_media__file
+msgid "WeCom Media ID"
+msgstr "文件"
+
+#. module: qing_wework
+#: model:ir.module.module,summary:base.module_qing_wework
+msgid ""
+"WeCom employee and department sync, QR login, messages, robots, menus and "
+"workbench"
+msgstr "企业微信员工与部门同步、扫码登录、应用消息、群机器人、应用菜单与工作台"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_intelligent_bot_media_message.py:0
+msgid "WeCom rejected the download link."
+msgstr "企业微信拒绝了下载链接。"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_qing_wework
+#: model:ir.module.category,name:qing_wework.category_wework
+#: model:ir.ui.menu,name:qing_wework.menu_qing_wework_root
+#: model:ir.ui.menu,name:qing_wework.menu_wework
+#: model:res.groups.privilege,name:qing_wework.privilege_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_form
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_qing_wework_list
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_res_company_wework_form
+msgid "WeWork"
+msgstr "企业微信"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_res_company__wework_id
+msgid "WeWork App"
+msgstr "企业微信APP"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_article
+msgid "WeWork Article"
+msgstr "文章"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_qing_wework
+msgid "WeWork Client"
+msgstr "客户端"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_contact_binding
+msgid "WeWork Contact Binding"
+msgstr "企业微信通讯录绑定"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_contact_sync_job
+msgid "WeWork Contact Sync Job"
+msgstr "企业微信通讯录同步任务"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid "WeWork Contact Sync Jobs"
+msgstr "企业微信通讯录同步任务"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_department_binding
+msgid "WeWork Department Binding"
+msgstr "企业微信部门绑定"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.ir_cron_wework_intelligent_bot_media_message_ir_actions_server
+msgid "WeWork Intelligent Bot: Send File Links"
+msgstr "企业微信智能机器人：发送媒体消息"
+
+#. module: qing_wework
+#: model:res.groups,comment:qing_wework.group_wework_manager
+msgid "WeWork Manager"
+msgstr "企业微信经理"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_message
+msgid "WeWork Message"
+msgstr "企业微信消息"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_message_mixin
+msgid "WeWork Message Mixin"
+msgstr "企业微信消息 Mixin"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_message_template
+msgid "WeWork Message Template"
+msgstr "企业微信消息模板"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_robot_schedule
+msgid "WeWork Robot Schedule"
+msgstr "企业微信机器人计划"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_robot_schedule_log
+msgid "WeWork Robot Schedule Log"
+msgstr "企业微信机器人计划日志"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_robot
+msgid "WeWork Robot."
+msgstr "企业微信机器人。"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.ir_cron_wework_robot_schedule_ir_actions_server
+msgid "WeWork Robot: Run Schedules"
+msgstr "企业微信机器人：运行计划"
+
+#. module: qing_wework
+#: model:res.groups,comment:qing_wework.group_wework_user
+msgid "WeWork User"
+msgstr "企业微信用户"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_contact_sync_job.py:0
+msgid "WeWork did not return a department ID."
+msgstr "企业微信未返回部门 ID。"
+
+#. module: qing_wework
+#: model:ir.actions.server,name:qing_wework.ir_cron_wework_contact_sync_ir_actions_server
+msgid "WeWork: Synchronize Organization and Users"
+msgstr "企业微信：同步组织和用户"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_intelligent_bot_form
+msgid "WebSocket"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_bot_id
+msgid "WebSocket Bot ID"
+msgstr "WebSocket 机器人 ID"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "WebSocket Bot ID and WebSocket Secret are required."
+msgstr "需要填写 WebSocket Bot ID 和 WebSocket Secret。"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_enabled
+msgid "WebSocket Enabled"
+msgstr "启用 WebSocket"
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_intelligent_bot__connection_mode__websocket
+msgid "WebSocket Long Connection"
+msgstr "WebSocket 长连接"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_secret
+msgid "WebSocket Secret"
+msgstr "WebSocket 密钥"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_status
+msgid "WebSocket Status"
+msgstr "WebSocket 状态"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_url
+msgid "WebSocket URL"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_workbench__type__webview
+msgid "WebView"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot__webhook_url
+msgid "Webhook URL"
+msgstr "Webhook地址"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_last_connected_at
+msgid "Websocket Last Connected At"
+msgstr "WebSocket 上次连接时间"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_last_error
+msgid "Websocket Last Error"
+msgstr "WebSocket 最后错误"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_last_event
+msgid "Websocket Last Event"
+msgstr "WebSocket 最后事件"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot__websocket_last_frame_at
+msgid "Websocket Last Frame At"
+msgstr "WebSocket 上次帧时间"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_intelligent_bot_message__websocket_request_id
+msgid "Websocket Request"
+msgstr "WebSocket 请求"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__wework_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_sync_job__wework_id
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__wework_id
+msgid "Wework"
+msgstr "企业微信"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__agent_id
+msgid "Wework Agent Id"
+msgstr "企业微信AgentID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__company_id
+msgid "Wework Company Id"
+msgstr "企业微信公司ID"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_department_binding__wework_department_id
+msgid "Wework Department"
+msgstr "企业微信部门"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_hr_department__wework_department_id
+msgid "Wework Department Id"
+msgstr "企业微信部门ID"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.wiew_wework_menu_form
+msgid "Wework Form"
+msgstr "企业微信表单"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_hr_employee_form
+msgid "Wework Infomation"
+msgstr "企业微信信息"
+
+#. module: qing_wework
+#: model:res.groups,name:qing_wework.group_wework_manager
+msgid "Wework Manager"
+msgstr "企业微信经理"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_media
+msgid "Wework Media"
+msgstr "企业微信媒体"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_menu
+#: model:ir.model,name:qing_wework.model_wework_menu
+msgid "Wework Menu"
+msgstr "企业微信菜单"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_message
+msgid "Wework Message"
+msgstr "企业微信消息"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_robot
+msgid "Wework Robot"
+msgstr "企业微信机器人"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_robot_message
+#: model:ir.model,name:qing_wework.model_wework_robot_message
+msgid "Wework Robot Message"
+msgstr "企业微信机器人消息"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_robot_template
+msgid "Wework Robot Message Template"
+msgstr "企业微信机器人消息模板"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_robot_template
+msgid "Wework Robot Template"
+msgstr "企业微信机器人模板"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_qing_wework__secret
+msgid "Wework Secret"
+msgstr "企业微信密钥"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_contact_binding__wework_user_id
+#: model:res.groups,name:qing_wework.group_wework_user
+msgid "Wework User"
+msgstr "企业微信用户"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee__wework_user_id
+#: model:ir.model.fields,field_description:qing_wework.field_hr_employee_public__wework_user_id
+msgid "Wework User Id"
+msgstr "企业微信用户ID"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_workbench
+#: model:ir.model,name:qing_wework.model_wework_workbench
+#: model:ir.ui.menu,name:qing_wework.menu_wework_bench
+msgid "WorkBench"
+msgstr "工作台"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_workbench_item
+msgid "WorkBench Item"
+msgstr "工作台条目"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_workbench__items
+msgid "WorkBench Items"
+msgstr "工作台条目"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/oauth_controller.py:0
+msgid "You do not have a related user to login."
+msgstr "尚未关联用户,无法登录。"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/controllers/oauth_controller.py:0
+msgid ""
+"You do not have access to this database or your invitation has expired. "
+"Please ask for an invitation and be sure to follow the link in your "
+"invitation email."
+msgstr "你没有权限登录此数据库或邀请链接已超时, 请跟邀请者联系以确保使用邮箱收到的正确链接."
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_schedule_form
+msgid "[('state', 'not in', ['done', 'cancel'])]"
+msgstr ""
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework_intelligent_bot.py:0
+msgid "bot_id"
+msgstr ""
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/message/wework_message.py:0
+msgid "can't delete sent message."
+msgstr "无法删除此消息。"
+
+#. module: qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_media_form
+msgid "name"
+msgstr "名称"
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_temp_state__state
+msgid "state"
+msgstr "状态"
+
+#. module: qing_wework
+#: model:ir.actions.act_window,name:qing_wework.action_wework_media
+msgid "wework media"
+msgstr "企业微信媒体"
+
+#. module: qing_wework
+#: model:ir.model,name:qing_wework.model_wework_temp_state
+msgid "wework temporary state"
+msgstr "企业微信临状态"
+
+#. module: qing_wework
+#. odoo-python
+#: code:addons/qing_wework/models/base/wework.py:0
+msgid "wework_id"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message__msg_type__miniprogram
+#: model:ir.model.fields.selection,name:qing_wework.selection__wework_message_template__msg_type__miniprogram
+msgid "小程序消息"
+msgstr ""
+
+#. module: qing_wework
+#: model:ir.model.fields,field_description:qing_wework.field_wework_robot_template__group_ids
+#: model_terms:ir.ui.view,arch_db:qing_wework.view_wework_robot_template_form
+msgid "指定用户组"
+msgstr ""

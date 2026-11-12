@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_media_form" model="ir.ui.view">
+            <field name="name">wework media</field>
+            <field name="model">wework.media</field>
+            <field name="arch" type="xml">
+                <form string="" class="">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="media_type"/>
+                            <field name="source_file" filename="source_file_name"/>
+                            <field name="source_file_name" invisible="1"/>
+                            <field name="file" readonly="1"/>
+                            <field name="uploaded_at" readonly="1"/>
+                            <button name="action_upload_to_wework" type="object" string="Upload to WeCom" class="oe_highlight"/>
+                            <field name="wework_access_token" invisible="1"/>
+                            <field name="wework_url" invisible="1"/>
+                            <field name="wework_type" invisible="1"/>
+                            <field name="video_title" invisible="media_type != 'video'"/>
+                            <field name="video_description" invisible="media_type != 'video'"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_media_list" model="ir.ui.view">
+            <field name="name">wework media list</field>
+            <field name="model">wework.media</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="media_type"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_wework_media" model="ir.actions.act_window">
+            <field name="name">wework media</field>
+            <field name="path">weworkmedia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.media</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_media" name="Media" parent="menu_qing_wework_root" action="action_wework_media"/>
+    </data>
+</odoo>

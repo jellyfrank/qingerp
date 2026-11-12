@@ -14,15 +14,15 @@ QingERP 社区免费版基于 **Odoo 20.0 Community**，以可选模块扩展日
 - **采购与库存**：供应商账单、采购退货和库存估值衔接、仓库收发货及调拨扫码、批次和序列号、盘点、设备租赁和归还。
 - **财务与税票**：客商对账与账龄、财务报表、会计配置检查、税票登记、税票本地 OCR 辅助录入和人工核对。
 - **协作与效率**：后台通用体验增强、列表和明细序号、文件在线预览、工作簿、统一样式的原生仪表板、知识文章和经营展示屏。
-- **可选连接器**：青云 AI 及可选模型服务商、短信和阿里云短信、WhatsApp、邮件及 QingERP 在线开票服务连接。
+- **可选连接器**：青云 AI 及可选模型服务商、短信和阿里云短信、企业微信、WhatsApp、邮件及 QingERP 在线开票服务连接。
 - **网站商城**：可按网站启用登录后查看商品价格，访客浏览商品时显示登录与注册入口。
 - **中文演示数据**：可选择安装中文、人民币的销售、采购、库存、CRM、制造和财务演示数据。
 
-以上能力由不同的 `qing_*` 模块提供；具体功能取决于已安装的 Odoo 标准应用、模块依赖、外部服务配置、服务订阅和对应模块许可证。OCR 结果需要人工核对；在线开票、短信、AI 和 WhatsApp 等连接器需要各自的服务账号、凭据或服务方开通。
+以上能力由不同的 `qing_*` 模块提供；具体功能取决于已安装的 Odoo 标准应用、模块依赖、外部服务配置、服务订阅和对应模块许可证。OCR 结果需要人工核对；在线开票、短信、AI、企业微信和 WhatsApp 等连接器需要各自的服务账号、凭据或服务方开通。
 
 ### 安装方式
 
-**环境要求：** Odoo 20.0 Community，及所选模块 `__manifest__.py` 中列出的 Odoo 模块、QingERP 模块和 Python 依赖。本仓库模块不依赖 Solutions 共享模块。OCR 识别还需要系统安装 Tesseract；报表 PDF 加密需要系统安装 qpdf。请只在使用相应可选模块时安装它们所需的外部依赖。
+**环境要求：** Odoo 20.0 Community，及所选模块 `__manifest__.py` 中列出的 Odoo 模块、QingERP 模块和 Python 依赖。本仓库模块不依赖 Solutions 共享模块。企业微信模块需要安装 `odoo-wechatpy`；智能机器人 WebSocket 模式还需要 `websocket-client`。OCR 识别还需要系统安装 Tesseract；报表 PDF 加密需要系统安装 qpdf。请只在使用相应可选模块时安装它们所需的外部依赖。
 
 1. 将本仓库克隆到 Odoo 的自定义插件目录：
 
@@ -44,7 +44,7 @@ QingERP 社区免费版基于 **Odoo 20.0 Community**，以可选模块扩展日
 
 ### 许可证与技术支持
 
-本仓库每个模块的许可证以其 `__manifest__.py` 为准，目前 59 个模块全部使用 LGPL-3，许可证全文见 `LICENSE` 与 `COPYING`。第三方组件保留各自的许可证，详见 [第三方组件声明](THIRD_PARTY_NOTICES.md)。用户使用条款见 [中文版](USER_TERMS.md) 和 [英文版](USER_TERMS.en.md)。
+本仓库每个模块的许可证以其 `__manifest__.py` 为准，目前 60 个模块全部使用 LGPL-3，许可证全文见 `LICENSE` 与 `COPYING`。第三方组件保留各自的许可证，详见 [第三方组件声明](THIRD_PARTY_NOTICES.md)。用户使用条款见 [中文版](USER_TERMS.md) 和 [英文版](USER_TERMS.en.md)。
 
 - 网站 / Website: [www.qingsolution.com](https://www.qingsolution.com/)
 - 技术支持 / Technical support: [kevin@odoomommy.com](mailto:kevin@odoomommy.com)
@@ -61,15 +61,15 @@ QingERP 社区免费版基于 **Odoo 20.0 Community**，以可选模块扩展日
 - **Purchasing and inventory:** vendor bills, purchase-return and valuation integrations, barcode-based receipts, deliveries and transfers, lots and serial numbers, stock counts, and equipment rental and returns.
 - **Accounting and tax invoices:** partner statements and aging, financial reports, accounting setup checks, a tax-invoice register, and locally assisted OCR entry with manual review.
 - **Productivity:** shared backend enhancements, row numbers for lists and line items, online file previews, workbooks, knowledge articles, and business display screens.
-- **Optional connectors:** Qing AI with optional model providers, SMS and Aliyun SMS, WhatsApp, email, and the QingERP online invoicing connection.
+- **Optional connectors:** Qing AI with optional model providers, SMS and Aliyun SMS, WeCom, WhatsApp, email, and the QingERP online invoicing connection.
 - **Online shop:** optionally require login to view product prices per website, with login and signup links for visitors.
 - **Chinese demo data:** optional Chinese and CNY demo data for sales, purchasing, inventory, CRM, manufacturing, and accounting.
 
-These capabilities are delivered by separate `qing_*` add-ons. Availability depends on the Odoo standard apps, module dependencies, external service configuration, service subscriptions, and the license of each add-on. OCR results require human review. Online invoicing, SMS, AI, and WhatsApp connectors need their own service accounts, credentials, or provider approval.
+These capabilities are delivered by separate `qing_*` add-ons. Availability depends on the Odoo standard apps, module dependencies, external service configuration, service subscriptions, and the license of each add-on. OCR results require human review. Online invoicing, SMS, AI, WeCom, and WhatsApp connectors need their own service accounts, credentials, or provider approval.
 
 ### Installation
 
-**Requirements:** Odoo 20.0 Community and the Odoo modules, QingERP add-ons and Python dependencies listed in each selected module's `__manifest__.py`. The add-ons in this repository do not depend on shared Solutions add-ons. OCR recognition requires the Tesseract system executable, and PDF report passwords require qpdf. Install optional external dependencies only when using the add-ons that require them.
+**Requirements:** Odoo 20.0 Community and the Odoo modules, QingERP add-ons and Python dependencies listed in each selected module's `__manifest__.py`. The add-ons in this repository do not depend on shared Solutions add-ons. The WeCom module requires `odoo-wechatpy`; intelligent-bot WebSocket mode also requires `websocket-client`. OCR recognition requires the Tesseract system executable, and PDF report passwords require qpdf. Install optional external dependencies only when using the add-ons that require them.
 
 1. Clone this repository into an Odoo custom-addons directory:
 
@@ -91,7 +91,7 @@ Check each module manifest for its full dependency list. Validate installation a
 
 ### Licensing and support
 
-The license for each add-on is specified in its `__manifest__.py`. All 59 current modules are licensed under LGPL-3; the full texts are in `LICENSE` and `COPYING`. Third-party components retain their own licenses; see the [third-party notices](THIRD_PARTY_NOTICES.md). Read the user terms in [Chinese](USER_TERMS.md) or [English](USER_TERMS.en.md).
+The license for each add-on is specified in its `__manifest__.py`. All 60 current modules are licensed under LGPL-3; the full texts are in `LICENSE` and `COPYING`. Third-party components retain their own licenses; see the [third-party notices](THIRD_PARTY_NOTICES.md). Read the user terms in [Chinese](USER_TERMS.md) or [English](USER_TERMS.en.md).
 
 - Website: [www.qingsolution.com](https://www.qingsolution.com/)
 - Technical support: [kevin@odoomommy.com](mailto:kevin@odoomommy.com)

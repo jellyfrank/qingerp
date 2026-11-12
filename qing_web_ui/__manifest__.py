@@ -3,7 +3,7 @@
     "name": "Qing Web UI",
     "summary": "Odoo 20.0 backend theme for a modern Qing-style workflow shell.",
     "description": 'Provide QingERP navigation, app menus and backend styling, with account-based appearance preferences and mobile layouts.',
-    "version": '20.0.1.0.119',
+    "version": '20.0.1.0.120',
     "category": "Web",
     "author": "Qingdao Ohm Network Technology Co., Ltd.",
     "website": "https://www.qingsolution.com",
