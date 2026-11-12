@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_intelligent_bot_form" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.form</field>
+            <field name="model">wework.intelligent.bot</field>
+            <field name="arch" type="xml">
+                <form string="WeCom Intelligent Bot">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_messages"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="forum">
+                                <field name="message_count" widget="statinfo" string="Messages"/>
+                            </button>
+                            <button name="action_view_media_messages"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="attach_file">
+                                <field name="media_message_count" widget="statinfo" string="File Links"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <field name="active" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" placeholder="Intelligent bot name..."/></h1>
+                        </div>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="connection_mode" widget="radio"/>
+                        </group>
+                        <notebook>
+                            <page string="URL Callback" invisible="connection_mode != 'callback'">
+                                <group>
+                                    <group>
+                                        <field name="callback_url" readonly="1" widget="url"/>
+                                        <field name="callback_uuid" readonly="1"/>
+                                    </group>
+                                    <group groups="qing_wework.group_wework_manager">
+                                        <field name="callback_token" password="True"/>
+                                        <field name="encoding_aes_key" password="True"/>
+                                        <button name="action_generate_callback_credentials" type="object" string="Generate Credentials" class="oe_highlight"/>
+                                        <button name="action_test_callback_configuration" type="object" string="Validate Configuration"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="WebSocket" invisible="connection_mode != 'websocket'" groups="qing_wework.group_wework_manager">
+                                <group>
+                                    <field name="websocket_enabled" invisible="1"/>
+                                    <group>
+                                        <field name="websocket_bot_id"/>
+                                        <field name="websocket_secret" password="True"/>
+                                        <field name="websocket_url" widget="url"/>
+                                    </group>
+                                    <group>
+                                        <field name="websocket_status"/>
+                                        <field name="websocket_last_connected_at"/>
+                                        <field name="websocket_last_frame_at"/>
+                                        <field name="websocket_last_event"/>
+                                        <field name="websocket_last_error" invisible="not websocket_last_error"/>
+                                        <button name="action_start_websocket_connection" type="object" string="Start Connection" class="oe_highlight" invisible="websocket_enabled"/>
+                                        <button name="action_stop_websocket_connection" type="object" string="Stop Connection" invisible="not websocket_enabled"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Messages">
+                                <group>
+                                    <field name="reply_message" placeholder="Immediate acknowledgement sent after a verified callback..."/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_list" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.list</field>
+            <field name="model">wework.intelligent.bot</field>
+            <field name="arch" type="xml">
+                <list string="WeCom Intelligent Bots">
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="connection_mode"/>
+                    <field name="callback_url"/>
+                    <field name="websocket_status" optional="hide"/>
+                    <field name="message_count"/>
+                    <field name="active" column_invisible="True"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_message_form" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.message.form</field>
+            <field name="model">wework.intelligent.bot.message</field>
+            <field name="arch" type="xml">
+                <form string="Intelligent Bot Message" create="0" edit="0" delete="0">
+                    <header>
+                        <button name="action_create_media_message"
+                            type="object"
+                            string="Send File"
+                            class="oe_highlight"
+                            invisible="direction != 'inbound' or not conversation_id"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="bot_id"/>
+                                <field name="direction"/>
+                                <field name="state"/>
+                                <field name="message_type"/>
+                            </group>
+                            <group>
+                                <field name="conversation_type"/>
+                                <field name="conversation_id"/>
+                                <field name="sender_user_id"/>
+                                <field name="stream_id"/>
+                                <field name="websocket_request_id" groups="qing_wework.group_wework_manager"/>
+                                <field name="response_url" groups="qing_wework.group_wework_manager"/>
+                                <field name="external_message_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="content"/>
+                            <field name="payload" widget="text"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_message_list" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.message.list</field>
+            <field name="model">wework.intelligent.bot.message</field>
+            <field name="arch" type="xml">
+                <list string="Intelligent Bot Messages" create="0">
+                    <field name="bot_id"/>
+                    <field name="direction"/>
+                    <field name="message_type"/>
+                    <field name="sender_user_id"/>
+                    <field name="conversation_type"/>
+                    <field name="stream_id"/>
+                    <field name="state"/>
+                    <field name="received_at"/>
+                    <field name="sent_at"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_intelligent_bot_message_search" model="ir.ui.view">
+            <field name="name">wework.intelligent.bot.message.search</field>
+            <field name="model">wework.intelligent.bot.message</field>
+            <field name="arch" type="xml">
+                <search string="Intelligent Bot Messages">
+                    <field name="bot_id"/>
+                    <field name="sender_user_id"/>
+                    <filter string="Inbound" name="inbound" domain="[('direction', '=', 'inbound')]"/>
+                    <filter string="Outbound" name="outbound" domain="[('direction', '=', 'outbound')]"/>
+                    <group>
+                        <filter string="Bot" name="bot" context="{'group_by': 'bot_id'}"/>
+                        <filter string="Direction" name="direction" context="{'group_by': 'direction'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wework_intelligent_bot" model="ir.actions.act_window">
+            <field name="name">Intelligent Bots</field>
+            <field name="res_model">wework.intelligent.bot</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="action_wework_intelligent_bot_message" model="ir.actions.act_window">
+            <field name="name">Intelligent Bot Messages</field>
+            <field name="res_model">wework.intelligent.bot.message</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_intelligent_bot" name="Intelligent Bots" parent="menu_wework_robot_root" action="action_wework_intelligent_bot" sequence="4"/>
+        <menuitem id="menu_wework_intelligent_bot_message" name="Intelligent Bot Messages" parent="menu_wework_robot_root" action="action_wework_intelligent_bot_message" sequence="5"/>
+    </data>
+</odoo>

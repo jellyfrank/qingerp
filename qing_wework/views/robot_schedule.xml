@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_robot_schedule_form" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.form</field>
+            <field name="model">wework.robot.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Robot Schedule">
+                    <header>
+                        <button name="run_due_schedules" type="object" string="Run Now" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_logs" type="object" class="oe_stat_button" icon="format_list_bulleted">
+                                <field name="log_count" widget="statinfo" string="Logs"/>
+                            </button>
+                        </div>
+                        <field name="active" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Schedule name..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Target">
+                                <field name="model_id"/>
+                                <field name="server_action_id"/>
+                                <field name="datetime_field_id"/>
+                                <field name="domain" placeholder="[('state', 'not in', ['done', 'cancel'])]"/>
+                            </group>
+                            <group string="Schedule">
+                                <field name="remind_before_minutes"/>
+                                <field name="max_overdue_hours"/>
+                                <field name="repeat_policy"/>
+                                <field name="repeat_interval_hours" invisible="repeat_policy == 'once'"/>
+                                <field name="batch_size"/>
+                                <field name="last_run_at"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_schedule_list" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.list</field>
+            <field name="model">wework.robot.schedule</field>
+            <field name="arch" type="xml">
+                <list string="Robot Schedules">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="server_action_id"/>
+                    <field name="datetime_field_id"/>
+                    <field name="remind_before_minutes"/>
+                    <field name="repeat_policy"/>
+                    <field name="active"/>
+                    <field name="last_run_at"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_schedule_search" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.search</field>
+            <field name="model">wework.robot.schedule</field>
+            <field name="arch" type="xml">
+                <search string="Robot Schedules">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="server_action_id"/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group>
+                        <filter string="Model" name="group_model" context="{'group_by': 'model_id'}"/>
+                        <filter string="Repeat Policy" name="group_repeat_policy" context="{'group_by': 'repeat_policy'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wework_robot_schedule" model="ir.actions.act_window">
+            <field name="name">Robot Schedule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.robot.schedule</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="view_wework_robot_schedule_log_form" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.log.form</field>
+            <field name="model">wework.robot.schedule.log</field>
+            <field name="arch" type="xml">
+                <form string="Robot Schedule Log" create="false" edit="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="schedule_id"/>
+                                <field name="server_action_id"/>
+                                <field name="state"/>
+                                <field name="datetime_value"/>
+                            </group>
+                            <group>
+                                <field name="res_model"/>
+                                <field name="res_id"/>
+                            </group>
+                        </group>
+                        <group invisible="state != 'failed'">
+                            <field name="error_message" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_schedule_log_list" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.log.list</field>
+            <field name="model">wework.robot.schedule.log</field>
+            <field name="arch" type="xml">
+                <list string="Robot Schedule Logs" create="false" edit="false">
+                    <field name="create_date"/>
+                    <field name="name"/>
+                    <field name="schedule_id"/>
+                    <field name="server_action_id"/>
+                    <field name="state"/>
+                    <field name="datetime_value"/>
+                    <field name="res_model"/>
+                    <field name="res_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_schedule_log_search" model="ir.ui.view">
+            <field name="name">wework.robot.schedule.log.search</field>
+            <field name="model">wework.robot.schedule.log</field>
+            <field name="arch" type="xml">
+                <search string="Robot Schedule Logs">
+                    <field name="name"/>
+                    <field name="schedule_id"/>
+                    <field name="server_action_id"/>
+                    <field name="res_model"/>
+                    <filter string="Success" name="success" domain="[('state', '=', 'success')]"/>
+                    <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                    <group>
+                        <filter string="Schedule" name="group_schedule" context="{'group_by': 'schedule_id'}"/>
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Created On" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wework_robot_schedule_log" model="ir.actions.act_window">
+            <field name="name">Robot Schedule Log</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.robot.schedule.log</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_robot_schedule" name="Robot Schedule" parent="menu_wework_robot_root" action="action_wework_robot_schedule" sequence="3"/>
+        <menuitem id="menu_wework_robot_schedule_log" name="Robot Schedule Log" parent="menu_wework_robot_root" action="action_wework_robot_schedule_log" sequence="4"/>
+    </data>
+</odoo>

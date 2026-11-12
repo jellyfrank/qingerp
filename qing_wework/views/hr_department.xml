@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_deparment_form" model="ir.ui.view">
+            <field name="name">hr department</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet" position="before">
+                    <header>
+                        <button name="sync_employees_from_wework" string="Sync WeWork Users" type="object" class="oe_highlight"/>
+                        <button name="action_queue_wework_department_sync" string="Sync To WeWork" type="object" groups="qing_wework.group_wework_manager"/>
+                    </header>
+                </xpath>
+                <field name="company_id" position="after">
+                    <field name="wework_department_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

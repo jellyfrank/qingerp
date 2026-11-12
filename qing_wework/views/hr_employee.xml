@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_employee_form" model="ir.ui.view">
+            <field name="name">hr employee form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="before">
+                    <page string="Wework Infomation">
+                        <group>
+                            <field name="wework_user_id"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_sync_invitation_authorize" model="ir.actions.server">
+            <field name="name">Send Authorize Messages</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model.action_invite_autorization()</field>
+            <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        </record>
+    </data>
+</odoo>

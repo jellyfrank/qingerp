@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="category_wework" model="ir.module.category">
+            <field name="name">WeWork</field>
+        </record>
+        <record id="privilege_wework" model="res.groups.privilege">
+            <field name="name">WeWork</field>
+            <field name="sequence">60</field>
+            <field name="category_id" ref="qing_wework.category_wework"/>
+        </record>
+
+        <record id="group_wework_user" model="res.groups">
+            <field name="name">Wework User</field>
+            <field name="privilege_id" ref="qing_wework.privilege_wework"/>
+            <field name="comment">WeWork User</field>
+        </record>
+
+        <record id="group_wework_manager" model="res.groups">
+            <field name="name">Wework Manager</field>
+            <field name="implied_ids" eval="[(4,ref('group_wework_user'))]"/>
+            <field name="privilege_id" ref="qing_wework.privilege_wework"/>
+            <field name="comment">WeWork Manager</field>
+            <field name="user_ids" eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

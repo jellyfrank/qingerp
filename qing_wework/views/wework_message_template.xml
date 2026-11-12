@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_qing_message_template_form" model="ir.ui.view">
+            <field name="name">message template form</field>
+            <field name="model">wework.message.template</field>
+            <field name="arch" type="xml">
+                <form string="" class="">
+                    <header>
+                        <button name="build_message" type="object" string="Build" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="employee_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="msg_type"/>
+                            <field name="media_id" invisible="msg_type != 'file'"/>
+                            <field name="content" widget="ace" invisible="msg_type == 'file'"/>
+                            <field name="title" widget="ace" invisible="msg_type != 'card'"/>
+                            <field name="need_authorized"/>
+                            <field name="redirect_url" widget="ace" invisible="msg_type != 'card'"/>
+                            <field name="button_text" invisible="msg_type != 'card'"/>
+                            <field name="description" invisible="msg_type != 'card'"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_qing_message_template_list" model="ir.ui.view">
+            <field name="name">message template list</field>
+            <field name="model">wework.message.template</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="content"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_qing_message_template" model="ir.actions.act_window">
+            <field name="name">Message Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.message.template</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_qing_message_template"  name="Message Template"  parent="menu_qing_wework_message" action="action_qing_message_template"  sequence="9"/>
+    </data>
+</odoo>

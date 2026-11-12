@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wework_robot_form" model="ir.ui.view">
+            <field name="name">wework robot</field>
+            <field name="model">wework.robot</field>
+            <field name="arch" type="xml">
+                <form string="" class="">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_messages"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="forum"
+                                invisible="not robot_message_count">
+                                <field name="robot_message_count" widget="statinfo" string="Messages"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="webhook_url"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_wework_robot_list" model="ir.ui.view">
+            <field name="name">wework robot list</field>
+            <field name="model">wework.robot</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="webhook_url"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_wework_robot" model="ir.actions.act_window">
+            <field name="name">Wework Robot</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.robot</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_robot_root"  name="Robot"  parent="menu_qing_wework_root" sequence="9"/>
+
+        <menuitem id="menu_wework_robot" name="Robot" parent="menu_wework_robot_root" action="action_wework_robot" sequence="1"/>
+
+        <!--Robot template-->
+        <record id="view_wework_robot_template_form" model="ir.ui.view">
+            <field name="name">wework.robot.template.form</field>
+            <field name="model">wework.robot.template</field>
+            <field name="arch" type="xml">
+                <form string="Robot Template">
+                    <header>
+                        <button name="action_create_server_action" type="object" string="Create Server Action" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <field name="active" invisible="1"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Robot template name..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Target">
+                                <field name="model_id"/>
+                                <field name="robot_id"/>
+                                <field name="message_type"/>
+                                <field name="file" filename="file_name" invisible="message_type != 'file'"/>
+                                <field name="file_name" invisible="1"/>
+                                <field name="server_action_id"/>
+                            </group>
+                            <group string="Mentions" invisible="message_type in ['file', 'markdown_v2']">
+                                <field name="mention_all"/>
+                                <field name="employee_ids" widget="many2many_tags" invisible="mention_all"/>
+                                <field name="group_ids" string="指定用户组" widget="many2many_tags" invisible="mention_all"/>
+                                <field name="mention_responsible" invisible="mention_all"/>
+                                <field name="mention_create_uid" invisible="mention_all"/>
+                                <field name="mention_followers" invisible="mention_all"/>
+                                <field name="mention_field_ids" widget="many2many_tags" domain="[('model_id', '=', model_id), ('relation', 'in', ['hr.employee', 'res.users'])]" invisible="mention_all"/>
+                            </group>
+                        </group>
+                        <group string="Content">
+                            <field name="content_template" nolabel="1" placeholder="Example: ${object.display_name} needs attention. Open: ${record_url}" invisible="message_type == 'file'"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_template_list" model="ir.ui.view">
+            <field name="name">wework.robot.template.list</field>
+            <field name="model">wework.robot.template</field>
+            <field name="arch" type="xml">
+                <list string="Robot Templates">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="robot_id"/>
+                    <field name="message_type"/>
+                    <field name="mention_all"/>
+                    <field name="active" column_invisible="True"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_template_search" model="ir.ui.view">
+            <field name="name">wework.robot.template.search</field>
+            <field name="model">wework.robot.template</field>
+            <field name="arch" type="xml">
+                <search string="Robot Templates">
+                    <field name="name"/>
+                    <field name="model_id"/>
+                    <field name="robot_id"/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group>
+                        <filter string="Model" name="group_model" context="{'group_by': 'model_id'}"/>
+                        <filter string="Robot" name="group_robot" context="{'group_by': 'robot_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_wework_robot_template" model="ir.actions.act_window">
+            <field name="name">Wework Robot Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.robot.template</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_robot_template" name="Robot Template" parent="menu_wework_robot_root" action="action_wework_robot_template" sequence="2"/>
+
+        <!--Robot message-->
+        <record id="view_wework_robot_message_form" model="ir.ui.view">
+            <field name="name">Wework robot message</field>
+            <field name="model">wework.robot.message</field>
+            <field name="arch" type="xml">
+                <form string="Robot Message" class="">
+                    <header>
+                        <button name="send" string="Send" type="object" class="oe_highlight" invisible="state != 'draft'"/>
+                        <button name="reset" string="Reset" type="object" class="oe_highlight" invisible="state not in ['success','failed']"/>
+                        <field name="state" string="Status" class="oe_highlight" type="object" widget="statusbar" statusbar_visible="failed"/>
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label for="name" string="" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" readonly="state != 'draft'"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="robot_id" readonly="state != 'draft'" />
+                            <field name="template_id"/>
+                            <field name="type" readonly="state != 'draft'"/>
+                            <field name="mention_all"/>
+                            <field name="employee_ids" widget="many2many_tags" readonly="state != 'draft'"/>
+                            <field name="res_model"/>
+                            <field name="res_id"/>
+                            <field name="content" readonly="state != 'draft'"/>
+                            <field name="file" filename="file_name" readonly="1" invisible="type != 'file'"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="error_message" invisible="state != 'failed'"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_wework_robot_message_list" model="ir.ui.view">
+            <field name="name">Wework robot message</field>
+            <field name="model">wework.robot.message</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <list string="">
+                    <field name="name"/>
+                    <field name="robot_id"/>
+                    <field name="template_id"/>
+                    <field name="type"/>
+                    <field name="mention_all"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_wework_robot_message" model="ir.actions.act_window">
+            <field name="name">Wework Robot Message</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wework.robot.message</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_wework_robot_message" name="Robot Message" parent="menu_wework_robot_root" action="action_wework_robot_message" sequence="3"/>
+
+    </data>
+</odoo>
