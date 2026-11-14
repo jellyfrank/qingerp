@@ -178,17 +178,11 @@ class QingAiService(models.AbstractModel):
             TEST_PROMPT, provider=provider, config=config, require_enabled=False,
             max_output_tokens=TEST_MAX_OUTPUT_TOKENS,
         )
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': self.env._('AI connection successful'),
-                'message': self.env._('The %(provider)s model %(model)s responded.',
-                                      provider=provider, model=result['model']),
-                'type': 'success',
-                'sticky': False,
-            },
-        }
+        return self._qing_notify(
+            self.env._('The %(provider)s model %(model)s responded.', provider=provider, model=result['model']),
+            title=self.env._('AI connection successful'),
+            notification_type='success',
+        )
 
     def _raise_empty_text(self, truncated=False):
         """Explain an empty answer, distinguishing an exhausted output budget."""

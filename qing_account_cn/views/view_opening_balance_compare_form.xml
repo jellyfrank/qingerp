@@ -25,12 +25,12 @@
                         <a href="/qing_account_cn/static/templates/opening-source-balances.csv"
                            download="opening-source-balances.csv" invisible="comparison_mode != 'account'"
                            class="btn btn-secondary mb-2" role="button">
-                            <i class="fa fa-download me-1" aria-hidden="true"/>下载空白 CSV 模板
+                            <i class="oi me-1" data-icon="download" aria-hidden="true"/>下载空白 CSV 模板
                         </a>
                         <a href="/qing_account_cn/static/templates/opening-source-lines.csv"
                            download="opening-source-lines.csv" invisible="comparison_mode != 'batch'"
                            class="btn btn-secondary mb-2" role="button">
-                            <i class="fa fa-download me-1" aria-hidden="true"/>下载逐笔／完整批次模板
+                            <i class="oi me-1" data-icon="download" aria-hidden="true"/>下载逐笔／完整批次模板
                         </a>
                         <field name="source_file" filename="source_filename" nolabel="1"/>
                     </div>

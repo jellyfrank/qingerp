@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_delivery_carrier_form" model="ir.ui.view">
+        <field name="name">qing.delivery.sf.carrier.form</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='destination']" position="before">
+                <page name="sf_config" string="SF Express" invisible="delivery_type != 'sf'">
+                    <group>
+                        <group name="sf_account" string="Account" groups="base.group_system">
+                            <field name="sf_client_code" required="delivery_type == 'sf'"/>
+                            <field name="sf_sandbox_checkword" password="True" invisible="prod_environment"/>
+                            <field name="sf_checkword" password="True" invisible="not prod_environment"
+                                   required="delivery_type == 'sf' and prod_environment"/>
+                            <field name="sf_monthly_card"/>
+                        </group>
+                        <group name="sf_order" string="Order">
+                            <field name="sf_manual_order"/>
+                            <label for="sf_template_id"/>
+                            <div class="o_row">
+                                <field name="sf_template_id" options="{'no_create': True}"/>
+                                <button name="action_sf_sync_templates" type="object" string="Sync"
+                                        icon="sync_alt" class="btn-link" groups="base.group_system"/>
+                            </div>
+                            <field name="sf_select_express_type"/>
+                            <field name="sf_default_express_type"/>
+                            <field name="sf_payment_select"/>
+                            <field name="sf_default_payment"/>
+                        </group>
+                        <group name="sf_language" string="Language">
+                            <field name="sf_language_type"/>
+                            <field name="sf_language" invisible="sf_language_type != 'fixed'"/>
+                        </group>
+                        <group name="sf_cross_border" string="Cross-Border">
+                            <field name="sf_declared_value"/>
+                            <field name="sf_declared_currency_id"/>
+                        </group>
+                    </group>
+                    <div class="text-muted">
+                        Test with the Fengqiao sandbox first. Use the environment button above to switch to production.
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

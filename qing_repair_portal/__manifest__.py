@@ -1,7 +1,7 @@
 {
     'name': 'QingERP Repair Portal',
     'summary': 'Secure repair sharing, customer photos, PDF and separate signatures',
-    'version': '20.0.1.0.3',
+    'version': '20.0.1.0.5',
     'category': 'Inventory/Inventory',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

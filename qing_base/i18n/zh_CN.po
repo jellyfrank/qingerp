@@ -363,6 +363,8 @@ msgstr "模型"
 
 #. module: qing_base
 #: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__model_name
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__model_name
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__model_name
 msgid "Model Name"
 msgstr "模型名称"
 
@@ -413,6 +415,8 @@ msgstr "在浏览器新标签页中打开此 PDF 报表，而不是下载。"
 
 #. module: qing_base
 #: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__operation
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__operation
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__operation
 msgid "Operation"
 msgstr "操作"
 
@@ -591,6 +595,7 @@ msgstr "QingERP：安装情况上报"
 
 #. module: qing_base
 #: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__record_id
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__record_id
 msgid "Record"
 msgstr "记录"
 
@@ -719,6 +724,7 @@ msgstr "系统参数"
 #. module: qing_base
 #: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_web_title
 #: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__mommy_title
 msgid "System Title"
 msgstr "系统名称"
 
@@ -760,6 +766,7 @@ msgstr "修改"
 
 #. module: qing_base
 #: model_terms:ir.ui.view,arch_db:qing_base.login_branding
+#: model_terms:ir.ui.view,arch_db:qing_base.login_page
 msgid ""
 "Use the latest Chrome, Edge, Firefox, or Safari. Chrome/Edge versions below "
 "122 are not supported."
@@ -770,6 +777,7 @@ msgstr "请使用最新版 Chrome、Edge、Firefox 或 Safari；Chrome/Edge 低�
 #: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__user_id
 #: model:ir.model.fields,field_description:qing_base.field_qing_login_log__user_id
 #: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__user_id
 msgid "User"
 msgstr "用户"
 
@@ -836,3 +844,385 @@ msgstr "青岛五月的风与灯塔海滨素描"
 #: model_terms:ir.ui.view,arch_db:qing_base.login_branding
 msgid "青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描"
 msgstr "青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_iap_autocomplete_api__current_company
+#: model:ir.model.fields,field_description:qing_base.field_ir_config_parameter__current_company
+#: model:ir.model.fields,field_description:qing_base.field_ir_http__current_company
+#: model:ir.model.fields,field_description:qing_base.field_ir_module_module__current_company
+#: model:ir.model.fields,field_description:qing_base.field_mail_push__current_company
+#: model:ir.model.fields,field_description:qing_base.field_mail_push_device__current_company
+#: model:ir.model.fields,field_description:qing_base.field_mail_thread__current_company
+#: model:ir.model.fields,field_description:qing_base.field_publisher_warranty_contract__current_company
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__current_company
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__current_company
+msgid "Current Company"
+msgstr "当前公司"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__mommy_report_print_preview
+msgid "Preview PDF Reports Before Print"
+msgstr "打印前预览 PDF 报表"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/image_paste_field.js:0
+msgid "Replace image"
+msgstr "替换图片"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/image_paste_field.js:0
+msgid "The pasted image could not be processed."
+msgstr "无法处理粘贴的图片。"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/image_paste_field.js:0
+msgid "This field already contains an image. Do you want to replace it?"
+msgstr "此字段已有图片，是否替换？"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/image_paste_field.xml:0
+msgid "Paste image with Ctrl+V"
+msgstr "使用 Ctrl+V 粘贴图片"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/image_paste_field.js:0
+msgid "Replace"
+msgstr "替换"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/image_paste_field.xml:0
+msgid "View image"
+msgstr "查看大图"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__module_qing_wework
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form_integrations
+msgid "WeCom"
+msgstr "企业微信"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form_integrations
+msgid ""
+"Sync departments and employees from WeCom, sign in with WeCom, and send app "
+"and group robot messages."
+msgstr "从企业微信同步部门和员工，支持企业微信扫码登录，并发送应用消息和群机器人消息。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__active_companies
+msgid "Active Companies"
+msgstr "当前启用的公司"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__allowed_companies
+msgid "Allowed Companies"
+msgstr "获准访问的公司"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Another request is being submitted. Please try again."
+msgstr "已有申请正在提交，请稍后重试。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__cause
+msgid "Cause"
+msgstr "原因"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__operation__create
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__operation__create
+msgid "Create"
+msgstr "新建"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__operation__unlink
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__operation__unlink
+msgid "Delete"
+msgstr "删除"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Enter a valid model name."
+msgstr "请输入有效的模型名称。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Enter a valid operation."
+msgstr "请选择有效的操作。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Enter a valid record identifier."
+msgstr "请输入有效的记录编号。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__entry
+msgid "Entry"
+msgstr "入口"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__event_day
+msgid "Event Day"
+msgstr "日期"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__event_type
+msgid "Event Type"
+msgstr "事件类型"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__explanation
+msgid "Explanation"
+msgstr "申请说明"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__impact__masked_readonly
+msgid "Fields Masked and Read-only"
+msgstr "字段已遮挡且记录只读"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__first_seen
+msgid "First Seen"
+msgstr "首次发生"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__state__handled
+msgid "Handled"
+msgstr "已处理"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__handler_id
+msgid "Handler"
+msgstr "处理人"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__handler_note
+msgid "Handler Note"
+msgstr "处理备注"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__impact
+msgid "Impact"
+msgstr "影响"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__last_seen
+msgid "Last Seen"
+msgstr "最近发生"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_access_request_form
+msgid "Mark Handled"
+msgstr "标记为已处理"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid ""
+"No permission request handler is configured for this company. Please contact"
+" an administrator."
+msgstr "当前公司尚未配置权限申请负责人，请联系管理员。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__impact__none
+msgid "None"
+msgstr "无"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_event__occurrences
+msgid "Occurrences"
+msgstr "发生次数"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Only a handling decision and note can be submitted."
+msgstr "只能提交处理结论和备注。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Only an assigned permission request handler may handle requests."
+msgstr "只有指定的权限申请负责人可以处理申请。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Only an internal user may submit one request at a time."
+msgstr "只有内部用户可以一次提交一项申请。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Only pending requests in an active managed company can be handled."
+msgstr "只能处理当前启用且受管理公司中待处理的申请。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__operation__other
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__operation__other
+msgid "Other"
+msgstr "其他"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__state__pending
+msgid "Pending"
+msgstr "待处理"
+
+#. module: qing_base
+#: model:ir.actions.act_window,name:qing_base.action_qing_access_event
+#: model:ir.ui.menu,name:qing_base.menu_qing_access_event
+msgid "Permission Diagnostics"
+msgstr "权限体验日志"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_qing_access_event
+#: model:res.groups,name:qing_base.group_access_diagnostic
+msgid "Permission Experience Diagnostic"
+msgstr "权限体验诊断"
+
+#. module: qing_base
+#: model:ir.model,name:qing_base.model_qing_access_request
+msgid "Permission Request"
+msgstr "权限申请"
+
+#. module: qing_base
+#: model:res.groups,name:qing_base.group_access_request_handler
+msgid "Permission Request Handler"
+msgstr "权限申请负责人"
+
+#. module: qing_base
+#: model:ir.actions.act_window,name:qing_base.action_qing_access_request
+#: model:ir.ui.menu,name:qing_base.menu_qing_access_request
+msgid "Permission Requests"
+msgstr "权限申请"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Permission requests cannot be deleted manually."
+msgstr "权限申请不能手动删除。"
+
+#. module: qing_base
+#: model:ir.actions.server,name:qing_base.ir_cron_qing_access_event_purge_ir_actions_server
+msgid "Qing Permission Diagnostics: Remove Expired Events"
+msgstr "权限体验日志：清理过期记录"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__operation__read
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__operation__read
+msgid "Read"
+msgstr "读取"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_access_request_form
+msgid "Reject"
+msgstr "拒绝"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__state__rejected
+msgid "Rejected"
+msgstr "已拒绝"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__event_type__denied
+msgid "Request Denied"
+msgstr "请求被拒"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__requester_id
+msgid "Requester"
+msgstr "申请人"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__event_type__restricted
+msgid "Restricted Read"
+msgstr "受限读取"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Review permission request"
+msgstr "处理权限申请"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Select a valid handling decision."
+msgstr "请选择有效的处理结论。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_access_request__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "The explanation must contain 1 to 2000 characters."
+msgstr "申请说明须为 1 至 2000 个字符。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "The handling note must not exceed 2000 characters."
+msgstr "处理备注不能超过 2000 个字符。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "The requester and handling fields are set by the server."
+msgstr "申请人和处理字段由系统确定。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_http.py:0
+msgid ""
+"This operation could not be completed because access is restricted. The "
+"exact reason is currently unknown."
+msgstr "由于权限限制，本次操作未完成，暂时无法确定具体原因。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid "Too many requests. Please try again later."
+msgstr "申请过于频繁，请稍后重试。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__operation__write
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_request__operation__write
+msgid "Write"
+msgstr "修改"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/access_request.py:0
+msgid ""
+"Your permission request has been handled. Open the request for the outcome."
+msgstr "您的权限申请已处理，请打开申请查看结果。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__cause__unknown
+msgid "Unknown"
+msgstr "未知"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__qing_access_event__cause__company_hint
+msgid "Possible company restriction"
+msgstr "可能涉及公司范围"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_http.py:0
+msgid ""
+"This operation may require access in %s. Switch to that authorized company "
+"and try again."
+msgstr "此操作可能需要在 %s 公司进行，请切换到该已授权公司后重试。"

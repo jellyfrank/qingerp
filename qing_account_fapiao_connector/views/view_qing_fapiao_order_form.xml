@@ -14,7 +14,7 @@
                 <field name="qing_request_id" invisible="1"/>
                 <div name="button_box" class="oe_button_box">
                     <button name="action_open_qing_request" type="object" class="oe_stat_button"
-                            icon="fa-file-text-o" string="Invoice Request" invisible="not qing_request_id"/>
+                            icon="description" string="Invoice Request" invisible="not qing_request_id"/>
                 </div>
             </xpath>
             <xpath expr="//notebook/page/field[@name='snapshot']" position="attributes">

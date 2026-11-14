@@ -4,3 +4,14 @@ markdown-it-py==2.2.0
 jieba==0.42.1
 aliyun-sms==0.0.7
 dnspython==2.8.0
+# qing_payment_alipay (alipay-sdk is AGPL-3)
+alipay-sdk==2.0.1
+pycryptodome==4.4.0
+# qing_delivery_sf (sf-sdk is AGPL-3, same author as alipay-sdk)
+sf-sdk==2.1.0.0
+# Keep the TLS bindings compatible with the WeCom dependency chain.
+pyOpenSSL==26.4.0
+odoo-wechatpy==2.0.0.5
+websocket-client==1.9.2
+# PDF regression tests for repair portal.
+PyPDF2==2.12.1

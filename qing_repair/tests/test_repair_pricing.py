@@ -187,14 +187,23 @@ class TestRepairPricing(AccountTestInvoicingCommon):
         self.assertAlmostEqual(invoice.amount_total, repair.qing_amount_total)
         self.assertAlmostEqual(invoice.amount_untaxed, repair.qing_amount_untaxed)
 
-    def test_accountant_can_post_without_inventory_permissions(self):
-        accountant = new_test_user(self.env, login='qing_repair_accountant', groups='account.group_account_invoice', company_id=self.env.company.id)
+    def _assert_can_post_without_inventory_permissions(self, login, groups):
+        accountant = new_test_user(self.env, login=login, groups=groups, company_id=self.env.company.id)
+        self.assertFalse(accountant.has_group('stock.group_stock_user'))
         repair = self._repair('direct')
         self._service(repair)
         self._finish(repair)
         invoice = self.env['account.move'].browse(repair.action_create_invoice()['res_id'])
         invoice.with_user(accountant).action_post()
         self.assertEqual(invoice.state, 'posted')
+
+    def test_accountant_can_post_without_inventory_permissions(self):
+        self._assert_can_post_without_inventory_permissions('qing_repair_accountant', 'account.group_account_user')
+
+    def test_invoice_user_can_post_without_inventory_permissions_in_standard_product(self):
+        if self.env['ir.module.module'].search_count([('name', '=', 'bgwy_account'), ('state', '=', 'installed')]):
+            self.skipTest('Customer invoice-only policy is verified in bgwy_account tests.')
+        self._assert_can_post_without_inventory_permissions('qing_repair_invoice_user', 'account.group_account_invoice')
 
     def test_ordinary_stock_moves_have_no_repair_pricing(self):
         product = self.part.copy({'name': 'Ordinary stock item', 'taxes_id': [Command.set(self.tax_sale_a.ids)]})

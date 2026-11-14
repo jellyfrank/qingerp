@@ -15,7 +15,7 @@ patch(DiscussChannel.prototype, {
 });
 registerThreadAction("qing-whatsapp-conversation", {
     condition: ({ channel }) => Boolean(channel?.qing_conversation_id),
-    icon: "fa fa-fw fa-whatsapp",
+    icon: "oi_whatsapp",
     name: _t("Customer, quotations and internal notes"),
     sequence: 12,
     sequenceQuick: 15,
@@ -26,7 +26,7 @@ registerThreadAction("qing-whatsapp-conversation", {
 });
 registerThreadAction("qing-whatsapp-template", {
     condition: ({ channel }) => Boolean(channel?.qing_conversation_id),
-    icon: "fa fa-fw fa-file-text-o",
+    icon: "description",
     name: _t("Send WhatsApp template"),
     sequence: 13,
     onSelected: async ({ channel, store }) => {

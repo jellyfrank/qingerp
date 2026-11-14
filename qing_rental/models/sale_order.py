@@ -300,9 +300,8 @@ class SaleOrder(models.Model):
         self.check_access('read')
         self._qing_rental_validate()
         self._qing_rental_check_capacity()
-        return {'type': 'ir.actions.client', 'tag': 'display_notification', 'params': {
-            'title': self.env._('Rental availability'), 'message': self.env._('The requested equipment is available. Capacity is reserved only on confirmation.'),
-            'type': 'success', 'sticky': False}}
+        return self._qing_notify(title=self.env._('Rental availability'), message=self.env._('The requested equipment is available. Capacity is reserved only on confirmation.'),
+            notification_type='success')
 
     def action_qing_rental_pickup(self):
         return self._qing_rental_transfer('out')

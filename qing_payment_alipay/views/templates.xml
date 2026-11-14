@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <template id="redirect_form">
+            <form t-att-action="api_url" method="get">
+                <t t-foreach="params" t-as="param">
+                    <input type="hidden" t-att-name="param[0]" t-att-value="param[1]"/>
+                </t>
+            </form>
+        </template>
+    </data>
+</odoo>

@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from odoo import Command
 from odoo.exceptions import AccessError, ValidationError
-from odoo.tests import TransactionCase, new_test_user, tagged
+from odoo.tests import Form, TransactionCase, new_test_user, tagged
 
 
 ADDRESS_FIELDS = ('contact_address', 'address', 'contact_address_inline', 'address_inline')
@@ -37,7 +37,7 @@ class TestRestrictedRead(TransactionCase):
     def setUp(self):
         super().setUp()
         self.records = self.partners.with_user(self.operator).with_context(
-            allowed_company_ids=self.env.company.ids,
+            allowed_company_ids=self.env.company.ids, qing_partial_read=True,
         )
         self.specification = {'id': {}, 'name': {}, 'contact_address': {}, 'address': {}}
 
@@ -61,12 +61,36 @@ class TestRestrictedRead(TransactionCase):
         self.env.invalidate_all()
         return patch.object(self.partner_type, '_compute_address', compute)
 
+    def test_plain_callers_receive_standard_or_access_error(self):
+        normal = self.records[0].with_context(qing_partial_read=False)
+        self.assertNotIn(RESTRICTED_KEY, normal.web_read(self.specification)[0])
+        with self._patch_address(), self.assertRaises(AccessError):
+            self.records[1].with_context(qing_partial_read=False).web_read(self.specification)
+
+    def test_recovered_complete_record_does_not_add_empty_marker(self):
+        from odoo.addons.qing_base.tools import RestrictedComputeError
+
+        error = RestrictedComputeError((), AccessError('Transient restriction'))
+        result = self.records[0]._qing_partial_record({'name': {}}, error)[0]
+        self.assertEqual(result['name'], 'Readable compute')
+        self.assertNotIn(RESTRICTED_KEY, result)
+
+    def test_native_form_raises_access_error_for_restricted_compute(self):
+        view = self.env['ir.ui.view'].create({
+            'name': 'qing restricted partner test form',
+            'model': 'res.partner',
+            'type': 'form',
+            'arch': '<form><field name="name"/><field name="contact_address"/></form>',
+        })
+        with self._patch_address(), self.assertRaises(AccessError):
+            Form(self.records[1].with_context(qing_partial_read=False), view=view.id)
+
     def test_mixed_batch_preserves_good_record_and_masks_siblings(self):
         with self._patch_address():
             values = self.records.web_read(self.specification)
         self.assertEqual([value['id'] for value in values], self.records.ids)
         self.assertIn('Accessible address', values[0]['contact_address'])
-        self.assertEqual(values[0][RESTRICTED_KEY], [])
+        self.assertNotIn(RESTRICTED_KEY, values[0])
         self.assertEqual(values[1]['name'], 'Restricted compute')
         self.assertEqual(values[1][RESTRICTED_KEY], ['address', 'contact_address'])
         self.assertNotIn('contact_address', values[1])
@@ -87,7 +111,7 @@ class TestRestrictedRead(TransactionCase):
                 offset=1, limit=1, order='id desc',
             )
             self.assertEqual(values['length'], 2)
-            self.assertEqual(values['records'][0][RESTRICTED_KEY], [])
+            self.assertNotIn(RESTRICTED_KEY, values['records'][0])
             self.assertIn('Accessible address', values['records'][0]['contact_address'])
 
     def test_failed_compute_cache_and_database_writes_are_rolled_back(self):
@@ -149,7 +173,7 @@ class TestRestrictedRead(TransactionCase):
         parent = self.env['res.partner'].create({'name': 'Root with restricted computed child', 'parent_id': self.bad_id})
         specification = {'name': {}, 'parent_id': {'fields': {'contact_address': {}}}}
         with self._patch_address():
-            value = parent.with_user(self.operator).web_read(specification)[0]
+            value = parent.with_user(self.operator).with_context(qing_partial_read=True).web_read(specification)[0]
         self.assertEqual(value['name'], parent.name)
         self.assertEqual(value[RESTRICTED_KEY], ['parent_id'])
         self.assertNotIn('parent_id', value)
@@ -201,8 +225,8 @@ class TestRestrictedRead(TransactionCase):
 
     def test_authorized_reader_still_receives_the_real_computation(self):
         with self._patch_address():
-            value = self.partners[1].web_read(self.specification)[0]
-        self.assertEqual(value[RESTRICTED_KEY], [])
+            value = self.partners[1].with_context(qing_partial_read=True).web_read(self.specification)[0]
+        self.assertNotIn(RESTRICTED_KEY, value)
         self.assertEqual(value['contact_address'], 'Incomplete private result')
 
     def test_50_and_150_accessible_rows_use_one_batch_attempt(self):
@@ -216,12 +240,12 @@ class TestRestrictedRead(TransactionCase):
             token = READ_BUDGET.set(budget)
             try:
                 before = self.env.cr.sql_log_count
-                values = records[:size].with_user(self.operator).web_read(self.specification)
+                values = records[:size].with_user(self.operator).with_context(qing_partial_read=True).web_read(self.specification)
                 query_counts.append(self.env.cr.sql_log_count - before)
             finally:
                 READ_BUDGET.reset(token)
             self.assertEqual(len(values), size)
             self.assertEqual(budget.attempts, 1)
-            self.assertTrue(all(not value[RESTRICTED_KEY] for value in values))
+            self.assertTrue(all(RESTRICTED_KEY not in value for value in values))
             _logger.info('Partial-read successful batch: %s rows, %s SQL queries', size, query_counts[-1])
         self.assertLessEqual(query_counts[1], query_counts[0] + 5)

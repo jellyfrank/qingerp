@@ -21,7 +21,7 @@
                             <field name="amount_untaxed" optional="hide"/><field name="amount_tax" optional="hide"/>
                             <field name="allocated_untaxed" optional="hide"/><field name="allocated_tax" optional="hide"/>
                             <field name="remaining_untaxed"/><field name="remaining_tax"/><field name="pending_count" optional="show"/>
-                            <button name="action_open_source" type="object" string="Open Source" icon="fa-external-link"/>
+                            <button name="action_open_source" type="object" string="Open Source" icon="open_in_new"/>
                         </list>
                     </field>
                 </sheet>

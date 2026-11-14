@@ -6,3 +6,9 @@ from . import test_market_telemetry
 from . import test_web_push
 from . import test_restricted_read
 from . import test_independence
+from . import test_form_adapter
+from . import test_icon_names
+from . import test_notify
+from . import test_access_request
+from . import test_access_event
+from . import test_access_http

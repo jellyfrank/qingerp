@@ -27,4 +27,12 @@
         <field name="interval_type">hours</field>
         <field name="active" eval="True"/>
     </record>
+    <record id="ir_cron_qing_access_event_purge" model="ir.cron">
+        <field name="name">Qing Permission Diagnostics: Remove Expired Events</field>
+        <field name="model_id" ref="model_qing_access_event"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_purge()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
 </odoo>

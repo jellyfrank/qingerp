@@ -11,21 +11,21 @@
                         <kanban>
                             <templates>
                                 <t t-name="card">
-                                    <field name="image_128" widget="image" class="w-100" options="{'img_class': 'o_image_128_contain'}"/>
+                                    <field name="image_1920" widget="image_paste" class="w-100" options="{'img_class': 'o_image_128_contain'}"/>
                                     <field name="name"/>
                                 </t>
                             </templates>
                         </kanban>
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
-                            <field name="image_1920" widget="image" options="{'size': [80, 80], 'preview_image': 'image_128'}"/>
+                            <field name="image_1920" widget="image_paste" options="{'size': [80, 80], 'preview_image': 'image_128'}"/>
                             <field name="name"/>
                         </list>
                         <form string="Delivery Photo">
                             <sheet>
                                 <field name="sequence" invisible="1"/>
                                 <field name="order_id" invisible="1"/>
-                                <field name="image_1920" widget="image" options="{'size': [320, 240], 'zoom': True}"/>
+                                <field name="image_1920" widget="image_paste" options="{'size': [320, 240], 'zoom': True}"/>
                                 <group>
                                     <field name="name"/>
                                 </group>

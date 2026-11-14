@@ -1,7 +1,7 @@
 {
     'name': 'Qing Account China',
     'summary': '中国核算基础配置与检查',
-    'version': '20.0.1.14',
+    'version': '20.0.1.17',
     'category': 'Accounting/Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

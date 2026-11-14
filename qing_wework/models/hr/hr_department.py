@@ -4,7 +4,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-from ...tools.actions import confirm_action, notification_action
+from ...tools.actions import confirm_action
 from wechatpy.exceptions import WeChatClientException
 import logging
 import base64
@@ -18,9 +18,7 @@ class HrDepartment(models.Model):
 
     def _show_queued_notification(self, message):
         """Display the queue notification and close the confirmation dialog."""
-        action = notification_action(message)
-        action["params"]["next"] = {"type": "ir.actions.act_window_close"}
-        return action
+        return self._qing_notify(message, next_action={"type": "ir.actions.act_window_close"})
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -212,14 +210,8 @@ class HrDepartment(models.Model):
         if not config:
             raise UserError(_("Please configure WeWork for this company first."))
         self.env["wework.contact.sync.job"]._queue_department(self, config)
-        return {
-            "type": "ir.actions.client",
-            "tag": "display_notification",
-            "params": {
-                "message": _("The department was queued for WeWork synchronization."),
-                "type": "success",
-            },
-        }
+        return self._qing_notify(
+            _("The department was queued for WeWork synchronization."), notification_type="success")
 
     @api.model
     def action_syn_wework_employees(self):

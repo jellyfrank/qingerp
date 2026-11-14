@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.AccessErrorDialog">
+        <Dialog title="this.title" size="'sm'" contentClass="'o_error_dialog'">
+            <div role="alert">
+                <p t-out="this.message" class="text-prewrap mb-0"/>
+            </div>
+            <t t-set-slot="footer">
+                <button t-if="this.canRequest" class="btn btn-primary" t-on-click="this.requestAccess">Request access</button>
+                <button class="btn btn-secondary" t-on-click="this.props.close">Return to previous screen</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

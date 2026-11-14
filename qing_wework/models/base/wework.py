@@ -7,7 +7,6 @@ from urllib.parse import quote
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError
-from ...tools.actions import notification_action
 from wechatpy.exceptions import WeChatClientException
 
 try:
@@ -106,24 +105,24 @@ class QingWework(models.Model):
         user_domain = [("company_ids", "in", company.id), ("share", "=", False)]
         users = self.env["res.users"].sudo().search(user_domain)
         job_model.action_queue_users(users, self)
-        return notification_action(
+        return self._qing_notify(
             _("Queued %s department records and their eligible users for synchronization.") % department_count,
-            type="success",
+            notification_type="success",
         )
 
     def action_queue_departments_from_wework(self):
         self.ensure_one()
         company = self._get_config_company()
         self.env["wework.contact.sync.job"].action_queue_departments_from_wework(company)
-        return notification_action(_("Department synchronization has been queued."), type="success")
+        return self._qing_notify(_("Department synchronization has been queued."), notification_type="success")
 
     def action_queue_users_from_wework(self):
         self.ensure_one()
         company = self._get_config_company()
         jobs = self.env["wework.contact.sync.job"].action_queue_users_from_wework(company)
-        return notification_action(
+        return self._qing_notify(
             _("Queued %s employee synchronization jobs.") % len(jobs),
-            type="success",
+            notification_type="success",
         )
 
     def action_test(self):
@@ -134,7 +133,7 @@ class QingWework(models.Model):
         except WeChatClientException as error:
             _logger.exception("[QingERP WeCom] Department connection test failed.")
             raise UserError(error)
-        return notification_action(_("The WeWork connection is valid."), type="success")
+        return self._qing_notify(_("The WeWork connection is valid."), notification_type="success")
 
     def get_authorized_url(self, url):
         """Build a WeWork OAuth URL that returns through Odoo's authorization route."""

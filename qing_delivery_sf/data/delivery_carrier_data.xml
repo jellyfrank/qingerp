@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="product_product_delivery_sf" model="product.product">
+        <field name="name">SF Express</field>
+        <field name="default_code">Delivery_SF</field>
+        <field name="type">service</field>
+        <field name="categ_id" ref="delivery.product_category_deliveries"/>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="False"/>
+        <field name="list_price">0.0</field>
+        <field name="invoice_policy">order</field>
+    </record>
+    <record id="delivery_carrier_sf" model="delivery.carrier">
+        <field name="name">SF Express</field>
+        <field name="delivery_type">sf</field>
+        <field name="product_id" ref="product_product_delivery_sf"/>
+        <field name="integration_level">rate_and_ship</field>
+        <field name="prod_environment" eval="False"/>
+        <field name="sf_template_id" ref="sf_template_fm_150_standard"/>
+    </record>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_sf_template_user,SF label template users,qing.delivery.sf.template,base.group_user,r,
+access_sf_template_manager,SF label template managers,qing.delivery.sf.template,stock.group_stock_manager,crud,

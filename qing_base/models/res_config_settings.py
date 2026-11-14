@@ -44,6 +44,7 @@ class ResConfigSettings(models.TransientModel):
     module_qing_account_fapiao = fields.Boolean(string='Tax Invoice Ledger')
     module_qing_account_fapiao_ocr = fields.Boolean(string='Local Tax Invoice OCR')
     module_qing_sms_aliyun = fields.Boolean(string='Aliyun SMS')
+    module_qing_wework = fields.Boolean(string='WeCom')
     qing_audit_enabled = fields.Boolean(
         string='Record ORM Changes',
         config_parameter='qing_base.audit_enabled',

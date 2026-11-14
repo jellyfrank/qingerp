@@ -20,7 +20,7 @@
                     <span t-out="app.name"/>
                 </a>
                 <button class="o_qing_top_apps__more" type="button" t-att-aria-expanded="this.qingLauncherState.isOpen" t-on-dragover="this.openQingDragOverflow" t-on-click="this.toggleQingLauncher">
-                    <span>More</span><i class="fa fa-angle-down" aria-hidden="true"/>
+                    <span>More</span><i class="oi" data-icon="expand_more" aria-hidden="true"/>
                 </button>
                 <div class="o_qing_top_apps__measure" aria-hidden="true">
                     <span t-foreach="this.menuService.getApps()" t-as="app" t-key="app.id" class="o_qing_top_apps__item" t-att-data-measure-app="app.id">
@@ -31,7 +31,7 @@
         </xpath>
         <xpath expr="//div[hasclass('o_navbar_breadcrumbs')]" position="after">
             <button t-if="!this.ui.isSmall" class="o_qing_command_search" type="button" aria-label="Search menus and commands" t-on-click="this.openQingCommandPalette">
-                <i class="fa fa-search" aria-hidden="true"/>
+                <i class="oi" data-icon="search" aria-hidden="true"/>
                 <span>Search menus and commands…</span>
             </button>
         </xpath>
@@ -132,7 +132,7 @@
                     </t>
                 </nav>
                 <div class="o_qing_sidebar__footer" t-att-title="this.qingTechnicalSupportLabel">
-                    <i class="fa fa-building-o" aria-hidden="true"/>
+                    <i class="oi" data-icon="business" aria-hidden="true"/>
                     <span t-out="this.qingTechnicalSupportLabel"/>
                 </div>
             </aside>

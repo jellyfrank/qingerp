@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 03:58+0000\n"
+"PO-Revision-Date: 2026-11-13 03:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_payment
+#: model:ir.module.module,description:base.module_qing_payment
+msgid ""
+"\n"
+"Shared foundation for the QingERP Alipay and WeChat Pay payment providers.\n"
+"\n"
+"- Marks transactions started from a mobile page so providers can choose a\n"
+"  mobile checkout (H5 / JSAPI).\n"
+msgstr "\n支付宝与微信支付共用的基础模块。\n\n- 记录交易是否从手机页面发起，便于服务商选择移动端收银方式（H5 / JSAPI）。\n"
+
+#. module: qing_payment
+#: model:ir.model.fields,field_description:qing_payment.field_payment_transaction__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_payment
+#: model:ir.model.fields,field_description:qing_payment.field_payment_transaction__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_payment
+#: model:ir.model.fields,field_description:qing_payment.field_payment_transaction__is_mobile
+msgid "Is Mobile"
+msgstr "移动端发起"
+
+#. module: qing_payment
+#: model:ir.module.module,shortdesc:base.module_qing_payment
+msgid "Payment Foundation for China"
+msgstr "国内在线支付基础"
+
+#. module: qing_payment
+#: model:ir.model,name:qing_payment.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "支付交易"
+
+#. module: qing_payment
+#: model:ir.module.module,summary:base.module_qing_payment
+msgid "Shared helpers for Alipay and WeChat Pay providers"
+msgstr "支付宝与微信支付共用的基础功能"
+
+#. module: qing_payment
+#. odoo-python
+#: code:addons/qing_payment/controllers/portal.py:0
+msgid "The following kwargs are not whitelisted: %s"
+msgstr "以下参数不在允许列表中：%s"

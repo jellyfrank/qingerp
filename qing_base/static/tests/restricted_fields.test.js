@@ -228,6 +228,25 @@ function expectRestrictedWidgetUnmounted(view, names) {
     }
 }
 
+test("only supported form and list reads request partial data", async () => {
+    const reads = [];
+    onRpc("web_read", ({ model, kwargs }) => {
+        if (model === RES_MODEL) {
+            reads.push(["form", kwargs.context.qing_partial_read]);
+        }
+    });
+    onRpc("web_search_read", ({ model, kwargs }) => {
+        if (model === RES_MODEL) {
+            reads.push(["list", kwargs.context.qing_partial_read]);
+        }
+    });
+    await mountView({ resModel: RES_MODEL, resId: 1, type: "form",
+        arch: `<form><field name="name"/></form>` });
+    await mountView({ resModel: RES_MODEL, type: "list",
+        arch: `<list><field name="name"/></list>` });
+    expect(reads).toEqual([["form", true], ["list", true]]);
+});
+
 test("omitted restricted values are absent from data and both eval contexts", async () => {
     restrictReads(["count", "flag", "secret_html", "secret_ids"]);
     const view = await mountView({ resModel: RES_MODEL, resId: 1, type: "form",

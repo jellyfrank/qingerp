@@ -1,7 +1,7 @@
 {
     'name': 'Qing CRM',
     'summary': 'Customer pools, lifecycle, structured follow-ups, and CRM reports',
-    'version': '20.0.1.0.5',
+    'version': '20.0.1.0.6',
     'category': 'Sales/CRM',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

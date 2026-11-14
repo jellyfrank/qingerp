@@ -9,7 +9,6 @@ import uuid
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
-from ...tools.actions import notification_action
 from psycopg2 import IntegrityError
 from wechatpy.work.ai_bot import WeChatAIBotCrypto, WeChatAIBotWebSocketClient
 
@@ -324,18 +323,18 @@ class WeworkIntelligentBot(models.Model):
                 "callback_token": secrets.token_urlsafe(24),
                 "encoding_aes_key": bot._generate_encoding_aes_key(),
             })
-        return notification_action(
+        return self._qing_notify(
             _("Callback credentials were generated. Update them in the WeCom console."),
-            type="success",
+            notification_type="success",
             reload=True,
         )
 
     def action_test_callback_configuration(self):
         self.ensure_one()
         self._get_crypto()
-        return notification_action(
+        return self._qing_notify(
             _("The callback credentials are valid. Complete the remote verification in the WeCom console."),
-            type="success",
+            notification_type="success",
         )
 
     def action_start_websocket_connection(self):
@@ -350,9 +349,9 @@ class WeworkIntelligentBot(models.Model):
             "websocket_status": "connecting",
         })
         WeworkIntelligentBotWebSocketManager.ensure_running(self.env.cr.dbname, self.id)
-        return notification_action(
+        return self._qing_notify(
             _("The WebSocket connection is starting in the background."),
-            type="success",
+            notification_type="success",
             reload=True,
         )
 
@@ -363,7 +362,7 @@ class WeworkIntelligentBot(models.Model):
             "websocket_status": "stopped",
         })
         WeworkIntelligentBotWebSocketManager.stop(self.env.cr.dbname, self.id)
-        return notification_action(_("The WebSocket connection is stopping."), type="success", reload=True)
+        return self._qing_notify(_("The WebSocket connection is stopping."), notification_type="success", reload=True)
 
     def action_view_media_messages(self):
         self.ensure_one()

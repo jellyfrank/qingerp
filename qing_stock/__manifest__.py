@@ -13,6 +13,7 @@
         'views/view_res_config_settings_form.xml',
         'views/view_stock_picking_form.xml',
         'views/stock_help_message.xml',
+        'data/delivery_provider_action.xml',
     ],
     'assets': {
         'web.assets_backend': [

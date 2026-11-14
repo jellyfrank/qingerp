@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="acquirer_form_alipay">
+      <field name="name">acquirer.form.alipay</field>
+      <field name="model">payment.provider</field>
+      <field name="inherit_id" ref="payment.payment_provider_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='available_country_ids']" position="after">
+          <field name="is_global" invisible="code != 'alipay'"/>
+        </xpath>
+        <xpath expr='//group[@name="provider_credentials"]' position='inside'>
+          <group invisible="code != 'alipay' or is_live or is_global">
+            <field name="alipay_sandbox_appid"/>
+            <field name="sandbox_seller_id"/>
+            <field name="alipay_sandbox_secret"/>
+            <field name="alipay_sandbox_public_key"/>
+            <field name="alipay_sandbox_sign_type"/>
+          </group>
+          <group invisible="code != 'alipay' or not is_live or is_global">
+            <field name="alipay_appid"/>
+            <field name="seller_id"/>
+            <field name="alipay_secret"/>
+            <field name="alipay_public_key"/>
+            <field name="alipay_sign_type"/>
+          </group>
+          <group invisible="code != 'alipay' or is_live or not is_global">
+            <field name="antom_sandbox_client_id"/>
+            <field name="antom_sandbox_private_key"/>
+            <field name="antom_sandbox_public_key"/>
+            <field name="antom_sandbox_location"/>
+            <field name="antom_sandbox_payment_method"/>
+          </group>
+          <group invisible="code != 'alipay' or not is_live or not is_global">
+            <field name="antom_client_id"/>
+            <field name="antom_private_key"/>
+            <field name="antom_public_key"/>
+            <field name="antom_location"/>
+            <field name="antom_payment_method"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

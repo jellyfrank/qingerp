@@ -1,7 +1,7 @@
 {
     'name': 'Qing 税票台账',
     'summary': '独立进销项税票登记及业务账单追溯',
-    'version': '20.0.1.20',
+    'version': '20.0.1.22',
     'category': 'Accounting/Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

@@ -592,3 +592,22 @@ msgstr ""
 #: model:ir.ui.menu,name:contacts.menu_res_city
 msgid "Cities"
 msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/access_error_dialog.xml:0
+msgid "Return to previous screen"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/access_error_dialog.js:0
+msgid "Permission required"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/access_error_dialog.js:0
+#: code:addons/qing_web_ui/static/src/xml/access_error_dialog.xml:0
+msgid "Request access"
+msgstr ""

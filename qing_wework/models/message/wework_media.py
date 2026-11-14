@@ -8,7 +8,6 @@ import json
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools import BinaryValue
-from ...tools.actions import notification_action
 
 
 TEMP_MEDIA_URL = "/wework_server/cgi-bin/media/upload"
@@ -111,7 +110,7 @@ class wework_media(models.Model):
     def action_upload_to_wework(self):
         for media in self:
             media._upload_to_wework()
-        return notification_action(_("The media file was uploaded to WeCom."), type="success")
+        return self._qing_notify(_("The media file was uploaded to WeCom."), notification_type="success")
 
     @api.model
     def get_access_token(self):

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_form" model="ir.ui.view">
+        <field name="name">qing.delivery.sf.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="qing_delivery.view_stock_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qing_goods_name']" position="after">
+                <field name="destination_country_code" invisible="1"/>
+                <field name="sf_express_type_select" invisible="1"/>
+                <field name="sf_payment_select" invisible="1"/>
+                <field name="sf_manual_order" invisible="1"/>
+                <field name="sf_express_type" placeholder="Delivery method default"
+                       readonly="carrier_tracking_ref"
+                       invisible="delivery_type != 'sf' or not sf_express_type_select"/>
+                <field name="sf_payment_method" placeholder="Delivery method default"
+                       readonly="carrier_tracking_ref"
+                       invisible="delivery_type != 'sf' or not sf_payment_select"/>
+                <field name="sf_declared_value" readonly="carrier_tracking_ref"
+                       invisible="delivery_type != 'sf' or destination_country_code in (False, 'CN')"/>
+                <field name="sf_declared_currency_id" readonly="carrier_tracking_ref"
+                       invisible="delivery_type != 'sf' or destination_country_code in (False, 'CN')"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_sf_order" type="object" string="Order SF" class="btn-primary"
+                        invisible="delivery_type != 'sf' or not sf_manual_order or carrier_tracking_ref or state in ('done', 'cancel') or picking_type_code == 'incoming'"/>
+                <button name="cancel_shipment" type="object" string="Cancel SF Waybill"
+                        confirm="Cancel this SF waybill?"
+                        invisible="delivery_type != 'sf' or not carrier_tracking_ref or state in ('done', 'cancel')"/>
+                <button name="action_sf_print_label" type="object" string="Print SF Label"
+                        invisible="delivery_type != 'sf' or not carrier_tracking_ref"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

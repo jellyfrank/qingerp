@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_picking_form" model="ir.ui.view">
+        <field name="name">qing.delivery.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='tracking']" position="after">
+                <field name="qing_tracking_supported" invisible="1"/>
+                <field name="qing_goods_name"
+                       invisible="not carrier_id or delivery_type in ('fixed', 'base_on_rule')"
+                       readonly="carrier_tracking_ref"/>
+                <field name="qing_carrier_order_ref" invisible="not qing_carrier_order_ref"/>
+                <label for="qing_tracking_detail" invisible="not qing_tracking_supported or not carrier_tracking_ref"/>
+                <div name="qing_tracking" class="o_row" invisible="not qing_tracking_supported or not carrier_tracking_ref">
+                    <field name="qing_tracking_detail" nolabel="1" placeholder="Click Update to load the carrier route."/>
+                    <button name="action_qing_update_tracking" type="object" string="Update"
+                            icon="refresh" class="btn-link"/>
+                </div>
+                <field name="qing_tracking_date" invisible="not qing_tracking_date"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

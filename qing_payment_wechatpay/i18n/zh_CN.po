@@ -1,0 +1,430 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_payment_wechatpay
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 03:58+0000\n"
+"PO-Revision-Date: 2026-11-13 03:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_payment_wechatpay
+#: model:ir.module.module,description:base.module_qing_payment_wechatpay
+msgid ""
+"\n"
+"WeChat Pay provider for Odoo eCommerce, sales orders and customer invoices.\n"
+"\n"
+"- Desktop Native QR code checkout with automatic status polling.\n"
+"- Mobile H5 (MWEB) and in-WeChat JSAPI checkout.\n"
+"- Signed payment notifications, manual status query and refunds.\n"
+msgstr "\n为在线商城、销售订单和客户发票提供微信支付。\n\n- 电脑端 Native 扫码，页面自动查询支付结果。\n- 手机端 H5（MWEB）与微信内 JSAPI 支付。\n- 支付通知验签、手动查询支付结果与退款。\n"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid ""
+"<i class=\"oi me-2\" data-icon=\"oi_wechat\" style=\"color:#07C160;\" aria-"
+"hidden=\"true\"/>WeChat Pay Checkout"
+msgstr "<i class=\"oi me-2\" data-icon=\"oi_wechat\" style=\"color:#07C160;\" aria-hidden=\"true\"/>微信支付收银台"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+msgid ""
+"<span data-key=\"missing\">Payment parameters are missing. Refresh the page and try again.</span>\n"
+"                <span data-key=\"invalid\">Payment parameters could not be read. Refresh the page and try again.</span>\n"
+"                <span data-key=\"no_bridge\">WeChat Pay is not available here. Open this page in WeChat.</span>\n"
+"                <span data-key=\"opening\">Opening WeChat Pay...</span>\n"
+"                <span data-key=\"paid\">Payment succeeded. Redirecting...</span>\n"
+"                <span data-key=\"cancelled\">You cancelled the payment. Tap the button to try again.</span>\n"
+"                <span data-key=\"failed\">WeChat Pay could not be opened. Tap the button to try again.</span>\n"
+"                <span data-key=\"waiting\">Waiting for WeChat Pay to be ready...</span>"
+msgstr "<span data-key=\"missing\">缺少支付参数，请刷新页面后重试。</span>\n                <span data-key=\"invalid\">无法读取支付参数，请刷新页面后重试。</span>\n                <span data-key=\"no_bridge\">未检测到微信支付环境，请在微信内打开此页面。</span>\n                <span data-key=\"opening\">正在拉起微信支付...</span>\n                <span data-key=\"paid\">支付成功，正在跳转...</span>\n                <span data-key=\"cancelled\">你已取消支付，可以点击按钮重新支付。</span>\n                <span data-key=\"failed\">无法拉起微信支付，可以点击按钮重试。</span>\n                <span data-key=\"waiting\">正在等待微信支付环境就绪...</span>"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_app_key
+msgid "API Key"
+msgstr "API密钥"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "Amount Due"
+msgstr "应付金额"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechactpay_app_secret
+msgid "App Secret (Legacy)"
+msgstr "App Secret（旧字段）"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_app_secret
+msgid "App Secret (OAuth)"
+msgstr "App Secret（网页授权）"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.payment_transaction_form
+msgid "Are you sure you want to refund this WeChat Pay transaction?"
+msgstr "确认对这笔微信支付交易退款？"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_cert_filename
+msgid "Certificate Filename"
+msgstr "证书文件名"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.payment_transaction_form
+msgid "Check WeChat Pay Status"
+msgstr "查询微信支付结果"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__code
+msgid "Code"
+msgstr "代码"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+msgid "Complete the payment in WeChat."
+msgstr "请在微信中完成支付。"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__display_name
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_transaction__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "Failed to create WeChat Pay JSAPI payment."
+msgstr "创建微信 JSAPI 支付失败。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "Failed to create WeChat Pay JSAPI payment: %s"
+msgstr "创建微信 JSAPI 支付失败：%s"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "Failed to create WeChat Pay payment."
+msgstr "创建微信支付失败。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "Failed to create WeChat Pay payment: %s"
+msgstr "创建微信支付失败：%s"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Failed to create the WeChat Pay client: %s"
+msgstr "创建微信支付客户端失败：%s"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields.selection,name:qing_payment_wechatpay.selection__payment_provider__wechatpay_mobile_pay_method__h5
+msgid "H5 (MWEB)"
+msgstr "H5（MWEB）"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__id
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_transaction__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Invalid WeChat Pay notification: %s"
+msgstr "微信支付通知无效：%s"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields.selection,name:qing_payment_wechatpay.selection__payment_provider__wechatpay_mobile_pay_method__jsapi
+msgid "JSAPI (WeChat In-App)"
+msgstr "JSAPI（微信内支付）"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_cert_file
+msgid "Merchant Certificate"
+msgstr "商户证书文件"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_cert
+msgid "Merchant Certificate File Path"
+msgstr "商家证书文件路径"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_id
+msgid "Merchant ID"
+msgstr "商家ID"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_key_file
+msgid "Merchant Private Key"
+msgstr "商户私钥文件"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_key
+msgid "Merchant Private Key File Path"
+msgstr "商户密钥文件路径"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Merchant cert must be in PEM format."
+msgstr "商户证书必须是 PEM 格式。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Merchant cert/key file does not exist. Please check file paths."
+msgstr "商户证书或私钥文件不存在，请检查文件路径。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Merchant cert/key path is required for refunds."
+msgstr "退款需要配置商户证书和私钥路径。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Merchant key must be in PEM format."
+msgstr "商户私钥必须是 PEM 格式。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.payment_provider_form
+msgid "Mobile Payment / OAuth"
+msgstr "移动支付与网页授权"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mobile_pay_method
+msgid "Mobile Payment Method"
+msgstr "移动支付方式"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+msgid "Open WeChat Pay Again"
+msgstr "重新拉起微信支付"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/controllers/controllers.py:0
+msgid "Open this payment page inside WeChat to use JSAPI."
+msgstr "请在微信内打开此支付页面以使用 JSAPI 支付。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+msgid "Opening WeChat Pay..."
+msgstr "正在拉起微信支付..."
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "Order"
+msgstr "订单号"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_jsapi_payform
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "Payment - WeChat Pay"
+msgstr "支付 - 微信支付"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model,name:qing_payment_wechatpay.model_payment_provider
+msgid "Payment Provider"
+msgstr "支付提供商"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model,name:qing_payment_wechatpay.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "支付交易"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "Payment instructions"
+msgstr "支付说明"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "Payment received; queued for amount verification and processing."
+msgstr "已收到付款，等待核对金额并处理。"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_mch_key_filename
+msgid "Private Key Filename"
+msgstr "私钥文件名"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.payment_transaction_form
+msgid "Refund"
+msgstr "退款"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.payment_provider_form
+msgid "Refund Certificate"
+msgstr "退款证书"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "Scan the QR code with WeChat to complete the payment."
+msgstr "请使用微信“扫一扫”扫描二维码完成支付。"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,help:qing_payment_wechatpay.field_payment_provider__code
+msgid "The technical code of this payment provider."
+msgstr "该支付提供商的技术代码。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid ""
+"Upload a valid PEM merchant certificate and its matching, unencrypted "
+"private key."
+msgstr "请上传有效的 PEM 商户证书及与之匹配、未加密的私钥。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "Upload both the merchant certificate and private key."
+msgstr "请同时上传商户证书和私钥。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+#: model:ir.model.fields.selection,name:qing_payment_wechatpay.selection__payment_provider__code__wechatpay
+#: model:ir.module.module,shortdesc:base.module_qing_payment_wechatpay
+#: model:payment.method,name:qing_payment_wechatpay.payment_method_wechatpay
+#: model:payment.provider,name:qing_payment_wechatpay.payment_provider_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "WeChat Pay"
+msgstr "微信支付"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_provider__wechatpay_appid
+msgid "WeChat Pay AppID"
+msgstr "微信支付APPID"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "WeChat Pay JSAPI requires an App Secret."
+msgstr "微信 JSAPI 支付需要配置 App Secret。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay JSAPI requires an OpenID."
+msgstr "微信 JSAPI 支付需要 OpenID。"
+
+#. module: qing_payment_wechatpay
+#: model:ir.module.module,summary:base.module_qing_payment_wechatpay
+msgid "WeChat Pay Native QR, H5 and JSAPI checkout for Odoo payments"
+msgstr "微信支付：电脑扫码、H5 与微信内 JSAPI 支付"
+
+#. module: qing_payment_wechatpay
+#: model:ir.model.fields,field_description:qing_payment_wechatpay.field_payment_transaction__wechatpay_openid
+msgid "WeChat Pay OpenID"
+msgstr "微信支付 OpenID"
+
+#. module: qing_payment_wechatpay
+#: model_terms:ir.ui.view,arch_db:qing_payment_wechatpay.wechatpay_payform
+msgid "WeChat Pay QR code"
+msgstr "微信支付二维码"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "WeChat Pay failed to create the order."
+msgstr "微信支付下单失败。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_provider.py:0
+msgid "WeChat Pay failed to create the order: %s"
+msgstr "微信支付下单失败：%s"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay has not confirmed payment for this transaction."
+msgstr "微信支付尚未确认这笔交易已付款。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay order query failed: %s"
+msgstr "微信支付查单失败：%s"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay rejected the refund."
+msgstr "微信支付拒绝了这笔退款。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay rejected the transaction."
+msgstr "微信支付拒绝了这笔交易。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid ""
+"WeChat Pay requires a transaction in CNY. No currency conversion is "
+"performed."
+msgstr "微信支付只支持人民币交易，系统不会自动换算币种。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay returned a different order reference."
+msgstr "微信支付返回的订单号不一致。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/models/payment_transaction.py:0
+msgid "WeChat Pay returned status %s."
+msgstr "微信支付返回状态 %s。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/controllers/controllers.py:0
+msgid "WeChat Pay transaction was not found."
+msgstr "未找到这笔微信支付交易。"
+
+#. module: qing_payment_wechatpay
+#. odoo-python
+#: code:addons/qing_payment_wechatpay/controllers/controllers.py:0
+msgid "WeChat authorization failed. Please try again."
+msgstr "微信授权失败，请重试。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:payment.provider,auth_msg:qing_payment_wechatpay.payment_provider_wechatpay
+msgid "Your payment has been authorized."
+msgstr "支付已获授权。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:payment.provider,cancel_msg:qing_payment_wechatpay.payment_provider_wechatpay
+msgid "Your payment has been cancelled."
+msgstr "您的支付已被取消。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:payment.provider,pending_msg:qing_payment_wechatpay.payment_provider_wechatpay
+msgid "Your payment has been processed but is waiting for approval."
+msgstr "您的付款已经处理，但正在等待批准。"
+
+#. module: qing_payment_wechatpay
+#: model_terms:payment.provider,done_msg:qing_payment_wechatpay.payment_provider_wechatpay
+msgid "Your payment has been processed."
+msgstr "您的付款已被处理。"

@@ -11,15 +11,16 @@ class SaleOrderLine(models.Model):
         result = dict.fromkeys(self.ids, 0.0)
         PurchaseLine = self.env['purchase.order.line'].sudo()
         domain = [('sale_line_id', 'in', self.ids), ('order_id.state', '!=', 'cancel')]
-        groups = PurchaseLine._read_group(domain, ['sale_line_id', 'uom_id'], ['product_qty:sum'])
-        for sale_line, unit, quantity in groups:
-            result[sale_line.id] += unit._compute_quantity(
-                quantity, sale_line.product_uom_id, round=False,
-            )
+        groups = PurchaseLine._read_group(domain, ['sale_line_id', 'product_id', 'uom_id'], ['product_qty:sum'])
+        for sale_line, product, unit, quantity in groups:
+            if product == sale_line.product_id:
+                result[sale_line.id] += unit._compute_quantity(
+                    quantity, sale_line.product_uom_id, round=False,
+                )
         return result
 
-    @api.depends('product_uom_qty', 'product_uom_id', 'purchase_line_ids.product_qty',
-                 'purchase_line_ids.uom_id', 'purchase_line_ids.order_id.state')
+    @api.depends('product_id', 'product_uom_qty', 'product_uom_id', 'purchase_line_ids.product_qty',
+                 'purchase_line_ids.uom_id', 'purchase_line_ids.product_id', 'purchase_line_ids.order_id.state')
     def _compute_qing_purchase_quantities(self):
         quantities = self._qing_purchase_quantities()
         for line in self:
@@ -32,7 +33,7 @@ class SaleOrderLine(models.Model):
         """Reject automatic procurement by inspecting effective stock rules when installed."""
         checked_routes = {}
         for line in self:
-            if (line.state != 'sale' or line.display_type or line.is_downpayment
+            if (line.state not in line.order_id._qing_purchase_allowed_states() or line.display_type or line.is_downpayment
                     or line.product_id.type != 'consu' or not line.product_id.purchase_ok
                     or line.product_uom_qty <= 0):
                 raise UserError(_('Only positive, purchasable goods on confirmed sales orders can be purchased manually.'))
@@ -65,6 +66,10 @@ class SaleOrderLine(models.Model):
             if any(move.procure_method == 'make_to_order' for move in line.move_ids if move.state != 'cancel'):
                 raise UserError(_('An automatic supply chain already exists for %s.', line.display_name))
 
+    def _qing_can_change_purchased_product(self):
+        self.ensure_one()
+        return False
+
     def _qing_lock_purchase(self):
         """Serialize allocation, including transactions with a repeatable-read snapshot."""
         # Private primitive: callers enforce access on the SO or the edited PO.
@@ -95,7 +100,7 @@ class SaleOrderLine(models.Model):
         quantities = self._qing_purchase_quantities() if watched else {}
         if {'product_id', 'product_uom_id'} & vals.keys():
             for line in self:
-                if quantities.get(line.id) and any(
+                if quantities.get(line.id) and not line._qing_can_change_purchased_product() and any(
                     key in vals and vals[key] != line[key].id
                     for key in ('product_id', 'product_uom_id')
                 ):

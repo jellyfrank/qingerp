@@ -1,7 +1,7 @@
 {
     'name': 'Qing WhatsApp',
     'summary': 'WhatsApp 客户会话、消息收发与模板管理 / Customer messaging',
-    'version': '20.0.1.6',
+    'version': '20.0.1.8',
     'description': 'Manage WhatsApp accounts, conversations, templates and messaging. Meta-authorized credentials are required and messages are sent through WhatsApp.',
     'support': 'kevin@odoomommy.com',
     'images': ['static/description/images/cover.png'],
@@ -9,7 +9,7 @@
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
     'license': 'LGPL-3',
-    'depends': ['mail', 'phone_validation'],
+    'depends': ['qing_base', 'mail', 'phone_validation'],
     'external_dependencies': {'python': ['requests', 'phonenumbers']},
     'data': ['security/security.xml', 'security/ir.access.csv', 'data/cron.xml',
              'views/view_qing_whatsapp_account_list.xml',

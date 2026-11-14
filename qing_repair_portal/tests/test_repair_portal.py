@@ -98,6 +98,23 @@ class TestRepairPortal(HttpCase):
         repair.access_token = str(uuid.uuid4())
         self.assertEqual(self.url_open(url).status_code, 404)
 
+    def test_multiple_photos_visible_only_for_authorized_repair(self):
+        repair = self._repair(qing_photo_legacy_before_migrated=True,
+            qing_photo_before_ids=[Command.create({'kind': 'before', 'image_1920': self.signature}),
+                                   Command.create({'kind': 'before', 'image_1920': self.signature})],
+            qing_photo_after_ids=[Command.create({'kind': 'after', 'image_1920': self.signature}),
+                                  Command.create({'kind': 'after', 'image_1920': self.signature})])
+        response = self.url_open(repair.get_portal_url())
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(html.fromstring(response.text).xpath("//img[@alt='Repair photo']")), 4)
+        self.assertEqual(self.url_open('/my/repairs/%s' % repair.id).status_code, 404)
+        photo_id = repair.qing_photo_before_ids[0].id
+        unauthorized = self.url_open('/web/image/qing.repair.photo/%s/image_1920?download=true' % photo_id)
+        self.assertIn(unauthorized.status_code, (403, 404))
+        report = self.url_open(repair.get_portal_url(report_type='html'))
+        self.assertEqual(report.status_code, 200)
+        self.assertEqual(len(html.fromstring(report.text).xpath("//img[@alt='Repair photo']")), 4)
+
     def test_customer_pdf_binary(self):
         repair = self._repair()
         self.env['ir.config_parameter'].sudo().set_str('report.url', self.base_url())
@@ -229,7 +246,8 @@ class TestRepairPortal(HttpCase):
         page = self.url_open(repair.get_portal_url())
         self.assertEqual(page.status_code, 200)
         self.assertIn('设备型号', page.text)
-        self.assertIn('服务说明', page.text)
+        if self.env['ir.module.module'].search_count([('name', '=', 'bgwy_repair'), ('state', '=', 'installed')]):
+            self.assertIn('服务说明', page.text)
 
     def test_signature_hash_is_independent_of_translation_language(self):
         self.env['res.lang']._activate_lang('zh_CN')

@@ -1,3 +1,4 @@
+from . import access_events
 from .legacy import legacy_addon_loaded, mommy_base_loaded
 from .module import addon_status
 from .restricted_compute import (

@@ -15,7 +15,7 @@
                     </setting>
                     <setting id="qing_cn_check_setting" string="核算配置检查" help="检查当前公司已保存的基础配置。检查通过不代表财税合规验收通过。">
                         <div class="content-group"><field name="qing_cn_chart_template"/></div>
-                        <button name="action_qing_cn_check_configuration" type="object" string="检查已保存配置" class="btn-link" icon="fa-check-square-o"/>
+                        <button name="action_qing_cn_check_configuration" type="object" string="检查已保存配置" class="btn-link" icon="check_box"/>
                     </setting>
                 </block>
             </xpath>

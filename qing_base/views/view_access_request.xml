@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_access_request_list" model="ir.ui.view">
+        <field name="name">qing.access.request.list</field>
+        <field name="model">qing.access.request</field>
+        <field name="arch" type="xml">
+            <list create="1" delete="0">
+                <field name="create_date"/>
+                <field name="requester_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="model_name"/>
+                <field name="operation"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qing_access_request_form" model="ir.ui.view">
+        <field name="name">qing.access.request.form</field>
+        <field name="model">qing.access.request</field>
+        <field name="arch" type="xml">
+            <form delete="0">
+                <header>
+                    <button name="action_mark_handled" type="object" string="Mark Handled"
+                            groups="qing_base.group_access_request_handler" invisible="state != 'pending' or not id"/>
+                    <button name="action_mark_rejected" type="object" string="Reject"
+                            groups="qing_base.group_access_request_handler" invisible="state != 'pending' or not id"/>
+                    <field name="state" widget="statusbar" invisible="not id"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="requester_id" invisible="not id"/>
+                        <field name="company_id" invisible="not id" groups="base.group_multi_company"/>
+                        <field name="model_name" readonly="id"/>
+                        <field name="operation" readonly="id"/>
+                        <field name="record_id" readonly="id"/>
+                        <field name="explanation" readonly="id"/>
+                        <field name="handler_id" invisible="not id"/>
+                        <field name="handler_note" readonly="state != 'pending'" invisible="not id"
+                               groups="qing_base.group_access_request_handler"/>
+                        <field name="handler_note" readonly="1" invisible="not id"
+                               groups="base.group_user,!qing_base.group_access_request_handler"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_qing_access_request" model="ir.actions.act_window">
+        <field name="name">Permission Requests</field>
+        <field name="res_model">qing.access.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_qing_access_request" name="Permission Requests"
+              action="action_qing_access_request" groups="base.group_user" sequence="90"/>
+</odoo>

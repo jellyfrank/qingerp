@@ -1,7 +1,7 @@
 {
     'name': 'Qing Account Stock',
     'summary': 'Accounting integration for purchase returns and inventory valuation',
-    'version': '20.0.1.13',
+    'version': '20.0.1.14',
     'category': 'Accounting/Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

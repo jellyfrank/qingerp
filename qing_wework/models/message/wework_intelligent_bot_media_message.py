@@ -11,7 +11,6 @@ import requests
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools import BinaryValue
-from ...tools.actions import notification_action
 
 
 _logger = logging.getLogger(__name__)
@@ -304,7 +303,7 @@ class WeworkIntelligentBotMediaMessage(models.Model):
                 "state": "pending",
             })
         self._trigger_cron()
-        return notification_action(_("The intelligent bot file link has been queued."), type="success")
+        return self._qing_notify(_("The intelligent bot file link has been queued."), notification_type="success")
 
     def action_retry(self):
         self.write({
