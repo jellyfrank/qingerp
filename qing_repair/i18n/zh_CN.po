@@ -474,3 +474,19 @@ msgstr "服务项目"
 #: model:ir.model.fields,field_description:qing_repair.field_repair_order__state
 msgid "Status"
 msgstr "状态"
+
+#. module: qing_repair
+msgid "Repair Photo"
+msgstr "维修照片"
+
+#. module: qing_repair
+msgid "Before Repair Photos"
+msgstr "维修前照片"
+
+#. module: qing_repair
+msgid "After Repair Photos"
+msgstr "维修后照片"
+
+#. module: qing_repair
+msgid "Caption"
+msgstr "说明"

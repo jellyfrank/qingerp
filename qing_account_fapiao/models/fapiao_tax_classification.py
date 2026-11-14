@@ -164,14 +164,9 @@ class FapiaoTaxClassification(models.Model):
             result['updated'],
             result['unchanged'],
         )
-        return {
-            'type': 'ir.actions.client',
-            'tag': 'display_notification',
-            'params': {
-                'title': self.env._('Tax classification synchronization completed'),
-                'message': message,
-                'type': 'success',
-                'sticky': False,
-                'next': {'type': 'ir.actions.client', 'tag': 'reload'},
-            },
-        }
+        return self._qing_notify(
+            message,
+            title=self.env._('Tax classification synchronization completed'),
+            notification_type='success',
+            next_action={'type': 'ir.actions.client', 'tag': 'reload'},
+        )

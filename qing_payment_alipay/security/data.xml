@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="payment.provider" id="payment_provider_alipay">
+            <field name="name">AliPay</field>
+            <field name="image_128" type="bytes" file="qing_payment_alipay/static/images/alipay.png"/>
+            <field name="module_id" ref="base.module_qing_payment_alipay"/>
+            <field name="code">alipay</field>
+            <field name="available_currency_ids" eval="[(6, 0, [ref('base.CNY')])]"/>
+            <field name="is_live" eval="False"/>
+            <field name="redirect_form_view_id" ref="redirect_form"/>
+        </record>
+        <record model="payment.method" id="payment_method_alipay">
+            <field name="name">Alipay</field>
+            <field name="code">alipay</field>
+            <field name="active" eval="True"/>
+            <field name="provider_id" ref="payment_provider_alipay"/>
+            <field name="image" type="bytes" file="qing_payment_alipay/static/images/alipay.png"/>
+            <field name="support_refund">partial</field>
+        </record>
+    </data>
+</odoo>

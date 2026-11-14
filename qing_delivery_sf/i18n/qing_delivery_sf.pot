@@ -1,0 +1,823 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_delivery_sf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 03:36+0000\n"
+"PO-Revision-Date: 2026-11-14 03:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_delivery_sf
+#: model:ir.module.module,description:base.module_qing_delivery_sf
+msgid ""
+"\n"
+"Connect SF Express (Fengqiao open platform) to QingERP delivery methods.\n"
+"\n"
+"- Shipping rate estimate on sales orders.\n"
+"- Waybill creation on validation or manually before validation.\n"
+"- Electronic label (cloud print) attached to the transfer; reprint on demand.\n"
+"- Cancellation with the stored customer order number.\n"
+"- Route tracking stored on the transfer.\n"
+"- Product type, payment method and cross-border declared value per carrier or per transfer.\n"
+"\n"
+"Built on Qing Delivery Foundation: sender policy, order references, China structured\n"
+"addresses and credential redaction are shared with other QingERP carriers.\n"
+"Requires an SF Fengqiao account and the sf-sdk Python package.\n"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "%s SF label templates synchronized."
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "%s has no SF waybill yet."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid "Account"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.constraint,message:qing_delivery_sf.constraint_qing_delivery_sf_template_code_unique
+msgid "An SF Express template code must be unique."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__61
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__61
+msgid "C1类包裹"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_stock_picking_form
+msgid "Cancel SF Waybill"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_stock_picking_form
+msgid "Cancel this SF waybill?"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_checkword
+msgid "Check Word"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language__zh-hk
+msgid "Chinese (Hong Kong)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language__zh-mo
+msgid "Chinese (Macau)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language__zh-cn
+msgid "Chinese (Simplified)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language__zh-tw
+msgid "Chinese (Taiwan)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_payment_select
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_payment_select
+msgid "Choose Payment on Transfers"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_select_express_type
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_express_type_select
+msgid "Choose Product on Transfers"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_client_code
+msgid "Client Code"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model,name:qing_delivery_sf.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid "Cross-Border"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__current_company
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__current_company
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_res_partner__current_company
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__custom
+msgid "Custom Template"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_declared_value
+msgid "Declared Value"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_declared_currency_id
+msgid "Declared Value Currency"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_delivery_carrier__sf_declared_value
+msgid "Default declared value for cross-border shipments."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model,name:qing_delivery_sf.model_delivery_carrier
+msgid "Delivery Method"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_stock_picking_form
+msgid "Delivery method default"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__display_name
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_res_partner__display_name
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language__en
+msgid "English"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__59
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__59
+msgid "E顺递"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language_type__fixed
+msgid "Fixed"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_language_type__follow
+msgid "Follow User Language"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__id
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__id
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_res_partner__id
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_template_id
+msgid "Label Template"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_language
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid "Language"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_delivery_carrier__sf_select_express_type
+#: model:ir.model.fields,help:qing_delivery_sf.field_stock_picking__sf_express_type_select
+msgid "Let users choose the SF product type on each transfer."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_delivery_carrier__sf_payment_select
+#: model:ir.model.fields,help:qing_delivery_sf.field_stock_picking__sf_payment_select
+msgid "Let users choose the payment method on each transfer."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_monthly_card
+msgid "Monthly Card"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__name
+msgid "Name"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__261
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__261
+msgid "O2O店配"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid "Order"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_manual_order
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_manual_order
+msgid "Order Before Validation"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_stock_picking_form
+msgid "Order SF"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_default_payment
+msgid "Payment Method"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_stock_picking_form
+msgid "Print SF Label"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_default_express_type
+msgid "Product Type"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_payment__2
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_payment_method__2
+msgid "Receiver Pays"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_language_type
+msgid "Response Language"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_150_international
+msgid "SF 100x150 HK/MO/TW and International"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_150_standard
+msgid "SF 100x150 Standard"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_180_standard
+msgid "SF 100x180 Standard"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_210_international
+msgid "SF 100x210 HK/MO/TW and International"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_210_standard
+msgid "SF 100x210 Standard"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_76130_international
+msgid "SF 76x130 HK/MO/TW and International"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_76130_standard
+msgid "SF 76x130 Standard"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_76165_standard1
+msgid "SF 76x165 One-Part"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:qing.delivery.sf.template,name:qing_delivery_sf.sf_template_fm_76165_standard2
+msgid "SF 76x165 Two-Part"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_declared_value
+msgid "SF Declared Value"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_declared_currency_id
+msgid "SF Declared Value Currency"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:delivery.carrier,name:qing_delivery_sf.delivery_carrier_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__delivery_type__sf
+#: model:ir.module.module,shortdesc:base.module_qing_delivery_sf
+#: model:product.template,name:qing_delivery_sf.product_product_delivery_sf_product_template
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_res_partner_form
+msgid "SF Express"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "SF Express %(operation)s failed: %(error)s"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.module.module,summary:base.module_qing_delivery_sf
+msgid ""
+"SF Express (顺丰速运) shipping connector: rates, waybills, labels, cancellation "
+"and tracking"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model,name:qing_delivery_sf.model_qing_delivery_sf_template
+msgid "SF Express Label Template"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_delivery_carrier__sf_monthly_card
+msgid "SF Express monthly settlement card number."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_res_partner__sf_monthly_card
+#: model:ir.model.fields,help:qing_delivery_sf.field_res_users__sf_monthly_card
+msgid ""
+"SF Express monthly settlement card used when this contact is the sender. "
+"Overrides the card of the delivery method."
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "SF Express returned no price for this route."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_res_partner__sf_monthly_card
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_res_users__sf_monthly_card
+msgid "SF Monthly Card"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_payment_method
+msgid "SF Payment Method"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_stock_picking__sf_express_type
+msgid "SF Product Type"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_delivery_carrier__sf_sandbox_checkword
+msgid "Sandbox Check Word"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "Select an SF label template on delivery method %s."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_payment__1
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_payment_method__1
+msgid "Sender Pays"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "Set the SF client code and check word on delivery method %s."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_delivery_carrier__sf_manual_order
+#: model:ir.model.fields,help:qing_delivery_sf.field_stock_picking__sf_manual_order
+msgid ""
+"Show an \"Order SF\" button so the waybill can be created before the "
+"transfer is validated."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid "Sync"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,help:qing_delivery_sf.field_qing_delivery_sf_template__custom
+msgid "Synchronized from the SF account."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields,field_description:qing_delivery_sf.field_qing_delivery_sf_template__code
+msgid "Template Code"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model_terms:ir.ui.view,arch_db:qing_delivery_sf.view_delivery_carrier_form
+msgid ""
+"Test with the Fengqiao sandbox first. Use the environment button above to "
+"switch to production."
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "The SF label could not be printed: %s Use Print SF Label to try again."
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "The SF order number of %s is unknown; cancel it in the SF portal."
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_payment__3
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_payment_method__3
+msgid "Third Party Pays"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model,name:qing_delivery_sf.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "cancellation"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "label printing"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "rate estimate"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "receiver"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "route lookup"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "sender"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "template synchronization"
+msgstr ""
+
+#. module: qing_delivery_sf
+#. odoo-python
+#: code:addons/qing_delivery_sf/models/delivery_carrier.py:0
+msgid "waybill creation"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__30
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__30
+msgid "三号便利箱(特快)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__242
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__242
+msgid "丰网速运"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__32
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__32
+msgid "二号便利箱(特快)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__31
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__31
+msgid "便利封/袋(特快)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__260
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__260
+msgid "入仓电标"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__201
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__201
+msgid "冷运标快"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__50
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__50
+msgid "千点取60"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__263
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__263
+msgid "同城半日达"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__10
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__10
+msgid "国际小包"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__12
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__12
+msgid "国际特惠配送"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__29
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__29
+msgid "国际电商专递-标准"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__283
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__283
+msgid "填舱标快"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__285
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__285
+msgid "填舱电标"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__215
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__215
+msgid "大票直送"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__39
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__39
+msgid "岛内件(110CM)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__33
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__33
+msgid "岛内件(80CM)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__153
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__153
+msgid "整车直达"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__235
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__235
+msgid "极效前置-预售"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__250
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__250
+msgid "极置店配"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__155
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__155
+msgid "标准零担"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__35
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__35
+msgid "物资配送"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__199
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__199
+msgid "特快包裹"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__247
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__247
+msgid "电商标快"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__53
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__53
+msgid "电商盒子F1"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__54
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__54
+msgid "电商盒子F2"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__229
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__229
+msgid "精温专递"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__233
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__233
+msgid "精温专递（样本陆）"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__238
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__238
+msgid "纯重特配"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__257
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__257
+msgid "退换上门"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__258
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__258
+msgid "退换自寄"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__154
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__154
+msgid "重货包裹"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__231
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__231
+msgid "陆运包裹"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__255
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__255
+msgid "顺丰卡航"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__256
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__256
+msgid "顺丰卡航（D类）"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__6
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__6
+msgid "顺丰即日"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__24
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__24
+msgid "顺丰国际特惠(包裹)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__23
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__23
+msgid "顺丰国际特惠(文件)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__111
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__111
+msgid "顺丰干配"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__202
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__202
+msgid "顺丰微小件"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__2
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__2
+msgid "顺丰标快"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__1
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__1
+msgid "顺丰特快"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__60
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__60
+msgid "顺丰特快（文件）"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__266
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__266
+msgid "顺丰空配（新）"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__265
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__265
+msgid "预售电标"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__221
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__221
+msgid "香港冷运到家(≤60厘米)"
+msgstr ""
+
+#. module: qing_delivery_sf
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__delivery_carrier__sf_default_express_type__209
+#: model:ir.model.fields.selection,name:qing_delivery_sf.selection__stock_picking__sf_express_type__209
+msgid "高铁专送"
+msgstr ""

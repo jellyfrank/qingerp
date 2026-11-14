@@ -1,7 +1,7 @@
 {
     'name': 'Qing Warehouse Barcode',
     'summary': 'Warehouse scanning, inventory counts and reliable stock execution',
-    'version': '20.0.1.0.23',
+    'version': '20.0.1.0.25',
     'category': 'Inventory/Inventory',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

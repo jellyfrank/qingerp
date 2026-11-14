@@ -3,6 +3,9 @@
 import { _t } from "@web/core/l10n/translation";
 import { computed, getScope, markRaw, proxy, Scope, toRaw } from "@odoo/owl";
 import { Domain } from "@web/core/domain";
+import { RelationalModel } from "@web/model/relational_model/relational_model";
+import { FormController } from "@web/views/form/form_controller";
+import { ListController } from "@web/views/list/list_controller";
 import { evaluateBooleanExpr, evaluateExpr, parseExpr } from "@web/core/py_js/py";
 import { patch } from "@web/core/utils/patch";
 import { Record } from "@web/model/relational_model/record";
@@ -143,6 +146,40 @@ function eraseRestricted(record) {
         }
     }
 }
+
+// Only the form and list controllers below understand this display contract.
+patch(FormController.prototype, {
+    get modelParams() {
+        return { ...super.modelParams, qingSupportPartial: true };
+    },
+});
+
+patch(ListController.prototype, {
+    get modelParams() {
+        return { ...super.modelParams, qingSupportPartial: true };
+    },
+});
+
+patch(RelationalModel.prototype, {
+    setup(params, services) {
+        this.qingSupportPartial = !!params.qingSupportPartial;
+        return super.setup(params, services);
+    },
+
+    _loadRecords(config, evalContext, cache) {
+        if (this.qingSupportPartial) {
+            config = { ...config, context: { ...config.context, qing_partial_read: true } };
+        }
+        return super._loadRecords(config, evalContext, cache);
+    },
+
+    _loadUngroupedList(config, cache) {
+        if (this.qingSupportPartial) {
+            config = { ...config, context: { ...config.context, qing_partial_read: true } };
+        }
+        return super._loadUngroupedList(config, cache);
+    },
+});
 
 patch(Record.prototype, {
     _setData(values, options) {

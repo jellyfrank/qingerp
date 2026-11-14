@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="qing_base.ImagePasteField" t-inherit="web.ImageField" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('opacity-trigger-hover')]" position="attributes">
+            <attribute name="class" add="o_image_paste_field" separator=" "/>
+            <attribute name="t-att-tabindex">!this.props.readonly and this.fieldType !== 'many2one' ? 0 : undefined</attribute>
+            <attribute name="t-on-paste">this.onPaste</attribute>
+            <attribute name="aria-label">Paste image with Ctrl+V</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('opacity-trigger-hover')]" position="inside">
+            <button t-if="this.props.record.data[this.props.name] and this.state.isValid"
+                    type="button" class="o_image_paste_preview btn btn-light border-0 rounded-circle position-absolute top-0 end-0 m-1 p-1"
+                    title="View image" aria-label="View image" t-on-click.stop.prevent="this.openImagePreview">
+                <i class="oi oi-fw" data-icon="zoom_in"/>
+            </button>
+            <span t-if="!this.props.readonly and this.fieldType !== 'many2one'" class="o_image_paste_hint">
+                <i class="oi oi-fw" data-icon="content_paste"/> Paste image with Ctrl+V
+            </span>
+        </xpath>
+    </t>
+
+</templates>

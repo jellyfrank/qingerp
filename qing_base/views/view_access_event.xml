@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_access_event_list" model="ir.ui.view">
+        <field name="name">qing.access.event.list</field>
+        <field name="model">qing.access.event</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="last_seen"/><field name="event_type"/><field name="impact"/>
+                <field name="user_id"/><field name="company_id" groups="base.group_multi_company"/>
+                <field name="model_name"/><field name="operation"/><field name="occurrences"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_qing_access_event_form" model="ir.ui.view">
+        <field name="name">qing.access.event.form</field>
+        <field name="model">qing.access.event</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0"><sheet><group>
+                <field name="first_seen"/><field name="last_seen"/><field name="occurrences"/>
+                <field name="event_type"/><field name="impact"/><field name="user_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="allowed_companies"/><field name="active_companies"/>
+                <field name="model_name"/><field name="operation"/><field name="cause"/><field name="entry"/>
+            </group></sheet></form>
+        </field>
+    </record>
+    <record id="action_qing_access_event" model="ir.actions.act_window">
+        <field name="name">Permission Diagnostics</field>
+        <field name="res_model">qing.access.event</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_qing_access_event" name="Permission Diagnostics"
+              parent="base.menu_security" action="action_qing_access_event"
+              groups="qing_base.group_access_diagnostic" sequence="85"/>
+</odoo>

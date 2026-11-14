@@ -118,10 +118,10 @@ class AccrualBatch(models.Model):
         self.ensure_one()
         self._check_manager()
         fresh = self._current_fingerprint() == self.source_fingerprint
-        return {'type': 'ir.actions.client', 'tag': 'display_notification', 'params': {
-            'title': self.env._('来源检查'), 'message': self.env._('来源与快照一致。') if fresh else
-            self.env._('来源已经变化；此快照不再代表当前未到票余额，请取消后重新生成。'),
-            'type': 'success' if fresh else 'warning', 'sticky': True}}
+        message = self.env._('来源与快照一致。') if fresh else \
+            self.env._('来源已经变化；此快照不再代表当前未到票余额，请取消后重新生成。')
+        return self._qing_notify(message, title=self.env._('来源检查'),
+                                 notification_type='success' if fresh else 'warning', sticky=True)
 
     def action_cancel(self):
         self._lock_transition()

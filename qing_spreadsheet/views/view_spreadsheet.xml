@@ -12,7 +12,7 @@
                 <field name="write_date"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <button name="action_open" type="object" string="Open" icon="folder_open"/>
-                <button name="action_toggle_favorite" type="object" string="Favorite" icon="fa-star"/>
+                <button name="action_toggle_favorite" type="object" string="Favorite" icon="star"/>
             </list>
         </field>
     </record>

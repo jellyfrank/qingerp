@@ -3,7 +3,7 @@ import datetime
 from odoo.exceptions import UserError
 from odoo.tests import TransactionCase, tagged
 
-from ..tools.actions import confirm_action, notification_action
+from ..tools.actions import confirm_action
 from ..tools.date_helpers import FormulaDateUtil
 
 
@@ -19,11 +19,11 @@ class TestWeworkPortHelpers(TransactionCase):
         with self.assertRaises(UserError):
             wizard.action_confirm()
 
-    def test_reload_notification_refreshes_the_view(self):
-        action = notification_action("Done", type="success", reload=True)
+    def test_queued_notification_closes_the_dialog(self):
+        action = self.env["hr.department"]._show_queued_notification("Queued")
         self.assertEqual(action["tag"], "display_notification")
-        self.assertEqual(action["params"]["next"]["tag"], "soft_reload")
-        self.assertNotIn("next", notification_action("Done")["params"])
+        self.assertEqual(action["params"]["message"], "Queued")
+        self.assertEqual(action["params"]["next"], {"type": "ir.actions.act_window_close"})
 
     def test_formula_date_helpers_keep_solutions_results(self):
         first, last = FormulaDateUtil.get_first_and_last_day(2024, 2)

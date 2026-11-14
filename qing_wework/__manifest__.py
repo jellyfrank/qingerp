@@ -18,7 +18,7 @@
     'category': 'Productivity',
     'version': '20.0.1.0.2',
     'license': 'LGPL-3',
-    'depends': ['hr', 'auth_oauth'],
+    'depends': ['qing_base', 'hr', 'auth_oauth'],
     # Same models as the Solutions module: never install both.
     'excludes': ['mommy_wework'],
     'external_dependencies': {

@@ -1,7 +1,7 @@
 {
     'name': 'Qing Rental',
     'summary': 'Equipment rental reservations, native transfers, renewal and deposits',
-    'version': '20.0.1.0.10',
+    'version': '20.0.1.0.11',
     'category': 'Sales/Rental',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

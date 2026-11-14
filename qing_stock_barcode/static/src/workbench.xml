@@ -45,7 +45,7 @@
                     <div t-if="this.state.session.kind === 'picking'" class="visually-hidden qing_scan_document_progress" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" t-att-aria-valuenow="this.documentProgress"/>
                 </section>
                 <div t-if="this.state.session?.source || this.state.session?.destination" class="qing_scan_route">
-                    <span t-out="this.state.session.source || '—'"/><i class="fa fa-long-arrow-right"/><span t-out="this.state.session.destination || '—'"/>
+                    <span t-out="this.state.session.source || '—'"/><i class="oi" data-icon="east"/><span t-out="this.state.session.destination || '—'"/>
                 </div>
                 <div t-if="this.state.session?.pending_product" class="alert alert-info">
                     <strong>Scan lot or serial:</strong> <span t-out="this.state.session.pending_product"/>
@@ -77,7 +77,7 @@
                         <div class="qing_scan_mode_field"><span>Mode</span>
                             <button type="button" class="btn btn-light qing_scan_mode_button" t-on-click="this.openModeSelector"
                                     t-att-disabled="this.state.busy || this.state.pending" aria-haspopup="dialog">
-                                <span t-out="this.modeLabel"/><i class="fa fa-angle-down" aria-hidden="true"/>
+                                <span t-out="this.modeLabel"/><i class="oi" data-icon="expand_more" aria-hidden="true"/>
                             </button>
                         </div>
                         <label>Quantity per scan <input type="number" class="form-control" min="0.001" step="any" t-att-value="this.state.quantity" t-on-input="(event) => { this.state.quantity = event.target.value; }" t-att-disabled="this.state.busy"/></label>
@@ -259,7 +259,7 @@
                 <button t-foreach="this.props.choices" t-as="choice" t-key="choice.value" type="button"
                         t-att-class="'btn qing_scan_mode_choice ' + (this.props.selected === choice.value ? 'qing_scan_mode_active' : '')"
                         t-att-aria-pressed="this.props.selected === choice.value ? 'true' : 'false'" t-on-click="() => this.select(choice.value)">
-                    <span t-out="choice.label"/><i t-if="this.props.selected === choice.value" class="fa fa-check" aria-hidden="true"/>
+                    <span t-out="choice.label"/><i t-if="this.props.selected === choice.value" class="oi" data-icon="check" aria-hidden="true"/>
                 </button>
             </div>
             <t t-set-slot="footer"><button type="button" class="btn btn-secondary" t-on-click="this.props.close">Close</button></t>

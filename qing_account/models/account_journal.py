@@ -83,7 +83,5 @@ class AccountJournal(models.Model):
             raise AccessError('请由当前公司的财务管理员检查配置。')
         issues = self._qing_clearing_issues()
         message = '\n'.join(issues) if issues else '待收、待付及银行暂记配置检查通过。已有付款是否生成分录，仍须逐笔核实。'
-        return {'type': 'ir.actions.client', 'tag': 'display_notification', 'params': {
-            'title': '银行清算配置检查', 'message': message,
-            'type': 'warning' if issues else 'success', 'sticky': True,
-        }}
+        return self._qing_notify(message, title='银行清算配置检查',
+                                 notification_type='warning' if issues else 'success', sticky=True)

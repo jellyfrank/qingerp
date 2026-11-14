@@ -96,8 +96,7 @@ class WhatsappAccount(models.Model):
             self._client().request('GET', self.phone_uid)
         except CloudError as exc:
             raise ValidationError(_('Connection failed. Provider code: %s', exc.code)) from exc
-        return {'type': 'ir.actions.client', 'tag': 'display_notification',
-                'params': {'message': _('Connection successful'), 'type': 'success'}}
+        return self._qing_notify(_('Connection successful'), notification_type='success')
 
     def action_sync_templates(self):
         self._assert_operator()

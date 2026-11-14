@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="wechatpay_payform" name="WeChat Pay">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Payment - WeChat Pay</t>
+            <t t-set="no_footer">1</t>
+
+            <div id="wrap">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <t t-if="error">
+                                <div class="alert alert-danger" role="alert">
+                                    <h5 class="mb-0">
+                                        <t t-out="error"/>
+                                    </h5>
+                                    <div class="small mt-2" t-if="detail">
+                                        <t t-out="detail"/>
+                                    </div>
+                                </div>
+                            </t>
+
+                            <t t-if="not error">
+                                <div class="card shadow-sm mb-3">
+                                    <div class="card-body d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <div class="text-muted small">Order</div>
+                                            <div class="h5 mb-0">
+                                                <span class="wechatpay_order"
+                                                      t-att-data-access-token="access_token"
+                                                      t-att-data-order="order"
+                                                      t-out="order"/>
+                                            </div>
+                                        </div>
+                                        <div class="text-end">
+                                            <div class="text-muted small">Amount Due</div>
+                                            <div class="h4 mb-0" style="color:#07C160;"><t t-out="amount"/></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-white border-0">
+                                        <h5 class="mb-0">
+                                            <i class="oi me-2" data-icon="oi_wechat" style="color:#07C160;" aria-hidden="true"/>WeChat Pay Checkout
+                                        </h5>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <img src="/qing_payment_wechatpay/static/src/image/wechat_pay.png"
+                                                 alt="WeChat Pay"
+                                                 class="mb-3"
+                                                 style="max-width:140px; height:auto;"/>
+
+                                            <div class="p-3 border rounded mb-3 bg-light">
+                                                <img t-att-src="qrcode"
+                                                     alt="WeChat Pay QR code"
+                                                     style="width:220px; height:220px;"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="text-muted">Scan the QR code with WeChat to complete the payment.</div>
+
+                                        <img src="/qing_payment_wechatpay/static/src/image/desc.png"
+                                             alt="Payment instructions"
+                                             class="mt-3 img-fluid"
+                                             style="max-width:520px;"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_sale_payment_2"/>
+            </div>
+
+            <script type="text/javascript" src="/qing_payment_wechatpay/static/src/js/wechatpay.js"></script>
+        </t>
+    </template>
+
+    <template id="redirect_form">
+        <form t-att-action="api_url" t-if="not is_mobile">
+            <input name="reference" t-att-value="reference" />
+            <input name="amount" t-att-value="amount" />
+            <input name="mobile" t-att-value="mobile"/>
+            <input name="access_token" t-att-value="access_token"/>
+        </form>
+        <form t-att-action="api_url" t-if="is_mobile">
+            <input name="reference" t-att-value="reference" />
+            <input name="amount" t-att-value="amount" />
+            <input name="access_token" t-att-value="access_token"/>
+        </form>
+    </template>
+
+    <template id="wechatpay_jsapi_payform" name="WeChat Pay JSAPI">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Payment - WeChat Pay</t>
+            <t t-set="no_footer">1</t>
+
+            <div id="wrap">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <div class="card shadow-sm mb-3">
+                                <div class="card-body d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="text-muted small">Order</div>
+                                        <div class="h5 mb-0"><span class="wechatpay_order" t-out="order"/></div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="text-muted small">Amount Due</div>
+                                        <div class="h4 mb-0" style="color:#07C160;"><t t-out="amount"/></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">
+                                        <i class="oi me-2" data-icon="oi_wechat" style="color:#07C160;" aria-hidden="true"/>WeChat Pay Checkout
+                                    </h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <div class="text-muted mb-2">Complete the payment in WeChat.</div>
+                                    <div id="wechatpay_jsapi_status" class="small text-muted mb-3">Opening WeChat Pay...</div>
+                                    <button type="button" id="wechatpay_jsapi_retry" class="btn btn-primary">Open WeChat Pay Again</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_sale_payment_2"/>
+            </div>
+            <div id="wechatpay_jsapi_params" t-att-data-params="jsapi_params" hidden="hidden"/>
+            <!-- Translated status messages read by wechatpay_jsapi_payform.js. -->
+            <div id="wechatpay_jsapi_messages" hidden="hidden">
+                <span data-key="missing">Payment parameters are missing. Refresh the page and try again.</span>
+                <span data-key="invalid">Payment parameters could not be read. Refresh the page and try again.</span>
+                <span data-key="no_bridge">WeChat Pay is not available here. Open this page in WeChat.</span>
+                <span data-key="opening">Opening WeChat Pay...</span>
+                <span data-key="paid">Payment succeeded. Redirecting...</span>
+                <span data-key="cancelled">You cancelled the payment. Tap the button to try again.</span>
+                <span data-key="failed">WeChat Pay could not be opened. Tap the button to try again.</span>
+                <span data-key="waiting">Waiting for WeChat Pay to be ready...</span>
+            </div>
+            <script type="text/javascript" src="/qing_payment_wechatpay/static/src/js/wechatpay_jsapi_payform.js"></script>
+        </t>
+    </template>
+</odoo>

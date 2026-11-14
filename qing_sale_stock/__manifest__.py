@@ -1,7 +1,7 @@
 {
     'name': 'Qing Sale Stock',
     'summary': 'Sales order delivery and return status',
-    'version': '20.0.1.0.5',
+    'version': '20.0.1.0.6',
     'category': 'Sales/Sales',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

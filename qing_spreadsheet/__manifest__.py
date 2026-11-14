@@ -1,7 +1,7 @@
 {
     'name': 'Qing Spreadsheet',
     'summary': 'Editable workbooks, live Odoo data and reusable record editors',
-    'version': '20.0.1.0.8',
+    'version': '20.0.1.0.9',
     'category': 'Productivity/Dashboard',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

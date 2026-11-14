@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- "Find a Delivery Provider" in Inventory settings also lists QingERP connectors. -->
+    <record id="stock.ir_module_module_action_delivery_provider_modules" model="ir.actions.act_window">
+        <field name="domain">[
+            '|', ('name', '=like', 'qing_delivery_%'), ('name', '=like', 'delivery_%'),
+            ('name', 'not in', ['delivery_stock_picking_batch', 'delivery_iot'])]</field>
+    </record>
+</odoo>

@@ -23,7 +23,7 @@ const arch = `<form><header>
     <button name="validate" type="object" string="Validate"/>
     <button name="action_cancel" type="object" string="Cancel" confirm="Cancel this record?"/>
     <field name="state" widget="statusbar" options="{'clickable': True}"/>
-    </header><sheet><div name="button_box"><button name="moves" type="object" class="oe_stat_button" icon="fa-exchange" string="Moves"/></div><group><field name="name"/></group></sheet></form>`;
+    </header><sheet><div name="button_box"><button name="moves" type="object" class="oe_stat_button" icon="swap_horiz" string="Moves"/></div><group><field name="name"/></group></sheet></form>`;
 
 test.tags("desktop");
 test("compact header mounts native workflow once and preserves editing and cancel confirmation", async () => {

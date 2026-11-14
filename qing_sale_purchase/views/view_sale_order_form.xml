@@ -5,8 +5,9 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
+                <field name="qing_can_create_purchase" invisible="1"/>
                 <button name="action_qing_create_purchase" type="object" string="Create Purchase"
-                        invisible="state != 'sale'" groups="purchase.group_purchase_user"/>
+                        invisible="not qing_can_create_purchase" groups="purchase.group_purchase_user"/>
             </xpath>
             <xpath expr="//field[@name='order_line']/list/column[@name='sol_qty']" position="after">
                 <field name="qing_purchase_qty" optional="hide"/>

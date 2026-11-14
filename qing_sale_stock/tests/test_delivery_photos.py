@@ -20,9 +20,12 @@ class TestDeliveryPhotos(TransactionCase):
                 cls.env.ref('sales_team.group_sale_salesman').id,
             ])],
         })
+        cls.team = cls.env['crm.team'].create({
+            'name': 'Photo Sales Team', 'member_ids': [Command.set(cls.user.ids)],
+        })
         cls.partner = cls.env['res.partner'].create({'name': 'Photo Customer'})
         cls.order = cls.env['sale.order'].create({
-            'partner_id': cls.partner.id, 'user_id': cls.user.id,
+            'partner_id': cls.partner.id, 'user_id': cls.user.id, 'team_id': cls.team.id,
         })
         cls.other = cls.env['sale.order'].create({
             'partner_id': cls.partner.id, 'user_id': cls.env.user.id,
@@ -47,6 +50,9 @@ class TestDeliveryPhotos(TransactionCase):
         self.assertFalse(self.order.copy().qing_delivery_photo_ids)
 
     def test_photo_permissions_follow_order(self):
+        self.order.with_user(self.user).check_access('write')
+        with self.assertRaises(AccessError):
+            self.other.with_user(self.user).check_access('write')
         photo = self._photo(self.other)
         with self.assertRaises(AccessError):
             photo.with_user(self.user).read(['image_1920'])

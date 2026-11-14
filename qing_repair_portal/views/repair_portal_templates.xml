@@ -35,12 +35,16 @@
             <div class="fw-bold"><span>Total: </span><span t-field="repair.qing_amount_total"/></div>
         </div>
         <div class="mb-4">
-            <div class="mb-3" t-if="repair.qing_photo_before">
-                <h5>Before Repair</h5><img t-att-src="image_data_uri(repair.qing_photo_before)" class="img-fluid" style="max-height: 360px;" alt="Before repair"/>
-            </div>
-            <div class="mb-3" t-if="repair.qing_photo_after">
-                <h5>After Repair</h5><img t-att-src="image_data_uri(repair.qing_photo_after)" class="img-fluid" style="max-height: 360px;" alt="After repair"/>
-            </div>
+            <t t-foreach="['before', 'after']" t-as="kind">
+                <t t-set="photos" t-value="repair.qing_photo_before_ids if kind == 'before' else repair.qing_photo_after_ids"/>
+                <t t-set="legacy" t-value="repair.qing_photo_before if kind == 'before' else repair.qing_photo_after"/>
+                <t t-set="legacy_visible" t-value="legacy and not repair['qing_photo_legacy_' + kind + '_migrated']"/>
+                <div class="mb-3" t-if="photos or legacy_visible">
+                    <h5 t-if="kind == 'before'">Before Repair</h5><h5 t-else="">After Repair</h5>
+                    <img t-if="legacy_visible" t-att-src="image_data_uri(legacy)" class="img-fluid" style="max-height: 360px;" alt="Repair photo"/>
+                    <t t-foreach="photos" t-as="photo"><div style="page-break-inside: avoid;"><img t-att-src="image_data_uri(photo.image_1920)" class="img-fluid" style="max-height: 360px;" alt="Repair photo"/></div></t>
+                </div>
+            </t>
         </div>
         <div class="mb-3">
             <div class="qing_repair_signature mb-3" t-if="repair.qing_price_signature">
@@ -58,8 +62,8 @@
         <t t-call="portal.portal_layout">
             <div class="container py-3" id="qing_repair_portal">
                 <div class="d-flex flex-wrap gap-2 mb-3">
-                    <a class="btn btn-secondary" t-att-href="repair.get_portal_url(report_type='pdf', download=True)"><i class="fa fa-download me-1"/>Download PDF</a>
-                    <a class="btn btn-secondary" target="_blank" t-att-href="repair.get_portal_url(report_type='pdf')"><i class="fa fa-print me-1"/>Print</a>
+                    <a class="btn btn-secondary" t-att-href="repair.get_portal_url(report_type='pdf', download=True)"><i class="oi me-1" data-icon="download"/>Download PDF</a>
+                    <a class="btn btn-secondary" target="_blank" t-att-href="repair.get_portal_url(report_type='pdf')"><i class="oi me-1" data-icon="print"/>Print</a>
                     <a t-if="repair.qing_pricing_mode == 'sale' and repair.sale_order_id" class="btn btn-primary" t-att-href="repair.sale_order_id.get_portal_url()">View Quotation</a>
                 </div>
                 <t t-call="qing_repair_portal.repair_body"/>

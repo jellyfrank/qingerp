@@ -11,7 +11,7 @@
                     <ol class="breadcrumb o_qing_collection_path">
                         <li t-if="collapsedBreadcrumbs.length" class="breadcrumb-item d-inline-flex">
                             <Dropdown>
-                                <button class="btn btn-link p-0" aria-label="Navigation history"><i class="fa fa-ellipsis-h" aria-hidden="true"/></button>
+                                <button class="btn btn-link p-0" aria-label="Navigation history"><i class="oi" data-icon="more_horiz" aria-hidden="true"/></button>
                                 <t t-set-slot="content">
                                     <t t-foreach="collapsedBreadcrumbs" t-as="breadcrumb" t-key="breadcrumb.jsId">
                                         <DropdownItem onSelected="breadcrumb.onSelected" attrs="{ href: breadcrumb.url }"><t t-call="web.Breadcrumb.Name"/></DropdownItem>
@@ -155,17 +155,17 @@
                 <button t-if="this.env.searchModel.searchMenuTypes.has('filter')" type="button" class="btn btn-secondary" data-hotkey="shift+q"
                         t-att-class="{'is-active': this.qingFilterCount}" t-on-click.stop="() => this.openQingCategory('filter')"
                         t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'filter' ? 'true' : 'false'">
-                    <i class="fa fa-filter" aria-hidden="true"/>Filters <span t-if="this.qingFilterCount" t-out="this.qingFilterCount"/>
+                    <i class="oi" data-icon="filter_alt" aria-hidden="true"/>Filters <span t-if="this.qingFilterCount" t-out="this.qingFilterCount"/>
                 </button>
                 <button t-if="this.env.searchModel.searchMenuTypes.has('groupBy')" type="button" class="btn btn-secondary"
                         t-on-click.stop="() => this.openQingCategory('groupBy')"
                         t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'groupBy' ? 'true' : 'false'">
-                    <i class="fa fa-bars" aria-hidden="true"/>Group By
+                    <i class="oi" data-icon="stacks" aria-hidden="true"/>Group By
                 </button>
                 <button t-if="this.env.searchModel.searchMenuTypes.has('favorite')" type="button" class="btn btn-secondary"
                         t-on-click.stop="() => this.openQingCategory('favorite')"
                         t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'favorite' ? 'true' : 'false'">
-                    <i class="fa fa-star-o" aria-hidden="true"/>Favorites
+                    <i class="oi" data-icon="star" aria-hidden="true"/>Favorites
                 </button>
             </div>
         </xpath>

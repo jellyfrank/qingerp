@@ -1,3 +1,7 @@
 id,name,model_id,group_id/id,operation,domain
 access_qing_audit_log_system,qing.audit.log system,qing.audit.log,base.group_system,r,
 access_qing_login_log_system,qing.login.log system,qing.login.log,base.group_system,r,
+access_qing_request_create,qing.access.request own create,qing.access.request,base.group_user,c,"[('requester_id', '=', user.id)]"
+access_qing_request_own,qing.access.request own read,qing.access.request,base.group_user,r,"[('requester_id', '=', user.id)]"
+access_qing_request_handler,qing.access.request handler,qing.access.request,qing_base.group_access_request_handler,ru,"[('company_id', 'in', company_ids)]"
+access_qing_event_diagnostic,qing.access.event diagnostic,qing.access.event,qing_base.group_access_diagnostic,r,"[('company_id', 'in', company_ids)]"

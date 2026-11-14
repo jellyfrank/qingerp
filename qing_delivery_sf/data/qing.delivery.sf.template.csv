@@ -1,0 +1,10 @@
+id,name,code
+sf_template_fm_150_standard,SF 100x150 Standard,fm_150_standard
+sf_template_fm_180_standard,SF 100x180 Standard,fm_180_standard
+sf_template_fm_210_standard,SF 100x210 Standard,fm_210_standard
+sf_template_fm_76130_standard,SF 76x130 Standard,fm_76130_standard
+sf_template_fm_76165_standard1,SF 76x165 One-Part,fm_76165_standard1
+sf_template_fm_76165_standard2,SF 76x165 Two-Part,fm_76165_standard2
+sf_template_fm_150_international,SF 100x150 HK/MO/TW and International,fm_150_international
+sf_template_fm_210_international,SF 100x210 HK/MO/TW and International,fm_210_international
+sf_template_fm_76130_international,SF 76x130 HK/MO/TW and International,fm_76130_international

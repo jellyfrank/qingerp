@@ -42,7 +42,7 @@ class TestRepairRestrictedRead(TransactionCase):
             'qing_amount_total': {}, 'qing_amount_tax': {}, 'qing_amount_untaxed': {},
         }
         self.env.invalidate_all()
-        repairs = self.repairs.with_user(self.operator).with_context(allowed_company_ids=self.env.company.ids)
+        repairs = self.repairs.with_user(self.operator).with_context(allowed_company_ids=self.env.company.ids, qing_partial_read=True)
         with self.assertRaises(AccessError):
             self.quotation.with_env(repairs.env).read(['currency_id'])
         expected = ['qing_amount_tax', 'qing_amount_total', 'qing_amount_untaxed', 'qing_currency_id']
@@ -51,7 +51,7 @@ class TestRepairRestrictedRead(TransactionCase):
             repairs.web_search_read([('id', 'in', repairs.ids)], specification, order='id')['records'],
         ):
             self.assertEqual(len(values), 2)
-            self.assertEqual(values[0]['__qing_restricted_fields'], [])
+            self.assertNotIn('__qing_restricted_fields', values[0])
             self.assertEqual(values[0]['qing_currency_id'], self.env.company.currency_id.id)
             self.assertEqual(values[0]['qing_amount_total'], 0)
             self.assertEqual(values[1]['__qing_restricted_fields'], expected)
@@ -68,10 +68,10 @@ class TestRepairRestrictedRead(TransactionCase):
         value = repair.web_read({
             'name': {}, 'sale_order_id': {'fields': {'display_name': {}}},
         })[0]
-        self.assertEqual(value['__qing_restricted_fields'], [])
+        self.assertNotIn('__qing_restricted_fields', value)
         self.assertEqual(value['sale_order_id']['id'], self.quotation.id)
         self.env.invalidate_all()
         value = self.repairs[1].web_read({'qing_currency_id': {}, 'qing_amount_total': {}})[0]
-        self.assertEqual(value['__qing_restricted_fields'], [])
+        self.assertNotIn('__qing_restricted_fields', value)
         self.assertEqual(value['qing_currency_id'], self.env.company.currency_id.id)
         self.assertEqual(value['qing_amount_total'], 0)

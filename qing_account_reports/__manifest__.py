@@ -1,13 +1,13 @@
 {
     'name': 'Qing Financial Reports',
     'summary': 'Trial balance and Chinese small-business financial statements for Community',
-    'version': '20.0.1.12',
+    'version': '20.0.1.13',
     'category': 'Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
     'support': 'kevin@odoomommy.com',
     'license': 'LGPL-3',
-    'depends': ['account'],
+    'depends': ['qing_base', 'account'],
     'data': [
         'security/ir.access.csv',
         'views/view_financial_report_scheme.xml',

@@ -1,0 +1,277 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_delivery
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-14 03:36+0000\n"
+"PO-Revision-Date: 2026-11-14 03:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_delivery
+#: model:ir.module.module,description:base.module_qing_delivery
+msgid ""
+"\n"
+"Shared foundation for QingERP carrier connectors such as SF Express.\n"
+"\n"
+"- Sender address policy: company, warehouse or a fixed contact.\n"
+"- Customer order reference policy, stored per transfer so cancellations reuse it.\n"
+"- Default goods description per delivery method, overridable per transfer.\n"
+"- Contact payloads built from the QingERP China address structure\n"
+"  (province, city, district, subdistrict) with phone normalization.\n"
+"- Carrier calls wrapped with credential redaction and readable errors.\n"
+"- Shipment labels attached to the transfer chatter.\n"
+"- Stored tracking history refreshed on demand.\n"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "%(carrier)s: %(operation)s failed: %(error)s"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "%s does not provide tracking details."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__qing_carrier_order_ref
+msgid "Carrier Order Reference"
+msgstr ""
+
+#. module: qing_delivery
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_stock_picking_form
+msgid "Click Update to load the carrier route."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_sender_type__company
+msgid "Company Address"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,help:qing_delivery.field_delivery_carrier__qing_fixed_sender_id
+msgid "Contact used as sender when the sender type is a fixed contact."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__current_company
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__qing_reference_type
+msgid "Customer Order Reference"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,help:qing_delivery.field_stock_picking__qing_carrier_order_ref
+msgid ""
+"Customer order number sent to the carrier when the shipment was created."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__qing_goods_name
+msgid "Default Goods Description"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model,name:qing_delivery.model_delivery_carrier
+msgid "Delivery Method"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__display_name
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_sender_type__fixed
+msgid "Fixed Contact"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__qing_fixed_sender_id
+msgid "Fixed Sender"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_delivery_carrier_form
+msgid "Goods"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__qing_goods_name
+msgid "Goods Description"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__id
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/stock_picking.py:0
+msgid "No tracking events yet."
+msgstr ""
+
+#. module: qing_delivery
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_delivery_carrier_form
+msgid "Order"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,help:qing_delivery.field_stock_picking__qing_goods_name
+msgid "Overrides the default goods description of the delivery method."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.module.module,shortdesc:base.module_qing_delivery
+msgid "Qing Delivery Foundation"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__qing_tracking_supported
+msgid "Qing Tracking Supported"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,help:qing_delivery.field_delivery_carrier__qing_reference_type
+msgid ""
+"Reference sent to the carrier as customer order number. It must be unique "
+"for most carriers; use the random suffix to ship the same transfer again "
+"after a cancellation."
+msgstr ""
+
+#. module: qing_delivery
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_delivery_carrier_form
+msgid "Sender"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_delivery_carrier__qing_sender_type
+msgid "Sender Address"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,help:qing_delivery.field_delivery_carrier__qing_goods_name
+msgid "Sent to the carrier when the transfer has no goods description."
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "Set a sender address on delivery method %s."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.module.module,summary:base.module_qing_delivery
+msgid "Shared building blocks for China carrier connectors"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "Shipment created with %s."
+msgstr ""
+
+#. module: qing_delivery
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_delivery_carrier_form
+msgid "Shipping Rules"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_reference_type__origin
+msgid "Source Document"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_reference_type__both
+msgid "Source Document and Transfer Reference"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "The %(role)s contact %(partner)s is missing: %(fields)s."
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__qing_tracking_detail
+msgid "Tracking Details"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields,field_description:qing_delivery.field_stock_picking__qing_tracking_date
+msgid "Tracking Updated On"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "Tracking number:"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model,name:qing_delivery.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_reference_type__name
+msgid "Transfer Reference"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_reference_type__random
+msgid "Transfer Reference with Random Suffix"
+msgstr ""
+
+#. module: qing_delivery
+#: model_terms:ir.ui.view,arch_db:qing_delivery.view_stock_picking_form
+msgid "Update"
+msgstr ""
+
+#. module: qing_delivery
+#: model:ir.model.fields.selection,name:qing_delivery.selection__delivery_carrier__qing_sender_type__warehouse
+msgid "Warehouse Address"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "city"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "phone"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "province"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "street"
+msgstr ""

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_delivery_carrier_form" model="ir.ui.view">
+        <field name="name">qing.delivery.carrier.form</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='destination']" position="before">
+                <page name="qing_shipping" string="Shipping Rules"
+                      invisible="delivery_type in ('fixed', 'base_on_rule')">
+                    <group>
+                        <group name="qing_sender" string="Sender">
+                            <field name="qing_sender_type"/>
+                            <field name="qing_fixed_sender_id"
+                                   invisible="qing_sender_type != 'fixed'"
+                                   required="qing_sender_type == 'fixed' and delivery_type not in ('fixed', 'base_on_rule')"/>
+                        </group>
+                        <group name="qing_order" string="Order">
+                            <field name="qing_reference_type"/>
+                            <field name="qing_goods_name" placeholder="Goods"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

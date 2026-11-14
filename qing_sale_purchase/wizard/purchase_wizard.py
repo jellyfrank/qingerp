@@ -46,7 +46,7 @@ class PurchaseWizard(models.TransientModel):
         if not self.env.user.has_group('purchase.group_purchase_user'):
             raise AccessError(_('Purchase access is required to create RFQs.'))
         self.sale_order_id.check_access('read')
-        if self.company_id not in self.env.companies or self.sale_order_id.state != 'sale':
+        if self.company_id not in self.env.companies or self.sale_order_id.state not in self.sale_order_id._qing_purchase_allowed_states():
             raise UserError(_('Select a confirmed sales order in an allowed company.'))
         self.lock_for_update()
         if self.purchase_order_ids:

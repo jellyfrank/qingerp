@@ -6,7 +6,7 @@
             <list create="false" edit="false" delete="false" decoration-success="state == 'done'" decoration-muted="state == 'cancelled'">
                 <field name="name"/><field name="kind"/><field name="user_id"/><field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/><field name="create_date"/>
-                <button name="action_open_workbench" type="object" string="Open Workbench" icon="fa-barcode"/>
+                <button name="action_open_workbench" type="object" string="Open Workbench" icon="barcode"/>
             </list>
         </field>
     </record>

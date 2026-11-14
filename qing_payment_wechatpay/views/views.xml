@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="payment_provider_form">
+      <field name="name">WechatPay Provider Form</field>
+      <field name="model">payment.provider</field>
+      <field name="inherit_id" ref="payment.payment_provider_form"/>
+      <field name="arch" type="xml">
+        <group name="provider_credentials" position="inside">
+          <group colspan="2" invisible="code != 'wechatpay'">
+            <field name="wechatpay_appid"/>
+            <field name="wechatpay_app_key" password="1"/>
+            <field name="wechatpay_mch_id"/>
+          </group>
+          <group name="wechatpay_certificates" string="Refund Certificate" colspan="2" invisible="code != 'wechatpay'" groups="base.group_system">
+            <field name="wechatpay_mch_key_filename" invisible="1"/>
+            <field name="wechatpay_mch_cert_filename" invisible="1"/>
+            <field name="wechatpay_mch_key_file" filename="wechatpay_mch_key_filename" options="{'accepted_file_extensions': '.pem'}"/>
+            <field name="wechatpay_mch_cert_file" filename="wechatpay_mch_cert_filename" options="{'accepted_file_extensions': '.pem'}"/>
+            <field name="wechatpay_mch_key" readonly="1" invisible="not wechatpay_mch_key or wechatpay_mch_key_file"/>
+            <field name="wechatpay_mch_cert" readonly="1" invisible="not wechatpay_mch_cert or wechatpay_mch_cert_file"/>
+          </group>
+          <group name="wechatpay_mobile" string="Mobile Payment / OAuth" colspan="2" invisible="code != 'wechatpay'">
+            <field name="wechatpay_mobile_pay_method"/>
+            <field name="wechatpay_app_secret" password="1" invisible="wechatpay_mobile_pay_method != 'jsapi'"/>
+          </group>
+        </group>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="payment_transaction_form">
+      <field name="name">WechatPay Transaction Form</field>
+      <field name="model">payment.transaction</field>
+      <field name="inherit_id" ref="payment.payment_transaction_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form/header/field[@name='state']" position="before">
+          <button name="action_validate_from_wechat" type="object" string="Check WeChat Pay Status"
+                  invisible="provider_code != 'wechatpay' or operation == 'refund' or state not in ('draft', 'pending', 'error')"/>
+          <button name="action_refund"
+                  type="object"
+                  string="Refund"
+                  class="btn-secondary"
+                  confirm="Are you sure you want to refund this WeChat Pay transaction?"
+                  invisible="provider_code != 'wechatpay' or state != 'done'"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,14 +1,25 @@
-from odoo import Command, models, _
+from odoo import Command, api, fields, models, _
 from odoo.exceptions import AccessError, UserError
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    def _qing_purchase_allowed_states(self):
+        return ('sale',)
+
+    @api.depends('state')
+    def _compute_qing_can_create_purchase(self):
+        for order in self:
+            order.qing_can_create_purchase = order.state in order._qing_purchase_allowed_states()
+
+    def _qing_purchase_change_domain(self):
+        return [('sale_line_id.order_id', 'in', self.ids),
+                ('qing_manual_purchase', '=', True), ('order_id.state', '!=', 'cancel')]
+
     def _qing_notify_purchase_change(self):
         PurchaseLine = self.env['purchase.order.line'].sudo()
-        domain = [('sale_line_id.order_id', 'in', self.ids),
-                  ('qing_manual_purchase', '=', True), ('order_id.state', '!=', 'cancel')]
+        domain = self._qing_purchase_change_domain()
         for purchase in PurchaseLine.search(domain).order_id:
             purchase.activity_schedule(
                 'mail.mail_activity_data_warning',
@@ -22,12 +33,14 @@ class SaleOrder(models.Model):
         self._qing_notify_purchase_change()
         return result
 
+    qing_can_create_purchase = fields.Boolean(compute='_compute_qing_can_create_purchase')
+
     def action_qing_create_purchase(self):
         self.ensure_one()
         self.check_access('read')
         if not self.env.user.has_group('purchase.group_purchase_user'):
             raise AccessError(_('Purchase access is required to create RFQs.'))
-        if self.state != 'sale' or self.company_id not in self.env.companies:
+        if self.state not in self._qing_purchase_allowed_states() or self.company_id not in self.env.companies:
             raise UserError(_('Select a confirmed sales order in an allowed company.'))
         lines = self.order_line.filtered(
             lambda line: not line.display_type and not line.is_downpayment

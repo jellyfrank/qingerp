@@ -75,11 +75,8 @@ class ResCompany(models.Model):
         message = '\n'.join('• ' + issue for issue in issues)
         if not issues:
             message = self.env._('基础配置项已齐备；税率、准则适用、期初余额及财税口径仍需会计复核。')
-        return {
-            'type': 'ir.actions.client', 'tag': 'display_notification',
-            'params': {'title': self.env._('%s：核算配置检查', self.display_name),
-                       'message': message, 'type': 'warning' if issues else 'info', 'sticky': True},
-        }
+        return self._qing_notify(message, title=self.env._('%s：核算配置检查', self.display_name),
+                                 notification_type='warning' if issues else 'info', sticky=True)
 
     def write(self, vals):
         if {'qing_cn_taxpayer_type', 'qing_cn_voucher_style'} & vals.keys():

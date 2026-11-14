@@ -26,6 +26,8 @@ EXCLUDED_AUDIT_MODELS = frozenset({
     'mail.followers',
     'mail.notification',
     'qing.audit.log',
+    'qing.access.event',
+    'qing.access.request',
 })
 AUDIT_VALUE_TYPES = frozenset({
     'boolean', 'char', 'date', 'datetime', 'float', 'integer',
@@ -37,12 +39,14 @@ SENSITIVE_FIELD_FRAGMENTS = (
     'mobile', 'street', 'iban', 'account_number', 'vat',
 )
 MAX_AUDIT_VALUE_FIELDS = 20
+NOTIFICATION_TYPES = ('info', 'success', 'warning', 'danger')
 MAX_AUDIT_VALUE_RECORDS = 100
 MAX_AUDIT_STRING_LENGTH = 256
 AUDIT_INSERT_BATCH_SIZE = 100
 RESTRICTED_FIELDS_KEY = '__qing_restricted_fields'
 MAX_READ_ATTEMPTS = 1024
 READ_BUDGET = ContextVar('qing_restricted_read_budget', default=None)
+READ_DEPTH = ContextVar('qing_web_read_depth', default=0)
 
 
 class ReadBudget:
@@ -153,7 +157,8 @@ class Base(models.AbstractModel):
                 values.update(read_values[0])
         for name in restricted:
             values.pop(name, None)
-        values[RESTRICTED_FIELDS_KEY] = sorted(restricted)
+        if restricted:
+            values[RESTRICTED_FIELDS_KEY] = sorted(restricted)
         return [values]
 
     def _qing_read_records(self, specification):
@@ -169,11 +174,9 @@ class Base(models.AbstractModel):
             left = self[:middle].with_prefetch(self[:middle].ids)
             right = self[middle:].with_prefetch(self[middle:].ids)
             return left._qing_read_records(specification) + right._qing_read_records(specification)
-        for value in values:
-            value.setdefault(RESTRICTED_FIELDS_KEY, [])
         return values
 
-    def _qing_can_read_partially(self):
+    def _qing_read_eligible(self):
         return (
             not is_observing_computes()
             and not are_computes_strict()
@@ -182,14 +185,27 @@ class Base(models.AbstractModel):
             and all(isinstance(record_id, int) and record_id > 0 for record_id in self._ids)
         )
 
+    def _qing_can_read_partially(self):
+        return self.env.context.get('qing_partial_read') is True and self._qing_read_eligible()
+
     @api.readonly
     def web_read(self, specification):
-        if not self._qing_can_read_partially():
+        depth = READ_DEPTH.get()
+        token = READ_DEPTH.set(depth + 1)
+        try:
+            return self._qing_web_read(specification, depth)
+        finally:
+            READ_DEPTH.reset(token)
+
+    def _qing_web_read(self, specification, depth):
+        eligible = self._qing_read_eligible()
+        if not depth and eligible:
+            self.check_access('read')
+            for name in specification:
+                if name in self._fields:
+                    self.check_field_access(self._fields[name], 'read')
+        if not eligible or self.env.context.get('qing_partial_read') is not True:
             return super().web_read(specification)
-        self.check_access('read')
-        for name in specification:
-            if name in self._fields:
-                self.check_field_access(self._fields[name], 'read')
         budget_token = None
         if READ_BUDGET.get() is None:
             budget_token = READ_BUDGET.set(ReadBudget())
@@ -217,8 +233,6 @@ class Base(models.AbstractModel):
                 records = self.search_fetch(domain, [], offset=offset, limit=limit, order=order)
                 values = records.web_read(specification)
                 return self._format_web_search_read_results(domain, values, offset, limit, count_limit)
-            for value in result['records']:
-                value.setdefault(RESTRICTED_FIELDS_KEY, [])
             return result
         finally:
             READ_BUDGET.reset(budget_token)
@@ -231,6 +245,32 @@ class Base(models.AbstractModel):
         with strict_computes():
             return super().web_save_multi(vals_list, specification)
 
+
+    @api.model
+    def _qing_notify(self, message='', title=None, notification_type='info', sticky=False,
+                     reload=False, next_action=None, links=None):
+        """Return a toast notification client action for button methods.
+
+        :param message: text shown in the toast (translate it at the call site)
+        :param title: optional bold title
+        :param notification_type: ``info``, ``success``, ``warning`` or ``danger``
+        :param sticky: keep the toast until the user closes it
+        :param reload: softly reload the current view after showing the toast
+        :param next_action: action dict to run afterwards (ignored when ``reload``)
+        :param links: ``[{'label': ..., 'url': ...}]`` substituted for ``%s`` in ``message``
+        """
+        if notification_type not in NOTIFICATION_TYPES:
+            raise ValueError(f'Unsupported notification type: {notification_type}')
+        params = {'message': message, 'sticky': bool(sticky), 'type': notification_type}
+        if title:
+            params['title'] = title
+        if links:
+            params['links'] = links
+        if reload:
+            next_action = {'type': 'ir.actions.client', 'tag': 'soft_reload'}
+        if next_action:
+            params['next'] = next_action
+        return {'type': 'ir.actions.client', 'tag': 'display_notification', 'params': params}
 
     def _qing_audit_enabled(self):
         if (

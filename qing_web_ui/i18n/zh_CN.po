@@ -86,8 +86,14 @@ msgstr "沟通栏位置"
 #. module: qing_web_ui
 #. odoo-javascript
 #: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
-msgid "Automatic places the chatter on the right on wide screens (1534px and up) and below the form otherwise. Right keeps it beside the form from 1200px; smaller screens always use the bottom. Attachment previews keep the native layout."
-msgstr "“自动”在宽屏（1534px 及以上）将沟通栏放在右侧，其他情况放在表单下方。“右侧”从 1200px 起保持在表单旁边，更小的屏幕始终放在底部。附件预览保持原生布局。"
+msgid ""
+"Automatic places the chatter on the right on wide screens (1534px and up) "
+"and below the form otherwise. Right keeps it beside the form from 1200px; "
+"smaller screens always use the bottom. Attachment previews keep the native "
+"layout."
+msgstr ""
+"“自动”在宽屏（1534px 及以上）将沟通栏放在右侧，其他情况放在表单下方。“右侧”从 1200px "
+"起保持在表单旁边，更小的屏幕始终放在底部。附件预览保持原生布局。"
 
 #. module: qing_web_ui
 #. odoo-javascript
@@ -164,7 +170,9 @@ msgstr "靠右"
 #. module: qing_web_ui
 #. odoo-javascript
 #: code:addons/qing_web_ui/static/src/xml/qing_web_ui_settings.xml:0
-msgid "Position New and Export in desktop collection views. Mobile keeps the compact layout."
+msgid ""
+"Position New and Export in desktop collection views. Mobile keeps the "
+"compact layout."
 msgstr "设置桌面列表等视图中新建、导出按钮的位置。移动端保留紧凑布局。"
 
 #. module: qing_web_ui
@@ -218,7 +226,8 @@ msgstr "没有匹配的应用。"
 #. module: qing_web_ui
 #. odoo-javascript
 #: code:addons/qing_web_ui/static/src/js/qing_web_ui_settings.js:0
-msgid "Save your theme preferences to your account and use them in other browsers."
+msgid ""
+"Save your theme preferences to your account and use them in other browsers."
 msgstr "将主题偏好保存到当前账号，在其他浏览器登录时也会生效。"
 
 #. module: qing_web_ui
@@ -573,8 +582,26 @@ msgstr "条记录"
 msgid "groups"
 msgstr "个分组"
 
-
 #. module: contacts
 #: model:ir.ui.menu,name:contacts.menu_res_city
 msgid "Cities"
 msgstr "城市"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/access_error_dialog.xml:0
+msgid "Return to previous screen"
+msgstr "返回"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/access_error_dialog.js:0
+msgid "Permission required"
+msgstr "需要权限"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/access_error_dialog.js:0
+#: code:addons/qing_web_ui/static/src/xml/access_error_dialog.xml:0
+msgid "Request access"
+msgstr "申请权限"

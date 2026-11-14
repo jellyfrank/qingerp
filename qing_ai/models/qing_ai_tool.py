@@ -239,12 +239,10 @@ class QingAiTool(models.Model):
         )
         result = self.env['qing.ai.service']._complete_text(prompt, max_output_tokens=768)
         self.ai_analysis = (result['text'] or '')[:4000]
-        return {
-            'type': 'ir.actions.client', 'tag': 'display_notification',
-            'params': {'title': self.env._('Analysis saved'),
-                       'message': self.env._('Review the AI analysis and add an adapter before publication.'),
-                       'type': 'info'},
-        }
+        return self._qing_notify(
+            self.env._('Review the AI analysis and add an adapter before publication.'),
+            title=self.env._('Analysis saved'),
+        )
 
     def action_open_candidates(self):
         self._require_admin()

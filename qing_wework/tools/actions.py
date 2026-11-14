@@ -7,27 +7,6 @@ from odoo import _
 from odoo.exceptions import UserError
 
 
-def notification_action(title, type="info", sticky=False, reload=False):
-    """Toast notification; ``reload`` refreshes the current view afterwards."""
-    action = {
-        "type": "ir.actions.client",
-        "tag": "display_notification",
-        "params": {"title": title, "type": type, "sticky": sticky},
-    }
-    if reload:
-        action["params"]["next"] = {"type": "ir.actions.client", "tag": "soft_reload"}
-    return action
-
-
-def message_action(title, content):
-    """Warning that stays on screen until the user dismisses it."""
-    return {
-        "type": "ir.actions.client",
-        "tag": "display_notification",
-        "params": {"title": title, "message": content, "type": "warning", "sticky": True},
-    }
-
-
 def confirm_action(records, title, content, callback="_action_pops_up_confirm"):
     """Open a confirmation dialog that runs ``callback`` on ``records`` when confirmed."""
     wizard = records.env["wework.confirm.wizard"].create({

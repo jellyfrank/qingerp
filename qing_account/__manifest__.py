@@ -1,7 +1,7 @@
 {
     'name': 'Qing Account',
     'summary': 'Accounting improvements and batch reset to draft for billing users',
-    'version': '20.0.1.24',
+    'version': '20.0.1.25',
     'category': 'Accounting/Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

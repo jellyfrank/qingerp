@@ -1,0 +1,974 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_payment_alipay
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 03:58+0000\n"
+"PO-Revision-Date: 2026-11-13 03:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_payment_alipay
+#: model:ir.module.module,description:base.module_qing_payment_alipay
+msgid ""
+"\n"
+"Connect Mainland China Alipay and Antom global checkout to Odoo eCommerce,\n"
+"sales orders and customer invoices.\n"
+"\n"
+"- Production and sandbox credentials.\n"
+"- Signed domestic notifications and server-side trade queries.\n"
+"- Antom global payment inquiry and idempotent, queued refunds.\n"
+msgstr "\n为在线商城、销售订单和客户发票接入中国大陆支付宝与 Antom 国际收银台。\n\n- 支持正式与沙箱参数。\n- 国内支付通知验签与服务端查单。\n- Antom 国际支付查询，以及防重复、排队处理的退款。\n"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__akulaku_paylater
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__akulaku_paylater
+msgid "Akulaku PayLater"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__akulaku_paylater_ph
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__akulaku_paylater_ph
+msgid "Akulaku PayLater "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__code__alipay
+#: model:payment.provider,name:qing_payment_alipay.payment_provider_alipay
+msgid "AliPay"
+msgstr "支付宝"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__alipay_cn
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__alipay_cn
+#: model:payment.method,name:qing_payment_alipay.payment_method_alipay
+msgid "Alipay"
+msgstr "支付宝"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_appid
+msgid "Alipay AppId"
+msgstr "支付宝 AppId"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_secret
+msgid "Alipay Merchant Private Key"
+msgstr "商户私钥"
+
+#. module: qing_payment_alipay
+#: model:ir.module.module,shortdesc:base.module_qing_payment_alipay
+msgid "Alipay Payment"
+msgstr "支付宝支付"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_public_key
+msgid "Alipay Public Key"
+msgstr "支付宝公钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_sandbox_appid
+msgid "Alipay SandBox AppId"
+msgstr "支付宝沙箱 AppId"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_sandbox_public_key
+msgid "Alipay SandBox Public Key"
+msgstr "支付宝沙箱公钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__sandbox_seller_id
+msgid "Alipay SandBox Seller Id"
+msgstr "支付宝沙箱卖家 ID"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_sandbox_secret
+msgid "Alipay Sandbox Merchant Private Key"
+msgstr "支付宝沙箱商户私钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__seller_id
+msgid "Alipay Seller Id"
+msgstr "支付宝卖家编号"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Alipay did not return a payment identifier."
+msgstr "支付宝没有返回支付流水号。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid ""
+"Alipay inquiry is temporarily unavailable. Please check payment status "
+"later; do not pay again."
+msgstr "暂时无法向支付宝查询交易状态，请稍后再查看支付结果，不要重复付款。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Alipay returned an invalid checkout URL."
+msgstr "支付宝返回的收银台地址无效。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid ""
+"Alipay returned an invalid inquiry response. Please check payment status "
+"later."
+msgstr "支付宝返回的查询结果无效，请稍后再查看支付状态。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Alipay returned an unsupported payment status: %s"
+msgstr "支付宝返回了不支持的支付状态：%s"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__connect_wallet
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__connect_wallet
+msgid "Alipay+ unified payment cashier"
+msgstr "Alipay+ 统一收银台"
+
+#. module: qing_payment_alipay
+#: model:ir.actions.server,name:qing_payment_alipay.ir_cron_antom_refund_ir_actions_server
+msgid "Alipay: Process Antom Refunds"
+msgstr "支付宝：处理 Antom 退款"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__alipay_hk
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__alipay_hk
+msgid "AlipayHK"
+msgstr "支付宝香港"
+
+#. module: qing_payment_alipay
+#: model:ir.model.constraint,message:qing_payment_alipay.constraint_payment_transaction_antom_refund_provider_unique
+msgid "An Antom refund identifier can belong to only one refund transaction."
+msgstr "一个 Antom 退款编号只能对应一笔退款交易。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "An Antom refund request cannot be changed after creation."
+msgstr "Antom 退款请求创建后不能修改。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_client_id
+msgid "Antom Refund Client"
+msgstr "Antom 退款商户"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_location
+msgid "Antom Refund Location"
+msgstr "Antom 退款地区"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_next_poll
+msgid "Antom Refund Next Poll"
+msgstr "Antom 退款下次查询时间"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_payload
+msgid "Antom Refund Payload"
+msgstr "Antom 退款请求内容"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_phase
+msgid "Antom Refund Phase"
+msgstr "Antom 退款阶段"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__antom_refund_request_id
+msgid "Antom Refund Request"
+msgstr "Antom 退款请求号"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_provider.py:0
+msgid ""
+"Antom did not return a checkout URL. Please check the payment configuration."
+msgstr "Antom 没有返回收银台地址，请检查支付配置。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom did not return a refund identifier."
+msgstr "Antom 没有返回退款编号。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom merchant or region changed. Restore the original configuration."
+msgstr "Antom 商户或地区已变更，请恢复原来的配置。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom refund inquiry did not succeed."
+msgstr "Antom 退款查询未成功。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom refund queued; awaiting provider confirmation."
+msgstr "Antom 退款已排队，等待支付机构确认。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.constraint,message:qing_payment_alipay.constraint_payment_transaction_antom_refund_request_unique
+msgid "Antom refund request IDs must be unique."
+msgstr "Antom 退款请求号必须唯一。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid ""
+"Antom refund unconfirmed; automatic inquiry will retry. Check provider "
+"configuration if this persists."
+msgstr "Antom 退款尚未确认，系统会自动重新查询；如果一直未确认，请检查支付服务商配置。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom rejected the refund."
+msgstr "Antom 拒绝了这笔退款。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Antom returned an invalid inquiry result."
+msgstr "Antom 返回的查询结果无效。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_location__as
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_location__as
+msgid "Asia"
+msgstr "亚洲"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_transaction__antom_refund_phase__query
+msgid "Awaiting confirmation"
+msgstr "等待确认"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__blik
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__blik
+msgid "BLIK"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bpi
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bpi
+msgid "BPI"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bancomatpay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bancomatpay
+msgid "Bancomat Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bancontact
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bancontact
+msgid "Bancontact "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_bangkokbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_bangkokbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_bangkokbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_bangkokbank
+msgid "Bangkok Bank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_bca
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_bca
+msgid "Bank Central Asia (BCA)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_bni
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_bni
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_bni
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_bni
+msgid "Bank Negara Indonesia (BNI)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_bsi
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_bsi
+msgid "Bank Syariah Indonesia (BSI)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_bankofayudhya
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_bankofayudhya
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_bankofayudhya
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_bankofayudhya
+msgid "Bank of Ayudhya"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__atmtransfer_id
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__atmtransfer_id
+msgid "Bersama, PRIMA, and Alto ATM "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__billease
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__billease
+msgid "BillEase"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__boost
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__boost
+msgid "Boost"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bankapp_bangkokbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bankapp_bangkokbank
+msgid "Bualuang mBanking"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__cimbniaga
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__cimbniaga
+msgid "CIMB Niaga"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__card
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__card
+msgid "Card"
+msgstr "银行卡"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_client_id
+msgid "Client ID"
+msgstr "客户端 ID"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__code
+msgid "Code"
+msgstr "代码"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Configure the original Antom merchant client ID before refunding."
+msgstr "请先配置原 Antom 商户客户端 ID，再发起退款。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Create the Antom refund from its original payment."
+msgstr "请从原支付交易发起 Antom 退款。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__dana
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__dana
+msgid "DANA"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__doku
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__doku
+msgid "DOKU"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__display_name
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__eps
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__eps
+msgid "EPS (Electronic Payment Standard)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_location__er
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_location__er
+msgid "Europe"
+msgstr "欧洲"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_quickpay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_quickpay
+msgid "Express Bank Transfer"
+msgstr "快速银行转账"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_fpx
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_fpx
+msgid "FPX"
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_provider.py:0
+msgid "Failed to get Alipay client. Please check your configuration."
+msgstr "无法创建支付宝客户端，请检查配置。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__gcash
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__gcash
+msgid "GCash"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__giropay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__giropay
+msgid "Giropay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__is_global
+msgid "Global"
+msgstr "国际（Antom）"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__gopay_id
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__gopay_id
+msgid "GoPay "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_governmentsavingsbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_governmentsavingsbank
+msgid "Government Savings Bank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__grabpay_my
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__grabpay_ph
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__grabpay_sg
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__grabpay_my
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__grabpay_ph
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__grabpay_sg
+msgid "GrabPay "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__id
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_transaction__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_provider.py:0
+msgid "Invalid Alipay RSA key. Please upload a PEM key file."
+msgstr "支付宝 RSA 密钥无效，请上传 PEM 格式的密钥文件。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Invalid Antom refund notification."
+msgstr "Antom 退款通知无效。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Invalid Antom refund response source."
+msgstr "Antom 退款响应来源无效。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Invalid Antom refund response."
+msgstr "Antom 退款响应无效。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__jkopay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__jkopay
+msgid "JKOPay (Taiwan)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__kplus
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__kplus
+msgid "K PLUS"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__kakaopay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__kakaopay
+msgid "Kakao Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_kasikornbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_kasikornbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_kasikornbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_kasikornbank
+msgid "Kasikorn Bank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Keep Antom refund records for idempotency and reconciliation."
+msgstr "Antom 退款记录需要保留，用于防重复提交和对账。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__konbini
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__seveneleven
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__konbini
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__seveneleven
+msgid "Konbini"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__kredivo_id
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__kredivo_id
+msgid "Kredivo"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bankapp_bankofayudhya
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bankapp_bankofayudhya
+msgid "Krungsri Mobile App (KMA)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_krungthaibank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_krungthaibank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_krungthaibank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_krungthaibank
+msgid "Krungthai Bank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bankapp_krungthaibank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bankapp_krungthaibank
+msgid "Krungthai NEXT bank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__linepay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__linepay
+msgid "LINE Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_location
+msgid "Location"
+msgstr "地区"
+
+#. module: qing_payment_alipay
+#: model:ir.module.module,summary:base.module_qing_payment_alipay
+msgid "Mainland Alipay and Antom global checkout for Odoo payments"
+msgstr "国内支付宝与 Antom 国际收银台在线支付"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_provider.py:0
+msgid "Mainland Alipay requires a CNY transaction."
+msgstr "国内支付宝只支持人民币交易。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_mandiri
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_mandiri
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_mandiri
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_mandiri
+msgid "Mandiri"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__maya
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__maya
+msgid "Maya"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_maybank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_maybank
+msgid "Maybank"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__mercadopago_br
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__mercadopago_cl
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__mercadopago_mx
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__mercadopago_pe
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__mercadopago_br
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__mercadopago_cl
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__mercadopago_mx
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__mercadopago_pe
+msgid "Mercado Pago "
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__naverpay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__naverpay
+msgid "Naver Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_location__na
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_location__na
+msgid "North America"
+msgstr "北美"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__octoclicks
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__octoclicks
+msgid "OCTO Clicks"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__ovo
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__ovo
+msgid "OVO"
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Only a confirmed original Antom payment can be refunded."
+msgstr "只有已确认的 Antom 原支付才能退款。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__pagaleve
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__pagaleve
+msgid "Pagaleve"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_yapily
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_yapily
+msgid "Pay by bank"
+msgstr "银行转账支付"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_payeasy
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_payeasy
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_payeasy
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_payeasy
+msgid "Pay-easy"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__paynow
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__paynow
+msgid "PayNow"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__paypay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__paypay
+msgid "PayPay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__payu
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__payu
+msgid "PayU"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_payment_method
+msgid "Payment Method"
+msgstr "支付方式"
+
+#. module: qing_payment_alipay
+#: model:ir.model,name:qing_payment_alipay.model_payment_provider
+msgid "Payment Provider"
+msgstr "支付提供商"
+
+#. module: qing_payment_alipay
+#: model:ir.model,name:qing_payment_alipay.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "支付交易"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_permata
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_permata
+msgid "Permata"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__pix
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__pix
+msgid "Pix"
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_provider.py:0
+msgid "Please upload the Alipay private and public keys."
+msgstr "请上传支付宝私钥和公钥。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_private_key
+msgid "Private Key"
+msgstr "私钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__promptpay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__promptpay
+msgid "PromptPay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__p24
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__p24
+msgid "Przelewy24"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_public_key
+msgid "Public Key"
+msgstr "公钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__qris
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__qris
+msgid "QRIS"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_transaction__antom_refund_phase__queued
+msgid "Queued"
+msgstr "排队中"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__alipay_sandbox_sign_type__rsa
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__alipay_sign_type__rsa
+msgid "RSA"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__alipay_sandbox_sign_type__rsa2
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__alipay_sign_type__rsa2
+msgid "RSA2"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__rabbit_line_pay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__rabbit_line_pay
+msgid "Rabbit LINE Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model_terms:ir.ui.view,arch_db:qing_payment_alipay.view_payment_transaction_form
+msgid "Refund"
+msgstr "退款"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Refund exceeds the remaining amount (including pending refunds)."
+msgstr "退款金额超过可退余额（含待确认的退款）。"
+
+#. module: qing_payment_alipay
+#: model_terms:ir.ui.view,arch_db:qing_payment_alipay.view_payment_transaction_form
+msgid ""
+"Refund the full amount of this Alipay transaction? A real refund request "
+"will be sent to Alipay."
+msgstr "确认对这笔支付宝交易全额退款？系统会向支付宝提交真实的退款请求。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_transaction__antom_refund_phase__done
+msgid "Refunded"
+msgstr "已退款"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_transaction__antom_refund_phase__failed
+msgid "Rejected"
+msgstr "已拒绝"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Restore the payment provider's original live/sandbox mode."
+msgstr "请把支付服务商恢复为原来的正式/沙箱模式。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__bankapp_siamcommericalbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__bankapp_siamcommericalbank
+msgid "SCB Easy"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_sandbox_sign_type
+msgid "SandBox Sign Type"
+msgstr "沙箱签名方式"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_sandbox_client_id
+msgid "Sandbox Client ID"
+msgstr "沙箱客户端 ID"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_sandbox_location
+msgid "Sandbox Location"
+msgstr "沙箱地区"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_sandbox_payment_method
+msgid "Sandbox Payment Method"
+msgstr "沙箱支付方式"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_sandbox_private_key
+msgid "Sandbox Private Key"
+msgstr "沙箱私钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__antom_sandbox_public_key
+msgid "Sandbox Public Key"
+msgstr "沙箱公钥"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__shopeepay_id
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__shopeepay_ph
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__shopeepay_sg
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__shopeepay_th
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__shopeepay_id
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__shopeepay_ph
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__shopeepay_sg
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__shopeepay_th
+msgid "ShopeePay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__banktransfer_siamcommericalbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_siamcommericalbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__banktransfer_siamcommericalbank
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_siamcommericalbank
+msgid "Siam Commercial Bank (SCB)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,field_description:qing_payment_alipay.field_payment_provider__alipay_sign_type
+msgid "Sign Type"
+msgstr "签名类型"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__sofort
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__sofort
+msgid "Sofort "
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Alipay inquiry reference does not match."
+msgstr "支付宝查询结果的订单号不一致。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Alipay transaction reference does not match."
+msgstr "支付宝交易的订单号不一致。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Antom original payment does not match."
+msgstr "Antom 原支付不一致。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Antom refund amount or currency does not match."
+msgstr "Antom 退款金额或币种不一致。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Antom refund identifier changed."
+msgstr "Antom 退款编号发生了变化。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The Antom refund request does not match."
+msgstr "Antom 退款请求不一致。"
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "The refund amount must be strictly positive."
+msgstr "退款金额必须大于零。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields,help:qing_payment_alipay.field_payment_provider__code
+msgid "The technical code of this payment provider."
+msgstr "该支付提供商的技术代码。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__tosspay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__tosspay
+msgid "Toss Pay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__tng
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__tng
+msgid "Touch 'n Go eWallet"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__truemoney
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__truemoney
+msgid "TrueMoney Wallet"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__onlinebanking_ubp
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__onlinebanking_ubp
+msgid "UnionBank (UBP)"
+msgstr ""
+
+#. module: qing_payment_alipay
+#. odoo-python
+#: code:addons/qing_payment_alipay/models/payment_transaction.py:0
+msgid "Unsupported Antom refund status."
+msgstr "不支持的 Antom 退款状态。"
+
+#. module: qing_payment_alipay
+#: model_terms:payment.provider,auth_msg:qing_payment_alipay.payment_provider_alipay
+msgid "Your payment has been authorized."
+msgstr "支付已获授权。"
+
+#. module: qing_payment_alipay
+#: model_terms:payment.provider,cancel_msg:qing_payment_alipay.payment_provider_alipay
+msgid "Your payment has been cancelled."
+msgstr "您的支付已被取消。"
+
+#. module: qing_payment_alipay
+#: model_terms:payment.provider,pending_msg:qing_payment_alipay.payment_provider_alipay
+msgid "Your payment has been processed but is waiting for approval."
+msgstr "您的付款已经处理，但正在等待批准。"
+
+#. module: qing_payment_alipay
+#: model_terms:payment.provider,done_msg:qing_payment_alipay.payment_provider_alipay
+msgid "Your payment has been processed."
+msgstr "您的付款已被处理。"
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__zalopay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__zalopay
+msgid "ZaloPay"
+msgstr ""
+
+#. module: qing_payment_alipay
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_payment_method__ideal
+#: model:ir.model.fields.selection,name:qing_payment_alipay.selection__payment_provider__antom_sandbox_payment_method__ideal
+msgid "iDEAL"
+msgstr ""

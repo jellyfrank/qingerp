@@ -125,6 +125,21 @@ class TestQingSettings(TransactionCase):
         self.assertEqual(setting[0].xpath('field/@name'), [field_name])
         self.assertFalse(arch.xpath('//field[@name="module_mommy_aliyun_sms"]'))
 
+    def test_general_settings_offer_wework_instead_of_barcode_lookup(self):
+        field_name = 'module_qing_wework'
+        settings_model = self.env['res.config.settings']
+        classified = settings_model._get_classified_fields([field_name])
+        self.assertEqual(set(classified['module'].mapped('name')), {'qing_wework'})
+
+        arch = etree.fromstring(
+            self.env.ref('base_setup.res_config_settings_view_form').get_combined_arch().encode()
+        )
+        setting = arch.xpath('//app[@name="general_settings"]//setting[@id="qing_wework"]')
+        self.assertEqual(len(setting), 1)
+        self.assertEqual(setting[0].xpath('field/@name'), [field_name])
+        self.assertFalse(arch.xpath('//setting[@id="process_barcode_lookup_setting"]'))
+        self.assertFalse(arch.xpath('//field[@name="module_product_barcodelookup"]'))
+
     def test_report_print_default_preserves_existing_choice(self):
         parameters = self.env['ir.config_parameter'].sudo()
         parameters.set_bool('qing_base.report.print_preview', False)
@@ -178,6 +193,31 @@ class TestQingBranding(HttpCase):
         response = self.url_open('/qing/brand/icon/180')
         self.assertEqual(Image.open(io.BytesIO(response.content)).size, (180, 180))
         self.assertEqual(self.env.company.logo.to_base64(), company_logo)
+
+    def test_login_keeps_qing_layout_when_page_wrapper_is_replaced(self):
+        # Same override as website.login_layout: swap the page wrapper at priority 20.
+        self.env['ir.ui.view'].create({
+            'name': 'Test website-like login layout',
+            'type': 'qweb',
+            'inherit_id': self.env.ref('web.login_layout').id,
+            'priority': 20,
+            'arch_db': """<data>
+                <xpath expr="t[@t-call]" position="replace">
+                    <t t-call="web.frontend_layout"><div class="o_test_site_wrapper" t-out="0"/></t>
+                </xpath>
+            </data>""",
+        })
+        response = self.url_open('/web/login')
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn('o_test_site_wrapper', response.text)
+        for marker in ('qing-login-layout', 'qing-login-scene', '/qing_base/static/img/qing_logo.png',
+                       '欢迎回来', 'name="password"'):
+            self.assertIn(marker, response.text)
+        self.env['ir.config_parameter'].sudo().set_str('auth_signup.reset_password', 'True')
+        reset = self.url_open('/web/reset_password')
+        self.assertEqual(reset.status_code, 200)
+        self.assertIn('/qing_base/static/img/qing_logo.png', reset.text)
+        self.assertNotIn('qing-login-scene', reset.text)
 
     def test_login_with_another_footer_extension(self):
         self.env['ir.ui.view'].create({

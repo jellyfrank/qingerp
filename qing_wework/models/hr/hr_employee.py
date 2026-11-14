@@ -7,7 +7,6 @@ from odoo.fields import Command
 from odoo.tools import BinaryBytes
 from datetime import datetime
 from odoo.exceptions import UserError
-from ...tools.actions import message_action
 import logging
 import requests
 
@@ -82,7 +81,9 @@ class hr_employee(models.Model):
             self.ensure_one()
             now = datetime.now()
             if not self.user_ticket or now > self.ticket_expire:
-                return message_action(_("Warning"),_("User ticket has expried, please authorized in wework app, then try again."))
+                return self._qing_notify(
+                    _("User ticket has expried, please authorized in wework app, then try again."),
+                    title=_("Warning"), notification_type="warning", sticky=True)
             res = self.env.company.weworkclient.oauth.get_user_detail(self.user_ticket)
             _logger.debug(f"[WeWork]result from wework:{res}")
             if not res.get("errcode") == 0:

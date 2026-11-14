@@ -90,11 +90,8 @@ class AccountMove(models.Model):
         message += '\n' + self.env._('余额采用借正贷负。本检查仅覆盖选中记录；未与来源试算表核对，不代表完整期初验收。')
         if summary['issues']:
             message += '\n' + '\n'.join('• ' + issue for issue in summary['issues'])
-        return {
-            'type': 'ir.actions.client', 'tag': 'display_notification',
-            'params': {'title': self.env._('选中期初分录检查'), 'message': message,
-                       'type': 'warning' if summary['issues'] else 'info', 'sticky': True},
-        }
+        return self._qing_notify(message, title=self.env._('选中期初分录检查'),
+                                 notification_type='warning' if summary['issues'] else 'info', sticky=True)
 
     def action_qing_cn_compare_opening_balances(self):
         self._qing_cn_opening_summary()
