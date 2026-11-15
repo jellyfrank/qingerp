@@ -394,17 +394,27 @@
 }
 
 @media (min-width: 768px) {
+    // An editable field must read as a field before the pointer reaches it, so
+    // the underline is always drawn. Required fields keep the theme accent on
+    // that line; hover and focus only deepen the neutral one.
     .o_qing_web_ui .o_form_sheet .o_field_widget:not(.o_readonly_modifier):not(.o_field_invalid) {
         > .o_input, .o_input_dropdown, > div > .o_input {
             border: 0;
-            border-bottom: 1px solid transparent;
+            border-bottom: 1px solid var(--o-qing-border);
             border-radius: 0;
             padding: 6px 0;
             min-height: var(--o-qing-control-height);
             background: transparent;
             box-shadow: none;
-            &:hover { border-bottom-color: var(--o-qing-border); }
+            &:hover { border-bottom-color: var(--o-qing-text-soft); }
             &:focus-within { border-bottom-color: var(--o-qing-accent); box-shadow: none; }
+        }
+        // Required wins over hover and focus: the mandatory hint must not drop
+        // back to a neutral line while the field is being edited.
+        &.o_required_modifier {
+            > .o_input, .o_input_dropdown, > div > .o_input {
+                border-bottom-color: var(--o-qing-accent);
+            }
         }
         // Autocomplete wraps the input in an extra element. Only the outer
         // dropdown owns the underline, including native hover/focus states.
@@ -413,6 +423,20 @@
             box-shadow: none !important;
             padding: 0;
             background: transparent;
+        }
+    }
+
+    // Native selection menus are Bootstrap dropdowns carrying the `.border-0`
+    // utility, whose `!important` border would otherwise hide the underline and
+    // the required accent. Editable x2many rows keep their own borderless look.
+    .o_qing_web_ui .o_form_sheet .o_field_widget:not(.o_readonly_modifier):not(.o_field_invalid):not(.o_list_renderer *) {
+        .o_select_menu.o_input_dropdown {
+            border-bottom: 1px solid var(--o-qing-border) !important;
+            &:hover { border-bottom-color: var(--o-qing-text-soft) !important; }
+            &:focus-within { border-bottom-color: var(--o-qing-accent) !important; }
+        }
+        &.o_required_modifier .o_select_menu.o_input_dropdown {
+            border-bottom-color: var(--o-qing-accent) !important;
         }
     }
 
