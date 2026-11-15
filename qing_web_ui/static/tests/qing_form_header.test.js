@@ -149,3 +149,25 @@ test("business actions fold only for lack of space and return when the toolbar g
     expect(".o_qing_action_slot").toHaveCount(3);
     expect(".o_qing_form_business_buttons > button").toHaveCount(0);
 });
+
+test.tags("desktop");
+test("actions fold again when a button grows after the first measurement (issue #2)", async () => {
+    await mountView({ type: "form", resModel: "qing.header.record", resId: 1, arch });
+    // Apply the theme layout: a fixed-width grid column around the actions.
+    queryOne(".o_form_view").classList.add("o_qing_web_ui");
+    queryOne(".o_control_panel_main").style.setProperty("width", "1600px", "important");
+    const actions = queryOne(".o_control_panel_breadcrumbs");
+    actions.style.setProperty("width", "700px", "important");
+    actions.style.setProperty("max-width", "700px", "important");
+    for (let i = 0; i < 5; i++) await animationFrame();
+    expect(".o_qing_action_slot").toHaveCount(3);
+    expect(".o_qing_form_business_buttons > button").toHaveCount(0);
+    // A late web font or translation widens a button while the toolbar column
+    // keeps its width: the actions must fold instead of running under the
+    // related-record buttons.
+    queryOne(".o_qing_form_actions button[name=validate]").style.setProperty("padding-inline", "400px", "important");
+    for (let i = 0; i < 5; i++) await animationFrame();
+    expect(".o_qing_form_business_buttons > button").toHaveCount(1);
+    const host = queryOne(".o_qing_form_actions").getBoundingClientRect();
+    expect(host.right).toBeLessThan(actions.getBoundingClientRect().right + 1);
+});

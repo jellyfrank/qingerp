@@ -186,7 +186,8 @@ patch(StatusBarButtons.prototype, {
                 const actions = host?.parentElement;
                 if (!host || !actions || this.uiService.isSmall) return;
                 const siblings = [...actions.children].filter(el => el !== host && el.getBoundingClientRect().width);
-                const targets = [actions, ...siblings];
+                const slots = [...host.querySelectorAll('.o_qing_action_slot')];
+                const targets = [actions, host, ...siblings, ...slots];
                 if (targets.length !== observed.length || targets.some((el, i) => el !== observed[i])) {
                     observer.disconnect();
                     targets.forEach(el => observer.observe(el));
@@ -194,9 +195,11 @@ patch(StatusBarButtons.prototype, {
                 }
                 // Cache full-size slots so resizing a folded toolbar does not
                 // repeatedly expand and collapse it through ResizeObserver.
-                const slots = [...host.querySelectorAll('.o_qing_action_slot')];
                 if (slots.length === this.qingMainSlotNames.length) {
                     fullWidths = slots.map(el => el.getBoundingClientRect().width);
+                } else if (fullWidths.length === this.qingMainSlotNames.length) {
+                    // Inline slots are the leading ones: keep their widths current.
+                    slots.forEach((el, i) => { fullWidths[i] = el.getBoundingClientRect().width; });
                 }
                 if (fullWidths.length !== this.qingMainSlotNames.length) {
                     if (this.qingOverflow.count !== Number.MAX_SAFE_INTEGER) {
@@ -235,10 +238,13 @@ patch(StatusBarButtons.prototype, {
         onWillUpdateProps(() => schedule(true));
         const preferencesChanged = () => schedule(true);
         window.addEventListener('qing-web-ui:preferences-changed', preferencesChanged);
+        // Widths measured before a web font arrives are too small.
+        document.fonts?.addEventListener?.('loadingdone', preferencesChanged);
         onWillUnmount(() => {
             cancelAnimationFrame(frame);
             observer.disconnect();
             window.removeEventListener('qing-web-ui:preferences-changed', preferencesChanged);
+            document.fonts?.removeEventListener?.('loadingdone', preferencesChanged);
         });
     },
 });
