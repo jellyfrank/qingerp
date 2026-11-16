@@ -396,7 +396,8 @@
 @media (min-width: 768px) {
     // An editable field must read as a field before the pointer reaches it, so
     // the underline is always drawn. Required fields keep the theme accent on
-    // that line; hover and focus only deepen the neutral one.
+    // that line; hover deepens the neutral one and focus doubles it to 2px, so
+    // a focused required field still changes.
     .o_qing_web_ui .o_form_sheet .o_field_widget:not(.o_readonly_modifier):not(.o_field_invalid) {
         > .o_input, .o_input_dropdown, > div > .o_input {
             border: 0;
@@ -407,7 +408,10 @@
             background: transparent;
             box-shadow: none;
             &:hover { border-bottom-color: var(--o-qing-text-soft); }
-            &:focus-within { border-bottom-color: var(--o-qing-accent); box-shadow: none; }
+            &:focus-within {
+                border-bottom-color: var(--o-qing-accent);
+                box-shadow: inset 0 -1px 0 var(--o-qing-accent);
+            }
         }
         // Required wins over hover and focus: the mandatory hint must not drop
         // back to a neutral line while the field is being edited.
@@ -433,9 +437,28 @@
         .o_select_menu.o_input_dropdown {
             border-bottom: 1px solid var(--o-qing-border) !important;
             &:hover { border-bottom-color: var(--o-qing-text-soft) !important; }
-            &:focus-within { border-bottom-color: var(--o-qing-accent) !important; }
+            &:focus-within {
+                border-bottom-color: var(--o-qing-accent) !important;
+                box-shadow: inset 0 -1px 0 var(--o-qing-accent) !important;
+            }
         }
         &.o_required_modifier .o_select_menu.o_input_dropdown {
+            border-bottom-color: var(--o-qing-accent) !important;
+        }
+    }
+
+    // Tag fields drop every inner border (see below), so the field underline
+    // and the required accent go on the tag container instead.
+    .o_qing_web_ui .o_form_sheet .o_field_widget:is(.o_field_many2many_tags, .o_field_many2many_tags_avatar):not(.o_readonly_modifier):not(.o_field_invalid):not(.o_list_renderer *) {
+        .o_tags_input {
+            border-bottom: 1px solid var(--o-qing-border) !important;
+            &:hover { border-bottom-color: var(--o-qing-text-soft) !important; }
+            &:focus-within {
+                border-bottom-color: var(--o-qing-accent) !important;
+                box-shadow: inset 0 -1px 0 var(--o-qing-accent) !important;
+            }
+        }
+        &.o_required_modifier .o_tags_input {
             border-bottom-color: var(--o-qing-accent) !important;
         }
     }
