@@ -1,0 +1,271 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_system_update
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-13 10:10+0000\n"
+"PO-Revision-Date: 2026-11-13 10:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: qing_system_update
+#: model:ir.module.module,description:base.module_qing_system_update
+msgid ""
+"\n"
+"Shows the installed and latest QingERP Community release in General Settings\n"
+"and lets administrators request an upgrade.\n"
+"\n"
+"The web client only writes an upgrade request for the official latest\n"
+"release. The QingERP updater on the host (installed by the one-line\n"
+"installer) verifies the release, backs up the database and attachments,\n"
+"upgrades the database, restarts QingERP and rolls back on failure.\n"
+"Installations without that updater (SaaS, source installs) show that\n"
+"upgrades are managed elsewhere.\n"
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid "<span class=\"text-muted me-2\">Installed Version</span>"
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid ""
+"<span class=\"text-muted ms-3 me-2\" invisible=\"not "
+"qing_update_latest_version\">Latest Version</span>"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Backing up the database and attachments."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Cannot reach the QingERP release site. Try again later."
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid "Check for Updates"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.module.module,summary:base.module_qing_system_update
+msgid "Check for new QingERP releases and upgrade from Settings"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model,name:qing_system_update.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Downloading and verifying the new release."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Downloading the new images."
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid ""
+"Free edition releases published on qingerp.com. The server backs up the "
+"database and attachments before upgrading and restores them if the upgrade "
+"fails."
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__qing_update_current_version
+msgid "Installed Version"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__failed
+msgid "Last Upgrade Failed"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__qing_update_latest_version
+msgid "Latest Version"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__unsupported
+msgid "Managed Elsewhere"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "No upgrade is available right now."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Only administrators can upgrade QingERP."
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.module.module,shortdesc:base.module_qing_system_update
+msgid "QingERP System Update"
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid "QingERP Version"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Switching to the new release; QingERP restarts briefly."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "The database upgrade failed; restoring the backup."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "The last upgrade did not complete. Details: %s"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "The new release did not start; restoring the previous release."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid ""
+"The server will back up and upgrade QingERP to %s. QingERP restarts "
+"automatically when the upgrade is done; this usually takes a few minutes."
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__unknown
+msgid "Unknown"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__up_to_date
+msgid "Up to Date"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__available
+msgid "Update Available"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__qing_update_message
+msgid "Update Message"
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields,field_description:qing_system_update.field_res_config_settings__qing_update_state
+msgid "Update Status"
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid "Upgrade Now"
+msgstr ""
+
+#. module: qing_system_update
+#: model_terms:ir.ui.view,arch_db:qing_system_update.view_res_config_settings_form
+msgid ""
+"Upgrade QingERP to the latest release now? The server backs up first; users "
+"may be briefly disconnected while QingERP restarts."
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__requested
+msgid "Upgrade Requested"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Upgrade requested"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid ""
+"Upgrades of this installation are managed by your hosting platform or server"
+" administrator."
+msgstr ""
+
+#. module: qing_system_update
+#: model:ir.model.fields.selection,name:qing_system_update.selection__res_config_settings__qing_update_state__running
+msgid "Upgrading"
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Upgrading the database; QingERP keeps running."
+msgstr ""
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "Waiting for the server to start the upgrade."
+msgstr ""
+
+#. module: qing_system_update
+msgid "Restoring the database backup."
+msgstr ""
+
+#. module: qing_system_update
+msgid "The update needs administrator attention."
+msgstr ""
+
+#. module: qing_system_update
+msgid "No update is available or an earlier update needs attention."
+msgstr ""
+
+#. module: qing_system_update
+msgid "An update has already been requested."
+msgstr ""
+
+#. module: qing_system_update
+msgid "The update request could not be sent to the server."
+msgstr ""
+
+#. module: qing_system_update
+msgid "Updates stop the service, back up the database only and do not back up attachments."
+msgstr ""
