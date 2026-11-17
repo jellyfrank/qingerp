@@ -2,6 +2,7 @@ from unittest.mock import patch
 
 from odoo.exceptions import UserError
 from odoo.tests import TransactionCase, tagged
+from odoo.tools.safe_eval import safe_eval
 
 
 @tagged('post_install', '-at_install')
@@ -150,9 +151,17 @@ class TestDeliveryFoundation(TransactionCase):
             '2026-11-14 09:00:00 Picked up (Qingdao)\n2026-11-14 18:00:00 In transit')
         self.assertTrue(self.picking.qing_tracking_date)
 
-    def test_more_providers_include_qing_connectors(self):
+    def test_more_providers_list_qing_connectors_only(self):
         action = self.carrier.install_more_provider()
-        self.assertEqual(action['domain'][:2], ['|', ['name', '=like', 'qing_delivery_%']])
+        self.assertEqual(action['domain'], [['name', '=like', 'qing_delivery_%']])
+        self.assertNotIn('Enterprise', str(action['help']))
+        self.assertIn('SF Express', str(action['help']))
         modules = self.env['ir.module.module'].search(action['domain'])
-        connectors = self.env['ir.module.module'].search([('name', '=like', 'qing_delivery_%')])
-        self.assertLessEqual(connectors, modules)
+        self.assertTrue(modules)
+        self.assertTrue(all(name.startswith('qing_delivery_') for name in modules.mapped('name')))
+
+    def test_settings_provider_action_lists_qing_connectors(self):
+        action = self.env.ref('stock.ir_module_module_action_delivery_provider_modules')
+        modules = self.env['ir.module.module'].search(safe_eval(action.domain))
+        self.assertIn('qing_delivery_sf', modules.mapped('name'))
+        self.assertNotIn('Enterprise', str(action.help))

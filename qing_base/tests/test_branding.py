@@ -161,6 +161,9 @@ class TestQingBranding(HttpCase):
         self.assertNotIn('/web/static/img/favicon.ico', login.text)
         self.assertIn('qing-login-layout', login.text)
         self.assertIn('qing-login-scene', login.text)
+        # Own card classes: website colour palettes restyle Bootstrap .card-body.
+        self.assertIn('qing-login-card-body', login.text)
+        self.assertNotIn('class="card-body"', login.text)
         self.assertIn('欢迎回来', login.text)
         self.assertIn('青岛欧姆网络科技 2026', login.text)
         self.assertIn('name="csrf_token"', login.text)
@@ -190,9 +193,18 @@ class TestQingBranding(HttpCase):
             self.assertEqual(response.status_code, 200)
             self.assertIn('/qing/brand/icon/180', response.text)
             self.assertNotIn('/web/static/img/odoo-icon-ios.png', response.text)
+            self.assertIn('<title>QingERP 20.0</title>', response.text)
         response = self.url_open('/qing/brand/icon/180')
         self.assertEqual(Image.open(io.BytesIO(response.content)).size, (180, 180))
         self.assertEqual(self.env.company.logo.to_base64(), company_logo)
+
+    def test_backend_initial_title_respects_configured_brand(self):
+        self.env['ir.config_parameter'].sudo().set_str('mommy.title', 'Custom ERP')
+        self.authenticate('admin', 'admin')
+        for path in ('/odoo', '/odoo?debug=assets'):
+            response = self.url_open(path)
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('<title>Custom ERP</title>', response.text)
 
     def test_login_keeps_qing_layout_when_page_wrapper_is_replaced(self):
         # Same override as website.login_layout: swap the page wrapper at priority 20.

@@ -13,7 +13,7 @@ Shared foundation for QingERP carrier connectors such as SF Express.
 - Shipment labels attached to the transfer chatter.
 - Stored tracking history refreshed on demand.
 """,
-    'version': '20.0.1.0.0',
+    'version': '20.0.1.0.1',
     'category': 'Inventory/Delivery',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -24,6 +24,8 @@ Shared foundation for QingERP carrier connectors such as SF Express.
         'views/view_delivery_carrier_form.xml',
         'views/view_stock_picking_form.xml',
     ],
+    # Installed with stock_delivery so "New Providers" lists QingERP connectors.
+    'auto_install': True,
     'installable': True,
     'application': False,
 }

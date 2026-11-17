@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- "Find a Delivery Provider" in Inventory settings also lists QingERP connectors. -->
+    <!-- "Find a Delivery Provider" in Inventory settings lists QingERP carrier connectors
+         instead of Odoo Enterprise providers. -->
     <record id="stock.ir_module_module_action_delivery_provider_modules" model="ir.actions.act_window">
-        <field name="domain">[
-            '|', ('name', '=like', 'qing_delivery_%'), ('name', '=like', 'delivery_%'),
-            ('name', 'not in', ['delivery_stock_picking_batch', 'delivery_iot'])]</field>
+        <field name="name">Delivery Connectors</field>
+        <field name="domain">[('name', '=like', 'qing_delivery_%')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No QingERP delivery connector is available yet</p>
+            <p>QingERP connectors for Chinese carriers, such as SF Express, appear here. For another carrier, contact QingERP at qingsolution.com.</p>
+        </field>
     </record>
 </odoo>

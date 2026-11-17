@@ -110,3 +110,18 @@ msgstr "只有系统管理员可以修改负库存权限。"
 #: code:addons/qing_stock/models/stock_quant.py:0
 msgid "Insufficient stock for %(product)s at %(location)s. This operation would create negative stock. Contact an administrator if an exception is required."
 msgstr "产品 %(product)s 在 %(location)s 的库存不足，本次操作会产生负库存。如需例外，请联系管理员。"
+
+#. module: qing_stock
+#: model:ir.actions.act_window,name:stock.ir_module_module_action_delivery_provider_modules
+msgid "Delivery Connectors"
+msgstr "物流连接器"
+
+#. module: qing_stock
+#: model_terms:ir.actions.act_window,help:stock.ir_module_module_action_delivery_provider_modules
+msgid "No QingERP delivery connector is available yet"
+msgstr "暂时没有可用的 QingERP 物流连接器"
+
+#. module: qing_stock
+#: model_terms:ir.actions.act_window,help:stock.ir_module_module_action_delivery_provider_modules
+msgid "QingERP connectors for Chinese carriers, such as SF Express, appear here. For another carrier, contact QingERP at qingsolution.com."
+msgstr "顺丰速运等国内快递的 QingERP 连接器会显示在这里。需要接入其他快递公司，请联系 QingERP（qingsolution.com）。"

@@ -275,3 +275,15 @@ msgstr ""
 #: code:addons/qing_delivery/models/delivery_carrier.py:0
 msgid "street"
 msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "No QingERP delivery connector is available yet"
+msgstr ""
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "QingERP connectors for Chinese carriers, such as SF Express, appear here. For another carrier, contact QingERP at qingsolution.com."
+msgstr ""

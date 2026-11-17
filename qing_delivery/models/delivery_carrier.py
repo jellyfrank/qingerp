@@ -236,6 +236,15 @@ class DeliveryCarrier(models.Model):
             raise UserError(self.env._('%s does not provide tracking details.', self.display_name))
         return getattr(self, f'{self.delivery_type}_qing_get_tracking_events')(picking)
 
+    @api.model
+    def _qing_provider_help(self):
+        """Empty-state text of the connector list (replaces the Enterprise upsell)."""
+        return Markup('<p class="o_view_nocontent_smiling_face">%s</p><p>%s</p>') % (
+            self.env._('No QingERP delivery connector is available yet'),
+            self.env._('QingERP connectors for Chinese carriers, such as SF Express, appear here. '
+                       'For another carrier, contact QingERP at qingsolution.com.'),
+        )
+
     qing_fixed_sender_id = fields.Many2one(
         'res.partner', string='Fixed Sender',
         help='Contact used as sender when the sender type is a fixed contact.',
@@ -254,6 +263,8 @@ class DeliveryCarrier(models.Model):
     )
 
     def install_more_provider(self):
+        """List QingERP carrier connectors instead of Odoo Enterprise providers."""
         action = super().install_more_provider()
-        action['domain'] = ['|', ['name', '=like', 'qing_delivery_%']] + action['domain']
+        action['domain'] = [['name', '=like', 'qing_delivery_%']]
+        action['help'] = self._qing_provider_help()
         return action

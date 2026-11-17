@@ -275,3 +275,15 @@ msgstr "省份"
 #: code:addons/qing_delivery/models/delivery_carrier.py:0
 msgid "street"
 msgstr "街道地址"
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "No QingERP delivery connector is available yet"
+msgstr "暂时没有可用的 QingERP 物流连接器"
+
+#. module: qing_delivery
+#. odoo-python
+#: code:addons/qing_delivery/models/delivery_carrier.py:0
+msgid "QingERP connectors for Chinese carriers, such as SF Express, appear here. For another carrier, contact QingERP at qingsolution.com."
+msgstr "顺丰速运等国内快递的 QingERP 连接器会显示在这里。需要接入其他快递公司，请联系 QingERP（qingsolution.com）。"

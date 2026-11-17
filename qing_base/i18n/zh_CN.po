@@ -1238,3 +1238,75 @@ msgstr "核心版本："
 #: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
 msgid "Version unavailable"
 msgstr "版本未提供"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "WeChat Official Account"
+msgstr "微信公众号"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Donate via Alipay"
+msgstr "支付宝捐赠"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Open the OdooHub WeChat official account QR code"
+msgstr "打开 OdooHub 微信公众号二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "OdooHub WeChat official account QR code"
+msgstr "OdooHub 微信公众号二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Open the Alipay donation QR code"
+msgstr "打开支付宝捐赠二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Alipay donation QR code"
+msgstr "支付宝捐赠二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Donate via WeChat Pay"
+msgstr "微信捐赠"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Open the WeChat Pay donation QR code"
+msgstr "打开微信支付捐赠二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "WeChat Pay donation QR code"
+msgstr "微信支付捐赠二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Open the WeChat official account QR code"
+msgstr "打开微信公众号二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "WeChat official account QR code"
+msgstr "微信公众号二维码"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Follow and support QingERP"
+msgstr "关注与支持 QingERP"

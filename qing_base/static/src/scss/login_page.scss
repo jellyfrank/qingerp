@@ -1,3 +1,28 @@
+// Card shared by every page rendered through web.login_layout (login, sign-up, password
+// reset, database selector). The /web/login page refines it under .qing-login-layout.
+.qing-login-card {
+    max-width: 300px;
+    color: #1f2928;
+    background: #fff;
+    border: 1px solid #dfe6e4;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(24, 54, 73, .08);
+
+    h1, h2, h3, h4, h5, h6, label { color: #1f2928; }
+    a:not(.btn), .btn-link { color: #2f6aff; }
+    // Website palettes recolour .btn-primary; keep the QingERP accent on every login page.
+    .btn-primary {
+        border-color: #2f6aff !important;
+        background-color: #2f6aff !important;
+        color: #fff !important;
+
+        &:hover, &:focus, &:active { border-color: #285bdd !important; background-color: #285bdd !important; }
+    }
+    .text-muted { color: #74827f !important; }
+}
+
+.qing-login-card-body { padding: 24px; }
+
 .qing-login-layout {
     --o-qing-bg: #f5f7f8;
     --o-qing-surface: #fff;
@@ -76,7 +101,7 @@
         text-shadow: 0 1px 4px rgba(10, 42, 64, .6);
     }
 
-    .o_database_list {
+    .qing-login-card {
         position: relative;
         flex: 0 1 380px;
         width: 380px;
@@ -90,7 +115,7 @@
         box-shadow: 0 16px 56px rgba(24, 54, 73, .18), 0 2px 8px rgba(24, 54, 73, .06);
     }
 
-    .card-body {
+    .qing-login-card-body {
         position: relative;
         flex: 0 1 auto;
         width: 100%;
@@ -101,7 +126,7 @@
         border-radius: inherit;
     }
 
-    .card-body > .text-center:first-child {
+    .qing-login-card-body > .text-center:first-child {
         margin-bottom: 8px !important;
         padding: 0 !important;
         border: 0 !important;
@@ -153,7 +178,7 @@
     @media (max-width: 500px) {
         justify-content: center;
         padding: 20px 16px !important;
-        .card-body { padding: 24px; }
+        .qing-login-card-body { padding: 24px; }
         .qing-login-heading h2 { font-size: 25px; }
     }
 

@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates xml:space="preserve">
     <t t-name="qing_base.ResConfigEdition" t-inherit="res_config_edition" t-inherit-mode="extension">
+        <xpath expr="//Setting" position="attributes">
+            <attribute name="class">'o_qing_about_setting'</attribute>
+        </xpath>
         <xpath expr="//div[hasclass('user-heading')]" position="replace">
-            <div class="user-heading d-flex align-items-center gap-3 mb-2 flex-wrap">
-                <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="64" height="64" style="object-fit:contain;"/>
+            <div class="user-heading o_qing_about_heading">
+                <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="72" height="72"/>
                 <div>
-                    <h3 class="px-0 mb-1">QingERP <t t-if="this.qingReleaseVersion" t-out="this.qingReleaseVersion"/><t t-else="">Version unavailable</t></h3>
-                    <small>Core Version: <t t-out="this.qingBaseVersion"/></small>
+                    <h3 class="px-0 mb-0">QingERP <t t-if="this.qingReleaseVersion" t-out="this.qingReleaseVersion"/><t t-else="">Version unavailable</t></h3>
+                    <small class="text-muted">Core Version: <t t-out="this.qingBaseVersion"/></small>
                 </div>
             </div>
         </xpath>
         <xpath expr="//small[a[@id='license']]" position="replace">
             <small>Built On <a href="https://www.odoo.com/page/community" target="_blank" rel="noopener noreferrer">Odoo <t t-out="this.serverVersion"/> 社区版</a></small>
+        </xpath>
+        <!-- Product details come first; donation and follow codes sit in a
+             compact row below them instead of leading the block. -->
+        <xpath expr="//div[hasclass('tab-content')]/.." position="after">
+            <div class="o_qing_about_support">
+                <div class="o_qing_about_support_title">Follow and support QingERP</div>
+                <div class="o_qing_about_codes">
+                    <a class="o_qing_about_code" href="/qing_base/static/img/wechat-payment-qr.png" target="_blank" rel="noopener noreferrer" aria-label="Open the WeChat Pay donation QR code">
+                        <span class="o_qing_about_code_image"><img src="/qing_base/static/img/wechat-payment-qr.png" alt="WeChat Pay donation QR code"/></span>
+                        <span class="o_qing_about_code_label">Donate via WeChat Pay</span>
+                    </a>
+                    <a class="o_qing_about_code" href="/qing_base/static/img/alipay-payment-qr.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Alipay donation QR code">
+                        <span class="o_qing_about_code_image"><img src="/qing_base/static/img/alipay-payment-qr.png" alt="Alipay donation QR code"/></span>
+                        <span class="o_qing_about_code_label">Donate via Alipay</span>
+                    </a>
+                    <a class="o_qing_about_code" href="/qing_base/static/img/official-account-qr.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the WeChat official account QR code">
+                        <span class="o_qing_about_code_image"><img src="/qing_base/static/img/official-account-qr.jpg" alt="WeChat official account QR code"/></span>
+                        <span class="o_qing_about_code_label">WeChat Official Account</span>
+                    </a>
+                </div>
+            </div>
         </xpath>
     </t>
 </templates>
