@@ -1226,3 +1226,15 @@ msgid ""
 "This operation may require access in %s. Switch to that authorized company "
 "and try again."
 msgstr "此操作可能需要在 %s 公司进行，请切换到该已授权公司后重试。"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Core Version:"
+msgstr "核心版本："
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Version unavailable"
+msgstr "版本未提供"

@@ -5,15 +5,14 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//block[@name='about_setting_container']" position="before">
-                <block title="QingERP Version" name="qing_system_update">
-                    <setting id="qing_system_update" string="QingERP Version"
-                             help="Updates stop the service, back up the database only and do not back up attachments.">
+            <xpath expr="//block[@name='about_setting_container']" position="attributes">
+                <attribute name="title">QingERP Version</attribute>
+            </xpath>
+            <xpath expr="//block[@name='about_setting_container']" position="inside">
+                    <setting id="qing_system_update">
                         <div class="d-flex flex-column gap-1 mt-2">
                             <div>
-                                <span class="text-muted me-2">Installed Version</span>
-                                <field name="qing_update_current_version" class="oe_inline fw-bold"/>
-                                <span class="text-muted ms-3 me-2" invisible="not qing_update_latest_version">Latest Version</span>
+                                <span class="text-muted me-2" invisible="not qing_update_latest_version">Latest Version</span>
                                 <field name="qing_update_latest_version" class="oe_inline fw-bold"
                                        invisible="not qing_update_latest_version"/>
                             </div>
@@ -36,7 +35,6 @@
                             </div>
                         </div>
                     </setting>
-                </block>
             </xpath>
         </field>
     </record>

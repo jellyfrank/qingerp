@@ -103,5 +103,13 @@ class TestSystemUpdate(TransactionCase):
 
     def test_settings_view_has_upgrade_block(self):
         arch = self.env.ref('base_setup.res_config_settings_view_form').get_combined_arch()
+        from lxml import etree
+        root = etree.fromstring(arch.encode())
+        blocks = root.xpath("//block[@name='about_setting_container']")
+        self.assertEqual(len(blocks), 1)
+        self.assertEqual(blocks[0].get('title'), 'QingERP Version')
+        self.assertEqual(len(blocks[0].xpath(".//setting[@id='qing_system_update']")), 1)
+        self.assertFalse(root.xpath("//block[@name='qing_system_update']"))
+        self.assertNotIn('Updates stop the service', arch)
         self.assertIn('id="qing_system_update"', arch)
         self.assertIn('name="action_qing_update_request"', arch)

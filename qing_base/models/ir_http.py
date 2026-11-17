@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import re
 
 from odoo import models
@@ -31,6 +32,8 @@ class IrHttp(models.AbstractModel):
         if self.env.user._is_internal():
             module = self.env['ir.module.module']._get('qing_base')
             result['qing_base_version'] = module.latest_version or ''
+            release = os.environ.get('QINGERP_RELEASE_ID', '').split('-', 1)[0]
+            result['qing_release_version'] = release if re.fullmatch(r'20\.0\.[0-9]+', release) else ''
             result['qing_legacy_mommy_base'] = mommy_base_loaded(self.env)
             result['qing_web_title'] = self.env['ir.config_parameter'].sudo().get_str(
                 'qing_base.title', default='QingERP 20.0',

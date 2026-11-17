@@ -8,9 +8,9 @@ Administrators can request verified, maintenance-mode updates on supported self-
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
     'category': 'Administration',
-    'version': '20.0.1.0.2',
+    'version': '20.0.1.0.3',
     'license': 'LGPL-3',
-    'depends': ['base_setup'],
+    'depends': ['qing_base'],
     'data': [
         'wizard/view_res_config_settings_form.xml',
     ],
