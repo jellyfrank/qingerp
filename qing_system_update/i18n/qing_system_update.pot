@@ -245,3 +245,27 @@ msgstr ""
 #: code:addons/qing_system_update/wizard/res_config_settings.py:0
 msgid "Waiting for the server to start the upgrade."
 msgstr ""
+
+#. module: qing_system_update
+msgid "Restoring the database backup."
+msgstr ""
+
+#. module: qing_system_update
+msgid "The update needs administrator attention."
+msgstr ""
+
+#. module: qing_system_update
+msgid "No update is available or an earlier update needs attention."
+msgstr ""
+
+#. module: qing_system_update
+msgid "An update has already been requested."
+msgstr ""
+
+#. module: qing_system_update
+msgid "The update request could not be sent to the server."
+msgstr ""
+
+#. module: qing_system_update
+msgid "Updates stop the service, back up the database only and do not back up attachments."
+msgstr ""

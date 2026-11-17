@@ -52,9 +52,12 @@ class TestSystemUpdate(TransactionCase):
         self.assertEqual(settings.qing_update_latest_version, '20.0.3')
         self.assertEqual(settings.qing_update_state, 'available')
 
+        settings.action_qing_update_request()
+        request = json.loads((self.updates / 'requests' / 'request.json').read_text())
+        self.assertEqual(request['version'], '20.0.3')
+        self.assertEqual(request['requested_by'], self.env.user.id)
         with self.assertRaises(UserError):
             settings.action_qing_update_request()
-        self.assertFalse((self.updates / 'requests' / 'request.json').exists())
 
     def test_up_to_date_does_not_write_request(self):
         self.latest = '20.0.2'

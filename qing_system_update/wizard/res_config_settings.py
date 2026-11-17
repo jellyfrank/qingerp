@@ -3,6 +3,7 @@ import logging
 import os
 import re
 import time
+import tempfile
 import urllib.request
 from pathlib import Path
 
@@ -81,9 +82,9 @@ class ResConfigSettings(models.TransientModel):
             'pull': _('Downloading the new images.'),
             'backup': _('Backing up the database.'),
             'migrate': _('Upgrading the database while QingERP is stopped.'),
-            'restore': _('The database upgrade failed; restoring the backup.'),
+            'restore': _('Restoring the database backup.'),
             'switch': _('Switching to the new release; QingERP restarts briefly.'),
-            'rollback': _('The new release did not start; restoring the previous release.'),
+            'rollback': _('The update needs administrator attention.'),
         }
 
     @api.model
@@ -141,6 +142,38 @@ class ResConfigSettings(models.TransientModel):
         return {'type': 'ir.actions.client', 'tag': 'reload'}
 
     def action_qing_update_request(self):
-        """Keep update requests disabled until all release safeguards are ready."""
+        """Publish one complete request; the host verifies the signed release."""
         self._qing_check_admin()
-        raise UserError(self.env._('System updates are not yet available for this installation.'))
+        values = self._qing_update_values(force=True)
+        if values.get('qing_update_state') != 'available':
+            raise UserError(self.env._('No update is available or an earlier update needs attention.'))
+        directory = self._qing_update_dir() / 'requests'
+        request = directory / 'request.json'
+        staged = None
+        try:
+            fd, filename = tempfile.mkstemp(prefix='.request-', dir=directory)
+            staged = Path(filename)
+            with os.fdopen(fd, 'w', encoding='utf-8') as stream:
+                os.fchmod(stream.fileno(), 0o660)
+                json.dump({'version': values['qing_update_latest_version'],
+                           'requested_by': self.env.user.id}, stream)
+                stream.write('\n')
+                stream.flush()
+                os.fsync(stream.fileno())
+            # A hard link publishes only fully written content and refuses to
+            # overwrite a request from another administrator.
+            os.link(staged, request, follow_symlinks=False)
+            directory_fd = os.open(directory, os.O_RDONLY | os.O_DIRECTORY)
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
+        except FileExistsError as error:
+            raise UserError(self.env._('An update has already been requested.')) from error
+        except OSError as error:
+            _logger.warning('Could not submit QingERP update request: %s', error)
+            raise UserError(self.env._('The update request could not be sent to the server.')) from error
+        finally:
+            if staged:
+                staged.unlink(missing_ok=True)
+        return {'type': 'ir.actions.client', 'tag': 'reload'}

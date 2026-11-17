@@ -271,3 +271,27 @@ msgstr "系统更新功能尚未开放。开放后，更新期间将停止服务
 #. module: qing_system_update
 msgid "Upgrade QingERP now? The service will stop during the update. Attachments are not backed up."
 msgstr "现在升级 QingERP 吗？更新期间服务将停止，且不会备份附件。"
+
+#. module: qing_system_update
+msgid "Restoring the database backup."
+msgstr "正在恢复数据库备份。"
+
+#. module: qing_system_update
+msgid "The update needs administrator attention."
+msgstr "更新需要管理员处理。"
+
+#. module: qing_system_update
+msgid "No update is available or an earlier update needs attention."
+msgstr "暂无可用更新，或之前的更新需要先处理。"
+
+#. module: qing_system_update
+msgid "An update has already been requested."
+msgstr "更新请求已提交。"
+
+#. module: qing_system_update
+msgid "The update request could not be sent to the server."
+msgstr "无法向服务器提交更新请求。"
+
+#. module: qing_system_update
+msgid "Updates stop the service, back up the database only and do not back up attachments."
+msgstr "更新期间将停止服务，只备份数据库，不备份附件。"
