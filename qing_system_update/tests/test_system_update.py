@@ -101,6 +101,18 @@ class TestSystemUpdate(TransactionCase):
             settings.action_qing_update_request()
         self.assertFalse((self.updates / 'requests' / 'request.json').exists())
 
+    def test_daily_serial_does_not_hide_the_next_calendar_day(self):
+        (self.updates / 'status' / 'status.json').write_text(json.dumps({
+            'state': 'available', 'to_version': '20.0.2026111801'}))
+        with patch.dict(os.environ, {'QINGERP_RELEASE_ID': '20.0.2026111701-599340516ff3',
+                                     'QINGERP_UPDATES_HOST_MANAGED': '1'}):
+            settings = self._settings()
+            self.assertEqual(settings.qing_update_state, 'available')
+            self.assertTrue(settings.qing_update_host_managed)
+            with self.assertRaises(AccessError):
+                settings.action_qing_update_request()
+        self.assertFalse((self.updates / 'requests' / 'request.json').exists())
+
     def test_settings_view_has_upgrade_block(self):
         arch = self.env.ref('base_setup.res_config_settings_view_form').get_combined_arch()
         from lxml import etree

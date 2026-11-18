@@ -295,3 +295,9 @@ msgstr "无法向服务器提交更新请求。"
 #. module: qing_system_update
 msgid "Updates stop the service, back up the database only and do not back up attachments."
 msgstr "更新期间将停止服务，只备份数据库，不备份附件。"
+
+#. module: qing_system_update
+#. odoo-python
+#: code:addons/qing_system_update/wizard/res_config_settings.py:0
+msgid "The host manages upgrades for this installation."
+msgstr "此安装的升级由服务器负责。"

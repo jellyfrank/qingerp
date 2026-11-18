@@ -1,7 +1,6 @@
 import json
 import logging
 import os
-import re
 import time
 import tempfile
 import urllib.request
@@ -10,11 +9,12 @@ from pathlib import Path
 from odoo import api, fields, models
 from odoo.exceptions import AccessError, UserError
 
+from ..release_version import version_key
+
 _logger = logging.getLogger(__name__)
 
 LATEST_URL = 'https://www.qingerp.com/install/latest.json'
 UPDATES_DIR = '/var/lib/qingerp-updates'
-VERSION_RE = re.compile(r'^20\.0\.[0-9]+$')
 CACHE_SECONDS = 3600
 UPDATE_STATES = [
     ('unsupported', 'Managed Elsewhere'),
@@ -29,12 +29,6 @@ UPDATE_STATES = [
 _LATEST_CACHE = {}
 
 
-def version_key(version):
-    if not VERSION_RE.fullmatch(version or ''):
-        return None
-    return tuple(int(part) for part in version.split('.'))
-
-
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
@@ -47,7 +41,7 @@ class ResConfigSettings(models.TransientModel):
     @api.model
     def _qing_current_version(self):
         version = os.environ.get('QINGERP_RELEASE_ID', '').split('-', 1)[0]
-        return version if VERSION_RE.fullmatch(version) else ''
+        return version if version_key(version) else ''
 
     @api.model
     def _qing_latest_version(self, force=False):
@@ -59,7 +53,7 @@ class ResConfigSettings(models.TransientModel):
         try:
             with urllib.request.urlopen(url, timeout=5) as response:
                 data = json.loads(response.read(65536))
-            if isinstance(data, dict) and VERSION_RE.fullmatch(data.get('version') or ''):
+            if isinstance(data, dict) and version_key(data.get('version')):
                 version = data['version']
         except (OSError, ValueError) as error:
             _logger.info('Cannot read the latest QingERP release from %s: %s', url, error)
@@ -99,8 +93,12 @@ class ResConfigSettings(models.TransientModel):
         if not directory or not current:
             return dict(values, qing_update_state='unsupported', qing_update_message=self.env._(
                 'Upgrades of this installation are managed by your hosting platform or server administrator.'))
-        latest = self._qing_latest_version(force=force)
         status = self._qing_read_status(directory)
+        if os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1':
+            latest = status.get('to_version', '')
+            latest = latest if version_key(latest) else ''
+        else:
+            latest = self._qing_latest_version(force=force)
         values['qing_update_latest_version'] = latest
         if (directory / 'requests' / 'request.json').exists():
             return dict(values, qing_update_state='requested', qing_update_message=self.env._(
@@ -120,11 +118,13 @@ class ResConfigSettings(models.TransientModel):
 
     def _compute_qing_update(self):
         values = self._qing_update_values()
+        values['qing_update_host_managed'] = os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1'
         for settings in self:
             settings.update(values)
 
     qing_update_current_version = fields.Char(
         string='Installed Version', compute='_compute_qing_update')
+    qing_update_host_managed = fields.Boolean(compute='_compute_qing_update')
     qing_update_latest_version = fields.Char(
         string='Latest Version', compute='_compute_qing_update')
     qing_update_message = fields.Char(
@@ -138,12 +138,15 @@ class ResConfigSettings(models.TransientModel):
 
     def action_qing_update_check(self):
         self._qing_check_admin()
-        self._qing_latest_version(force=True)
+        if os.environ.get('QINGERP_UPDATES_HOST_MANAGED') != '1':
+            self._qing_latest_version(force=True)
         return {'type': 'ir.actions.client', 'tag': 'reload'}
 
     def action_qing_update_request(self):
         """Publish one complete request; the host verifies the signed release."""
         self._qing_check_admin()
+        if os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1':
+            raise AccessError(self.env._('The host manages upgrades for this installation.'))
         values = self._qing_update_values(force=True)
         if values.get('qing_update_state') != 'available':
             raise UserError(self.env._('No update is available or an earlier update needs attention.'))

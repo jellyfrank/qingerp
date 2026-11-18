@@ -10,6 +10,7 @@
             </xpath>
             <xpath expr="//block[@name='about_setting_container']" position="inside">
                     <setting id="qing_system_update">
+                        <field name="qing_update_host_managed" invisible="1"/>
                         <div class="d-flex flex-column gap-1 mt-2">
                             <div>
                                 <span class="text-muted me-2" invisible="not qing_update_latest_version">Latest Version</span>
@@ -27,11 +28,11 @@
                                 <button name="action_qing_update_request" type="object" class="btn-primary"
                                         icon="cloud_download" string="Upgrade Now"
                                         groups="base.group_system"
-                                        invisible="qing_update_state != 'available'"
+                                        invisible="qing_update_host_managed or qing_update_state != 'available'"
                                         confirm="Upgrade QingERP now? The service will stop during the update. Attachments are not backed up."/>
                                 <button name="action_qing_update_check" type="object" class="btn-secondary"
                                         icon="refresh" string="Check for Updates"
-                                        invisible="qing_update_state in ('requested', 'running')"/>
+                                        invisible="qing_update_host_managed or qing_update_state in ('requested', 'running')"/>
                             </div>
                         </div>
                     </setting>
