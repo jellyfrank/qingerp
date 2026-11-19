@@ -1431,5 +1431,11 @@ msgstr "登录"
 #. module: qing_base
 #. odoo-javascript
 #: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
-msgid "Technical Support: Qingdao Ohm Network Technology @ 2026"
-msgstr "技术支持 青岛欧姆网络科技 @ 2026"
+msgid "Technical Support:"
+msgstr "技术支持"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
+msgid "Qingdao Ohm Network Technology"
+msgstr "青岛欧姆网络科技"

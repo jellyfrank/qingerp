@@ -15,10 +15,7 @@
         </xpath>
         <xpath expr="//small[a[@id='license']]" position="replace">
             <small>Built On <a href="https://www.odoo.com/page/community" target="_blank" rel="noopener noreferrer">Odoo <t t-out="this.serverVersion"/> 社区版</a></small>
-            <small class="d-block mt-1">
-                <span class="me-2">Technical Support: Qingdao Ohm Network Technology @ 2026</span>
-                <a class="d-inline-block" href="https://www.qingerp.com/" target="_blank" rel="noopener noreferrer">www.qingerp.com</a>
-            </small>
+            <small class="d-block mt-1">Technical Support: <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">Qingdao Ohm Network Technology</a> @ 2026</small>
         </xpath>
         <!-- Product details on the left; donation and follow codes in a
              right-hand column (stacked below on narrow screens). -->
