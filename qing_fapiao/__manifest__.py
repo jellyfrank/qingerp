@@ -2,7 +2,7 @@
     'name': 'Qing Invoice Provider Core',
     'summary': 'Invoice protocol, recoverable orders and provider extension hooks',
     'description': 'Provider-neutral invoicing protocol, durable task execution, verified notifications and business registration hooks.',
-    'version': '20.0.1.0.0',
+    'version': '20.0.1.0.1',
     'category': 'Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
