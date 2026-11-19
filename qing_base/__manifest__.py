@@ -1,7 +1,7 @@
 {
     'name': 'Qing Base',
     'summary': 'Shared foundation for Qing business modules',
-    'version': '20.0.1.63',
+    'version': '20.0.1.64',
     'category': 'Hidden',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
