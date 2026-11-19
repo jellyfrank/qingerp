@@ -28,19 +28,19 @@ import { menuIconHref } from "@qing_web_ui/js/qing_menu_icons";
 
 test("WeCom menus use distinct QingERP and Solutions icons", () => {
     expect(menuIconHref({ xmlid: "qing_wework.menu_qing_wework_root" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#chat"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#chat"
     );
     expect(menuIconHref({ xmlid: "qing_wework.menu_wework_robot_template" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#robotTemplate"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#robotTemplate"
     );
     expect(menuIconHref({ xmlid: "mommy_wework.menu_wework_robot_message" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#robotSend"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#robotSend"
     );
     expect(menuIconHref({ xmlid: "qing_wework.menu_wework_intelligent_bot" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#aiBot"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#aiBot"
     );
     expect(menuIconHref({ xmlid: "qing_wework.menu_company" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#city"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#city"
     );
 });
 
