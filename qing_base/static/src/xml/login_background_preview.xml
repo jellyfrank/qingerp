@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_base.LoginBackgroundPreview">
+        <button type="button" class="btn btn-secondary mt-2" t-on-click="this.preview">Preview Login Page</button>
+    </t>
+</templates>

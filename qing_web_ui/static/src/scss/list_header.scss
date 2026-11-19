@@ -210,7 +210,40 @@
     color: var(--o-qing-text) !important;
     border-color: var(--o-qing-border);
 }
-@media (max-width: 1399.98px) and (min-width: 768px) {
+// Navigation (view switcher and pager) stays on the search row. As the header
+// narrows, the search field shrinks first, then the Filters / Group By /
+// Favorites buttons drop their labels; only a very narrow header moves the
+// navigation to its own row.
+@media (min-width: 768px) {
+    .o_qing_web_ui .o_qing_list_header { container: qing-list-header / inline-size; }
+}
+@container qing-list-header (max-width: 1000px) {
+    .o_qing_web_ui .o_qing_list_search {
+        .o_qing_search_categories { gap: 6px; }
+        .o_qing_search_categories .btn {
+            position: relative;
+            justify-content: center;
+            gap: 0;
+            min-width: 38px;
+            padding-inline: 9px;
+        }
+        .o_qing_search_category_label { display: none; }
+        .o_qing_search_category_count {
+            position: absolute;
+            top: -4px;
+            inset-inline-end: -4px;
+            min-width: 16px;
+            padding: 0 4px;
+            border-radius: 999px;
+            background: var(--o-qing-accent);
+            color: #fff;
+            font-size: 10px;
+            line-height: 16px;
+            text-align: center;
+        }
+    }
+}
+@container qing-list-header (max-width: 640px) {
     .o_qing_web_ui .o_qing_list_header {
         .o_control_panel_actions { grid-column: 1 / -1; }
         .o_control_panel_navigation { grid-row: 3; grid-column: 1 / -1; }

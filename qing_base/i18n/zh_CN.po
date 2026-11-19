@@ -1310,3 +1310,120 @@ msgstr "微信公众号二维码"
 #: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
 msgid "Follow and support QingERP"
 msgstr "关注与支持 QingERP"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Login Page"
+msgstr "登录页面"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_background_style
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Login Background"
+msgstr "登录背景"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_background_color
+msgid "Background Color"
+msgstr "背景颜色"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_res_config_settings__qing_login_background_image
+msgid "Background Image"
+msgstr "背景图片"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__default
+msgid "QingERP Default (Restore)"
+msgstr "QingERP 默认背景（恢复默认）"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__image
+msgid "Custom Image"
+msgstr "上传图片"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__solid
+msgid "Solid Color"
+msgstr "纯色"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__sea
+msgid "Sea Blue"
+msgstr "海洋蓝"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__forest
+msgid "Forest Green"
+msgstr "森林绿"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__sand
+msgid "Warm Sand"
+msgstr "暖沙色"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__twilight
+msgid "Twilight Violet"
+msgstr "暮光紫"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/xml/login_background_preview.xml:0
+msgid "Preview Login Page"
+msgstr "预览登录页面"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Preview opens in a new tab. Save settings to apply your choice."
+msgstr "预览将在新标签页打开。保存设置后生效。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "JPEG, PNG or WebP; up to 2 MB. A landscape image is recommended."
+msgstr "支持 JPEG、PNG 或 WebP，最大 2 MB，建议使用横向图片。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Choose a style or upload an image. Select QingERP Default to restore the original background. Art styles do not download an image."
+msgstr "选择样式或上传图片。选择 QingERP 默认背景可恢复原样；艺术样式无需下载图片。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_background_preview
+msgid "Login page preview — save settings to apply this background."
+msgstr "登录页面预览——保存设置后背景才会生效。"
+
+#. module: qing_base
+#: code:addons/qing_base/wizard/res_config_settings.py:0
+msgid "The background image must be 2 MB or smaller."
+msgstr "背景图片不能超过 2 MB。"
+
+#. module: qing_base
+#: code:addons/qing_base/wizard/res_config_settings.py:0
+msgid "Use a JPEG, PNG or WebP image of at most 20 megapixels."
+msgstr "请使用不超过 2000 万像素的 JPEG、PNG 或 WebP 图片。"
+
+#. module: qing_base
+#: code:addons/qing_base/wizard/res_config_settings.py:0
+msgid "Use a valid JPEG, PNG or WebP image."
+msgstr "请使用有效的 JPEG、PNG 或 WebP 图片。"
+
+#. module: qing_base
+#: code:addons/qing_base/wizard/res_config_settings.py:0
+msgid "Choose a valid background color."
+msgstr "请选择有效的背景颜色。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_background_preview
+msgid "Username"
+msgstr "用户名"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_background_preview
+msgid "Password"
+msgstr "密码"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.login_background_preview
+msgid "Sign in"
+msgstr "登录"

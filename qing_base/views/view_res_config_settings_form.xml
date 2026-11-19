@@ -77,6 +77,20 @@
                             <field name="module_qing_account_fapiao_ocr"/>
                         </setting>
                     </block>
+                    <block title="Login Page" name="qing_login_settings">
+                    <setting id="qing_login_background" string="Login Background" help="Choose a style or upload an image. Select QingERP Default to restore the original background. Art styles do not download an image.">
+                        <field name="qing_login_background_style"/>
+                        <div class="mt-2" invisible="qing_login_background_style != 'solid'">
+                            <field name="qing_login_background_color" widget="color"/>
+                        </div>
+                        <div class="mt-2" invisible="qing_login_background_style != 'image'">
+                            <field name="qing_login_background_image" widget="image" options="{'size': [320, 180]}"/>
+                            <div class="text-muted">JPEG, PNG or WebP; up to 2 MB. A landscape image is recommended.</div>
+                        </div>
+                        <widget name="qing_login_background_preview"/>
+                        <div class="text-muted">Preview opens in a new tab. Save settings to apply your choice.</div>
+                    </setting>
+                </block>
                     <block title="Audit Log" name="qing_audit_settings">
                         <setting id="qing_audit_enabled" string="Record ORM Changes"
                                  help="Automatically record create, update, and delete operations on persistent models.">

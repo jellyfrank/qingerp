@@ -46,10 +46,10 @@ test("WeCom menus use distinct QingERP and Solutions icons", () => {
 
 test("invoice interface menus use dedicated icons", () => {
     expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_order" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#invoiceClock"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#invoiceClock"
     );
     expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_provider" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=9#key"
+        "/qing_web_ui/static/src/icons/menu.svg?v=10#key"
     );
 });
 

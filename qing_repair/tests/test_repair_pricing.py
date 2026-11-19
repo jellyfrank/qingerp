@@ -201,8 +201,6 @@ class TestRepairPricing(AccountTestInvoicingCommon):
         self._assert_can_post_without_inventory_permissions('qing_repair_accountant', 'account.group_account_user')
 
     def test_invoice_user_can_post_without_inventory_permissions_in_standard_product(self):
-        if self.env['ir.module.module'].search_count([('name', '=', 'customer_account'), ('state', '=', 'installed')]):
-            self.skipTest('Customer invoice-only policy is verified in customer_account tests.')
         self._assert_can_post_without_inventory_permissions('qing_repair_invoice_user', 'account.group_account_invoice')
 
     def test_ordinary_stock_moves_have_no_repair_pricing(self):

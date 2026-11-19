@@ -1,0 +1,3 @@
+Origin and licensing notice
+
+Ported from the Ohm Solutions mommy_wework module, 20.0 commit 0233a26f. This module is licensed under LGPL-3. The odoo-wechatpy dependency is MIT licensed; websocket-client is Apache-2.0 licensed.

@@ -39,6 +39,12 @@ class ResConfigSettings(models.TransientModel):
         return path if path.is_dir() else None
 
     @api.model
+    def _qing_requests_open(self):
+        """Whether the host accepts web requests: its request inbox is writable."""
+        directory = self._qing_update_dir()
+        return bool(directory) and os.access(directory / 'requests', os.W_OK)
+
+    @api.model
     def _qing_current_version(self):
         version = os.environ.get('QINGERP_RELEASE_ID', '').split('-', 1)[0]
         return version if version_key(version) else ''
@@ -94,7 +100,8 @@ class ResConfigSettings(models.TransientModel):
             return dict(values, qing_update_state='unsupported', qing_update_message=self.env._(
                 'Upgrades of this installation are managed by your hosting platform or server administrator.'))
         status = self._qing_read_status(directory)
-        if os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1':
+        host_managed = os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1'
+        if host_managed:
             latest = status.get('to_version', '')
             latest = latest if version_key(latest) else ''
         else:
@@ -107,6 +114,10 @@ class ResConfigSettings(models.TransientModel):
             message = self._qing_step_labels().get(status.get('step'), status.get('message') or '')
             return dict(values, qing_update_state='running', qing_update_message=message)
         if not latest:
+            if host_managed and status.get('state') == 'failed':
+                # The host updater reports its own failures without a target.
+                return dict(values, qing_update_state='failed', qing_update_message=self.env._(
+                    'The last upgrade did not complete. Details: %s', status.get('message') or '-'))
             return dict(values, qing_update_state='unknown', qing_update_message=self.env._(
                 'Cannot reach the QingERP release site. Try again later.'))
         if version_key(latest) > version_key(current):
@@ -119,12 +130,14 @@ class ResConfigSettings(models.TransientModel):
     def _compute_qing_update(self):
         values = self._qing_update_values()
         values['qing_update_host_managed'] = os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1'
+        values['qing_update_can_request'] = self._qing_requests_open()
         for settings in self:
             settings.update(values)
 
     qing_update_current_version = fields.Char(
         string='Installed Version', compute='_compute_qing_update')
     qing_update_host_managed = fields.Boolean(compute='_compute_qing_update')
+    qing_update_can_request = fields.Boolean(compute='_compute_qing_update')
     qing_update_latest_version = fields.Char(
         string='Latest Version', compute='_compute_qing_update')
     qing_update_message = fields.Char(
@@ -145,7 +158,8 @@ class ResConfigSettings(models.TransientModel):
     def action_qing_update_request(self):
         """Publish one complete request; the host verifies the signed release."""
         self._qing_check_admin()
-        if os.environ.get('QINGERP_UPDATES_HOST_MANAGED') == '1':
+        # A host that only applies its own schedule mounts the inbox read-only.
+        if self._qing_update_dir() and not self._qing_requests_open():
             raise AccessError(self.env._('The host manages upgrades for this installation.'))
         values = self._qing_update_values(force=True)
         if values.get('qing_update_state') != 'available':

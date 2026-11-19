@@ -154,18 +154,18 @@
             <div t-if="this.qingSplitSearch" class="o_qing_search_categories">
                 <button t-if="this.env.searchModel.searchMenuTypes.has('filter')" type="button" class="btn btn-secondary" data-hotkey="shift+q"
                         t-att-class="{'is-active': this.qingFilterCount}" t-on-click.stop="() => this.openQingCategory('filter')"
-                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'filter' ? 'true' : 'false'">
-                    <i class="oi" data-icon="filter_alt" aria-hidden="true"/>Filters <span t-if="this.qingFilterCount" t-out="this.qingFilterCount"/>
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'filter' ? 'true' : 'false'" title="Filters">
+                    <i class="oi" data-icon="filter_alt" aria-hidden="true"/><span class="o_qing_search_category_label">Filters</span> <span t-if="this.qingFilterCount" class="o_qing_search_category_count" t-out="this.qingFilterCount"/>
                 </button>
                 <button t-if="this.env.searchModel.searchMenuTypes.has('groupBy')" type="button" class="btn btn-secondary"
                         t-on-click.stop="() => this.openQingCategory('groupBy')"
-                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'groupBy' ? 'true' : 'false'">
-                    <i class="oi" data-icon="stacks" aria-hidden="true"/>Group By
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'groupBy' ? 'true' : 'false'" title="Group By">
+                    <i class="oi" data-icon="stacks" aria-hidden="true"/><span class="o_qing_search_category_label">Group By</span>
                 </button>
                 <button t-if="this.env.searchModel.searchMenuTypes.has('favorite')" type="button" class="btn btn-secondary"
                         t-on-click.stop="() => this.openQingCategory('favorite')"
-                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'favorite' ? 'true' : 'false'">
-                    <i class="oi" data-icon="star" aria-hidden="true"/>Favorites
+                        t-att-aria-expanded="this.props.dropdownState.isOpen and this.qingMenu.category === 'favorite' ? 'true' : 'false'" title="Favorites">
+                    <i class="oi" data-icon="star" aria-hidden="true"/><span class="o_qing_search_category_label">Favorites</span>
                 </button>
             </div>
         </xpath>

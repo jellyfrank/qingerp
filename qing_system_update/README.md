@@ -1,5 +1,3 @@
-# qing_system_update — QingERP 在线升级
+# QingERP System Update
 
-管理员可以在设置中查看当前版本和可用版本，并向支持的自建安装提交更新请求。更新期间系统显示维护页并停止服务，更新过程只备份数据库，不备份或复制附件。
-
-实际升级由服务器上的 QingERP 更新程序执行，并校验独立配置的可信签名。多数据库、自定义挂载或无法核验版本的安装会停止自动更新，交由管理员处理。托管平台负责的平台安装不使用本地更新入口。
+Lets administrators check for and request verified QingERP updates from Settings on supported self-hosted installations.

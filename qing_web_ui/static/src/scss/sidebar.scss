@@ -439,9 +439,9 @@
 // sidebar falls back to the shared icon-only tree (see qingSidebarStyle).
 @media (min-width: 768px) {
     .o_qing_web_ui {
-        --o-qing-sidebar-island-bg: color-mix(in srgb, var(--o-qing-surface, #fff) 72%, transparent);
-        --o-qing-sidebar-island-border: var(--o-qing-sidebar-border);
-        --o-qing-sidebar-island-shadow: 0 1px 2px rgba(31, 41, 40, .05);
+        --o-qing-sidebar-island-bg: var(--o-qing-surface, #fff);
+        --o-qing-sidebar-island-border: color-mix(in srgb, var(--o-qing-sidebar-border) 70%, transparent);
+        --o-qing-sidebar-island-shadow: none;
         --o-qing-sidebar-strong-bg: color-mix(in srgb, var(--o-qing-accent) 84%, #0b1f1c);
         --o-qing-sidebar-strong-text: #fff;
         &.o_qing_ui--dark {
@@ -457,35 +457,43 @@
     .o_qing_web_ui .o_qing_sidebar__menus--islands {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         padding: 10px 10px 16px;
     }
     .o_qing_web_ui .o_qing_sidebar__island {
         display: flex;
         flex-direction: column;
         flex: none;
-        gap: 1px;
-        padding: 6px;
+        gap: 2px;
+        padding: 4px;
         border: 1px solid var(--o-qing-sidebar-island-border);
-        border-radius: 12px;
+        border-radius: 10px;
         background: var(--o-qing-sidebar-island-bg);
         box-shadow: var(--o-qing-sidebar-island-shadow);
         .o_qing_sidebar__item {
             gap: 10px;
             min-height: 34px;
             margin-block: 0;
-            padding: 7px 8px;
-            border-radius: 8px;
+            padding: 7px 10px;
+            border-radius: 7px;
+            // Quiet icons let the labels lead; the active item takes the accent.
+            .o_qing_menu_icon { color: var(--o-qing-sidebar-muted); }
+            &:hover .o_qing_menu_icon { color: var(--o-qing-sidebar-heading); }
         }
     }
-    // Soft tint + hairline ring: a solid fill outweighed the page title.
+    // Soft tint only: a solid fill outweighed the page title, and a ring drew
+    // a second box inside the island.
     .o_qing_web_ui .o_qing_sidebar__island .o_qing_sidebar__item.is-active {
         background: var(--o-qing-accent-soft);
         color: var(--o-qing-link);
         font-weight: 600;
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--o-qing-accent) 24%, transparent);
+        box-shadow: none;
         &::before { display: none; }
         .o_qing_menu_icon { color: inherit; }
+    }
+    // The dark accent-soft token is too close to the island fill.
+    .o_qing_web_ui.o_qing_ui--dark .o_qing_sidebar__island .o_qing_sidebar__item.is-active {
+        background: color-mix(in srgb, var(--o-qing-accent) 24%, transparent);
     }
     .o_qing_web_ui .o_qing_sidebar__island_title {
         display: flex;
@@ -493,20 +501,21 @@
         gap: 4px;
         min-width: 0;
         margin: 0;
-        padding: 4px 8px;
+        padding: 8px 10px 4px;
         color: var(--o-qing-sidebar-muted);
         font-size: var(--o-qing-sidebar-group-font-size);
         font-weight: 600;
-        letter-spacing: .02em;
+        letter-spacing: .04em;
         line-height: 1.35;
         span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     }
+    // A nested group shows its parent as a quieter breadcrumb: "配置 › 用户设置".
     .o_qing_web_ui .o_qing_sidebar__island_parent {
         flex: none;
         max-width: 50%;
         font-weight: 500;
-        opacity: .8;
-        &::after { content: " ·"; }
+        opacity: .7;
+        &::after { content: " ›"; }
     }
 
     .o_qing_web_ui .o_qing_sidebar__menus--rail {

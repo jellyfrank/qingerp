@@ -114,7 +114,14 @@ const sectionIcons = {
     "qing_workbench.menu_workbench_templates": "layout",
     "mail.main_menu_discuss": "message",
     "mail.discuss_channel_integrations_menu": "link",
-    "mail.menu_channel": "message",
+    "mail.menu_channel": "chat",
+    "mail.menu_settings": "sliders",
+    "mail.menu_discuss_category": "folders",
+    "mail.menu_canned_responses": "messageTemplate",
+    "mail.menu_roles": "team",
+    "mail.menu_discuss_user_settings": "person",
+    "mail.menu_notification_settings": "bell",
+    "mail.menu_call_settings": "video",
     "mail.discuss_call_history_menu": "activityLog",
     "mail.menu_configuration": "settings",
     "calendar.calendar_event_menu": "calendar",
@@ -233,5 +240,5 @@ for (const [id, icon] of Object.entries({ ...appIcons, ...sectionIcons })) {
 
 export function menuIconHref(menu) {
     const icon = menuIcons.get(menu.xmlid || "", "paper");
-    return `/qing_web_ui/static/src/icons/menu.svg?v=9#${icon}`;
+    return `/qing_web_ui/static/src/icons/menu.svg?v=10#${icon}`;
 }

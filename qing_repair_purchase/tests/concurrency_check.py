@@ -1,11 +1,11 @@
-"""Run via odoo shell only in a disposable customer_2444_2448_* database."""
+"""Run via odoo shell only in a disposable qing_test_repair_* database."""
 from odoo import api, Command
 from odoo.exceptions import LockError, UserError
 from psycopg2.errors import SerializationFailure
 
 
 def run(env):
-    assert env.cr.dbname.startswith('customer_2444_2448_'), 'Disposable test database only'
+    assert env.cr.dbname.startswith('qing_test_repair_'), 'Disposable test database only'
     customer, vendor = env['res.partner'].create([
         {'name': '2447 concurrency customer'}, {'name': '2447 concurrency vendor'},
     ])

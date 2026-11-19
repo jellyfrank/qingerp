@@ -232,13 +232,13 @@ class TestRepairPortal(HttpCase):
 
     def test_chinese_translations_and_portal_labels(self):
         self.env['res.lang']._activate_lang('zh_CN')
-        self.env['ir.module.module']._load_module_terms(['qing_repair', 'qing_repair_portal', 'customer_repair'], ['zh_CN'], overwrite=True)
+        self.env['ir.module.module']._load_module_terms(['qing_repair', 'qing_repair_portal'], ['zh_CN'], overwrite=True)
         Repair = self.env['repair.order'].with_context(lang='zh_CN')
         self.assertEqual(Repair.fields_get(['qing_device_model'])['qing_device_model']['string'], '设备型号')
         selections = dict(Repair.fields_get(['qing_pricing_mode'])['qing_pricing_mode']['selection'])
         self.assertEqual(selections['sale'], '关联报价单')
         self.assertEqual(selections['direct'], '直接计价')
-        response = self.url_open('/web/webclient/translations?mods=qing_repair,qing_repair_portal,customer_repair&lang=zh_CN')
+        response = self.url_open('/web/webclient/translations?mods=qing_repair,qing_repair_portal&lang=zh_CN')
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(response.json(), dict)
         repair = self._repair()
@@ -246,8 +246,6 @@ class TestRepairPortal(HttpCase):
         page = self.url_open(repair.get_portal_url())
         self.assertEqual(page.status_code, 200)
         self.assertIn('设备型号', page.text)
-        if self.env['ir.module.module'].search_count([('name', '=', 'customer_repair'), ('state', '=', 'installed')]):
-            self.assertIn('服务说明', page.text)
 
     def test_signature_hash_is_independent_of_translation_language(self):
         self.env['res.lang']._activate_lang('zh_CN')

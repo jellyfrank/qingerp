@@ -16,8 +16,8 @@
         <xpath expr="//small[a[@id='license']]" position="replace">
             <small>Built On <a href="https://www.odoo.com/page/community" target="_blank" rel="noopener noreferrer">Odoo <t t-out="this.serverVersion"/> 社区版</a></small>
         </xpath>
-        <!-- Product details come first; donation and follow codes sit in a
-             compact row below them instead of leading the block. -->
+        <!-- Product details on the left; donation and follow codes in a
+             right-hand column (stacked below on narrow screens). -->
         <xpath expr="//div[hasclass('tab-content')]/.." position="after">
             <div class="o_qing_about_support">
                 <div class="o_qing_about_support_title">Follow and support QingERP</div>

@@ -15,3 +15,4 @@ from . import res_config_settings
 from . import res_users
 from . import access_request
 from . import access_event
+from . import qing_login_background

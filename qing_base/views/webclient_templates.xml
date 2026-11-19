@@ -13,7 +13,8 @@
     <template id="login_page" name="QingERP login page">
         <t t-set="qing_config" t-value="request.env['ir.config_parameter'].sudo()"/>
         <t t-set="title" t-value="title or qing_config.get_str('qing_base.title', 'QingERP 20.0')"/>
-        <t t-set="qing_is_login" t-value="request.httprequest.path == '/web/login'"/>
+        <t t-set="qing_is_login" t-value="qing_preview or request.httprequest.path == '/web/login'"/>
+        <t t-set="qing_background" t-value="qing_background if qing_preview else request.env['qing.login.background']._saved_values()"/>
         <t t-call="web.frontend_layout"
             html_data="{'style': 'height: 100%;'}"
             body_classname.f="bg-100"
@@ -21,10 +22,11 @@
             no_footer="True"
             head="head">
             <div t-attf-class="container py-5 #{'qing-login-layout' if qing_is_login else ''}">
-                <section class="qing-login-scene" aria-label="青岛五月的风与灯塔海滨素描" t-if="qing_is_login">
-                    <img class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
+                <section t-attf-class="qing-login-scene qing-login-scene-#{qing_background['style']}" t-att-style="'background-color: %s' % qing_background['color'] if qing_background['style'] == 'solid' else None" t-if="qing_is_login" aria-hidden="true">
+                    <img t-if="qing_background['style'] == 'image'" class="qing-login-illustration qing-login-custom-image" t-att-src="qing_background['image_url']" alt=""/>
+                    <img t-if="qing_background['style'] == 'default'" class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
                         width="1672" height="941" alt="青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描" fetchpriority="high"/>
-                    <svg class="qing-login-water-filter" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" focusable="false">
+                    <svg t-if="qing_background['style'] == 'default'" class="qing-login-water-filter" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" focusable="false">
                         <defs>
                             <filter id="qing-login-water-refraction" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
                                 <feTurbulence type="fractalNoise" baseFrequency="0.012 0.08" numOctaves="1" seed="7" result="ripples"/>
@@ -32,11 +34,11 @@
                             </filter>
                         </defs>
                     </svg>
-                    <div class="qing-login-water" aria-hidden="true">
+                    <div t-if="qing_background['style'] == 'default'" class="qing-login-water" aria-hidden="true">
                         <img class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
                             width="1672" height="941" alt="" decoding="async"/>
                     </div>
-                    <div class="qing-login-scene-footer">BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT</div>
+                    <div t-if="qing_background['style'] == 'default'" class="qing-login-scene-footer">BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT</div>
                 </section>
                 <div t-attf-class="qing-login-card mx-auto {{login_card_classes}} o_database_list">
                     <div class="qing-login-card-body">
@@ -62,6 +64,16 @@
     </template>
     <!-- Priority above website.login_layout (20): replace whichever page wrapper is
          left (web.frontend_layout, or website.layout when website is installed). -->
+    <template id="login_background_preview" name="Login Background Preview">
+        <t t-call="qing_base.login_page">
+            <div class="alert alert-info">Login page preview — save settings to apply this background.</div>
+            <div class="oe_login_form">
+                <label>Username</label><input class="form-control mb-3" disabled="disabled"/>
+                <label>Password</label><input class="form-control mb-3" disabled="disabled"/>
+                <div class="oe_login_buttons"><button class="btn btn-primary w-100" disabled="disabled">Sign in</button></div>
+            </div>
+        </t>
+    </template>
     <template id="login_branding" inherit_id="web.login_layout" name="Qing login layout" priority="99">
         <xpath expr="t[@t-call]" position="replace">
             <t t-call="qing_base.login_page">

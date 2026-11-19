@@ -110,5 +110,5 @@
 <symbol id="aiBot" viewBox="0 0 24 24"><path d="M10 3l1.8 5.2L17 10l-5.2 1.8L10 17l-1.8-5.2L3 10l5.2-1.8z M18 14l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></symbol>
 <symbol id="aiChat" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z M12 6.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
 <symbol id="messageTemplate" viewBox="0 0 24 24"><path d="M6 3h12v18H6z M10.5 8C9.5 8 9 8.5 9 9.5v1c0 .6-.4 1-1 1 .6 0 1 .4 1 1v1c0 1 .5 1.5 1.5 1.5 M13.5 8c1 0 1.5.5 1.5 1.5v1c0 .6.4 1 1 1-.6 0-1 .4-1 1v1c0 1-.5 1.5-1.5 1.5"/></symbol>
-<symbol id="bell" viewBox="0 0 24 24"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4z M10 21h4"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4z M10 21h4"/></symbol><symbol id="video" viewBox="0 0 24 24"><path d="M4 7h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z M15 11l6-3v8l-6-3"/></symbol>
 </svg>

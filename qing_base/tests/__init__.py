@@ -12,3 +12,4 @@ from . import test_notify
 from . import test_access_request
 from . import test_access_event
 from . import test_access_http
+from . import test_login_background

@@ -109,7 +109,33 @@ class TestSystemUpdate(TransactionCase):
             settings = self._settings()
             self.assertEqual(settings.qing_update_state, 'available')
             self.assertTrue(settings.qing_update_host_managed)
+            self.assertTrue(settings.qing_update_can_request)
+            # The request names the release the host verified, not the release site answer.
+            settings.action_qing_update_request()
+        request = json.loads((self.updates / 'requests' / 'request.json').read_text())
+        self.assertEqual(request['version'], '20.0.2026111801')
+
+    def test_host_managed_read_only_inbox_refuses_requests(self):
+        (self.updates / 'status' / 'status.json').write_text(json.dumps({
+            'state': 'available', 'to_version': '20.0.3'}))
+        model = type(self.env['res.config.settings'])
+        with patch.dict(os.environ, {'QINGERP_UPDATES_HOST_MANAGED': '1'}), \
+                patch.object(model, '_qing_requests_open', return_value=False):
+            settings = self._settings()
+            self.assertEqual(settings.qing_update_state, 'available')
+            self.assertFalse(settings.qing_update_can_request)
             with self.assertRaises(AccessError):
+                settings.action_qing_update_request()
+        self.assertFalse((self.updates / 'requests' / 'request.json').exists())
+
+    def test_host_managed_failure_is_reported(self):
+        (self.updates / 'status' / 'status.json').write_text(json.dumps({
+            'state': 'failed', 'message': 'UpgradeError: The pre-upgrade backup was not created'}))
+        with patch.dict(os.environ, {'QINGERP_UPDATES_HOST_MANAGED': '1'}):
+            settings = self._settings()
+            self.assertEqual(settings.qing_update_state, 'failed')
+            self.assertIn('backup was not created', settings.qing_update_message)
+            with self.assertRaises(UserError):
                 settings.action_qing_update_request()
         self.assertFalse((self.updates / 'requests' / 'request.json').exists())
 
@@ -125,3 +151,6 @@ class TestSystemUpdate(TransactionCase):
         self.assertNotIn('Updates stop the service', arch)
         self.assertIn('id="qing_system_update"', arch)
         self.assertIn('name="action_qing_update_request"', arch)
+        button = root.xpath("//button[@name='action_qing_update_request']")[0]
+        self.assertIn('qing_update_can_request', button.get('invisible'))
+        self.assertNotIn('qing_update_host_managed', button.get('invisible'))

@@ -59,6 +59,19 @@
         background: #edf1ee;
     }
 
+    .qing-login-scene-sea {
+        background: radial-gradient(ellipse at 20% 20%, #d9eff2, transparent 55%), radial-gradient(ellipse at 85% 85%, #9abecb, transparent 55%), #c6dde4;
+    }
+    .qing-login-scene-forest {
+        background: radial-gradient(ellipse at 15% 25%, #e4eee2, transparent 55%), radial-gradient(ellipse at 85% 80%, #a8c5b2, transparent 55%), #cbded2;
+    }
+    .qing-login-scene-sand {
+        background: radial-gradient(ellipse at 20% 20%, #fff3de, transparent 55%), radial-gradient(ellipse at 85% 85%, #d9baa0, transparent 55%), #ead8c2;
+    }
+    .qing-login-scene-twilight {
+        background: radial-gradient(ellipse at 20% 20%, #ece9f6, transparent 55%), radial-gradient(ellipse at 85% 85%, #b9b1d1, transparent 55%), #d5d0e5;
+    }
+
     .qing-login-illustration {
         position: absolute;
         inset: 0;

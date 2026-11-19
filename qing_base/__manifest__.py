@@ -1,7 +1,7 @@
 {
     'name': 'Qing Base',
     'summary': 'Shared foundation for Qing business modules',
-    'version': '20.0.1.61',
+    'version': '20.0.1.63',
     'category': 'Hidden',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -23,6 +23,7 @@
     'assets': {
         'web.assets_frontend': [
             'qing_base/static/src/scss/login_page.scss',
+            'qing_base/static/src/js/login_background.js',
         ],
         'web.assets_backend': [
             'qing_base/static/src/js/binary_preview.js',
@@ -31,6 +32,7 @@
             'qing_base/static/src/js/image_paste_field.js',
             'qing_base/static/src/js/list_row_numbers.js',
             'qing_base/static/src/js/report_preview.js',
+            'qing_base/static/src/js/login_background_preview.js',
             'qing_base/static/src/js/res_config_edition.js',
             'qing_base/static/src/js/restricted_fields.js',
             'qing_base/static/src/js/web_title.js',
@@ -44,6 +46,7 @@
             'qing_base/static/src/xml/file_drop_support.xml',
             'qing_base/static/src/xml/image_paste_field.xml',
             'qing_base/static/src/xml/list_row_numbers.xml',
+            'qing_base/static/src/xml/login_background_preview.xml',
             'qing_base/static/src/xml/res_config_edition.xml',
             'qing_base/static/src/xml/restricted_fields.xml',
         ],
