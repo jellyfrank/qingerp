@@ -231,3 +231,10 @@ class ResPartner(models.Model):
         if not self.env.su and self.env.user._is_internal() and not self._qing_is_manager():
             raise AccessError(self.env._('Only a partner manager can delete contacts.'))
         return super().unlink()
+
+    @api.model
+    def onchange(self, values, field_names, fields_spec):
+        if {'properties', 'properties_base_definition_id'} & fields_spec.keys():
+            definition = self.env['properties.base.definition']._get_definition_for_property_field(self._name, 'properties')
+            definition.check_access('read')
+        return super().onchange(values, field_names, fields_spec)

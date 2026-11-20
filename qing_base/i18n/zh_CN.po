@@ -1439,3 +1439,129 @@ msgstr "技术支持"
 #: code:addons/qing_base/static/src/xml/res_config_edition.xml:0
 msgid "Qingdao Ohm Network Technology"
 msgstr "青岛欧姆网络科技"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__default
+msgid "Starry Sky (Default)"
+msgstr "星空（默认）"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__qingdao
+msgid "Qingdao Coast Illustration"
+msgstr "青岛海景插画"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__image
+msgid "Uploaded Image"
+msgstr "自定义图片"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid ""
+"Choose a style or upload an image. The QingERP Default starry sky and the "
+"art styles download no image; Qingdao Coast loads an illustration."
+msgstr "选择样式或上传图片。QingERP 默认的星空和各艺术样式都不下载图片；青岛海景会加载一张插画。"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/login_background_tiles.js:0
+msgid "Login background"
+msgstr "登录背景"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/login_background_tiles.js:0
+msgid "Upload image"
+msgstr "上传图片"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/login_background_tiles.js:0
+msgid "Remove image"
+msgstr "移除图片"
+
+#. module: qing_base
+#. odoo-javascript
+#: code:addons/qing_base/static/src/js/login_background_tiles.js:0
+msgid "Choose a JPEG, PNG or WebP image up to 2 MB."
+msgstr "请选择不超过 2 MB 的 JPEG、PNG 或 WebP 图片。"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__dawn
+msgid "Dawn Mountains"
+msgstr "晨曦山峦"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__aurora
+msgid "Aurora"
+msgstr "极光"
+
+#. module: qing_base
+#: model:ir.model.fields.selection,name:qing_base.selection__res_config_settings__qing_login_background_style__silk
+msgid "Silk Light"
+msgstr "流光"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/res_users.py:0
+#, python-format
+msgid "Hello, I'm %(name)s."
+msgstr "你好，我是%(name)s。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/mail_bot.py:0
+msgid ""
+"Chat with me here. When you ask how to use QingERP, I will include the "
+"relevant public manual section."
+msgstr "可以直接和我聊天。问我 QingERP 怎么用时，我会附上相关的公开手册出处。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/mail_bot.py:0
+msgid ""
+"I could not find this in the public manual. Try naming the app and the operation, "
+"for example Sales Quotation or Inventory Count."
+msgstr "我暂时没在公开手册中找到相关内容。试试加上应用或操作名称，比如「销售报价」或「库存盘点」。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/qing_public_manual.py:0
+msgid "Public manual [1]"
+msgstr "公开手册 [1]"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/mail_bot.py:0
+msgid "Hi! I am here. What would you like to talk about?"
+msgstr "你好，我在！想聊点什么？"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/mail_bot.py:0
+msgid "You're welcome!"
+msgstr "不客气！"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/mail_bot.py:0
+msgid ""
+"There is no available chat model configured here. I can still answer from the "
+"QingERP public manual."
+msgstr "这套 QingERP 暂时没有配置可用的聊天模型。你仍然可以问我公开手册里的操作问题。"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__city
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__city
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "City"
+msgstr "城市"
+
+#. module: qing_base
+#: model:ir.model.fields,field_description:qing_base.field_qing_audit_log__country
+#: model:ir.model.fields,field_description:qing_base.field_qing_login_log__country
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_audit_log_search
+#: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
+msgid "Country"
+msgstr "国家/地区"

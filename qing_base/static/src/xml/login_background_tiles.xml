@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_base.LoginBackgroundTiles">
+        <div class="o_qing_login_tiles" role="radiogroup" t-att-aria-label="this.labels.group">
+            <div t-foreach="this.tiles" t-as="tile" t-key="tile.value" class="o_qing_login_tile_item">
+                <label t-att-class="{'o_qing_login_tile': true, 'is-selected': tile.value === this.value}" t-att-title="tile.label">
+                    <input class="visually-hidden" type="radio" t-att-name="this.radioName" t-att-value="tile.value"
+                           t-att-checked="tile.value === this.value" t-att-disabled="this.props.readonly"
+                           t-on-change="() => this.select(tile.value)"/>
+                    <span t-attf-class="o_qing_login_tile_swatch o_qing_login_tile_swatch--{{tile.value}}" t-att-style="tile.style">
+                        <span class="o_qing_login_tile_check"><i class="oi" data-icon="check"/></span>
+                    </span>
+                    <span class="o_qing_login_tile_name" t-out="tile.label"/>
+                </label>
+                <button t-if="tile.value === 'image' and !this.props.readonly" type="button" class="o_qing_login_tile_remove"
+                        t-att-title="this.labels.remove" t-att-aria-label="this.labels.remove" t-on-click="this.removeImage">
+                    <i class="oi" data-icon="close"/>
+                </button>
+            </div>
+            <div t-if="!this.props.readonly" class="o_qing_login_tile_item">
+                <button type="button" class="o_qing_login_tile" t-on-click="this.pickImage">
+                    <span class="o_qing_login_tile_swatch o_qing_login_tile_swatch--add"><i class="oi" data-icon="add"/></span>
+                    <span class="o_qing_login_tile_name" t-out="this.image ? this.labels.replace : this.labels.upload"/>
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

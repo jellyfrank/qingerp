@@ -1,7 +1,7 @@
 {
     'name': 'Qing Stock',
     'summary': 'QingERP inventory integration and scanner onboarding',
-    'version': '20.0.1.0.12',
+    'version': '20.0.1.0.13',
     'category': 'Inventory/Inventory',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

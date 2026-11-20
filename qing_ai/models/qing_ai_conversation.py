@@ -49,6 +49,13 @@ ASSISTANT_RULES = (
     'Cite knowledge sources by their supplied source numbers when used.'
 )
 ERP_ROUTE_TOKEN = '[[ERP]]'
+# Context key set for conversations answered by Qing Assistant in its Discuss chat.
+ASSISTANT_PERSONA_CONTEXT = 'qing_ai_assistant_persona'
+ASSISTANT_PERSONA = (
+    'You are Qing Assistant (小青), chatting with the user in QingERP Discuss. Company data is '
+    'only available through the ERP tools, which act with this user\'s permissions: you can only '
+    'see and change what the user may access.'
+)
 ERP_ROUTE_RULES = (
     'An ERP action planner with the tools listed below is available. If answering needs live ERP '
     'records or changes to them, or the user continues such a task from the conversation, reply '
@@ -62,6 +69,20 @@ IMAGE_MIME_TYPES = {'PNG': 'image/png', 'JPEG': 'image/jpeg', 'WEBP': 'image/web
 
 
 _logger = logging.getLogger(__name__)
+
+
+def _push_ai_stream(env, notification, payload):
+    """Deliver an interim reply in a short, independently committed transaction."""
+    uid = env.uid
+    try:
+        if odoo_module.current_test:
+            env['res.users'].sudo().browse(uid)._bus_send(notification, payload)
+            return
+        with env.registry.cursor() as cursor:
+            bus_env = api.Environment(cursor, SUPERUSER_ID, {})
+            bus_env['res.users'].browse(uid)._bus_send(notification, payload)
+    except Exception:  # noqa: BLE001 - keep returning the complete reply if the bus is unavailable
+        _logger.debug('Qing AI could not push a streaming update', exc_info=True)
 
 
 def render_assistant_markdown(content):
@@ -308,22 +329,10 @@ class QingAiConversation(models.Model):
         usage._record_tokens(result.get('usage'))
         return result
 
-    def _push_stream(self, text, done=False):
-        """Send the partial answer to the owner's browser in its own short transaction."""
-        payload = {'conversation_id': self.id, 'text': text, 'done': done}
-        uid = self.env.uid
-        try:
-            if odoo_module.current_test:
-                # Tests run in one shared transaction; never commit from a second cursor there.
-                self.env['res.users'].sudo().browse(uid)._bus_send(STREAM_NOTIFICATION, payload)
-                return
-            # The request transaction stays open until the provider finishes; a separate,
-            # immediately committed cursor lets the bus deliver each fragment right away.
-            with self.env.registry.cursor() as cursor:
-                env = api.Environment(cursor, SUPERUSER_ID, {})
-                env['res.users'].browse(uid)._bus_send(STREAM_NOTIFICATION, payload)
-        except Exception:  # noqa: BLE001 - streaming is cosmetic; the final answer is still returned
-            _logger.debug('Qing AI could not push a streaming update', exc_info=True)
+    def _push_stream(self, text, done=False, channel_id=False):
+        _push_ai_stream(self.env, STREAM_NOTIFICATION, {
+            'conversation_id': self.id, 'channel_id': channel_id, 'text': text, 'done': done,
+        })
 
     def _stream_publisher(self, hide_route_token=False):
         """
@@ -334,6 +343,10 @@ class QingAiConversation(models.Model):
         """
         self.ensure_one()
         state = {'text': '', 'pushed_at': 0.0, 'held': hide_route_token, 'muted': False}
+        # A Discuss chat bound to this conversation shows the partial answer in its window.
+        channel_id = self.env['discuss.channel'].sudo().search(
+            [('qing_ai_conversation_id', '=', self.id)], limit=1,
+        ).id
 
         def on_delta(delta):
             state['text'] += delta
@@ -350,7 +363,7 @@ class QingAiConversation(models.Model):
             now = time.monotonic()
             if now - state['pushed_at'] >= STREAM_PUSH_INTERVAL:
                 state['pushed_at'] = now
-                self._push_stream(state['text'])
+                self._push_stream(state['text'], channel_id=channel_id)
 
         return on_delta
 
@@ -371,8 +384,8 @@ class QingAiConversation(models.Model):
         """
         self.ensure_one()
         parts = [ASSISTANT_RULES]
-        if self.agent_id and self.agent_id.system_prompt:
-            parts.append('Agent role: ' + self.agent_id.system_prompt[:4000])
+        if role := self._agent_role():
+            parts.append('Agent role: ' + role)
         skills = [
             {'name': skill.name, 'instructions': (skill.instructions or '')[:2000]}
             for skill in self._agent_skills() if skill.instructions
@@ -382,6 +395,14 @@ class QingAiConversation(models.Model):
         if route_tools:
             parts.append(ERP_ROUTE_RULES + '\nERP tools:\n- ' + '\n- '.join(route_tools))
         return '\n'.join(parts)
+
+    def _agent_role(self):
+        """Agent role instructions; Qing Assistant chats add the assistant persona first."""
+        self.ensure_one()
+        role = (self.agent_id.system_prompt or '')[:4000] if self.agent_id else ''
+        if self.env.context.get(ASSISTANT_PERSONA_CONTEXT):
+            role = '\n'.join(part for part in (ASSISTANT_PERSONA, role) if part)
+        return role
 
     def _build_prompt(self, text, image_present=False, documents=None, knowledge=None):
         self.ensure_one()

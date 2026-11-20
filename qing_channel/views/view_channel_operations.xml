@@ -1,0 +1,78 @@
+<odoo>
+    <record id="view_channel_operations_list" model="ir.ui.view">
+        <field name="name">qing.channel.store.operations.list</field>
+        <field name="model">qing.channel.store</field>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <list create="0" delete="0" sample="1">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
+                <field name="platform" optional="hide"/>
+                <field name="onboarded" string="Publishing Enabled" optional="show"/>
+                <field name="ops_inbox_count"/>
+                <field name="ops_action_count"/>
+                <field name="ops_review_count" decoration-danger="ops_review_count"/>
+                <field name="ops_uncertain_count" decoration-warning="ops_uncertain_count"/>
+                <field name="ops_paused_count" decoration-warning="ops_paused_count"/>
+                <field name="ops_orders_through"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_operations" model="ir.actions.act_window">
+        <field name="name">Operations</field>
+        <field name="res_model">qing.channel.store</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_channel_operations_list"/>
+    </record>
+    <menuitem id="menu_channel_operations" name="Operations" parent="menu_channels_root"
+              action="action_channel_operations" groups="group_channel_manager" sequence="5"/>
+
+    <record id="view_channel_store_operations_form" model="ir.ui.view">
+        <field name="name">qing.channel.store.operations.form</field>
+        <field name="model">qing.channel.store</field>
+        <field name="inherit_id" ref="view_channel_store_form"/>
+        <field name="arch" type="xml">
+            <field name="warehouse_id" position="after">
+                <field name="ops_operator_id" groups="qing_channel.group_channel_manager"
+                       domain="[('share', '=', False), ('active', '=', True), ('company_ids', 'in', [company_id])]"/>
+            </field>
+            <group name="channel" position="before">
+                <div class="oe_button_box" name="button_box" groups="qing_channel.group_channel_manager">
+                    <button name="action_operations_inbox" type="object" class="oe_stat_button" icon="inbox">
+                        <field name="ops_inbox_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_operations_jobs" type="object" class="oe_stat_button" icon="assignment">
+                        <field name="ops_action_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_operations_exceptions" type="object" class="oe_stat_button" icon="warning">
+                        <field name="ops_review_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_operations_unconfirmed" type="object" class="oe_stat_button" icon="help">
+                        <field name="ops_uncertain_count" widget="statinfo"/>
+                    </button>
+                    <button name="action_operations_paused_inventory" type="object" class="oe_stat_button" icon="pause">
+                        <field name="ops_paused_count" widget="statinfo"/>
+                    </button>
+                </div>
+            </group>
+        </field>
+    </record>
+    <record id="view_channel_job_list" model="ir.ui.view">
+        <field name="name">qing.channel.action.list</field>
+        <field name="model">qing.channel.action</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="store_id"/>
+                <field name="order_id"/>
+                <field name="kind"/>
+                <field name="state"/>
+                <field name="retry_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_job" model="ir.actions.act_window">
+        <field name="name">Business Actions</field>
+        <field name="res_model">qing.channel.action</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

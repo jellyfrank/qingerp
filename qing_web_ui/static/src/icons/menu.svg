@@ -111,4 +111,11 @@
 <symbol id="aiChat" viewBox="0 0 24 24"><path d="M3 4h18v12H10l-5 4v-4H3z M12 6.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
 <symbol id="messageTemplate" viewBox="0 0 24 24"><path d="M6 3h12v18H6z M10.5 8C9.5 8 9 8.5 9 9.5v1c0 .6-.4 1-1 1 .6 0 1 .4 1 1v1c0 1 .5 1.5 1.5 1.5 M13.5 8c1 0 1.5.5 1.5 1.5v1c0 .6.4 1 1 1-.6 0-1 .4-1 1v1c0 1-.5 1.5-1.5 1.5"/></symbol>
 <symbol id="bell" viewBox="0 0 24 24"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4z M10 21h4"/></symbol><symbol id="video" viewBox="0 0 24 24"><path d="M4 7h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z M15 11l6-3v8l-6-3"/></symbol>
+<symbol id="calendarStack" viewBox="0 0 24 24"><path d="M3 7h14v14H3z M3 11h14 M7 5v4 M13 5v4 M7 15h2 M11 15h2 M10 3h11v13h-4"/></symbol>
+    <symbol id="storefront" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11v9h16v-9M3 8l2-4h14l2 4v1a2 2 0 0 1-4 0 2.5 2.5 0 0 1-5 0 2.5 2.5 0 0 1-5 0 2 2 0 0 1-4 0z"/>
+            <path d="M10 20v-5h4v5"/>
+        </g>
+    </symbol>
 </svg>

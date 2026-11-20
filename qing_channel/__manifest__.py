@@ -1,0 +1,21 @@
+{
+    'name': 'Qing Sales Channels',
+    'version': '20.0.1.4.5',
+    'author': 'Qingdao Ohm Network Technology Co., Ltd.',
+    'website': 'https://www.qingsolution.com/',
+    'support': 'kevin@odoomommy.com',
+    'license': 'LGPL-3',
+    'category': 'Sales',
+    'depends': ["qing_base","sale_stock","account"],
+    'data': [
+        'security/groups.xml',
+        'security/ir.access.csv',
+        'data/ir_cron.xml',
+        'views/view_channel_store_form.xml',
+        'views/view_channel_order_form.xml',
+        'views/channel_menu.xml',
+        'views/view_channel_operations.xml',
+    ],
+    'assets': {'web.assets_backend': ['qing_channel/static/src/scss/channel_store.scss']},
+    'application': False,
+}

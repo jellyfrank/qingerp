@@ -1,7 +1,7 @@
 {
     'name': 'Qing AI DeepSeek',
     'summary': 'DeepSeek text models for customer-owned Qing AI',
-    'version': '20.0.1.2.0',
+    'version': '20.0.1.2.1',
     'category': 'Productivity',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

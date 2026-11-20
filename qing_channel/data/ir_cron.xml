@@ -1,0 +1,34 @@
+<odoo noupdate="1">
+    <record id="cron_channel_inbox" model="ir.cron">
+        <field name="name">Channels: Process Inbox</field>
+        <field name="model_id" ref="model_qing_channel_delivery"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_process()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_channel_action" model="ir.cron">
+        <field name="name">Channels: Process Actions</field>
+        <field name="model_id" ref="model_qing_channel_action"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_process()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_channel_operations_alerts" model="ir.cron">
+        <field name="name">Channels: Notify operations contacts</field>
+        <field name="model_id" ref="model_qing_channel_store"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_channel_operations_alerts()</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_channel_request" model="ir.cron">
+        <field name="name">Channels: Process Requests</field>
+        <field name="model_id" ref="model_qing_channel_request"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_process()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+</odoo>

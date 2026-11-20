@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_shopify_channel_order_form" model="ir.ui.view">
+        <field name="name">qing.channel.order.form.shopify</field>
+        <field name="model">qing.channel.order</field>
+        <field name="inherit_id" ref="qing_channel.view_channel_order_form"/>
+        <field name="arch" type="xml">
+            <group name="channel_order_source" position="inside">
+                <field name="shopify_order_date" invisible="not shopify_order_date"/>
+            </group>
+            <group name="channel_order_sales" position="inside">
+                <field name="shopify_order_currency_id" invisible="not shopify_order_currency_id"
+                       options="{'no_open': True}"/>
+                <field name="shopify_order_total" invisible="not shopify_order_currency_id"/>
+            </group>
+        </field>
+    </record>
+</odoo>

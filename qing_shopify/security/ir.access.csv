@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_shopify_opening_manager,Manage Shopify opening commitments,qing.shopify.opening.commitment,qing_channel.group_channel_manager,crud,
+rule_shopify_opening_company,Shopify opening commitment company,qing.shopify.opening.commitment,,crud,"[('company_id', 'in', company_ids)]"
+access_shopify_bulk_import_manager,Read Shopify bulk imports,qing.shopify.bulk.import,qing_channel.group_channel_manager,r,
+rule_shopify_bulk_import_company,Shopify bulk import company,qing.shopify.bulk.import,,crud,"[('company_id', 'in', company_ids)]"

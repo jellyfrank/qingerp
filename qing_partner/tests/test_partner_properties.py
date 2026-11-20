@@ -39,10 +39,11 @@ class TestPartnerProperties(TransactionCase):
             'operation': 'r',
         })
         self.assertFalse(self.definition.with_user(self.editor).has_access('read'))
+        Partners = self.env['res.partner'].with_user(self.editor)
         with self.assertRaises(AccessError):
-            self.env['res.partner'].with_user(self.editor).onchange({}, [], self.specification)
+            Partners.onchange({}, [], self.specification)
         self.permission.active = True
-        result = self.env['res.partner'].with_user(self.editor).onchange({}, [], self.specification)
+        result = Partners.onchange({}, [], self.specification)
         self.assertEqual(result['value']['properties_base_definition_id']['id'], self.definition.id)
 
     def test_new_contact_onchange_keeps_native_properties(self):

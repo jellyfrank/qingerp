@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_config_settings_guide_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.qing.ai.guide</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="qing_ai.view_res_config_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='qing_ai']" position="inside">
+                <block title="Manual and Professional Knowledge" name="qing_ai_professional">
+                    <setting id="qing_ai_professional_guide" string="Enable Professional Knowledge"
+                             help="Allow the QingERP service center to receive the selected documentation topic, applicable product version and required app identifier. Instance credentials are sent separately. Your selected model provider receives the predefined topic and authorized excerpts.">
+                        <field name="qing_ai_professional_guide"/>
+                        <div class="mt-2">
+                            <button name="action_open_guide_registration" type="object" class="btn-link"
+                                    icon="oi-arrow-right" string="Manage Professional Registration"/>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

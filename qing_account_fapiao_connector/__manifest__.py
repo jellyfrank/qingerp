@@ -2,7 +2,7 @@
     'name': 'Qing 开票服务衔接',
     'summary': '审批申请与公共开票任务衔接，保留额度及登记控制',
     'description': 'Connect approved invoice requests to provider tasks and manage issuance results and tax-invoice registration.',
-    'version': '20.0.1.15',
+    'version': '20.0.1.16',
     'category': 'Accounting/Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

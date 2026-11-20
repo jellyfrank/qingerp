@@ -52,7 +52,7 @@ class TestQingAiDailyAssistant(TransactionCase):
         attachment = self.env['ir.attachment'].sudo().create({
             'name': 'private.txt',
             'type': 'binary',
-            'datas': base64.b64encode(b'private contents'),
+            'raw': b'private contents',
             'res_model': 'qing.ai.message',
             'res_id': message.id,
             'public': False,

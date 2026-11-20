@@ -1,17 +1,40 @@
 """Enforce the company IP whitelist and record sign-in attempts."""
 import logging
 
+from markupsafe import Markup
+
 from odoo import SUPERUSER_ID, api, models
 from odoo.exceptions import AccessDenied
 from odoo.http import request
 
 from ..tools import mommy_base_loaded
+from ..tools.geoip import request_ip_location
 
 _logger = logging.getLogger(__name__)
 
 
 class ResUsers(models.Model):
     _inherit = 'res.users'
+
+    def _init_odoobot(self):
+        self.ensure_one()
+        assistant = self.env.ref('base.partner_root')
+        name = assistant.name
+        if name == 'Qing Assistant' and (self.env.lang or '').split('_')[0] == 'zh':
+            name = '小青'
+        channel = self.env['discuss.channel']._get_or_create_chat([assistant.id, self.partner_id.id])
+        channel.sudo().message_post(
+            author_id=assistant.id,
+            body=Markup('%s<br/>%s') % (
+                self.env._("Hello, I'm %(name)s.", name=name),
+                self.env['mail.bot']._qing_assistant_help(),
+            ),
+            message_type='comment',
+            silent=True,
+            subtype_xmlid='mail.mt_comment',
+        )
+        self.sudo().odoobot_state = 'idle'
+        return channel
 
     def _check_credentials(self, credential, env):
         auth_info = super()._check_credentials(credential, env)
@@ -36,9 +59,12 @@ class ResUsers(models.Model):
         """
         if not request or credential.get('type') != 'password' or mommy_base_loaded(self.env):
             return
+        ip, country, city = request_ip_location(request)
         values = {
+            'city': city or False,
+            'country': country or False,
             'failure_reason': failure_reason or False,
-            'ip_address': request.httprequest.remote_addr or 'n/a',
+            'ip_address': ip or 'n/a',
             'login': (credential.get('login') or '')[:256],
             'success': bool(user_id),
             'user_id': user_id or False,

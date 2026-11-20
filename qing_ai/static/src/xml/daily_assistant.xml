@@ -89,6 +89,8 @@
                              t-att-src="this.state.conversation.agent_avatar_url" alt=""/>
                         <h3 class="h5 mb-0">Daily Assistant</h3>
                     </div>
+                    <button type="button" class="btn btn-link btn-sm px-0"
+                            t-on-click="() => this.action.doAction('qing_ai.action_qing_ai_guide')">Manual and Professional Knowledge</button>
                     <details t-if="this.state.conversation?.context_model" class="small text-muted my-2">
                         <summary>Record context: <t t-esc="this.state.conversation.context_model"/> #<t t-esc="this.state.conversation.context_res_id"/><span class="ms-1">Review fields sent to AI</span></summary>
                         <p t-if="this.state.conversation.context_unavailable" class="text-danger mb-0">This record is no longer available to you. Requests using it will be blocked.</p>

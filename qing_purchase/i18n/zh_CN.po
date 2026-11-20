@@ -26,3 +26,29 @@ msgstr "当前没有可开票数量。请检查已收货数量和现有供应商
 #: code:addons/qing_purchase/models/purchase_order.py:0
 msgid "Only a purchase administrator may assign purchases to another buyer."
 msgstr "只有采购管理员可以将采购单分配给其他采购员。"
+
+# Odoo leaves these purchase dashboard labels untranslated. The web client
+# falls back to any installed module's translation of the same text.
+#. module: qing_purchase
+#. odoo-javascript
+#: code:addons/purchase/static/src/views/purchase_dashboard.xml:0
+msgid "Late RFQ"
+msgstr "逾期询价"
+
+#. module: qing_purchase
+#. odoo-javascript
+#: code:addons/purchase/static/src/views/purchase_dashboard.xml:0
+msgid "Late Receipt"
+msgstr "逾期收货"
+
+#. module: qing_purchase
+#. odoo-javascript
+#: code:addons/purchase/static/src/views/purchase_dashboard.xml:0
+msgid "Days to Order"
+msgstr "下单天数"
+
+#. module: qing_purchase
+#. odoo-javascript
+#: code:addons/purchase/static/src/views/purchase_dashboard.xml:0
+msgid "My"
+msgstr "我的"

@@ -178,7 +178,7 @@ class TestLoginSecurity(HttpCase):
         _users, credential, user_id, reason = record.call_args.args
         self.assertEqual(credential['login'], 'admin')
         self.assertFalse(user_id)
-        self.assertIn('IP address', reason)
+        self.assertRegex(reason, 'IP address|IP 地址')
 
         admin.company_id.qing_login_ip_whitelist = '127.0.0.1'
         self.assertNotIn('error', self._authenticate())

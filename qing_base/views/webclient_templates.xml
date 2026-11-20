@@ -3,7 +3,7 @@
     <template id="layout_branding" inherit_id="web.layout" name="Qing browser icon">
         <xpath expr="//link[@rel='shortcut icon']" position="attributes">
             <attribute name="type">image/png</attribute>
-            <attribute name="t-att-href">x_icon or '/qing_base/static/img/qing_logo.png'</attribute>
+            <attribute name="t-att-href">x_icon or '/qing_base/static/img/qing_logo_192.png?v=2'</attribute>
         </xpath>
     </template>
     <!-- The whole QingERP login page lives in one template so that layouts replacing
@@ -12,7 +12,8 @@
          colour palettes restyle every .card-body (background, text and heading colours). -->
     <template id="login_page" name="QingERP login page">
         <t t-set="qing_config" t-value="request.env['ir.config_parameter'].sudo()"/>
-        <t t-set="title" t-value="title or qing_config.get_str('qing_base.title', 'QingERP 20.0')"/>
+        <t t-set="title" t-value="title or request.env['ir.http']._qing_configured_title()"/>
+        <t t-set="disable_footer" t-value="disable_footer or qing_config.get_bool('mommy.database_manager')"/>
         <t t-set="qing_is_login" t-value="qing_preview or request.httprequest.path == '/web/login'"/>
         <t t-set="qing_background" t-value="qing_background if qing_preview else request.env['qing.login.background']._saved_values()"/>
         <t t-call="web.frontend_layout"
@@ -23,10 +24,25 @@
             head="head">
             <div t-attf-class="container py-5 #{'qing-login-layout' if qing_is_login else ''}">
                 <section t-attf-class="qing-login-scene qing-login-scene-#{qing_background['style']}" t-att-style="'background-color: %s' % qing_background['color'] if qing_background['style'] == 'solid' else None" t-if="qing_is_login" aria-hidden="true">
+                    <div t-if="qing_background['style'] in ('default', 'image')" class="qing-login-cosmos">
+                        <div class="qing-login-cosmos-band"/>
+                        <div class="qing-login-cosmos-dust"/>
+                        <div class="qing-login-cosmos-far"/>
+                        <div class="qing-login-cosmos-mid"/>
+                        <div class="qing-login-cosmos-near"/>
+                        <div class="qing-login-cosmos-glow"/>
+                        <div class="qing-login-cosmos-horizon"/>
+                        <i t-foreach="range(12)" t-as="qing_star" class="qing-login-cosmos-twinkle"/>
+                        <b class="qing-login-cosmos-meteor"/>
+                        <b class="qing-login-cosmos-meteor"/>
+                    </div>
+                    <t t-if="qing_background['style'] == 'dawn'" t-call="qing_base.login_scene_dawn"/>
+                    <t t-if="qing_background['style'] == 'aurora'" t-call="qing_base.login_scene_aurora"/>
+                    <t t-if="qing_background['style'] == 'silk'" t-call="qing_base.login_scene_silk"/>
                     <img t-if="qing_background['style'] == 'image'" class="qing-login-illustration qing-login-custom-image" t-att-src="qing_background['image_url']" alt=""/>
-                    <img t-if="qing_background['style'] == 'default'" class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
+                    <img t-if="qing_background['style'] == 'qingdao'" class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
                         width="1672" height="941" alt="青岛五月的风雕塑、海滨灯塔、城市楼群、蓝天白云与海鸥的全景淡彩素描" fetchpriority="high"/>
-                    <svg t-if="qing_background['style'] == 'default'" class="qing-login-water-filter" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" focusable="false">
+                    <svg t-if="qing_background['style'] == 'qingdao'" class="qing-login-water-filter" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0" focusable="false">
                         <defs>
                             <filter id="qing-login-water-refraction" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
                                 <feTurbulence type="fractalNoise" baseFrequency="0.012 0.08" numOctaves="1" seed="7" result="ripples"/>
@@ -34,31 +50,40 @@
                             </filter>
                         </defs>
                     </svg>
-                    <div t-if="qing_background['style'] == 'default'" class="qing-login-water" aria-hidden="true">
+                    <div t-if="qing_background['style'] == 'qingdao'" class="qing-login-water" aria-hidden="true">
                         <img class="qing-login-illustration" src="/qing_base/static/img/qingdao_low_angle.webp"
                             width="1672" height="941" alt="" decoding="async"/>
                     </div>
-                    <div t-if="qing_background['style'] == 'default'" class="qing-login-scene-footer">BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT</div>
+                    <div t-if="qing_background['style'] in ('default', 'qingdao')" class="qing-login-scene-footer">BUILT ON ODOO COMMUNITY · DESIGNED FOR WHAT'S NEXT</div>
                 </section>
                 <div t-attf-class="qing-login-card mx-auto {{login_card_classes}} o_database_list">
                     <div class="qing-login-card-body">
-                        <div class="text-center pb-3 border-bottom mb-4">
-                            <img src="/qing_base/static/img/qing_logo.png" alt="Qing" style="max-height:120px; max-width: 100%; width:auto"/>
+                        <div class="text-center pb-3 border-bottom mb-4" t-if="not qing_is_login">
+                            <img src="/qing_base/static/img/qing_wordmark.png" alt="QingERP" width="348" height="84" style="height: 40px; max-width: 100%; width: auto"/>
+                        </div>
+                        <div class="qing-login-brand" t-if="qing_is_login">
+                            <img src="/qing_base/static/img/qing_wordmark.png" alt="QingERP" width="348" height="84"/>
                         </div>
                         <div class="qing-login-heading" t-if="qing_is_login">
-                            <span>WELCOME TO QINGERP</span>
                             <h2>欢迎回来</h2>
+                            <p>登录你的账号，继续今天的工作</p>
                         </div>
                         <t t-out="0"/>
-                        <div class="qing-login-footer" t-if="not disable_footer and qing_is_login">
-                            <div class="qing-login-copyright">© QingERP · 青岛欧姆网络科技 2026</div>
-                            <div class="qing-login-browser-support">Use the latest Chrome, Edge, Firefox, or Safari. Chrome/Edge versions below 122 are not supported.</div>
-                        </div>
-                        <div class="text-center small mt-4 pt-3 border-top" t-elif="not disable_footer">
-                            <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">Powered by <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="24" height="24" style="object-fit:contain;vertical-align:middle;"/></a>
+                        <!-- Stock Odoo renders the sign-in form hidden and shows it once the lazy bundle
+                             has checked for remembered users, so the card jumps in height on every load.
+                             Decide at once, with the rule web.user_switch uses: only several remembered
+                             users keep the form back. Keep this script free of &lt;, &gt; and &amp;. -->
+                        <script t-if="qing_is_login">try{var u=JSON.parse(localStorage.getItem("web.lastConnectedUser")||"[]"),f=document.querySelector("form.oe_login_form.d-none");if(f){if(u.length===0||u.length===1){f.classList.remove("d-none")}}}catch(e){}</script>
+                        <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer and not qing_is_login">
+                            <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">Powered by <img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="Qing" width="24" height="24" style="object-fit:contain;vertical-align:middle;"/></a>
                         </div>
                     </div>
                 </div>
+                <!-- At the foot of the page, on the background: text tone follows the scene. -->
+                <footer t-attf-class="qing-login-footer qing-login-footer-on-#{qing_background.get('backdrop') or 'dark'}" t-if="not disable_footer and qing_is_login">
+                    <div class="qing-login-copyright">© QingERP · 青岛欧姆网络科技 2026</div>
+                    <div class="qing-login-browser-support">Use the latest Chrome, Edge, Firefox, or Safari. Chrome/Edge versions below 122 are not supported.</div>
+                </footer>
             </div>
         </t>
     </template>
@@ -96,14 +121,14 @@
         <xpath expr="//t[@t-set='odoo_logo']" position="replace">
             <t t-set="odoo_logo">
                 <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="32" height="32" style="object-fit:contain;vertical-align:middle;"/>
+                    <img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="Qing" width="32" height="32" style="object-fit:contain;vertical-align:middle;"/>
                 </a>
             </t>
         </xpath>
     </template>
     <template id="bootstrap_branding" inherit_id="web.webclient_bootstrap" name="Qing browser branding">
         <xpath expr="//t[@t-call='web.layout']" position="before">
-            <t t-set="title" t-value="title or request.env['ir.config_parameter'].sudo().get_str('mommy.title', 'QingERP 20.0') or 'QingERP 20.0'"/>
+            <t t-set="title" t-value="title or request.env['ir.http']._qing_configured_title()"/>
         </xpath>
         <xpath expr="//link[@rel='apple-touch-icon']" position="attributes">
             <attribute name="href">/qing/brand/icon/180</attribute>

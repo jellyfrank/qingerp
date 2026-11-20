@@ -1,0 +1,196 @@
+<odoo>
+    <menuitem id="menu_channels_root" name="Sales Channels" groups="group_channel_user" sequence="41"/>
+
+    <menuitem id="menu_channel_finance" name="Transactions and Refunds"
+              parent="menu_channels_root" groups="group_channel_manager" sequence="40"/>
+    <menuitem id="menu_channel_sync" name="Sync Logs"
+              parent="menu_channels_root" groups="group_channel_manager" sequence="60"/>
+    <menuitem id="menu_channel_configuration" name="Configuration"
+              parent="menu_channels_root" groups="group_channel_manager" sequence="90"/>
+    <record id="view_channel_store_list" model="ir.ui.view">
+        <field name="name">qing.channel.store.list</field>
+        <field name="model">qing.channel.store</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="platform"/>
+                <field name="company_id"/>
+                <field name="warehouse_id"/>
+                <field name="onboarded"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_store" model="ir.actions.act_window">
+        <field name="name">Stores</field>
+        <field name="res_model">qing.channel.store</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_store" name="Stores" action="action_channel_store"
+              parent="menu_channel_configuration" groups="group_channel_manager" sequence="10"/>
+    <record id="view_channel_order_list" model="ir.ui.view">
+        <field name="name">qing.channel.order.list</field>
+        <field name="model">qing.channel.order</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="external_name"/>
+                <field name="store_id"/>
+                <field name="sale_id"/>
+                <field name="historical"/>
+                <field name="external_updated_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_order" model="ir.actions.act_window">
+        <field name="name">Channel Orders</field>
+        <field name="res_model">qing.channel.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_order" name="Channel Orders" action="action_channel_order"
+              parent="menu_channels_root" groups="group_channel_user" sequence="20"/>
+    <record id="view_channel_transaction_list" model="ir.ui.view">
+        <field name="name">qing.channel.transaction.list</field>
+        <field name="model">qing.channel.transaction</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="external_id"/>
+                <field name="order_id"/>
+                <field name="kind"/>
+                <field name="status"/>
+                <field name="gateway"/>
+                <field name="payment_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_transaction" model="ir.actions.act_window">
+        <field name="name">Transactions</field>
+        <field name="res_model">qing.channel.transaction</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_transaction" name="Transactions" action="action_channel_transaction"
+              parent="menu_channel_finance" groups="group_channel_manager" sequence="10"/>
+    <record id="view_channel_refund_list" model="ir.ui.view">
+        <field name="name">qing.channel.refund.list</field>
+        <field name="model">qing.channel.refund</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="external_id"/>
+                <field name="order_id"/>
+                <field name="processed_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_refund" model="ir.actions.act_window">
+        <field name="name">Refunds</field>
+        <field name="res_model">qing.channel.refund</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_refund" name="Refunds" action="action_channel_refund"
+              parent="menu_channel_finance" groups="group_channel_manager" sequence="20"/>
+    <record id="view_channel_binding_list" model="ir.ui.view">
+        <field name="name">qing.channel.binding.list</field>
+        <field name="model">qing.channel.binding</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="external_id"/>
+                <field name="store_id"/>
+                <field name="kind"/>
+                <field name="product_id"/>
+                <field name="partner_id"/>
+                <field name="location_external_id"/>
+                <field name="stock_paused"/>
+                <field name="stock_hold_reason" optional="show"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_binding" model="ir.actions.act_window">
+        <field name="name">Product and Inventory Mappings</field>
+        <field name="res_model">qing.channel.binding</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_binding" name="Product and Inventory Mappings" action="action_channel_binding"
+              parent="menu_channel_configuration" groups="group_channel_manager" sequence="20"/>
+    <record id="view_channel_mapping_list" model="ir.ui.view">
+        <field name="name">qing.channel.mapping.list</field>
+        <field name="model">qing.channel.mapping</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="external_key"/>
+                <field name="store_id"/>
+                <field name="kind"/>
+                <field name="tax_id"/>
+                <field name="journal_id"/>
+                <field name="product_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_mapping" model="ir.actions.act_window">
+        <field name="name">Accounting and Shipping</field>
+        <field name="res_model">qing.channel.mapping</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_mapping" name="Accounting and Shipping" action="action_channel_mapping"
+              parent="menu_channel_configuration" groups="group_channel_manager" sequence="30"/>
+    <record id="view_channel_exception_list" model="ir.ui.view">
+        <field name="name">qing.channel.exception.list</field>
+        <field name="model">qing.channel.exception</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="store_id"/>
+                <field name="code"/>
+                <field name="object_model"/>
+                <field name="object_id"/>
+                <field name="resolved"/>
+                <button name="action_recheck" type="object" string="Recheck" invisible="resolved"
+                        groups="qing_channel.group_channel_manager"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_exception" model="ir.actions.act_window">
+        <field name="name">Exceptions</field>
+        <field name="res_model">qing.channel.exception</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_exception" name="Exceptions" action="action_channel_exception"
+              parent="menu_channels_root" groups="group_channel_user" sequence="30"/>
+    <record id="view_channel_request_list" model="ir.ui.view">
+        <field name="name">qing.channel.request.list</field>
+        <field name="model">qing.channel.request</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="store_id"/>
+                <field name="action_id"/>
+                <field name="operation"/>
+                <field name="state"/>
+                <field name="remote_reference"/>
+                <field name="retry_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_request" model="ir.actions.act_window">
+        <field name="name">Outbound Requests</field>
+        <field name="res_model">qing.channel.request</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_request" name="Outbound Requests" action="action_channel_request"
+              parent="menu_channel_sync" groups="group_channel_manager" sequence="20"/>
+    <record id="view_channel_delivery_list" model="ir.ui.view">
+        <field name="name">qing.channel.delivery.list</field>
+        <field name="model">qing.channel.delivery</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0">
+                <field name="store_id"/>
+                <field name="topic"/>
+                <field name="state"/>
+                <field name="external_id"/>
+                <field name="received_at"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_channel_delivery" model="ir.actions.act_window">
+        <field name="name">Inbox</field>
+        <field name="res_model">qing.channel.delivery</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_channel_delivery" name="Inbox" action="action_channel_delivery"
+              parent="menu_channel_sync" groups="group_channel_manager" sequence="10"/>
+</odoo>

@@ -1,0 +1,1069 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_channel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_mapping
+#: model:ir.ui.menu,name:qing_channel.menu_channel_mapping
+msgid "Accounting and Shipping"
+msgstr "财务与发货"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__action_id
+msgid "Action"
+msgstr "操作"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__active
+msgid "Active"
+msgstr "有效"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_job
+msgid "Business Actions"
+msgstr "业务动作"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__obsolete
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__cancelled_qty
+msgid "Cancelled Qty"
+msgstr "取消数量"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_mapping
+msgid "Channel Accounting and Delivery Mapping"
+msgstr "渠道财务与发货映射"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_action
+msgid "Channel Business Action"
+msgstr "渠道业务动作"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_exception
+msgid "Channel Exception"
+msgstr "渠道异常"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_delivery
+msgid "Channel Inbox Delivery"
+msgstr "渠道收件箱投递"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_stock_claim
+msgid "Channel Inventory Commitment"
+msgstr "渠道库存占用"
+
+#. module: qing_channel
+#: model:res.groups,name:qing_channel.group_channel_manager
+msgid "Channel Manager"
+msgstr "渠道管理员"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+#: code:addons/qing_channel/models/store_operations.py:0
+msgid "Channel Manager access is required."
+msgstr "需要渠道管理员权限。"
+
+#. module: qing_channel
+#: model:res.groups,name:qing_channel.group_channel_user
+msgid "Channel Operator"
+msgstr "渠道操作员"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_order
+msgid "Channel Order"
+msgstr "渠道订单"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_order_line
+msgid "Channel Order Line"
+msgstr "渠道订单行"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_order
+#: model:ir.ui.menu,name:qing_channel.menu_channel_order
+msgid "Channel Orders"
+msgstr "渠道订单"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_request_attempt
+msgid "Channel Outbound Attempt"
+msgstr "对外请求发送记录"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_request
+msgid "Channel Outbound Request"
+msgstr "渠道对外请求"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_transaction
+msgid "Channel Payment Transaction"
+msgstr "渠道付款交易"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_cursor
+msgid "Channel Reconciliation Cursor"
+msgstr "渠道对账游标"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_binding
+msgid "Channel Record Binding"
+msgstr "渠道记录绑定"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_refund
+msgid "Channel Refund"
+msgstr "渠道退款单"
+
+#. module: qing_channel
+#: model:ir.actions.server,name:qing_channel.cron_channel_operations_alerts_ir_actions_server
+msgid "Channels: Notify operations contacts"
+msgstr "销售渠道：通知运维联系人"
+
+#. module: qing_channel
+#: model:ir.actions.server,name:qing_channel.cron_channel_action_ir_actions_server
+msgid "Channels: Process Actions"
+msgstr "销售渠道：处理业务动作"
+
+#. module: qing_channel
+#: model:ir.actions.server,name:qing_channel.cron_channel_inbox_ir_actions_server
+msgid "Channels: Process Inbox"
+msgstr "销售渠道：处理收件箱"
+
+#. module: qing_channel
+#: model:ir.actions.server,name:qing_channel.cron_channel_request_ir_actions_server
+msgid "Channels: Process Requests"
+msgstr "销售渠道：处理对外请求"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__verify
+msgid "Checking Result"
+msgstr "正在核对结果"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__checks
+msgid "Checks"
+msgstr "检查"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/store_operations.py:0
+msgid "Choose an active Channel Manager who can access the store’s company."
+msgstr "请选择有权访问该店铺所属公司的在职渠道管理员。"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__code
+msgid "Code"
+msgstr "代码"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__company_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__success
+msgid "Confirmed"
+msgstr "已确认"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__confirmed_rejection
+msgid "Confirmed Rejection"
+msgstr "已确认被拒绝"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__create_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__create_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_binding__kind__customer
+msgid "Customer"
+msgstr "客户"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/binding.py:0
+msgid "Customer mappings require a contact."
+msgstr "客户映射必须指定联系人。"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__cutover_at
+msgid "Cutover At"
+msgstr "库存接管生效时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__data
+msgid "Data"
+msgstr "数据"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__dependency_ids
+msgid "Dependency"
+msgstr "依赖动作"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__display_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__done
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_delivery__state__done
+msgid "Done"
+msgstr "已完成"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__event_id
+msgid "Event"
+msgstr "事件"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_exception
+#: model:ir.ui.menu,name:qing_channel.menu_channel_exception
+msgid "Exceptions"
+msgstr "异常"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__expedited
+msgid "Expedited"
+msgstr "优先处理"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__external_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__external_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__external_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__external_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__external_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__external_id
+msgid "External"
+msgstr "外部标识"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__external_key
+msgid "External Key"
+msgstr "外部键"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__external_name
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__name
+msgid "External Name"
+msgstr "外部名称"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__external_updated_at
+msgid "External Updated At"
+msgstr "外部更新时间"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__failed
+msgid "Failed"
+msgstr "失败"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__first_sent_at
+msgid "First Sent At"
+msgstr "首次发送时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__gateway
+msgid "Gateway"
+msgstr "网关"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__historical
+msgid "Historical"
+msgstr "历史订单"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__id
+msgid "ID"
+msgstr "编号"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__idempotency_key
+msgid "Idempotency Key"
+msgstr "幂等键"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__identity
+msgid "Identity"
+msgstr "投递标识"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_delivery
+#: model:ir.ui.menu,name:qing_channel.menu_channel_delivery
+msgid "Inbox"
+msgstr "收件箱"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_binding__kind__inventory
+msgid "Inventory Item"
+msgstr "库存项"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__journal_id
+msgid "Journal"
+msgstr "日记账"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__key
+msgid "Key"
+msgstr "键"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__kind
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__kind
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__kind
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__kind
+msgid "Kind"
+msgstr "类型"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__last_quantity
+msgid "Last Quantity"
+msgstr "最近核实数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__write_uid
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__write_date
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__line_ids
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__line_id
+msgid "Line"
+msgstr "行"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__location_external_id
+msgid "Location External"
+msgstr "外部位置"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__location_uncertain
+msgid "Location Uncertain"
+msgstr "位置待确认"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_store__platform__manual
+msgid "Manual"
+msgstr "手动"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__name
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__review
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_delivery__state__review
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__review
+msgid "Needs Review"
+msgstr "待人工复核"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/store_operations.py:0
+msgid ""
+"New channel exceptions for %(store)s (%(count)s). Open Sales Channels → "
+"Operations to review them."
+msgstr "店铺 %(store)s 新增 %(count)s 条渠道异常。请在销售渠道的运维看板中查看。"
+
+#. module: qing_channel
+#: model:res.groups.privilege,placeholder:qing_channel.privilege_channel
+msgid "No"
+msgstr "否"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__object_id
+msgid "Object"
+msgstr "对象"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__object_model
+msgid "Object Model"
+msgstr "对象模型"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__occurred_at
+msgid "Occurred At"
+msgstr "发生时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__onboarded
+msgid "Onboarded"
+msgstr "已完成接管"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_review_count
+msgid "Open Exceptions"
+msgstr "待处理异常"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "Open the request exception to recheck an external operation."
+msgstr "请打开对应的请求异常，重新核对对外操作的结果。"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__opening_fulfilled_qty
+msgid "Opening Fulfilled Qty"
+msgstr "期初已履约数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__operation
+msgid "Operation"
+msgstr "操作"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_operations
+#: model:ir.ui.menu,name:qing_channel.menu_channel_operations
+msgid "Operations"
+msgstr "运维看板"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_operator_id
+msgid "Operations Contact"
+msgstr "运维联系人"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_alerted_exception_id
+msgid "Ops Alerted Exception"
+msgstr "运维已通知异常"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__order_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__order_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__order_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__order_id
+msgid "Order"
+msgstr "订单"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__ordered_qty
+msgid "Ordered Qty"
+msgstr "订购数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_orders_through
+msgid "Orders Reconciled Through"
+msgstr "订单已对账至"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_request
+#: model:ir.ui.menu,name:qing_channel.menu_channel_request
+msgid "Outbound Requests"
+msgstr "对外请求"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/request_attempt.py:0
+msgid "Outbound attempt records are append-only."
+msgstr "对外请求的发送记录只允许追加。"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__page_cursor
+msgid "Page Cursor"
+msgstr "分页游标"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__page_restarts
+msgid "Page Restarts"
+msgstr "分页重扫次数"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__page_rows
+msgid "Page Rows"
+msgstr "分页记录数"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__parent_external_id
+msgid "Parent External"
+msgstr "外部上级记录"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__partner_id
+msgid "Partner"
+msgstr "往来单位"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_paused_count
+msgid "Paused Inventory Items"
+msgstr "已暂停发布的库存项"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__payload
+msgid "Payload"
+msgstr "请求载荷"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__payload_hash
+msgid "Payload Hash"
+msgstr "载荷摘要"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__payment_id
+msgid "Payment"
+msgstr "付款"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_mapping__kind__gateway
+msgid "Payment Gateway"
+msgstr "支付网关"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__pending
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_delivery__state__pending
+msgid "Pending"
+msgstr "待处理"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_action_count
+msgid "Pending Actions"
+msgstr "待处理动作"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_inbox_count
+msgid "Pending Deliveries"
+msgstr "待处理投递"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__platform
+msgid "Platform"
+msgstr "平台"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__uncertain
+msgid "Possibly Sent"
+msgstr "可能已发送"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__ready
+msgid "Prepared"
+msgstr "已就绪"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__processed_at
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__processed_at
+msgid "Processed At"
+msgstr "处理时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__product_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__product_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__product_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__product_id
+msgid "Product"
+msgstr "产品"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_binding
+#: model:ir.ui.menu,name:qing_channel.menu_channel_binding
+msgid "Product and Inventory Mappings"
+msgstr "商品与库存映射"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/binding.py:0
+msgid "Product and inventory mappings require a product."
+msgstr "商品和库存映射必须指定产品。"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_operations_list
+msgid "Publishing Enabled"
+msgstr "已启用库存发布"
+
+#. module: qing_channel
+#: model:ir.module.module,shortdesc:base.module_qing_channel
+msgid "Qing Sales Channels"
+msgstr "QingERP 销售渠道"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__quantity
+msgid "Quantity"
+msgstr "数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__quantity_checked_at
+msgid "Quantity Checked At"
+msgstr "数量核对时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__quantity_version
+msgid "Quantity Version"
+msgstr "数量版本"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__received_at
+msgid "Received At"
+msgstr "接收时间"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_exception_list
+msgid "Recheck"
+msgstr "重新核对"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__reconcile_after
+msgid "Reconcile After"
+msgstr "下次对账时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__reconcile_quantity
+msgid "Reconcile Quantity"
+msgstr "待对账数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__refund_id
+msgid "Refund"
+msgstr "退款"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_mapping__kind__adjustment
+msgid "Refund Adjustment"
+msgstr "退款调整"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_refund
+#: model:ir.ui.menu,name:qing_channel.menu_channel_refund
+msgid "Refunds"
+msgstr "退款"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__remote_reference
+msgid "Remote Reference"
+msgstr "外部引用"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__superseded
+msgid "Replaced"
+msgstr "已替换"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__request_ids
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__request_id
+msgid "Request"
+msgstr "请求"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__resolved
+msgid "Resolved"
+msgstr "已解决"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__resource
+msgid "Resource"
+msgstr "资源"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__restocked_qty
+msgid "Restocked Qty"
+msgstr "已回补库存数量"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request_attempt__result
+msgid "Result"
+msgstr "结果"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_delivery__state__retry
+msgid "Retry"
+msgstr "重试"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__retry_at
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__retry_at
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__retry_at
+msgid "Retry At"
+msgstr "下次重试时间"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__sale_id
+msgid "Sale"
+msgstr "销售单"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__sale_line_id
+msgid "Sale Line"
+msgstr "销售单行"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/store_operations.py:0
+msgid "Sales Channel Operations"
+msgstr "销售渠道运维"
+
+#. module: qing_channel
+#: model:ir.model,name:qing_channel.model_qing_channel_store
+msgid "Sales Channel Store"
+msgstr "销售渠道店铺"
+
+#. module: qing_channel
+#: model:ir.ui.menu,name:qing_channel.menu_channels_root
+#: model:res.groups.privilege,name:qing_channel.privilege_channel
+msgid "Sales Channels"
+msgstr "销售渠道"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_mapping__kind__shipping
+msgid "Shipping"
+msgstr "发货"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__sku
+msgid "Sku"
+msgstr "SKU"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__snapshot
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__snapshot
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__snapshot
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__snapshot
+msgid "Snapshot"
+msgstr "快照"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__snapshot_hash
+msgid "Snapshot Hash"
+msgstr "快照摘要"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__snapshot_version
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__snapshot_version
+msgid "Snapshot Version"
+msgstr "快照版本"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__state
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__state
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__state
+msgid "State"
+msgstr "状态"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__status
+msgid "Status"
+msgstr "状态"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__stock_hold_reason
+msgid "Stock Hold Reason"
+msgstr "库存暂缓原因"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__stock_paused
+msgid "Stock Paused"
+msgstr "库存发布已暂停"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__stock_unverified
+msgid "Stock Unverified"
+msgstr "库存待核对"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_binding__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_request__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_stock_claim__store_id
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__store_id
+msgid "Store"
+msgstr "店铺"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_store
+#: model:ir.ui.menu,name:qing_channel.menu_channel_store
+msgid "Stores"
+msgstr "店铺"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__stream
+msgid "Stream"
+msgstr "同步流"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__obsolete
+msgid "Superseded"
+msgstr "已由新记录取代"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_request__state__satisfied
+msgid "Target Satisfied"
+msgstr "已达到目标"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_mapping__tax_id
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_mapping__kind__tax
+msgid "Tax"
+msgstr "税项"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/store_operations.py:0
+msgid "The channel controls the last operations reminder."
+msgstr "上次运维提醒由渠道系统维护。"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "The channel record is outside this shop."
+msgstr "该渠道记录不属于此店铺。"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "The referenced channel record no longer exists."
+msgstr "引用的渠道记录已不存在。"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "This delivery is already being handled."
+msgstr "此投递正在处理中。"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "This exception needs a configuration or manual correction."
+msgstr "此异常需要调整配置或人工处理。"
+
+#. module: qing_channel
+#. odoo-python
+#: code:addons/qing_channel/models/exception.py:0
+msgid "This request is already being handled."
+msgstr "此请求正在处理中。"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__through
+msgid "Through"
+msgstr "已处理至"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__topic
+msgid "Topic"
+msgstr "事件主题"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_refund__transaction_ids
+msgid "Transaction"
+msgstr "交易"
+
+#. module: qing_channel
+#: model:ir.actions.act_window,name:qing_channel.action_channel_transaction
+#: model:ir.ui.menu,name:qing_channel.menu_channel_transaction
+msgid "Transactions"
+msgstr "交易"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_action__tries
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_delivery__tries
+msgid "Tries"
+msgstr "尝试次数"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__ops_uncertain_count
+msgid "Unconfirmed Requests"
+msgstr "待确认请求"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__variant_id
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_binding__kind__variant
+msgid "Variant"
+msgstr "商品变体"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__waiting
+msgid "Waiting for Dependency"
+msgstr "等待前置动作"
+
+#. module: qing_channel
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__external
+msgid "Waiting for Shopify"
+msgstr "等待 Shopify 处理"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_store__warehouse_id
+msgid "Warehouse"
+msgstr "仓库"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__window_end
+msgid "Window End"
+msgstr "时间窗口结束"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_cursor__window_start
+msgid "Window Start"
+msgstr "时间窗口开始"
+
+#. module: qing_channel
+#: model:ir.ui.menu,name:qing_channel.menu_channel_configuration
+msgid "Configuration"
+msgstr "设置"
+
+#. module: qing_channel
+#: model:ir.ui.menu,name:qing_channel.menu_channel_sync
+msgid "Sync Logs"
+msgstr "同步记录"
+
+#. module: qing_channel
+#: model:ir.ui.menu,name:qing_channel.menu_channel_finance
+msgid "Transactions and Refunds"
+msgstr "交易与退款"
+
+#. module: qing_channel
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_order_line__channel_product_name
+msgid "Channel Product"
+msgstr "渠道商品"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Historical order"
+msgstr "历史订单"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Inventory reconciliation is pending for this order."
+msgstr "此订单的库存仍待核对。"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Not created"
+msgstr "尚未生成"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Order Lines"
+msgstr "商品明细"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Mapped Product"
+msgstr "已匹配产品"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
+msgid "Synchronization"
+msgstr "同步信息"

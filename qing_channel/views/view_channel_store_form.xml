@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_channel_store_form" model="ir.ui.view">
+        <field name="name">qing.channel.store.form</field>
+        <field name="model">qing.channel.store</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet>
+                    <div class="oe_title" name="title">
+                        <label for="name"/>
+                        <h1 class="o_channel_store_title">
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group name="channel">
+                        <field name="platform"/>
+                        <field name="company_id"/>
+                        <field name="warehouse_id" domain="[('company_id', '=', company_id)]"/>
+                        <field name="cutover_at"/>
+                        <field name="onboarded" readonly="1"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

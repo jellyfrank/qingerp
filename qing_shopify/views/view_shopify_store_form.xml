@@ -1,0 +1,105 @@
+<odoo>
+    <record id="view_shopify_channel_order_list" model="ir.ui.view">
+        <field name="name">qing.channel.order.list.shopify</field>
+        <field name="model">qing.channel.order</field>
+        <field name="inherit_id" ref="qing_channel.view_channel_order_list"/>
+        <field name="arch" type="xml">
+            <field name="historical" position="after">
+                <field name="shopify_platform" column_invisible="True"/>
+                <field name="shopify_takeover_requested" column_invisible="True"/>
+                <field name="shopify_finance_requested" column_invisible="True"/>
+                <button name="action_shopify_prepare_open_delivery" type="object" string="Prepare Open Delivery"
+                        groups="qing_channel.group_channel_manager"
+                        invisible="shopify_platform != 'shopify' or not historical or sale_id or shopify_takeover_requested or shopify_finance_requested"
+                        confirm="Prepare a draft sales order for the remaining delivery after checking for existing ERP reservations?"/>
+                <button name="action_shopify_backfill_finance" type="object" string="Backfill Financial Records"
+                        groups="account.group_account_manager"
+                        invisible="shopify_platform != 'shopify' or not historical or sale_id or shopify_takeover_requested or shopify_finance_requested"
+                        confirm="Post the original invoice and process Shopify payments and refunds? Confirm that these amounts are absent from your opening balances and existing ERP records."/>
+            </field>
+        </field>
+    </record>
+    <record id="view_shopify_store_form" model="ir.ui.view">
+        <field name="name">qing.channel.store.shopify.form</field>
+        <field name="model">qing.channel.store</field>
+        <field name="inherit_id" ref="qing_channel.view_channel_store_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_shopify_check_connection" type="object" string="Check Shopify Connection"
+                        invisible="platform != 'shopify'" groups="qing_channel.group_channel_manager"/>
+                <button name="action_shopify_start_bulk_history" type="object" string="Bulk Import History"
+                        invisible="platform != 'shopify' or onboarded or shopify_health != 'connected'"
+                        groups="qing_channel.group_channel_manager"
+                        confirm="Start a Shopify bulk export for the configured history window? Orders will appear in the inbox as the export is imported."/>
+                <button name="action_shopify_prepare_inventory" type="object" string="Review Inventory Cutover"
+                        invisible="platform != 'shopify' or onboarded or shopify_health != 'connected'"
+                        groups="qing_channel.group_channel_manager"/>
+                <button name="action_shopify_enable_inventory" type="object" string="Enable Inventory Publishing"
+                        invisible="platform != 'shopify' or onboarded or shopify_health != 'connected'"
+                        confirm="Confirm that you reviewed the inventory cutover report and want to start publishing available quantities to Shopify."
+                        groups="qing_channel.group_channel_manager"/>
+                <button name="action_shopify_pause_inventory" type="object" string="Pause Inventory Publishing"
+                        invisible="platform != 'shopify' or not onboarded" groups="qing_channel.group_channel_manager"/>
+            </xpath>
+            <group name="channel" position="before">
+                <field name="shopify_health" invisible="1"/>
+                <div name="shopify_authentication_status" class="mb-3" role="status" invisible="platform != 'shopify'">
+                    <div class="badge rounded-pill px-3 py-2 fs-6 text-bg-success" invisible="shopify_health != 'connected'">
+                        Shopify Authenticated
+                    </div>
+                    <div class="badge rounded-pill px-3 py-2 fs-6 text-bg-warning" invisible="shopify_health != 'setup'">
+                        Shopify Authentication Pending
+                    </div>
+                    <div class="badge rounded-pill px-3 py-2 fs-6 text-bg-danger" invisible="shopify_health != 'disconnected'">
+                        Shopify Disconnected
+                    </div>
+                </div>
+            </group>
+            <group name="channel" position="after">
+                <notebook invisible="platform != 'shopify'">
+                    <page string="Basic Configuration" name="shopify_basic_configuration">
+                        <group string="Shopify Connection">
+                            <field name="shopify_credential_storage_ready" invisible="1" groups="base.group_system"/>
+                            <div class="alert alert-warning" role="alert" colspan="2"
+                                 groups="base.group_system" invisible="shopify_credential_storage_ready">
+                                Shopify credential encryption is unavailable on this QingERP instance. Ask the system administrator to enable it before saving the Shopify client secret.
+                            </div>
+                            <group>
+                                <field name="shopify_domain" placeholder="example.myshopify.com"/>
+                                <field name="shopify_location" placeholder="123456789"/>
+                                <field name="shopify_currency_id"/>
+                            </group>
+                            <group>
+                                <field name="shopify_client_id" groups="base.group_system"/>
+                                <field name="shopify_secret" password="True" groups="base.group_system"
+                                       readonly="not shopify_credential_storage_ready"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Orders and Inventory" name="shopify_sync_settings">
+                        <group>
+                            <group>
+                                <field name="shopify_pricelist_id" domain="[('currency_id', '=', shopify_currency_id)]"/>
+                                <field name="shopify_history_from"/>
+                                <field name="shopify_invoice_policy"/>
+                            </group>
+                            <group>
+                                <field name="shopify_import_unmatched_products"/>
+                                <field name="shopify_safety_stock"/>
+                                <field name="shopify_apply_tax_rounding" groups="base.group_system"/>
+                                <field name="shopify_open_orders_verified"
+                                       string="Open Orders Confirmed Including Older Orders"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Connection Details" name="shopify_connection_details">
+                        <group>
+                            <field name="shopify_scopes"/>
+                            <field name="shopify_webhook_key" groups="base.group_system"/>
+                        </group>
+                    </page>
+                </notebook>
+            </group>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Thread" t-inherit-mode="extension">
+        <xpath expr="//t[@t-foreach='messages']" position="after">
+            <div t-if="this.props.thread.channel?.qingAiStreamVisible"
+                 class="o_qing_ai_chat_stream d-flex flex-column px-3 py-2" role="status" aria-live="polite">
+                <span class="small text-muted mb-1" t-esc="this.props.thread.channel.displayName"/>
+                <div class="o_qing_ai_chat_stream_text text-break">
+                    <t t-esc="this.props.thread.channel.qingAiStream"/><span class="o_qing_ai_chat_caret" aria-hidden="true"/>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+    <t t-inherit="mail.Message" t-inherit-mode="extension">
+        <!-- Append to the content column: the first link-preview list sits in a t-if/t-else chain. -->
+        <xpath expr="//div[hasclass('o-mail-Message-content')]" position="inside">
+            <t t-if="this.message.qing_ai_meta" t-call="qing_ai.ChatMessageExtras"/>
+        </xpath>
+    </t>
+
+    <t t-name="qing_ai.ChatMessageExtras">
+        <t t-set="qingAiMeta" t-value="this.message.qing_ai_meta"/>
+        <div class="o_qing_ai_chat_extras d-flex flex-column gap-1 mt-1">
+            <div t-foreach="qingAiMeta.operations" t-as="operation" t-key="operation.id"
+                 class="o_qing_ai_chat_operation border rounded p-2">
+                <div class="small fw-semibold mb-1">Review business action</div>
+                <div class="o_qing_ai_chat_operation_preview small mb-2" t-esc="operation.preview"/>
+                <button type="button" class="btn btn-primary btn-sm o_qing_ai_chat_confirm"
+                        t-att-disabled="!!this.qingAiState.confirming"
+                        t-on-click="() => this.onQingAiConfirm(operation)">
+                    <t t-if="operation.confirm_label" t-esc="operation.confirm_label"/>
+                    <t t-else="">Confirm and create</t>
+                </button>
+            </div>
+            <details t-if="qingAiMeta.process_steps.length" class="o_qing_ai_chat_process small text-muted">
+                <summary>Execution process · <t t-esc="qingAiMeta.process_steps.length"/></summary>
+                <ol class="mb-0 mt-1 ps-3">
+                    <li t-foreach="qingAiMeta.process_steps" t-as="step" t-key="step_index">
+                        <span t-if="this.qingAiStepMarker(step)" class="me-1" t-esc="this.qingAiStepMarker(step)"/>
+                        <span t-esc="this.qingAiStepText(step)"/>
+                    </li>
+                </ol>
+            </details>
+            <div t-if="qingAiMeta.model or this.qingAiUsageText(qingAiMeta.usage_summary)"
+                 class="o_qing_ai_chat_usage small text-muted">
+                <span t-if="qingAiMeta.model" t-esc="qingAiMeta.model"/>
+                <span t-if="qingAiMeta.model and this.qingAiUsageText(qingAiMeta.usage_summary)" class="mx-1">·</span>
+                <span t-if="this.qingAiUsageText(qingAiMeta.usage_summary)">
+                    Token usage · <t t-esc="this.qingAiUsageText(qingAiMeta.usage_summary)"/>
+                </span>
+            </div>
+        </div>
+    </t>
+</templates>

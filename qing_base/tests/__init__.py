@@ -13,3 +13,5 @@ from . import test_access_request
 from . import test_access_event
 from . import test_access_http
 from . import test_login_background
+from . import test_independence
+from . import test_assistant

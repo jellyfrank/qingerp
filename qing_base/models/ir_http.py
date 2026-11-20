@@ -7,7 +7,8 @@ from odoo import models
 from odoo.exceptions import AccessError
 from odoo.http import request
 
-from ..tools import access_events
+from ..tools import access_events, mommy_base_loaded
+from ..tools.geoip import uses_dbip_city_database
 
 
 _logger = logging.getLogger(__name__)
@@ -21,8 +22,6 @@ _OPERATIONS = {
     'unlink': 'unlink', 'web_unlink': 'unlink',
 }
 
-from ..tools import mommy_base_loaded
-
 
 class IrHttp(models.AbstractModel):
     _inherit = 'ir.http'
@@ -34,12 +33,15 @@ class IrHttp(models.AbstractModel):
             result['qing_base_version'] = module.latest_version or ''
             release = os.environ.get('QINGERP_RELEASE_ID', '').split('-', 1)[0]
             result['qing_release_version'] = release if re.fullmatch(r'20\.0\.[0-9]+', release) else ''
-            result['qing_legacy_mommy_base'] = mommy_base_loaded(self.env)
-            result['qing_web_title'] = self.env['ir.config_parameter'].sudo().get_str(
-                'qing_base.title', default='QingERP 20.0',
-            )
             result['qing_access_requests'] = True
+            result['qing_legacy_mommy_base'] = mommy_base_loaded(self.env)
+            result['qing_web_title'] = self._qing_configured_title()
+            result['qing_dbip_geolocation'] = uses_dbip_city_database()
         return result
+
+    def _qing_configured_title(self):
+        key = 'mommy.title' if mommy_base_loaded(self.env) else 'qing_base.title'
+        return self.env['ir.config_parameter'].sudo().get_str(key, 'QingERP 20.0') or 'QingERP 20.0'
 
     @classmethod
     def _qing_request_snapshot(cls, rule, route_args):

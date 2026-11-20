@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_shopify_inventory_cutover_list" model="ir.ui.view">
+        <field name="name">qing.channel.binding.shopify.inventory.cutover.list</field>
+        <field name="model">qing.channel.binding</field>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0" delete="0" open_form_view="0">
+                <field name="product_id"/>
+                <field name="location_external_id" optional="hide"/>
+                <field name="shopify_preview_available" string="Shopify Available"/>
+                <field name="shopify_preview_target" string="ERP Publish Quantity"/>
+                <field name="shopify_preview_difference" string="Change to Publish"/>
+                <field name="shopify_preview_at" string="Checked At"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_channel_binding_list_shopify" model="ir.ui.view">
+        <field name="name">qing.channel.binding.list.shopify</field>
+        <field name="model">qing.channel.binding</field>
+        <field name="inherit_id" ref="qing_channel.view_channel_binding_list"/>
+        <field name="arch" type="xml">
+            <field name="stock_paused" position="after">
+                <button name="action_shopify_activate_inventory" type="object" string="Enable Shopify Item at Location"
+                        invisible="kind != 'inventory'" groups="qing_channel.group_channel_manager"
+                        confirm="Enable tracking for this Shopify inventory item at the mapped location?"/>
+            </field>
+        </field>
+    </record>
+</odoo>

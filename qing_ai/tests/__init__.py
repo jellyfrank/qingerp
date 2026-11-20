@@ -10,3 +10,8 @@ from . import test_orm_tools
 
 from . import test_group_statistics
 from . import test_token_budget
+from . import test_guide
+from . import test_discuss_manual
+from . import test_discuss_chat
+from . import test_native_chat
+from . import test_assistant_data

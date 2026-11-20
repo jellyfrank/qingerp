@@ -119,7 +119,7 @@ class TestFapiaoConnector(AccountTestInvoicingCommon):
         with self.assertRaisesRegex(UserError, 'tax rate'):
             self._queue(request)
         self.assertFalse(request.provider_order_id)
-        self.tax.amount_type = 'fixed'
+        self.tax.amount_type = 'division'
         complex_request = self._request()
         self._approve(complex_request)
         with self.assertRaisesRegex(UserError, 'percentage'):

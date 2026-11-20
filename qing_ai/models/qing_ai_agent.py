@@ -3,7 +3,9 @@
 import psycopg2
 
 from odoo import api, fields, models
-from odoo.exceptions import AccessError
+from odoo.exceptions import AccessError, UserError
+
+from odoo.addons.mail.tools.discuss import Store
 
 
 class QingAiAgent(models.Model):
@@ -120,8 +122,8 @@ class QingAiAgent(models.Model):
             'avatar_url': '/web/image/qing.ai.agent/%s/avatar_128' % agent.id,
         } for agent in agents]
 
-    def action_open_discuss(self):
-        """Open the current user's private native Discuss chat with this agent."""
+    def _ensure_discuss_channel(self):
+        """Return the current user's private chat with this agent, bound to a conversation."""
         self.ensure_one()
         self.require_available()
         identity = self._ensure_discuss_identity()
@@ -142,8 +144,45 @@ class QingAiAgent(models.Model):
             'qing_ai_identity_id': identity.id,
             'qing_ai_owner_id': self.env.uid,
         })
+        return channel
+
+    def action_open_discuss(self):
+        """Open the current user's private native Discuss chat with this agent."""
+        channel = self._ensure_discuss_channel()
         return {
             'type': 'ir.actions.client',
             'tag': 'mail.action_discuss',
             'params': {'active_id': 'discuss.channel_%s' % channel.id},
         }
+
+    @api.model
+    def assistant_launch_chat(self, agent_id=False):
+        """
+        Return the native chat with an AI agent, ready to open in a chat window.
+
+        Without an explicit agent, reuse the agent of the user's most recent AI chat in the
+        current company, else the default agent.
+
+        :param agent_id: optional agent to chat with
+        :return: ``{'channel_id': int, 'store_data': dict}`` with the chat's native store data
+        """
+        if agent_id:
+            if type(agent_id) is not int or agent_id <= 0:
+                raise UserError(self.env._('The AI agent is invalid.'))
+            agent = self.browse(agent_id).exists()
+            if not agent:
+                raise UserError(self.env._('The AI agent is invalid.'))
+        else:
+            recent = self.env['discuss.channel'].sudo().search([
+                ('qing_ai_owner_id', '=', self.env.uid),
+                ('qing_ai_agent_id', '!=', False),
+                ('qing_ai_conversation_id.company_id', '=', self.env.company.id),
+            ], order='last_interest_dt desc, id desc', limit=1)
+            agent = recent.qing_ai_agent_id.with_env(self.env).available_for_user()
+            agent = agent or self.default_for_user()
+            if not agent:
+                raise UserError(self.env._('No AI agent is available to you.'))
+        channel = agent._ensure_discuss_channel()
+        store = Store()
+        store.add(channel, '_store_channel_fields')
+        return {'channel_id': channel.id, 'store_data': store}

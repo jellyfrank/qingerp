@@ -7,6 +7,9 @@
             <list string="Audit Logs" create="0" edit="0" delete="0">
                 <field name="event_date"/>
                 <field name="user_id"/>
+                <field name="ip_address"/>
+                <field name="country"/>
+                <field name="city"/>
                 <field name="operation"/>
                 <field name="model_name"/>
                 <field name="record_id"/>
@@ -28,6 +31,9 @@
                             <field name="user_id"/>
                             <field name="session_user_id"/>
                             <field name="company_id"/>
+                            <field name="ip_address"/>
+                            <field name="country"/>
+                            <field name="city"/>
                         </group>
                         <group>
                             <field name="operation"/>
@@ -54,6 +60,9 @@
                 <field name="user_id"/>
                 <field name="model_name"/>
                 <field name="record_id"/>
+                <field name="ip_address"/>
+                <field name="country"/>
+                <field name="city"/>
                 <filter name="created" string="Created" domain="[('operation', '=', 'create')]"/>
                 <filter name="updated" string="Updated" domain="[('operation', '=', 'write')]"/>
                 <filter name="deleted" string="Deleted" domain="[('operation', '=', 'unlink')]"/>

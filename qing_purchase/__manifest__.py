@@ -1,7 +1,7 @@
 {
     'name': 'Qing Purchase',
     'summary': 'Buyer-scoped purchases and native vendor bill creation',
-    'version': '20.0.1.0.5',
+    'version': '20.0.1.0.6',
     'category': 'Inventory/Purchase',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

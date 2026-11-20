@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.WebClient" t-inherit-mode="extension">
+        <xpath expr="//ActionContainer" position="after">
+            <div t-if="this.geoipAttribution.visible" class="px-3 py-1 small text-end border-top">
+                <a href="https://db-ip.com" target="_blank" rel="noopener noreferrer">IP Geolocation by DB-IP</a>
+            </div>
+        </xpath>
+    </t>
+</templates>

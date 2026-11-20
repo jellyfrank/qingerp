@@ -55,6 +55,21 @@ class TestDeepSeek(TransactionCase):
             self.assertEqual(post.call_args.kwargs['headers']['Authorization'], 'Bearer test-key')
             self.assertEqual(settings.action_test_qing_deepseek()['tag'], 'display_notification')
 
+    def test_guide_disables_thinking_only_on_supported_official_models(self):
+        service = self.env['qing.ai.service']
+        config = dict(CONFIG, model='deepseek-flash')
+        compatible = dict(config, endpoint='https://model.example.test/chat/completions')
+        with patch('odoo.addons.qing_ai.models.qing_ai_service.requests.post') as post:
+            post.return_value.status_code = 200
+            post.return_value.json.return_value = {'choices': [{'message': {'content': 'OK [1]'}}]}
+            service._complete_text('Guide', provider='deepseek', config=config, guide=True)
+            self.assertEqual(post.call_args.kwargs['json']['thinking'], {'type': 'disabled'})
+            self.assertNotIn('thinking', config)
+            service._complete_text('Chat', provider='deepseek', config=config)
+            self.assertNotIn('thinking', post.call_args.kwargs['json'])
+            service._complete_text('Guide', provider='deepseek', config=compatible, guide=True)
+            self.assertNotIn('thinking', post.call_args.kwargs['json'])
+
     def test_length_finish_reason_marks_answer_as_truncated(self):
         service = self.env['qing.ai.service']
         with patch('odoo.addons.qing_ai.models.qing_ai_service.requests.post') as post:

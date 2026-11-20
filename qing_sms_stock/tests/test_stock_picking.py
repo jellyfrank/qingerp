@@ -45,7 +45,7 @@ class TestStockSms(SmsFixture):
         event = self.env['qing.sms.event'].search([('event_key', '=', key)])
         self.assertEqual(len(event), 1)
         self.assertEqual(event.state, 'pending', f'{event.reason_code}: {event.reason_message}')
-        self.assertEqual(picking.qing_sms_status, 'Waiting for preparation')
+        self.assertEqual(picking.with_context(lang='en_US').qing_sms_status, 'Waiting for preparation')
         self.assertTrue(event.mail_message_id)
         message = event._prepare_one()
         self.assertEqual(message.state, 'queued')

@@ -5,9 +5,8 @@ function setupLoginBackgroundFallback() {
     if (!image) {
         return;
     }
-    const fallback = () => {
-        image.src = '/qing_base/static/img/qingdao_low_angle.webp';
-    };
+    // The default starry sky is rendered underneath; removing the image shows it.
+    const fallback = () => image.remove();
     if (image.complete && !image.naturalWidth) {
         fallback();
     } else {

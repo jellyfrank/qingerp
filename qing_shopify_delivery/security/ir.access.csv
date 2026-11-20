@@ -1,0 +1,3 @@
+id,name,model_id,group_id/id,operation,domain
+access_shopify_shipment_read,Shopify shipment read,qing.shopify.shipment,qing_channel.group_channel_user,r,
+rule_shopify_shipment_company,Shopify shipment company,qing.shopify.shipment,,crud,"[('company_id', 'in', company_ids)]"

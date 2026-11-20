@@ -1,0 +1,66 @@
+<odoo>
+    <record id="view_channel_order_form" model="ir.ui.view">
+        <field name="name">qing.channel.order.form</field>
+        <field name="model">qing.channel.order</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0" duplicate="0">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="external_name"/>
+                        </h1>
+                    </div>
+                    <field name="historical" invisible="1"/>
+                    <div class="badge rounded-pill text-bg-secondary mb-3" invisible="not historical">
+                        Historical order
+                    </div>
+                    <field name="stock_unverified" invisible="1"/>
+                    <div class="alert alert-warning" role="alert" invisible="not stock_unverified">
+                        Inventory reconciliation is pending for this order.
+                    </div>
+                    <group>
+                        <group name="channel_order_source">
+                            <field name="store_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group name="channel_order_sales">
+                            <label for="sale_id"/>
+                            <div>
+                                <field name="sale_id" invisible="not sale_id"/>
+                                <div class="text-muted" invisible="sale_id">Not created</div>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines" name="channel_order_lines">
+                            <field name="line_ids" nolabel="1" readonly="1">
+                                <list create="0" edit="0" delete="0" decoration-warning="not product_id">
+                                    <field name="channel_product_name"/>
+                                    <field name="sku"/>
+                                    <field name="product_id" string="Mapped Product"/>
+                                    <field name="quantity"/>
+                                </list>
+                                <form create="0" edit="0" delete="0" duplicate="0">
+                                    <sheet>
+                                        <group>
+                                            <field name="channel_product_name"/>
+                                            <field name="sku"/>
+                                            <field name="product_id" string="Mapped Product"/>
+                                            <field name="quantity"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Synchronization" name="channel_order_sync">
+                            <group>
+                                <field name="external_id"/>
+                                <field name="external_updated_at"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

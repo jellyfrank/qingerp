@@ -9,6 +9,8 @@
                 <field name="login"/>
                 <field name="user_id"/>
                 <field name="ip_address"/>
+                <field name="country"/>
+                <field name="city"/>
                 <field name="success"/>
                 <field name="failure_reason"/>
                 <field name="company_id" groups="base.group_multi_company"/>
@@ -23,6 +25,8 @@
             <search>
                 <field name="login"/>
                 <field name="ip_address"/>
+                <field name="country"/>
+                <field name="city"/>
                 <field name="user_id"/>
                 <filter name="failed" string="Failed" domain="[('success', '=', False)]"/>
                 <filter name="succeeded" string="Succeeded" domain="[('success', '=', True)]"/>

@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
                 <app data-string="Advanced Settings" string="Advanced Settings" name="qing_advanced_settings"
-                     logo="/qing_base/static/img/qing_logo.png">
+                     logo="/qing_base/static/img/qing_logo.png?v=2">
                     <field name="qing_legacy_mommy_base" invisible="1"/>
                     <block title="Managed by Mommy Base" name="qing_legacy_notice" invisible="not qing_legacy_mommy_base">
                         <setting id="qing_legacy_mommy_base_notice" string="Legacy Settings"
@@ -78,19 +78,18 @@
                         </setting>
                     </block>
                     <block title="Login Page" name="qing_login_settings">
-                    <setting id="qing_login_background" string="Login Background" help="Choose a style or upload an image. Select QingERP Default to restore the original background. Art styles do not download an image.">
-                        <field name="qing_login_background_style"/>
-                        <div class="mt-2" invisible="qing_login_background_style != 'solid'">
-                            <field name="qing_login_background_color" widget="color"/>
-                        </div>
-                        <div class="mt-2" invisible="qing_login_background_style != 'image'">
-                            <field name="qing_login_background_image" widget="image" options="{'size': [320, 180]}"/>
-                            <div class="text-muted">JPEG, PNG or WebP; up to 2 MB. A landscape image is recommended.</div>
-                        </div>
-                        <widget name="qing_login_background_preview"/>
-                        <div class="text-muted">Preview opens in a new tab. Save settings to apply your choice.</div>
-                    </setting>
-                </block>
+                        <setting id="qing_login_background" class="col-lg-12" string="Login Background" help="Choose a style or upload an image. The QingERP Default starry sky and the art styles download no image; Qingdao Coast loads an illustration.">
+                            <field name="qing_login_background_style" widget="qing_login_background_tiles" class="w-100"/>
+                            <!-- Loaded and saved through the picture cards above. -->
+                            <field name="qing_login_background_image" invisible="1"/>
+                            <div class="mt-2" invisible="qing_login_background_style != 'solid'">
+                                <field name="qing_login_background_color" widget="color"/>
+                            </div>
+                            <div class="text-muted mt-2">JPEG, PNG or WebP; up to 2 MB. A landscape image is recommended.</div>
+                            <widget name="qing_login_background_preview"/>
+                            <div class="text-muted">Preview opens in a new tab. Save settings to apply your choice.</div>
+                        </setting>
+                    </block>
                     <block title="Audit Log" name="qing_audit_settings">
                         <setting id="qing_audit_enabled" string="Record ORM Changes"
                                  help="Automatically record create, update, and delete operations on persistent models.">

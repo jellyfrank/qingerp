@@ -1,5 +1,6 @@
 from odoo import fields, models
 
+from .discuss_channel import ASSISTANT_DATA_PARAM
 from .qing_ai_service import DEFAULT_MAX_OUTPUT_TOKENS
 from .qing_ai_usage_daily import DEFAULT_DAILY_LIMIT
 
@@ -10,6 +11,11 @@ DEFAULT_PROVIDERS = [('none', 'Not configured')]
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
+    qing_ai_assistant_data_access = fields.Boolean(
+        string='Qing Assistant Can Query Company Data',
+        config_parameter=ASSISTANT_DATA_PARAM,
+        default=True,
+    )
     qing_ai_daily_request_limit = fields.Integer(
         string='Daily AI Model Calls per User',
         config_parameter='qing_ai.daily_request_limit',

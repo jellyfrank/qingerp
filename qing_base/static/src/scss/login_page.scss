@@ -38,14 +38,17 @@
 
     position: relative;
     isolation: isolate;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // Card in the middle row, footer at the foot of the last one: the card stays
+    // centred and the footer can never slide under it on a short window.
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
     width: 100%;
     max-width: none !important;
     min-height: 100svh;
     margin: 0;
-    padding: 32px clamp(24px, 2vw, 48px) !important;
+    padding: 32px clamp(24px, 2vw, 48px) 18px !important;
     color: var(--o-qing-text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
 
@@ -116,7 +119,7 @@
 
     .qing-login-card {
         position: relative;
-        flex: 0 1 380px;
+        grid-row: 2;
         width: 380px;
         max-width: 100% !important;
         margin: 0 !important;
@@ -129,33 +132,46 @@
     }
 
     .qing-login-card-body {
+        --qing-login-pad-y: 22px;
+        --qing-login-pad-x: 26px;
+
         position: relative;
         flex: 0 1 auto;
         width: 100%;
         max-width: none;
         margin: auto;
-        padding: 22px 26px;
+        padding: var(--qing-login-pad-y) var(--qing-login-pad-x);
         background: transparent;
         border-radius: inherit;
     }
 
-    .qing-login-card-body > .text-center:first-child {
-        margin-bottom: 8px !important;
-        padding: 0 !important;
-        border: 0 !important;
-        text-align: left !important;
+    // Card header: the centred wordmark, ruled off from edge to edge.
+    .qing-login-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: calc(var(--qing-login-pad-y) * -1) calc(var(--qing-login-pad-x) * -1) 18px;
+        padding: 20px var(--qing-login-pad-x) 18px;
+        border-bottom: 1px solid rgba(31, 41, 40, .08);
 
-        img { width: 36px !important; height: 36px; object-fit: contain; }
+        img { flex: none; width: auto; height: 38px; max-width: 100%; }
     }
 
+    // Centred under the wordmark and kept quiet: the logo leads, the greeting follows.
     .qing-login-heading {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
+        text-align: center;
 
-        span { color: var(--o-qing-accent); font-size: 11px; font-weight: 750; letter-spacing: .18em; }
-        h2 { margin: 9px 0 0; color: var(--o-qing-text); font-size: 27px; font-weight: 700; letter-spacing: -.05em; }
+        h2 { margin: 0; color: var(--o-qing-text); font-size: 19px; font-weight: 650; letter-spacing: .01em; line-height: 1.3; }
+        p { margin: 4px 0 0; color: var(--o-qing-text-soft); font-size: 13px; line-height: 1.5; }
     }
 
     .oe_login_form {
+        // website gives the form a 300px cap and 50px above and below: inside the card
+        // that reads as a hole under the greeting and an empty strip at the bottom.
+        max-width: none !important;
+        margin: 0 !important;
+
         label { margin-bottom: 6px; color: var(--o-qing-text); font-size: 13px; font-weight: 650; }
         .form-control { min-height: 40px; border: 1px solid var(--o-qing-border); border-radius: 10px; background: var(--o-qing-surface); color: var(--o-qing-text); }
         .form-control:focus { border-color: var(--o-qing-accent); box-shadow: 0 0 0 3px rgba(47, 106, 255, .2); }
@@ -179,20 +195,35 @@
         .o_login_auth .list-group-item:hover { background: var(--o-qing-surface-weak); }
     }
 
-    .qing-login-footer { margin: 20px auto 0; color: var(--o-qing-text-soft); text-align: center; }
-    .qing-login-copyright { font-size: 11px; }
-    .qing-login-browser-support { margin-top: 4px; font-size: 11px; line-height: 1.45; text-wrap: balance; }
+    // Copyright and browser note sit on the background at the foot of the page.
+    .qing-login-footer {
+        grid-row: 3;
+        align-self: end;
+        max-width: 620px;
+        margin: 24px 0 0;
+        font-size: 11.5px;
+        line-height: 1.5;
+        text-align: center;
+    }
+    .qing-login-footer-on-dark { color: rgba(255, 255, 255, .84); text-shadow: 0 1px 3px rgba(8, 18, 32, .6); }
+    .qing-login-footer-on-light { color: rgba(31, 41, 40, .74); text-shadow: 0 1px 2px rgba(255, 255, 255, .7); }
+    .qing-login-browser-support { margin-top: 2px; text-wrap: balance; }
 
-    @media (max-width: 860px) {
-        padding: 24px !important;
+    // The scene tagline shares the foot of the page with the footer: only when both fit.
+    @media (max-width: 1280px) {
         .qing-login-scene-footer { display: none; }
     }
 
+    @media (max-width: 860px) {
+        padding: 24px 24px 16px !important;
+    }
+
     @media (max-width: 500px) {
-        justify-content: center;
-        padding: 20px 16px !important;
-        .qing-login-card-body { padding: 24px; }
-        .qing-login-heading h2 { font-size: 25px; }
+        padding: 20px 16px 14px !important;
+        .qing-login-card-body { --qing-login-pad-y: 24px; --qing-login-pad-x: 24px; }
+        .qing-login-brand img { height: 34px; }
+        .qing-login-heading h2 { font-size: 18px; }
+        .qing-login-footer { margin-top: 18px; font-size: 11px; }
     }
 
 }

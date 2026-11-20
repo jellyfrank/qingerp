@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_channel_operations_list_shopify" model="ir.ui.view">
+        <field name="name">qing.channel.store.operations.list.shopify</field>
+        <field name="model">qing.channel.store</field>
+        <field name="inherit_id" ref="qing_channel.view_channel_operations_list"/>
+        <field name="arch" type="xml">
+            <field name="ops_orders_through" position="after">
+                <field name="shopify_token_state" decoration-danger="shopify_token_state == 'disconnected'"
+                       decoration-warning="shopify_token_state == 'due'"/>
+                <field name="shopify_api_version" optional="hide"/>
+                <field name="shopify_api_review_on" optional="hide" decoration-warning="shopify_api_review_on and shopify_api_review_on &lt;= current_date"/>
+            </field>
+        </field>
+    </record>
+</odoo>

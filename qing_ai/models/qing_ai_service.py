@@ -116,7 +116,7 @@ class QingAiService(models.AbstractModel):
 
     def _complete_text(self, prompt, provider=None, config=None, require_enabled=True,
                        max_output_tokens=None, image=None, system=None, json_mode=False,
-                       on_delta=None, tools=None):
+                       on_delta=None, tools=None, guide=False):
         """
         Return {text, model, usage, truncated} for trusted server-side callers.
 
@@ -124,6 +124,7 @@ class QingAiService(models.AbstractModel):
         :param system: optional system instructions kept separate from untrusted data
         :param json_mode: ask the provider for one JSON object when the model supports it
         :param on_delta: callback receiving answer text fragments while the provider streams
+        :param guide: use provider options for short, source-grounded guide answers
         :param tools: native function definitions ({name, description, parameters}); the
             result then carries ``tool_call`` ({name, arguments}) when the model calls one
         """
@@ -148,6 +149,8 @@ class QingAiService(models.AbstractModel):
             raise UserError(self.env._('Set the AI provider key, endpoint and model.'))
         if image and not config.get('image_enabled'):
             raise UserError(self.env._('Image input is not enabled for this provider and model.'))
+        if guide:
+            config = self._guide_completion_config(provider, config)
         completion = getattr(self, f'_complete_{provider}')
         options = {'image': image or None, 'system': system or None}
         if tools:
@@ -170,6 +173,9 @@ class QingAiService(models.AbstractModel):
             _logger.info('Qing AI %s response reached the output token limit (%s).',
                          provider, max_output_tokens)
         return result
+
+    def _guide_completion_config(self, provider, config):
+        return config
 
     def _test_provider(self, provider, config):
         if not self.env.user.has_group('base.group_system'):
@@ -406,6 +412,8 @@ class QingAiService(models.AbstractModel):
             messages.insert(0, {'role': 'system', 'content': system})
         payload = {'model': config['model'], 'messages': messages,
                    'stream': False, 'max_tokens': max_output_tokens}
+        if config.get('thinking'):
+            payload['thinking'] = config['thinking']
         if tools:
             payload['tools'] = [{'type': 'function', 'function': tool} for tool in tools]
             payload['tool_choice'] = 'auto'

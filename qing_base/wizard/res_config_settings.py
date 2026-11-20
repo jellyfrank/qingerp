@@ -8,8 +8,12 @@ from odoo.exceptions import AccessError, ValidationError
 
 
 LOGIN_BACKGROUND_STYLES = [
-    ('default', 'QingERP Default (Restore)'),
-    ('image', 'Custom Image'),
+    ('default', 'Starry Sky (Default)'),
+    ('dawn', 'Dawn Mountains'),
+    ('aurora', 'Aurora'),
+    ('silk', 'Silk Light'),
+    ('qingdao', 'Qingdao Coast Illustration'),
+    ('image', 'Uploaded Image'),
     ('solid', 'Solid Color'),
     ('sea', 'Sea Blue'),
     ('forest', 'Forest Green'),

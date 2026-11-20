@@ -1,0 +1,29 @@
+.o_qing_ai_chat_stream_text,
+.o_qing_ai_chat_operation_preview {
+    white-space: pre-line;
+}
+
+.o_qing_ai_chat_caret {
+    display: inline-block;
+    width: .45em;
+    height: 1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: currentColor;
+    opacity: .6;
+    animation: o_qing_ai_chat_blink 1s steps(2, start) infinite;
+}
+
+@keyframes o_qing_ai_chat_blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.o_qing_ai_chat_operation {
+    background: var(--o-qing-surface-weak, rgba(13, 107, 104, .05));
+}
+
+.o_qing_ai_chat_process summary {
+    cursor: pointer;
+}

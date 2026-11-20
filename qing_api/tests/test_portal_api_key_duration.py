@@ -10,7 +10,7 @@ class TestPortalApiKeyDuration(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env["ir.config_parameter"].sudo().set_param("portal.allow_api_keys", "True")
+        cls.env["ir.config_parameter"].sudo().set_bool("portal.allow_api_keys", True)
         cls.portal_user = new_test_user(
             cls.env,
             login="qing-api-portal-key-test",

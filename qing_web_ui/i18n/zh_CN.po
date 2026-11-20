@@ -605,3 +605,9 @@ msgstr "需要权限"
 #: code:addons/qing_web_ui/static/src/xml/access_error_dialog.xml:0
 msgid "Request access"
 msgstr "申请权限"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
+msgid "Search..."
+msgstr "搜索..."

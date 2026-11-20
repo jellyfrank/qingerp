@@ -1,33 +1,36 @@
 /** @odoo-module **/
 
 import { Component } from "@odoo/owl";
-import { Dropdown } from "@web/core/dropdown/dropdown";
-import { useDropdownState } from "@web/core/dropdown/dropdown_hooks";
-import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { user } from "@web/core/user";
 import { useService } from "@web/core/utils/hooks";
 
-import { DailyAssistant } from "./daily_assistant";
-
+/** Navbar entry that opens the chat with the assistant bot (小青) in a native chat window. */
 export class AiSystray extends Component {
-    static components = { DailyAssistant, Dropdown };
     static template = "qing_ai.AiSystray";
 
     setup() {
-        this.action = useService("action");
-        this.ui = useService("ui");
-        this.dropdown = useDropdownState();
+        this.store = useService("mail.store");
+        this.opening = false;
     }
 
-    openFullAssistant(conversationId) {
-        this.dropdown.close();
-        this.action.doAction({
-            type: "ir.actions.client",
-            name: _t("Daily Assistant"),
-            tag: "qing_ai.daily_assistant",
-            params: conversationId ? { conversation_id: conversationId } : {},
-        });
+    async openChat() {
+        const assistant = this.store.odoobot;
+        if (this.opening || !assistant) {
+            return;
+        }
+        this.opening = true;
+        try {
+            let chat = assistant.searchChat();
+            if (!chat?.self_member_id?.is_pinned) {
+                // Same route as the native "chat with" action; it reuses the existing chat.
+                chat = await this.store.joinChat(assistant.id);
+            }
+            // Native open: inside the Discuss app it shows there, otherwise as a chat window.
+            chat?.open({ focus: true });
+        } finally {
+            this.opening = false;
+        }
     }
 }
 

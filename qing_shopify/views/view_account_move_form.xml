@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_account_move_form_shopify" model="ir.ui.view">
+        <field name="name">account.move.form.shopify</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="invoice_origin" position="after">
+                <field name="shopify_refund_source_invoice_ids" widget="many2many_tags"
+                       invisible="not shopify_refund_source_invoice_ids"/>
+            </field>
+        </field>
+    </record>
+</odoo>

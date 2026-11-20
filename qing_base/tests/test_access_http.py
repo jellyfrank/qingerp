@@ -9,7 +9,9 @@ class TestAccessHttp(HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.operator = new_test_user(cls.env, login='qing_access_http_user', groups='base.group_user')
+        cls.operator = new_test_user(
+            cls.env, login='qing_access_http_user', groups='base.group_user', lang='en_US',
+        )
 
     def test_access_error_response_does_not_expose_rule_details(self):
         self.authenticate(self.operator.login, self.operator.login)
@@ -23,7 +25,7 @@ class TestAccessHttp(HttpCase):
             }), headers={'Content-Type': 'application/json'})
         data = response.json()['error']['data']
         self.assertEqual(data['name'], 'odoo.exceptions.AccessError')
-        self.assertIn('access is restricted', data['message'])
+        self.assertRegex(data['message'], 'access is restricted|权限限制')
         self.assertEqual(data['context']['qing_access']['model'], 'qing.access.event')
         self.assertEqual(data['context']['qing_access']['operation'], 'read')
         serialized = json.dumps(data)

@@ -27,30 +27,27 @@ import { SIZES } from "@web/core/ui/ui_utils";
 import { menuIconHref } from "@qing_web_ui/js/qing_menu_icons";
 
 test("WeCom menus use distinct QingERP and Solutions icons", () => {
-    expect(menuIconHref({ xmlid: "qing_wework.menu_qing_wework_root" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#chat"
-    );
-    expect(menuIconHref({ xmlid: "qing_wework.menu_wework_robot_template" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#robotTemplate"
-    );
-    expect(menuIconHref({ xmlid: "mommy_wework.menu_wework_robot_message" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#robotSend"
-    );
-    expect(menuIconHref({ xmlid: "qing_wework.menu_wework_intelligent_bot" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#aiBot"
-    );
-    expect(menuIconHref({ xmlid: "qing_wework.menu_company" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#city"
-    );
+    expect(menuIconHref({ xmlid: "qing_wework.menu_qing_wework_root" }).split("#")[1]).toBe("chat");
+    expect(menuIconHref({ xmlid: "qing_wework.menu_wework_robot_template" }).split("#")[1]).toBe("robotTemplate");
+    expect(menuIconHref({ xmlid: "mommy_wework.menu_wework_robot_message" }).split("#")[1]).toBe("robotSend");
+    expect(menuIconHref({ xmlid: "qing_wework.menu_wework_intelligent_bot" }).split("#")[1]).toBe("aiBot");
+    expect(menuIconHref({ xmlid: "qing_wework.menu_company" }).split("#")[1]).toBe("city");
 });
 
 test("invoice interface menus use dedicated icons", () => {
-    expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_order" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#invoiceClock"
-    );
-    expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_provider" })).toBe(
-        "/qing_web_ui/static/src/icons/menu.svg?v=10#key"
-    );
+    expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_order" }).split("#")[1]).toBe("invoiceClock");
+    expect(menuIconHref({ xmlid: "mommy_fapiao.menu_fapiao_provider" }).split("#")[1]).toBe("key");
+});
+
+test("calendar configuration menus use distinct icons", () => {
+    const icons = [
+        "calendar.calendar_event_menu",
+        "calendar.menu_calendar_settings",
+        "calendar.menu_calendar_calendars",
+        "calendar.calendar_submenu_reminders",
+        "calendar.calendar_submenu_event_type",
+    ].map((xmlid) => menuIconHref({ xmlid }).split("#")[1]);
+    expect(icons).toEqual(["calendar", "settings", "calendarStack", "bell", "tags"]);
 });
 
 class QingSearchRecord extends models.Model {

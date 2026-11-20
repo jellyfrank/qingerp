@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_qing_ai_guide_registration_form" model="ir.ui.view">
+        <field name="name">qing.service.instance.form.guide.registration</field>
+        <field name="model">qing.service.instance</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false">
+                <header>
+                    <button name="action_register" type="object" string="Submit Registration"
+                            class="btn-primary" invisible="state != 'local'"/>
+                    <button name="action_sync" type="object" string="Refresh Status"
+                            invisible="state == 'local'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <p>Registration sends the organization details shown here, the instance identifier and product version to the QingERP service center for approval.</p>
+                    <group>
+                        <field name="organization_name" readonly="state != 'local'"/>
+                        <field name="organization_tax_id" readonly="state != 'local'"/>
+                        <field name="system_url" readonly="state != 'local'"/>
+                        <field name="contact_email" readonly="state != 'local'"/>
+                        <field name="instance_uid"/>
+                        <field name="last_sync_at"/>
+                        <field name="subscription_summary" invisible="not subscription_summary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

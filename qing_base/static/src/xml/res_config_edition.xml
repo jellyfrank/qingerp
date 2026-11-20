@@ -6,7 +6,7 @@
         </xpath>
         <xpath expr="//div[hasclass('user-heading')]" position="replace">
             <div class="user-heading o_qing_about_heading">
-                <img src="/qing_base/static/img/qing_logo.png" alt="Qing" width="72" height="72"/>
+                <img src="/qing_base/static/img/qing_logo.png?v=2" alt="Qing" width="72" height="72"/>
                 <div>
                     <h3 class="px-0 mb-0">QingERP <t t-if="this.qingReleaseVersion" t-out="this.qingReleaseVersion"/><t t-else="">Version unavailable</t></h3>
                     <small class="text-muted">Core Version: <t t-out="this.qingBaseVersion"/></small>

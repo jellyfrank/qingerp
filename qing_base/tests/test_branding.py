@@ -6,6 +6,7 @@ from PIL import Image
 from odoo.tests import HttpCase, TransactionCase, tagged
 
 from odoo.addons.qing_base.hooks import initialize_report_print_preview
+from odoo.addons.qing_base.tools import mommy_base_loaded
 
 
 @tagged('at_install', '-post_install')
@@ -23,7 +24,7 @@ class TestQingSettings(TransactionCase):
         self.assertEqual(advanced_settings.get('data-string'), 'Advanced Settings')
         self.assertEqual(
             advanced_settings.get('logo'),
-            '/qing_base/static/img/qing_logo.png',
+            '/qing_base/static/img/qing_logo.png?v=2',
         )
         general_settings_index = app_names.index('general_settings')
         self.assertEqual(
@@ -157,15 +158,24 @@ class TestQingBranding(HttpCase):
         login = self.url_open('/web/login')
         self.assertEqual(login.status_code, 200)
         self.assertIn('<title>QingERP 20.0</title>', login.text)
-        self.assertIn('/qing_base/static/img/qing_logo.png', login.text)
+        self.assertIn('/qing_base/static/img/qing_wordmark.png', login.text)
+        self.assertNotIn('/qing_base/static/img/qing_logo.png?v=2', login.text)
         self.assertNotIn('/web/static/img/favicon.ico', login.text)
         self.assertIn('qing-login-layout', login.text)
         self.assertIn('qing-login-scene', login.text)
+        # The default starry sky is drawn with CSS: no background image download.
+        self.assertIn('qing-login-cosmos', login.text)
+        self.assertNotIn('.webp', login.text)
         # Own card classes: website colour palettes restyle Bootstrap .card-body.
         self.assertIn('qing-login-card-body', login.text)
         self.assertNotIn('class="card-body"', login.text)
         self.assertIn('欢迎回来', login.text)
         self.assertIn('青岛欧姆网络科技 2026', login.text)
+        # The copyright sits at the foot of the page, after the card, not inside it.
+        self.assertIn('qing-login-footer-on-dark', login.text)
+        self.assertLess(login.text.index('name="password"'), login.text.index('<footer class="qing-login-footer'))
+        # The form is shown before the lazy bundle loads, so the card does not jump.
+        self.assertLess(login.text.index('name="password"'), login.text.index('getItem("web.lastConnectedUser")'))
         self.assertIn('name="csrf_token"', login.text)
         self.assertIn('name="login"', login.text)
         self.assertIn('name="password"', login.text)
@@ -199,7 +209,8 @@ class TestQingBranding(HttpCase):
         self.assertEqual(self.env.company.logo.to_base64(), company_logo)
 
     def test_backend_initial_title_respects_configured_brand(self):
-        self.env['ir.config_parameter'].sudo().set_str('mommy.title', 'Custom ERP')
+        key = 'mommy.title' if mommy_base_loaded(self.env) else 'qing_base.title'
+        self.env['ir.config_parameter'].sudo().set_str(key, 'Custom ERP')
         self.authenticate('admin', 'admin')
         for path in ('/odoo', '/odoo?debug=assets'):
             response = self.url_open(path)
@@ -222,14 +233,24 @@ class TestQingBranding(HttpCase):
         response = self.url_open('/web/login')
         self.assertEqual(response.status_code, 200)
         self.assertNotIn('o_test_site_wrapper', response.text)
-        for marker in ('qing-login-layout', 'qing-login-scene', '/qing_base/static/img/qing_logo.png',
+        for marker in ('qing-login-layout', 'qing-login-scene', '/qing_base/static/img/qing_wordmark.png',
                        '欢迎回来', 'name="password"'):
             self.assertIn(marker, response.text)
         self.env['ir.config_parameter'].sudo().set_str('auth_signup.reset_password', 'True')
         reset = self.url_open('/web/reset_password')
         self.assertEqual(reset.status_code, 200)
-        self.assertIn('/qing_base/static/img/qing_logo.png', reset.text)
+        self.assertIn('/qing_base/static/img/qing_wordmark.png', reset.text)
         self.assertNotIn('qing-login-scene', reset.text)
+
+    def test_login_scenes_render_without_images(self):
+        params = self.env['ir.config_parameter'].sudo()
+        for style, marker in (('dawn', 'qing-login-dawn-ridges'), ('aurora', 'qing-login-aurora-light'), ('silk', 'qing-login-silk-lines')):
+            params.set_str('qing_base.login_background_style', style)
+            login = self.url_open('/web/login')
+            self.assertEqual(login.status_code, 200)
+            self.assertIn(f'qing-login-scene-{style}', login.text)
+            self.assertIn(marker, login.text)
+            self.assertNotIn('.webp', login.text)
 
     def test_login_with_another_footer_extension(self):
         self.env['ir.ui.view'].create({
@@ -245,4 +266,4 @@ class TestQingBranding(HttpCase):
         })
         response = self.url_open('/web/login')
         self.assertEqual(response.status_code, 200)
-        self.assertIn('/qing_base/static/img/qing_logo.png', response.text)
+        self.assertIn('/qing_base/static/img/qing_wordmark.png', response.text)

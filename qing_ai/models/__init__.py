@@ -14,5 +14,10 @@ from . import qing_ai_conversation
 from . import qing_ai_conversation_tools
 from . import qing_ai_message
 from . import discuss_channel
+from . import mail_message
+from . import mail_bot
 from . import qing_ai_discuss_job
 from . import res_config_settings
+from . import qing_ai_guide_hint
+from . import qing_ai_guide
+from . import res_users

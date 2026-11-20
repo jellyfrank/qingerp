@@ -1,7 +1,7 @@
 {
     'name': 'Qing Sale Purchase',
     'summary': 'Create partial, vendor-specific RFQs from confirmed sales orders',
-    'version': '20.0.1.6',
+    'version': '20.0.1.7',
     'category': 'Sales/Sales',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

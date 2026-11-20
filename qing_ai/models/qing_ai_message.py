@@ -30,6 +30,9 @@ class QingAiMessage(models.Model):
         'ir.attachment', 'qing_ai_message_file_rel', 'message_id', 'attachment_id', readonly=True
     )
     model = fields.Char(readonly=True)
+    operation_refs = fields.Json(
+        readonly=True, help='Pending business previews first offered with this answer in Discuss.',
+    )
     process_steps = fields.Json(readonly=True)
     provider = fields.Char(readonly=True)
     role = fields.Selection(MESSAGE_ROLES, required=True, readonly=True)

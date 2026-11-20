@@ -110,7 +110,7 @@ class TestQingAiNativePlanning(TransactionCase):
         ] + [b'data: [DONE]'])
         with patch(POST, return_value=response), patch.object(
                 Conversation, '_push_stream', autospec=True,
-                side_effect=lambda record, text, done=False: pushed.append(text)):
+                side_effect=lambda record, text, done=False, channel_id=False: pushed.append(text)):
             reply = conversation.assistant_send('写一句感谢语', stream=True)
         self.assertEqual(reply['messages'][-1]['content'], '感谢您的支持！')
         self.assertTrue(pushed, 'Partial answers must be pushed to the browser.')
@@ -131,4 +131,6 @@ class TestQingAiNativePlanning(TransactionCase):
         record, notification, payload = bus_send.call_args.args
         self.assertEqual(record, self.user)
         self.assertEqual(notification, 'qing_ai/stream')
-        self.assertEqual(payload, {'conversation_id': conversation.id, 'text': 'partial', 'done': False})
+        self.assertEqual(payload, {
+            'conversation_id': conversation.id, 'channel_id': False, 'text': 'partial', 'done': False,
+        })

@@ -89,6 +89,7 @@ const appIcons = {
     "contacts.menu_contacts": "contact",
     "crm.crm_menu_root": "pipeline",
     "sale.sale_menu_root": "chart",
+    "qing_channel.menu_channels_root": "link",
     "qing_rental.menu_rental_root": "key",
     "spreadsheet_dashboard.spreadsheet_dashboard_menu_root": "dashboard",
     "qing_spreadsheet.menu_spreadsheet": "spreadsheet",
@@ -126,6 +127,12 @@ const sectionIcons = {
     "mail.menu_configuration": "settings",
     "calendar.calendar_event_menu": "calendar",
     "calendar.calendar_menu_config": "settings",
+    "calendar.menu_calendar_settings": "settings",
+    "calendar.menu_calendar_calendars": "calendarStack",
+    "calendar.calendar_submenu_reminders": "bell",
+    "calendar.calendar_submenu_event_type": "tags",
+    "calendar.menu_calendar_event_type": "tags",
+    "calendar.menu_calendar_alarm": "bell",
     "contacts.res_partner_menu_contacts": "contact",
     "qing_partner.menu_customer": "contact",
     "qing_partner.menu_supplier": "vendor",
@@ -154,6 +161,21 @@ const sectionIcons = {
     "sale.menu_sale_marketplaces": "purchase",
     "sale.menu_sale_report": "chart",
     "sale.menu_sale_config": "settings",
+    "qing_channel.menu_channel_operations": "dashboard",
+    "qing_channel.menu_channel_order": "order",
+    "qing_channel.menu_channel_exception": "bell",
+    "qing_channel.menu_channel_finance": "card",
+    "qing_channel.menu_channel_transaction": "currency",
+    "qing_channel.menu_channel_refund": "refund",
+    "qing_channel.menu_channel_sync": "activityLog",
+    "qing_channel.menu_channel_delivery": "receive",
+    "qing_channel.menu_channel_request": "transfer",
+    "qing_channel.menu_channel_configuration": "settings",
+    "qing_channel.menu_channel_store": "storefront",
+    "qing_channel.menu_channel_binding": "mapping",
+    "qing_channel.menu_channel_mapping": "sliders",
+    "qing_shopify.menu_opening_commitment": "package",
+    "qing_shopify.menu_shopify_bulk_import": "clock",
     "qing_rental.menu_rental_orders": "order",
     "qing_rental.menu_rental_products": "box",
     "qing_rental.menu_rental_deposits": "card",
@@ -240,5 +262,5 @@ for (const [id, icon] of Object.entries({ ...appIcons, ...sectionIcons })) {
 
 export function menuIconHref(menu) {
     const icon = menuIcons.get(menu.xmlid || "", "paper");
-    return `/qing_web_ui/static/src/icons/menu.svg?v=10#${icon}`;
+    return `/qing_web_ui/static/src/icons/menu.svg?v=12#${icon}`;
 }

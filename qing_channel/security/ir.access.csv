@@ -1,0 +1,32 @@
+id,name,model_id,group_id/id,operation,domain
+access_channel_store_read,Channel store read,qing.channel.store,qing_channel.group_channel_user,r,
+access_channel_store_manage,Channel store manage,qing.channel.store,qing_channel.group_channel_manager,crud,
+rule_channel_store_company,Channel store company,qing.channel.store,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_delivery_read,Channel delivery read,qing.channel.delivery,qing_channel.group_channel_user,r,
+rule_channel_delivery_company,Channel delivery company,qing.channel.delivery,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_order_read,Channel order read,qing.channel.order,qing_channel.group_channel_user,r,
+rule_channel_order_company,Channel order company,qing.channel.order,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_order_line_read,Channel order.line read,qing.channel.order.line,qing_channel.group_channel_user,r,
+rule_channel_order_line_company,Channel order.line company,qing.channel.order.line,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_transaction_read,Channel transaction read,qing.channel.transaction,qing_channel.group_channel_user,r,
+rule_channel_transaction_company,Channel transaction company,qing.channel.transaction,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_refund_read,Channel refund read,qing.channel.refund,qing_channel.group_channel_user,r,
+rule_channel_refund_company,Channel refund company,qing.channel.refund,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_binding_read,Channel binding read,qing.channel.binding,qing_channel.group_channel_user,r,
+access_channel_binding_manage,Channel binding manage,qing.channel.binding,qing_channel.group_channel_manager,crud,
+rule_channel_binding_company,Channel binding company,qing.channel.binding,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_stock_claim_read,Channel stock.claim read,qing.channel.stock.claim,qing_channel.group_channel_user,r,
+rule_channel_stock_claim_company,Channel stock.claim company,qing.channel.stock.claim,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_action_read,Channel action read,qing.channel.action,qing_channel.group_channel_user,r,
+rule_channel_action_company,Channel action company,qing.channel.action,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_request_read,Channel request read,qing.channel.request,qing_channel.group_channel_user,r,
+rule_channel_request_company,Channel request company,qing.channel.request,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_request_attempt_read,Channel request.attempt read,qing.channel.request.attempt,qing_channel.group_channel_user,r,
+rule_channel_request_attempt_company,Channel request.attempt company,qing.channel.request.attempt,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_cursor_read,Channel cursor read,qing.channel.cursor,qing_channel.group_channel_user,r,
+rule_channel_cursor_company,Channel cursor company,qing.channel.cursor,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_mapping_read,Channel mapping read,qing.channel.mapping,qing_channel.group_channel_user,r,
+access_channel_mapping_manage,Channel mapping manage,qing.channel.mapping,qing_channel.group_channel_manager,crud,
+rule_channel_mapping_company,Channel mapping company,qing.channel.mapping,,crud,"[('company_id', 'in', company_ids)]"
+access_channel_exception_read,Channel exception read,qing.channel.exception,qing_channel.group_channel_user,r,
+rule_channel_exception_company,Channel exception company,qing.channel.exception,,crud,"[('company_id', 'in', company_ids)]"

@@ -126,25 +126,34 @@ class QingServiceInstance(models.Model):
         return True
 
     def _request(self, path, payload=None, *, method=None, headers=None,
-                 max_body_bytes=16384, max_response_bytes=65536):
+                 max_body_bytes=16384, max_response_bytes=65536, timeout=15):
         self.ensure_one()
         if not self._ensure_not_clone():
             raise UserError(_('Register this database as a new online service instance.'))
-        parts = urlsplit(self.endpoint)
+        return self._request_json(self.endpoint, path, payload, method=method, timeout=timeout,
+                                  max_body_bytes=max_body_bytes, max_response_bytes=max_response_bytes,
+                                  headers={
+                                      **(headers or {}),
+                                      'X-Qing-Instance-Uid': self.instance_uid,
+                                      'Authorization': 'Bearer ' + self.instance_token,
+                                  })
+
+    @api.model
+    def _request_json(self, endpoint, path, payload=None, *, method=None, headers=None,
+                      max_body_bytes=16384, max_response_bytes=65536, timeout=15):
+        parts = urlsplit(endpoint)
         if parts.scheme != 'https' or not parts.hostname or parts.username or parts.password:
             raise ValidationError(_('The service endpoint must use HTTPS.'))
         body = json.dumps(payload, ensure_ascii=False).encode('utf-8') if payload is not None else None
         if body and len(body) > max_body_bytes:
             raise ValidationError(_('The registration payload is too large.'))
-        req = Request(self.endpoint.rstrip('/') + path, data=body, headers={
+        req = Request(endpoint.rstrip('/') + path, data=body, headers={
             **(headers or {}),
-            'X-Qing-Instance-Uid': self.instance_uid,
-            'Authorization': 'Bearer ' + self.instance_token,
             'Accept': 'application/json', 'Content-Type': 'application/json',
         }, method=method or ('POST' if body is not None else 'GET'))
         try:
             opener = build_opener(_NoRedirect, HTTPSHandler(context=ssl.create_default_context()))
-            with opener.open(req, timeout=15) as response:
+            with opener.open(req, timeout=timeout) as response:
                 raw = response.read(max_response_bytes + 1)
         except HTTPError as error:
             try:

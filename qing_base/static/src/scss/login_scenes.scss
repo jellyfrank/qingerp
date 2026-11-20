@@ -1,0 +1,128 @@
+// Dawn mountains, aurora and silk light: image-free login scenes. The shapes
+// are inline SVG from login_scene_templates.xml (only the chosen scene is
+// rendered); this file colours and animates them. Only transform and opacity
+// animate, and reduced motion stops everything. On narrow screens the SVGs
+// keep a minimum width and are centred, so ridges and lines are not squeezed.
+// CSS min()/max() are passed through unquote(): libsass would evaluate them.
+
+.qing-login-layout {
+    .qing-login-dawn,
+    .qing-login-aurora,
+    .qing-login-silk {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+
+        > * { position: absolute; pointer-events: none; }
+    }
+
+    // Dawn mountains: a warm sunrise behind layered, misty ridges.
+    .qing-login-dawn {
+        background: linear-gradient(180deg, #a8c2e2 0%, #c9d8eb 24%, #ecdcd3 46%, #f8e2cc 58%, #f1ddd0 72%, #dfe3ec 100%);
+    }
+    .qing-login-dawn-sun {
+        left: 70%;
+        top: 47%;
+        width: 70vmax;
+        height: 70vmax;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, #fffaf0 0 2.4%, rgba(255, 241, 214, .9) 3.4%, rgba(255, 222, 182, .5) 10%, rgba(255, 206, 168, .22) 22%, rgba(255, 206, 168, .08) 36%, transparent 55%);
+        animation: qing-login-scene-breathe 16s ease-in-out infinite alternate;
+    }
+    .qing-login-dawn-birds {
+        left: 22%;
+        top: 22%;
+        width: 120px;
+        height: 40px;
+        opacity: .55;
+        animation: qing-login-scene-birds 26s ease-in-out infinite alternate;
+    }
+    .qing-login-dawn-ridges {
+        left: unquote("min(0px, calc(50vw - 600px))");
+        bottom: 0;
+        width: unquote("max(100%, 1200px)");
+        height: 64vh;
+    }
+    .qing-login-dawn-mist {
+        left: -20%;
+        width: 140%;
+        height: 18vh;
+        background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255, 252, 248, .62), rgba(255, 252, 248, .22) 55%, transparent 72%);
+        animation: qing-login-scene-drift 48s ease-in-out infinite alternate;
+    }
+    .qing-login-dawn-mist-1 { bottom: 30vh; }
+    .qing-login-dawn-mist-2 { bottom: 20vh; left: -35%; animation-duration: 62s; animation-direction: alternate-reverse; }
+    .qing-login-dawn-mist-3 { bottom: -4vh; height: 16vh; animation-duration: 54s; }
+
+    // Aurora: soft curtains over dark mountains under the starry-sky stars.
+    .qing-login-aurora {
+        background: linear-gradient(180deg, #030a15 0%, #051c29 40%, #08323b 66%, #0a2a33 82%, #061720 100%);
+    }
+    .qing-login-aurora-stars { inset: 0; opacity: .75; }
+    .qing-login-aurora-light {
+        left: unquote("min(-12%, calc(50vw - 650px))");
+        top: 0;
+        width: unquote("max(124%, 1300px)");
+        height: 70vh;
+        filter: blur(12px);
+        mix-blend-mode: screen;
+        // Faint vertical rays.
+        mask-image: repeating-linear-gradient(90deg, #000 0 5px, rgba(0, 0, 0, .86) 5px 9px, #000 9px 16px, rgba(0, 0, 0, .9) 16px 19px);
+        -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 5px, rgba(0, 0, 0, .86) 5px 9px, #000 9px 16px, rgba(0, 0, 0, .9) 16px 19px);
+        transform-origin: 50% 100%;
+        animation: qing-login-scene-sway 22s ease-in-out infinite alternate;
+    }
+    .qing-login-aurora-light-2 { opacity: .8; animation-duration: 29s; animation-direction: alternate-reverse; }
+    .qing-login-aurora-light-3 { top: 6vh; opacity: .7; animation-duration: 18s; }
+    .qing-login-aurora-haze {
+        left: 0;
+        right: 0;
+        bottom: 18vh;
+        height: 30vh;
+        background: radial-gradient(ellipse 60% 50% at 40% 70%, rgba(80, 230, 190, .16), transparent 70%);
+    }
+    .qing-login-aurora-ridges {
+        left: unquote("min(0px, calc(50vw - 600px))");
+        bottom: 0;
+        width: unquote("max(100%, 1200px)");
+        height: 52vh;
+    }
+
+    // Silk light: drifting pastel light and a ribbon of fine lines.
+    .qing-login-silk { background: #f3f5fb; }
+    .qing-login-silk-blob {
+        width: 64vmax;
+        height: 64vmax;
+        border-radius: 50%;
+        animation: qing-login-scene-float 46s ease-in-out infinite alternate;
+    }
+    .qing-login-silk-blob-1 { left: -18vmax; top: -26vmax; background: radial-gradient(circle, rgba(170, 160, 255, .7), transparent 64%); }
+    .qing-login-silk-blob-2 { right: -20vmax; top: -24vmax; background: radial-gradient(circle, rgba(140, 205, 255, .66), transparent 64%); animation-duration: 58s; animation-direction: alternate-reverse; }
+    .qing-login-silk-blob-3 { left: -16vmax; bottom: -30vmax; background: radial-gradient(circle, rgba(255, 204, 182, .58), transparent 64%); animation-duration: 52s; }
+    .qing-login-silk-blob-4 { right: -14vmax; bottom: -28vmax; background: radial-gradient(circle, rgba(160, 232, 212, .55), transparent 64%); animation-duration: 64s; animation-direction: alternate-reverse; }
+    .qing-login-silk-lines {
+        left: unquote("min(-5%, calc(50vw - 650px))");
+        top: 18vh;
+        width: unquote("max(110%, 1300px)");
+        height: 74vh;
+        transform-origin: 50% 50%;
+        animation: qing-login-scene-silk 30s ease-in-out infinite alternate;
+    }
+
+    &:has(.qing-login-aurora) .qing-login-card {
+        box-shadow: 0 24px 70px rgba(0, 0, 0, .45), 0 2px 8px rgba(0, 0, 0, .2);
+    }
+}
+
+@keyframes qing-login-scene-breathe { from { opacity: .82; } to { opacity: 1; } }
+@keyframes qing-login-scene-birds { from { transform: translate(0, 0); } to { transform: translate(60px, -12px); } }
+@keyframes qing-login-scene-drift { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
+@keyframes qing-login-scene-sway { from { transform: translateX(-2.5%) scaleY(.94); } to { transform: translateX(2.5%) scaleY(1.04); } }
+@keyframes qing-login-scene-float { from { transform: translate(0, 0); } to { transform: translate(5vmax, 4vmax); } }
+@keyframes qing-login-scene-silk { from { transform: translateX(-2%) scaleY(.96); } to { transform: translateX(2%) scaleY(1.05); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .qing-login-layout :is(.qing-login-dawn, .qing-login-aurora, .qing-login-silk) * { animation: none !important; }
+}

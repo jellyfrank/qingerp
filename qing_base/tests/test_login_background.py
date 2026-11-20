@@ -11,10 +11,19 @@ from odoo.tests import TransactionCase, tagged
 class TestLoginBackground(TransactionCase):
     def test_styles_and_fallbacks(self):
         background = self.env['qing.login.background']
-        for style in ('default', 'solid', 'sea', 'forest', 'sand', 'twilight'):
+        for style in ('default', 'dawn', 'aurora', 'silk', 'qingdao', 'solid', 'sea', 'forest', 'sand', 'twilight'):
             self.assertEqual(background._display_values(style, '#abc123')['style'], style)
         self.assertEqual(background._display_values('image', '#abc123')['style'], 'default')
         self.assertEqual(background._display_values('invalid', 'bad')['color'], '#dfe9ee')
+
+    def test_backdrop_tells_the_footer_which_text_to_use(self):
+        background = self.env['qing.login.background']
+        for style, color, backdrop in (
+            ('default', '#dfe9ee', 'dark'), ('aurora', '#dfe9ee', 'dark'), ('dawn', '#dfe9ee', 'dark'),
+            ('sea', '#dfe9ee', 'light'), ('silk', '#dfe9ee', 'light'), ('qingdao', '#dfe9ee', 'dark'),
+            ('solid', '#ffffff', 'light'), ('solid', '#1b2a3a', 'dark'), ('solid', 'bad', 'light'),
+        ):
+            self.assertEqual(background._display_values(style, color)['backdrop'], backdrop, (style, color))
 
     def test_image_save_reload_and_restore(self):
         image = io.BytesIO()

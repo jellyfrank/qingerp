@@ -68,7 +68,7 @@ class TestRestrictedRead(TransactionCase):
             self.records[1].with_context(qing_partial_read=False).web_read(self.specification)
 
     def test_recovered_complete_record_does_not_add_empty_marker(self):
-        from odoo.addons.qing_base.tools import RestrictedComputeError
+        from odoo.addons.qing_base.tools.restricted_compute import RestrictedComputeError
 
         error = RestrictedComputeError((), AccessError('Transient restriction'))
         result = self.records[0]._qing_partial_record({'name': {}}, error)[0]

@@ -7,13 +7,12 @@ import { defineMailModels } from "@mail/../tests/mail_test_helpers";
 import { patch } from "@web/core/utils/patch";
 import { contains, mountWithCleanup, onRpc } from "@web/../tests/web_test_helpers";
 
-import { AiSystray } from "@qing_ai/js/ai_systray";
 import { DailyAssistant } from "@qing_ai/js/daily_assistant";
 import { editorToMarkdown } from "@qing_ai/js/composer_content";
 
 defineMailModels();
 
-test("AI systray opens a conversation and sends a reply without creating another session", async () => {
+test("compact assistant opens a conversation and sends a reply without creating another session", async () => {
     let sends = 0;
     let editor;
     patch(DailyAssistant.prototype, {
@@ -69,8 +68,7 @@ test("AI systray opens a conversation and sends a reply without creating another
         };
     });
 
-    await mountWithCleanup(AiSystray);
-    await contains(".o_qing_ai_trigger").click();
+    await mountWithCleanup(DailyAssistant, { props: { compact: true } });
     expect(".o_qing_ai_session_row").toHaveCount(1);
     await contains(".o_qing_ai_session_row").click();
     expect(".o_qing_ai_messages").toHaveText(/Previous question/);
@@ -150,7 +148,8 @@ test("sending unlocks the composer and shows thinking dots without losing the ne
         [7], "Can you read this image?", "ask", "default", "English",
         { name: "image.png", data: "cGljdHVyZQ==" },
         [{ name: "notes.txt", data: "bm90ZXM=" }],
-        true,
+        true, // background
+        true, // stream
     ]);
     expect(assistant.state.busy).toBe(true);
     expect(assistant.state.sending).toBe(true);

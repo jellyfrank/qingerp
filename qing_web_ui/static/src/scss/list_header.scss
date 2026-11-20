@@ -123,9 +123,10 @@
     .o_dropdown_container { border: 0 !important; margin-bottom: 0 !important; }
 }
 .o_qing_web_ui {
+    // The checkbox sits 16px in from the card edge, in line with the page title above.
     .o_list_renderer .o_list_record_selector {
-        width: 32px; min-width: 32px; max-width: 32px;
-        padding-inline: 6px !important; vertical-align: middle;
+        width: 40px; min-width: 40px; max-width: 40px;
+        padding-inline: 16px 8px !important; vertical-align: middle;
         .o-checkbox { display: flex !important; justify-content: center; align-items: center; padding: 0; margin: 0; min-height: 20px; }
         .form-check-input { float: none; margin: 0 !important; width: 16px; height: 16px; }
     }
@@ -456,10 +457,10 @@
 }
 @media (pointer: coarse) {
     .o_qing_web_ui .o_list_renderer .o_list_record_selector {
-        width: 44px;
-        min-width: 44px;
-        max-width: 44px;
-        padding-inline: 12px !important;
+        width: 48px;
+        min-width: 48px;
+        max-width: 48px;
+        padding-inline: 16px !important;
     }
 }
 

@@ -12,6 +12,7 @@ from ..tools import (
     observe_computes,
     strict_computes,
 )
+from ..tools.geoip import request_ip_location
 
 
 EXCLUDED_AUDIT_MODELS = frozenset({
@@ -353,20 +354,21 @@ class Base(models.AbstractModel):
         if not entries:
             return
         session_uid, source = self._qing_audit_actor()
+        ip, country, city = request_ip_location(request) if source == 'http' else (None, None, None)
         company_id = self.env.company.id
         values = [
             (
                 self._name, record_id, operation, self.env.uid, session_uid,
-                source, self.env.su, company_id,
+                source, ip, country, city, self.env.su, company_id,
                 ', '.join(names)[:1000], changes,
             )
             for record_id, names, changes in entries
         ]
         columns = (
             'model_name, record_id, operation, user_id, session_user_id, '
-            'source, is_sudo, company_id, field_names, changes'
+            'source, ip_address, country, city, is_sudo, company_id, field_names, changes'
         )
-        placeholder = '(NOW(), ' + ', '.join(['%s'] * 10) + ')'
+        placeholder = '(NOW(), ' + ', '.join(['%s'] * len(values[0])) + ')'
         for start in range(0, len(values), AUDIT_INSERT_BATCH_SIZE):
             chunk = values[start:start + AUDIT_INSERT_BATCH_SIZE]
             placeholders = ', '.join([placeholder] * len(chunk))

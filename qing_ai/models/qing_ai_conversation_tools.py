@@ -700,7 +700,7 @@ class QingAiConversation(models.Model):
             f'{key}: {catalog[key]}'
             for key in catalog if key in allowed
         ]
-        agent_role = (self.agent_id.system_prompt or '')[:4000] if self.agent_id else ''
+        agent_role = self._agent_role()
         skill_guidance = [
             (skill.instructions or '')[:2000] for skill in self._agent_skills()
             if skill.instructions and skill.tool_ids.available_for_user()

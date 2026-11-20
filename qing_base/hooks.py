@@ -1,4 +1,6 @@
-"""Bridge Website's required column while its ORM extension is not loaded yet."""
+"""Initialize Qing Base and bridge existing product data during upgrades."""
+
+from odoo.tools import BinaryBytes, file_open
 
 
 def prepare_view_visibility(cr):
@@ -38,6 +40,7 @@ def post_init_hook(env):
     restore_view_visibility(env.cr)
     import_legacy_mommy_base_settings(env)
     initialize_brand_title(env)
+    initialize_assistant_brand(env)
     initialize_report_print_preview(env)
     initialize_product_units_and_packagings(env)
     initialize_customer_signup_invitation(env)
@@ -51,6 +54,21 @@ def initialize_brand_title(env):
     parameters = env['ir.config_parameter'].sudo()
     if parameters.get_str('qing_base.title', default='') in ('', 'Odoo'):
         parameters.set_str('qing_base.title', 'QingERP 20.0')
+
+
+def initialize_assistant_brand(env):
+    """Brand the standard system partner in place, including on upgrades."""
+    partner = env.ref('base.partner_root')
+    if partner.name not in ('OdooBot', 'System', 'Qing Assistant'):
+        return
+    with file_open('qing_base/static/img/qing_assistant.jpg', 'rb') as source:
+        avatar = source.read()
+    if partner.name == 'Qing Assistant' and partner.image_1920 and partner.image_1920.content == avatar:
+        return
+    partner.with_context(tracking_disable=True).write({
+        'name': 'Qing Assistant',
+        'image_1920': BinaryBytes(avatar),
+    })
 
 
 def initialize_report_print_preview(env):

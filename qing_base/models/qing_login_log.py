@@ -21,7 +21,9 @@ class QingLoginLog(models.Model):
     attempt_datetime = fields.Datetime(
         string='Time', default=fields.Datetime.now, required=True, readonly=True, index=True,
     )
+    city = fields.Char(readonly=True)
     company_id = fields.Many2one('res.company', string='Company', readonly=True, index=True)
+    country = fields.Char(readonly=True)
     failure_reason = fields.Char(readonly=True)
     ip_address = fields.Char(string='IP Address', required=True, readonly=True, index=True)
     login = fields.Char(required=True, readonly=True, index=True)

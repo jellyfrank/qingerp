@@ -43,4 +43,6 @@ class TestQingAiTranslations(TransactionCase):
             {'id': 'Open in Discuss', 'string': '在讨论中打开'},
             web_messages,
         )
+        self.assertIn({'id': 'AI Implementation Advisor', 'string': 'AI 实施顾问'}, web_messages)
+        self.assertIn({'id': 'Find a topic', 'string': '查找主题'}, web_messages)
         self.assertTrue(self.env['ir.http']._get_web_translations_hash(('qing_ai',), 'zh_CN'))

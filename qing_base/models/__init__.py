@@ -4,6 +4,7 @@ from . import ir_actions_report
 from . import ir_http
 from . import ir_config_parameter
 from . import ir_module_module
+from . import mail_bot
 from . import mail_push
 from . import mail_push_device
 from . import mail_thread
@@ -16,3 +17,4 @@ from . import res_users
 from . import access_request
 from . import access_event
 from . import qing_login_background
+from . import qing_public_manual
