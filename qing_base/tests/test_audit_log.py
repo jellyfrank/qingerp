@@ -62,6 +62,24 @@ class TestQingAuditLog(TransactionCase):
             pass
         self.assertFalse(self._logs_for(record_id))
 
+    def test_server_actions_audit_before_location_columns_exist(self):
+        # An upgrade begins by refreshing module metadata on the old schema.
+        self.env.cr.execute("""
+            ALTER TABLE qing_audit_log
+                DROP COLUMN ip_address, DROP COLUMN country, DROP COLUMN city
+        """)
+        parameter = self.env['ir.config_parameter'].sudo().create({
+            'key': 'qing_base.test_pre_upgrade',
+            'value': 'private',
+        })
+        parameter.write({'value': 'new private value'})
+        self.env.cr.execute("""
+            SELECT changes FROM qing_audit_log
+            WHERE model_name = 'ir.config_parameter'
+                AND record_id = %s AND operation = 'write' AND source = 'server'
+        """, (parameter.id,))
+        self.assertEqual(json.loads(self.env.cr.fetchone()[0]), {'value': {'redacted': True}})
+
     def test_transient_model_is_not_audited(self):
         settings = self.env['res.config.settings'].create({})
         domain = [

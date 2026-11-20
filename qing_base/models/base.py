@@ -354,20 +354,23 @@ class Base(models.AbstractModel):
         if not entries:
             return
         session_uid, source = self._qing_audit_actor()
-        ip, country, city = request_ip_location(request) if source == 'http' else (None, None, None)
         company_id = self.env.company.id
+        columns = (
+            'model_name, record_id, operation, user_id, session_user_id, '
+            'source, is_sudo, company_id, field_names, changes'
+        )
+        # The module list can be updated by server code before the migration adds
+        # location fields. Server audit events have no request location.
+        location = request_ip_location(request) if source == 'http' else ()
+        if location:
+            columns += ', ip_address, country, city'
         values = [
             (
                 self._name, record_id, operation, self.env.uid, session_uid,
-                source, ip, country, city, self.env.su, company_id,
-                ', '.join(names)[:1000], changes,
-            )
+                source, self.env.su, company_id, ', '.join(names)[:1000], changes,
+            ) + location
             for record_id, names, changes in entries
         ]
-        columns = (
-            'model_name, record_id, operation, user_id, session_user_id, '
-            'source, ip_address, country, city, is_sudo, company_id, field_names, changes'
-        )
         placeholder = '(NOW(), ' + ', '.join(['%s'] * len(values[0])) + ')'
         for start in range(0, len(values), AUDIT_INSERT_BATCH_SIZE):
             chunk = values[start:start + AUDIT_INSERT_BATCH_SIZE]
