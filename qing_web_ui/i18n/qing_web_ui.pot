@@ -617,3 +617,33 @@ msgstr ""
 #: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
 msgid "Search..."
 msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/web/static/src/core/domain_selector/domain_selector.xml:0
+msgid "Include archived"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/mobile_labels.xml:0
+msgid "Related"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/mobile_labels.xml:0
+msgid "Actions"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_debug_shortcut.js:0
+msgid "Developer mode"
+msgstr ""
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_debug_shortcut.js:0
+msgid "Leave developer mode"
+msgstr ""

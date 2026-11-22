@@ -24,9 +24,12 @@ class SaleOrder extends saleModels.SaleOrder {
 }
 defineComboModels();
 defineMailModels();
-defineModels({ SaleOrder, SaleOrderLine,
+defineModels({
+    SaleOrder,
+    SaleOrderLine,
     SaleOrderTemplate: saleModels.SaleOrderTemplate,
     SaleOrderTemplateLine: saleModels.SaleOrderTemplateLine,
+    UomUom: saleModels.UomUom,
 });
 
 const rowNumbers = () => queryAllTexts("tr.o_data_row td.o_qing_row_number");

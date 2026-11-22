@@ -25,7 +25,14 @@
         <field name="code">model._cron_qing_telemetry_heartbeat()</field>
         <field name="interval_number">6</field>
         <field name="interval_type">hours</field>
-        <field name="active" eval="True"/>
+    </record>
+    <record id="action_qing_telemetry_heartbeat" model="ir.actions.act_window">
+        <field name="name">Heartbeat Check</field>
+        <field name="res_model">ir.cron</field>
+        <field name="res_id" eval="ref('ir_cron_qing_telemetry_heartbeat')"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.ir_cron_view_form"/>
+        <field name="group_ids" eval="[(4, ref('base.group_system'))]"/>
     </record>
     <record id="ir_cron_qing_access_event_purge" model="ir.cron">
         <field name="name">Qing Permission Diagnostics: Remove Expired Events</field>

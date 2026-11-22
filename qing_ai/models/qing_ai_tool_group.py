@@ -16,7 +16,7 @@ DATE_INTERVALS = ('day', 'week', 'month', 'quarter', 'year')
 # _group_arguments still validates every value against the full option list.
 GROUP_ENUM_LIMIT = 20
 GROUPBY_RULE = (
-    'Stored fields from the model catalog of type char, boolean, integer, selection, date, datetime '
+    'Groupable fields from the model catalog of type char, boolean, integer, selection, date, datetime '
     'or many2one. Date and datetime fields need an interval suffix: :day, :week, :month, :quarter '
     'or :year, for example create_date:month.'
 )
@@ -29,24 +29,33 @@ AGGREGATE_RULE = (
 class QingAiTool(models.Model):
     _inherit = 'qing.ai.tool'
 
+    def _group_field_usable(self, Model, name, meta, measure):
+        """
+        Whether a field can group or be measured in database statistics.
+
+        Measures need a stored column. Groups follow Odoo itself, which also groups by related
+        fields such as the category of a product variant.
+        """
+        field = Model._fields.get(name)
+        if not field or meta.get('type') not in (MEASURE_TYPES if measure else GROUP_TYPES):
+            return False
+        if SENSITIVE_FIELD.search(name):
+            return False
+        if measure:
+            return bool(field.store and field.column_type)
+        return bool(meta.get('groupable'))
+
     def _group_metadata(self, Model, measure=False):
-        types = MEASURE_TYPES if measure else GROUP_TYPES
+        attributes = ['string', 'type', 'selection', 'groupable']
         selected = self.sudo().orm_measure_field_ids if measure else self.sudo().orm_group_field_ids
         if self.orm_all_fields:
-            metadata = Model.fields_get(attributes=['string', 'type', 'selection'])
-            result = {}
-            for name, meta in metadata.items():
-                field = Model._fields.get(name)
-                if (meta['type'] in types and field and field.store and field.column_type
-                        and not SENSITIVE_FIELD.search(name)):
-                    result[name] = meta
-            return result
-        metadata = Model.fields_get(selected.mapped('name'), attributes=['string', 'type', 'selection']) if selected else {}
+            metadata = Model.fields_get(attributes=attributes)
+            return {name: meta for name, meta in metadata.items()
+                    if self._group_field_usable(Model, name, meta, measure)}
+        metadata = Model.fields_get(selected.mapped('name'), attributes=attributes) if selected else {}
         for item in selected:
-            field = Model._fields.get(item.name)
-            if (item.model != Model._name or item.name not in metadata or not field
-                    or field.type not in types or not field.store or not field.column_type
-                    or SENSITIVE_FIELD.search(item.name)):
+            if (item.model != Model._name or item.name not in metadata
+                    or not self._group_field_usable(Model, item.name, metadata[item.name], measure)):
                 raise ValidationError(self.env._('The statistics field is unavailable: %s', item.name))
         return metadata
 
@@ -131,6 +140,11 @@ class QingAiTool(models.Model):
         groupby = arguments.get('groupby', defaults)
         aggregates = arguments.get('aggregates', ['__count'] + self._group_defaults(Model, measure=True))
         for values, allowed, limit in ((groupby, allowed_groups, 3), (aggregates, allowed_measures, 8)):
+            unknown = next((value for value in values if isinstance(value, str) and value not in allowed),
+                           None) if isinstance(values, list) else None
+            if unknown:
+                # Name the value so the planner can choose an available field next time.
+                raise ValidationError(self.env._('This statistics choice is not available: %s', unknown))
             if (not isinstance(values, list) or not 1 <= len(values) <= limit
                     or any(not isinstance(value, str) or value not in allowed for value in values)
                     or len(set(values)) != len(values)):

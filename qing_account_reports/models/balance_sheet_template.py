@@ -23,6 +23,17 @@ TOTALS = {
     29: (16, 17, *range(20, 29)), 30: (15, 29), 41: tuple(range(31, 41)),
     46: tuple(range(42, 46)), 47: (41, 46), 52: tuple(range(48, 52)), 53: (47, 52),
 }
+# Display-only structure of the statutory form; calculations keep using TOTALS.
+ASSET_ROWS = frozenset(range(1, 31))
+DETAIL_ROWS = frozenset((10, 11, 12, 13, 19))
+FORM_CODE = '会小企01表'
+GRAND_TOTAL_ROWS = frozenset((30, 53))
+# Statutory block captions, keyed by the first row of each block.
+SECTION_CAPTIONS = {
+    1: '流动资产：', 16: '非流动资产：', 31: '流动负债：', 42: '非流动负债：',
+    48: '所有者权益（或股东权益）：',
+}
+SUBTOTAL_ROWS = frozenset((15, 29, 41, 46, 47, 52))
 ROW_SELECTION = [(str(code), f'{code} · {label}') for code, label in ROW_NAMES.items()
                  if code not in TOTALS or code == 9]
 SPLIT_ROWS = {4: (4, 34), 34: (4, 34), 5: (5, 33), 33: (5, 33)}

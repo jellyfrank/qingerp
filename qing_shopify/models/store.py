@@ -5,6 +5,7 @@ from uuid import uuid4
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError, ValidationError
 from odoo.fields import Domain
+from odoo.tools.translate import LazyTranslate
 from odoo.addons.qing_channel.errors import ChannelReviewRequired, DeferredChannelError
 from odoo.addons.qing_base.tools.channel_queue import locked_job_environment
 
@@ -15,6 +16,20 @@ from ..services.client import (
 from ..services.credentials import open_secret, seal, storage_ready
 from ..services.orders import ORDER_PAGE, fetch_order, parse_date
 
+
+_lt = LazyTranslate(__name__)
+
+EXCEPTION_TITLES = {
+    'shopify_credentials_required': _lt('Shopify app credentials are missing'),
+    'shopify_scope_denied': _lt('Shopify app permissions are missing'),
+    'shopify_sku_missing': _lt('Shopify SKU and barcode are missing'),
+    'shopify_product_mapping_required': _lt('Shopify product mapping is missing'),
+    'shopify_stock_product_mapping_required': _lt('Shopify inventory mapping is missing'),
+    'shopify_product_codes_ambiguous': _lt('Shopify product codes conflict'),
+    'shopify_pricelist_currency_mismatch': _lt('The pricelist currency does not match the Shopify order'),
+    'shopify_page_cursor_invalid_after_restart': _lt('Shopify order synchronization needs to be retried'),
+    CUSTOMER_ACCESS_DENIED: _lt('Shopify app lacks access to protected customer data'),
+}
 
 REQUIRED_SCOPES = {
     'read_orders', 'read_customers', 'read_products', 'read_inventory', 'write_inventory',
@@ -47,6 +62,22 @@ query ChannelConnection($location: ID!) {
 
 class ShopifyScanException(models.Model):
     _inherit = 'qing.channel.exception'
+
+    def _get_exception_title(self):
+        title = EXCEPTION_TITLES.get(self.code)
+        return self.env._(title) if title else super()._get_exception_title()
+
+    @api.depends('code', 'object_id', 'store_id.platform')
+    def _compute_can_recheck(self):
+        super()._compute_can_recheck()
+
+    def _supports_recheck(self):
+        return super()._supports_recheck() or (
+            self.object_model == 'qing.channel.store'
+            and self.code == 'shopify_page_cursor_invalid_after_restart'
+            and self.object_id == self.store_id.id
+            and self.store_id.platform == 'shopify'
+        )
 
     def action_recheck(self):
         self.ensure_one()

@@ -1,7 +1,7 @@
 {
     'name': 'Qing Sale',
     'summary': 'Sales row numbers and separate quotation/order menus',
-    'version': '20.0.1.8',
+    'version': '20.0.1.9',
     'category': 'Sales/Sales',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -14,11 +14,13 @@
         'views/view_res_config_settings_form.xml',
         'data/sale_menu_actions.xml',
         'views/view_sale_order_payment.xml',
+        'views/view_sale_order_kanban.xml',
     ],
     'assets': {
         'web.assets_backend': [
             'qing_sale/static/src/js/list_row_numbers.js',
             'qing_sale/static/src/xml/list_row_numbers.xml',
+            'qing_sale/static/src/scss/sale_order_kanban.scss',
         ],
         'web.assets_unit_tests': ['qing_sale/static/tests/list_row_numbers.test.js'],
     },

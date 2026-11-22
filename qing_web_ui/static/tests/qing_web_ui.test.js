@@ -3,7 +3,7 @@
 import { Component, proxy, xml } from "@odoo/owl";
 import { DebugMenu } from "@web/core/debug/debug_menu";
 import { useOwnDebugContext } from "@web/core/debug/debug_context";
-import { animationFrame, expect, mockMatchMedia, test } from "@odoo/hoot";
+import { animationFrame, expect, test } from "@odoo/hoot";
 import { press, resize } from "@odoo/hoot-dom";
 import { defineMailModels } from "@mail/../tests/mail_test_helpers";
 import { registry } from "@web/core/registry";
@@ -48,6 +48,30 @@ test("calendar configuration menus use distinct icons", () => {
         "calendar.calendar_submenu_event_type",
     ].map((xmlid) => menuIconHref({ xmlid }).split("#")[1]);
     expect(icons).toEqual(["calendar", "settings", "calendarStack", "bell", "tags"]);
+});
+
+test("technical settings menus use a distinct icon within each section", () => {
+    const icon = (xmlid) => menuIconHref({ xmlid }).split("#")[1];
+    const sections = {
+        email: ["mail.menu_mail_mail", "base.menu_mail_servers", "mail.menu_action_fetchmail_server_tree",
+            "mail.menu_email_templates", "mail.ir_ui_view_menu_usage_mail_post", "mail.mail_alias_menu",
+            "mail.mail_alias_domain_menu", "mail.discuss_channel_menu_settings", "mail.discuss_channel_member_menu",
+            "mail.mail_gateway_allowed_menu", "digest.digest_menu", "digest.digest_tip_menu"],
+        actions: ["base.menu_ir_sequence_actions", "base.menu_ir_action_report", "base.menu_ir_action_window",
+            "base.menu_ir_client_actions_report", "base.menu_server_action", "base.menu_ir_embedded_action",
+            "base.menu_ir_actions_todo_form", "base.ir_default_menu"],
+        database: ["base.menu_decimal_precision_form", "base.menu_action_asset", "base.ir_model_model_menu",
+            "base.ir_model_model_fields", "base.ir_model_model_fields_selection", "base.ir_model_constraint_menu",
+            "base.ir_model_relation_menu", "base.menu_action_attachment", "base.ir_logging_all_menu", "base.menu_ir_profile"],
+    };
+    for (const xmlids of Object.values(sections)) {
+        const icons = xmlids.map(icon);
+        expect(icons).not.toInclude("paper");
+        expect(new Set(icons).size).toBe(icons.length);
+    }
+    expect(icon("base.menu_ir_cron_act")).toBe("cron");
+    expect(icon("base.menu_action_res_groups_privilege")).toBe("scope");
+    expect(icon("base.menu_mail_servers")).toBe("mailServerOut");
 });
 
 class QingSearchRecord extends models.Model {
@@ -788,22 +812,30 @@ test("active beetle opens its wings and keeps the native developer dropdown", as
 
 // Use the visible control both ways: changing preferences alone misses a lost trigger.
 test.tags("desktop");
-test("sidebar can expand again through its control after collapsing", async () => {
+test("company name folds the sidebar and expands it again", async () => {
     onRpc("res.users.settings", "set_qing_theme_preferences", ({ args }) => ({ base: { ...window.qingWebUi.getPreferences(), ...args[0].base } }));
     const preferences = window.qingWebUi.getPreferences();
     try {
         window.qingWebUi.setPreferences({ sidebarState: "expanded" });
         const navbar = await mountWithCleanup(NavBar);
         navbar.qingActionChanged();
-        expect('.o_qing_sidebar__collapse[aria-expanded="true"]').toHaveCount(1);
-        await contains(".o_qing_sidebar__collapse").click();
+        const company = navbar.qingLauncherCompanyName;
+        const toggle = ".o_qing_sidebar__toggle_company";
+        expect(`${toggle}[aria-expanded="true"][aria-controls="o_qing_sidebar_sections"]`).toHaveCount(1);
+        expect("#o_qing_sidebar_sections").toHaveCount(1);
+        expect(`${toggle} span`).toHaveText(company);
+        // The top-bar button, not the company name, opens the applications.
+        expect(".o_main_navbar > .o_qing_launcher_trigger").toHaveCount(1);
+        await contains(toggle).click();
         await animationFrame();
-        expect('.o_qing_sidebar__collapse[aria-expanded="false"]').toHaveCount(1);
-        expect('.o_qing_sidebar__collapse[aria-label="Expand sidebar"] svg').toHaveCount(1);
-        await contains(".o_qing_sidebar__collapse").click();
+        expect(window.qingWebUi.getPreferences().sidebarState).toBe("collapsed");
+        expect(`${toggle}[aria-expanded="false"]`).toHaveCount(1);
+        expect(`${toggle} span`).toHaveText(company.slice(0, 2));
+        expect(".o_qing_app_switcher").toHaveCount(0);
+        await contains(toggle).click();
         await animationFrame();
         expect(window.qingWebUi.getPreferences().sidebarState).toBe("expanded");
-        expect('.o_qing_sidebar__collapse[aria-expanded="true"]').toHaveCount(1);
+        expect(`${toggle}[aria-expanded="true"]`).toHaveCount(1);
     } finally {
         window.qingWebUi.setPreferences(preferences);
     }
@@ -854,91 +886,34 @@ test("personal app order handles removed, new and overflow apps without mutating
 
 
 test.tags("mobile");
-test("mobile record title scrolls only when overflowing and resets after resize or rename", async () => {
-    mockMatchMedia({ "prefers-reduced-motion": "no-preference" });
+test("long record titles end with an ellipsis instead of scrolling", async () => {
     const returned = [];
     class TitleFixture extends Component {
         static components = { Breadcrumbs };
         static template = xml`
             <div class="o_qing_web_ui">
-                <nav class="o_main_navbar" t-att-style="'width:' + this.state.width + 'px; min-width:0'">
+                <nav class="o_main_navbar" style="width:140px; min-width:0">
                     <div class="o_navbar_breadcrumbs d-flex min-w-0">
                         <Breadcrumbs breadcrumbs="this.breadcrumbs"/>
                     </div>
                 </nav>
-                <button class="expand-title" t-on-click="() => this.state.width = 600">Expand</button>
-                <button class="shrink-title" t-on-click="() => this.state.width = 140">Shrink</button>
-                <button class="rename-title" t-on-click="() => this.state.name = 'Acme'">Rename</button>
             </div>`;
-        state = proxy({ width: 140, name: "Shanghai Boyuan Trading Company Limited", root: false, collection: false });
         get breadcrumbs() {
-            if (this.state.root) return [{ jsId: 1, name: "Contacts and Companies Directory" }];
             return [
                 { jsId: 1, name: "Contacts", onSelected: () => returned.push("contacts") },
-                { jsId: 2, name: this.state.name, isFormView: !this.state.collection },
+                { jsId: 2, name: "Shanghai Boyuan Trading Company Limited", isFormView: true },
             ];
         }
     }
-    const fixture = await mountWithCleanup(TitleFixture, { componentEnv: { config: { viewType: "form" } } });
+    await mountWithCleanup(TitleFixture, { componentEnv: { config: { viewType: "form" } } });
     await animationFrame();
-    expect(".o_last_breadcrumb_item").toHaveClass("o_qing_breadcrumb_title_overflow");
-    expect(".o_back_button .o_qing_back_icon").toHaveCount(1);
-    const label = document.querySelector(".o_qing_breadcrumb_label");
-    expect(getComputedStyle(label).visibility).toBe("visible");
-    const animation = label.getAnimations()[0];
-    expect(animation.playState).toBe("running");
-    const frames = animation.effect.getKeyframes();
-    expect(frames[0].transform).toBe("translateX(0px)");
-    expect(frames[2].transform).not.toBe("translateX(0px)");
-    expect(frames[3].transform).toBe(frames[2].transform);
-    expect(frames.at(-1).transform).toBe("translateX(0px)");
-    fixture.state.width = 140;
-    await animationFrame();
-    expect(label.getAnimations()[0]).toBe(animation);
-    await contains(".expand-title").click();
-    await animationFrame();
-    expect(".o_last_breadcrumb_item").not.toHaveClass("o_qing_breadcrumb_title_overflow");
+    const viewport = document.querySelector(".o_qing_breadcrumb_viewport");
+    const label = viewport.querySelector(".o_qing_breadcrumb_label");
+    expect(viewport).toHaveAttribute("title", "Shanghai Boyuan Trading Company Limited");
     expect(label.getAnimations()).toHaveLength(0);
-    await contains(".shrink-title").click();
-    await animationFrame();
-    expect(".o_last_breadcrumb_item").toHaveClass("o_qing_breadcrumb_title_overflow");
-    const preferences = window.qingWebUi.getPreferences();
-    try {
-        window.qingWebUi.setPreferences({ reducedMotion: true });
-        await animationFrame();
-        expect(".o_last_breadcrumb_item").toHaveClass("o_qing_breadcrumb_title_manual");
-        expect(label.getAnimations()).toHaveLength(0);
-        expect(getComputedStyle(document.querySelector(".o_qing_breadcrumb_viewport")).overflowX).toBe("auto");
-    } finally {
-        window.qingWebUi.setPreferences(preferences);
-    }
-    await animationFrame();
-    expect(label.getAnimations()).toHaveLength(1);
-    mockMatchMedia({ "prefers-reduced-motion": "reduce" });
-    await animationFrame();
-    expect(".o_last_breadcrumb_item").toHaveClass("o_qing_breadcrumb_title_manual");
-    expect(label.getAnimations()).toHaveLength(0);
-    mockMatchMedia({ "prefers-reduced-motion": "no-preference" });
-    await animationFrame();
-    expect(label.getAnimations()).toHaveLength(1);
-    await contains(".rename-title").click();
-    await animationFrame();
-    expect(".o_last_breadcrumb_item").not.toHaveClass("o_qing_breadcrumb_title_overflow");
+    expect(viewport.scrollWidth > viewport.clientWidth).toBe(true);
     await contains(".o_back_button").click();
     expect(returned).toEqual(["contacts"]);
-    expect(label.getAnimations()).toHaveLength(0);
-    fixture.state.name = "Contacts and Companies Directory";
-    fixture.state.collection = true;
-    await animationFrame();
-    await animationFrame();
-    expect(".o_last_breadcrumb_item").not.toHaveClass("o_qing_breadcrumb_title_record");
-    expect(label.getAnimations()).toHaveLength(0);
-    expect(getComputedStyle(document.querySelector(".o_qing_breadcrumb_viewport")).textOverflow).toBe("ellipsis");
-    expect(getComputedStyle(label).display).toBe("inline");
-    fixture.state.root = true;
-    await animationFrame();
-    expect(".o_back_button").toHaveCount(0);
-    expect(getComputedStyle(document.querySelector(".o_last_breadcrumb_item > span")).textOverflow).toBe("ellipsis");
 });
 
 // Mount the native components to catch inheritance drift and preserve actions.

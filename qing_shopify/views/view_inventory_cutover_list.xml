@@ -11,6 +11,9 @@
                 <field name="shopify_preview_target" string="ERP Publish Quantity"/>
                 <field name="shopify_preview_difference" string="Change to Publish"/>
                 <field name="shopify_preview_at" string="Checked At"/>
+                <field name="shopify_takeover_pending" column_invisible="True"/>
+                <button name="action_shopify_confirm_takeover" type="object" string="Confirm Variant Takeover"
+                        invisible="not shopify_takeover_pending" groups="qing_channel.group_channel_manager"/>
             </list>
         </field>
     </record>
@@ -20,6 +23,9 @@
         <field name="inherit_id" ref="qing_channel.view_channel_binding_list"/>
         <field name="arch" type="xml">
             <field name="stock_paused" position="after">
+                <field name="shopify_takeover_pending" optional="hide"/>
+                <button name="action_shopify_preview_takeover" type="object" string="Preview Variant Takeover"
+                        invisible="not shopify_takeover_pending" groups="qing_channel.group_channel_manager"/>
                 <button name="action_shopify_activate_inventory" type="object" string="Enable Shopify Item at Location"
                         invisible="kind != 'inventory'" groups="qing_channel.group_channel_manager"
                         confirm="Enable tracking for this Shopify inventory item at the mapped location?"/>

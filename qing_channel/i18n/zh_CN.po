@@ -53,7 +53,9 @@ msgid "Channel Business Action"
 msgstr "渠道业务动作"
 
 #. module: qing_channel
+#. odoo-python
 #: model:ir.model,name:qing_channel.model_qing_channel_exception
+#: code:addons/qing_channel/models/exception.py:0
 msgid "Channel Exception"
 msgstr "渠道异常"
 
@@ -631,6 +633,7 @@ msgstr "支付网关"
 #. module: qing_channel
 #: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_action__state__pending
 #: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_delivery__state__pending
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_exception__status__pending
 msgid "Pending"
 msgstr "待处理"
 
@@ -717,6 +720,7 @@ msgstr "接收时间"
 
 #. module: qing_channel
 #: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_exception_list
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_exception_form
 msgid "Recheck"
 msgstr "重新核对"
 
@@ -764,6 +768,7 @@ msgstr "请求"
 
 #. module: qing_channel
 #: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__resolved
+#: model:ir.model.fields.selection,name:qing_channel.selection__qing_channel_exception__status__resolved
 msgid "Resolved"
 msgstr "已解决"
 
@@ -859,6 +864,7 @@ msgstr "状态"
 
 #. module: qing_channel
 #: model:ir.model.fields,field_description:qing_channel.field_qing_channel_transaction__status
+#: model:ir.model.fields,field_description:qing_channel.field_qing_channel_exception__status
 msgid "Status"
 msgstr "状态"
 
@@ -1067,3 +1073,13 @@ msgstr "已匹配产品"
 #: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_order_form
 msgid "Synchronization"
 msgstr "同步信息"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_exception_form
+msgid "Technical Details"
+msgstr "技术详情"
+
+#. module: qing_channel
+#: model_terms:ir.ui.view,arch_db:qing_channel.view_channel_exception_form
+msgid "Exception Details"
+msgstr "异常详情"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Notification emails close with "Powered by QingERP". Text only: mail
+         clients often block images. The link is matched as Odoo's, or as the
+         Qingsolution link some installations already put there (mommy_base), so
+         either base works whichever module loads first. -->
+    <template id="mail_notification_layout_branding" inherit_id="mail.mail_notification_layout" name="Qing mail branding">
+        <xpath expr="//a[contains(@href, 'www.odoo.com?utm_source=db') or contains(@href, 'qingsolution.com')]" position="replace">
+            <a target="_blank" href="https://www.qingsolution.com/?utm_source=qingerp&amp;utm_medium=email"
+               t-attf-style="color: {{company.email_secondary_color or '#875A7B'}};">QingERP</a>
+        </xpath>
+    </template>
+    <template id="mail_notification_light_branding" inherit_id="mail.mail_notification_light" name="Qing light mail branding">
+        <xpath expr="//a[contains(@href, 'www.odoo.com?utm_source=db') or contains(@href, 'qingsolution.com')]" position="replace">
+            <a target="_blank" href="https://www.qingsolution.com/?utm_source=qingerp&amp;utm_medium=email"
+               t-attf-style="color: {{company.email_secondary_color or '#875A7B'}};">QingERP</a>
+        </xpath>
+    </template>
+</odoo>

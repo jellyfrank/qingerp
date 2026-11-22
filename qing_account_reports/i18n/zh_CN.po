@@ -1181,12 +1181,14 @@ msgstr "期末余额"
 #. module: qing_account_reports
 #. odoo-javascript
 #: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: code:addons/qing_account_reports/static/src/financial_report.js:0
 msgid "Assets"
 msgstr "资产"
 
 #. module: qing_account_reports
 #. odoo-javascript
 #: code:addons/qing_account_reports/static/src/financial_report.xml:0
+#: code:addons/qing_account_reports/static/src/financial_report.js:0
 msgid "Liabilities and Equity"
 msgstr "负债和所有者权益"
 
@@ -1721,3 +1723,69 @@ msgstr "请缩小日期范围至 10000 条分录以内再导出。"
 #: code:addons/qing_account_reports/models/account_ledger.py:0
 msgid "Entry Currency"
 msgstr "交易币种"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Balance Sheet"
+msgstr "资产负债表"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Reporting entity:"
+msgstr "编制单位："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Unit:"
+msgstr "单位："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Line No."
+msgstr "行次"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Unbalanced"
+msgstr "不平衡"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Closing difference (assets minus liabilities and equity):"
+msgstr "期末差额（资产减负债和所有者权益）："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Opening difference (assets minus liabilities and equity):"
+msgstr "年初差额（资产减负债和所有者权益）："
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Formula (line numbers)"
+msgstr "计算公式（行次）"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Contributing accounts"
+msgstr "构成科目"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Open Journal Items"
+msgstr "打开分录明细"
+
+#. module: qing_account_reports
+#. odoo-javascript
+#: code:addons/qing_account_reports/static/src/financial_report.xml:0
+msgid "Source"
+msgstr "来源"

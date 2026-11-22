@@ -1318,6 +1318,7 @@ msgstr "手册与专业知识问答"
 
 #. module: qing_ai
 #. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
 #: code:addons/qing_ai/models/qing_ai_tool_group.py:0
 msgid "Matching records: %s"
 msgstr "匹配记录数：%s"
@@ -1599,6 +1600,12 @@ msgid ""
 "Only the first %s groups are shown. Narrow the filters for the remaining "
 "groups."
 msgstr "仅显示前 %s 组，请缩小筛选范围查看其余分组。"
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Only the first %s records are shown."
+msgstr "只显示了前 %s 条记录。"
 
 #. module: qing_ai
 #. odoo-javascript
@@ -2973,6 +2980,12 @@ msgstr "此记录不在工具允许的范围内。"
 
 #. module: qing_ai
 #. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "This statistics choice is not available: %s"
+msgstr "这个统计选项不可用：%s"
+
+#. module: qing_ai
+#. odoo-python
 #: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
 msgid "This tool is no longer available to you."
 msgstr "您已无法使用此工具。"
@@ -3122,6 +3135,12 @@ msgstr "有多个默认智能体时，按排序选择第一个可用智能体。
 #: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__write_field_ids
 msgid "Writable Fields"
 msgstr "可写字段"
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Yes"
+msgstr "是"
 
 #. module: qing_ai
 #. odoo-javascript

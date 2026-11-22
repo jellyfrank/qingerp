@@ -1,0 +1,62 @@
+// Qing Dark switches at runtime while the native mail light assets stay
+// loaded. Desktop chat windows (and message bubbles anywhere) otherwise keep
+// the light `bg-100` surface, light bubbles and a white composer.
+.o_qing_web_ui.o_qing_ui--dark {
+    .o-mail-ChatWindow {
+        --mail-ChatWindow-moreActionsHoverColor: var(--o-qing-text);
+        --mail-Composer-bg: var(--o-qing-surface-weak);
+        background-color: var(--o-qing-surface) !important;
+        border-color: var(--o-qing-border) !important;
+        color: var(--o-qing-text);
+
+        .o-mail-ChatWindow-header {
+            background-color: var(--o-qing-surface) !important;
+            border-color: var(--o-qing-border) !important;
+            color: var(--o-qing-text);
+        }
+
+        .o-mail-Thread { color: var(--o-qing-text); }
+        .text-muted { color: var(--o-qing-text-soft) !important; }
+        .o-mail-Message-author { color: var(--o-qing-text); opacity: 1; }
+        .o-mail-Message-date { color: var(--o-qing-text-soft); }
+        .o-mail-DateSection .o-discuss-separator { border-color: var(--o-qing-border); opacity: 1; }
+
+        .o-mail-Composer {
+            color: var(--o-qing-text);
+
+            .o-mail-Composer-inputContainer {
+                --border-color: var(--o-qing-border);
+                &:focus-within { --border-color: var(--o-qing-link); }
+            }
+
+            .o-mail-Composer-input, .o-mail-Composer-html {
+                background-color: transparent !important;
+                color: var(--o-qing-text) !important;
+                &::placeholder { color: var(--o-qing-text-soft); opacity: .85; }
+            }
+        }
+    }
+
+    // Bubbles in chat windows and Discuss: tint the dark surface instead of
+    // the compiled light tints.
+    .o-mail-Message-bubble, .o-mail-Message-bubbleTail {
+        --o-bubble-bg-muted: var(--o-qing-surface-weak);
+
+        &.o-blue {
+            --o-bubble-bg: color-mix(in srgb, var(--o-qing-link) 13%, var(--o-qing-surface));
+            --o-bubble-border-color: color-mix(in srgb, var(--o-qing-link) 30%, var(--o-qing-surface));
+        }
+        &.o-green {
+            --o-bubble-bg: color-mix(in srgb, #3fb37f 16%, var(--o-qing-surface));
+            --o-bubble-border-color: color-mix(in srgb, #3fb37f 34%, var(--o-qing-surface));
+        }
+        &.o-orange {
+            --o-bubble-bg: color-mix(in srgb, #e3a340 22%, var(--o-qing-surface));
+            --o-bubble-border-color: color-mix(in srgb, #e3a340 42%, var(--o-qing-surface));
+        }
+    }
+    :is(.o-mail-ChatWindow, .o-mail-Discuss) {
+        .o-mail-Message-body { color: var(--o-qing-text); }
+        .o-discuss-text-body { color: var(--o-qing-text) !important; }
+    }
+}

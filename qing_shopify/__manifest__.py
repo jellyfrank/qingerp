@@ -1,6 +1,6 @@
 {
     'name': 'Qing Shopify Connector',
-    'version': '20.0.1.26.10',
+    'version': '20.0.1.27.7',
     'description': '将 Shopify 订单导入 QingERP，并将可售库存同步回 Shopify。',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -19,6 +19,7 @@
         'views/view_opening_commitment_list.xml',
         'views/view_shopify_operations_list.xml',
         'views/view_bulk_import_list.xml',
+        'views/view_shopify_catalog.xml',
     ],
     'application': True,
 }

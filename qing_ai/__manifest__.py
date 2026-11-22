@@ -1,7 +1,7 @@
 {
     'name': 'Qing AI',
     'summary': 'Customer-owned AI providers and daily assistant',
-    'version': '20.0.6.1.0',
+    'version': '20.0.6.1.1',
     'category': 'Productivity',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

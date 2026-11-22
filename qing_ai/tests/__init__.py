@@ -15,3 +15,4 @@ from . import test_discuss_manual
 from . import test_discuss_chat
 from . import test_native_chat
 from . import test_assistant_data
+from . import test_readable_answers

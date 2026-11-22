@@ -1,6 +1,5 @@
 /** @odoo-module **/
 
-import { Breadcrumbs } from "@web/search/breadcrumbs/breadcrumbs";
 import { NavBar } from "@web/webclient/navbar/navbar";
 import { WebClient } from "@web/webclient/webclient";
 import { patch } from "@web/core/utils/patch";
@@ -119,78 +118,6 @@ export function findQingActiveSection(sections, actionId) {
         section.items.some((menu) => String(menu.actionID) === String(actionId))
     ) || null;
 }
-
-// Measure a fixed title viewport; animate only the overflowing label so the
-// native Back button and the other navbar controls remain stationary.
-patch(Breadcrumbs.prototype, {
-    setup() {
-        super.setup(...arguments);
-        this.qingBreadcrumbTitle = signal.ref();
-        this.qingScheduleTitleFit = () => {
-            cancelAnimationFrame(this.qingTitleFrame);
-            this.qingTitleFrame = requestAnimationFrame(() => this.fitQingBreadcrumbTitle());
-        };
-        this.qingTitleObserver = new ResizeObserver(this.qingScheduleTitleFit);
-        this.qingTitleMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-        useListener(this.qingTitleMotionPreference, "change", this.qingScheduleTitleFit);
-        onMounted(this.qingScheduleTitleFit);
-        onPatched(this.qingScheduleTitleFit);
-        useListener(window, "resize", this.qingScheduleTitleFit);
-        useListener(window, "qing-web-ui:preferences-changed", this.qingScheduleTitleFit);
-        if (document.fonts) {
-            useListener(document.fonts, "loadingdone", this.qingScheduleTitleFit);
-        }
-        onWillUnmount(() => {
-            cancelAnimationFrame(this.qingTitleFrame);
-            this.qingTitleObserver.disconnect();
-            this.qingTitleAnimation?.cancel();
-        });
-    },
-
-    fitQingBreadcrumbTitle() {
-        const title = this.qingBreadcrumbTitle();
-        if (title !== this.qingObservedTitle) {
-            this.qingTitleObserver.disconnect();
-            if (title) this.qingTitleObserver.observe(title);
-            this.qingObservedTitle = title;
-        }
-        const viewport = title?.querySelector(".o_qing_breadcrumb_viewport");
-        const label = viewport?.querySelector(".o_qing_breadcrumb_label");
-        const isMobileRecord = this.uiService.isSmall && this.props.breadcrumbs.length > 1 &&
-            this.props.breadcrumbs.at(-1)?.isFormView &&
-            title?.closest(".o_qing_web_ui .o_main_navbar");
-        title?.classList.toggle("o_qing_breadcrumb_title_record", Boolean(isMobileRecord));
-        const distance = isMobileRecord && label ? Math.max(0, label.scrollWidth - viewport.clientWidth) : 0;
-        const overflow = distance > 1;
-        const reducedMotion = this.qingTitleMotionPreference.matches ||
-            window.qingWebUi?.getPreferences().reducedMotion;
-        title?.classList.toggle("o_qing_breadcrumb_title_overflow", overflow);
-        title?.classList.toggle("o_qing_breadcrumb_title_manual", Boolean(overflow && reducedMotion));
-
-        const direction = viewport && getComputedStyle(viewport).direction === "rtl" ? 1 : -1;
-        const signature = `${label?.textContent}|${distance}|${direction}|${Boolean(reducedMotion)}`;
-        // Unrelated Owl patches must not restart the reading cycle.
-        if (label === this.qingAnimatedLabel && signature === this.qingTitleSignature) return;
-        this.qingTitleAnimation?.cancel();
-        this.qingTitleAnimation = null;
-        this.qingAnimatedLabel = label;
-        this.qingTitleSignature = signature;
-        if (viewport) viewport.scrollLeft = 0;
-        if (!overflow || reducedMotion) return;
-
-        const pause = 1400;
-        const travel = Math.max(1200, distance / 18 * 1000);
-        const duration = 2 * (pause + travel);
-        const end = `translateX(${direction * distance}px)`;
-        this.qingTitleAnimation = label.animate([
-            { transform: "translateX(0)", offset: 0 },
-            { transform: "translateX(0)", offset: pause / duration },
-            { transform: end, offset: (pause + travel) / duration },
-            { transform: end, offset: (2 * pause + travel) / duration },
-            { transform: "translateX(0)", offset: 1 },
-        ], { duration, iterations: Infinity, easing: "linear" });
-    },
-});
 
 patch(WebClient.prototype, {
     _loadDefaultApp() {
@@ -399,7 +326,10 @@ patch(NavBar.prototype, {
         }
         // An open switcher can survive crossing into the native mobile navbar.
         if (this.qingLauncherState.isOpen) {
-            const rect = more?.getBoundingClientRect();
+            // Open below the top-bar launcher button when it was clicked,
+            // otherwise below "More" at the end of the app rail.
+            const anchor = this.qingLauncherAnchor?.isConnected ? this.qingLauncherAnchor : more;
+            const rect = anchor?.getBoundingClientRect();
             const switcher = root.querySelector(".o_qing_app_switcher");
             const width = switcher?.getBoundingClientRect().width || Math.min(400, window.innerWidth - 28);
             this.qingTopNav.left = Math.max(14, Math.min(rect?.left ?? 14, window.innerWidth - width - 14));
@@ -653,6 +583,7 @@ patch(NavBar.prototype, {
         if (!this.qingLauncherState.isOpen) return;
         this.qingLauncherState.isOpen = false;
         this.qingLauncherState.query = "";
+        this.qingLauncherAnchor = null;
         const target = this.qingLastActiveElement?.isConnected
             ? this.qingLastActiveElement
             : this.root()?.querySelector(".o_qing_top_apps__more, .o_menu_toggle");
@@ -660,11 +591,13 @@ patch(NavBar.prototype, {
         queueMicrotask(() => target?.focus?.());
     },
 
-    toggleQingLauncher() {
+    toggleQingLauncher(event) {
         if (this.qingLauncherState.isOpen) {
             this.closeQingLauncher();
             return;
         }
+        const target = event?.currentTarget;
+        this.qingLauncherAnchor = target?.classList?.contains("o_qing_launcher_trigger") ? target : null;
         this.openQingLauncher();
     },
 

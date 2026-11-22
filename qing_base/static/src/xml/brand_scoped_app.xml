@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- "Install app" page of a scoped web app: the publisher line. -->
+    <t t-inherit="web.InstallScopedApp" t-inherit-mode="extension">
+        <xpath expr="//a[@href='https://odoo.com']" position="replace">
+            <a class="text-primary text-decoration-none" href="https://www.qingsolution.com/" target="_blank">QingERP</a>
+        </xpath>
+    </t>
+</templates>

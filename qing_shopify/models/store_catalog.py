@@ -244,9 +244,11 @@ class ShopifyStoreCatalog(models.Model):
             if len(candidates) != 1 or candidates.external_id != inventory['id'] or candidates.product_id != product:
                 raise ChannelReviewRequired('shopify_inventory_mapping_conflict')
             return
-        if not self.onboarded:
-            Binding.create({'store_id': self.id, 'kind': 'inventory', 'product_id': product.id,
-                            'external_id': inventory['id'], 'location_external_id': self.shopify_location})
+        Binding.create({
+            'store_id': self.id, 'kind': 'inventory', 'product_id': product.id,
+            'external_id': inventory['id'], 'location_external_id': self.shopify_location,
+            **({'shopify_takeover_pending': True, 'stock_paused': True} if self.onboarded else {}),
+        })
 
     shopify_import_unmatched_products = fields.Boolean(
         string='Import Unmatched Shopify Products', copy=False,

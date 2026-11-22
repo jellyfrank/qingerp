@@ -118,4 +118,91 @@
             <path d="M10 20v-5h4v5"/>
         </g>
     </symbol>
+<!-- Settings > Technical (2026-11-21). -->
+<symbol id="messageSchedule" viewBox="0 0 24 24"><path d="M3 3h16v6 M3 3v15l4-4h3 M12 17a5 5 0 1 0 10 0a5 5 0 1 0 -10 0 M17 14.5V17l1.8 1.2"/></symbol>
+<symbol id="subtype" viewBox="0 0 24 24"><path d="M3 2h5v4H3z M5.5 6v11 M5.5 9H11 M5.5 17H11 M11 7h10v4H11z M11 15h10v4H11z"/></symbol>
+<symbol id="deliveryStatus" viewBox="0 0 24 24"><path d="M3 5h18v7 M3 5v14h9 M3 5l9 7 9-7 M15 18l2 2 4-4"/></symbol>
+<symbol id="followers" viewBox="0 0 24 24"><path d="M6.0 8a3.5 3.5 0 1 0 7.0 0a3.5 3.5 0 1 0 -7.0 0 M2 21v-2c0-6 15-6 15 0v2 M20 4v6 M17 7h6"/></symbol>
+<symbol id="mailBlock" viewBox="0 0 24 24"><path d="M3 5h18v6 M3 5v13h8 M3 5l9 7 9-7 M13 18a4 4 0 1 0 8 0a4 4 0 1 0 -8 0 M14.2 20.8l5.6-5.6"/></symbol>
+<symbol id="userSettings" viewBox="0 0 24 24"><path d="M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0 M2 21v-2c0-5 9-6.5 12-4.5 M16 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18.00 15.00L18.00 13.60 M18.00 21.00L18.00 22.40 M15.00 18.00L13.60 18.00 M21.00 18.00L22.40 18.00 M15.90 15.90L14.92 14.92 M20.10 20.10L21.08 21.08 M15.90 20.10L14.92 21.08 M20.10 15.90L21.08 14.92"/></symbol>
+<symbol id="guest" viewBox="0 0 24 24"><path d="M4 7h16v14H4z M10 3h4v6h-4z M10 13a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M8 19c0-3 8-3 8 0"/></symbol>
+<symbol id="rtcSession" viewBox="0 0 24 24"><path d="M3 10h11v9H3z M14 13l6-3v9l-6-3 M6 6.5a5 5 0 0 1 7 0 M3.5 3.8a8.5 8.5 0 0 1 12 0"/></symbol>
+<symbol id="iceServer" viewBox="0 0 24 24"><path d="M3 3h10v8H3z M3 13h10v8H3z M6 7h.01 M6 17h.01 M16 9h5 M19 6l2 3-2 3 M21 15h-5 M18 12l-2 3 2 3"/></symbol>
+<symbol id="reaction" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0 M8 14c1 2 7 2 8 0 M9 9h.01 M15 9h.01"/></symbol>
+<symbol id="linkPreview" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M3 13l5-4 4 3 3-2 6 4 M7 17h7"/></symbol>
+<symbol id="gifFavorite" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M7 4v16 M3 8h4 M3 12h4 M3 16h4 M14 16l-3.2-3.2a2 2 0 0 1 3.2-2.3 2 2 0 0 1 3.2 2.3z"/></symbol>
+<symbol id="activityBoard" viewBox="0 0 24 24"><path d="M3 4h5v16H3z M10 4h5v8h-5z M13.0 17.5a4.5 4.5 0 1 0 9.0 0a4.5 4.5 0 1 0 -9.0 0 M17.5 15v2.5l1.6 1"/></symbol>
+<symbol id="mailQueue" viewBox="0 0 24 24"><path d="M6 3h15v11h-3 M3 7h15v14H3z M3 7l7.5 6L18 7"/></symbol>
+<symbol id="mailServerOut" viewBox="0 0 24 24"><path d="M3 4h12v7H3z M3 13h12v7H3z M6 7.5h.01 M6 16.5h.01 M19 20V8 M16 11l3-3 3 3"/></symbol>
+<symbol id="mailServerIn" viewBox="0 0 24 24"><path d="M3 4h12v7H3z M3 13h12v7H3z M6 7.5h.01 M6 16.5h.01 M19 8v12 M16 17l3 3 3-3"/></symbol>
+<symbol id="mailTemplate" viewBox="0 0 24 24"><path d="M3 5h18v1 M3 5v14h8 M3 5l9 7 7-5.5 M16 10c-1 0-1.5.5-1.5 1.5v1.5c0 .6-.4 1-1 1 .6 0 1 .4 1 1v1.5c0 1 .5 1.5 1.5 1.5 M19 10c1 0 1.5.5 1.5 1.5v1.5c0 .6.4 1 1 1-.6 0-1 .4-1 1v1.5c0 1-.5 1.5-1.5 1.5"/></symbol>
+<symbol id="systemNotice" viewBox="0 0 24 24"><path d="M3 10v4h3l8 5V5l-8 5z M18 9c1.5 1.5 1.5 4.5 0 6 M6 14l1.5 6h3L9 15"/></symbol>
+<symbol id="alias" viewBox="0 0 24 24"><path d="M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0 M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></symbol>
+<symbol id="aliasDomain" viewBox="0 0 24 24"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0 M3 10h14 M10 3c-3 3-3 11 0 14 M10 3c3 3 3 11 0 14 M20 18a2 2 0 1 1-4 0a2 2 0 1 1 4 0 M20 18v.8a1.3 1.3 0 0 0 2.6 0V18a4.6 4.6 0 1 0-1.8 3.6"/></symbol>
+<symbol id="channel" viewBox="0 0 24 24"><path d="M9.5 3L7.5 21 M16.5 3l-2 18 M4 8.5h17 M3 15.5h17"/></symbol>
+<symbol id="channelMembers" viewBox="0 0 24 24"><path d="M7 3L6 13 M12 3l-1 10 M3 6.5h11 M2.5 10h11 M15.0 13a2.5 2.5 0 1 0 5.0 0a2.5 2.5 0 1 0 -5.0 0 M12.5 21c0-4.5 10-4.5 10 0"/></symbol>
+<symbol id="mailGateway" viewBox="0 0 24 24"><path d="M3 4h14v5 M3 4v12h7 M3 4l7 6 7-6 M17.5 11l4 1.6v3c0 2.6-4 4.9-4 4.9s-4-2.3-4-4.9v-3z M15.8 16l1.2 1.2 2.3-2.4"/></symbol>
+<symbol id="digest" viewBox="0 0 24 24"><path d="M4 4h13v16H6a2 2 0 0 1-2-2z M17 8h3v10a2 2 0 0 1-2 2 M7 8h7 M7 12h7 M7 16h4"/></symbol>
+<symbol id="tip" viewBox="0 0 24 24"><path d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.6 1.5 2.6V18h4v-1.5c0-1 .6-1.9 1.5-2.6A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="letter" viewBox="0 0 24 24"><path d="M3 5h18v14H3z M15 8h3v3h-3z M6 15h7 M6 12h5"/></symbol>
+<symbol id="moderation" viewBox="0 0 24 24"><path d="M13.5 3.5l7 7-3 3-7-7z M12 8.5l-8.5 8.5 3 3 8.5-8.5 M13 21h8"/></symbol>
+<symbol id="sms" viewBox="0 0 24 24"><path d="M3 3h9v18H3z M6.5 18h2 M14 5h7v7h-3l-3 2.5V12h-1z"/></symbol>
+<symbol id="smsTemplate" viewBox="0 0 24 24"><path d="M3 3h9v18H3z M6.5 18h2 M16 7c-1 0-1.5.5-1.5 1.5v1.5c0 .6-.4 1-1 1 .6 0 1 .4 1 1v1.5c0 1 .5 1.5 1.5 1.5 M19 7c1 0 1.5.5 1.5 1.5v1.5c0 .6.4 1 1 1-.6 0-1 .4-1 1v1.5c0 1-.5 1.5-1.5 1.5"/></symbol>
+<symbol id="phoneBlock" viewBox="0 0 24 24"><path d="M3 3h9v18H3z M6.5 18h2 M14 15a4 4 0 1 0 8 0a4 4 0 1 0 -8 0 M15.2 17.8l5.6-5.6"/></symbol>
+<symbol id="smsSend" viewBox="0 0 24 24"><path d="M3 3h9v18H3z M6.5 18h2 M14 11l8-6-2 13-3-4-3 2z M17 14l5-9"/></symbol>
+<symbol id="smsConfig" viewBox="0 0 24 24"><path d="M3 3h9v18H3z M6.5 18h2 M16 12a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18.00 9.00L18.00 7.60 M18.00 15.00L18.00 16.40 M15.00 12.00L13.60 12.00 M21.00 12.00L22.40 12.00 M15.90 9.90L14.92 8.92 M20.10 14.10L21.08 15.08 M15.90 14.10L14.92 15.08 M20.10 9.90L21.08 8.92"/></symbol>
+<symbol id="cloudTemplate" viewBox="0 0 24 24"><path d="M7 13.5a4 4 0 0 1-.6-8A5.5 5.5 0 0 1 17 6a3.8 3.8 0 0 1 .5 7.5 M9 16c-1 0-1.5.5-1.5 1.5v.3c0 .5-.3.7-.8.7.5 0 .8.2.8.7v.3c0 1 .5 1.5 1.5 1.5 M15 16c1 0 1.5.5 1.5 1.5v.3c0 .5.3.7.8.7-.5 0-.8.2-.8.7v.3c0 1-.5 1.5-1.5 1.5"/></symbol>
+<symbol id="scenario" viewBox="0 0 24 24"><path d="M4 5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M6 7v10 M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M16 8a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18 10c0 4-12 3-12 6"/></symbol>
+<symbol id="approval" viewBox="0 0 24 24"><path d="M5 3h10l4 4v6 M5 3v18h7 M15 3v4h4 M14 18l2.5 2.5L21 16"/></symbol>
+<symbol id="pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+<symbol id="actionList" viewBox="0 0 24 24"><path d="M3 6h6 M3 12h4 M3 18h6 M17 2l-6 10h5l-2 10 7-12h-5z"/></symbol>
+<symbol id="reportAction" viewBox="0 0 24 24"><path d="M6 9V3h12v6 M6 18H3v-8h18v8h-3 M6 14h12v7H6z"/></symbol>
+<symbol id="windowAction" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M3 8h18 M6 6h.01 M9 6h.01 M7 12h4v5H7z M14 12h4 M14 15h3"/></symbol>
+<symbol id="clientAction" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M3 8h18 M10 12l-2.5 2.5L10 17 M14 12l2.5 2.5L14 17"/></symbol>
+<symbol id="serverAction" viewBox="0 0 24 24"><path d="M3 4h11v7H3z M3 13h11v7H3z M6 7.5h.01 M6 16.5h.01 M20 3l-3 6h3l-2.5 6 5-8h-3l2-4z"/></symbol>
+<symbol id="embeddedAction" viewBox="0 0 24 24"><path d="M3 3h18v18H3z M7 7h10v10H7z M12.5 9l-2 3.5h3l-2 3.5"/></symbol>
+<symbol id="wizard" viewBox="0 0 24 24"><path d="M3 21l12-12 M13 7l4 4 M18 2v4 M16 4h4 M21 9v2 M20 10h2 M8 3v2 M7 4h2"/></symbol>
+<symbol id="defaultValue" viewBox="0 0 24 24"><path d="M9 3h6l-1 6 3 3H7l3-3z M12 12v9"/></symbol>
+<symbol id="credits" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0 M8.5 7l3.5 4.5 3.5-4.5 M12 11.5V17 M9 13h6 M9 15.5h6"/></symbol>
+<symbol id="menuItems" viewBox="0 0 24 24"><path d="M3 6h14 M3 12h10 M3 18h8 M14 13l7 3-3 1-1 3z"/></symbol>
+<symbol id="steps" viewBox="0 0 24 24"><path d="M3 21h5v-5h5v-5h5V6h3"/></symbol>
+<symbol id="viewLayout" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M3 9h18 M9 9v11"/></symbol>
+<symbol id="viewCustom" viewBox="0 0 24 24"><path d="M3 4h18v7 M3 4v16h8 M3 9h18 M9 9v11 M13 21l1-3 6-6 2 2-6 6z"/></symbol>
+<symbol id="filter" viewBox="0 0 24 24"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></symbol>
+<symbol id="tour" viewBox="0 0 24 24"><path d="M5 21V4 M5 4h12l-2 4 2 4H5"/></symbol>
+<symbol id="externalId" viewBox="0 0 24 24"><path d="M3 5h18v14H3z M7 9v6 M11 9v6h2a3 3 0 0 0 0-6z"/></symbol>
+<symbol id="sequence" viewBox="0 0 24 24"><path d="M9 6h12 M9 12h12 M9 18h12 M4 4.5l1.5-1V8 M3.5 14c0-1.2 2.5-1.2 2.5 0 0 1-2.5 1.8-2.5 3h2.6"/></symbol>
+<symbol id="decimal" viewBox="0 0 24 24"><path d="M7 12a3 5 0 1 0 6 0a3 5 0 1 0 -6 0 M15 12a3 5 0 1 0 6 0a3 5 0 1 0 -6 0 M3.5 17h.01"/></symbol>
+<symbol id="bundle" viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z M3 12l9 4.5 9-4.5 M3 16.5L12 21l9-4.5"/></symbol>
+<symbol id="model" viewBox="0 0 24 24"><path d="M12 2l9 5v10l-9 5-9-5V7z M3 7l9 5 9-5 M12 12v10"/></symbol>
+<symbol id="field" viewBox="0 0 24 24"><path d="M3 7h18v10H3z M7 10v4 M6 10h2 M6 14h2 M11 12h6"/></symbol>
+<symbol id="fieldSelection" viewBox="0 0 24 24"><path d="M3 3h18v6H3z M15 5.5l1.5 1.5 1.5-1.5 M3 12h18v9H3z M6 15h9 M6 18h6"/></symbol>
+<symbol id="constraint" viewBox="0 0 24 24"><path d="M5 11h14v10H5z M8 11V7a4 4 0 0 1 8 0v4 M12 15v2"/></symbol>
+<symbol id="relation" viewBox="0 0 24 24"><path d="M3 7a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M3 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M17 7a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M17 17a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M7 7h10 M7 17h10 M6.8 8.2l10.4 7.6 M6.8 15.8l10.4-7.6"/></symbol>
+<symbol id="attachment" viewBox="0 0 24 24"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></symbol>
+<symbol id="log" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M7 9l3 3-3 3 M12 15h5"/></symbol>
+<symbol id="profiling" viewBox="0 0 24 24"><path d="M3 18a9 9 0 0 1 18 0 M12 18l4-6 M7 13.5l1 1 M12 9v1.5 M17 13.5l-1 1"/></symbol>
+<symbol id="loginLog" viewBox="0 0 24 24"><path d="M14 3h6v18h-6 M3 12h11 M10 8l4 4-4 4"/></symbol>
+<symbol id="cron" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6 M20 3v4h-4 M12 8v4l3 2"/></symbol>
+<symbol id="cronTrigger" viewBox="0 0 24 24"><path d="M2 13a7 7 0 1 0 14 0a7 7 0 1 0 -14 0 M9 9.5V13l2.5 1.5 M19 2l-3 6h3l-2 5 5-7h-3l2-4z"/></symbol>
+<symbol id="dashboardFilter" viewBox="0 0 24 24"><path d="M3 3h8v8H3z M3 13h8v8H3z M13 3h8v8h-8z M13 14h8l-3 3.5V21l-2-1v-2.5z"/></symbol>
+<symbol id="paperFormat" viewBox="0 0 24 24"><path d="M7 3h10v14H7z M4 20h16 M4 18.5v3 M20 18.5v3"/></symbol>
+<symbol id="reportDoc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z M14 3v5h5 M9 17v-3 M12 17v-6 M15 17v-4"/></symbol>
+<symbol id="reportConfig" viewBox="0 0 24 24"><path d="M5 3h9l4 4v4 M14 3v4h4 M5 3v18h7 M16 17.5a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M18.00 14.50L18.00 13.10 M18.00 20.50L18.00 21.90 M15.00 17.50L13.60 17.50 M21.00 17.50L22.40 17.50 M15.90 15.40L14.92 14.42 M20.10 19.60L21.08 20.58 M15.90 19.60L14.92 20.58 M20.10 15.40L21.08 14.42"/></symbol>
+<symbol id="sysParam" viewBox="0 0 24 24"><path d="M8 4c-2 0-3 1-3 3v2c0 1.2-.8 2-2 2 1.2 0 2 .8 2 2v2c0 2 1 3 3 3 M16 4c2 0 3 1 3 3v2c0 1.2.8 2 2 2-1.2 0-2 .8-2 2v2c0 2-1 3-3 3 M9.5 9.5h5 M9.5 13h5"/></symbol>
+<symbol id="session" viewBox="0 0 24 24"><path d="M3 4h18v12H3z M8 21h8 M12 16v5 M10 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M8.5 14c.5-2 6.5-2 7 0"/></symbol>
+<symbol id="scope" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 16 0a8 8 0 1 0 -16 0 M8.5 12a3.5 3.5 0 1 0 7.0 0a3.5 3.5 0 1 0 -7.0 0 M12 1.5v4 M12 18.5v4 M1.5 12h4 M18.5 12h4"/></symbol>
+<symbol id="device" viewBox="0 0 24 24"><path d="M3 5h12v9H3z M1.5 17h15 M18 8h4v12h-4z M19.5 17.5h1"/></symbol>
+<symbol id="audit" viewBox="0 0 24 24"><path d="M8 3h8v3H8z M6 5H4v16h7 M18 5h2v6 M13.5 16.5a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M18.7 18.7L21.5 21.5"/></symbol>
+<symbol id="accessDiag" viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-9 10-9 10S3 17 3 12V6z M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.7 M12 17h.01"/></symbol>
+<symbol id="privacy" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M3 3l18 18"/></symbol>
+<symbol id="workSchedule" viewBox="0 0 24 24"><path d="M3 5h13v5 M3 5v15h7 M3 9h13 M7 3v4 M12 3v4 M12 17a5 5 0 1 0 10 0a5 5 0 1 0 -10 0 M17 14.5V17l1.5 1"/></symbol>
+<symbol id="resource" viewBox="0 0 24 24"><path d="M3 8h18v12H3z M9 8V5h6v3 M3 13h18 M10 12v2 M14 12v2"/></symbol>
+<symbol id="mailRecover" viewBox="0 0 24 24"><path d="M3 5h18v6 M3 5v13h8 M3 5l9 7 9-7 M21 16a4 4 0 1 1-1.2-2.8 M21 11.5v2.5h-2.5"/></symbol>
+<symbol id="mailConnect" viewBox="0 0 24 24"><path d="M3 5h18v6 M3 5v13h8 M3 5l9 7 9-7 M14 15h7v2a3.5 3.5 0 0 1-7 0z M16 12v3 M19 12v3 M17.5 20.5V22"/></symbol>
+<symbol id="mailHealth" viewBox="0 0 24 24"><path d="M3 5h18v6 M3 5v13h8 M3 5l9 7 9-7 M12 17h2.5l1.5-3 2 6 1.5-3H22"/></symbol>
+<symbol id="mailProvider" viewBox="0 0 24 24"><path d="M4 21V5l8-3v19 M12 9h8v12 M3 21h18 M7 7h2 M7 11h2 M7 15h2 M15 13h2 M15 17h2"/></symbol>
+<symbol id="mailSetup" viewBox="0 0 24 24"><path d="M3 5h18v5 M3 5v13h9 M3 5l9 7 9-7 M18 12l-3 5h3l-2 5 5-7h-3l2-3z"/></symbol>
+<symbol id="batch" viewBox="0 0 24 24"><path d="M4 4h10v6H4z M7 10v3 M4 14h10v6H4z M18 3v13 M15 13l3 3 3-3"/></symbol>
+<symbol id="broom" viewBox="0 0 24 24"><path d="M21 3l-7.5 7.5 M10 9l5 5 M10 9c-2 0-4.5 1-6 3l-1 9 9-1c2-1.5 3-4 3-6 M6.5 17.5l3-3 M9.5 20l2-2"/></symbol>
 </svg>

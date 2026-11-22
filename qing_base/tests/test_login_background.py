@@ -4,7 +4,7 @@ from PIL import Image
 
 from odoo.exceptions import AccessError, ValidationError
 from odoo.tools.binary import BinaryBytes
-from odoo.tests import TransactionCase, tagged
+from odoo.tests import HttpCase, TransactionCase, new_test_user, tagged
 
 
 @tagged('at_install', '-post_install')
@@ -56,3 +56,14 @@ class TestLoginBackground(TransactionCase):
         self.assertEqual(background._saved_values(), before)
         with self.assertRaises(AccessError):
             self.env['res.config.settings'].with_user(self.env.ref('base.public_user')).preview_login_background('forest', '#123456', False)
+
+
+@tagged('post_install', '-at_install')
+class TestLoginBackgroundPreview(HttpCase):
+    def test_admin_can_render_unsaved_preview(self):
+        admin = new_test_user(self.env, login='background_preview_admin', groups='base.group_system')
+        url = self.env['res.config.settings'].with_user(admin).preview_login_background('forest', '#123456', False)
+        self.authenticate(admin.login, admin.login)
+        response = self.url_open(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('qing-login-scene-forest', response.text)

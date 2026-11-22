@@ -1,7 +1,10 @@
 import json
 from unittest.mock import patch
 
+from odoo import fields
+from odoo.exceptions import UserError
 from odoo.tests import TransactionCase, tagged
+from odoo.tools.safe_eval import safe_eval
 
 from odoo.addons.qing_base.models.ir_config_parameter import TELEMETRY_KEYS
 
@@ -62,6 +65,39 @@ class TestMarketTelemetry(TransactionCase):
         self.assertEqual(post.call_count, 1)
         self.assertEqual(post.call_args.args[2]['instance_uid'], identity[0])
         self.assertTrue(self.parameters.get_str(TELEMETRY_KEYS['last_success']))
+
+    def test_manual_button_bypasses_the_automatic_heartbeat_window(self):
+        cron = self.env.ref('qing_base.ir_cron_qing_telemetry_heartbeat')
+        identity = ('test-instance-uid', 'test-token', 'https://service.example.test')
+        for key in ('last_attempt', 'last_success'):
+            self.parameters.set_str(TELEMETRY_KEYS[key], fields.Datetime.to_string(fields.Datetime.now()))
+
+        def process_job(*args):
+            self.assertTrue(self.parameters._cron_qing_telemetry_heartbeat())
+
+        with (
+            patch.object(type(cron), '_acquire_one_job', return_value={'id': cron.id}),
+            patch.object(type(cron), '_process_job', side_effect=process_job),
+            patch.object(type(self.parameters), '_qing_telemetry_identity', return_value=identity),
+            patch.object(type(self.parameters), '_qing_telemetry_post') as post,
+        ):
+            self.assertFalse(self.parameters._cron_qing_telemetry_heartbeat())
+            self.assertTrue(cron.method_direct_trigger())
+            self.assertFalse(self.parameters._cron_qing_telemetry_heartbeat())
+        post.assert_called_once()
+        cron.active = False
+        with self.assertRaises(UserError):
+            cron.method_direct_trigger()
+
+    def test_heartbeat_is_excluded_from_the_standard_action_only(self):
+        cron = self.env.ref('qing_base.ir_cron_qing_telemetry_heartbeat')
+        scheduled = self.env.ref('base.ir_cron_act')
+        scheduled.domain = "[('interval_type', '=', 'hours')]"
+        domain = safe_eval(scheduled._get_action_dict()['domain'])
+        self.assertIn(('interval_type', '=', 'hours'), domain)
+        self.assertIn(('id', '!=', cron.id), domain)
+        heartbeat_action = self.env.ref('qing_base.action_qing_telemetry_heartbeat')
+        self.assertEqual(heartbeat_action._get_action_dict()['res_id'], cron.id)
 
     def test_fallback_identity_rotates_after_database_clone(self):
         original = self.parameters._qing_telemetry_fallback_identity()

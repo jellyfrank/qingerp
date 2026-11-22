@@ -6,6 +6,7 @@ from odoo.http import request
 from odoo.addons.qing_channel.errors import ChannelReviewRequired
 from odoo.addons.qing_base.tools.channel_queue import verify_base64_hmac_sha256
 
+from ..services.catalog import PRODUCT_ID, WEBHOOK_PRODUCT_TOPICS
 from ..services.orders import parse_date
 
 
@@ -56,18 +57,23 @@ class ShopifyWebhook(http.Controller):
                 store._import_delivery(delivery)
                 delivery.state = 'done'
             return request.make_response('', status=200)
-        if topic not in ORDER_TOPICS:
+        if topic not in ORDER_TOPICS and topic not in WEBHOOK_PRODUCT_TOPICS:
             return request.make_response('', status=200)
         try:
             payload = json.loads(raw)
-            if topic == 'orders/edited':
+            if topic in WEBHOOK_PRODUCT_TOPICS:
+                external_id = payload.get('admin_graphql_api_id') or f"gid://shopify/Product/{payload.get('id')}"
+                expected_id = PRODUCT_ID
+            elif topic == 'orders/edited':
                 number = payload.get('order_edit', {}).get('order_id')
                 external_id = f'gid://shopify/Order/{number}'
             elif topic.startswith('orders/'):
                 external_id = payload.get('admin_graphql_api_id') or f"gid://shopify/Order/{payload.get('id')}"
             else:
                 external_id = f"gid://shopify/Order/{payload.get('order_id')}"
-            if not isinstance(external_id, str) or not ORDER_ID.fullmatch(external_id):
+            if topic not in WEBHOOK_PRODUCT_TOPICS:
+                expected_id = ORDER_ID
+            if not isinstance(external_id, str) or not expected_id.fullmatch(external_id):
                 raise ValueError()
         except (ValueError, AttributeError):
             return request.make_response('', status=400)

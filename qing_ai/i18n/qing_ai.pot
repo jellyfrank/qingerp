@@ -1320,6 +1320,7 @@ msgstr ""
 
 #. module: qing_ai
 #. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
 #: code:addons/qing_ai/models/qing_ai_tool_group.py:0
 msgid "Matching records: %s"
 msgstr ""
@@ -1600,6 +1601,12 @@ msgstr ""
 msgid ""
 "Only the first %s groups are shown. Narrow the filters for the remaining "
 "groups."
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Only the first %s records are shown."
 msgstr ""
 
 #. module: qing_ai
@@ -2975,6 +2982,12 @@ msgstr ""
 
 #. module: qing_ai
 #. odoo-python
+#: code:addons/qing_ai/models/qing_ai_tool_group.py:0
+msgid "This statistics choice is not available: %s"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
 #: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
 msgid "This tool is no longer available to you."
 msgstr ""
@@ -3123,6 +3136,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool__orm_write_field_ids
 #: model:ir.model.fields,field_description:qing_ai.field_qing_ai_tool_builder__write_field_ids
 msgid "Writable Fields"
+msgstr ""
+
+#. module: qing_ai
+#. odoo-python
+#: code:addons/qing_ai/models/qing_ai_conversation_tools.py:0
+msgid "Yes"
 msgstr ""
 
 #. module: qing_ai

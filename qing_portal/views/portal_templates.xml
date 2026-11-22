@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Mark portal pages for the theme. The portal content (under the header)
+         always follows the theme: colours, buttons, links and font. Without
+         the Website app the portal also gets the QingERP header (logo,
+         "Customer portal", page links) and footer; with it, the website keeps
+         its own header and footer. -->
+    <template id="frontend_layout" inherit_id="portal.frontend_layout" name="QingERP portal theme">
+        <xpath expr="//div[@id='wrapwrap']" position="attributes">
+            <attribute name="t-attf-class" add="#{'o_qing_portal' if is_portal else ''} #{'o_qing_portal_bare' if is_portal and not website else ''} #{'o_qing_portal_home' if is_portal and page_name == 'home' else ''}" separator=" "/>
+        </xpath>
+        <!-- With the Website app the website's header template replaces this
+             navbar, so the brand link may be missing: the union falls back to
+             <main> (later in the document, so it is only picked when the brand
+             link is gone) and the block below renders nothing there. -->
+        <xpath expr="//a[hasclass('navbar-brand')][hasclass('logo')] | //div[@id='wrapwrap']/main" position="after">
+            <t t-if="is_portal and not website">
+                <span class="o_qing_portal_brand_sep d-none d-md-block" aria-hidden="true"/>
+                <span class="o_qing_portal_brand_name d-none d-md-inline">Customer portal</span>
+                <t t-if="not user_id._is_public()">
+                    <t t-set="qing_nav" t-value="'home' if page_name == 'home' else 'quote' if page_name == 'quote' or (sale_order and sale_order.state in ('draft', 'sent', 'cancel')) else 'order' if page_name == 'order' or sale_order else 'invoice' if page_name == 'invoice' or invoice else ''"/>
+                    <ul class="o_qing_portal_nav nav d-none d-lg-flex" aria-label="Portal">
+                        <li class="nav-item">
+                            <a href="/my/home" t-attf-class="nav-link #{'active' if qing_nav == 'home' else ''}" t-att-aria-current="'page' if qing_nav == 'home' else None">Overview</a>
+                        </li>
+                        <t t-if="'sale.order' in env">
+                            <li class="nav-item">
+                                <a href="/my/quotes" t-attf-class="nav-link #{'active' if qing_nav == 'quote' else ''}" t-att-aria-current="'page' if qing_nav == 'quote' else None">Quotations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/my/orders" t-attf-class="nav-link #{'active' if qing_nav == 'order' else ''}" t-att-aria-current="'page' if qing_nav == 'order' else None">Orders</a>
+                            </li>
+                        </t>
+                        <li t-if="'account.move' in env" class="nav-item">
+                            <a href="/my/invoices" t-attf-class="nav-link #{'active' if qing_nav == 'invoice' else ''}" t-att-aria-current="'page' if qing_nav == 'invoice' else None">Invoices</a>
+                        </li>
+                    </ul>
+                </t>
+            </t>
+        </xpath>
+        <!-- Same fallback for the user menu: without it, the footer's
+             brand-promotion call receives the (unused) values. -->
+        <xpath expr="//t[@t-call='portal.user_dropdown'] | //footer//t[@t-call='web.brand_promotion']" position="attributes">
+            <attribute name="_avatar">is_portal and not website</attribute>
+            <attribute name="_avatar_class">o_qing_portal_avatar</attribute>
+        </xpath>
+        <xpath expr="//head" position="inside">
+            <t t-if="is_portal">
+                <t t-set="qing_portal_color" t-value="(request.env.company.email_secondary_color or '').upper()"/>
+                <!-- The company kept Odoo's default colours: the theme's own
+                     accent for buttons and its link colour for links. -->
+                <style t-if="qing_portal_color in ('', '#875A7B')">
+                    body #wrapwrap.o_qing_portal {
+                        --qp-accent: var(--qp-accent-default);
+                        --qp-link: var(--qp-link-default);
+                        --portal-primary-color: var(--qp-accent-default);
+                        --portal-text-color: #ffffff;
+                    }
+                </style>
+                <!-- A company colour: without the Website app Odoo already
+                     passes it on through its portal colour variable; with it, the portal
+                     content still follows the company colour, not the website
+                     palette. -->
+                <style t-elif="website">
+                    body #wrapwrap.o_qing_portal {
+                        --qp-accent: <t t-out="qing_portal_color"/>;
+                    }
+                </style>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Account home: greeting, money due and the to-do cards above the
+         native page; recent activity under the document cards. -->
+    <template id="portal_layout" inherit_id="portal.portal_layout" name="QingERP portal home">
+        <xpath expr="//t[@t-if='my_details']/div[1]" position="before">
+            <t t-set="qing_home" t-value="user_id.partner_id._qing_portal_home_values() if page_name == 'home' else {}"/>
+        </xpath>
+        <xpath expr="//h1[hasclass('h3')]" position="replace">
+            <t t-if="qing_home">
+                <div class="o_qing_portal_greeting">
+                    <p class="o_qing_portal_org" t-if="user_id.partner_id.commercial_partner_id != user_id.partner_id" t-out="user_id.partner_id.commercial_partner_id.name"/>
+                    <h1 class="h3">
+                        <span t-if="qing_home['greeting'] == 'morning'" class="o_qing_portal_hello">Good morning,</span>
+                        <span t-elif="qing_home['greeting'] == 'afternoon'" class="o_qing_portal_hello">Good afternoon,</span>
+                        <span t-else="" class="o_qing_portal_hello">Good evening,</span>
+                        <span class="o_qing_portal_name" t-out="user_id.partner_id.name"/>
+                    </h1>
+                    <p class="o_qing_portal_lead" t-if="qing_home['overdue_count']">
+                        <t t-out="len(qing_home['todo'])"/> item(s) are waiting for you, <t t-out="qing_home['overdue_count']"/> of them overdue.
+                    </p>
+                    <p class="o_qing_portal_lead" t-elif="qing_home['todo']">
+                        <t t-out="len(qing_home['todo'])"/> item(s) are waiting for you.
+                    </p>
+                    <p class="o_qing_portal_lead" t-else="">Nothing is waiting for you right now.</p>
+                </div>
+                <dl class="o_qing_portal_stats" t-if="qing_home['unpaid_currency'] or qing_home['open_order_count'] is not False">
+                    <div t-if="qing_home['unpaid_currency']">
+                        <dt>Amount due</dt>
+                        <dd t-out="qing_home['unpaid_total']" t-options="{'widget': 'monetary', 'display_currency': qing_home['unpaid_currency']}"/>
+                    </div>
+                    <div t-if="qing_home['open_order_count'] is not False">
+                        <dt>Orders in progress</dt>
+                        <dd t-out="qing_home['open_order_count']"/>
+                    </div>
+                </dl>
+            </t>
+            <h1 t-else="" class="my-3 h3">My account</h1>
+        </xpath>
+        <xpath expr="//t[@t-if='my_details']/div[hasclass('row')]" position="before">
+            <t t-if="qing_home and qing_home['todo']" t-call="qing_portal.home_todo"/>
+        </xpath>
+        <xpath expr="//div[contains(@t-attf-class, 'o_portal_content')]/t[@t-out='0']" position="after">
+            <t t-if="qing_home and qing_home['recent']" t-call="qing_portal.home_recent"/>
+        </xpath>
+    </template>
+
+    <template id="home_todo" name="QingERP portal home: waiting for you">
+        <section class="o_qing_portal_todo o_not_editable" aria-labelledby="o_qing_portal_todo_title">
+            <h2 id="o_qing_portal_todo_title" class="o_qing_portal_section_title">Waiting for you</h2>
+            <div class="o_qing_portal_todo_grid">
+                <t t-foreach="qing_home['todo']" t-as="item">
+                    <article class="o_qing_portal_todo_card">
+                        <div class="o_qing_portal_todo_head">
+                            <span class="o_qing_portal_todo_doc">
+                                <span t-if="item['kind'] == 'invoice'" class="o_qing_portal_kind">Invoice</span>
+                                <span t-else="" class="o_qing_portal_kind">Quotation</span>
+                                <span class="o_qing_portal_ref" t-out="item['name']"/>
+                            </span>
+                            <span t-if="item['overdue']" class="o_qing_portal_pill o_qing_portal_pill_danger">Overdue by <t t-out="item['days']"/> day(s)</span>
+                            <span t-elif="item['kind'] == 'quote' and item['sign']" class="o_qing_portal_pill o_qing_portal_pill_warning">To sign</span>
+                            <span t-else="" class="o_qing_portal_pill o_qing_portal_pill_warning">To pay</span>
+                        </div>
+                        <div class="o_qing_portal_todo_body">
+                            <span class="o_qing_portal_todo_amount" t-out="item['amount']" t-options="{'widget': 'monetary', 'display_currency': item['currency']}"/>
+                            <span t-if="item['kind'] == 'invoice' and item['date']" class="o_qing_portal_todo_meta">Due <t t-out="item['date']" t-options="{'widget': 'date'}"/></span>
+                            <span t-elif="item['kind'] == 'quote' and item['date']" class="o_qing_portal_todo_meta">
+                                <span class="o_qing_portal_todo_date">Valid until <t t-out="item['date']" t-options="{'widget': 'date'}"/></span>
+                                <span class="o_qing_portal_todo_left"><t t-out="item['days']"/> day(s) left</span>
+                            </span>
+                        </div>
+                        <a t-if="item['overdue']" t-att-href="item['url']" class="btn btn-primary o_qing_portal_todo_action">Pay now</a>
+                        <a t-elif="item['kind'] == 'quote' and item['sign']" t-att-href="item['url']" class="btn o_qing_portal_btn_soft o_qing_portal_todo_action">Review and sign</a>
+                        <a t-else="" t-att-href="item['url']" class="btn o_qing_portal_btn_soft o_qing_portal_todo_action">Review and pay</a>
+                    </article>
+                </t>
+            </div>
+        </section>
+    </template>
+
+    <template id="home_recent" name="QingERP portal home: recent activity">
+        <section class="o_qing_portal_recent o_not_editable" aria-labelledby="o_qing_portal_recent_title">
+            <h2 id="o_qing_portal_recent_title" class="o_qing_portal_section_title">Recent activity</h2>
+            <ul class="o_qing_portal_recent_list list-unstyled">
+                <li t-foreach="qing_home['recent']" t-as="item">
+                    <span class="o_qing_portal_recent_date" t-out="item['date']" t-options="{'widget': 'date'}"/>
+                    <span class="o_qing_portal_recent_main">
+                        <a t-att-href="item['url']">
+                            <t t-if="item['kind'] == 'invoice'">Invoice <t t-out="item['name']"/> issued</t>
+                            <t t-elif="item['kind'] == 'quote'">Quotation <t t-out="item['name']"/> received</t>
+                            <t t-else="">Order <t t-out="item['name']"/> confirmed</t>
+                        </a>
+                        <span t-if="item['kind'] == 'invoice' and item['due']" class="o_qing_portal_recent_sub">Due <t t-out="item['due']" t-options="{'widget': 'date'}"/></span>
+                        <span t-elif="item['kind'] == 'quote' and item['due']" class="o_qing_portal_recent_sub">Valid until <t t-out="item['due']" t-options="{'widget': 'date'}"/></span>
+                    </span>
+                    <span class="o_qing_portal_recent_amount" t-out="item['amount']" t-options="{'widget': 'monetary', 'display_currency': item['currency']}"/>
+                </li>
+            </ul>
+        </section>
+    </template>
+
+    <!-- Section title above the native document cards. -->
+    <template id="portal_my_home" inherit_id="portal.portal_my_home" name="QingERP portal home sections">
+        <xpath expr="//div[@id='portal_cards']" position="before">
+            <h2 class="o_qing_portal_section_title o_not_editable">My documents</h2>
+        </xpath>
+    </template>
+
+    <!-- Document sidebar: sign as QingERP. Matches Odoo's link, or the QingERP
+         link qing_website may already have put there. -->
+    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar" name="QingERP portal record signature">
+        <xpath expr="//a[contains(@href, 'odoo.com?utm_source=db') or contains(@href, 'utm_source=qingerp')]" position="replace">
+            <a class="o_qing_powered_by" target="_blank" rel="noopener" href="https://www.qingsolution.com/?utm_source=qingerp&amp;utm_medium=portal"
+               style="white-space:nowrap;"><img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="" width="15" height="15" style="vertical-align:-3px;margin-inline-end:.25em;"/>QingERP</a>
+        </xpath>
+    </template>
+</odoo>

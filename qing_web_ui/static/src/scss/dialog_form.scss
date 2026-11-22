@@ -1,0 +1,53 @@
+// Record dialogs (an x2many "Open:" line, a Form dialog). The modal is already
+// the card: the sheet inside it drops its own rim, fill and inset, so a dialog
+// has one frame, and the header, content and footer share one left edge.
+.o_qing_web_ui .modal-content:has(.o_form_view) {
+    > .modal-header {
+        padding-inline: 20px;
+    }
+    > .modal-footer {
+        border-top-color: transparent !important;
+        padding: 8px 20px 18px;
+    }
+    .o_form_view {
+        border-color: transparent !important;
+        border-radius: 0;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .o_form_view :is(.o_form_view_container, .o_content, .o_form_renderer, .o_form_sheet_bg) {
+        background: transparent !important;
+    }
+    .o_form_view .o_form_sheet_bg {
+        padding: 6px 4px 0;
+    }
+    .o_form_view :is(.o_form_sheet_bg > .o_form_sheet, .o_form_sheet) {
+        max-width: none;
+        margin: 0 !important;
+        padding: 8px 16px 4px !important;
+        border-color: transparent !important;
+        border-radius: 0;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    // A read-only record reads as a list of facts: quieter labels, and an
+    // empty value shows a dash instead of a gap.
+    .o_form_readonly {
+        .o_form_label {
+            color: var(--o-qing-text-soft);
+            font-weight: 500;
+        }
+        // The dialog focuses its first field when it opens; on a read-only
+        // link that is a soft accent ring, not a black box.
+        :is(a, .o_field_widget):focus-visible {
+            outline: 2px solid color-mix(in srgb, var(--o-qing-accent) 45%, transparent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        .o_field_widget.o_field_empty:not(.o_field_boolean, .o_field_html, .o_field_one2many, .o_field_many2many) > span:empty::after {
+            content: "—";
+            color: var(--o-qing-text-soft);
+            opacity: .6;
+        }
+    }
+}

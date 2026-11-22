@@ -168,13 +168,17 @@ msgid ""
 msgstr "Shopify 试点需要采用一步出库的仓库。"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__company_id
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__company_id
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__company_id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__company_id
 msgid "Company"
 msgstr "公司"
 
 #. module: qing_shopify
 #: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_bulk_import__state__done
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_run__state__done
 msgid "Complete"
 msgstr "已完成"
 
@@ -240,13 +244,19 @@ msgid "Create a new channel store for a different Shopify domain."
 msgstr "如需连接其他 Shopify 域名，请新建一条渠道店铺记录。"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__create_uid
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__create_uid
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__create_uid
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__create_uid
 msgid "Created by"
 msgstr "创建人"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__create_date
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__create_date
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__create_date
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__create_date
 msgid "Created on"
 msgstr "创建时间"
@@ -267,6 +277,7 @@ msgid "Disconnected"
 msgstr "已断开"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_account_move__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_account_move_line__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_audit_log__display_name
@@ -279,6 +290,8 @@ msgstr "已断开"
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_channel_store__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_api_budget__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__display_name
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__display_name
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_sale_order__display_name
 #: model:ir.model.fields,field_description:qing_shopify.field_sale_order_line__display_name
@@ -341,6 +354,7 @@ msgid "Finish the Shopify bulk history import first."
 msgstr "请先完成 Shopify 历史订单的批量导入。"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_account_move__id
 #: model:ir.model.fields,field_description:qing_shopify.field_account_move_line__id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_audit_log__id
@@ -353,6 +367,7 @@ msgstr "请先完成 Shopify 历史订单的批量导入。"
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_channel_store__id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_api_budget__id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__id
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__id
 #: model:ir.model.fields,field_description:qing_shopify.field_sale_order__id
 #: model:ir.model.fields,field_description:qing_shopify.field_sale_order_line__id
@@ -362,6 +377,7 @@ msgstr "编号"
 
 #. module: qing_shopify
 #: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_bulk_import__state__running
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_run__state__applying
 msgid "Importing"
 msgstr "导入中"
 
@@ -409,13 +425,19 @@ msgid "Last Issue"
 msgstr "最近异常"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__write_uid
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__write_uid
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__write_uid
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__write_uid
 msgid "Last Updated by"
 msgstr "最后更新人"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__write_date
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__write_date
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__write_date
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__write_date
 msgid "Last Updated on"
 msgstr "最后更新时间"
@@ -439,6 +461,9 @@ msgstr "缺少以下 Shopify 授权范围：%s"
 
 #. module: qing_shopify
 #: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_bulk_import__state__review
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__review
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_run__state__review
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_search
 msgid "Needs Review"
 msgstr "待人工复核"
 
@@ -547,6 +572,7 @@ msgstr "读取"
 
 #. module: qing_shopify
 #: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_bulk_import_list
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
 msgid "Recheck"
 msgstr "重新核对"
 
@@ -604,6 +630,7 @@ msgstr "额度恢复速率"
 
 #. module: qing_shopify
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__retry_at
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__retry_at
 msgid "Retry At"
 msgstr "下次重试时间"
 
@@ -663,6 +690,7 @@ msgid "Setup"
 msgstr "配置"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields.selection,name:qing_shopify.selection__qing_channel_store__platform__shopify
 #: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_store_form
 msgid "Shopify"
@@ -1053,11 +1081,16 @@ msgstr "是否按配置的历史时间窗口启动 Shopify 批量导出？订单
 
 #. module: qing_shopify
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__state
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__state
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__state
 msgid "State"
 msgstr "状态"
 
 #. module: qing_shopify
+#. modules: qing_shopify, qing_shopify_pro
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__store_id
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__store_id
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__store_id
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_opening_commitment__store_id
 msgid "Store"
 msgstr "店铺"
@@ -1174,6 +1207,7 @@ msgstr "调拨"
 
 #. module: qing_shopify
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_bulk_import__tries
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_run__tries
 msgid "Tries"
 msgstr "尝试次数"
 
@@ -1306,14 +1340,19 @@ msgstr "连接详情"
 
 #. module: qing_shopify
 #: model:ir.model.fields,help:qing_shopify.field_qing_channel_store__shopify_location
-msgid "Paste the location number from Shopify Settings > Locations, or the full Shopify location ID."
+msgid ""
+"Paste the location number from Shopify Settings > Locations, or the full "
+"Shopify location ID."
 msgstr "粘贴 Shopify 后台「设置 → 地点」中的地点编号，也可以填写完整的 Shopify 地点 ID。"
 
 #. module: qing_shopify
 #. odoo-python
-#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_store_form
 #: code:addons/qing_shopify/models/store.py:0
-msgid "Shopify credential encryption is unavailable on this QingERP instance. Ask the system administrator to enable it before saving the Shopify client secret."
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_store_form
+msgid ""
+"Shopify credential encryption is unavailable on this QingERP instance. Ask "
+"the system administrator to enable it before saving the Shopify client "
+"secret."
 msgstr "当前 QingERP 实例尚未启用 Shopify 凭据加密。请联系系统管理员启用后，再保存 Shopify 客户端密钥。"
 
 #. module: qing_shopify
@@ -1324,11 +1363,13 @@ msgstr "自动导入未匹配的 Shopify 商品"
 #. module: qing_shopify
 #: model:ir.model.fields,help:qing_shopify.field_qing_channel_store__shopify_import_unmatched_products
 msgid ""
-"For active Shopify variants on orders, use a unique SKU or barcode match first. "
-"If no existing product matches, create a product and link it to the Shopify variant."
+"For active Shopify variants on orders, use a unique SKU or barcode match "
+"first. If no existing product matches, create a product and link it to the "
+"Shopify variant."
 msgstr "订单中的有效 Shopify 商品变体优先按唯一 SKU 或条码匹配，找不到对应产品时自动新建并建立映射。"
 
 #. module: qing_shopify
+#: model:ir.actions.server,name:qing_shopify.cron_shopify_recover_product_mappings_ir_actions_server
 #: model:ir.cron,cron_name:qing_shopify.cron_shopify_recover_product_mappings
 msgid "Shopify: Recover order product mappings"
 msgstr "Shopify：自动补齐订单商品映射"
@@ -1347,3 +1388,276 @@ msgstr "下单时间"
 #: model:ir.model.fields,field_description:qing_shopify.field_qing_channel_order__shopify_order_total
 msgid "Order Total"
 msgstr "订单总额"
+
+#. module: qing_shopify
+#: model:ir.actions.act_window,name:qing_shopify.action_shopify_catalog_items
+#: model:ir.ui.menu,name:qing_shopify.menu_shopify_channel_products
+msgid "Channel Products"
+msgstr "渠道商品"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Shopify Catalog Preview"
+msgstr "Shopify 商品目录预览"
+
+#. module: qing_shopify
+#: model:ir.model,name:qing_shopify.model_qing_shopify_catalog_run
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_store_catalog_form
+msgid "Shopify Catalog Import"
+msgstr "Shopify 商品目录导入"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_store_catalog_form
+msgid "Preview Store Products"
+msgstr "预览店铺商品"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_run_form
+msgid "Confirm Catalog Import"
+msgstr "确认导入商品"
+
+#. module: qing_shopify
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_channel_store__shopify_catalog_category_id
+msgid "Imported Product Category"
+msgstr "新商品默认类别"
+
+#. module: qing_shopify
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_channel_store__shopify_catalog_purchase_ok
+msgid "Imported Products Can Be Purchased"
+msgstr "新商品可采购"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_run__state__scanning
+msgid "Reading Catalog"
+msgstr "正在读取目录"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_run__state__preview
+msgid "Ready to Review"
+msgstr "待确认"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__new
+msgid "To Create"
+msgstr "待建档"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__link
+msgid "To Link"
+msgstr "待关联"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__linked
+msgid "Linked"
+msgstr "已关联"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__different
+msgid "Differences"
+msgstr "存在差异"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__skipped
+msgid "Skipped"
+msgstr "已跳过"
+
+#. module: qing_shopify
+#: model:ir.model.fields.selection,name:qing_shopify.selection__qing_shopify_catalog_item__state__archived
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_search
+msgid "Archived"
+msgstr "已归档"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_run_form
+msgid "Close Preview"
+msgstr "关闭预览"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/binding.py:0
+msgid "Shopify Variant Stock Takeover"
+msgstr "Shopify 单规格库存接管"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_channel_binding_list_shopify
+msgid "Preview Variant Takeover"
+msgstr "预览规格接管"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_inventory_cutover_list
+msgid "Confirm Variant Takeover"
+msgstr "确认规格接管"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_item.py:0
+msgid "Connect the Shopify store before rechecking this product."
+msgstr "请先连接 Shopify 店铺，再重新核对商品。"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_item.py:0
+msgid "Cannot recheck the Shopify product (%s)."
+msgstr "无法重新核对 Shopify 商品（%s）。"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_item.py:0
+msgid "Wait for the current Shopify catalog job before rechecking this product."
+msgstr "请等待当前 Shopify 商品目录任务完成，再重新核对商品。"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_item.py:0
+msgid "Shopify product recheck queued."
+msgstr "已安排重新核对 Shopify 商品。"
+
+#. module: qing_shopify
+#: model:ir.model.fields,field_description:qing_shopify.field_qing_shopify_catalog_item__shop_price
+msgid "Shopify Store Price"
+msgstr "Shopify 店铺价"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_run_form
+msgid "New Product Defaults"
+msgstr "新商品默认配置"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Category"
+msgstr "商品类别"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Unit"
+msgstr "计量单位"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Sales Taxes"
+msgstr "销售税"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Purchase Taxes"
+msgstr "采购税"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Can Be Purchased"
+msgstr "可采购"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Invoicing Policy"
+msgstr "开票策略"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "None"
+msgstr "无"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "Yes"
+msgstr "是"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "No"
+msgstr "否"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/catalog_run.py:0
+msgid "New product defaults changed. Review the updated preview before confirming."
+msgstr "新商品默认配置已变更，请核对更新后的预览再确认。"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
+msgid "Variants"
+msgstr "变体"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
+msgid "Product Details"
+msgstr "商品资料"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
+msgid "Shopify Product Status"
+msgstr "Shopify 商品状态"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
+msgid "Last Synced At"
+msgstr "最近同步时间"
+
+#. module: qing_shopify
+#: model_terms:ir.ui.view,arch_db:qing_shopify.view_shopify_catalog_item_form
+msgid "Shopify Product ID"
+msgstr "Shopify 商品编号"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify app credentials are missing"
+msgstr "缺少 Shopify 应用凭据"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify app permissions are missing"
+msgstr "缺少 Shopify 应用权限"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify SKU and barcode are missing"
+msgstr "Shopify 商品缺少 SKU 和条码"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify product mapping is missing"
+msgstr "缺少 Shopify 商品映射"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify inventory mapping is missing"
+msgstr "缺少 Shopify 库存映射"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify product codes conflict"
+msgstr "Shopify 商品编码冲突"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "The pricelist currency does not match the Shopify order"
+msgstr "价格表币种与 Shopify 订单不一致"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify order synchronization needs to be retried"
+msgstr "Shopify 订单同步需要重试"
+
+#. module: qing_shopify
+#. odoo-python
+#: code:addons/qing_shopify/models/store.py:0
+msgid "Shopify app lacks access to protected customer data"
+msgstr "Shopify 应用缺少受保护客户数据的访问权限"

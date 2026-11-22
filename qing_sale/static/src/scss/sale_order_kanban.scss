@@ -1,0 +1,33 @@
+// Sales order cards (view_sale_order_kanban.xml): state stripe, spacing and
+// the total as the strongest figure.
+.o_kanban_view .o_kanban_record:has(> .o_qing_sale_card_state) {
+    position: relative;
+    overflow: hidden;
+    padding-inline-start: 18px;
+    > footer { padding-top: 0; align-items: baseline !important; }
+}
+.o_qing_sale_card_state {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: #9aa0a6;
+    &_draft { background: #3b7ddd; }
+    &_sent { background: #d59a2a; }
+    &_sale { background: #2f9e65; }
+}
+.o_qing_sale_card_partner {
+    display: block;
+    margin: 2px 0 6px;
+    min-width: 0;
+}
+.o_qing_sale_card_amount {
+    font-size: 1.15rem;
+    font-variant-numeric: tabular-nums;
+}
+// Phones: leave a gap between the stacked cards.
+@media (max-width: 767.98px) {
+    .o_kanban_view .o_kanban_renderer:has(.o_qing_sale_card_state) {
+        row-gap: 10px;
+        .o_kanban_record:has(> .o_qing_sale_card_state) { margin-block: 0; }
+    }
+}

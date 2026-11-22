@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The site is the customer's: QingERP only signs it, in the places Odoo
+         itself uses. The footer line keeps its native show/hide option in the
+         website editor. -->
+    <!-- Drop the Odoo message after "Powered by QingERP": website's "Create a
+         free website" and, with eCommerce, website_sale's "The #1 Open Source
+         eCommerce" (which replaces the call with its own message). A late
+         priority clears the message right before every call, whichever module
+         set it. -->
+    <template id="brand_promotion" inherit_id="website.brand_promotion" name="Qing website brand promotion" priority="99">
+        <xpath expr="//t[@t-call='web.brand_promotion_message']" position="before">
+            <t t-set="_message" t-value="False"/>
+        </xpath>
+    </template>
+    <template id="layout_generator" inherit_id="website.layout" name="Qing website generator">
+        <xpath expr="//meta[@name='generator']" position="attributes">
+            <attribute name="content">QingERP</attribute>
+        </xpath>
+    </template>
+    <!-- Matches Odoo's link, or the QingERP link qing_portal may already have
+         put there, so both modules install in either order. -->
+    <template id="portal_record_sidebar" inherit_id="portal.portal_record_sidebar" name="Qing portal record branding">
+        <xpath expr="//a[contains(@href, 'odoo.com?utm_source=db') or contains(@href, 'utm_source=qingerp')]" position="replace">
+            <a class="o_qing_powered_by" target="_blank" href="https://www.qingsolution.com/?utm_source=qingerp&amp;utm_medium=portal" rel="noopener" title="QingERP"
+               style="white-space:nowrap;font-weight:600;"><img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="" width="15" height="15" style="vertical-align:-3px;margin-inline-end:.25em;"/>QingERP</a>
+        </xpath>
+    </template>
+    <!-- /website/info introduced the site as "an instance of Odoo, the Open
+         Source ERP" and sent localisations without a website to odoo.com. -->
+    <template id="show_website_info" inherit_id="website.show_website_info" name="Qing website information">
+        <xpath expr="//h1/small" position="replace">
+            <small groups="base.group_no_one">Version <t t-out="version.get('server_version')"/></small>
+        </xpath>
+        <xpath expr="//section[hasclass('container')]/p" position="replace">
+            <p>This website runs on QingERP.</p>
+        </xpath>
+        <xpath expr="//div[@t-if='l10n']//dt/a" position="attributes">
+            <attribute name="t-att-href">app.website</attribute>
+        </xpath>
+    </template>
+</odoo>

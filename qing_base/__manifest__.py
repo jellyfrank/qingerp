@@ -1,7 +1,7 @@
 {
     'name': 'Qing Base',
     'summary': 'Shared foundation for Qing business modules',
-    'version': '20.0.1.76.1',
+    'version': '20.0.1.81',
     'category': 'Hidden',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -20,6 +20,7 @@
         'views/view_ir_actions_report_form.xml',
         'views/login_scene_templates.xml',
         'views/webclient_templates.xml',
+        'views/mail_branding_templates.xml',
     ],
     'assets': {
         'web.assets_frontend': [
@@ -28,6 +29,10 @@
             'qing_base/static/src/scss/login_cosmos_stars.scss',
             'qing_base/static/src/scss/login_scenes.scss',
             'qing_base/static/src/js/login_background.js',
+            'qing_base/static/src/xml/brand_scoped_app.xml',
+        ],
+        'point_of_sale.customer_display_assets': [
+            'qing_base/static/src/xml/brand_customer_display.xml',
         ],
         'web.assets_backend': [
             'qing_base/static/src/js/binary_preview.js',

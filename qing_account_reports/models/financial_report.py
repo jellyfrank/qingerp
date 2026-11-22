@@ -9,7 +9,10 @@ from odoo import api, fields, models
 from odoo.exceptions import UserError
 from odoo.fields import Domain
 
-from .balance_sheet_template import ROW_NAMES as BALANCE_ROWS, SPLIT_ROWS, TOTALS as BALANCE_TOTALS
+from .balance_sheet_template import (
+    ASSET_ROWS, DETAIL_ROWS, FORM_CODE, GRAND_TOTAL_ROWS, ROW_NAMES as BALANCE_ROWS,
+    SECTION_CAPTIONS, SPLIT_ROWS, SUBTOTAL_ROWS, TOTALS as BALANCE_TOTALS,
+)
 from .profit_statement_template import ROW_NAMES as PROFIT_ROWS
 from .cash_flow_template import ROW_NAMES as CASH_ROWS
 
@@ -129,6 +132,36 @@ class FinancialReport(models.AbstractModel):
     def _amounts(self, wizard, values):
         return [wizard._amount(value) for value in values]
 
+    def _balance_row_kind(self, code):
+        if code in GRAND_TOTAL_ROWS:
+            return 'grand_total'
+        if code in SUBTOTAL_ROWS:
+            return 'subtotal'
+        if code in DETAIL_ROWS:
+            return 'detail'
+        return 'line'
+
+    def _row_formula(self, code, components):
+        """Readable line-number formula, such as '1–9 + 14' or '18 − 19'."""
+        runs = []
+        for part in components.get(code, ()):
+            sign, number = ('−' if part < 0 else '+'), abs(part)
+            if runs and sign == '+' and runs[-1][0] == '+' and number == runs[-1][2] + 1:
+                runs[-1][2] = number
+                continue
+            runs.append([sign, number, number])
+        terms = []
+        for sign, start, end in runs:
+            if end - start > 1:
+                labels = [f'{start}–{end}']
+            else:
+                labels = [str(number) for number in range(start, end + 1)]
+            terms.extend((sign if index == 0 else '+', label) for index, label in enumerate(labels))
+        text = ''
+        for index, (sign, label) in enumerate(terms):
+            text += label if index == 0 else f' {sign} {label}'
+        return text
+
     def _source_row_codes(self, row_code, components):
         codes = {row_code}
         for part in components.get(row_code, ()):
@@ -217,9 +250,13 @@ class FinancialReport(models.AbstractModel):
         }
 
     def _balance_payload(self, wizard, data):
+        currency = wizard.currency_id
         rows = [
             {'code': code, 'name': name, 'amounts': self._amounts(wizard, data['amounts'][code]),
-             'side': 'asset' if code <= 30 else 'liability'}
+             'values': [currency.round(value) for value in data['amounts'][code]],
+             'side': 'asset' if code in ASSET_ROWS else 'liability',
+             'kind': self._balance_row_kind(code), 'section': SECTION_CAPTIONS.get(code, ''),
+             'formula': self._row_formula(code, BALANCE_TOTALS)}
             for code, name in BALANCE_ROWS.items()
         ]
         direct = defaultdict(list)
@@ -236,6 +273,10 @@ class FinancialReport(models.AbstractModel):
         return {
             'rows': rows, 'details': self._expanded_details(wizard, direct, BALANCE_TOTALS, BALANCE_ROWS),
             'differences': self._amounts(wizard, data['differences']),
+            'difference_values': [currency.round(value) for value in data['differences']],
+            'decimal_places': currency.decimal_places,
+            'form_code': FORM_CODE,
+            'unit': '元' if currency.name == 'CNY' else currency.name,
             'opening_date': str(data['opening_date']),
             'headers': ['年初余额', '期末余额'],
         }

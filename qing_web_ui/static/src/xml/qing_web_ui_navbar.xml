@@ -38,17 +38,25 @@
         <xpath expr="//nav[hasclass('o_main_navbar')]" position="after">
             <aside t-if="!this.ui.isSmall" class="o_qing_sidebar" aria-label="Application navigation">
                 <div class="o_qing_sidebar__brand">
-                    <button class="o_qing_sidebar__home" type="button" aria-label="Open applications" t-on-click="this.toggleQingLauncher">
+                    <!-- The company name heads the sidebar and folds it; the top-bar
+                         launcher button opens applications. -->
+                    <button class="o_qing_sidebar__home o_qing_sidebar__toggle_company" type="button"
+                            t-att-aria-label="this.qingLauncherCompanyName + ' · ' + this.qingSidebarToggleLabel"
+                            t-att-title="this.qingSidebarToggleLabel"
+                            t-att-aria-expanded="this.qingSidebarCollapsed ? 'false' : 'true'"
+                            aria-controls="o_qing_sidebar_sections"
+                            t-on-click="this.toggleQingSidebar">
                         <img t-if="this.qingCompanyLogoUrl" t-att-src="this.qingCompanyLogoUrl" alt=""/>
-                        <span t-att-title="this.qingLauncherCompanyName" t-out="this.qingLauncherCompanyName"/>
+                        <span t-att-title="this.qingLauncherCompanyName" t-out="this.qingSidebarCollapsed ? this.qingLauncherCompanyName.slice(0, 2) : this.qingLauncherCompanyName"/>
                     </button>
+                    <!-- Kept for templates that extend it; the company toggle replaces it. -->
                     <button class="o_qing_sidebar__collapse" type="button" t-att-aria-label="this.qingSidebarToggleLabel" t-att-title="this.qingSidebarToggleLabel" t-att-aria-expanded="this.qingSidebarCollapsed ? 'false' : 'true'" t-on-click="this.toggleQingSidebar">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                             <path d="m13 7-5 5 5 5m6-10-5 5 5 5"/>
                         </svg>
                     </button>
                 </div>
-                <nav class="o_qing_sidebar__menus" t-att-class="'o_qing_sidebar__menus--' + this.qingSidebarStyle" aria-label="Application sections" t-on-scroll="this.hideQingMenuHint">
+                <nav id="o_qing_sidebar_sections" class="o_qing_sidebar__menus" t-att-class="'o_qing_sidebar__menus--' + this.qingSidebarStyle" aria-label="Application sections" t-on-scroll="this.hideQingMenuHint">
                     <t t-if="this.qingSidebarStyle === 'islands'">
                         <section t-foreach="this.qingSidebarSections" t-as="section" t-key="section.key"
                                  class="o_qing_sidebar__island" t-att-aria-label="this.qingSectionLabel(section)">
@@ -195,9 +203,6 @@
     </t>
 
     <t t-name="qing_web_ui.Breadcrumbs" t-inherit="web.Breadcrumbs" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('o_last_breadcrumb_item')]" position="attributes">
-            <attribute name="t-ref">this.qingBreadcrumbTitle</attribute>
-        </xpath>
         <xpath expr="//div[hasclass('o_last_breadcrumb_item')]/span" position="attributes">
             <attribute name="class" add="o_qing_breadcrumb_viewport" separator=" "/>
             <attribute name="t-att-title">breadcrumb.name</attribute>

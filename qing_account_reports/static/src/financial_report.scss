@@ -4,12 +4,189 @@
     .table td:nth-child(7), .table td:nth-child(8) { text-align: right; font-variant-numeric: tabular-nums; }
     .table .btn-link { color: inherit; text-decoration: none; font-variant-numeric: tabular-nums; }
     .table .btn-link:hover { text-decoration: underline; }
-    .table tbody tr:is(:hover, :focus-within) > * { background-color: #eaf3ff !important; }
+    .table tbody tr:is(:hover, :focus-within) > * { background-color: rgba($primary, 0.06) !important; }
     .o_qing_amount_link { font-weight: 500; }
-    .o_qing_amount_link:hover, .o_qing_amount_link:focus-visible { color: #2457a7; }
+    .o_qing_amount_link:hover, .o_qing_amount_link:focus-visible { color: $primary; }
     .o_qing_row_name { text-align: left; }
     .o_qing_trial_balance_table th:nth-child(n+3),
     .o_qing_trial_balance_table td:nth-child(n+3) { text-align: right; font-variant-numeric: tabular-nums; }
-    .o_qing_trial_balance_table tfoot { border-top: 2px solid var(--border-color, #dee2e6); }
+    .o_qing_trial_balance_table tfoot { border-top: 2px solid $border-color; }
     .o_qing_financial_report_details { scroll-margin-top: 1rem; }
+    .o_qing_num { font-variant-numeric: tabular-nums; }
+
+    // Opaque statement surface: theme backgrounds must not show through figures.
+    .o_qing_report_paper {
+        background-color: $o-view-background-color;
+        border: 1px solid $border-color;
+        border-radius: 0.5rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .o_qing_statement_title {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: end;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+        h3 { font-weight: 600; letter-spacing: 0.3em; text-align: center; }
+        span { color: $text-muted; font-size: 0.875rem; }
+    }
+
+    .o_qing_statement_meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid $border-color;
+        color: $text-muted;
+        font-size: 0.875rem;
+    }
+
+    .o_qing_balance_difference { font-variant-numeric: tabular-nums; }
+
+    .o_qing_balance_grid {
+        display: grid;
+        // CSS min(), not the Sass function: the units differ.
+        grid-template-columns: repeat(auto-fit, minmax(unquote("min(100%, 34rem)"), 1fr));
+        border: 1px solid $border-color;
+        border-radius: 0.375rem;
+        overflow: hidden;
+    }
+
+    .o_qing_balance_side {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        // A shadow draws the divider without widening the grid on narrow screens.
+        box-shadow: 1px 0 0 $border-color;
+    }
+
+    .o_qing_balance_row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 3rem 8.5rem 8.5rem;
+        column-gap: 0.75rem;
+        align-items: center;
+        width: 100%;
+        min-height: 2.25rem;
+        margin: 0;
+        padding: 0 0.875rem;
+        border: 0;
+        border-bottom: 1px solid $o-gray-200;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+    }
+
+    button.o_qing_balance_row {
+        cursor: pointer;
+        &:hover { background-color: rgba($primary, 0.06); }
+        &:focus-visible { outline: 2px solid $primary; outline-offset: -2px; }
+    }
+
+    .o_qing_balance_head {
+        min-height: 2.5rem;
+        background-color: $o-gray-100;
+        border-bottom-color: $border-color;
+        font-size: 0.8125rem;
+        font-weight: 600;
+    }
+
+    .o_qing_balance_section {
+        padding: 0.375rem 0.875rem;
+        background-color: $o-gray-100;
+        border-bottom: 1px solid $o-gray-200;
+        color: $o-gray-700;
+        font-size: 0.8125rem;
+        font-weight: 600;
+    }
+
+    .o_qing_balance_name {
+        min-width: 0;
+        padding-left: 0.75rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .o_qing_balance_code {
+        color: $text-muted;
+        font-size: 0.75rem;
+        font-variant-numeric: tabular-nums;
+        text-align: center;
+    }
+
+    .o_qing_balance_amount { text-align: right; }
+    .o_qing_amount_zero { color: $text-muted; }
+
+    .o_qing_kind_detail .o_qing_balance_name { padding-left: 1.75rem; }
+
+    .o_qing_kind_subtotal {
+        border-top: 1px solid $o-gray-300;
+        font-weight: 600;
+    }
+
+    .o_qing_kind_grand_total {
+        min-height: 3rem;
+        margin-top: auto;
+        border-top: 3px double $o-gray-700;
+        border-bottom: 0;
+        background-color: $o-gray-100;
+        font-size: 1.0625rem;
+        font-weight: 700;
+        .o_qing_balance_name { padding-left: 0; white-space: normal; }
+    }
+
+    .o_qing_selected,
+    button.o_qing_selected:hover { background-color: rgba($primary, 0.12); }
+
+    @include media-breakpoint-down(sm) {
+        .o_qing_report_paper { padding: 1rem 0.75rem; }
+        .o_qing_balance_row {
+            grid-template-columns: minmax(0, 1fr) 1.75rem 5.5rem 5.5rem;
+            column-gap: 0.375rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8125rem;
+        }
+        .o_qing_balance_name { padding-left: 0.25rem; white-space: normal; overflow-wrap: anywhere; }
+        .o_qing_kind_detail .o_qing_balance_name { padding-left: 1rem; }
+    }
+}
+
+.o_qing_report_drawer_backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: $zindex-modal;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba($black, 0.25);
+}
+
+.o_qing_report_drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: unquote("min(30rem, 100%)");
+    height: 100%;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background-color: $o-view-background-color;
+    box-shadow: -0.5rem 0 1.5rem rgba($black, 0.15);
+
+    .o_qing_drawer_amount {
+        font-size: 1.5rem;
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+    }
+
+    .o_qing_drawer_formula {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.375rem;
+        background-color: $o-gray-100;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .o_qing_num { font-variant-numeric: tabular-nums; }
 }

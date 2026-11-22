@@ -1,0 +1,61 @@
+// Qing Dark switches at runtime: the native code field only picks the dark
+// Ace theme from the `color_scheme` cookie, so it keeps the light TextMate
+// theme (`ace-tm`). Repaint that theme from the Qing tokens instead.
+.o_qing_web_ui.o_qing_ui--dark .ace-tm {
+    --o-qing-code-keyword: #c4a7f5;
+    --o-qing-code-string: #9fd59a;
+    --o-qing-code-number: #f2bb72;
+    --o-qing-code-function: #8fb8ff;
+    --o-qing-code-type: #7fd3d0;
+    --o-qing-code-tag: #f2909a;
+
+    background-color: var(--o-qing-surface-weak);
+    color: var(--o-qing-text);
+
+    .ace_gutter {
+        background: color-mix(in srgb, var(--o-qing-text) 5%, var(--o-qing-surface-weak));
+        color: var(--o-qing-text-soft);
+    }
+    .ace_gutter-active-line { background-color: color-mix(in srgb, var(--o-qing-text) 8%, transparent); }
+    .ace_print-margin { background: var(--o-qing-border); }
+    .ace_cursor { color: var(--o-qing-text); }
+    .ace_invisible { color: color-mix(in srgb, var(--o-qing-text-soft) 50%, transparent); }
+
+    .ace_marker-layer {
+        .ace_selection { background: color-mix(in srgb, var(--o-qing-link) 32%, transparent); }
+        .ace_active-line { background: color-mix(in srgb, var(--o-qing-text) 5%, transparent); }
+        .ace_selected-word {
+            background: color-mix(in srgb, var(--o-qing-link) 14%, transparent);
+            border-color: color-mix(in srgb, var(--o-qing-link) 40%, transparent);
+        }
+        .ace_bracket { border-color: var(--o-qing-text-soft); }
+        .ace_step { background: color-mix(in srgb, var(--o-qing-code-number) 35%, transparent); }
+        .ace_stack { background: color-mix(in srgb, var(--o-qing-code-string) 30%, transparent); }
+    }
+    &.ace_multiselect .ace_selection.ace_start { box-shadow: 0 0 3px 0 var(--o-qing-surface-weak); }
+
+    .ace_storage, .ace_keyword { color: var(--o-qing-code-keyword); }
+    .ace_keyword.ace_operator { color: var(--o-qing-text-soft); }
+    .ace_constant, .ace_constant.ace_numeric { color: var(--o-qing-code-number); }
+    .ace_constant.ace_buildin, .ace_constant.ace_language { color: var(--o-qing-code-keyword); }
+    .ace_constant.ace_library, .ace_support.ace_constant { color: var(--o-qing-code-type); }
+    .ace_support.ace_function, .ace_entity.ace_name.ace_function { color: var(--o-qing-code-function); }
+    .ace_support.ace_type, .ace_support.ace_class { color: var(--o-qing-code-type); }
+    .ace_string { color: var(--o-qing-code-string); }
+    .ace_string.ace_regex { color: var(--o-qing-code-tag); }
+    .ace_comment, .ace_comment.ace_doc, .ace_comment.ace_doc.ace_tag { color: var(--o-qing-text-soft); }
+    .ace_variable { color: var(--o-qing-code-type); }
+    .ace_meta.ace_tag, .ace_xml-pe { color: var(--o-qing-code-tag); }
+    .ace_entity.ace_other.ace_attribute-name { color: var(--o-qing-code-number); }
+    .ace_heading { color: var(--o-qing-code-function); }
+    .ace_list { color: var(--o-qing-code-keyword); }
+    .ace_fold { background-color: var(--o-qing-link); }
+    .ace_invalid {
+        background-color: color-mix(in srgb, var(--o-qing-code-tag) 18%, transparent);
+        color: var(--o-qing-code-tag);
+    }
+    // The light theme draws indent guides from a dark 1px image.
+    .ace_indent-guide, .ace_indent-guide-active {
+        background: linear-gradient(to left, color-mix(in srgb, var(--o-qing-text) 12%, transparent) 1px, transparent 1px) right / 1px 100% repeat-y;
+    }
+}

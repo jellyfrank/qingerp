@@ -1,0 +1,83 @@
+// Custom filter dialog (domain editor) and its field picker in Qing dark.
+// Qing dark does not load the native dark bundle, so these native pieces kept
+// compiled light values: a light chip behind the chosen field, a white search
+// box and arrow, light row rules, a black hover, a purple "any/all" and a
+// switch knob drawn in black. Repaint them from the runtime palette; layout and
+// behavior stay native.
+$qing-switch-knob: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23bdc2cc'/%3e%3c/svg%3e");
+
+.o_qing_web_ui.o_qing_ui--dark {
+    .o_domain_selector {
+        // "Match any / all of the following rules": a toggle, not a link.
+        .o_tree_editor_connector_value .text-primary { color: var(--o-qing-link) !important; }
+
+        .o_tree_editor_condition .o_input {
+            border-color: var(--o-qing-border);
+            &:focus, &:focus-within { border-color: var(--o-qing-accent); }
+        }
+
+        .form-switch .form-check-input:not(:checked) {
+            background-color: var(--o-qing-surface-weak);
+            background-image: $qing-switch-knob;
+            border-color: var(--o-qing-text-soft);
+        }
+    }
+
+    .o_model_field_selector.o_input {
+        border-color: var(--o-qing-border);
+        &:focus-within { border-color: var(--o-qing-accent); }
+    }
+    .o_model_field_selector > .o_model_field_selector_value > .o_model_field_selector_chain_part {
+        border-color: var(--o-qing-border);
+        border-radius: 4px;
+        background: var(--o-qing-surface-weak);
+        color: var(--o-qing-text);
+    }
+
+    .o_popover:has(.o_model_field_selector_popover) {
+        --popover-bg: var(--o-qing-surface);
+        --popover-border-color: var(--o-qing-border);
+        background-color: var(--o-qing-surface);
+        border-color: var(--o-qing-border);
+        color: var(--o-qing-text);
+    }
+
+    .o_model_field_selector_popover {
+        background: var(--o-qing-surface);
+        color: var(--o-qing-text);
+
+        :is(.border-bottom, .border-top, .border-start) { border-color: var(--o-qing-border) !important; }
+        .text-dark { color: var(--o-qing-text) !important; }
+        .o_model_field_selector_popover_title { color: var(--o-qing-text-soft); }
+
+        :is(.o_model_field_selector_popover_search, .o_model_field_selector_popover_footer) .o_input {
+            border-color: var(--o-qing-border) !important;
+            background-color: var(--o-qing-surface-weak) !important;
+            color: var(--o-qing-text);
+            &:focus { border-color: var(--o-qing-accent) !important; }
+        }
+
+        .o_model_field_selector_popover_item {
+            background: transparent;
+
+            .btn-light {
+                --btn-bg: transparent;
+                --btn-color: var(--o-qing-text);
+                --btn-hover-bg: var(--o-qing-surface-weak);
+                --btn-hover-color: var(--o-qing-text);
+                --btn-active-bg: var(--o-qing-surface-weak);
+                --btn-active-color: var(--o-qing-text);
+                background-color: transparent;
+                color: var(--o-qing-text);
+                &:hover, &:focus-visible { background-color: var(--o-qing-surface-weak); }
+            }
+            .o_model_field_selector_popover_item_relation { color: var(--o-qing-text-soft); }
+
+            // Keyboard focus and the field already chosen.
+            &.active .btn-light {
+                background-color: color-mix(in srgb, var(--o-qing-accent) 22%, var(--o-qing-surface));
+                color: var(--o-qing-text);
+            }
+        }
+    }
+}

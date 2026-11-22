@@ -146,9 +146,25 @@
     .o_qing_web_ui:has(.o_qing_sidebar) {
         --o-qing-sidebar-size: 240px;
         &.o_qing_ui--sidebar-collapsed { --o-qing-sidebar-size: 72px; }
-        .o_main_navbar { margin-inline-start: var(--o-qing-sidebar-size); }
+        // The top bar spans the full width and starts with the app launcher;
+        // the sidebar sits below it.
+        .o_main_navbar { margin-inline-start: 0; }
         .o_action_manager { margin-inline-start: var(--o-qing-sidebar-size); }
-        .o_main_navbar > .o_qing_launcher_trigger,
+        .o_main_navbar > .o_qing_launcher_trigger {
+            display: inline-grid !important;
+            margin-inline: 0 12px;
+        }
+        // Without a company logo the launcher is a filled "Q" tile. Glass
+        // styles its own launcher.
+        &:not(.o_qing_glass) .o_main_navbar > .o_qing_launcher_trigger:not(:has(> img)) {
+            flex-basis: 32px;
+            width: 32px;
+            height: 32px;
+            min-height: 32px;
+            background: var(--o-qing-accent) !important;
+            color: #fff !important;
+            &:hover, &:focus-visible, &[aria-expanded="true"] { background: var(--o-qing-accent-weak) !important; }
+        }
         .o_main_navbar > .o_qing_brand,
         .o_main_navbar > .o_menu_sections { display: none !important; }
         .o_main_navbar > .o_menu_brand {
@@ -163,7 +179,8 @@
     }
     .o_qing_sidebar {
         position: fixed;
-        inset: var(--o-qing-sidebar-top, 0px) auto 0 0;
+        // Below the full-width top bar.
+        inset: calc(var(--o-qing-sidebar-top, 0px) + var(--o-qing-topbar-height) + 1px) auto 0 0;
         z-index: 1035;
         display: flex;
         flex-direction: column;
@@ -171,11 +188,10 @@
         background: var(--o-qing-sidebar-bg);
         color: var(--o-qing-sidebar-text);
         font-size: 13px;
-        // Continue the divider below the unified brand/navigation header.
         &::after {
             content: "";
             position: absolute;
-            top: calc(var(--o-qing-topbar-height) + 1px);
+            top: 0;
             bottom: 0;
             inset-inline-end: 0;
             width: 1px;
@@ -189,10 +205,10 @@
             display: flex;
             align-items: center;
             flex-shrink: 0;
-            height: calc(var(--o-qing-topbar-height) + 1px);
-            padding: 0 12px;
+            height: 48px;
+            padding: 0 10px;
             gap: 8px;
-            border-bottom: 1px solid var(--o-qing-border);
+            border-bottom: 1px solid var(--o-qing-sidebar-border);
         }
         &__home {
             display: flex;
@@ -207,10 +223,20 @@
             font-weight: 600 !important;
             line-height: 1.25;
             white-space: nowrap;
-            img { width: 38px; height: 38px; object-fit: contain; border-radius: 0; background: transparent; padding: 0; }
+            img { display: none; }
+        }
+        // The company name is the collapse control (see qing_web_ui.NavBar).
+        &__toggle_company {
+            justify-content: center;
+            width: 100%;
+            min-height: 36px;
+            padding: 0 8px;
+            border-radius: 8px;
+            > span { display: block; }
+            &:hover { background: var(--o-qing-sidebar-hover); }
         }
         &__collapse {
-            display: inline-flex;
+            display: none;
             align-items: center;
             justify-content: center;
             flex: 0 0 auto;
@@ -291,9 +317,9 @@
         &:focus-visible { outline: 2px solid var(--o-qing-accent); }
     }
     .o_qing_ui--sidebar-collapsed .o_qing_sidebar {
-        &__brand { justify-content: center; height: calc(var(--o-qing-topbar-height) + 1px); padding: 0; gap: 0; }
-        &__home { display: none; }
-        &__home span, &__item span, &__group, &__footer span { display: none; }
+        &__brand { justify-content: center; padding: 0 8px; gap: 0; }
+        // Collapsed, the toggle keeps a two-character company label.
+        &__item span, &__group, &__footer span { display: none; }
         &__collapse { margin: 0; }
         &__menus { padding-inline: 10px; }
         &__item { justify-content: center; padding-inline: 6px; }

@@ -1,0 +1,446 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* qing_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-22 01:33+0000\n"
+"PO-Revision-Date: 2026-11-22 01:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: zh_CN\n"
+"Plural-Forms: \n"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid ""
+"<span class=\"o_qing_portal_brand_sep d-none d-md-block\" aria-hidden=\"true\"/>\n"
+"                <span class=\"o_qing_portal_brand_name d-none d-md-inline\">Customer portal</span>"
+msgstr "<span class=\"o_qing_portal_brand_sep d-none d-md-block\" aria-hidden=\"true\"/>\n                <span class=\"o_qing_portal_brand_name d-none d-md-inline\">客户中心</span>"
+
+#. module: qing_portal
+#: model:ir.module.module,summary:base.module_qing_portal
+msgid ""
+"A QingERP look for the customer portal: account home, document lists and "
+"documents"
+msgstr "客户门户的 QingERP 外观：账户首页、单据列表与单据页面"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Amount due"
+msgstr "待付金额"
+
+#. module: qing_portal
+#: model:ir.model,name:qing_portal.model_res_partner
+msgid "Contact"
+msgstr "联系人"
+
+#. module: qing_portal
+#: model:ir.model.fields,field_description:qing_portal.field_res_partner__current_company
+msgid "Current Company"
+msgstr ""
+
+#. module: qing_portal
+#: model:ir.model.fields,field_description:qing_portal.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Due"
+msgstr "到期日"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Good afternoon,"
+msgstr "下午好，"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Good evening,"
+msgstr "晚上好，"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Good morning,"
+msgstr "上午好，"
+
+#. module: qing_portal
+#: model:ir.model.fields,field_description:qing_portal.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Invoice"
+msgstr "发票"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid "Invoices"
+msgstr "发票"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "My account"
+msgstr "我的账户"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_my_home
+msgid "My documents"
+msgstr "我的单据"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Nothing is waiting for you right now."
+msgstr "目前没有需要您处理的事项。"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+msgid "Order"
+msgstr "订单"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid "Orders"
+msgstr "订单"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "Orders in progress"
+msgstr "进行中订单"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid "Overview"
+msgstr "概览"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Pay now"
+msgstr "立即支付"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid "Portal"
+msgstr "门户导航"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_record_sidebar
+msgid "QingERP"
+msgstr "QingERP"
+
+#. module: qing_portal
+#: model:ir.module.module,shortdesc:base.module_qing_portal
+msgid "QingERP Portal Theme"
+msgstr "QingERP 门户主题"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Quotation"
+msgstr "报价单"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.frontend_layout
+msgid "Quotations"
+msgstr "报价单"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+msgid "Recent activity"
+msgstr "最近动态"
+
+#. module: qing_portal
+#: model:ir.module.module,description:base.module_qing_portal
+msgid "Restyles the native customer portal (/my) in the QingERP design: the account home greets the customer, shows what is left to pay and lists the quotations and invoices waiting for them as cards, with recent activity under the document cards; lists become cards on phones and each document keeps its summary beside it. Pages, access rules, signing, payment and the website editor options stay native. The portal content follows the theme with or without the Website app (a neutral ink accent while the company keeps Odoo's default email colours, else the company colour); without the Website app the portal also gets a QingERP header with page links and footer."
+msgstr "以 QingERP 设计重绘 Odoo 原生客户门户（/my）：账户首页问候客户、显示待付金额，把等待客户处理的报价单和发票列成卡片，业务卡片下方是最近动态；列表在手机上变为卡片，单据旁保留摘要。页面、访问权限、签署、付款与网站编辑器设置保持原生。无论是否安装网站应用，门户内容区都使用本主题（公司仍为 Odoo 默认邮件配色时主色为中性墨黑，否则用公司颜色）；未安装网站应用时，门户还使用带页面导航的 QingERP 页眉与页脚。"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Review and pay"
+msgstr "查看并支付"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Review and sign"
+msgstr "查看并签署"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "To pay"
+msgstr "待付款"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "To sign"
+msgstr "待签署"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Valid until"
+msgstr "有效期至"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Waiting for you"
+msgstr "待您处理"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+msgid "confirmed"
+msgstr "已确认"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "day(s) left"
+msgstr "天后到期"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "Overdue by"
+msgstr "逾期"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_todo
+msgid "day(s)"
+msgstr "天"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+msgid "issued"
+msgstr "已开具"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "item(s) are waiting for you,"
+msgstr "件事项等待您处理，其中"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "item(s) are waiting for you."
+msgstr "件事项等待您处理。"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.portal_layout
+msgid "of them overdue."
+msgstr "件已逾期。"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:qing_portal.home_recent
+msgid "received"
+msgstr "已收到"
+
+# Native portal terms that Odoo 20 ships without a Chinese translation.
+# The occurrences point at the native views, so they are filled there when
+# this module is installed or updated (only where still untranslated).
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "<i class=\"oi me-1\" data-icon=\"redo\"/>Order Again"
+msgstr "<i class=\"oi me-1\" data-icon=\"redo\"/>再次订购"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "<span class=\"badge text-bg-info\">Billing</span>"
+msgstr "<span class=\"badge text-bg-info\">开票地址</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "<span class=\"badge text-bg-info\">Delivery &amp; Billing</span>"
+msgstr "<span class=\"badge text-bg-info\">收货与开票地址</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "<span class=\"badge text-bg-info\">Delivery</span>"
+msgstr "<span class=\"badge text-bg-info\">收货地址</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "<span class=\"text-muted fw-normal\">saved</span>"
+msgstr "<span class=\"text-muted fw-normal\">已节省</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_pay_modal
+msgid "<span id=\"o_sale_portal_use_amount_total\">By paying,</span>"
+msgstr "<span id=\"o_sale_portal_use_amount_total\">付款即表示，</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "<span>Discount</span>"
+msgstr "<span>折扣</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "<span>Tax:</span>"
+msgstr "<span>税：</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "<strong class=\"smaller text-uppercase text-muted\">Invoices</strong>"
+msgstr "<strong class=\"smaller text-uppercase text-muted\">发票</strong>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "<strong class=\"smaller text-uppercase text-muted\">Your advantage</strong>"
+msgstr "<strong class=\"smaller text-uppercase text-muted\">您的优惠</strong>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Down payment:"
+msgstr "首付款："
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Excl. Tax)"
+msgstr "不含税）"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.portal_my_orders
+msgid "Not Available"
+msgstr "不可用"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Paid:"
+msgstr "已付："
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Provide feedback"
+msgstr "留言反馈"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Quotation for"
+msgstr "报价对象"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Ref:"
+msgstr "参考号："
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Reject"
+msgstr "拒绝"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Reject this quotation"
+msgstr "拒绝此报价"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Sales Order for"
+msgstr "订单客户"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Section Summary"
+msgstr "分节小计"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.portal_my_orders
+msgid "Shipping Status"
+msgstr "发货状态"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
+msgid "Tax Included"
+msgstr "含税"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_pay_modal
+msgid "you confirm acceptance on behalf of"
+msgstr "您代表以下客户确认接受"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_contact
+msgid "<i class=\"oi m-auto ms-auto me-3\" data-icon=\"mail\" role=\"img\" aria-label=\"Send Message\"/>"
+msgstr "<i class=\"oi m-auto ms-auto me-3\" data-icon=\"mail\" role=\"img\" aria-label=\"发送消息\"/>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.my_addresses
+msgid "<i class=\"oi me-1\" data-icon=\"add\"/>Add"
+msgstr "<i class=\"oi me-1\" data-icon=\"add\"/>添加"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.user_dropdown
+msgid "<i class=\"oi oi-fw small text-primary-emphasis\" data-icon=\"logout\"/> Logout"
+msgstr "<i class=\"oi oi-fw small text-primary-emphasis\" data-icon=\"logout\"/> 退出登录"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_contact
+msgid "<span class=\"small text-muted\">Your Contact</span>"
+msgstr "<span class=\"small text-muted\">您的联系人</span>"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.portal_breadcrumbs
+#: model_terms:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Account Details"
+msgstr "账户信息"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.my_addresses
+msgid "Add an address"
+msgstr "添加地址"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.my_addresses
+msgid "Billing addresses"
+msgstr "开票地址"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_form_fields
+msgid "City..."
+msgstr "城市…"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_form_fields
+msgid "Company"
+msgstr "公司"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.my_addresses
+msgid "Delivery addresses"
+msgstr "收货地址"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_form_fields
+msgid "If you want to modify it, update"
+msgstr "如需修改，请更新"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_form_fields
+msgid "Name"
+msgstr "名称"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_card
+msgid "Remove this address"
+msgstr "删除此地址"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:portal.address_form_fields
+msgid "State / Province..."
+msgstr "省 / 州…"
+
+#. module: qing_portal
+#: model_terms:ir.ui.view,arch_db:payment.portal_breadcrumb
+msgid "<i class=\"oi\" data-icon=\"home\" role=\"img\" title=\"Home\" aria-label=\"Home\"/>"
+msgstr "<i class=\"oi\" data-icon=\"home\" role=\"img\" title=\"首页\" aria-label=\"首页\"/>"
+
+#. module: qing_portal
+#. odoo-javascript
+#: code:addons/mail/static/src/core/common/thread.xml:0
+msgid "No messages yet."
+msgstr "暂无消息。"

@@ -1,0 +1,139 @@
+// Phone top bar: the page title gets the room. The app launcher is reached
+// from the menu button; theme and developer shortcuts live in the avatar menu.
+@media (max-width: 767.98px) {
+    .o_qing_web_ui {
+        .o_main_navbar > .o_qing_launcher_trigger { display: none !important; }
+        .o_main_navbar .o_menu_systray {
+            .o_qing_theme_shortcut,
+            .o_qing_debug_shortcut,
+            .o_debug_manager { display: none !important; }
+        }
+
+        // 40px touch targets in the top bar. The native menu button pads its
+        // icon to one side; center it in its own square, clear of the title.
+        .o_main_navbar .o_menu_toggle {
+            flex: 0 0 40px;
+            width: 40px;
+            height: 40px;
+            margin-inline-end: 6px;
+            padding: 0 !important;
+            align-items: center;
+            justify-content: center;
+        }
+        .o_main_navbar .o_menu_systray :is(.dropdown-toggle, .o_nav_entry, .o_mobile_menu_toggle) {
+            min-width: 40px;
+            min-height: 40px;
+            justify-content: center;
+        }
+
+    }
+}
+
+// Icon-only toolbar buttons get a short label where it fits.
+@media (min-width: 360px) and (max-width: 767.98px) {
+    .o_qing_web_ui .o_action_manager .o_control_panel {
+        .o_qing_button_label {
+            margin-inline-start: 4px;
+            font-size: 13px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+        :is(.o-form-buttonbox, .o-form-buttonbox .oe_stat_button, .o_cp_action_menus, .o_cp_action_menus > .lh-1):has(.o_qing_button_label) {
+            width: auto !important;
+            min-width: 36px !important;
+        }
+        :is(.o-form-buttonbox .o_button_more, .o_cp_action_menus button.btn):has(.o_qing_button_label) {
+            flex: 0 0 auto !important;
+            width: auto !important;
+            min-width: 36px !important;
+            max-width: none !important;
+            padding-inline: 10px !important;
+        }
+    }
+}
+@media (max-width: 359.98px) {
+    .o_qing_web_ui .o_control_panel .o_qing_button_label { display: none; }
+}
+
+// Touch screens: give the 18px activity clock a 30px hit area without moving
+// it. Keep the margin small: on some cards it sits mid-card, and a larger area
+// would take taps meant to open the record.
+@media (pointer: coarse) {
+    .o_qing_web_ui .o-mail-ActivityButton {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            inset: -6px;
+        }
+    }
+}
+
+// Touch devices open message actions with a long press (native); the inline
+// action strip only shows an empty placeholder there.
+.o_qing_web_ui .o-mail-Message.o-isMobileOS .o-mail-Message-actions { display: none !important; }
+
+// Phone form header: a read-only workflow (no stage can be clicked) shrinks
+// to the current stage plus one dot per other stage and joins the action
+// buttons' row, instead of taking a second row of labels. Native order is
+// reversed: visually earlier stages follow the current one in the DOM.
+// Clickable workflows keep the full, scrollable step line.
+@media (max-width: 767.98px) {
+    // The "more actions" half of the split button kept a compiled purple
+    // background; it is a secondary control, so draw it neutral.
+    .o_qing_web_ui .o_form_statusbar .o_statusbar_buttons .btn.dropdown-toggle-split {
+        border: 1px solid var(--o-qing-border);
+        background: var(--o-qing-surface);
+        color: var(--o-qing-text);
+        &:hover, &.show { background: var(--o-qing-surface-weak); }
+    }
+    .o_qing_web_ui .o_form_view .o_form_statusbar:has(.o_qing_status_timeline):not(:has(.o_qing_status_timeline .o_arrow_button:enabled)) {
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 8px;
+        .o_field_statusbar {
+            flex: 0 1 auto !important;
+            width: auto !important;
+            min-width: 0;
+            margin-inline-start: auto;
+            padding-top: 0 !important;
+            align-self: center;
+        }
+        .o_qing_status_timeline {
+            align-items: center;
+            gap: 6px !important;
+            overflow: visible;
+            .o_arrow_button:not(.d-none) {
+                min-height: 0 !important;
+                &::after { display: none !important; }
+            }
+            .o_arrow_button:not(.d-none):not(.o_arrow_button_current) {
+                flex: 0 0 8px;
+                width: 8px;
+                height: 8px;
+                padding: 0 !important;
+                border: 1.5px solid var(--o-qing-text-soft) !important;
+                border-radius: 50% !important;
+                font-size: 0 !important;
+                color: transparent !important;
+                &::before { display: none !important; }
+            }
+            // Stages already passed are filled.
+            .o_arrow_button_wrap:has(.o_arrow_button_current) ~ .o_arrow_button_wrap .o_arrow_button:not(.d-none) {
+                border-color: var(--o-qing-link) !important;
+                background: var(--o-qing-link) !important;
+            }
+            .o_arrow_button.o_arrow_button_current {
+                margin-inline: 2px;
+                padding: 4px 10px !important;
+                border-radius: 999px !important;
+                background: color-mix(in srgb, var(--o-qing-link) 14%, transparent) !important;
+                color: var(--o-qing-link) !important;
+                font-size: 13px !important;
+                font-weight: 600;
+                line-height: 20px;
+                &::before { display: none !important; }
+            }
+        }
+    }
+}

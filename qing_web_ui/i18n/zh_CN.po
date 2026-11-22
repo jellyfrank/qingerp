@@ -611,3 +611,33 @@ msgstr "申请权限"
 #: code:addons/qing_web_ui/static/src/xml/qing_list_header.xml:0
 msgid "Search..."
 msgstr "搜索..."
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/web/static/src/core/domain_selector/domain_selector.xml:0
+msgid "Include archived"
+msgstr "包含已归档"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/mobile_labels.xml:0
+msgid "Related"
+msgstr "关联"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/xml/mobile_labels.xml:0
+msgid "Actions"
+msgstr "操作"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_debug_shortcut.js:0
+msgid "Developer mode"
+msgstr "开发者模式"
+
+#. module: qing_web_ui
+#. odoo-javascript
+#: code:addons/qing_web_ui/static/src/js/qing_debug_shortcut.js:0
+msgid "Leave developer mode"
+msgstr "退出开发者模式"

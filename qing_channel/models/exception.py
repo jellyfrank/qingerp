@@ -1,6 +1,11 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import AccessError, UserError
 
+RECHECK_MODELS = {
+    'qing.channel.delivery', 'qing.channel.order', 'qing.channel.order.line',
+    'qing.channel.action', 'qing.channel.request',
+}
+
 
 class ChannelException(models.Model):
     _name = 'qing.channel.exception'
@@ -15,11 +20,35 @@ class ChannelException(models.Model):
         domain = [(key, '=', value) for key, value in vals.items()] + [('resolved', '=', False)]
         return self.search(domain, limit=1) or self.create(vals)
 
-    company_id = fields.Many2one(related='store_id.company_id', store=True, index=True, precompute=True)
+    @api.depends('code')
+    @api.depends_context('lang')
+    def _compute_display_name(self):
+        for exception in self:
+            exception.display_name = exception._get_exception_title()
+
+    def _get_exception_title(self):
+        return self.env._('Channel Exception')
+
+    @api.depends('resolved')
+    def _compute_status(self):
+        for exception in self:
+            exception.status = 'resolved' if exception.resolved else 'pending'
+
+    @api.depends('resolved', 'object_model')
+    def _compute_can_recheck(self):
+        for exception in self:
+            exception.can_recheck = not exception.resolved and exception._supports_recheck()
+
+    def _supports_recheck(self):
+        return self.object_model in RECHECK_MODELS
+
+    can_recheck = fields.Boolean(compute='_compute_can_recheck')
     code = fields.Char(required=True)
+    company_id = fields.Many2one(related='store_id.company_id', store=True, index=True, precompute=True)
     object_id = fields.Integer(required=True)
     object_model = fields.Char(required=True)
     resolved = fields.Boolean(default=False)
+    status = fields.Selection([('pending', 'Pending'), ('resolved', 'Resolved')], compute='_compute_status')
     store_id = fields.Many2one('qing.channel.store', required=True, ondelete='restrict', index=True)
 
     _open_unique = models.UniqueIndex('(store_id, object_model, object_id, code) WHERE NOT resolved')
@@ -29,9 +58,7 @@ class ChannelException(models.Model):
         self.check_access('read')
         if not self.env.user.has_group('qing_channel.group_channel_manager'):
             raise AccessError(_('Channel Manager access is required.'))
-        allowed = {'qing.channel.delivery', 'qing.channel.order', 'qing.channel.order.line',
-                   'qing.channel.action', 'qing.channel.request'}
-        if self.resolved or self.object_model not in allowed:
+        if self.resolved or self.object_model not in RECHECK_MODELS:
             raise UserError(_('This exception needs a configuration or manual correction.'))
         record = self.env[self.object_model].browse(self.object_id).exists()
         if not record:

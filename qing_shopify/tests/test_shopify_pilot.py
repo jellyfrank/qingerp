@@ -15,8 +15,8 @@ from odoo.addons.qing_channel.models import action as action_queue, request as r
 from odoo.tests import TransactionCase, tagged
 from odoo.tests.common import new_test_user
 
-from ..models import api_budget, bulk_import, store as shopify_store, store_catalog, store_order, store_refund
-from ..services import bulk, client as shopify_client, orders
+from ..models import api_budget, bulk_import, store as shopify_store, store_catalog, store_order, store_refund, store_stock
+from ..services import bulk, catalog, client as shopify_client, orders
 
 
 
@@ -429,6 +429,167 @@ class TestShopifyPilot(TransactionCase):
             ('store_id', '=', self.store.id), ('resolved', '=', False),
             ('code', 'in', ['shopify_sku_missing', 'shopify_pricelist_currency_mismatch']),
         ]))
+
+    def test_catalog_mapping_recovers_missing_sku_order_and_keeps_existing_sale(self):
+        original = self._snapshot()
+        first_order = self.store._apply_shopify_order(original)
+        self.store._execute_channel_action(self._sale_action(first_order))
+        first_sale = first_order.sale_id
+        self.env['stock.quant']._update_available_quantity(self.product, self.warehouse.lot_stock_id, 10)
+        first_sale.action_confirm()
+        first_sale.picking_ids.action_assign()
+
+        order_snapshot = self._snapshot()
+        order_snapshot.update(id='gid://shopify/Order/2', name='#2')
+        new_variant = 'gid://shopify/ProductVariant/40'
+        line = order_snapshot['lineItems']['nodes'][0]
+        line.update(id='gid://shopify/LineItem/2', sku=None, variant={'id': new_variant})
+        shop_variant = {
+            'id': new_variant, 'sku': None, 'requiresComponents': False,
+            'barcodes': {'nodes': [], 'pageInfo': {'hasNextPage': False}},
+            'inventoryItem': {'id': 'gid://shopify/InventoryItem/40', 'requiresShipping': True, 'tracked': True},
+        }
+        shop_product = {
+            'id': 'gid://shopify/Product/40', 'title': 'Catalog board without SKU', 'status': 'ACTIVE',
+            'updatedAt': '2026-11-18T12:00:00Z', 'variants': [shop_variant],
+        }
+
+        def query(document, _variables=None):
+            if document == store_catalog.LOOKUP_VARIANT:
+                return {'productVariant': shop_variant}
+            self.assertEqual(document, catalog.CATALOG_PRODUCT)
+            return {'product': dict(shop_product, variants={
+                'nodes': [shop_variant], 'pageInfo': {'hasNextPage': False},
+            })}
+
+        client = MagicMock()
+        client.query.side_effect = query
+        with (patch.object(type(self.store), '_shopify_client', return_value=client),
+              patch.object(shopify_store, 'fetch_order', return_value=deepcopy(order_snapshot)),
+              patch.object(self.env.cr, 'commit')):
+            second_order = self.store._apply_shopify_order(order_snapshot)
+            self.assertFalse(second_order.sale_id)
+            self.assertFalse(second_order.line_ids.product_id)
+            run = self.env['qing.shopify.catalog.run'].create({
+                'store_id': self.store.id, 'shop_currency': self.CurrencyCode,
+            })
+            item = self.env['qing.shopify.catalog.item']._record_catalog_preview(run, shop_product['id'], shop_product)
+            run._finish_catalog_scan()
+            run.action_catalog_confirm()
+            while run.state == 'applying':
+                run._step_catalog_job()
+            self.assertEqual(item.state, 'linked')
+            self.store._shopify_recover_product_mappings()
+            self.store._shopify_recover_product_mappings()
+            delivery = self.env['qing.channel.delivery'].search([
+                ('store_id', '=', self.store.id), ('external_id', '=', second_order.external_id),
+            ])
+            self.assertEqual(len(delivery), 1)
+            delivery._process_one()
+            self._sale_action(second_order)._process_one()
+            second_sale = second_order.sale_id
+            self.assertEqual(second_sale.state, 'draft')
+            self.store._apply_shopify_order(deepcopy(order_snapshot))
+            self.assertEqual(second_order.sale_id, second_sale)
+
+        self.assertTrue(second_sale.order_line.product_id.default_code.startswith('SHOPIFY-'))
+        self.assertEqual(second_sale.amount_total, 24)
+        self.assertEqual((first_order.sale_id, first_sale.state, first_sale.amount_total), (first_sale, 'sale', 24))
+        warehouse_product = self.product.with_context(warehouse_id=self.warehouse.id)
+        self.assertEqual((warehouse_product.qty_available, warehouse_product.free_qty), (10, 8))
+
+    def test_variant_takeover_uses_live_orders_and_keeps_other_variant_active(self):
+        other = self.env['product.product'].create({'name': 'Other active variant', 'type': 'consu', 'is_storable': True})
+        Binding = self.env['qing.channel.binding']
+        sibling = Binding.create({
+            'store_id': self.store.id, 'kind': 'inventory', 'external_id': 'gid://shopify/InventoryItem/2',
+            'location_external_id': self.store.shopify_location, 'product_id': other.id,
+            'last_quantity': 5, 'quantity_version': 1,
+        })
+        self.store.onboarded = True
+        gid = 'gid://shopify/InventoryItem/1'
+        shop_variant = {
+            'id': self.test_binding.external_id, 'inventoryPolicy': 'DENY',
+            'inventoryItem': {'id': gid, 'tracked': True, 'requiresShipping': True},
+        }
+        shop_product = {
+            'id': 'gid://shopify/Product/1', 'title': 'Stock catalog product',
+            'status': 'ACTIVE', 'updatedAt': '2026-11-20T12:00:00Z',
+            'variants': {'nodes': [shop_variant], 'pageInfo': {'hasNextPage': False}},
+        }
+        self.test_binding.shopify_catalog_item_id = self.env['qing.shopify.catalog.item'].create({
+            'store_id': self.store.id, 'name': shop_product['title'], 'external_id': shop_product['id'], 'state': 'linked',
+        })
+        self.store._map_shopify_inventory_item(self.product, shop_variant['inventoryItem'])
+        binding = self.store._shopify_inventory_bindings().filtered(lambda row: row.external_id == gid)
+        self.assertTrue(binding.shopify_takeover_pending and binding.stock_paused)
+        self.env['stock.quant']._update_available_quantity(self.product, self.warehouse.lot_stock_id, 10)
+
+        first = self._snapshot()
+        first['currentTotalPriceSet'] = self._money('36.00')
+        line = first['lineItems']['nodes'][0]
+        line.update(quantity=3, currentQuantity=3, priceAfterAllDiscountsBeforeTaxesSet=self._money('36.00'))
+        self.store._apply_shopify_order(first)
+        remote_available = 8
+        writes = []
+
+        def query(document, variables=None):
+            nonlocal remote_available
+            if document == catalog.CATALOG_PRODUCT:
+                return {'product': shop_product}
+            if document == store_stock.INVENTORY_LEVEL:
+                self.assertEqual(variables, {'item': gid, 'location': self.store.shopify_location})
+                return {'inventoryItem': {
+                    'tracked': True, 'inventoryLevel': {'quantities': [{'name': 'available', 'quantity': remote_available}]},
+                }}
+            self.assertEqual(document, store_stock.INVENTORY_SET)
+            quantities, = variables['input']['quantities']
+            self.assertEqual(quantities, {
+                'inventoryItemId': gid, 'locationId': self.store.shopify_location, 'quantity': 7, 'changeFromQuantity': 8,
+            })
+            writes.append(variables['key'])
+            remote_available = 7
+            raise DeferredChannelError('shopify_transport_unknown')
+
+        client = MagicMock()
+        client.query.side_effect = query
+        with (patch.object(type(self.store), '_shopify_client', return_value=client),
+              patch.object(self.env.cr, 'commit')):
+            shop_product['status'] = 'ARCHIVED'
+            with self.assertRaisesRegex(UserError, 'shopify_stock_catalog_item_required'):
+                binding.action_shopify_preview_takeover()
+            shop_product['status'] = 'ACTIVE'
+            binding.action_shopify_preview_takeover()
+            self.assertEqual((binding.shopify_preview_available, binding.shopify_preview_target,
+                              binding.shopify_preview_book), (8, 7, 3))
+            binding.action_shopify_confirm_takeover()
+            action = self.env['qing.channel.action'].search([
+                ('store_id', '=', self.store.id), ('kind', '=', 'shopify_stock_takeover'),
+            ])
+            self.assertEqual(self.store._execute_channel_action(action), 'external')
+            request = action.request_ids
+            with TestCase.assertRaisesRegex(self, DeferredChannelError, 'shopify_transport_unknown'):
+                self.store._execute_channel_request(request, recovering=False)
+            self.assertTrue(binding.stock_paused)
+
+            second = self._snapshot()
+            second.update(id='gid://shopify/Order/2', name='#2', currentTotalPriceSet=self._money('12.00'))
+            second['lineItems']['nodes'][0].update(id='gid://shopify/LineItem/2', quantity=1, currentQuantity=1,
+                                                 priceAfterAllDiscountsBeforeTaxesSet=self._money('12.00'))
+            self.store._apply_shopify_order(second)
+            remote_available = 6
+            with self.assertRaisesRegex(DeferredChannelError, 'shopify_stock_takeover_waiting_for_orders'):
+                self.store._execute_channel_request(request, recovering=True)
+            self.env['qing.channel.cursor'].create({
+                'store_id': self.store.id, 'stream': 'orders', 'through': request.first_sent_at,
+            })
+            self.assertEqual(self.store._execute_channel_request(request, recovering=True), 'success')
+
+        self.assertEqual(writes, [request.idempotency_key])
+        self.assertEqual((binding.last_quantity, binding.shopify_confirmed_book, binding.quantity_version), (6, 4, 1))
+        self.assertFalse(binding.shopify_takeover_pending or binding.stock_paused)
+        self.assertTrue(self.store.onboarded)
+        self.assertEqual((sibling.last_quantity, sibling.quantity_version, sibling.stock_paused), (5, 1, False))
 
     def test_shared_secondary_barcode_on_two_shopify_variants_requires_review(self):
         self.test_binding.unlink()

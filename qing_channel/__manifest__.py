@@ -1,6 +1,6 @@
 {
     'name': 'Qing Sales Channels',
-    'version': '20.0.1.4.5',
+    'version': '20.0.1.4.6',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
     'support': 'kevin@odoomommy.com',

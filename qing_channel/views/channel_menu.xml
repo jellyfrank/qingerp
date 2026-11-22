@@ -145,6 +145,45 @@
             </list>
         </field>
     </record>
+    <record id="view_channel_exception_form" model="ir.ui.view">
+        <field name="name">qing.channel.exception.form</field>
+        <field name="model">qing.channel.exception</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <header>
+                    <field name="can_recheck" invisible="1"/>
+                    <button name="action_recheck" type="object" string="Recheck" class="btn-primary"
+                            invisible="not can_recheck" groups="qing_channel.group_channel_manager"/>
+                    <field name="status" widget="statusbar" statusbar_visible="pending,resolved" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="display_name" readonly="1"/></h1>
+                    </div>
+                    <notebook>
+                        <page string="Exception Details" name="exception_details">
+                            <group>
+                                <group>
+                                    <field name="store_id"/>
+                                    <field name="company_id"/>
+                                </group>
+                                <group>
+                                    <field name="create_date"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Technical Details" name="technical_details">
+                            <group>
+                                <field name="code"/>
+                                <field name="object_model"/>
+                                <field name="object_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
     <record id="action_channel_exception" model="ir.actions.act_window">
         <field name="name">Exceptions</field>
         <field name="res_model">qing.channel.exception</field>

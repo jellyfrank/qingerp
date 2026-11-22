@@ -8,6 +8,8 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.addons.qing_channel.errors import ChannelReviewRequired, DeferredChannelError
 from odoo.fields import Domain
 
+from ..services.catalog import PRODUCT_TOPICS
+
 IDEMPOTENCY_WINDOW = timedelta(hours=24) - timedelta(minutes=2)
 INVENTORY_COMPARE_REJECTED = 'shopify_inventory_compare_rejected'
 INVENTORY_CONFLICT_LIMIT = 'shopify_inventory_conflict_limit'
@@ -430,7 +432,8 @@ class ShopifyStoreStock(models.Model):
 
     def _shopify_inventory_can_activate(self, binding):
         return (binding and binding.store_id == self and binding.kind == 'inventory'
-                and binding.location_external_id == self.shopify_location and not self.onboarded)
+                and binding.location_external_id == self.shopify_location
+                and (not self.onboarded or (binding.shopify_takeover_pending and binding.stock_paused)))
 
     def _prepare_activation_request(self, action, binding):
         payload = {'binding': binding.id, 'item': binding.external_id, 'location': binding.location_external_id}
@@ -476,7 +479,7 @@ class ShopifyStoreStock(models.Model):
     def _enqueue_shopify_inventory_activation(self, binding):
         self.lock_for_update(allow_referencing=True)
         if self.shopify_health != 'connected' or not self._shopify_inventory_can_activate(binding):
-            raise UserError(_('Connect Shopify and pause inventory publishing before enabling an inventory item.'))
+            raise UserError(_('Connect Shopify and prepare this inventory item before enabling it at the mapped location.'))
         Action = self.env['qing.channel.action']
         if Action.search_count([
             ('store_id', '=', self.id), ('kind', '=', 'inventory_activation'),
@@ -521,7 +524,8 @@ class ShopifyStoreStock(models.Model):
 
     def _shopify_pending_imports(self):
         return self.env['qing.channel.delivery'].search_count([
-            ('store_id', '=', self.id), ('state', '!=', 'done'), ('topic', '!=', 'app/uninstalled'),
+            ('store_id', '=', self.id), ('state', '!=', 'done'),
+            ('topic', 'not in', sorted(PRODUCT_TOPICS | {'app/uninstalled'})),
         ], limit=1)
 
     def _shopify_cutover_quantities(self, binding):

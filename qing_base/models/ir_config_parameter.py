@@ -11,6 +11,8 @@ from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_ope
 
 from odoo import api, fields, models
 
+from ..tools.telemetry import HEARTBEAT_CRON_XMLID, MANUAL_HEARTBEAT
+
 
 _logger = logging.getLogger(__name__)
 
@@ -81,20 +83,20 @@ class IrConfigParameter(models.Model):
         return timedelta(0) <= elapsed < interval
 
     @api.model
-    def _qing_telemetry_due(self, *, now=None, check_attempt=True):
+    def _qing_telemetry_due(self, *, now=None, manual=False):
         parameters = self.sudo()
         if parameters.get_bool('database.is_neutralized', default=False):
             return False
         if not self._qing_telemetry_site_url():
             return False
+        if manual:
+            return True
         now = now or fields.Datetime.now()
         if self._qing_telemetry_recent(TELEMETRY_KEYS['last_success'], now, TELEMETRY_INTERVAL):
             return False
-        if check_attempt and self._qing_telemetry_recent(
+        return not self._qing_telemetry_recent(
             TELEMETRY_KEYS['last_attempt'], now, TELEMETRY_RETRY_INTERVAL
-        ):
-            return False
-        return True
+        )
 
     @api.model
     def _qing_telemetry_store_identity(self, instance_uid, token, database_uuid):
@@ -211,7 +213,7 @@ class IrConfigParameter(models.Model):
         if not identity:
             return False
         now = fields.Datetime.now()
-        if not self._qing_telemetry_due(now=now):
+        if not self._qing_telemetry_due(now=now, manual=MANUAL_HEARTBEAT.get()):
             return False
         instance_uid, token, endpoint = identity
         payload = self._qing_telemetry_payload(instance_uid)
@@ -252,7 +254,7 @@ class IrConfigParameter(models.Model):
             if elapsed is not None and timedelta(0) <= elapsed < TELEMETRY_ENQUEUE_INTERVAL:
                 return False
         parameters = self.sudo()
-        cron = self.env.ref('qing_base.ir_cron_qing_telemetry_heartbeat', raise_if_not_found=False)
+        cron = self.env.ref(HEARTBEAT_CRON_XMLID, raise_if_not_found=False)
         if not cron or not cron.active:
             return False
         cron.sudo()._trigger(coalesce=5)

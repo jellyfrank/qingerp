@@ -505,26 +505,16 @@
         --o-qing-control-height: 40px;
         .o_main_navbar { padding-inline: 8px; }
         .o_main_navbar .o_menu_systray { gap: 0; }
-        .o_main_navbar .o_qing_launcher_trigger { margin-inline: 0 4px; }
         .o_navbar_breadcrumbs .o_breadcrumb { align-items: center; }
-        .o_navbar_breadcrumbs .o_qing_breadcrumb_title_record {
-            .o_qing_breadcrumb_viewport {
-                display: block;
-                text-overflow: clip;
-            }
-            .o_qing_breadcrumb_label {
-                display: block;
-                width: max-content;
-                white-space: nowrap;
-            }
-            &.o_qing_breadcrumb_title_overflow .o_qing_breadcrumb_label {
-                will-change: transform;
-            }
-            &.o_qing_breadcrumb_title_manual .o_qing_breadcrumb_viewport {
-                overflow-x: auto;
-                scrollbar-width: none;
-                &::-webkit-scrollbar { display: none; }
-            }
+        // A long record name ends with an ellipsis; the full name is its title.
+        .o_navbar_breadcrumbs .o_breadcrumb { margin-inline-start: 4px; }
+        .o_navbar_breadcrumbs .o_last_breadcrumb_item { min-width: 0; }
+        .o_navbar_breadcrumbs .o_qing_breadcrumb_viewport {
+            display: block;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
         .o_form_view .o_inner_group .o_form_label { color: var(--o-qing-text-soft); }
         .o_form_view .o_inner_group .o_wrap_label:has(+ .o_cell:focus-within) .o_form_label {

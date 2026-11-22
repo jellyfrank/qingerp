@@ -447,6 +447,46 @@ test("discard restores restricted savepoint metadata without recreating omitted 
     expect(Object.hasOwn(record.data, "count")).toBe(false);
 });
 
+test("a partial product can open related records without enabling writes or masked contexts", async () => {
+    class ProductVariant extends models.Model {
+        _name = "product.product";
+        name = fields.Char();
+        count = fields.Integer();
+        _records = [{ id: 1, name: "Stock item", count: 3 }];
+    }
+
+    defineModels([ProductVariant]);
+    onRpc("web_read", ({ model, parent }) => {
+        if (model === "product.product") {
+            return parent().map((record) => {
+                delete record.count;
+                record[RESTRICTED_FIELDS_KEY] = ["count"];
+                return record;
+            });
+        }
+    });
+    await mountView({
+        resModel: "product.product",
+        resId: 1,
+        type: "form",
+        arch: `<form>
+            <div name="button_box">
+                <button name="action_open_documents" type="object" string="Documents" class="oe_stat_button"/>
+                <button name="action_open_documents" type="object" string="Masked context"
+                    class="oe_stat_button" context="{'default_count': count}"/>
+                <button name="action_archive" type="object" string="Archive" class="oe_stat_button"/>
+            </div>
+            <field name="name"/>
+            <field name="count"/>
+        </form>`,
+    });
+    expect("button[name='action_open_documents']:contains(Documents)").not.toHaveAttribute("disabled");
+    expect("button[name='action_open_documents']:contains(Masked context)").toHaveAttribute("disabled");
+    expect("button[name='action_archive']").toHaveAttribute("disabled");
+    expect("[name='name'] input").toHaveCount(0);
+    expect("[name='count'] .o_qing_permission_restricted").toHaveCount(1);
+});
+
 test("disabled ViewButton anchors and direct handler calls do not execute", async () => {
     restrictReads(["count"]);
     const view = await mountView({ resModel: RES_MODEL, resId: 1, type: "form",

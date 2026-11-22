@@ -70,8 +70,11 @@
                     box-shadow: 0 0 0 2px color-mix(in srgb, var(--o-qing-accent) 15%, transparent);
                 }
 
+                // Native M3 also fills an invalid box pink, already on load for an
+                // empty required field. A red border is enough until the user acts.
                 &:has(.o_field_invalid) {
                     border: 1px solid var(--o-qing-danger);
+                    background: var(--o-qing-surface) !important;
                 }
             }
         }

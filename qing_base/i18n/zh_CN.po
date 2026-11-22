@@ -144,6 +144,11 @@ msgid "Created by"
 msgstr "创建人"
 
 #. module: qing_base
+#: model:ir.actions.server,name:qing_base.ir_cron_qing_telemetry_heartbeat_ir_actions_server
+msgid "QingERP: Installation Heartbeat"
+msgstr "心跳检测"
+
+#. module: qing_base
 #: model:ir.model.fields,field_description:qing_base.field_qing_login_log__create_date
 msgid "Created on"
 msgstr "创建时间"
@@ -1565,3 +1570,45 @@ msgstr "城市"
 #: model_terms:ir.ui.view,arch_db:qing_base.view_qing_login_log_search
 msgid "Country"
 msgstr "国家/地区"
+
+#. module: qing_base
+#: model:ir.actions.act_window,name:qing_base.action_qing_telemetry_heartbeat
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Heartbeat Check"
+msgstr "心跳检测"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Installation Statistics"
+msgstr "安装统计"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Installation Heartbeat"
+msgstr "安装统计上报"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
+msgid "Review the installation statistics schedule. You can send a report now or disable reporting."
+msgstr "查看安装统计的运行计划，也可以立即上报或停用上报。"
+
+#. module: qing_base
+#. odoo-python
+#: code:addons/qing_base/models/ir_cron.py:0
+msgid "Enable the heartbeat check before running it manually."
+msgstr "请先启用心跳检测，再手动运行。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.brand_patch_purchase_portal_connect
+msgid "Connect your software"
+msgstr "对接您的系统"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.brand_patch_purchase_portal_connect
+msgid "Use this link to download the purchase order as structured data (UBL) and import it into your own system."
+msgstr "通过此链接可下载采购订单的结构化数据（UBL 格式），用于导入您自己的系统。"
+
+#. module: qing_base
+#: model_terms:ir.ui.view,arch_db:qing_base.brand_patch_pos_receipt_footer
+msgid "Powered by <strong>QingERP</strong>"
+msgstr "技术支持 <strong>QingERP</strong>"

@@ -29,7 +29,8 @@ class LoginBackground(http.Controller):
             ('X-Content-Type-Options', 'nosniff'), ('Cache-Control', 'no-store'),
         ])
 
-    @http.route('/qing/login/preview/<int:settings_id>', type='http', auth='user', methods=['GET'], readonly=True)
+    @http.route('/qing/login/preview/<int:settings_id>', type='http', auth='user', methods=['GET'],
+                website=True, sitemap=False, readonly=True)
     def preview(self, settings_id):
         settings = self._preview_settings(settings_id)
         background = request.env['qing.login.background']._display_values(

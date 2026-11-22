@@ -1,7 +1,7 @@
 {
     'name': 'Qing Website Sale',
     'summary': 'Require login to see product prices in the online shop',
-    'version': '20.0.1.0.3',
+    'version': '20.0.1.0.4',
     'category': 'Website/eCommerce',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

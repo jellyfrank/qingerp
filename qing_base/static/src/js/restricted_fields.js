@@ -21,6 +21,20 @@ const contextRecords = new WeakMap();
 const partialRecordChecks = new WeakMap();
 const aggregateTypes = new Set(["integer", "float", "monetary"]);
 
+// These native smart buttons only return navigation actions. The destination
+// still applies its own access rules, independently of the product form.
+const productRelatedActions = new Set([
+    "action_open_documents",
+    "action_product_forecast_report",
+    "action_product_tmpl_forecast_report",
+    "action_view_stock_move_lines",
+    "action_view_orderpoints",
+    "action_view_bom",
+    "action_view_related_putaway_rules",
+    "action_view_storage_category_capacity",
+    "action_view_sales",
+]);
+
 export function isRestrictedField(record, name, fieldInfo = {}) {
     if (record?.qingRestrictedFields?.includes(name)) {
         return true;
@@ -488,11 +502,24 @@ patch(ListRenderer.prototype, {
 
 patch(ViewButton.prototype, {
     get qingRestricted() {
+        const { context, name, special, type } = this.clickParams;
+        if (special === "cancel") {
+            return false;
+        }
         const record = this.props.record;
-        return this.clickParams.special !== "cancel" && (isPartialRecord(record) ||
-            ["invisible", "column_invisible", "readonly", "required"].some((name) =>
-                hasRestrictedExpression(this.props.attrs?.[name], record?.evalContextWithVirtualIds)) ||
-            hasRestrictedExpression(this.clickParams.context, record?.evalContextWithVirtualIds));
+        if (isPartialRecord(record)) {
+            const canOpenRelatedView = type === "object" && record.resId &&
+                ["product.product", "product.template"].includes(record.resModel) &&
+                this.props.className.split(/\s+/).includes("oe_stat_button") &&
+                productRelatedActions.has(name);
+            if (!canOpenRelatedView) {
+                return true;
+            }
+        }
+        const evalContext = record?.evalContextWithVirtualIds;
+        return ["invisible", "column_invisible", "readonly", "required"].some((modifier) =>
+            hasRestrictedExpression(this.props.attrs?.[modifier], evalContext)) ||
+            hasRestrictedExpression(context, evalContext);
     },
 
     get disabled() {

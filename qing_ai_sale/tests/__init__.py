@@ -4,3 +4,4 @@ from . import test_tool_builder
 from . import test_plan_continuation
 from . import test_prompt_routing
 from . import test_native_planning
+from . import test_product_statistics

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Order cards lead with the order number and state, then the customer,
+         then the date and a prominent total. A left stripe repeats the state.
+         Extending the base view also reaches the quotation, order and
+         eCommerce kanban views, which only change its js_class. -->
+    <record id="view_sale_order_kanban" model="ir.ui.view">
+        <field name="name">sale.order.kanban.qing</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//t[@t-name='card']" position="replace">
+                <t t-name="card">
+                    <span t-attf-class="o_qing_sale_card_state o_qing_sale_card_state_{{ record.state.raw_value }}" aria-hidden="true"/>
+                    <div class="d-flex align-items-center gap-2">
+                        <field name="name" class="o_qing_sale_card_number fw-bolder fs-5 text-truncate"/>
+                        <field name="state" widget="label_selection" class="ms-auto flex-shrink-0"
+                               options="{'classes': {'draft': 'info', 'sent': 'warning', 'cancel': 'default', 'sale': 'success'}}"/>
+                    </div>
+                    <field name="partner_id" class="o_qing_sale_card_partner text-truncate"/>
+                    <footer class="align-items-end">
+                        <div class="d-flex flex-wrap align-items-center gap-1 text-muted text-nowrap">
+                            <field name="date_order"/>
+                            <field name="activity_ids" widget="kanban_activity"/>
+                        </div>
+                        <field name="amount_total" widget="monetary" class="o_qing_sale_card_amount fw-bolder ms-auto flex-shrink-0"/>
+                    </footer>
+                </t>
+            </xpath>
+        </field>
+    </record>
+</odoo>

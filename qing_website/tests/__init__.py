@@ -1,1 +1,1 @@
-from . import test_favicon
+from . import test_branding, test_favicon, test_info

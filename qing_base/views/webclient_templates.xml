@@ -119,10 +119,10 @@
     </template>
     <template id="promotion_branding" inherit_id="web.brand_promotion_message" name="Qing brand promotion">
         <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <!-- "Powered by QingERP" with the Q mark at text size, on website and portal
+                 footers. The rest of the footer belongs to the customer's site. -->
             <t t-set="odoo_logo">
-                <a href="https://www.qingsolution.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="Qing" width="32" height="32" style="object-fit:contain;vertical-align:middle;"/>
-                </a>
+                <a class="o_qing_powered_by" t-attf-href="https://www.qingsolution.com/?utm_source=qingerp&amp;utm_medium=#{_utm_medium}" target="_blank" rel="noopener" style="margin:0 .25em;white-space:nowrap;font-weight:600;"><img src="/qing_base/static/img/qing_logo_192.png?v=2" alt="" width="16" height="16" style="vertical-align:-3px;margin-inline-end:.25em;"/>QingERP</a>
             </t>
         </xpath>
     </template>

@@ -1,6 +1,8 @@
 from . import base
 from . import iap_autocomplete_api
+from . import ir_actions_act_window
 from . import ir_actions_report
+from . import ir_cron
 from . import ir_http
 from . import ir_config_parameter
 from . import ir_module_module
@@ -10,6 +12,7 @@ from . import mail_push_device
 from . import mail_thread
 from . import publisher_warranty_contract
 from . import qing_audit_log
+from . import qing_brand_patch
 from . import qing_login_log
 from . import res_company
 from . import res_config_settings

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="qing_web_ui.ButtonBoxMoreLabel" t-inherit="web.Form.ButtonBox" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('o_button_more')]/i" position="after">
+            <span t-if="this.ui.isSmall" class="o_qing_button_label">Related</span>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.CogMenuLabel" t-inherit="web.CogMenu" t-inherit-mode="extension">
+        <xpath expr="//button[@data-hotkey='u']" position="inside">
+            <span t-if="this.uiService.isSmall" class="o_qing_button_label">Actions</span>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.FormCogMenuLabel" t-inherit="web.FormCogMenu" t-inherit-mode="extension">
+        <xpath expr="//button[@data-hotkey='u']" position="inside">
+            <span t-if="this.uiService.isSmall" class="o_qing_button_label">Actions</span>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.ListCogMenuLabel" t-inherit="web.ListCogMenu" t-inherit-mode="extension">
+        <xpath expr="//button[@data-hotkey='u']" position="inside">
+            <span t-if="this.uiService.isSmall" class="o_qing_button_label">Actions</span>
+        </xpath>
+    </t>
+    <t t-name="qing_web_ui.KanbanCogMenuLabel" t-inherit="web.KanbanCogMenu" t-inherit-mode="extension">
+        <xpath expr="//button[@data-hotkey='u']" position="inside">
+            <span t-if="this.uiService.isSmall" class="o_qing_button_label">Actions</span>
+        </xpath>
+    </t>
+</templates>

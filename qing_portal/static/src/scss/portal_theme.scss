@@ -1,0 +1,1384 @@
+// QingERP customer portal theme ("墨白").
+//
+// Restyles the native Odoo portal (`/my/...`) without replacing its pages:
+// cards, lists, documents, signature and payment flows, access rules and the
+// website editor options stay native. Everything is scoped to the portal
+// wrapper (`o_qing_portal`, set only on portal pages); the header, footer,
+// font and link rules apply only without the Website app
+// (`o_qing_portal_bare`), so a website keeps its own look.
+//
+// All colours are variables on the wrapper. Other modules (the commercial
+// portal themes) restyle the portal by overriding them on an extra wrapper
+// class, so keep new rules on the variables rather than literal colours.
+
+#wrapwrap.o_qing_portal {
+    // Neutral ground; colour is kept for status and links.
+    --qp-bg: #f6f6f7;
+    --qp-surface: #ffffff;
+    --qp-sunk: #fafafa;
+    --qp-line: #e4e4e7;
+    --qp-line-soft: #efeff1;
+    --qp-line-strong: #d4d4d8;
+    --qp-text: #18181b;
+    --qp-text-2: #3f3f46;
+    --qp-soft: #63636b;
+    --qp-avatar: #e8e8ec;
+    // Accent: the company's portal colour, or the theme default while the
+    // company keeps Odoo's colours (set in the page head).
+    --qp-accent-default: #1d1f24;
+    --qp-link-default: #2457c5;
+    --qp-accent: var(--portal-primary-color, var(--bs-primary, #1d1f24));
+    --qp-link: var(--qp-accent);
+    --qp-accent-soft: color-mix(in srgb, var(--qp-accent) 10%, #ffffff);
+    --qp-accent-ink: color-mix(in srgb, var(--qp-accent) 80%, #000000);
+    --qp-accent-line: color-mix(in srgb, var(--qp-accent) 26%, #ffffff);
+    // Status colours do not follow the accent, so states stay apart under
+    // any brand colour.
+    --qp-amber: #8a4b0f;
+    --qp-amber-soft: #fbf0e2;
+    --qp-green: #1e6a3d;
+    --qp-green-soft: #e5f2e9;
+    --qp-red: #a3302a;
+    --qp-red-soft: #fbe8e6;
+    --qp-blue: #2457c5;
+    --qp-blue-soft: #e9effb;
+    --qp-neutral: #3f3f46;
+    --qp-neutral-soft: #ededf0;
+    --qp-radius: 16px;
+    --qp-radius-md: 14px;
+    --qp-radius-sm: 10px;
+    --qp-header-bg: var(--qp-surface);
+    --qp-header-line: var(--qp-line);
+    --qp-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+
+    // Without the Website app the whole page is the portal. With it, only
+    // <main> is: the website header and footer keep their own colours (a
+    // dark website theme sets light text on #wrapwrap for them).
+    &.o_qing_portal_bare {
+        background: var(--qp-bg);
+        color: var(--qp-text);
+        > main {
+            background: transparent;
+        }
+    }
+    &:not(.o_qing_portal_bare) > main {
+        background: var(--qp-bg);
+    }
+
+    // ---- Portal content: font, links, buttons (with or without Website) ---
+    // The header and footer belong to the website when it is installed; the
+    // content under them is the portal and follows the theme.
+    > main {
+        font-family: var(--qp-font);
+        color: var(--qp-text);
+
+        // The portal content is a light surface of its own. A website theme
+        // can be dark (light text, light "muted" greys, dark cards, inputs
+        // and dialogs): point the framework's colour variables and utility
+        // classes back at the portal palette so nothing light-on-light or
+        // dark-on-dark leaks in.
+        --body-color: var(--qp-text);
+        --body-bg: var(--qp-surface);
+        --secondary-color: var(--qp-soft);
+        --tertiary-color: var(--qp-soft);
+        --emphasis-color: var(--qp-text);
+        --heading-color: var(--qp-text);
+        --border-color: var(--qp-line);
+        --link-color: var(--qp-link);
+        --link-hover-color: var(--qp-link);
+        --bs-body-color: var(--qp-text);
+        --bs-body-bg: var(--qp-surface);
+        --bs-secondary-color: var(--qp-soft);
+        --bs-emphasis-color: var(--qp-text);
+        --bs-heading-color: var(--qp-text);
+        --bs-border-color: var(--qp-line);
+        --o-border-color: var(--qp-line);
+
+        .text-muted,
+        .text-body-secondary,
+        .text-secondary,
+        .text-500,
+        .text-600,
+        .text-700 {
+            color: var(--qp-soft) !important;
+        }
+        .text-body,
+        .text-dark,
+        .text-black,
+        .text-800,
+        .text-900 {
+            color: var(--qp-text) !important;
+        }
+        .nav:not(.o_qing_portal_nav) .nav-link {
+            color: var(--qp-link);
+            &.active {
+                color: var(--qp-text);
+                font-weight: 600;
+            }
+        }
+        .table {
+            --table-color: var(--qp-text);
+            --table-bg: transparent;
+            --table-border-color: var(--qp-line-soft);
+            --table-striped-color: var(--qp-text);
+            --table-hover-color: var(--qp-text);
+            --bs-table-color: var(--qp-text);
+            --bs-table-bg: transparent;
+            --bs-table-border-color: var(--qp-line-soft);
+            color: var(--qp-text);
+            border-color: var(--qp-line-soft);
+            > :not(caption) > * > * {
+                color: var(--qp-text);
+                border-bottom-color: var(--qp-line-soft);
+            }
+            > thead > tr > th {
+                color: var(--qp-soft);
+                font-weight: 500;
+            }
+        }
+        .bg-100,
+        .bg-200,
+        .bg-light {
+            background-color: var(--qp-sunk) !important;
+            color: var(--qp-text);
+        }
+        .bg-white,
+        .bg-view {
+            background-color: var(--qp-surface) !important;
+            color: var(--qp-text);
+        }
+        .card,
+        .list-group-item,
+        .modal-content,
+        .dropdown-menu,
+        .offcanvas,
+        .popover {
+            --card-bg: var(--qp-surface);
+            --card-color: var(--qp-text);
+            --card-cap-bg: var(--qp-sunk);
+            --card-border-color: var(--qp-line);
+            background-color: var(--qp-surface);
+            border-color: var(--qp-line);
+            color: var(--qp-text);
+        }
+        .card-header,
+        .card-footer {
+            background-color: var(--qp-sunk);
+            border-color: var(--qp-line);
+            color: var(--qp-text);
+        }
+        .modal-header,
+        .modal-footer {
+            border-color: var(--qp-line-soft);
+        }
+        .dropdown-item {
+            color: var(--qp-text);
+            &:hover,
+            &:focus {
+                background-color: var(--qp-sunk);
+                color: var(--qp-text);
+            }
+        }
+        .form-control,
+        .form-select,
+        .input-group-text {
+            background-color: var(--qp-surface);
+            color: var(--qp-text);
+        }
+        .form-control::placeholder {
+            color: var(--qp-soft);
+            opacity: .7;
+        }
+        .form-control[readonly],
+        .form-control:disabled {
+            background-color: var(--qp-sunk);
+        }
+        .border,
+        .border-top,
+        .border-bottom,
+        .border-start,
+        .border-end {
+            border-color: var(--qp-line) !important;
+        }
+        hr {
+            border-color: var(--qp-line);
+            color: var(--qp-line);
+            opacity: 1;
+        }
+        .page-link {
+            background-color: var(--qp-surface);
+        }
+        .btn-close {
+            filter: none;
+        }
+
+        // Zero-specificity selector, so the theme's own "ink" link rules
+        // (document numbers, activity titles) still win over it.
+        :where(a:not(.btn, .dropdown-item, .nav-link, .navbar-brand, .page-link)) {
+            color: var(--qp-link) !important;
+        }
+        :where(.text-primary) {
+            color: var(--qp-accent) !important;
+        }
+        .btn-primary {
+            background-color: var(--qp-accent) !important;
+            border-color: var(--qp-accent) !important;
+            color: #ffffff !important;
+            &:hover,
+            &:focus-visible,
+            &:active {
+                background-color: color-mix(in srgb, var(--qp-accent) 86%, #000000) !important;
+                border-color: color-mix(in srgb, var(--qp-accent) 86%, #000000) !important;
+            }
+        }
+        .btn-link {
+            color: var(--qp-link) !important;
+        }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            font-family: var(--qp-font);
+            color: var(--qp-text);
+        }
+    }
+
+    // ---- Bare header and footer (no Website app) --------------------------
+    &.o_qing_portal_bare {
+        font-family: var(--qp-font);
+
+        > header#top > nav.navbar {
+            min-height: 68px;
+            padding-block: 10px;
+            background: var(--qp-header-bg) !important;
+            border-bottom: 1px solid var(--qp-header-line);
+            > .container {
+                gap: 0;
+            }
+            .navbar-brand.logo img {
+                max-height: 34px;
+                width: auto;
+            }
+            .o_qing_portal_brand_sep {
+                width: 1px;
+                height: 18px;
+                margin-inline: 4px 14px;
+                background: var(--qp-line-strong);
+            }
+            .o_qing_portal_brand_name {
+                color: var(--qp-soft);
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .o_qing_portal_nav {
+                gap: 4px;
+                margin-inline-start: 28px;
+                .nav-link {
+                    padding: 8px 14px;
+                    border-radius: 8px;
+                    color: var(--qp-text-2) !important;
+                    font-size: 15px;
+                    &:hover {
+                        background: color-mix(in srgb, var(--qp-text) 5%, transparent);
+                    }
+                    &.active {
+                        background: var(--qp-accent-soft);
+                        color: var(--qp-accent-ink) !important;
+                        font-weight: 600;
+                    }
+                }
+            }
+            #top_menu .nav-link {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                min-height: 44px;
+                padding: 4px 12px 4px 5px;
+                border: 1px solid var(--qp-line);
+                border-radius: 999px;
+                background: var(--qp-surface);
+                color: var(--qp-text) !important;
+                font-size: 14px;
+                &:hover {
+                    background: var(--qp-sunk);
+                }
+            }
+            .dropdown-menu {
+                border: 1px solid var(--qp-line);
+                border-radius: var(--qp-radius-sm);
+                box-shadow: 0 10px 28px rgba(24, 24, 27, .12);
+                padding: 6px;
+                .dropdown-item {
+                    border-radius: 6px;
+                    padding-block: 8px;
+                }
+            }
+        }
+        > footer#bottom {
+            background: var(--qp-surface) !important;
+            border-top: 1px solid var(--qp-line);
+            color: var(--qp-soft);
+            font-size: 13px;
+            .o_footer_copyright {
+                background: transparent;
+                border: 0;
+            }
+            a {
+                color: var(--qp-soft) !important;
+            }
+        }
+    }
+    .o_qing_portal_avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    // ---- Page frame ------------------------------------------------------
+    .o_portal_wrap > .container {
+        padding-top: 32px !important;
+        padding-bottom: 64px !important;
+    }
+    a:not(.btn):not(.dropdown-item):not(.nav-link) {
+        text-decoration: none;
+    }
+    .breadcrumb {
+        margin-bottom: 0;
+        font-size: 14px;
+        .breadcrumb-item {
+            color: var(--qp-soft);
+            &.active {
+                color: var(--qp-text);
+                font-weight: 600;
+            }
+            + .breadcrumb-item::before {
+                color: var(--qp-soft);
+            }
+        }
+    }
+    .o_portal_navbar {
+        margin-bottom: 20px !important;
+        .navbar-text {
+            color: var(--qp-soft);
+        }
+    }
+    .btn {
+        border-radius: var(--qp-radius-sm);
+        font-weight: 600;
+    }
+    .btn-light,
+    .btn-secondary,
+    .btn-outline-secondary {
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line-strong);
+        color: var(--qp-text) !important;
+        &:hover,
+        &:focus-visible {
+            background: var(--qp-sunk);
+            border-color: var(--qp-line-strong);
+            color: var(--qp-text);
+        }
+    }
+    .btn-primary {
+        border-color: transparent;
+        box-shadow: none;
+    }
+    .o_qing_portal_btn_soft {
+        background: var(--qp-accent-soft);
+        border: 0;
+        color: var(--qp-accent-ink) !important;
+        &:hover,
+        &:focus-visible {
+            background: color-mix(in srgb, var(--qp-accent) 16%, #ffffff);
+            color: var(--qp-accent-ink) !important;
+        }
+    }
+    .alert {
+        border-radius: var(--qp-radius-sm);
+    }
+    .alert-warning {
+        background: var(--qp-amber-soft);
+        border-color: color-mix(in srgb, var(--qp-amber) 22%, #ffffff);
+        color: var(--qp-amber);
+    }
+
+    // Shared pieces
+    .o_qing_portal_section_title {
+        margin: 0 0 16px;
+        color: var(--qp-text);
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .o_qing_portal_pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+    .o_qing_portal_pill_warning { background: var(--qp-amber-soft); color: var(--qp-amber); }
+    .o_qing_portal_pill_danger { background: var(--qp-red-soft); color: var(--qp-red); }
+
+    // ---- Home: greeting, figures, waiting for you ------------------------
+    &.o_qing_portal_home .o_portal_wrap > .container > .wrapper {
+        align-items: flex-end !important;
+        gap: 24px;
+        margin-bottom: 36px;
+    }
+    .o_qing_portal_greeting {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+        .o_qing_portal_org {
+            margin: 0;
+            color: var(--qp-soft);
+            font-size: 14px;
+        }
+        // Flex drops the template's whitespace between the greeting and the
+        // name: Chinese reads "上午好，陈昕"; other languages get a gap.
+        h1 {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -.01em;
+        }
+        .o_qing_portal_hello {
+            white-space: nowrap;
+        }
+    }
+    html:not([lang^="zh"]) & .o_qing_portal_greeting .o_qing_portal_hello {
+        margin-inline-end: .3em;
+    }
+    .o_qing_portal_greeting {
+        .o_qing_portal_lead {
+            margin: 0;
+            color: var(--qp-text-2);
+            font-size: 16px;
+        }
+    }
+    .o_qing_portal_stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin: 0 0 0 auto;
+        font-variant-numeric: tabular-nums;
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        dt {
+            color: var(--qp-soft);
+            font-size: 13px;
+            font-weight: 400;
+        }
+        dd {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -.01em;
+            line-height: 1.2;
+        }
+    }
+    .o_qing_portal_todo {
+        margin-bottom: 40px;
+    }
+    .o_qing_portal_todo_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+    }
+    .o_qing_portal_todo_card {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 24px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+    }
+    .o_qing_portal_todo_head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .o_qing_portal_todo_doc {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 6px;
+        min-width: 0;
+        color: var(--qp-text-2);
+        font-size: 14px;
+        .o_qing_portal_ref {
+            overflow-wrap: anywhere;
+        }
+    }
+    .o_qing_portal_todo_body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .o_qing_portal_todo_amount {
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -.015em;
+        font-variant-numeric: tabular-nums;
+    }
+    .o_qing_portal_todo_meta {
+        color: var(--qp-soft);
+        font-size: 14px;
+    }
+    .o_qing_portal_todo_left::before {
+        content: " · ";
+    }
+    .o_portal_my_doc_table td .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 36px;
+        padding: 0 14px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+    .o_qing_portal_todo_action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-top: auto;
+    }
+
+    // ---- Home: native cards ------------------------------------------------
+    .o_portal_docs {
+        // Quotations and invoices waiting for the customer are listed as
+        // cards above; drop the native counters that repeat them.
+        #portal_alert_category {
+            margin-top: 0 !important;
+            gap: 10px !important;
+            + .o_qing_portal_section_title {
+                margin-top: 24px;
+            }
+        }
+        #portal_alert_category .o_portal_index_card:has(> a[href*="/my/quotes"], > a[href*="/my/invoices"], > a[href*="/my/orders"]) {
+            display: none !important;
+        }
+        #portal_alert_category .o_portal_index_card > a.alert {
+            align-items: center !important;
+            gap: 14px !important;
+            margin: 0;
+            padding: 14px 16px !important;
+            background: var(--qp-surface);
+            border: 1px solid var(--qp-line);
+            border-radius: var(--qp-radius-md);
+            color: var(--qp-text) !important;
+            .o_portal_icon {
+                display: none !important;
+            }
+            .alert-link {
+                font-weight: 400;
+                color: inherit;
+            }
+            [data-placeholder_count] {
+                display: inline-grid !important;
+                place-items: center;
+                min-width: 28px;
+                height: 28px;
+                padding-inline: 8px;
+                border-radius: 999px;
+                background: var(--qp-amber-soft);
+                color: var(--qp-amber);
+                font-size: 14px;
+                font-variant-numeric: tabular-nums;
+            }
+            h5 {
+                font-size: 15px;
+                font-weight: 600;
+            }
+            .opacity-75 {
+                opacity: 1 !important;
+                color: var(--qp-soft);
+                font-size: 13px;
+            }
+        }
+        // Document cards: a line icon tile, title, one line of description.
+        #portal_cards {
+            margin-top: 0 !important;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 16px;
+        }
+        #portal_cards .o_portal_index_card > a {
+            position: relative;
+            align-items: center !important;
+            gap: 14px !important;
+            padding: 18px 40px 18px 18px !important;
+            background: var(--qp-surface);
+            border: 1px solid var(--qp-line);
+            border-radius: var(--qp-radius-md) !important;
+            color: var(--qp-text) !important;
+            transition: border-color .15s ease;
+            &:hover,
+            &:focus-visible {
+                border-color: var(--qp-line-strong);
+            }
+            // Pictograms (native "Use Pictograms" option): the entry image is
+            // replaced by the QingERP line icon for its link, on a tinted tile.
+            .o_portal_icon.d-block {
+                display: grid !important;
+                place-items: center;
+                flex: none;
+                width: 44px;
+                height: 44px;
+                align-self: center !important;
+                border-radius: 12px;
+                background: var(--qp-accent-soft);
+                > span {
+                    display: none !important;
+                }
+                &::before {
+                    content: "";
+                    width: 22px;
+                    height: 22px;
+                    background: var(--qp-accent-ink);
+                    -webkit-mask: var(--qp-card-icon) center / contain no-repeat;
+                    mask: var(--qp-card-icon) center / contain no-repeat;
+                }
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 14px;
+                width: 16px;
+                height: 16px;
+                margin-top: -8px;
+                background: var(--qp-soft);
+                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 5l7 7-7 7'/%3E%3C/svg%3E") center / contain no-repeat;
+            }
+            .fs-5 {
+                font-size: 15px !important;
+            }
+            h5 {
+                font-size: 15px;
+                font-weight: 600;
+                color: var(--qp-text);
+            }
+            .opacity-75 {
+                opacity: 1 !important;
+                p {
+                    margin-top: 2px !important;
+                    color: var(--qp-soft);
+                    font-size: 13px;
+                    line-height: 1.45;
+                }
+            }
+        }
+    }
+
+    // ---- Home: recent activity ----------------------------------------------
+    .o_qing_portal_recent {
+        margin-top: 32px;
+        padding: 20px 24px 8px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        .o_qing_portal_section_title {
+            margin-bottom: 8px;
+        }
+    }
+    .o_qing_portal_recent_list {
+        margin: 0;
+        > li {
+            display: grid;
+            grid-template-columns: 96px minmax(0, 1fr) auto;
+            gap: 16px;
+            align-items: center;
+            padding: 14px 0;
+            border-top: 1px solid var(--qp-line-soft);
+        }
+    }
+    .o_qing_portal_recent_date {
+        color: var(--qp-soft);
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+    }
+    .o_qing_portal_recent_main {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.35;
+        a {
+            color: var(--qp-text) !important;
+            font-weight: 600;
+        }
+    }
+    .o_qing_portal_recent_sub {
+        color: var(--qp-soft);
+        font-size: 13px;
+    }
+    .o_qing_portal_recent_amount {
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+    }
+
+    // ---- Home: profile and contact column -----------------------------------
+    .o_portal_content + div > .mw-100 {
+        align-self: flex-start;
+        width: 100%;
+        max-width: 340px;
+        margin-top: 0 !important;
+        padding: 24px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        font-size: 14px;
+        img.rounded {
+            border-radius: 50% !important;
+        }
+        h5 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .o_portal_my_details {
+            color: var(--qp-text-2);
+            line-height: 1.7;
+        }
+        .o_my_contact {
+            margin-top: 24px !important;
+            padding-top: 20px;
+            border-top: 1px solid var(--qp-line-soft);
+            .o_portal_contact_details {
+                margin-bottom: 0 !important;
+            }
+            h5 {
+                color: var(--qp-soft);
+                font-size: 13px;
+                font-weight: 400;
+            }
+            hr {
+                display: none;
+            }
+            h6 {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    // ---- Lists -------------------------------------------------------------
+    .o_portal_my_doc_table {
+        --bs-table-striped-bg: transparent;
+        --bs-table-hover-bg: var(--qp-sunk);
+        margin: 0;
+        background: transparent;
+        font-size: 15px;
+        font-variant-numeric: tabular-nums;
+        thead tr th {
+            padding: 12px 16px;
+            background: var(--qp-sunk);
+            border-bottom: 1px solid var(--qp-line);
+            color: var(--qp-soft);
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        tbody tr {
+            > td {
+                padding: 16px;
+                background: var(--qp-surface);
+                border-bottom: 1px solid var(--qp-line-soft);
+                vertical-align: middle;
+                box-shadow: none !important;
+            }
+            &:last-child > td {
+                border-bottom: 0;
+            }
+            &:hover > td {
+                background: var(--qp-sunk);
+            }
+            > td:first-child a {
+                color: var(--qp-text) !important;
+                font-weight: 600;
+            }
+        }
+        // The last right-aligned column is the amount.
+        td.text-end:not(:has(~ td.text-end)) {
+            font-weight: 600;
+        }
+    }
+    .table-responsive:has(> .o_portal_my_doc_table) {
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line) !important;
+        border-radius: var(--qp-radius);
+    }
+    // Status pills: soft fills, one line, always with their text.
+    :is(.o_portal_my_doc_table, #sidebar_content, #introduction, #details, .o_portal_sidebar) .badge {
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0;
+        border: 0 !important;
+        &.text-bg-info,
+        &.bg-info,
+        &.text-bg-primary,
+        &.bg-primary { background: var(--qp-blue-soft) !important; color: var(--qp-blue) !important; }
+        &.text-bg-success,
+        &.bg-success { background: var(--qp-green-soft) !important; color: var(--qp-green) !important; }
+        &.text-bg-warning,
+        &.bg-warning { background: var(--qp-amber-soft) !important; color: var(--qp-amber) !important; }
+        &.text-bg-danger,
+        &.bg-danger { background: var(--qp-red-soft) !important; color: var(--qp-red) !important; }
+        &.text-bg-secondary,
+        &.bg-secondary,
+        &.text-bg-light { background: var(--qp-neutral-soft) !important; color: var(--qp-neutral) !important; }
+    }
+    .o_portal_pager .pagination {
+        gap: 4px;
+        .page-link {
+            border: 1px solid var(--qp-line);
+            border-radius: 8px !important;
+            color: var(--qp-text);
+        }
+        .active .page-link {
+            background: var(--qp-accent-soft);
+            border-color: var(--qp-accent-soft);
+            color: var(--qp-accent-ink);
+            font-weight: 600;
+        }
+    }
+    // Empty list ("there are currently no ... for your account").
+    .o_portal_wrap > .container > .alert-warning {
+        padding: 28px;
+        background: var(--qp-surface);
+        border: 1px dashed var(--qp-line-strong);
+        border-radius: var(--qp-radius);
+        color: var(--qp-soft);
+        text-align: center;
+    }
+
+    // ---- Document page (quotation, order, invoice) ------------------------
+    // The summary (amount, sign, pay, download) sits right of the document
+    // on wide screens and stays in view while reading.
+    @media (min-width: 992px) {
+        :is(.o_portal_sale_sidebar, .o_portal_sidebar > .row) > .d-flex:has(> #sidebar_content) {
+            order: 2 !important;
+            position: sticky;
+            top: 24px;
+            align-self: flex-start;
+        }
+    }
+    .o_portal_sidebar {
+        padding: 0;
+        #sidebar_content {
+            padding: 28px;
+            background: var(--qp-surface);
+            border: 1px solid var(--qp-line);
+            border-radius: var(--qp-radius);
+            #sidebar_price,
+            .o_portal_sidebar_amount {
+                justify-content: flex-start !important;
+            }
+            #sidebar_price h2,
+            h2 {
+                font-size: 34px;
+                font-weight: 700;
+                letter-spacing: -.02em;
+                font-variant-numeric: tabular-nums;
+            }
+            > div > .text-muted.small {
+                color: var(--qp-soft) !important;
+            }
+            hr {
+                margin: 20px 0 16px;
+                border-color: var(--qp-line-soft);
+                opacity: 1;
+            }
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                min-height: 44px;
+            }
+            .btn-primary {
+                min-height: 48px;
+                font-size: 16px;
+            }
+            .o_portal_contact_details small {
+                font-size: 14px;
+            }
+        }
+        .o_qing_powered_by {
+            color: var(--qp-soft) !important;
+            font-weight: 600;
+        }
+    }
+    // Document body: one card with a quiet head.
+    #introduction {
+        padding: 28px 32px 20px !important;
+        background: var(--qp-surface) !important;
+        border: 1px solid var(--qp-line) !important;
+        border-bottom: 0 !important;
+        border-radius: var(--qp-radius) var(--qp-radius) 0 0 !important;
+        h2 {
+            margin-top: 2px;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+        .text-muted {
+            color: var(--qp-soft) !important;
+        }
+    }
+    #introduction + #content > #details,
+    #portal_sale_content #details {
+        padding: 4px 32px 24px !important;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line) !important;
+        border-top: 1px solid var(--qp-line-soft) !important;
+        border-radius: 0 0 var(--qp-radius) var(--qp-radius) !important;
+        table {
+            font-variant-numeric: tabular-nums;
+            thead th {
+                color: var(--qp-soft);
+                font-size: 13px;
+                font-weight: 500;
+                border-bottom-color: var(--qp-line);
+            }
+            td {
+                border-color: var(--qp-line-soft);
+            }
+        }
+    }
+    #content > section:not(#details),
+    #portal_sale_content > div > #content > section ~ section,
+    .o_portal_sale_sidebar section.mt-5,
+    #terms,
+    #sale_order_communication,
+    #invoice_communication {
+        border-color: var(--qp-line) !important;
+    }
+    // Quotation / order: addresses, the confirm row and feedback read as
+    // cards like the document above them.
+    #customer_info,
+    #product_documents,
+    #provide_feedback {
+        padding: 24px 32px !important;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line) !important;
+        border-radius: var(--qp-radius) !important;
+    }
+    // "Billing" / "Delivery" are labels, not statuses.
+    :is(#address_combined, #address_billing, #address_delivery) .badge.badge.badge {
+        padding: 0;
+        background: none !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        color: var(--qp-soft) !important;
+        font-size: 13px;
+        font-weight: 400;
+    }
+    // The sign / pay buttons under the document: one quiet row, the main
+    // action on the right and "reject" on the left (the summary on the right
+    // already carries the same buttons).
+    #quote_content > div:has(> a[data-bs-target="#modalaccept"]) {
+        flex-direction: row-reverse !important;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px !important;
+        width: 100% !important;
+        margin: 24px 0 0 !important;
+        padding: 20px 32px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        > .btn-lg {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex: none;
+            min-height: 48px;
+            padding: 0 28px;
+            font-size: 16px;
+            border-radius: var(--qp-radius-sm);
+        }
+        > .btn-link {
+            margin-right: auto;
+            padding-inline: 0;
+            color: var(--qp-soft) !important;
+            font-weight: 500;
+        }
+    }
+    #provide_feedback {
+        h4 {
+            margin-bottom: 4px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        #discussion {
+            margin-inline: 0 !important;
+        }
+    }
+    #sidebar_content .alert {
+        margin-top: 16px !important;
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: var(--qp-radius-sm);
+    }
+
+    // Purchase order: the native page has no card around the document.
+    #portal_purchase_content > div {
+        padding: 28px 32px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        #introduction {
+            margin: 0 0 20px !important;
+            padding: 0 !important;
+            background: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            h2 {
+                font-size: 26px;
+                em {
+                    font-style: normal;
+                }
+            }
+        }
+        #details {
+            margin-top: 28px !important;
+            padding: 0 !important;
+            background: none;
+            border: 0 !important;
+            border-radius: 0 !important;
+        }
+        h3 {
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        strong {
+            font-weight: 600;
+        }
+        #total {
+            margin-top: 8px;
+        }
+    }
+    #quote_content > #portal_purchase_content + hr {
+        display: none;
+    }
+    #purchase_order_communication {
+        margin-top: 24px;
+        padding: 24px 32px;
+        background: var(--qp-surface);
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        h3,
+        h4 {
+            margin-bottom: 4px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        #discussion {
+            margin-inline: 0 !important;
+        }
+    }
+    // In-page links of a document sidebar (purchase).
+    #sidebar_content .bs-sidenav {
+        gap: 2px;
+        .nav-link {
+            padding: 4px 0;
+            color: var(--qp-text-2);
+            font-size: 14px;
+            &:hover {
+                color: var(--qp-text);
+            }
+        }
+    }
+    #sidebar_content h6.small {
+        margin-bottom: 8px;
+        font-weight: 400;
+    }
+    // Invoice: the printable HTML preview sits on its own page sheet.
+    .o_portal_html_view {
+        background: var(--qp-surface) !important;
+        border: 1px solid var(--qp-line);
+        border-radius: var(--qp-radius);
+        box-shadow: none !important;
+        overflow: hidden;
+    }
+    // Chatter at the foot of a document.
+    #discussion,
+    .o_portal_chatter,
+    .o-mail-Chatter {
+        --o-chatter-bg: transparent;
+    }
+    :is(#discussion, .o_portal_chatter) .card,
+    .o_portal_wrap .card {
+        border-color: var(--qp-line);
+        border-radius: var(--qp-radius);
+    }
+    // Phone action bar (sign, pay) at the foot of a document.
+    .o_portal_mobile_action_bar {
+        padding: 12px 16px 20px !important;
+        background: var(--qp-surface) !important;
+        border-top: 1px solid var(--qp-line) !important;
+        box-shadow: 0 -6px 20px rgba(24, 24, 27, .06) !important;
+        .btn {
+            min-height: 48px;
+            border-radius: 12px;
+        }
+    }
+
+    // ---- Forms (account details, addresses) --------------------------------
+    .form-control,
+    .form-select {
+        min-height: 44px;
+        border-color: var(--qp-line-strong);
+        border-radius: var(--qp-radius-sm);
+        &:focus {
+            border-color: var(--qp-accent);
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--qp-accent) 16%, transparent);
+        }
+    }
+    .o_portal_profile_card {
+        max-width: 200px;
+        border-color: var(--qp-line);
+        border-radius: var(--qp-radius);
+    }
+    .col-form-label,
+    label.form-label {
+        color: var(--qp-text-2);
+        font-weight: 500;
+    }
+}
+
+// ---- Phone ----------------------------------------------------------------
+@media (max-width: 767.98px) {
+    #wrapwrap.o_qing_portal {
+        .o_portal_wrap > .container {
+            padding: 20px 20px 40px !important;
+        }
+        &.o_qing_portal_bare > header#top > nav.navbar {
+            min-height: 60px;
+            padding-block: 8px;
+            .navbar-brand.logo img {
+                max-height: 30px;
+            }
+            .o_qing_portal_brand_sep,
+            .o_qing_portal_brand_name {
+                display: none;
+            }
+            #top_menu .nav-link {
+                padding: 5px;
+                border: 0;
+                > span {
+                    display: none;
+                }
+            }
+        }
+        // The native profile button (it opens the account panel) sits in the
+        // top corner instead of on a line of its own under the figures.
+        &.o_qing_portal_home .o_portal_wrap > .container > .wrapper {
+            position: relative;
+            margin-bottom: 24px;
+            gap: 16px;
+            > button[data-bs-target="#accountOffCanvas"] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 44px;
+                height: 44px;
+                padding: 0 !important;
+                justify-content: center;
+                .o_avatar {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50% !important;
+                }
+            }
+            .o_qing_portal_greeting {
+                padding-right: 52px;
+            }
+        }
+        .o_qing_portal_greeting h1 {
+            font-size: 26px;
+        }
+        .o_qing_portal_stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            width: 100%;
+            margin: 0;
+            background: var(--qp-surface);
+            border: 1px solid var(--qp-line);
+            border-radius: var(--qp-radius-md);
+            > div {
+                padding: 14px 16px;
+                + div {
+                    border-left: 1px solid var(--qp-line-soft);
+                }
+            }
+            dd {
+                font-size: 20px;
+            }
+        }
+        .o_qing_portal_todo {
+            margin-bottom: 28px;
+        }
+        .o_qing_portal_todo_grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        // Amount and action share a row on the phone.
+        .o_qing_portal_todo_card {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 12px;
+            padding: 16px;
+            border-radius: var(--qp-radius-md);
+            .o_qing_portal_todo_head {
+                grid-column: 1 / -1;
+            }
+            .o_qing_portal_todo_action {
+                align-self: end;
+                margin: 0;
+                padding-inline: 18px;
+            }
+        }
+        .o_qing_portal_todo_amount {
+            font-size: 24px;
+        }
+        .o_qing_portal_todo_meta {
+            font-size: 13px;
+        }
+        // The phone keeps only "13 天后到期".
+        .o_qing_portal_todo_meta:has(.o_qing_portal_todo_left) .o_qing_portal_todo_date {
+            display: none;
+        }
+        .o_qing_portal_todo_left::before {
+            content: none;
+        }
+        .o_portal_docs #portal_cards {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+        .o_qing_portal_recent {
+            padding: 16px 16px 4px;
+        }
+        .o_qing_portal_recent_list > li {
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 4px 12px;
+            .o_qing_portal_recent_date {
+                grid-column: 1 / -1;
+            }
+        }
+        .o_portal_content + div > .mw-100 {
+            max-width: none;
+        }
+        // Lists become stacked cards: number and amount on top, the rest below.
+        .table-responsive:has(> .o_portal_my_doc_table) {
+            overflow: visible;
+            background: transparent;
+            border: 0 !important;
+        }
+        .o_portal_my_doc_table {
+            thead {
+                display: none;
+            }
+            tbody {
+                display: grid;
+                gap: 10px;
+            }
+            // Line one: number and amount. A zero-height break, then the rest.
+            tbody tr {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 6px 12px;
+                &::before {
+                    content: "";
+                    order: 0;
+                    flex: 0 0 100%;
+                    height: 0;
+                }
+                padding: 16px;
+                background: var(--qp-surface);
+                border: 1px solid var(--qp-line);
+                border-radius: var(--qp-radius-md);
+                > td {
+                    padding: 0;
+                    background: transparent !important;
+                    border: 0;
+                    color: var(--qp-soft);
+                    font-size: 13px;
+                    order: 1;
+                    &:first-child {
+                        order: -2;
+                        flex: 1 1 0;
+                        min-width: 0;
+                        font-size: 15px;
+                        a {
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                    &.text-end:not(:has(~ td.text-end)) {
+                        order: -1;
+                        margin-left: auto;
+                        color: var(--qp-text);
+                        font-size: 20px;
+                    }
+                    // Native lists keep labels for wide screens only; on a card
+                    // there is room for the status and button text.
+                    .badge .d-none.d-md-inline,
+                    .btn .d-none.d-md-inline {
+                        display: inline !important;
+                        margin-left: 2px;
+                    }
+                    &:empty,
+                    &.d-none {
+                        display: none;
+                    }
+                    &:last-child:has(.btn) {
+                        margin-left: auto;
+                    }
+                }
+                &:hover > td {
+                    background: transparent !important;
+                }
+            }
+        }
+        .o_portal_profile_card {
+            max-width: 112px;
+        }
+        // The document head and body read as one card on the phone too.
+        #introduction {
+            padding: 20px !important;
+            h2 {
+                font-size: 24px;
+            }
+        }
+        #portal_sale_content #details {
+            padding: 0 20px 16px !important;
+        }
+        #customer_info,
+        #product_documents,
+        #provide_feedback,
+        #purchase_order_communication,
+        #portal_purchase_content > div {
+            padding: 20px !important;
+        }
+    }
+}

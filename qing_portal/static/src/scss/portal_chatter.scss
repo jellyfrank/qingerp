@@ -1,0 +1,38 @@
+// Portal chatter ("Provide feedback" on quotations, orders, invoices).
+//
+// Odoo mounts the chatter in a shadow root with its own stylesheet bundle
+// (portal.assets_chatter_style), so the page rules cannot reach it. This file
+// is added to that bundle. Custom properties inherit into the shadow tree, so
+// the theme colours (--qp-*) set on the portal wrapper are available here;
+// colour rules only apply under the QingERP portal (:host-context).
+
+// The sticky composer strip takes a background from the website colour
+// scheme (a dark band on some themes); let the card behind show instead.
+.o-mail-Chatter-top {
+    background-color: transparent !important;
+}
+
+:host-context(#wrapwrap.o_qing_portal) {
+    .o-mail-Composer-inputContainer {
+        border-color: var(--qp-line-strong) !important;
+        border-radius: 10px !important;
+        background-color: var(--qp-surface) !important;
+    }
+    .o-mail-Composer-input,
+    .o-mail-Composer-quickActions {
+        background-color: var(--qp-surface) !important;
+    }
+    .o-mail-Composer-send.btn-primary {
+        background-color: var(--qp-accent) !important;
+        border-color: var(--qp-accent) !important;
+        color: #ffffff !important;
+        border-radius: 8px;
+    }
+    .o-mail-Composer-avatar {
+        border-radius: 50% !important;
+    }
+    .o-mail-Message-body,
+    .o-mail-Thread {
+        color: var(--qp-text);
+    }
+}

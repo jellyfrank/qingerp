@@ -3,3 +3,7 @@ access_shopify_opening_manager,Manage Shopify opening commitments,qing.shopify.o
 rule_shopify_opening_company,Shopify opening commitment company,qing.shopify.opening.commitment,,crud,"[('company_id', 'in', company_ids)]"
 access_shopify_bulk_import_manager,Read Shopify bulk imports,qing.shopify.bulk.import,qing_channel.group_channel_manager,r,
 rule_shopify_bulk_import_company,Shopify bulk import company,qing.shopify.bulk.import,,crud,"[('company_id', 'in', company_ids)]"
+access_shopify_catalog_item_reader,Read Shopify channel products,qing.shopify.catalog.item,qing_channel.group_channel_user,r,
+rule_shopify_catalog_item_company,Shopify channel products company,qing.shopify.catalog.item,,crud,"[('company_id', 'in', company_ids)]"
+access_shopify_catalog_run_reader,Read Shopify catalog previews,qing.shopify.catalog.run,qing_channel.group_channel_manager,r,
+rule_shopify_catalog_run_company,Shopify catalog previews company,qing.shopify.catalog.run,,crud,"[('company_id', 'in', company_ids)]"

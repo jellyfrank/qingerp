@@ -23,6 +23,7 @@
                     <button class="btn btn-outline-secondary" t-if="this.reportType === 'trial_balance' &amp;&amp; this.state.data?.status === 'ready'" t-on-click="() => this.openTrialBalanceSources()" t-att-disabled="this.state.loading || !this.trialScopeIsCurrent">View Source Entries</button>
                 </div>
             </header>
+            <div class="o_qing_report_paper">
             <p t-if="this.state.loading" role="status">Loading statement…</p>
             <div t-if="this.state.error" class="alert alert-danger" role="alert" t-esc="this.state.error"/>
             <t t-if="this.state.data &amp;&amp; !this.state.loading">
@@ -31,9 +32,27 @@
                     <button class="btn btn-outline-primary" t-on-click="() => this.openSettings()">Open Report Settings</button>
                 </div>
                 <t t-else="">
+                    <t t-if="this.reportType === 'balance'">
+                        <div class="o_qing_statement_head">
+                            <div class="o_qing_statement_title">
+                                <span/>
+                                <h3 class="mb-0">Balance Sheet</h3>
+                                <span class="text-end" t-esc="this.state.data.form_code"/>
+                            </div>
+                            <div class="o_qing_statement_meta">
+                                <span>Reporting entity: <t t-esc="this.state.data.company"/></span>
+                                <span t-esc="this.state.data.date_to"/>
+                                <span>Unit: <t t-esc="this.state.data.unit"/></span>
+                            </div>
+                        </div>
+                    </t>
                     <div t-if="this.reportType !== 'trial_balance' &amp;&amp; this.state.data.status === 'incomplete'" class="alert alert-warning" role="status">
                         <strong>Checks incomplete. Resolve the issues before downloading a complete statement.</strong>
-                        <ul class="mb-0"><li t-foreach="this.state.data.issues" t-as="issue" t-key="issue" t-esc="issue"/></ul>
+                        <ul class="mb-0">
+                            <li t-foreach="this.state.data.issues" t-as="issue" t-key="issue" t-esc="issue"/>
+                            <li t-if="this.reportType === 'balance' &amp;&amp; this.differenceAt(1)" class="o_qing_balance_difference">Closing difference (assets minus liabilities and equity): <strong t-esc="this.formatValue(this.differenceAt(1), true)"/></li>
+                            <li t-if="this.reportType === 'balance' &amp;&amp; this.differenceAt(0)" class="o_qing_balance_difference">Opening difference (assets minus liabilities and equity): <strong t-esc="this.formatValue(this.differenceAt(0), true)"/></li>
+                        </ul>
                         <button class="btn btn-outline-primary mt-2" t-on-click="() => this.openSettings()">Open Report Settings</button>
                     </div>
                     <div t-if="this.reportType !== 'trial_balance' &amp;&amp; this.state.data.status === 'ready'" class="alert alert-success" role="status">Checks passed for accessible posted entries. Financial review is still required.</div>
@@ -52,8 +71,36 @@
                             </tr></tbody>
                         </table>
                     </section>
-                    <div class="small text-muted mb-2"><t t-if="this.reportType === 'trial_balance'"><t t-esc="this.state.data.date_from"/> — </t><t t-esc="this.state.data.date_to"/> · <t t-esc="this.state.data.currency"/></div>
-                    <div class="table-responsive">
+                    <div t-if="this.reportType !== 'balance'" class="small text-muted mb-2"><t t-if="this.reportType === 'trial_balance'"><t t-esc="this.state.data.date_from"/> — </t><t t-esc="this.state.data.date_to"/> · <t t-esc="this.state.data.currency"/></div>
+                    <div t-if="this.reportType === 'balance'" class="o_qing_balance_grid">
+                        <section t-foreach="this.balanceSides" t-as="side" t-key="side.key" class="o_qing_balance_side" t-att-aria-label="side.title">
+                            <div class="o_qing_balance_row o_qing_balance_head">
+                                <span t-esc="side.title"/>
+                                <span class="text-center">Line No.</span>
+                                <span class="text-end">Closing</span>
+                                <span class="text-end">Opening</span>
+                            </div>
+                            <t t-foreach="side.rows" t-as="row" t-key="row.code">
+                                <div t-if="row.section" class="o_qing_balance_section" t-esc="row.section"/>
+                                <button type="button" t-att-class="this.rowClass(row)" t-on-click="() => this.selectRow(row, 1)">
+                                    <span class="o_qing_balance_name" t-att-title="row.name" t-esc="row.name"/>
+                                    <span class="o_qing_balance_code" t-esc="row.code"/>
+                                    <span t-att-class="this.amountClass(row, 1)" t-esc="this.formatValue(row.values[1])"/>
+                                    <span t-att-class="this.amountClass(row, 0)" t-esc="this.formatValue(row.values[0])"/>
+                                </button>
+                            </t>
+                            <button t-if="side.grand" type="button" t-att-class="this.rowClass(side.grand)" t-on-click="() => this.selectRow(side.grand, 1)">
+                                <span class="o_qing_balance_name">
+                                    <t t-esc="side.grand.name"/>
+                                    <span t-if="this.hasBalanceDifference" class="badge text-bg-danger ms-2">Unbalanced</span>
+                                </span>
+                                <span class="o_qing_balance_code" t-esc="side.grand.code"/>
+                                <span t-att-class="this.amountClass(side.grand, 1)" t-esc="this.formatValue(side.grand.values[1])"/>
+                                <span t-att-class="this.amountClass(side.grand, 0)" t-esc="this.formatValue(side.grand.values[0])"/>
+                            </button>
+                        </section>
+                    </div>
+                    <div class="table-responsive" t-if="this.reportType !== 'balance'">
                         <table t-if="this.reportType === 'trial_balance'" class="table table-bordered table-hover table-sm align-middle o_qing_trial_balance_table">
                             <thead><tr><th t-foreach="this.state.data.headers" t-as="header" t-key="header" t-esc="header"/></tr></thead>
                             <tbody><tr t-foreach="this.state.data.rows" t-as="row" t-key="row.code">
@@ -62,19 +109,7 @@
                             </tr></tbody>
                             <tfoot><tr class="fw-bold"><td>Total</td><td/><td t-foreach="this.state.data.totals" t-as="amount" t-key="amount_index" t-esc="amount"/></tr></tfoot>
                         </table>
-                        <table t-if="this.reportType === 'balance'" class="table table-bordered table-hover table-sm align-middle">
-                            <thead><tr><th>Assets</th><th>#</th><th>Opening</th><th>Closing</th><th>Liabilities and Equity</th><th>#</th><th>Opening</th><th>Closing</th></tr></thead>
-                            <tbody><tr t-foreach="this.assetRows" t-as="row" t-key="row.code">
-                                <td><button class="btn btn-link p-0 o_qing_row_name" title="Account Contributions" t-on-click="() => this.selectRow(row, 1)" t-esc="row.name"/></td><td t-esc="row.code"/>
-                                <td><button class="btn btn-link p-0 o_qing_amount_link" title="Journal Items" t-on-click="() => this.openRow(row, 0)" t-esc="row.amounts[0]"/></td>
-                                <td><button class="btn btn-link p-0 o_qing_amount_link" title="Journal Items" t-on-click="() => this.openRow(row, 1)" t-esc="row.amounts[1]"/></td>
-                                <t t-set="other" t-value="this.liabilityRows[row.code - 1]"/>
-                                <td><button t-if="other" class="btn btn-link p-0 o_qing_row_name" title="Account Contributions" t-on-click="() => this.selectRow(other, 1)" t-esc="other.name"/></td><td t-esc="other?.code || ''"/>
-                                <td><button t-if="other" class="btn btn-link p-0 o_qing_amount_link" title="Journal Items" t-on-click="() => this.openRow(other, 0)" t-esc="other.amounts[0]"/></td>
-                                <td><button t-if="other" class="btn btn-link p-0 o_qing_amount_link" title="Journal Items" t-on-click="() => this.openRow(other, 1)" t-esc="other.amounts[1]"/></td>
-                            </tr></tbody>
-                        </table>
-                        <table t-if="this.reportType !== 'trial_balance' &amp;&amp; this.reportType !== 'balance'" class="table table-bordered table-hover table-sm align-middle">
+                        <table t-if="this.reportType !== 'trial_balance'" class="table table-bordered table-hover table-sm align-middle">
                             <thead><tr><th>Item</th><th>#</th><th t-esc="this.state.data.headers[0]"/><th t-esc="this.state.data.headers[1]"/></tr></thead>
                             <tbody><tr t-foreach="this.state.data.rows" t-as="row" t-key="row.code">
                                 <td><button class="btn btn-link p-0 o_qing_row_name" title="Account Contributions" t-on-click="() => this.selectRow(row, 0)" t-esc="row.name"/></td><td t-esc="row.code"/>
@@ -84,19 +119,11 @@
                         </table>
                     </div>
                     <div t-if="this.reportType === 'trial_balance' &amp;&amp; this.state.data.differences" class="small text-muted mb-3"><t t-esc="this.state.data.difference_label"/>: <t t-foreach="this.state.data.differences" t-as="amount" t-key="amount_index"><t t-if="amount_index"> / </t><t t-esc="amount"/></t></div>
-                    <section t-if="this.reportType !== 'trial_balance' &amp;&amp; this.state.selectedRow" t-ref="this.detailsRef" class="o_qing_financial_report_details border rounded p-3 my-3">
+                    <section t-if="this.reportType !== 'trial_balance' &amp;&amp; this.reportType !== 'balance' &amp;&amp; this.state.selectedRow" t-ref="this.detailsRef" class="o_qing_financial_report_details border rounded p-3 my-3">
                         <h4><t t-esc="this.state.selectedRow.name"/> · <t t-esc="this.state.data.headers[this.state.selectedColumn]"/></h4>
-                        <table t-if="this.selectedDetails.length" class="table table-sm">
-                            <thead><tr><th>Account</th><th>Partner</th><th>Amount</th><th>Source</th></tr></thead>
-                            <tbody><tr t-foreach="this.selectedDetails" t-as="detail" t-key="detail_index">
-                                <td><t t-esc="detail.account_code"/> · <t t-esc="detail.account_name"/></td>
-                                <td t-esc="detail.partner"/><td t-esc="detail.amounts[this.state.selectedColumn]"/>
-                                <td><button class="btn btn-link p-0" t-on-click="() => this.openAccount(detail.account_id, detail.partner_id, detail.move_line_id)">Journal Items</button></td>
-                            </tr></tbody>
-                        </table>
-                        <p t-else="" class="text-muted">No contributing accounts for this row and period.</p>
+                        <t t-call="qing_account_reports.FinancialReportDetails"/>
                     </section>
-                    <details t-if="this.reportType !== 'trial_balance'" class="border rounded p-3"><summary>Calculation and Mapping</summary>
+                    <details t-if="this.reportType !== 'trial_balance'" class="border rounded p-3 mt-3"><summary>Calculation and Mapping</summary>
                         <div class="mt-2"><t t-esc="this.state.data.scheme"/> · <t t-esc="this.state.data.scheme_from"/><t t-if="this.state.data.scheme_to"> — <t t-esc="this.state.data.scheme_to"/></t></div>
                         <div>Balance sheet: <t t-esc="this.state.data.balance_mapping"/>; Profit statement: <t t-esc="this.state.data.profit_mapping"/></div>
                         <div>Posted entries · <t t-esc="this.state.data.currency"/></div>
@@ -104,6 +131,46 @@
                     </details>
                 </t>
             </t>
+            </div>
+            <div t-if="this.reportType === 'balance' &amp;&amp; this.state.selectedRow" class="o_qing_report_drawer_backdrop" t-on-click="(event) => this.onBackdropClick(event)">
+                <aside class="o_qing_report_drawer" role="dialog" aria-modal="true" t-att-aria-label="this.state.selectedRow.name" t-on-keydown="(event) => this.onDrawerKeydown(event)">
+                    <div class="d-flex justify-content-between align-items-start gap-3">
+                        <div>
+                            <div class="small text-muted">Line No. <t t-esc="this.state.selectedRow.code"/></div>
+                            <h4 class="mb-0" t-esc="this.state.selectedRow.name"/>
+                        </div>
+                        <button type="button" class="btn-close" aria-label="Close" t-ref="this.drawerCloseRef" t-on-click="() => this.closeRow()"/>
+                    </div>
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" t-att-class="this.state.selectedColumn === 1 ? 'btn btn-primary' : 'btn btn-outline-primary'" t-att-aria-pressed="this.state.selectedColumn === 1 ? 'true' : 'false'" t-on-click="() => this.setColumn(1)">Closing</button>
+                        <button type="button" t-att-class="this.state.selectedColumn === 0 ? 'btn btn-primary' : 'btn btn-outline-primary'" t-att-aria-pressed="this.state.selectedColumn === 0 ? 'true' : 'false'" t-on-click="() => this.setColumn(0)">Opening</button>
+                    </div>
+                    <div class="o_qing_drawer_amount" t-esc="this.formatValue(this.state.selectedRow.values[this.state.selectedColumn], true)"/>
+                    <div t-if="this.state.selectedRow.formula">
+                        <div class="small fw-semibold mb-1">Formula (line numbers)</div>
+                        <div class="o_qing_drawer_formula" t-esc="this.state.selectedRow.formula"/>
+                    </div>
+                    <div>
+                        <div class="small fw-semibold mb-1">Contributing accounts</div>
+                        <t t-call="qing_account_reports.FinancialReportDetails"/>
+                    </div>
+                    <div class="mt-auto">
+                        <button type="button" class="btn btn-primary" t-on-click="() => this.openRow(this.state.selectedRow, this.state.selectedColumn)">Open Journal Items</button>
+                    </div>
+                </aside>
+            </div>
         </div>
+    </t>
+
+    <t t-name="qing_account_reports.FinancialReportDetails">
+        <table t-if="this.selectedDetails.length" class="table table-sm mb-0">
+            <thead><tr><th>Account</th><th>Partner</th><th class="text-end">Amount</th><th>Source</th></tr></thead>
+            <tbody><tr t-foreach="this.selectedDetails" t-as="detail" t-key="detail_index">
+                <td><t t-esc="detail.account_code"/> · <t t-esc="detail.account_name"/></td>
+                <td t-esc="detail.partner"/><td class="text-end o_qing_num" t-esc="this.formatDetailAmount(detail.amounts[this.state.selectedColumn])"/>
+                <td><button class="btn btn-link p-0" t-on-click="() => this.openAccount(detail.account_id, detail.partner_id, detail.move_line_id)">Journal Items</button></td>
+            </tr></tbody>
+        </table>
+        <p t-else="" class="text-muted mb-0">No contributing accounts for this row and period.</p>
     </t>
 </templates>

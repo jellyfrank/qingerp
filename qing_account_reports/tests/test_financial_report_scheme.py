@@ -72,6 +72,40 @@ class TestFinancialReportScheme(AccountTestInvoicingCommon):
         pdf_action = service.export_formatted('balance', '2026-09-25', file_type='pdf')
         self.assertEqual(pdf_action['type'], 'ir.actions.report')
 
+    def test_balance_payload_carries_statutory_layout(self):
+        self.env['qing.financial.report.scheme'].with_user(self.manager)._bootstrap_existing_companies()
+        move = self.env['account.move'].create({
+            'journal_id': self.company_data['default_journal_misc'].id, 'date': '2026-09-01',
+            'line_ids': [
+                Command.create({'account_id': self.bank.id, 'balance': 1234.5}),
+                Command.create({'account_id': self.revenue.id, 'balance': -1234.5}),
+            ],
+        })
+        move.action_post()
+        report = self.env['qing.financial.report'].with_user(self.manager).get_report('balance', '2026-09-25')
+        rows = {row['code']: row for row in report['rows']}
+        self.assertEqual([row['code'] for row in report['rows'] if row['side'] == 'asset'], list(range(1, 31)))
+        self.assertEqual([row['code'] for row in report['rows'] if row['side'] == 'liability'], list(range(31, 54)))
+        self.assertEqual(
+            {code: row['section'] for code, row in rows.items() if row['section']},
+            {1: '流动资产：', 16: '非流动资产：', 31: '流动负债：', 42: '非流动负债：', 48: '所有者权益（或股东权益）：'},
+        )
+        self.assertEqual([code for code, row in rows.items() if row['kind'] == 'grand_total'], [30, 53])
+        self.assertEqual([code for code, row in rows.items() if row['kind'] == 'subtotal'], [15, 29, 41, 46, 47, 52])
+        self.assertEqual([code for code, row in rows.items() if row['kind'] == 'detail'], [10, 11, 12, 13, 19])
+        self.assertEqual(rows[15]['formula'], '1–9 + 14')
+        self.assertEqual(rows[20]['formula'], '18 − 19')
+        self.assertEqual(rows[29]['formula'], '16 + 17 + 20–28')
+        self.assertEqual(rows[1]['formula'], '')
+        self.assertEqual(rows[1]['values'], [0.0, 1234.5])
+        self.assertEqual(rows[1]['amounts'], ['0.00', '1234.50'])
+        self.assertEqual(rows[30]['values'], rows[53]['values'])
+        self.assertEqual(report['difference_values'], [0.0, 0.0])
+        self.assertEqual(report['form_code'], '会小企01表')
+        currency = self.env.company.currency_id
+        self.assertEqual(report['decimal_places'], currency.decimal_places)
+        self.assertEqual(report['unit'], '元' if currency.name == 'CNY' else currency.name)
+
     def test_ambiguous_pair_requires_administrator_choice(self):
         second = self.balance.copy({'name': 'Alternative rules'})
         second.action_confirm()

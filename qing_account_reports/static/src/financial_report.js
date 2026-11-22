@@ -1,8 +1,10 @@
 /** @odoo-module **/
 
-import { Component, onWillDestroy, onWillStart, proxy, signal, useProps } from "@odoo/owl";
+import { Component, onPatched, onWillDestroy, onWillStart, proxy, signal, useProps } from "@odoo/owl";
+import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
+import { floatIsZero, formatFloat } from "@web/core/utils/numbers";
 
 
 export class FinancialReport extends Component {
@@ -14,13 +16,23 @@ export class FinancialReport extends Component {
         this.orm = useService("orm");
         this.action = useService("action");
         this.detailsRef = signal.ref();
+        this.drawerCloseRef = signal.ref();
         this.reportType = this.props.action.params?.report_type || "balance";
         this.state = proxy({
             date: "", dateFrom: "", mode: "monthly", data: null, selectedRow: null,
             selectedColumn: 1, loading: false, error: "",
         });
         this.generation = 0;
+        this.drawerOpener = null;
+        this.focusDrawer = false;
         onWillDestroy(() => { this.generation++; });
+        onPatched(() => {
+            const closeButton = this.drawerCloseRef();
+            if (this.focusDrawer && closeButton) {
+                this.focusDrawer = false;
+                closeButton.focus();
+            }
+        });
         onWillStart(() => this.reload());
     }
 
@@ -30,6 +42,63 @@ export class FinancialReport extends Component {
 
     get liabilityRows() {
         return this.state.data?.rows.filter((row) => row.side === "liability") || [];
+    }
+
+    get balanceSides() {
+        const side = (key, title, rows) => ({
+            key, title,
+            rows: rows.filter((row) => row.kind !== "grand_total"),
+            grand: rows.find((row) => row.kind === "grand_total"),
+        });
+        return [
+            side("asset", _t("Assets"), this.assetRows),
+            side("liability", _t("Liabilities and Equity"), this.liabilityRows),
+        ];
+    }
+
+    get decimalPlaces() {
+        return this.state.data?.decimal_places ?? 2;
+    }
+
+    get hasBalanceDifference() {
+        return Boolean(this.differenceAt(0) || this.differenceAt(1));
+    }
+
+    differenceAt(column) {
+        const value = this.state.data?.difference_values?.[column] || 0;
+        return floatIsZero(value, this.decimalPlaces) ? 0 : value;
+    }
+
+    formatValue(value, showZero = false) {
+        if (!showZero && floatIsZero(value || 0, this.decimalPlaces)) {
+            return "—";
+        }
+        return formatFloat(value || 0, { digits: [false, this.decimalPlaces] });
+    }
+
+    formatDetailAmount(text) {
+        if (!text) {
+            return "";
+        }
+        // Server strings carry the currency precision; keep it and add grouping.
+        const decimals = (String(text).split(".")[1] || "").length;
+        return formatFloat(parseFloat(text), { digits: [false, decimals] });
+    }
+
+    rowClass(row) {
+        const selected = this.state.selectedRow?.code === row.code ? " o_qing_selected" : "";
+        return `o_qing_balance_row o_qing_kind_${row.kind}${selected}`;
+    }
+
+    amountClass(row, column) {
+        const classes = ["o_qing_balance_amount", "o_qing_num"];
+        if (floatIsZero(row.values[column] || 0, this.decimalPlaces)) {
+            classes.push("o_qing_amount_zero");
+        }
+        if (row.kind === "grand_total" && this.differenceAt(column)) {
+            classes.push("text-danger");
+        }
+        return classes.join(" ");
     }
 
     get selectedDetails() {
@@ -98,7 +167,38 @@ export class FinancialReport extends Component {
     selectRow(row, column) {
         this.state.selectedRow = row;
         this.state.selectedColumn = column;
+        if (this.reportType === "balance") {
+            this.drawerOpener = document.activeElement;
+            this.focusDrawer = true;
+            return;
+        }
         requestAnimationFrame(() => this.detailsRef()?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
+
+    setColumn(column) {
+        this.state.selectedColumn = column;
+    }
+
+    closeRow() {
+        this.state.selectedRow = null;
+        const opener = this.drawerOpener;
+        this.drawerOpener = null;
+        if (opener?.isConnected) {
+            opener.focus();
+        }
+    }
+
+    onBackdropClick(event) {
+        if (event.target === event.currentTarget) {
+            this.closeRow();
+        }
+    }
+
+    onDrawerKeydown(event) {
+        if (event.key === "Escape") {
+            event.stopPropagation();
+            this.closeRow();
+        }
     }
 
     async openRow(row, column) {
