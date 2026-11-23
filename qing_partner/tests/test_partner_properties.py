@@ -1,5 +1,6 @@
 from odoo import Command
 from odoo.exceptions import AccessError
+from odoo.service.model import call_kw
 from odoo.tests import Form, TransactionCase, new_test_user, tagged
 from odoo.addons.qing_base.tools import strict_computes
 
@@ -9,7 +10,10 @@ class TestPartnerProperties(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.editor = new_test_user(cls.env, login='properties_editor', groups='qing_partner.group_partner_editor')
+        cls.editor = new_test_user(
+            cls.env, login='properties_editor',
+            groups='qing_partner.group_partner_editor,product.group_product_pricelist',
+        )
         cls.reader = new_test_user(cls.env, login='properties_reader', groups='base.group_user')
         cls.manager = new_test_user(cls.env, login='properties_manager', groups='qing_partner.group_partner_manager')
         cls.portal = new_test_user(cls.env, login='properties_portal', groups='base.group_portal')
@@ -45,6 +49,12 @@ class TestPartnerProperties(TransactionCase):
         self.permission.active = True
         result = Partners.onchange({}, [], self.specification)
         self.assertEqual(result['value']['properties_base_definition_id']['id'], self.definition.id)
+
+    def test_web_onchange_initializes_new_contact(self):
+        partners = self.env['res.partner'].with_user(self.editor)
+        result = call_kw(partners, 'onchange', [[], {}, [], self.specification], {})
+        self.assertEqual(result['value']['properties_base_definition_id']['id'], self.definition.id)
+        self.assertIn('properties', result['value'])
 
     def test_new_contact_onchange_keeps_native_properties(self):
         for user in (self.editor, self.manager):

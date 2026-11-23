@@ -2,7 +2,7 @@
     'name': 'Qing联系人',
     'summary': '客户与供应商角色、联系人权限与 API 管理',
     'description': 'Manage company-scoped customer and vendor roles, contact access and teams, with controlled partner APIs.',
-    'version': '20.0.1.0.16',
+    'version': '20.0.1.0.17',
     'category': 'Sales/CRM',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
