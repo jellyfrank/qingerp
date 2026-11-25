@@ -126,7 +126,10 @@ export class FinancialReport extends Component {
         } catch (error) {
             if (generation !== this.generation) return;
             this.state.data = null;
-            this.state.error = error.message || String(error);
+            const isValidationError = ["odoo.exceptions.UserError", "odoo.exceptions.ValidationError"]
+                .includes(error.exceptionName);
+            const validationMessage = isValidationError ? error.data?.message : null;
+            this.state.error = validationMessage || error.message || String(error);
         } finally {
             if (generation === this.generation) this.state.loading = false;
         }

@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_website_form_b2b_sales" model="ir.ui.view">
+        <field name="name">website.form.b2b.sales</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="qing_b2b_base.view_website_form_b2b"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='b2b_ordering']" position="inside">
+                <field name="b2b_sales_team_id" invisible="not b2b_enabled"/>
+                <field name="b2b_salesperson_id" invisible="not b2b_enabled"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

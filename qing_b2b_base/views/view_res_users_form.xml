@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_res_users_form_b2b" model="ir.ui.view">
+        <field name="name">res.users.form.b2b</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="B2B Ordering" name="b2b_ordering" groups="base.group_system">
+                    <group>
+                        <field name="b2b_website_id" domain="[('b2b_enabled', '=', True)]"/>
+                        <field name="b2b_company_id" invisible="not b2b_website_id"/>
+                    </group>
+                    <field name="b2b_device_ids" readonly="1">
+                        <list create="0" delete="0" edit="0">
+                            <field name="name"/><field name="create_date"/><field name="expiration_date"/>
+                            <button name="action_b2b_revoke" type="object" string="Revoke"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

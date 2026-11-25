@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+msgid "Unable to sign in with these credentials."
+msgstr "登录失败，请核对账号、密码或验证码。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+msgid "Enter your authentication code."
+msgstr "请输入验证码。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+msgid "Ordering is unavailable on this website."
+msgstr "此网站暂未开放订货。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+msgid "The password could not be changed."
+msgstr "密码修改失败。"
+
+#. module: qing_b2b_base
+#: model:ir.module.module,description:base.module_qing_b2b_base
+msgid ""
+"# Qing B2B Mobile Ordering\n"
+"\n"
+"Install Qing B2B Sales with the website inventory addon and enable native pricelists in Sales settings. For each ordering website, enable B2B Ordering in its website record, select its supply warehouse and choose a sales team with a leader or a fallback salesperson. Set the brand, languages, delivery and payment information on that website. Create or grant a native portal account for the buyer and select that website in the account’s B2B Ordering tab. Review the buyer’s sales pricelist and permitted delivery addresses before sharing the site’s `/b2b` entry.\n"
+"\n"
+"Use the website’s configured warehouse as the stock source. The B2B quote records its own website and warehouse and can be managed from normal Sales quotations. A quotation created from mobile ordering uses the Online source and creates a sales activity. Buyers can locate their own quotes and confirmed orders from the mobile app.\n"
+"\n"
+"The frontend release manifest is at `/qing_b2b_base/static/app/release.json`. The site serves the bundled app with the Qing API contract documented at `/api/openapi.json`. For a separate frontend origin, add that exact origin to the website’s B2B setting and configure the frontend at runtime.\n"
+msgstr ""
+"# QingERP B2B 移动订货\n"
+"\n"
+"安装 QingERP B2B 订货销售和网站库存模块，并在销售设置中启用价格表。打开需要开通订货的网站记录，启用 B2B 订货，选择供货仓，并设置有负责人的销售团队或备用销售员。在该网站上配置品牌、语言、配送和付款说明。为买家创建门户账号或授予门户访问权限，然后在用户的 B2B 订货页签选择该网站。核对买家的销售价格表和允许使用的收货地址后，即可分享网站的 `/b2b` 入口。\n"
+"\n"
+"订货库存取自网站配置的供货仓。订货生成的报价单会记录所用的网站和仓库，可在销售应用的报价单中处理。手机订货生成的报价单使用“线上”来源，并创建销售跟进活动。买家可以在手机端查看本人的报价单和已确认订单。\n"
+"\n"
+"前端发布清单位于 `/qing_b2b_base/static/app/release.json`。网站提供打包的订货应用，Qing API 接口文档位于 `/api/openapi.json`。如果前端部署在另一个来源，请在网站的订货设置中加入该完整来源，并在前端运行时配置接口地址。\n"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__b2b_cors_origins
+msgid "Additional B2B Frontend Origins"
+msgstr "订货前端允许的额外来源"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__b2b_delivery_note
+msgid "B2B Delivery Information"
+msgstr "订货配送说明"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users__b2b_device_ids
+msgid "B2B Devices"
+msgstr "订货登录设备"
+
+#. module: qing_b2b_base
+#: model_terms:ir.ui.view,arch_db:qing_b2b_base.view_res_users_form_b2b
+#: model_terms:ir.ui.view,arch_db:qing_b2b_base.view_website_form_b2b
+msgid "B2B Ordering"
+msgstr "B2B 订货"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users__b2b_website_id
+msgid "B2B Ordering Website"
+msgstr "订货网站"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__b2b_payment_note
+msgid "B2B Payment Information"
+msgstr "订货付款说明"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__b2b_device_days
+msgid "B2B Remember Device Days"
+msgstr "订货设备免登录天数"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users__b2b_company_id
+msgid "B2B Selling Company"
+msgstr "订货销售公司"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users.py:0
+msgid "B2B ordering requires a portal account."
+msgstr "B2B 订货需要使用门户账号。"
+
+#. module: qing_b2b_base
+#: model:ir.module.module,summary:base.module_qing_b2b_base
+msgid "Buyer accounts and mobile ordering entry"
+msgstr "管理买家账号和手机订货入口"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/website.py:0
+msgid "Choose a device lifetime between 1 and 365 days."
+msgstr "设备免登录天数须为 1 至 365 天。"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_ir_http__display_name
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users__display_name
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users_apikeys__display_name
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__b2b_enabled
+msgid "Enable B2B Ordering"
+msgstr "启用 B2B 订货"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/website.py:0
+msgid "Enable B2B ordering on this website first."
+msgstr "请先在此网站启用 B2B 订货。"
+
+#. module: qing_b2b_base
+#: model:ir.model,name:qing_b2b_base.model_ir_http
+msgid "HTTP Routing"
+msgstr "HTTP 路由"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,field_description:qing_b2b_base.field_ir_http__id
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users__id
+#: model:ir.model.fields,field_description:qing_b2b_base.field_res_users_apikeys__id
+#: model:ir.model.fields,field_description:qing_b2b_base.field_website__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_b2b_base
+#: model:ir.model.fields,help:qing_b2b_base.field_website__b2b_cors_origins
+msgid "One exact frontend origin per line, including the scheme."
+msgstr "每行填写一个完整的前端来源，包含协议。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users_apikeys.py:0
+msgid "Only an administrator can revoke another buyer's ordering device."
+msgstr "只有管理员可以撤销其他买家的订货设备授权。"
+
+#. module: qing_b2b_base
+#: model:ir.module.module,shortdesc:base.module_qing_b2b_base
+msgid "Qing B2B Ordering"
+msgstr "QingERP B2B 移动订货"
+
+#. module: qing_b2b_base
+#: model_terms:ir.ui.view,arch_db:qing_b2b_base.view_res_users_form_b2b
+msgid "Revoke"
+msgstr "撤销授权"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users.py:0
+msgid "The account and ordering website must match."
+msgstr "账号所属的网站必须与订货网站一致。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users.py:0
+msgid "The buyer contact belongs to a different company."
+msgstr "买家联系人属于其他公司。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users.py:0
+msgid "The ordering authorization must specify the website company."
+msgstr "订货授权的销售公司必须与网站所属公司一致。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/models/res_users.py:0
+msgid "This account is not enabled for ordering on this website."
+msgstr "此账号尚未获得该网站的订货权限。"
+
+#. module: qing_b2b_base
+#. odoo-python
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+msgid "Use the website sign-in for this account."
+msgstr "请使用网站登录入口登录此账号。"
+
+#. module: qing_b2b_base
+#: model:ir.model,name:qing_b2b_base.model_res_users
+msgid "User"
+msgstr "用户"
+
+#. module: qing_b2b_base
+#: model:ir.model,name:qing_b2b_base.model_res_users_apikeys
+msgid "User API Key"
+msgstr "用户 API 密钥"
+
+#. module: qing_b2b_base
+#: model:ir.model,name:qing_b2b_base.model_website
+msgid "Website"
+msgstr "网站"

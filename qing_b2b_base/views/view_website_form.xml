@@ -1,0 +1,18 @@
+<odoo>
+    <record id="view_website_form_b2b" model="ir.ui.view">
+        <field name="name">website.form.b2b</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="B2B Ordering" name="b2b_ordering">
+                    <field name="b2b_enabled"/>
+                    <field name="b2b_device_days" invisible="not b2b_enabled"/>
+                    <field name="b2b_delivery_note" invisible="not b2b_enabled"/>
+                    <field name="b2b_payment_note" invisible="not b2b_enabled"/>
+                    <field name="b2b_cors_origins" invisible="not b2b_enabled"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

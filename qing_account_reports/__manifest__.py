@@ -1,7 +1,7 @@
 {
     'name': 'Qing Financial Reports',
     'summary': 'Trial balance and Chinese small-business financial statements for Community',
-    'version': '20.0.1.14',
+    'version': '20.0.1.15',
     'category': 'Accounting',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',
@@ -31,6 +31,7 @@
             'qing_account_reports/static/src/account_ledger.xml',
         ],
         'web.assets_unit_tests': [
+            'qing_account_reports/static/tests/financial_report.test.js',
             'qing_account_reports/static/tests/account_ledger.test.js',
         ],
     },

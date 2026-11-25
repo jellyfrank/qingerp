@@ -1,7 +1,7 @@
 {
     "name": "Qing API",
     "summary": "Stable OpenAPI foundation for QingERP integrations",
-    "version": '20.0.1.10',
+    "version": '20.0.1.11',
     "category": "Technical",
     "author": "Qingdao Ohm Network Technology Co., Ltd.",
     "website": "https://www.qingsolution.com/",

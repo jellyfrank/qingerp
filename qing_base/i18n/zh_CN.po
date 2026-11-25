@@ -1573,24 +1573,8 @@ msgstr "国家/地区"
 
 #. module: qing_base
 #: model:ir.actions.act_window,name:qing_base.action_qing_telemetry_heartbeat
-#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
 msgid "Heartbeat Check"
 msgstr "心跳检测"
-
-#. module: qing_base
-#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
-msgid "Installation Statistics"
-msgstr "安装统计"
-
-#. module: qing_base
-#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
-msgid "Installation Heartbeat"
-msgstr "安装统计上报"
-
-#. module: qing_base
-#: model_terms:ir.ui.view,arch_db:qing_base.view_res_config_settings_form
-msgid "Review the installation statistics schedule. You can send a report now or disable reporting."
-msgstr "查看安装统计的运行计划，也可以立即上报或停用上报。"
 
 #. module: qing_base
 #. odoo-python

@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+#. module: qing_b2b_base
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+#. Translation
+msgid "Unable to sign in with these credentials."
+msgstr "No se pudo iniciar sesión con estas credenciales."
+
+#. module: qing_b2b_base
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+#. Translation
+msgid "Enter your authentication code."
+msgstr "Introduce el código de autenticación."
+
+#. module: qing_b2b_base
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+#. Translation
+msgid "Ordering is unavailable on this website."
+msgstr "Los pedidos no están disponibles en este sitio web."
+
+#. module: qing_b2b_base
+#: code:addons/qing_b2b_base/controllers/ordering.py:0
+#. Translation
+msgid "The password could not be changed."
+msgstr "No se pudo cambiar la contraseña."

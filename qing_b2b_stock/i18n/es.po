@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+#. module: qing_b2b_stock
+#: code:addons/qing_b2b_stock/models/website.py:0
+#. Translation
+msgid "The merchant needs to configure a supply warehouse."
+msgstr "El proveedor debe configurar un almacén de suministro."
+
+#. module: qing_b2b_stock
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s is short by %(quantity)s %(unit)s."
+msgstr "Faltan %(quantity)s %(unit)s de %(product)s."
+
+#. module: qing_b2b_stock
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+#, python-format
+msgid "The requested quantity of %(product)s is unavailable."
+msgstr "No está disponible la cantidad solicitada de %(product)s."
+
+#. module: qing_b2b_stock
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+#. Translation
+msgid "Adjust the quantities of the affected items."
+msgstr "Ajusta las cantidades de los artículos afectados."

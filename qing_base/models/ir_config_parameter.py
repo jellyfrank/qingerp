@@ -9,7 +9,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit, urlunsplit
 from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener
 
-from odoo import api, fields, models
+from odoo import SUPERUSER_ID, api, fields, models
 
 from ..tools.telemetry import HEARTBEAT_CRON_XMLID, MANUAL_HEARTBEAT
 
@@ -159,17 +159,15 @@ class IrConfigParameter(models.Model):
     def _qing_telemetry_payload(self, instance_uid):
         Module = self.env['ir.module.module'].sudo()
         installed = Module.search([('state', '=', 'installed')]).read(['name'])
+        user_domain = [('active', '=', True), ('share', '=', False), ('id', '!=', SUPERUSER_ID)]
+        internal_user_count = self.env['res.users'].sudo().search_count(user_domain)
         company = self.env.ref('base.main_company', raise_if_not_found=False) or self.env.company
-        organization_name = company.name or ''
-        if 'qing.service.instance' in self.env.registry.models:
-            instance = self.env['qing.service.instance'].sudo().search([], limit=1)
-            if instance and instance.state != 'local' and instance.organization_name:
-                organization_name = instance.organization_name
         return {
             'instance_uid': instance_uid,
-            'organization_name': organization_name[:255],
+            'organization_name': (company.name or '')[:255],
             'system_url': self._qing_telemetry_site_url(),
             'installed_module_count': len(installed),
+            'internal_user_count': internal_user_count,
             'qing_module_count': sum(row['name'].startswith('qing_') for row in installed),
             **self._qing_product_metadata(),
         }

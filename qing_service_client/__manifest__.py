@@ -1,7 +1,7 @@
 {
     'name': 'QingERP Online Services Client',
     'summary': 'Online service registration and shared QingERP installation identity',
-    'version': '20.0.1.0.9',
+    'version': '20.0.1.0.10',
     'category': 'Hidden',
     'author': 'Qingdao Ohm Network Technology Co., Ltd.',
     'website': 'https://www.qingsolution.com/',

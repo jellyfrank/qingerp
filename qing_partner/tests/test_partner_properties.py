@@ -1,5 +1,6 @@
 from odoo import Command
 from odoo.exceptions import AccessError
+from odoo.service.model import call_kw
 from odoo.tests import Form, TransactionCase, new_test_user, tagged
 from odoo.addons.qing_base.tools import strict_computes
 
@@ -54,6 +55,21 @@ class TestPartnerProperties(TransactionCase):
                 self.assertIn('properties', result['value'])
         with self.assertRaises(AccessError):
             self.env['res.partner'].with_user(self.reader).onchange({}, [], self.specification)
+
+    def test_existing_contact_onchange_through_rpc(self):
+        partners = self.env['res.partner'].with_user(self.manager)
+        company = partners.create({'name': 'Onchange RPC company', 'is_company': True, 'street': '24 Test Street'})
+        contact = partners.create({'name': 'Onchange RPC contact', 'type': 'contact'})
+        result = call_kw(
+            partners,
+            'onchange',
+            [[contact.id], {'parent_id': company.id}, ['parent_id'], {
+                **self.specification, 'parent_id': {}, 'street': {}, 'type': {},
+            }],
+            {},
+        )
+        self.assertEqual(result['value']['street'], company.street)
+        self.assertFalse(contact.parent_id)
 
     def test_editor_contact_creation_and_readback(self):
         Partners = self.env['res.partner'].with_user(self.editor)

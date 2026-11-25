@@ -1,0 +1,215 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Review the affected items."
+msgstr "请检查受影响的商品。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "The product, packaging or quantity is unavailable."
+msgstr "商品、包装或所选数量不可用。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Increase the quantities of the affected items."
+msgstr "请增加受影响商品的数量。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s requires at least %(quantity)s %(unit)s."
+msgstr "%(product)s 至少订购 %(quantity)s %(unit)s。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Refresh your checkout before submitting."
+msgstr "请重新核对结算后再提交。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Review the updated checkout."
+msgstr "请核对更新后的结算。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Review the updated price or availability."
+msgstr "请核对更新后的价格或供货情况。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Confirm the items that will be supplied later."
+msgstr "请确认后续补发的商品。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "This request number already belongs to another submission."
+msgstr "该请求编号已用于另一笔提交。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s or its packaging is unavailable."
+msgstr "%(product)s 或其原包装已不可用。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "This order is unavailable."
+msgstr "该订单不可查看。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Choose one of your delivery addresses."
+msgstr "请选择自己的收货地址。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Complete the required address fields."
+msgstr "请填写收货地址的必填信息。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "The merchant needs to configure an eligible salesperson."
+msgstr "请商户配置可接收报价单的销售员。"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_sale_order__b2b_checkout_digest
+msgid "B2B Checkout Digest"
+msgstr "订货结算校验摘要"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_website__b2b_salesperson_id
+msgid "B2B Fallback Salesperson"
+msgstr "订货备用销售员"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_sale_order__b2b_website_id
+msgid "B2B Ordering Website"
+msgstr "订货网站"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_sale_order__b2b_request_id
+msgid "B2B Request"
+msgstr "订货请求编号"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_website__b2b_sales_team_id
+msgid "B2B Sales Team"
+msgstr "订货销售团队"
+
+#. module: qing_b2b_sale
+#: model:ir.module.module,summary:base.module_qing_b2b_sale
+msgid "Buyer catalog, quotations and repeat orders"
+msgstr "买家商品图册、报价单和再次订购"
+
+#. module: qing_b2b_sale
+#: model:ir.model,name:qing_b2b_sale.model_qing_b2b_catalog
+msgid "Buyer ordering catalog"
+msgstr "买家订货图册"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Choose a state in the address country."
+msgstr "请选择收货地址所在国家或地区下的省、州或地区。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Choose a valid country."
+msgstr "请选择有效的国家或地区。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/website.py:0
+msgid "Configure a B2B sales team leader or a fallback salesperson."
+msgstr "请为订货销售团队设置负责人，或指定订货备用销售员。"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_qing_b2b_catalog__display_name
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_qing_b2b_checkout__display_name
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_res_users__display_name
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_website__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/website.py:0
+msgid "Enable pricelists in Sales settings before opening B2B accounts."
+msgstr "开通订货账号前，请先在销售设置中启用价格表。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "Follow up on mobile order"
+msgstr "跟进手机订货"
+
+#. module: qing_b2b_sale
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_qing_b2b_catalog__id
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_qing_b2b_checkout__id
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_res_users__id
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_sale_order__id
+#: model:ir.model.fields,field_description:qing_b2b_sale.field_website__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_b2b_sale
+#: model:ir.model,name:qing_b2b_sale.model_qing_b2b_checkout
+msgid "Ordering checkout and quotation history"
+msgstr "订货结算与历史报价"
+
+#. module: qing_b2b_sale
+#: model:ir.module.module,shortdesc:base.module_qing_b2b_sale
+msgid "Qing B2B Sales"
+msgstr "QingERP B2B 订货销售"
+
+#. module: qing_b2b_sale
+#: model:ir.model,name:qing_b2b_sale.model_sale_order
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+msgid "The quotation amount does not match checkout."
+msgstr "报价单金额与结算金额不一致。"
+
+#. module: qing_b2b_sale
+#: model:ir.model.constraint,message:qing_b2b_sale.constraint_sale_order_b2b_request_unique
+msgid "This ordering request already has a quotation."
+msgstr "此订货请求已生成报价单。"
+
+#. module: qing_b2b_sale
+#. odoo-python
+#: code:addons/qing_b2b_sale/models/ordering_catalog.py:0
+msgid "This product is unavailable."
+msgstr "此商品目前不可订购。"
+
+#. module: qing_b2b_sale
+#: model:ir.model,name:qing_b2b_sale.model_website
+msgid "Website"
+msgstr "网站"
+
+#. module: qing_b2b_sale
+#: model:ir.model,name:qing_b2b_sale.model_res_users
+msgid "User"
+msgstr "用户"

@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Review the affected items."
+msgstr "Revisa los artículos afectados."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "The product, packaging or quantity is unavailable."
+msgstr "El producto, su embalaje o la cantidad no están disponibles."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Increase the quantities of the affected items."
+msgstr "Aumenta la cantidad de los artículos afectados."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s requires at least %(quantity)s %(unit)s."
+msgstr "%(product)s requiere al menos %(quantity)s %(unit)s."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Refresh your checkout before submitting."
+msgstr "Actualiza el pedido antes de enviarlo."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Review the updated checkout."
+msgstr "Revisa el pedido actualizado."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Review the updated price or availability."
+msgstr "Revisa el precio o la disponibilidad actualizados."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Confirm the items that will be supplied later."
+msgstr "Confirma los artículos que se entregarán más adelante."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "This request number already belongs to another submission."
+msgstr "Este número de solicitud ya corresponde a otro envío."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s or its packaging is unavailable."
+msgstr "%(product)s o su embalaje no están disponibles."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "This order is unavailable."
+msgstr "Este pedido no está disponible."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Choose one of your delivery addresses."
+msgstr "Selecciona una de tus direcciones de entrega."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "Complete the required address fields."
+msgstr "Completa los campos obligatorios de la dirección."
+
+#. module: qing_b2b_sale
+#: code:addons/qing_b2b_sale/models/ordering_checkout.py:0
+#. Translation
+msgid "The merchant needs to configure an eligible salesperson."
+msgstr "El proveedor debe configurar un vendedor habilitado."

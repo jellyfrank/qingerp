@@ -59,6 +59,25 @@ class TestServiceInstance(TransactionCase):
         self.assertEqual(instance.state, 'local')
         self.assertFalse(instance.consent_at)
 
+    def test_heartbeat_uses_current_main_company_for_a_registered_instance(self):
+        instance = self.env['qing.service.instance'].sudo()._local_instance()
+        instance._write_status({'organization_name': 'Registered company', 'state': 'active'})
+        main_company = self.env.ref('base.main_company')
+        main_company.name = 'Renamed main company'
+        other_company = self.env['res.company'].create({'name': 'Other company'})
+        parameters = self.env['ir.config_parameter'].sudo().with_company(other_company)
+        parameters.set_bool('database.is_neutralized', False)
+        parameters.set_str('web.base.url', 'https://erp.example.test')
+        parameters.set_str('qing_base.telemetry.last_attempt', '')
+        parameters.set_str('qing_base.telemetry.last_success', '')
+
+        with patch.object(type(parameters), '_qing_telemetry_post') as post:
+            self.assertTrue(parameters._cron_qing_telemetry_heartbeat())
+
+        self.assertEqual(post.call_args.args[2]['organization_name'], main_company.name)
+        self.assertEqual(instance.organization_name, 'Registered company')
+        self.assertEqual(instance.state, 'active')
+
     def test_clone_resets_identity_without_calling_service(self):
         instance = self.env['qing.service.instance'].sudo()._local_instance()
         original = instance.instance_uid

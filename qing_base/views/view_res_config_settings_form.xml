@@ -90,13 +90,6 @@
                             <div class="text-muted">Preview opens in a new tab. Save settings to apply your choice.</div>
                         </setting>
                     </block>
-                    <block title="Installation Statistics" name="qing_installation_statistics" groups="base.group_system">
-                        <setting id="qing_telemetry_heartbeat" string="Installation Heartbeat"
-                                 help="Review the installation statistics schedule. You can send a report now or disable reporting.">
-                            <button name="%(qing_base.action_qing_telemetry_heartbeat)d" type="action"
-                                    string="Heartbeat Check" icon="oi-arrow-right" class="btn-link"/>
-                        </setting>
-                    </block>
                     <block title="Audit Log" name="qing_audit_settings">
                         <setting id="qing_audit_enabled" string="Record ORM Changes"
                                  help="Automatically record create, update, and delete operations on persistent models.">

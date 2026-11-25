@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_b2b_shortage_confirmation_form" model="ir.ui.view">
+        <field name="name">qing.b2b.shortage.confirmation.form</field>
+        <field name="model">qing.b2b.shortage.confirmation</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="alert alert-warning" role="alert">Stock is insufficient for the following mobile quotations.</div>
+                <field name="message" nolabel="1"/>
+                <footer>
+                    <button name="action_continue" type="object" string="Confirm Anyway" class="btn-primary"/>
+                    <button special="cancel" string="Return to Quotation" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

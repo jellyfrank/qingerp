@@ -1,0 +1,16 @@
+{
+  "version": "1.3.0",
+  "supportedApi": "1.x",
+  "sha256": "19995488cad28adf6b601d58afe4273881ca947589551fe30f5f23f00bdac3fa",
+  "files": {
+    "THIRD_PARTY_NOTICES.txt": "918508122c1c372463eb3ab0f74b70fd01027d066c9bcf0e83a155584e85e911",
+    "assets/barlow-semi-condensed-latin-600-BkLiAYu4.woff2": "f158417e9207b5362f9b71a2fe779ce5bb836ad972f38445c3163af39d2c998d",
+    "assets/bodoni-moda-latin-500-CtAcMono.woff2": "ec5b785abb85d087b5101a74671933b1bab5f96d9d85f868cc33964e69758748",
+    "assets/index-BclFxIHX.css": "8690dcdfad65ebb1320f1c1fddd37e88c370cc54eb7f079a7ee5e27bec80ce8d",
+    "assets/index-CavQh1e-.js": "d794952d9276511bbf5e3597f3efeba0ac6fde172be53c2cbc0cf228476e7f42",
+    "assets/jost-latin-400-q-RKOgPK.woff2": "f94cffda16515fbb1667a2662d6b46f5610a942fd02fe88d67ff98f776288962",
+    "assets/jost-latin-500-41lBe9I9.woff2": "98dce4f076fe71a123a7cd44470e6f05e969cb6d7c9b2717766ad103e3597297",
+    "assets/nunito-latin-800-Dz8SOQK_.woff2": "2363d3ed037283ebb961e8c4b4917e40a8bc8853cf9965cf1ea7b4daa1df630a",
+    "index.html": "b79a6bc9e7740f230c24c522fbf4cbab7a7cb18bb5b11b16d12695b0f16f321c"
+  }
+}

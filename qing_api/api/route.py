@@ -7,8 +7,9 @@ import uuid
 from psycopg2 import IntegrityError
 
 from odoo import http
-from odoo.exceptions import AccessError, MissingError, UserError, ValidationError
+from odoo.exceptions import AccessError, ConcurrencyError, MissingError, UserError, ValidationError
 from odoo.http import request
+from odoo.sql_db import PG_CONCURRENCY_EXCEPTIONS_TO_RETRY
 
 from ..compatibility import get_bearer_route_options
 from .exception import ApiError, SchemaValidationError
@@ -38,6 +39,7 @@ def api_route(
     response_status=200,
     errors=(400, 401, 403, 404, 409, 415, 422, 500),
     auth="bearer",
+    bearer_scope=None,
     deprecated=False,
     readonly=False,
     save_session=None,
@@ -45,6 +47,11 @@ def api_route(
     security_scheme=None,
     security_description=None,
 ):
+    if bearer_scope is not None and (
+        auth != "bearer" or not isinstance(bearer_scope, str)
+        or not re.fullmatch(r"[A-Za-z0-9._-]+", bearer_scope)
+    ):
+        raise ValueError("bearer_scope requires a bearer route and a valid scope")
     if save_session is not None and not isinstance(save_session, bool):
         raise ValueError("save_session must be a boolean or None")
     if max_body_bytes is not None and (
@@ -52,11 +59,11 @@ def api_route(
     ):
         raise ValueError("max_body_bytes must be a positive integer")
     if security_scheme is not None and (
-        auth == "bearer"
+        (auth == "bearer" and bearer_scope is None)
         or not isinstance(security_scheme, str)
         or not re.fullmatch(r"[A-Za-z0-9._-]+", security_scheme)
     ):
-        raise ValueError("security_scheme requires a non-bearer route and a valid OpenAPI name")
+        raise ValueError("security_scheme requires a custom credential and a valid OpenAPI name")
     if security_description is not None and (
         security_scheme is None or not isinstance(security_description, str)
     ):
@@ -129,6 +136,8 @@ def api_route(
             except UserError:
                 request.env.cr.rollback()
                 return make_error_response(ApiError("BUSINESS_ERROR", "Business operation failed", 422), request_id=request_id)
+            except (ConcurrencyError, *PG_CONCURRENCY_EXCEPTIONS_TO_RETRY):
+                raise
             except IntegrityError:
                 request.env.cr.rollback()
                 return make_error_response(ApiError("CONFLICT", "The request conflicts with existing data", 409), request_id=request_id)
@@ -144,7 +153,7 @@ def api_route(
             "readonly": readonly,
         }
         if auth == "bearer":
-            route_options.update(get_bearer_route_options())
+            route_options.update(get_bearer_route_options(bearer_scope or "qing_api"))
         else:
             route_options["auth"] = auth
         if save_session is not None:

@@ -1,0 +1,172 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/website.py:0
+msgid "The merchant needs to configure a supply warehouse."
+msgstr "请商户配置供货仓。"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+#, python-format
+msgid "%(product)s is short by %(quantity)s %(unit)s."
+msgstr "%(product)s 缺少 %(quantity)s %(unit)s。"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+#, python-format
+msgid "The requested quantity of %(product)s is unavailable."
+msgstr "%(product)s 无法按所选数量供货。"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/ordering_checkout.py:0
+msgid "Adjust the quantities of the affected items."
+msgstr "请调整受影响商品的数量。"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/sale_order.py:0
+msgid "%(product)s: %(quantity)s %(unit)s short"
+msgstr "%(product)s：缺少 %(quantity)s %(unit)s"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_sale_order__b2b_backorder_date
+msgid "Agreed Backorder Date"
+msgstr "约定补发日期"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_sale_order__b2b_backorder_quantity
+msgid "Agreed Backorder Quantity"
+msgstr "约定补发数量"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields.selection,name:qing_b2b_stock.selection__website__b2b_stock_display__exact
+msgid "Available Quantity"
+msgstr "显示可用库存数量"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_website__b2b_stock_display
+msgid "B2B Inventory Display"
+msgstr "订货库存显示"
+
+#. module: qing_b2b_stock
+#: model:ir.model,name:qing_b2b_stock.model_qing_b2b_catalog
+msgid "Buyer ordering catalog"
+msgstr "买家订货图册"
+
+#. module: qing_b2b_stock
+#: model_terms:ir.ui.view,arch_db:qing_b2b_stock.view_b2b_shortage_confirmation_form
+msgid "Confirm Anyway"
+msgstr "仍然确认"
+
+#. module: qing_b2b_stock
+#: model:ir.model,name:qing_b2b_stock.model_qing_b2b_shortage_confirmation
+msgid "Confirm a mobile quotation with insufficient stock"
+msgstr "确认库存不足的手机订货报价单"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_catalog__display_name
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_checkout__display_name
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__display_name
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_sale_order__display_name
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_website__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields.selection,name:qing_b2b_stock.selection__website__b2b_stock_display__hidden
+msgid "Hidden"
+msgstr "隐藏库存"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_catalog__id
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_checkout__id
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__id
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_sale_order__id
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_website__id
+msgid "ID"
+msgstr "ID"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields.selection,name:qing_b2b_stock.selection__website__b2b_stock_display__status
+msgid "In Stock or Out of Stock"
+msgstr "仅显示有货或缺货"
+
+#. module: qing_b2b_stock
+#. odoo-python
+#: code:addons/qing_b2b_stock/models/sale_order.py:0
+msgid "Insufficient Stock"
+msgstr "库存不足"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__write_uid
+msgid "Last Updated by"
+msgstr "最后更新人"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__write_date
+msgid "Last Updated on"
+msgstr "最后更新时间"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__message
+msgid "Message"
+msgstr "消息"
+
+#. module: qing_b2b_stock
+#: model:ir.model.fields,field_description:qing_b2b_stock.field_qing_b2b_shortage_confirmation__order_ids
+msgid "Order"
+msgstr "订单"
+
+#. module: qing_b2b_stock
+#: model:ir.model,name:qing_b2b_stock.model_qing_b2b_checkout
+msgid "Ordering checkout and quotation history"
+msgstr "订货结算与历史报价"
+
+#. module: qing_b2b_stock
+#: model:ir.module.module,shortdesc:base.module_qing_b2b_stock
+msgid "Qing B2B Inventory"
+msgstr "QingERP B2B 订货库存"
+
+#. module: qing_b2b_stock
+#: model_terms:ir.ui.view,arch_db:qing_b2b_stock.view_b2b_shortage_confirmation_form
+msgid "Return to Quotation"
+msgstr "返回报价单"
+
+#. module: qing_b2b_stock
+#: model:ir.model,name:qing_b2b_stock.model_sale_order
+msgid "Sales Order"
+msgstr "销售订单"
+
+#. module: qing_b2b_stock
+#: model_terms:ir.ui.view,arch_db:qing_b2b_stock.view_b2b_shortage_confirmation_form
+msgid "Stock is insufficient for the following mobile quotations."
+msgstr "以下手机订货报价单的商品库存不足。"
+
+#. module: qing_b2b_stock
+#: model:ir.module.module,summary:base.module_qing_b2b_stock
+msgid ""
+"Warehouse availability, confirmation warnings and shipment status for mobile"
+" orders"
+msgstr "显示手机订货的可用库存和发货状态，确认缺货报价时提示"
+
+#. module: qing_b2b_stock
+#: model:ir.model,name:qing_b2b_stock.model_website
+msgid "Website"
+msgstr "网站"

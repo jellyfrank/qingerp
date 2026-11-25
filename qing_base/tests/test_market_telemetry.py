@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from odoo import fields
 from odoo.exceptions import UserError
-from odoo.tests import TransactionCase, tagged
+from odoo.tests import TransactionCase, new_test_user, tagged
 from odoo.tools.safe_eval import safe_eval
 
 from odoo.addons.qing_base.models.ir_config_parameter import TELEMETRY_KEYS
@@ -24,7 +24,7 @@ class TestMarketTelemetry(TransactionCase):
         installed = self.env['ir.module.module'].search([('state', '=', 'installed')]).read(['name'])
         self.assertEqual(set(payload), {
             'instance_uid', 'organization_name', 'system_url',
-            'installed_module_count', 'qing_module_count', 'client_version', 'enterprise_version',
+            'installed_module_count', 'internal_user_count', 'qing_module_count', 'client_version', 'enterprise_version',
         })
         self.assertEqual(payload['system_url'], 'https://erp.example.test')
         self.assertEqual(payload['installed_module_count'], len(installed))
@@ -37,6 +37,17 @@ class TestMarketTelemetry(TransactionCase):
             sum(row['name'].startswith('qing_') for row in installed),
         )
         self.assertNotIn('secret', json.dumps(payload))
+
+    def test_heartbeat_counts_enabled_internal_accounts(self):
+        initial = self.parameters._qing_telemetry_payload('test-instance-uid')['internal_user_count']
+        context = {'no_reset_password': True}
+        new_test_user(self.env, login='telemetry-internal', groups='base.group_user', context=context)
+        new_test_user(self.env, login='telemetry-portal', groups='base.group_portal', context=context)
+        new_test_user(self.env, login='telemetry-archived', groups='base.group_user', active=False, context=context)
+
+        payload = self.parameters._qing_telemetry_payload('test-instance-uid')
+        self.assertEqual(payload['internal_user_count'], initial + 1)
+        self.assertNotIn('telemetry-internal', json.dumps(payload))
 
     def test_free_metadata(self):
         if 'qing.enterprise' in self.env.registry.models:

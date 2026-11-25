@@ -232,7 +232,6 @@ class ResPartner(models.Model):
             raise AccessError(self.env._('Only a partner manager can delete contacts.'))
         return super().unlink()
 
-    @api.model
     def onchange(self, values, field_names, fields_spec):
         if {'properties', 'properties_base_definition_id'} & fields_spec.keys():
             definition = self.env['properties.base.definition']._get_definition_for_property_field(self._name, 'properties')
